@@ -1,2 +1,2 @@
-# docs
-Documentation for BlockScout
+# Initial page
+
