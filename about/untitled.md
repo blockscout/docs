@@ -1,8 +1,16 @@
+---
+description: How the BlockScout project is organized
+---
+
 # Umbrella Project Organization
 
 BlockScout is an Elixir [umbrella project](https://elixir-lang.org/getting-started/mix-otp/dependencies-and-umbrella-projects.html). Each directory under `apps/` is a separate [Mix](https://hexdocs.pm/mix/Mix.html) project and [OTP application](https://hexdocs.pm/elixir/Application.html), but the projects can use each other as a dependency in their `mix.exs`.
 
-Each OTP application has a restricted domain.
+Each OTP application has a restricted domain. 
+
+{% hint style="info" %}
+Table is horizontally scrollable.
+{% endhint %}
 
 | Directory | OTP Application | Namespace | Purpose |
 | :--- | :--- | :--- | :--- |

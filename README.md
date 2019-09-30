@@ -8,12 +8,25 @@ description: Blockchain Explorer for inspecting and analyzing EVM Chains.
 
 BlockScout provides a comprehensive, easy-to-use interface for users to view, confirm, and inspect transactions on **all EVM** \(Ethereum Virtual Machine\) blockchains. This includes the Ethereum main and test networks as well as **Ethereum forks and sidechains**.
 
-## Features
+## Supported Projects
 
-* **Open source development**: The code is community driven and available for anyone to use, explore and improve.
-* **Real time transaction tracking**: Transactions are updated in real time - no page refresh required. Infinite scrolling is also enabled.
-* **Smart contract interaction**: Users can read and verify Solidity smart contracts and access pre-existing contracts to fast-track development. Support for Vyper, LLL, and Web Assembly contracts is in progress.
-* **Token support**: ERC20 and ERC721 tokens are supported. Future releases will support additional token types including ERC223 and ERC1155.
-* **User customization**: Users can easily deploy on a network and customize the Bootstrap interface.
-* **Ethereum sidechain networks**: BlockScout supports the Ethereum mainnet, Ethereum testnets, POA network, and forks like Ethereum Classic, xDAI, additional sidechains, and private EVM networks.
+| **Hosted Mainnets** | **Hosted Testnets** | **Additional Chains using BlockScout** | **Additional Chains using BlockScout** |
+| :--- | :--- | :--- | :--- |
+| [Callisto](https://blockscout.com/callisto/mainnet) | [Goerli Testnet](https://blockscout.com/eth/goerli) | [ARTIS](https://explorer.sigma1.artis.network) | [Celo Testnet](https://alfajores-blockscout.celo-testnet.org/) |
+| [Ethereum Classic](https://blockscout.com/etc/mainnet) | [Kovan Testnet](https://blockscout.com/eth/kovan) | [Ether-1](https://blocks.ether1.wattpool.net/) | [Matic Testnet](https://explorer.testnet2.matic.network/) |
+| [Ethereum Mainnet](https://blockscout.com/eth/mainnet) | [LUKSO L14 Testnet](https://blockscout.com/lukso/l14) | [Kotti Testnet](https://kottiexplorer.ethernode.io/) |  |
+| [POA Core Network](https://blockscout.com/poa/core) | [POA Sokol Testnet](https://blockscout.com/poa/sokol) | [Fuse Network](https://explorer.fuse.io/) |  |
+| [RSK](https://blockscout.com/rsk/mainnet) | [Rinkeby Testnet](https://blockscout.com/eth/rinkeby) | [Oasis Labs](https://blockexplorer.oasiscloud.io/) |  |
+| [xDai Chain](https://blockscout.com/poa/dai) | [Ropsten Testnet](https://blockscout.com/eth/ropsten) | [Petrichor](https://explorer.petrachor.com/) |  |
+|  |  | [PIRL](http://pirl.es/) |  |
+|  |  | [SafeChain](https://explorer.safechain.io) |  |
+|  |  | [SpringChain](https://explorer.springrole.com/) |  |
+|  |  | [Tenda](https://tenda.network) |  |
+|  |  | [Loom](http://plasma-blockexplorer.dappchains.com/) |  |
+|  |  | [GoJoy Chain](https://gojoychain.com/) |  |
+|  |  | [Xerom](https://blocks.xerom.org/) |  |
+
+Current BlockScout versions for hosted projects are available [on the BlockScout forum](https://forum.poa.network/t/deployed-instances-on-blockscout-com/1938).
+
+
 

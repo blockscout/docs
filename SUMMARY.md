@@ -6,6 +6,8 @@
 
 * [About BlockScout](about/about-blockscout.md)
 * [Umbrella Project Organization](about/untitled.md)
+* [Contributing to BlockScout](about/contributing-to-blockscout.md)
+* [Features](about/features.md)
 
 ## Installation & Configuration
 
