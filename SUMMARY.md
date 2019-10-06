@@ -12,5 +12,7 @@
 ## Installation & Configuration
 
 * [Requirements](installation-and-configuration/requirements.md)
-* [Ansible Deployment](installation-and-configuration/ansible-deployment.md)
+* [Ansible Deployment](installation-and-configuration/ansible-deployment/README.md)
+  * [Prerequisites](installation-and-configuration/ansible-deployment/prerequisites.md)
+  * [AWS Permissions](installation-and-configuration/ansible-deployment/aws-permissions.md)
 
