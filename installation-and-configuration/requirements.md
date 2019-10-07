@@ -1,4 +1,4 @@
-# Requirements
+# General Requirements
 
 | Dependency | Mac | Linux |
 | :--- | :--- | :--- |

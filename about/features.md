@@ -1,3 +1,7 @@
+---
+description: 'BlockScout is a full-featured, open-source blockchain explorer'
+---
+
 # Features
 
 * **Open source development**: The code is community driven and available for anyone to use, explore and improve.

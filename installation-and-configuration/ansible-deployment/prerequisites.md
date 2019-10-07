@@ -2,7 +2,7 @@
 
 Playbooks relies on Terraform, the stateful infrastructure-as-a-code software tool. It allows you to modify and recreate single and multiple resources depending on your needs.
 
-### Prerequisites for deploying infrastructure
+## Infrastructure Prerequisites
 
 | Dependency name | Installation method |
 | :--- | :--- |
@@ -12,7 +12,7 @@ Playbooks relies on Terraform, the stateful infrastructure-as-a-code software to
 | Python-pip | `apt install python-pip` |
 | boto & boto3 & botocore python modules | `pip install boto boto3 botocore` |
 
-### Prerequisites for deploying BlockScout
+## BlockScout Prerequisites
 
 | Dependency name | Installation method |
 | :--- | :--- |

@@ -6,10 +6,6 @@ Currently available block explorers \(i.e. Etherscan and Etherchain\) are closed
 
 Information on the latest release and version history is available [on our forum](https://forum.poa.network/c/blockscout/releases)
 
-## Visual Interface
-
-Interface for the POA network: v2.0 _updated 06/2019_
-
 ## Acknowledgements
 
 We would like to thank the [EthPrize foundation](http://ethprize.io/) for their funding support.
