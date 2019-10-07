@@ -8,8 +8,6 @@ description: Blockchain Explorer for inspecting and analyzing EVM Chains.
 
 BlockScout provides a comprehensive, easy-to-use interface for users to view, confirm, and inspect transactions on **all EVM** \(Ethereum Virtual Machine\) blockchains. This includes the Ethereum main and test networks as well as **Ethereum forks and sidechains**.
 
-## Visual Interface
-
 ![POA Network BlockScout Instance](.gitbook/assets/screen-shot-2019-10-07-at-3.44.46-pm.png)
 
 

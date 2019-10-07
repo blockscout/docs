@@ -26,4 +26,5 @@
 * [Manual Deployment](installation-and-configuration/manual-deployment/README.md)
   * [Check your Manual Deployment Instance](installation-and-configuration/manual-deployment/check-your-manual-deployment-instance.md)
 * [Client Settings \(Parity, Geth, Ganache\)](installation-and-configuration/client-settings-parity-geth-ganache.md)
+* [ENV Variables](installation-and-configuration/env-variables.md)
 
