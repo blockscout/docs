@@ -39,7 +39,7 @@
   * [Memory Usage](installation-and-configuration/configuration-options/memory-usage.md)
 * [Testing](installation-and-configuration/testing.md)
 * [API](installation-and-configuration/api/README.md)
-  * [GraphQL in Blockscout](installation-and-configuration/api/untitled-1.md)
+  * [GraphQL in Blockscout](installation-and-configuration/api/graphql.md)
 
 ## User Instructions
 
