@@ -7,6 +7,7 @@
 * [About BlockScout](about/about-blockscout.md)
 * [Supported Projects](about/supported-projects.md)
 * [Features](about/features.md)
+* [RoadMap](about/roadmap.md)
 * [Contributing to BlockScout](about/contributing-to-blockscout.md)
 
 ## Installation & Configuration
@@ -27,4 +28,26 @@
   * [Check your Manual Deployment Instance](installation-and-configuration/manual-deployment/check-your-manual-deployment-instance.md)
 * [Client Settings \(Parity, Geth, Ganache\)](installation-and-configuration/client-settings-parity-geth-ganache.md)
 * [ENV Variables](installation-and-configuration/env-variables.md)
+* [Configuration Options](installation-and-configuration/configuration-options/README.md)
+  * [CSS Configuration & Presets](installation-and-configuration/configuration-options/css-configuration-and-presets.md)
+  * [Automating Restarts](installation-and-configuration/configuration-options/automating-restarts.md)
+  * [Front-end Config Files](installation-and-configuration/configuration-options/front-end-config-files.md)
+  * [Circle CI Updates](installation-and-configuration/configuration-options/circle-ci-updates.md)
+  * [Internationalization](installation-and-configuration/configuration-options/untitled-1.md)
+  * [Metrics](installation-and-configuration/configuration-options/untitled-2.md)
+  * [Tracing](installation-and-configuration/configuration-options/tracing.md)
+  * [Memory Usage](installation-and-configuration/configuration-options/memory-usage.md)
+* [Testing](installation-and-configuration/testing.md)
+* [API](installation-and-configuration/api/README.md)
+  * [GraphQL in Blockscout](installation-and-configuration/api/untitled-1.md)
+
+## User Instructions
+
+* [Smart Contract Interaction](user-instructions/untitled.md)
+
+## Resources
+
+* [Forum & FAQs](https://forum.poa.network/c/blockscout)
+* [Gitter Channel](https://gitter.im/poanetwork/blockscout)
+* [Github Repo](https://github.com/poanetwork/blockscout)
 
