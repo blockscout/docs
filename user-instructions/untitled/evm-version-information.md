@@ -1,0 +1,17 @@
+# EVM Version Information
+
+You are asked to provide the EVM version the contract uses during the verification process. If the bytecode does not match the version, we try to verify using the latest EVM version.
+
+For more information, see the [Solidity docs on specifying the EVM version when compiling a contract](https://solidity.readthedocs.io/en/v0.5.3/using-the-compiler.html). Note that backward compatibility is not guaranteed between each version.
+
+|  | Name | Date | Mainnet Block \# | Relevant changes / opcode specs | EIP details |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | Homestead | 2016-03-14 | 1,150,000 | Oldest version | [http://eips.ethereum.org/EIPS/eip-606](http://eips.ethereum.org/EIPS/eip-606) |
+| 2 | Tangerine Whistle | 2016-10-18 | 2,463,000 | Gas cost to access other accounts increased, impacts gas estimation and optimization.   All gas sent by default for external calls, previously a certain amount had to be retained. | [http://eips.ethereum.org/EIPS/eip-608](http://eips.ethereum.org/EIPS/eip-608) |
+| 3 | Spurious Dragon | 2016-11-18 | 2,675,000 | Gas cost for the `exp` opcode increased, impacts gas estimation and optimization. | [http://eips.ethereum.org/EIPS/eip-607](http://eips.ethereum.org/EIPS/eip-607) |
+| 4 | Byzantium | 2017-12-17 | 4,370,000 | Opcodes `returndatacopy`, `returndatasize` and `staticcall` available in assembly.   `staticcall` opcode used when calling non-library view or pure functions, which prevents the functions from modifying state at the EVM level, this even applies to invalid type conversions.   Ability to access dynamic data returned from function calls.    `revert` opcode introduced, `revert()` will not waste gas. | [http://eips.ethereum.org/EIPS/eip-609](http://eips.ethereum.org/EIPS/eip-609) |
+| 5 | Constantinople | 2019-02-22 | 7,280,000 | Opcodes `create2`, `extcodehash`, `shl`, `shr` and `sar` are available in assembly.   Bitwise shifting operators use shifting opcodes \(`shl`,`shr`,`sar`\), requiring less gas. | [http://eips.ethereum.org/EIPS/eip-1013](http://eips.ethereum.org/EIPS/eip-1013) |
+| 6 | Petersburg | 2019-02-22 | 7,280,000 | No changes related to contract compiling \(removes EIP 1283\) | [http://eips.ethereum.org/EIPS/eip-1716](http://eips.ethereum.org/EIPS/eip-1716) |
+
+## 
+

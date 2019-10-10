@@ -43,7 +43,10 @@
 
 ## User Instructions
 
-* [Smart Contract Interaction](user-instructions/untitled.md)
+* [Smart Contract Interaction](user-instructions/untitled/README.md)
+  * [Verifying a Smart Contract](user-instructions/untitled/verifying-a-smart-contract.md)
+  * [EVM Version Information](user-instructions/untitled/evm-version-information.md)
+  * [ABI-Encoded Constructor Arguments](user-instructions/untitled/abi-encoded-constructor-arguments.md)
 
 ## Resources
 

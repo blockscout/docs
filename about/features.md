@@ -12,3 +12,5 @@ description: 'BlockScout is a full-featured, open-source blockchain explorer'
 * **User customization**: Users can easily deploy on a network and customize the Bootstrap interface.
 * **Ethereum ecosystem support**: BlockScout supports the Ethereum mainnet, Ethereum testnets, POA network, and forks like Ethereum Classic, xDAI, additional sidechains, and private EVM networks. See the list at [Supported Projects](supported-projects.md).
 
+
+
