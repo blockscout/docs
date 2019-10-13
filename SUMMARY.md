@@ -38,19 +38,23 @@
   * [Tracing](installation-and-configuration/configuration-options/tracing.md)
   * [Memory Usage](installation-and-configuration/configuration-options/memory-usage.md)
 * [Testing](installation-and-configuration/testing.md)
-* [API](installation-and-configuration/api/README.md)
-  * [GraphQL in Blockscout](installation-and-configuration/api/graphql.md)
 
-## User Instructions
+## For users
 
-* [Smart Contract Interaction](user-instructions/untitled/README.md)
-  * [Verifying a Smart Contract](user-instructions/untitled/verifying-a-smart-contract.md)
-  * [EVM Version Information](user-instructions/untitled/evm-version-information.md)
-  * [ABI-Encoded Constructor Arguments](user-instructions/untitled/abi-encoded-constructor-arguments.md)
+* [Smart Contract Interaction](for-users/untitled/README.md)
+  * [Verifying a Smart Contract](for-users/untitled/verifying-a-smart-contract.md)
+  * [EVM Version Information](for-users/untitled/evm-version-information.md)
+  * [ABI-Encoded Constructor Arguments](for-users/untitled/abi-encoded-constructor-arguments.md)
+* [API](for-users/api/README.md)
+  * [GraphQL in Blockscout](for-users/api/graphql.md)
+
+## For projects
+
+* [Hosted chain on blockscout.com](for-projects/your-chain-on-blockscout.com.md)
 
 ## Resources
 
 * [Forum & FAQs](https://forum.poa.network/c/blockscout)
 * [Gitter Channel](https://gitter.im/poanetwork/blockscout)
-* [Github Repo](https://github.com/poanetwork/blockscout)
+* [GitHub Repo](https://github.com/poanetwork/blockscout)
 
