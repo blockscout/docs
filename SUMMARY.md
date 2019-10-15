@@ -50,7 +50,7 @@
 
 ## For projects
 
-* [Supported Projects](for-projects/supported-projects.md)
+* [List of projects using BlockScout](for-projects/supported-projects.md)
 * [Host your chain on blockscout.com](for-projects/your-chain-on-blockscout.com.md)
 
 ## Resources

@@ -4,7 +4,7 @@ description: >-
   BlockScout
 ---
 
-# Supported Projects
+# List of projects using BlockScout
 
 | **Hosted Mainnets** | **Hosted Testnets** | **Additional Chains using BlockScout** | **Additional Chains using BlockScout** |
 | :--- | :--- | :--- | :--- |
