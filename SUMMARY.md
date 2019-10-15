@@ -1,14 +1,12 @@
 # Table of contents
 
-* [BlockScout](README.md)
+* [Welcome to BlockScout](README.md)
 
-## About
+## About BlockScout <a id="about"></a>
 
-* [About BlockScout](about/about-blockscout.md)
-* [Supported Projects](about/supported-projects.md)
 * [Features](about/features.md)
+* [Use Cases](about/use-cases.md)
 * [RoadMap](about/roadmap.md)
-* [Contributing to BlockScout](about/contributing-to-blockscout.md)
 
 ## Installation & Configuration
 
@@ -47,9 +45,11 @@
   * [ABI-Encoded Constructor Arguments](for-users/untitled/abi-encoded-constructor-arguments.md)
 * [API](for-users/api/README.md)
   * [GraphQL in Blockscout](for-users/api/graphql.md)
+* [Contributing to BlockScout](for-users/contributing-to-blockscout.md)
 
 ## For projects
 
+* [Supported Projects](for-projects/supported-projects.md)
 * [Host your chain on blockscout.com](for-projects/your-chain-on-blockscout.com.md)
 
 ## Resources
