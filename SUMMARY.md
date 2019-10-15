@@ -5,8 +5,9 @@
 ## About BlockScout <a id="about"></a>
 
 * [Features](about/features.md)
-* [Use Cases](about/use-cases.md)
-* [RoadMap](about/roadmap.md)
+* [Use Cases](about/use-cases/README.md)
+  * [Hosted Blockscout](about/use-cases/hosted-blockscout.md)
+* [Roadmap](about/roadmap.md)
 
 ## Installation & Configuration
 

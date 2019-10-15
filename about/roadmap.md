@@ -2,7 +2,7 @@
 description: Upcoming enhancements to BlockScout
 ---
 
-# RoadMap
+# Roadmap
 
 ## ERC721 Metadata
 
