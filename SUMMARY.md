@@ -50,7 +50,7 @@
 
 ## For projects
 
-* [Hosted chain on blockscout.com](for-projects/your-chain-on-blockscout.com.md)
+* [Hosted chains on blockscout.com](for-projects/your-chain-on-blockscout.com.md)
 
 ## Resources
 
