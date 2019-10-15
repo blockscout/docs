@@ -2,9 +2,9 @@
 description: Terms and pricing
 ---
 
-# Hosted chains on blockscout.com
+# Host your chain on blockscout.com
 
-#### Hosting your chain on [BlockScout.com](http://blockscout.com/)
+## **Hosting your chain on** [**BlockScout.com**](http://blockscout.com/)\*\*\*\*
 
 Users and developers around the globe are currently using self-hosted versions of BlockScout as their blockchain explorer. This provides them with a full-featured, robust and functional explorer they host themselves. 
 
