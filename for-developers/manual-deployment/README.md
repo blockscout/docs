@@ -2,7 +2,7 @@
 
 For automated deployment, see [Ansible deployment](../ansible-deployment/).
 
-BlockScout requires a **full archive node** in order to import every state change for every address on the target network. For client specific settings related to a node running parity or geth, please see [Client Settings](../client-settings-parity-geth-ganache.md).
+BlockScout requires a **full archive node** in order to import every state change for every address on the target network. For client specific settings related to a node running parity or geth, please see [Client Settings](../information-and-settings/client-settings-parity-geth-ganache.md).
 
 ## Deployment Steps
 

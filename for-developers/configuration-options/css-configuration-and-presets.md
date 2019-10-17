@@ -1,7 +1,7 @@
 # CSS Configuration & Presets
 
 * **CSS:** Update the import instruction in `apps/block_scout_web/assets/css/theme/_variables.scss` to select a preset css file. This is reflected in the `production-${chain}` branch for each instance. For example, in the `production-xdai` branch, comment out `@import "neutral_variables` and uncomment `@import "dai-variables"`.
-* **ENV:** Update the [environment variables](../env-variables.md) to match the chain specs.
+* **ENV:** Update the [environment variables](../information-and-settings/env-variables.md) to match the chain specs.
 
 ### Current css presets
 
