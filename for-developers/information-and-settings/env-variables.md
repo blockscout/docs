@@ -5,7 +5,7 @@ This table is horizontally scrollable, version information is located in the las
 {% endhint %}
 
 {% hint style="info" %}
-Additional information related to certain variables is available on the [ansible deployment](ansible-deployment.md) page.
+Additional information related to certain variables is available on the [ansible deployment](../ansible-deployment/) page.
 {% endhint %}
 
 * To set variables using the CLI, use the export command. For example:
