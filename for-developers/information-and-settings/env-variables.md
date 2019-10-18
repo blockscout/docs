@@ -61,7 +61,7 @@ Additional information related to certain variables is available on the [ansible
 | `UNCLES_IN_AVERAGE_BLOCK_TIME` | Include or exclude nonconsensus blocks in avg block time calculation. Exclude if `false`. | false | v2.0.1+ |  |  |  |
 | `AVERAGE_BLOCK_CACHE_PERIOD` |  | Update of average block cache, in seconds | 30 minutes | v2.0.2+ |  |  |
 | `MARKET_HISTORY_CACHE_PERIOD` |  | Update of market history cache, in seconds | 6 hours | v2.0.2+ |  |  |
-| `DISABLE_WEBAPP` |  | If `true`, endpoints to webapp are hidden \(compile-time\) | `false` | v2.0.3+ |  ✅  |  |
+| `DISABLE_WEBAPP` | | If `true`, endpoints to webapp are hidden \(compile-time\). Also, enabling it makes notifications go through `db_notify` | `false` | v2.0.3+ | ✅ | |
 | `DISABLE_READ_API` |  | If `true`, read-only endpoints to API are hidden \(compile-time\) | `false` | v2.0.3+ |  ✅  |  |
 | `DISABLE_WRITE_API` |  | If `true`, write endpoints to API are hidden \(compile-time\) | `false` | v2.0.3+ |  ✅  |  |
 | `DISABLE_INDEXER` |  | If `true`, indexer application doesn't run | `false` | v2.0.3+ |  ✅  |  |
