@@ -1,6 +1,8 @@
-# Hosted Instance Versions
+---
+description: Deployed versions on BlockScout for hosted projects
+---
 
-Deployed versions on BlockScout for hosted projects
+# Hosted Instance Versions
 
 | Instance | App ver |
 | :--- | :--- |
@@ -17,4 +19,8 @@ Deployed versions on BlockScout for hosted projects
 | [Callisto](https://blockscout.com/callisto/mainnet) | v2.0.0 |
 | [RSK](https://blockscout.com/rsk/mainnet) | v2.0.0 |
 | [LUKSO Testnet](https://blockscout.com/lukso/l14) | v2.0.0 |
+
+{% hint style="success" %}
+Content migrated from the POA forum [https://forum.poa.network/t/deployed-instances-on-blockscout-com/1938](https://forum.poa.network/t/deployed-instances-on-blockscout-com/1938)
+{% endhint %}
 
