@@ -2,7 +2,7 @@
 description: Terms and pricing
 ---
 
-# Host your chain on blockscout.com
+# Host your Chain on blockscout.com
 
 ## **Hosting your chain on** [**BlockScout.com**](http://blockscout.com/)\*\*\*\*
 

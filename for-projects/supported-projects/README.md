@@ -4,7 +4,7 @@ description: >-
   BlockScout
 ---
 
-# List of projects using BlockScout
+# List of Projects Using BlockScout
 
 | **Hosted Mainnets** | **Hosted Testnets** | **Additional Chains using BlockScout** | **Additional Chains using BlockScout** |
 | :--- | :--- | :--- | :--- |
@@ -22,5 +22,5 @@ description: >-
 |  |  | [GoJoy Chain](https://gojoychain.com/) |  |
 |  |  | [Xerom](https://blocks.xerom.org/) |  |
 
-Current BlockScout versions for hosted projects are available [on the BlockScout forum](https://forum.poa.network/t/deployed-instances-on-blockscout-com/1938).
+[See current BlockScout versions for hosted projects](hosted-instance-versions.md)
 
