@@ -1,7 +1,5 @@
 ---
-description: >-
-  Growing list of Hosted Projects as well as public and private chains using
-  BlockScout
+description: Hosted Projects list as well as public and private chains using BlockScout
 ---
 
 # List of Projects Using BlockScout
@@ -22,5 +20,7 @@ description: >-
 |  |  | [GoJoy Chain](https://gojoychain.com/) |  |
 |  |  | [Xerom](https://blocks.xerom.org/) |  |
 
-[See current BlockScout versions for hosted projects](hosted-instance-versions.md)
+{% hint style="info" %}
+[Current BlockScout versions for hosted projects]()
+{% endhint %}
 

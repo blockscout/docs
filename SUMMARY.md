@@ -52,8 +52,7 @@
 
 ## For projects
 
-* [List of Projects Using BlockScout](for-projects/supported-projects/README.md)
-  * [Hosted Instance Versions](for-projects/supported-projects/hosted-instance-versions.md)
+* [List of Projects Using BlockScout](for-projects/supported-projects.md)
 * [Host your Chain on blockscout.com](for-projects/your-chain-on-blockscout.com.md)
 
 ## Resources

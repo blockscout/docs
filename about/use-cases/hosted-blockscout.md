@@ -4,14 +4,14 @@
 
 BlockScout team is hosting it for the following EVM chains
 
-| Instance | Type | URL |
-| :--- | :--- | :--- |
-| Classic | mainnet | [https://blockscout.com/etc/mainnet/](https://blockscout.com/etc/mainnet/) |
-| POA Core | mainnet | [https://blockscout.com/poa/core](https://blockscout.com/poa/core) |
-| POA Sokol | testnet | [https://blockscout.com/poa/sokol](https://blockscout.com/poa/sokol) |
-| xDai Chain | mainnet | [https://blockscout.com/poa/xdai](https://blockscout.com/poa/xdai) |
-| Lukso L14 | testnet | [https://blockscout.com/lukso/l14](https://blockscout.com/lukso/l14) |
-| Kovan | testnet | [https://blockscout.com/eth/kovan](https://blockscout.com/eth/kovan) |
+| Instance | Type | URL | Version |
+| :--- | :--- | :--- | :--- |
+| Classic | mainnet | [https://blockscout.com/etc/mainnet/](https://blockscout.com/etc/mainnet/) | v2.0.0 |
+| POA Core | mainnet | [https://blockscout.com/poa/core](https://blockscout.com/poa/core) | v2.0.0 |
+| xDai Chain | mainnet | [https://blockscout.com/poa/xdai](https://blockscout.com/poa/xdai) | v2.0.0 |
+| POA Sokol | testnet | [https://blockscout.com/poa/sokol](https://blockscout.com/poa/sokol) | v2.0.0 |
+| Lukso L14 | testnet | [https://blockscout.com/lukso/l14](https://blockscout.com/lukso/l14) | v2.0.0 |
+| Kovan | testnet | [https://blockscout.com/eth/kovan](https://blockscout.com/eth/kovan) | v2.0.0 |
 
 ## Discontinued hosted instances on BlockScout
 
