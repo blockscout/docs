@@ -1,14 +1,16 @@
+---
+description: ShareLock is the row-level locking mechanism used internally by PostgreSQL.
+---
+
 # ShareLock
 
-ShareLock is the row-level locking mechanism used internally by PostgreSQL.
-
-#### Deadlocks and prevention
+### Deadlocks and prevention
 
 When several DB transactions are acting on multiple rows of the same table, it's possible to incur in a deadlock and so into an error. This can be prevented by enforcing the same consistent order of lock aquisition on _all_ the transactions performing `INSERT`, `UPDATE` or `DELETE` on a given table.
 
 On top of this, if multiple DB transactions act on multiple tables a deadlock will occur, even if they follow the order on each table described above, if they acquire locks on said tables in a different order. This can also be prevented by using a consisten order of lock acquisition _between_ different tables.
 
-#### Imposing the lock acquisition order on a table with Ecto
+### Imposing the lock acquisition order on a table with Ecto
 
 When `INSERT`ing a list of rows Postgres will respect the order in which they appear in the query, so the reordering can happen beforehand.
 
@@ -57,7 +59,7 @@ query =
 Repo.delete_all(from(e in Entry, join: s in subquery(query), on: e.id == s.id))
 ```
 
-#### Imposing the lock acquisition order between tables with Ecto
+### Imposing the lock acquisition order between tables with Ecto
 
 When using an `Ecto.Multi` to perform `INSERT`, `UPDATE` or `DELETE` on multiple tables the order to keep is between different operation. For example, supposing `EntryA` was established to be modified before `EntryB`, this is not correct:
 
@@ -92,7 +94,7 @@ end)
 
 Note also that for the same reasons multiple operations on the same table in the same transaction are not safe to perform if they each acquire locks in order, because locks are not released until the transaction is committed.
 
-#### Order used for Explorer's tables
+### Order used for Explorer's tables
 
 This is a complete list of the ordering currently in use on each table. It also specifies the order between tables in the same transaction: locks for a table on top need to be acquired before those from a table on the bottom.
 
