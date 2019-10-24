@@ -6,7 +6,7 @@ description: ENV variables must be configured per chain
 
 ## Configuration
 
-There are three groups of variables required to build BlockScout. The first is required to create infrastructure,  to build BlockScout instances and the third is required both for infra and BS itself. 
+There are three groups of variables required to build BlockScout. The first is required to create infrastructure, the second to build BlockScout instances and the third is required both for infra and BS itself. 
 
 For your convenience we have divided variable templates into three files accordingly - `infrastructure.yml.example`, `blockscout.yml.example` and `all.yml.example` . Also we have divided those files to place them in the `group_vars` and in `host_vars` folders, so you will not have to repeat some of the variables for each host/group.
 
@@ -24,30 +24,9 @@ To deploy BlockScout, you will setup the following set of files for each instanc
 
 The subsections below describe the variables you may want to adjust. 
 
-* [Common Variables](variables.md#common-variables)
 * [Infrastructure Variables](variables.md#infrastructure-variables)
-* [BlockScout Related Variables](variables.md#blockscout-detail-variables)
-
-## Common Variables
-
-* `ansible_host` - is an address where BlockScout will be built. If this variable is set to localhost, also set `ansible_connection` to `local` for better performance.
-* `chain` variable set the name of the network \(Kovan, Core, xDAI, etc.\). Will be used as part of the infrastructure resource names.
-* `env_vars` represents the set of environment variables used by BlockScout.  [They are available here.](../information-and-settings/env-variables.md)
-  * One can define `BULD_*` set of the variables, where asterisk stands for any environment variables. All variables defined with `BUILD_*` will override default variables while building the dev server.
-* `aws_access_key` and `aws_secret_key` is a credentials pair that provides access to AWS for the deployer; You can use the `aws_profile` instead. In that case, AWS CLI profile will be used. Also, if none of the access key and profile provided, the `default` AWS profile will be used. The `aws_region` should be left at `us-east-1` as some of the other regions fail for different reasons;
-* `backend` variable defines whether deployer should keep state files remote or locally. Set `backend` variable to `true` if you want to save state file to the remote S3 bucket;
-* `upload_config_to_s3` - set to `true` if you want to upload config `all.yml` file to the S3 bucket automatically after the deployment. Will not work if `backend` is set to false;
-* `upload_debug_info_to_s3` - set to `true` if you want to upload full log output to the S3 bucket automatically after the deployment. Will not work if `backend` is set to false. 
-
-{% hint style="danger" %}
-Locally logs are stored at `log.txt` which is not cleaned automatically. Do not forget to clean manually or use the `clean.yml` playbook
-{% endhint %}
-
-* `bucket` represents a globally unique name of the bucket where your configs and state will be stored. It will be created automatically during the deployment;
-
-{% hint style="warning" %}
-a chain name SHOULD NOT be more than 5 characters. Otherwise, it will throw an error because the aws load balancer name should not be greater than 32 characters.
-{% endhint %}
+* [BlockScout Variables](variables.md#blockscout-detail-variables)
+* [Common \(All\) Variables](variables.md#common-variables)
 
 ## Infrastructure Variables
 
@@ -70,11 +49,32 @@ Number of networks: 2
 * `instance_type` represent the size of the EC2 instance to be deployed in production;
 * `use_placement_group` determines whether or not to launch BlockScout in a placement group.
 
-## BlockScout Related Variables
+## BlockScout Variables
 
 * `blockscout_repo` - a direct link to the BlockScout repo;
 * `branch` - maps branch at `blockscout_repo` to each chain;
-* Specify the `merge_commit` variable if you want to merge any of the specified `chains` with the commit in the other branch. Usually may be used to update production branches with the releases from master branch;
+* Specify the `merge_commit` variable if you want to merge any of the specified `chains` with the commit in the other branch. Usually used to update production branches with the releases from master branch;
 * `skip_fetch` - if this variable is set to `true` , BlockScout repo will not be cloned and the process will start from building the dependencies. Use this variable to prevent playbooks from overriding manual changes in cloned repo;
-* `ps_*` variables represents a connection details to the test Postgres database. This one will not be installed automatically, so make sure `ps_*` credentials are valid before starting the deployment;
+* `ps_*` variables represents a connection details to the test Postgres database. This **is not  installed automatically**, so make sure `ps_*` credentials are valid before starting the deployment;
+
+## Common \(All\) Variables
+
+* `ansible_host` - is an address where BlockScout will be built. If this variable is set to localhost, also set `ansible_connection` to `local` for better performance.
+* `chain` variable set the name of the network \(Kovan, Core, xDAI, etc.\). Will be used as part of the infrastructure resource names.
+* `env_vars` represents the set of environment variables used by BlockScout.  [They are available here.](../information-and-settings/env-variables.md)
+  * One can define `BULD_*` set of the variables, where asterisk stands for any environment variables. All variables defined with `BUILD_*` will override default variables while building the dev server.
+* `aws_access_key` and `aws_secret_key` is a credentials pair that provides access to AWS for the deployer; You can use the `aws_profile` instead. In that case, AWS CLI profile will be used. Also, if none of the access key and profile provided, the `default` AWS profile will be used. The `aws_region` should be left at `us-east-1` as some of the other regions fail for different reasons;
+* `backend` variable defines whether deployer should keep state files remote or locally. Set `backend` variable to `true` if you want to save state file to the remote S3 bucket;
+* `upload_config_to_s3` - set to `true` if you want to upload config `all.yml` file to the S3 bucket automatically after the deployment. Will not work if `backend` is set to false;
+* `upload_debug_info_to_s3` - set to `true` if you want to upload full log output to the S3 bucket automatically after the deployment. Will not work if `backend` is set to false. 
+
+{% hint style="danger" %}
+Locally logs are stored at `log.txt` which is not cleaned automatically. Do not forget to clean manually or use the `clean.yml` playbook
+{% endhint %}
+
+* `bucket` represents a globally unique name of the bucket where your configs and state will be stored. It will be created automatically during the deployment;
+
+{% hint style="warning" %}
+a chain name SHOULD NOT be more than 5 characters. Otherwise, it will throw an error because the aws load balancer name should not be greater than 32 characters.
+{% endhint %}
 
