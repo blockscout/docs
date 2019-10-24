@@ -1,5 +1,9 @@
 # Deploying the BlockScout Infrastructure
 
+{% hint style="success" %}
+Go to [Deploying BlockScout](deploying-blockscout.md) if you already have an infrastructure and simply want to install or update your BlockScout instance.
+{% endhint %}
+
 1\) Check that all [infrastructure prerequisites](prerequisites.md) are installed with the correct version number.
 
 2\) Create the AWS access key and secret access key for user with sufficient permissions;
