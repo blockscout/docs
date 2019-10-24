@@ -26,6 +26,8 @@ Additional information related to certain variables is available on the [ansible
 | `ETHEREUM_JSONRPC_HTTP_URL` |  ✅  | The RPC endpoint used to fetch blocks, transactions, receipts, tokens. | localhost:8545 | all |  |  |
 | `ETHEREUM_JSONRPC_TRACE_URL` |  | The RPC endpoint specifically for the Geth/Parity client used by trace\_block and trace\_replayTransaction. This can be used to designate a tracing node. | localhost:8545 | all |  |  |
 | `ETHEREUM_JSONRPC_WS_URL` |  ✅  | The WebSockets RPC endpoint used to subscribe to the `newHeads` subscription alerting the indexer to fetch new blocks. | ws://localhost:8546 | all |  |  |
+| `ETHEREUM_JSONRPC_JSON_RPC_TRANSPORT` |  | Specifies the transport for blockscout to connect to the Ethereum Node. Available transports are `http` and `ipc`. If `ipc` is selected, also set `IPC_PATH` variable  | `http` | master |  |  |
+| `IPC_PATH` |  | Path to the ipc file of the running node  |  | master |  |  |
 | `NETWORK_PATH` |  | Used to set a network path other than what is displayed in the root directory. An example would be to add /eth/mainnet/ to the root directory. | \(empty\) | all |  |  |
 | `SECRET_KEY_BASE` |  ✅  | Use mix phx.gen.secret to generate a new Secret Key Base string to protect production assets. | \(empty\) | all |  |  |
 | `CHECK_ORIGIN` |  | Used to check the origin of requests when the origin header is present. It defaults to false. In case of true, it will check against the host value. | false | all |  |  |
