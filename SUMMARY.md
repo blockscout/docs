@@ -12,7 +12,7 @@
 ## For Developers
 
 * [Information & Settings](for-developers/information-and-settings/README.md)
-  * [General Requirements](for-developers/information-and-settings/requirements.md)
+  * [General Requirements / BlockScout Prerequisites](for-developers/information-and-settings/requirements.md)
   * [Database Storage Requirements](for-developers/information-and-settings/database-storage-requirements.md)
   * [Umbrella Project Organization](for-developers/information-and-settings/untitled.md)
   * [Client Settings \(Parity, Geth, Ganache\)](for-developers/information-and-settings/client-settings-parity-geth-ganache.md)

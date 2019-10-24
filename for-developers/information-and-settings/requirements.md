@@ -1,4 +1,4 @@
-# General Requirements
+# General Requirements / BlockScout Prerequisites
 
 | Dependency | Mac | Linux |
 | :--- | :--- | :--- |
