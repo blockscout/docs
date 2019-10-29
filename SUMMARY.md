@@ -18,6 +18,7 @@
   * [Client Settings \(Parity, Geth, Ganache\)](for-developers/information-and-settings/client-settings-parity-geth-ganache.md)
   * [ShareLock](for-developers/information-and-settings/sharelock.md)
   * [haproxy settings for blockscout.com](for-developers/information-and-settings/haproxy-settings-for-blockscout.com.md)
+  * [Docker Integration \(Local Use Only\)](for-developers/information-and-settings/docker-integration-local-use-only.md)
   * [ENV Variables](for-developers/information-and-settings/env-variables.md)
 * [Ansible Deployment](for-developers/ansible-deployment/README.md)
   * [Prerequisites](for-developers/ansible-deployment/prerequisites.md)
