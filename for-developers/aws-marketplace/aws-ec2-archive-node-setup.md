@@ -126,3 +126,7 @@ disable_periodic = true
 min_gas_price = 1000000000
 ```
 
+{% hint style="success" %}
+This instruction was moved from: [https://forum.poa.network/t/example-archive-node-setup-with-parity-on-an-aws-ec2-instance/3077](https://forum.poa.network/t/example-archive-node-setup-with-parity-on-an-aws-ec2-instance/3077)
+{% endhint %}
+

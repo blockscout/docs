@@ -48,3 +48,7 @@ The following parameters require a user-input value.
 | InstanceKey | From step 2 above. The instance key is located at EC2 Dashboard -&gt; Network & Security -&gt; Key Pairs. It should be available as a dropdown. |
 | SecretKeybase | Secret key for production assets protection in base64. You can generate this on the command line of your,local machine using the following command: "openssl rand -base64 16"   Example: `d29vbmcyY2hhaUNvaG5nCg==` |
 
+{% hint style="success" %}
+This instruction was moved from [https://forum.poa.network/t/aws-marketplace-installation/3076](https://forum.poa.network/t/aws-marketplace-installation/3076)
+{% endhint %}
+
