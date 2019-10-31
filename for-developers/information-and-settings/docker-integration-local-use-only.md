@@ -48,6 +48,18 @@ BlockScout supports 3 different JSON RPC Variants. Variant can be configured usi
 ETHEREUM_JSONRPC_VARIANT=ganache make start
 ```
 
+{% hint style="warning" %}
+Do not use `sudo with make start` command since
+
+> Basically, whenever one uses `sudo` with the Makefile/Docker, it causes this error of not being able to communicate with the node.
+
+[https://github.com/poanetwork/blockscout/issues/2795\#issuecomment-546076853](https://github.com/poanetwork/blockscout/issues/2795#issuecomment-546076853)
+
+otherwise, application inside the container cannot read environment variables including archive node's RPC/WebSockets endpoints
+{% endhint %}
+
+
+
 **Available options are:**
 
 * `parity` - Parity JSON RPC \(**Default**\)
