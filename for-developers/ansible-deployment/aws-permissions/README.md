@@ -1,10 +1,19 @@
-# AWS Permissions & Settings
+---
+description: AWS requirements for deployment
+---
 
-See our forum for a detailed [AWS settings and setup tutorial](https://forum.poa.network/t/aws-settings-for-blockscout-terraform-deployment/1962).
+# AWS Permissions & Settings
 
 During deployment you will provide credentials to your AWS account. Given the large number of services involved, and the unpredictability of which specific API calls will be needed during provisioning, it is recommended you provide a user account with full access. 
 
 You do not need to keep this user around \(or enabled\) except during the initial provisioning, and for any subsequent runs to update the infrastructure.
+
+You may need to reference these items during deployment:
+
+* [Creating a Secret Key Pair in AWS](creating-a-secret-key-pair.md)
+* [Logging in with AWS CLI](login-with-aws-cli.md)
+* [Creating an SSL certificate](creating-an-aws-certificate-for-ssl.md)
+* [Manually resource cleaning \(if deployment fails or you need to remove items\)](manually-cleaning-terraform-related-instances.md)
 
 ### Resources Created During Deployment
 

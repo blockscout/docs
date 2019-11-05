@@ -5,13 +5,11 @@ description: AWS cleaning resources
 # Manually Cleaning Terraform Related Instances
 
 {% hint style="warning" %}
-If the deployment process was previously successful, you can run  `bin/infra destroy`.
-
-Additionally, `bin/infra destroy_setup`will delete the DynamoDB table.
+If the deployment process was previously successful, you can run  `bin/infra destroy`. Additionally, `bin/infra destroy_setup`will delete the DynamoDB table. [More information on destroying infrastructure is available here](../destroying-provisioned-infrastructure.md).
 
 However, in circumstances that rely on insufficient AWS account rights, the deployment process may fail. In this case, `bin/infra destroy_setup` will not work. 
 
-**Additionally, forgetting to clean resources can result in high costs, so it's best to check that all resources have been removed.** 
+**Additionally, forgetting to clean resources can result in high AWS costs in a short period of time, so it's best to check that all resources have been removed.** 
 {% endhint %}
 
 In order to completely manually remove Terraform deployment from AWS you need to clear all related instances of the following services:
