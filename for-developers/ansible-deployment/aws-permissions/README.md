@@ -1,10 +1,14 @@
-# AWS Permissions
+# AWS Permissions & Settings
 
 See our forum for a detailed [AWS settings and setup tutorial](https://forum.poa.network/t/aws-settings-for-blockscout-terraform-deployment/1962).
 
-During deployment you will provide credentials to your AWS account. The deployment process requires a wide set of permissions, so it works best if you specify the administrator account credentials.
+During deployment you will provide credentials to your AWS account. Given the large number of services involved, and the unpredictability of which specific API calls will be needed during provisioning, it is recommended you provide a user account with full access. 
 
-However, if you want to restrict the permissions, here is the list of resources which are created during the deployment process:
+You do not need to keep this user around \(or enabled\) except during the initial provisioning, and for any subsequent runs to update the infrastructure.
+
+### Resources Created During Deployment
+
+If you do want to restrict the permissions, the following list of resources is created during the deployment process:
 
 * An S3 bucket to keep Terraform state files;
 * DynamoDB table to manage Terraform state files leases;
@@ -20,6 +24,10 @@ However, if you want to restrict the permissions, here is the list of resources 
 * A DNS record for the database;
 * An autoscaling group and launch configuration for each chain;
 * A CodeDeploy application and deployment group targeting the corresponding autoscaling groups.
+
+Service Names in AWS Management Console
+
+
 
 Each configured chain receives its own ASG \(autoscaling group\) and deployment group. When application updates are pushed to CodeDeploy, all autoscaling groups will deploy the new version using a blue/green strategy. Currently, there is only one EC2 host to run, and the ASG is configured to allow scaling up, but no triggers are set up to actually perform the scaling yet. This is something that may come in the future.
 
