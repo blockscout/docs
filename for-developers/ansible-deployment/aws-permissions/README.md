@@ -25,11 +25,11 @@ If you do want to restrict the permissions, the following list of resources is c
 * An autoscaling group and launch configuration for each chain;
 * A CodeDeploy application and deployment group targeting the corresponding autoscaling groups.
 
-Service Names in AWS Management Console
-
-
-
 Each configured chain receives its own ASG \(autoscaling group\) and deployment group. When application updates are pushed to CodeDeploy, all autoscaling groups will deploy the new version using a blue/green strategy. Currently, there is only one EC2 host to run, and the ASG is configured to allow scaling up, but no triggers are set up to actually perform the scaling yet. This is something that may come in the future.
 
 When deployment begins, Ansible creates the S3 bucket and DynamoDB table required for Terraform state management. This ensures that the Terraform state is stored in a centralized location, allowing multiple people to use Terraform on the same infra without interfering with one another. Terraform prevents interference by holding locks \(via DynamoDB\) against the state data \(stored in S3\).
+
+{% hint style="success" %}
+This instruction was moved from [https://forum.poa.network/t/aws-settings-for-blockscout-terraform-deployment/1962](https://forum.poa.network/t/aws-settings-for-blockscout-terraform-deployment/1962)
+{% endhint %}
 
