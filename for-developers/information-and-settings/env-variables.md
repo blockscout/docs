@@ -74,5 +74,5 @@ Additional information related to certain variables is available on the [ansible
 | `COIN_GECKO_ID` |  | CoinGecko coin id required for fetching an exchange rate | poa-network | v2.0.4+ |  | v2.1.0+ |
 | `EMISSION_FORMAT` |  | Should be set to `POA` if you have block emission indentical to POA Network. This env var is used only if `CHAIN_SPEC_PATH` is set | `STANDARD` | v2.0.4+ |  |  |
 | `REWARDS_CONTRACT_ADDRESS` |  | Emission rewards contract address. This env var is used only if `EMISSION_FORMAT` is set to `POA` | `0xeca443e8e1ab29971a45a9c57a6a9875701698a5` | v2.0.4+ |  |  |
+| `SHOW_ADDRESS_MARKETCAP_PERCENTAGE` | | Configures marketcap percentage column on the top accounts page | `true` | | master | |
 | `BLOCKSCOUT_PROTOCOL` |  | Url scheme for blockscout | in prod env `https` is used, in dev env `http` is used | v2.1.0+ |  |  |
-

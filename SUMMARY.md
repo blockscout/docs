@@ -40,6 +40,9 @@
   * [Metrics](for-developers/configuration-options/untitled-2.md)
   * [Tracing](for-developers/configuration-options/tracing.md)
   * [Memory Usage](for-developers/configuration-options/memory-usage.md)
+* [AWS Marketplace](for-developers/aws-marketplace/README.md)
+  * [AWS Marketplace Installation](for-developers/aws-marketplace/aws-marketplace-installation.md)
+  * [AWS EC2 archive node setup with Parity](for-developers/aws-marketplace/aws-ec2-archive-node-setup.md)
 * [Testing](for-developers/testing.md)
 * [Contributing to BlockScout](for-developers/contributing-to-blockscout.md)
 
