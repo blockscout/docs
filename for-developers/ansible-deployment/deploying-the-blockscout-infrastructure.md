@@ -16,7 +16,7 @@ Each host name should belong exactly to one group. Also, per Ansible requirement
 
 The simplest `hosts` file with one BlockScout instance will look like:
 
-```text
+```
 [group]
 host
 ```
@@ -25,13 +25,13 @@ Where `[group]` is a group name, which will be interpreted as a `prefix` for all
 
 4\) For each host merge `infrastructure.yml.example` and `all.yml.example` config template files in `host_vars` folder into single config file with the same name as in `hosts` file:
 
-```bash
+```
 cat host_vars/infrastructure.yml.example host_vars/all.yml.example > host_vars/host.yml
 ```
 
 5\) For each group merge `infrastructure.yml.example` and `all.yml.example` config template files in `group_vars` folder into single config file with the same name as group name in `hosts` file:
 
-```bash
+```
 cat group_vars/infrastructure.yml.example group_vars/all.yml.example > group_vars/group.yml
 ```
 

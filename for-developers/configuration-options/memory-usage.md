@@ -2,7 +2,7 @@
 
 The work queues for building the index of all blocks, balances \(coin and token\), and internal transactions can grow quite large. By default, the soft-limit is 1 GiB, which can be changed in `apps/indexer/config/config.exs`:
 
-```text
+```
 config :indexer, memory_limit: 1 <<< 30
 ```
 

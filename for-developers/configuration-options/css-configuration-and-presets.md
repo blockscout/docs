@@ -5,7 +5,7 @@
 
 ### Current css presets
 
-```text
+```
 @import "theme/base_variables";
 @import "neutral_variables";
 // @import "dai_variables";

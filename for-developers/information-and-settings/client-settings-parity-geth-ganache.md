@@ -18,7 +18,7 @@ Explorer: [https://github.com/poanetwork/blockscout/blob/master/apps/explorer/co
 
 Indexer: [https://github.com/poanetwork/blockscout/blob/master/apps/indexer/config/dev.exs](https://github.com/poanetwork/blockscout/blob/master/apps/indexer/config/dev.exs)
 
-```text
+```
 variant =
   if is_nil(System.get_env("ETHEREUM_JSONRPC_VARIANT")) do
     "ganache"
@@ -36,7 +36,7 @@ Explorer: [https://github.com/poanetwork/blockscout/blob/master/apps/explorer/co
 
 Indexer: [https://github.com/poanetwork/blockscout/blob/master/apps/indexer/config/prod.exs](https://github.com/poanetwork/blockscout/blob/master/apps/indexer/config/prod.exs)
 
-```text
+```
 variant =
   if is_nil(System.get_env("ETHEREUM_JSONRPC_VARIANT")) do
     "parity"
@@ -50,7 +50,7 @@ variant =
 
 ## Parity Client
 
-```text
+```
 --jsonrpc-interface all --jsonrpc-apis web3,eth,net,parity,pubsub,traces --ws-interface all --fat-db=on --pruning=archive --ws-apis all --ws-origins all --ws-hosts all
 ```
 
@@ -74,7 +74,7 @@ Indexer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d
 
 ## Geth Client
 
-```text
+```
 sudo /usr/bin/geth --rpc --rpcaddr 0.0.0.0 --port 30303 --rpcport 8545 --rpcapi debug,net,eth,shh,web3,txpool --wsapi "eth,net,web3,network,debug,txpool" --ws --wsaddr 0.0.0.0 --wsport 8546 --wsorigins "*" --rinkeby --datadir=/rinkeby --syncmode=full --gcmode=archive --rpcvhosts=*
 ```
 

@@ -10,6 +10,7 @@ The configuration variable `db_storage` can be used to define the amount of stor
 | Ethereum Mainnet | 4500 |
 | Kovan Testnet | 1500 |
 | Ropsten Testnet | 5700 |
+| xDai | 25 |
 
 
 

@@ -24,7 +24,7 @@ the second part \(`netname`\) names the network.
 
 1\) Add a new `acl` under the  \#**Check for network type** section in the cfg file.
 
-```text
+```
 #Check for network type
 ...
 acl is_myorg path_beg -i /myorg
@@ -32,14 +32,14 @@ acl is_myorg path_beg -i /myorg
 
 2\)  Add a corresponding exception `!is_myorg` to the  **\#default redirect** section
 
-```text
+```
 # default redirect
 redirect prefix /poa/xdai if !is_websocket !is_poa !is_etc !is_eth !is_lukso !is_rsk !is_myorg !is_cookie
 ```
 
 3\) add `!is_myorg` to **every line** in the **\#redirect for networks** section
 
-```text
+```
 #redirect for networks
 redirect prefix /poa/core if !is_websocket !is_poa !is_etc !is_eth !is_lukso !is_rsk !is_myorg is_cookie_core
 redirect prefix /poa/sokol if !is_websocket !is_poa !is_etc !is_eth !is_lukso !is_rsk !is_myorg is_cookie_sokol
@@ -51,7 +51,7 @@ redirect prefix /poa/sokol if !is_websocket !is_poa !is_etc !is_eth !is_lukso !i
 
 In the  **\#Check for network name** section add a new `acl` with your `netname` similar to existing ones
 
-```text
+```
 #Check for network name
 ...
 acl is_mynet path_beg -i /myorg/mynet
@@ -59,7 +59,7 @@ acl is_mynet path_beg -i /myorg/mynet
 
 ### 3\) Set the cookie and name of rpc/websockets servers
 
-```text
+```
 #Check for cookies
 ...
 acl is_cookie_mynet hdr_sub(cookie) network=mynet
@@ -79,7 +79,7 @@ Add new `backend_mynet` and `backend_mynet_ws` sections to the end of the file a
 
 **For example:**
 
-```text
+```
 backend mynet
     #Proxy mode
     mode http

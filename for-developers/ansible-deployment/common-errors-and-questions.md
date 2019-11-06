@@ -8,7 +8,7 @@ This usually appears if the S3 bucket already exists. Remember, the S3 bucket ha
 
 If you see something similar to the following:
 
-```bash
+```
 Error: Error applying plan:
 
 1 error(s) occurred:

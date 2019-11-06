@@ -50,7 +50,7 @@ Below we provide a general example file as well as the settings we use for our x
 
 The following example file outlines general parameters - Performance-related parameters like `processing_threads`, `server_threads` or `cache_size_db` will vary based on the chain size, available hardware, parity version, general traffic load etc. Often these are adjusted through a trial-and-error process.
 
-```text
+```
 [parity]
 chain = "CHAIN NAME or PATH TO SPEC.JSON"
 
@@ -90,7 +90,7 @@ cache_size_db = 12000
 
 These are the settings we use to run the xDai archive node.
 
-```text
+```
 [parity]
 chain = "xdai"
 

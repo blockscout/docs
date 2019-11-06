@@ -21,7 +21,7 @@
 
 **This is the default setup. `mix coveralls.html --umbrella` will work on its own, but to be explicit, use the following setup**:
 
-```text
+```
 export ETHEREUM_JSONRPC_CASE=EthereumJSONRPC.Case.Parity.Mox
 export ETHEREUM_JSONRPC_WEB_SOCKET_CASE=EthereumJSONRPC.WebSocket.Case.Mox
 mix coveralls.html --umbrella --exclude no_parity
@@ -29,7 +29,7 @@ mix coveralls.html --umbrella --exclude no_parity
 
 **HTTP / WebSocket**
 
-```text
+```
 export ETHEREUM_JSONRPC_CASE=EthereumJSONRPC.Case.Parity.HTTPWebSocket
 export ETHEREUM_JSONRPC_WEB_SOCKET_CASE=EthereumJSONRPC.WebSocket.Case.Parity
 mix coveralls.html --umbrella --exclude no_parity
@@ -44,7 +44,7 @@ mix coveralls.html --umbrella --exclude no_parity
 
 **Mox**
 
-```text
+```
 export ETHEREUM_JSONRPC_CASE=EthereumJSONRPC.Case.Geth.Mox
 export ETHEREUM_JSONRPC_WEB_SOCKET_CASE=EthereumJSONRPC.WebSocket.Case.Mox
 mix coveralls.html --umbrella --exclude no_geth
@@ -52,7 +52,7 @@ mix coveralls.html --umbrella --exclude no_geth
 
 **HTTP / WebSocket**
 
-```text
+```
 export ETHEREUM_JSONRPC_CASE=EthereumJSONRPC.Case.Geth.HTTPWebSocket
 export ETHEREUM_JSONRPC_WEB_SOCKET_CASE=EthereumJSONRPC.WebSocket.Case.Geth
 mix coveralls.html --umbrella --exclude no_geth

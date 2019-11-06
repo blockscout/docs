@@ -22,7 +22,7 @@ There are three main query types in GraphQL schema:
 
 1\) **Query:** fetch data
 
-```text
+```
 query {
   allPosts {
     description
@@ -33,7 +33,7 @@ query {
 
 2\) **Mutation:** change data.
 
-```text
+```
    mutation {
      updatePost(id: 1, text: "text") {
        text
@@ -43,7 +43,7 @@ query {
 
 1. **Subscription:**  subscribe to real-time data.
 
-```text
+```
 subscription {
   newPost(category: [1]) {
     description
@@ -62,7 +62,7 @@ From the `APIs` dropdown menu choose `GraphQL`
 
 Or you can use your favorite http client:
 
-```text
+```
 curl 'https://blockscout.com/eth/kovan/graphiql'
   -H 'Authorization: Bearer YOUR_AUTH_TOKEN'
   -d '{"query":""{transaction(hash:\"0x69e3923eef50eada197c3336d546936d0c994211492c9f947a24c02827568f9f\"){blockNumbertoAddressHashfromAddressHashcreatedContractAddressHashvaluestatusnoncehasherrorgasgasPricegasUsedcumulativeGasUsedidindexinputrsv}}""}'
@@ -81,7 +81,7 @@ Blockscout's GraphQL API provides 4 queries and 1 subscription. You can view the
 
 ### Example Query to retrieve transactions for a specific address
 
-```text
+```
 {
   address(hash: "0x...") {
     transactions(first:5) {

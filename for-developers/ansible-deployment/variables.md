@@ -12,7 +12,7 @@ For your convenience we have divided variable templates into three files accordi
 
 To deploy BlockScout, you will setup the following set of files for each instance:
 
-```text
+```
 /
 | - group_vars
 |   | - group.yml (combination of [blockscout+infrastructure+all].yml.example)
