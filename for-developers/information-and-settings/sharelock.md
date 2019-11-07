@@ -17,7 +17,11 @@ When `INSERT`ing a list of rows Postgres will respect the order in which they ap
 For example, this will work:
 
 ```elixir
-entries = [...]ordered_entries = Enum.sort_by(entries, & &1.id)Repo.insert_all(__MODULE__, ordered_entries)
+entries = [...]
+
+ordered_entries = Enum.sort_by(entries, & &1.id)
+
+Repo.insert_all(__MODULE__, ordered_entries)
 ```
 
 Performing `UPDATE`s is trickier because there is no `ORDER BY` clause. The solution to this is to `JOIN` on a subquery that `SELECT`s with the option `FOR UPDATE`.
@@ -25,7 +29,18 @@ Performing `UPDATE`s is trickier because there is no `ORDER BY` clause. The solu
 Using Ecto this can be done, for example, like this:
 
 ```elixir
-query =  from(    entry in Entry,    where: not is_nil(entry.value),    order_by: entry.id,    lock: "FOR UPDATE"  )Repo.update_all(  from(e in Entry, join: s in subquery(query), on: e.id == s.id),  [set: [value: nil]],  timeout: timeout)
+query =
+  from(
+    entry in Entry,
+    where: not is_nil(entry.value),
+    order_by: entry.id,
+    lock: "FOR UPDATE"
+  )
+
+Repo.update_all(
+  from(e in Entry, join: s in subquery(query), on: e.id == s.id),
+  [set: [value: nil]],
+  timeout: timeout)
 ```
 
 `DELETE` has the same quircks as `UPDATE` and it is too solved in the same way.
@@ -33,7 +48,15 @@ query =  from(    entry in Entry,    where: not is_nil(entry.value),    order_by
 For example:
 
 ```elixir
-query =  from(    entry in Entry,    where: is_nil(entry.value),    order_by: entry.id,    lock: "FOR UPDATE"  )Repo.delete_all(from(e in Entry, join: s in subquery(query), on: e.id == s.id))
+query =
+  from(
+    entry in Entry,
+    where: is_nil(entry.value),
+    order_by: entry.id,
+    lock: "FOR UPDATE"
+  )
+
+Repo.delete_all(from(e in Entry, join: s in subquery(query), on: e.id == s.id))
 ```
 
 ### Imposing the lock acquisition order between tables with Ecto
@@ -41,7 +64,14 @@ query =  from(    entry in Entry,    where: is_nil(entry.value),    order_by: en
 When using an `Ecto.Multi` to perform `INSERT`, `UPDATE` or `DELETE` on multiple tables the order to keep is between different operation. For example, supposing `EntryA` was established to be modified before `EntryB`, this is not correct:
 
 ```elixir
-Multi.new()|> Multi.run(:update_b, fn repo, _ ->  # operations with ordered locks on `EntryB`end)|> Multi.run(:update_a, fn repo, _ ->  # operations with ordered locks on `EntryA`end)|> Repo.transaction()
+Multi.new()
+|> Multi.run(:update_b, fn repo, _ ->
+  # operations with ordered locks on `EntryB`
+end)
+|> Multi.run(:update_a, fn repo, _ ->
+  # operations with ordered locks on `EntryA`
+end)
+|> Repo.transaction()
 ```
 
 When possible, the simple solution is to move `:update_a` to be before `:update_b`. When not possible, for instance if `:update_a` depends on the result of `:update_b`, this can be solved by acquiring the locks in a separate operation.
@@ -49,7 +79,17 @@ When possible, the simple solution is to move `:update_a` to be before `:update_
 For example:
 
 ```elixir
-Multi.new()|> Multi.run(:acquire_a, fn repo, _ ->  # acquire locks in order on `EntryA`end)|> Multi.run(:update_b, fn repo, _ ->  # operations with ordered locks on `EntryB`end)|> Multi.run(:update_a, fn repo, %{acquire_a: values} ->  # operations (no need to enforce order again) on `EntryA`end)|> Repo.transaction()
+Multi.new()
+|> Multi.run(:acquire_a, fn repo, _ ->
+  # acquire locks in order on `EntryA`
+end)
+|> Multi.run(:update_b, fn repo, _ ->
+  # operations with ordered locks on `EntryB`
+end)
+|> Multi.run(:update_a, fn repo, %{acquire_a: values} ->
+  # operations (no need to enforce order again) on `EntryA`
+end)
+|> Repo.transaction()
 ```
 
 Note also that for the same reasons multiple operations on the same table in the same transaction are not safe to perform if they each acquire locks in order, because locks are not released until the transaction is committed.

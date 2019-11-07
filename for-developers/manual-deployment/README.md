@@ -53,7 +53,11 @@ If you have run previously, drop the previous database `mix do ecto.drop, ecto.c
 * Add blockscout and blockscout.local to your `/etc/hosts`
 
 ```text
-   127.0.0.1       localhost blockscout blockscout.local   255.255.255.255 broadcasthost   ::1             localhost blockscout blockscout.local
+   127.0.0.1       localhost blockscout blockscout.local
+
+   255.255.255.255 broadcasthost
+
+   ::1             localhost blockscout blockscout.local
 ```
 
 {% hint style="info" %}
@@ -65,7 +69,9 @@ If using Chrome, Enable `chrome://flags/#allow-insecure-localhost`
 CLI Example:
 
 ```text
-export COIN=DAIexport NETWORK_ICON=_network_icon.htmlexport ... 
+export COIN=DAI
+export NETWORK_ICON=_network_icon.html
+export ... 
 ```
 
 {% hint style="info" %}

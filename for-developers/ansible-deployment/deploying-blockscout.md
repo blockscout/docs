@@ -31,7 +31,8 @@ Each host name should belong exactly to one group. Also, as per Ansible requirem
 The simplest `hosts` file with one BlockScout instance will look like:
 
 ```text
-[group]host
+[group]
+host
 ```
 
 Where `[group]` is a group name, which will be interpreted as a `prefix` for all created resources and `host` is a name of BlockScout instance.

@@ -9,7 +9,17 @@ This usually appears if the S3 bucket already exists. Remember, the S3 bucket ha
 If you see something similar to the following:
 
 ```bash
-Error: Error applying plan:1 error(s) occurred:* module.stack.aws_autoscaling_group.explorer: aws_autoscaling_group.explorer: diffs didn't match during apply. This is a bug with Terraform and should be reported as a GitHub Issue.Please include the following information in your report:    Terraform Version: 0.11.11    Resource ID: aws_autoscaling_group.explorer    Mismatch reason: attribute mismatch: availability_zones.1252502072
+Error: Error applying plan:
+
+1 error(s) occurred:
+
+* module.stack.aws_autoscaling_group.explorer: aws_autoscaling_group.explorer: diffs didn't match during apply. This is a bug with Terraform and should be reported as a GitHub Issue.
+
+Please include the following information in your report:
+
+    Terraform Version: 0.11.11
+    Resource ID: aws_autoscaling_group.explorer
+    Mismatch reason: attribute mismatch: availability_zones.1252502072
 ```
 
 This is due to a bug in Terraform, the fix is to run `ansible-playbook deploy_infra.yml` again, and Terraform will pick up where it left off. This does not always happen, but this is the current workaround if needed.

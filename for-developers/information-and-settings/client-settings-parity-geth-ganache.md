@@ -19,7 +19,15 @@ Explorer: [https://github.com/poanetwork/blockscout/blob/master/apps/explorer/co
 Indexer: [https://github.com/poanetwork/blockscout/blob/master/apps/indexer/config/dev.exs](https://github.com/poanetwork/blockscout/blob/master/apps/indexer/config/dev.exs)
 
 ```text
-variant =  if is_nil(System.get_env("ETHEREUM_JSONRPC_VARIANT")) do    "ganache"  else    System.get_env("ETHEREUM_JSONRPC_VARIANT")    |> String.split(".")    |> List.last()    |> String.downcase()  end
+variant =
+  if is_nil(System.get_env("ETHEREUM_JSONRPC_VARIANT")) do
+    "ganache"
+  else
+    System.get_env("ETHEREUM_JSONRPC_VARIANT")
+    |> String.split(".")
+    |> List.last()
+    |> String.downcase()
+  end
 ```
 
 ### Production
@@ -29,7 +37,15 @@ Explorer: [https://github.com/poanetwork/blockscout/blob/master/apps/explorer/co
 Indexer: [https://github.com/poanetwork/blockscout/blob/master/apps/indexer/config/prod.exs](https://github.com/poanetwork/blockscout/blob/master/apps/indexer/config/prod.exs)
 
 ```text
-variant =  if is_nil(System.get_env("ETHEREUM_JSONRPC_VARIANT")) do    "parity"  else    System.get_env("ETHEREUM_JSONRPC_VARIANT")    |> String.split(".")    |> List.last()    |> String.downcase()  end
+variant =
+  if is_nil(System.get_env("ETHEREUM_JSONRPC_VARIANT")) do
+    "parity"
+  else
+    System.get_env("ETHEREUM_JSONRPC_VARIANT")
+    |> String.split(".")
+    |> List.last()
+    |> String.downcase()
+  end
 ```
 
 ## Parity Client
