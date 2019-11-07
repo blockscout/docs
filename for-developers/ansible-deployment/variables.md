@@ -12,14 +12,8 @@ For your convenience we have divided variable templates into three files accordi
 
 To deploy BlockScout, you will setup the following set of files for each instance:
 
-```
-/
-| - group_vars
-|   | - group.yml (combination of [blockscout+infrastructure+all].yml.example)
-|   | - all.yml (optional, one for all instances)
-| - host_vars
-|   | - host.yml (combination of [blockscout+infrastructure+all].yml.example)
-| - hosts (one for all instances)
+```text
+/| - group_vars|   | - group.yml (combination of [blockscout+infrastructure+all].yml.example)|   | - all.yml (optional, one for all instances)| - host_vars|   | - host.yml (combination of [blockscout+infrastructure+all].yml.example)| - hosts (one for all instances)
 ```
 
 The subsections below describe the variables you may want to adjust. 

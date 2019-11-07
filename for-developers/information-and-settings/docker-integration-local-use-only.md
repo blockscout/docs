@@ -12,12 +12,8 @@ Blockscout requires `PostgreSQL` server. This is provided by starting the script
 
 **Example connecting to local `ganache` instance running on port `2000` on Mac/Windows:**
 
-```
-COIN=DAI \
-ETHEREUM_JSONRPC_VARIANT=ganache \ 
-ETHEREUM_JSONRPC_HTTP_URL=http://host.docker.internal:2000 \
-ETHEREUM_JSONRPC_WS_URL=ws://host.docker.internal:2000 \
-make start
+```text
+COIN=DAI \ETHEREUM_JSONRPC_VARIANT=ganache \ ETHEREUM_JSONRPC_HTTP_URL=http://host.docker.internal:2000 \ETHEREUM_JSONRPC_WS_URL=ws://host.docker.internal:2000 \make start
 ```
 
 Blockscout will be available on `localhost:4000`
@@ -44,7 +40,7 @@ BlockScout supports 3 different JSON RPC Variants. Variant can be configured usi
 
 **Example:**
 
-```
+```text
 ETHEREUM_JSONRPC_VARIANT=ganache make start
 ```
 

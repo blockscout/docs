@@ -22,34 +22,20 @@ There are three main query types in GraphQL schema:
 
 1\) **Query:** fetch data
 
-```
-query {
-  allPosts {
-    description
-    text
-  }
-}
+```text
+query {  allPosts {    description    text  }}
 ```
 
 2\) **Mutation:** change data.
 
-```
-   mutation {
-     updatePost(id: 1, text: "text") {
-       text
-     }
-   }
+```text
+   mutation {     updatePost(id: 1, text: "text") {       text     }   }
 ```
 
 1. **Subscription:**  subscribe to real-time data.
 
-```
-subscription {
-  newPost(category: [1]) {
-    description
-    text
-  }
-}
+```text
+subscription {  newPost(category: [1]) {    description    text  }}
 ```
 
 ## **Access GraphQL API**
@@ -62,10 +48,8 @@ From the `APIs` dropdown menu choose `GraphQL`
 
 Or you can use your favorite http client:
 
-```
-curl 'https://blockscout.com/eth/kovan/graphiql'
-  -H 'Authorization: Bearer YOUR_AUTH_TOKEN'
-  -d '{"query":""{transaction(hash:\"0x69e3923eef50eada197c3336d546936d0c994211492c9f947a24c02827568f9f\"){blockNumbertoAddressHashfromAddressHashcreatedContractAddressHashvaluestatusnoncehasherrorgasgasPricegasUsedcumulativeGasUsedidindexinputrsv}}""}'
+```text
+curl 'https://blockscout.com/eth/kovan/graphiql'  -H 'Authorization: Bearer YOUR_AUTH_TOKEN'  -d '{"query":""{transaction(hash:\"0x69e3923eef50eada197c3336d546936d0c994211492c9f947a24c02827568f9f\"){blockNumbertoAddressHashfromAddressHashcreatedContractAddressHashvaluestatusnoncehasherrorgasgasPricegasUsedcumulativeGasUsedidindexinputrsv}}""}'
 ```
 
 ## **Queries**
@@ -81,22 +65,8 @@ Blockscout's GraphQL API provides 4 queries and 1 subscription. You can view the
 
 ### Example Query to retrieve transactions for a specific address
 
-```
-{
-  address(hash: "0x...") {
-    transactions(first:5) {
-      edges {
-        node {
-          blockNumber
-          createdContractAddressHash
-          fromAddressHash
-          gas
-          hash
-        }
-      }
-    }
-  }
-}
+```text
+{  address(hash: "0x...") {    transactions(first:5) {      edges {        node {          blockNumber          createdContractAddressHash          fromAddressHash          gas          hash        }      }    }  }}
 ```
 
 Note that transactions can accept the following arguments:

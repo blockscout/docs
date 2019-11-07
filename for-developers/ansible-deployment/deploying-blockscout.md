@@ -30,16 +30,15 @@ Each host name should belong exactly to one group. Also, as per Ansible requirem
 
 The simplest `hosts` file with one BlockScout instance will look like:
 
-```
-[group]
-host
+```text
+[group]host
 ```
 
 Where `[group]` is a group name, which will be interpreted as a `prefix` for all created resources and `host` is a name of BlockScout instance.
 
 4\) For each host merge `blockscout.yml.example` and `all.yml.example` config template files in `host_vars` folder into single config file with the same name as in `hosts` file:
 
-```
+```bash
 cat host_vars/blockscout.yml.example host_vars/all.yml.example > host_vars/host.yml
 ```
 
@@ -47,7 +46,7 @@ If you have already merged `infrastructure.yml.example` and `all.yml` while depl
 
 5\) For each group merge `blockscout.yml.example` and `all.yml.example` config template files in `group_vars` folder into single config file with the same name as group name in `hosts` file:
 
-```
+```bash
 cat group_vars/blockscout.yml.example group_vars/all.yml.example > group_vars/group.yml
 ```
 

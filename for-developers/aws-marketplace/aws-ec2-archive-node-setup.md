@@ -50,80 +50,16 @@ Below we provide a general example file as well as the settings we use for our x
 
 The following example file outlines general parameters - Performance-related parameters like `processing_threads`, `server_threads` or `cache_size_db` will vary based on the chain size, available hardware, parity version, general traffic load etc. Often these are adjusted through a trial-and-error process.
 
-```
-[parity]
-chain = "CHAIN NAME or PATH TO SPEC.JSON"
-
-[network]
-nat="ext:<PUBLIC IP>"
-warp = false
-
-[rpc]
-apis = ["web3","eth","net","parity","traces"]
-processing_threads = 8
-server_threads = 16
-interface = "0.0.0.0"
-cors=["all"]
-
-[websockets]
-port = 8546
-interface = "0.0.0.0"
-max_connections = 1000
-apis = ["web3","eth","net","parity","pubsub","traces"]
-origins = ["all"]
-hosts = ["all"]
-
-[ui]
-disable = true
-
-[snapshots]
-disable_periodic = true
-
-[footprint]
-tracing = "on"
-pruning = "archive"
-fat_db = "on"
-cache_size_db = 12000
+```text
+[parity]chain = "CHAIN NAME or PATH TO SPEC.JSON"[network]nat="ext:<PUBLIC IP>"warp = false[rpc]apis = ["web3","eth","net","parity","traces"]processing_threads = 8server_threads = 16interface = "0.0.0.0"cors=["all"][websockets]port = 8546interface = "0.0.0.0"max_connections = 1000apis = ["web3","eth","net","parity","pubsub","traces"]origins = ["all"]hosts = ["all"][ui]disable = true[snapshots]disable_periodic = true[footprint]tracing = "on"pruning = "archive"fat_db = "on"cache_size_db = 12000
 ```
 
 #### xDai archive node configuration
 
 These are the settings we use to run the xDai archive node.
 
-```
-[parity]
-chain = "xdai"
-
-[network]
-nat="ext:<PUBLIC IP>"
-
-[rpc]
-apis = ["web3","eth","net", "parity", "traces"]
-processing_threads = 50
-server_threads = 100
-interface = "0.0.0.0"
-cors=["all"]
-
-[footprint]
-tracing = "on"
-pruning = "archive"
-fat_db = "on"
-
-[websockets]
-max_connections = 1000
-interface = "0.0.0.0"
-apis = ["web3","eth","net","parity", "pubsub", "traces"]
-origins = ["all"]
-hosts = ["all"]
-
-[ui]
-disable = true
-
-[snapshots]
-disable_periodic = true
-
-[mining]
-min_gas_price = 1000000000
+```text
+[parity]chain = "xdai"[network]nat="ext:<PUBLIC IP>"[rpc]apis = ["web3","eth","net", "parity", "traces"]processing_threads = 50server_threads = 100interface = "0.0.0.0"cors=["all"][footprint]tracing = "on"pruning = "archive"fat_db = "on"[websockets]max_connections = 1000interface = "0.0.0.0"apis = ["web3","eth","net","parity", "pubsub", "traces"]origins = ["all"]hosts = ["all"][ui]disable = true[snapshots]disable_periodic = true[mining]min_gas_price = 1000000000
 ```
 
 {% hint style="success" %}

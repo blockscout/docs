@@ -24,53 +24,34 @@ the second part \(`netname`\) names the network.
 
 1\) Add a new `acl` under the  \#**Check for network type** section in the cfg file.
 
-```
-#Check for network type
-...
-acl is_myorg path_beg -i /myorg
+```text
+#Check for network type...acl is_myorg path_beg -i /myorg
 ```
 
 2\)  Add a corresponding exception `!is_myorg` to the  **\#default redirect** section
 
-```
-# default redirect
-redirect prefix /poa/xdai if !is_websocket !is_poa !is_etc !is_eth !is_lukso !is_rsk !is_myorg !is_cookie
+```text
+# default redirectredirect prefix /poa/xdai if !is_websocket !is_poa !is_etc !is_eth !is_lukso !is_rsk !is_myorg !is_cookie
 ```
 
 3\) add `!is_myorg` to **every line** in the **\#redirect for networks** section
 
-```
-#redirect for networks
-redirect prefix /poa/core if !is_websocket !is_poa !is_etc !is_eth !is_lukso !is_rsk !is_myorg is_cookie_core
-redirect prefix /poa/sokol if !is_websocket !is_poa !is_etc !is_eth !is_lukso !is_rsk !is_myorg is_cookie_sokol
-# do this for every line
-...
+```text
+#redirect for networksredirect prefix /poa/core if !is_websocket !is_poa !is_etc !is_eth !is_lukso !is_rsk !is_myorg is_cookie_coreredirect prefix /poa/sokol if !is_websocket !is_poa !is_etc !is_eth !is_lukso !is_rsk !is_myorg is_cookie_sokol# do this for every line...
 ```
 
 ### 2. Add a new acl with your netname
 
 In the  **\#Check for network name** section add a new `acl` with your `netname` similar to existing ones
 
-```
-#Check for network name
-...
-acl is_mynet path_beg -i /myorg/mynet
+```text
+#Check for network name...acl is_mynet path_beg -i /myorg/mynet
 ```
 
 ### 3\) Set the cookie and name of rpc/websockets servers
 
-```
-#Check for cookies
-...
-acl is_cookie_mynet hdr_sub(cookie) network=mynet
-
-#Default backends
-...
-use_backend mynet if is_mynet
-
-#WebSocket backends
-...
-use_backend mynet_ws if is_cookie_mynet is_websocket
+```text
+#Check for cookies...acl is_cookie_mynet hdr_sub(cookie) network=mynet#Default backends...use_backend mynet if is_mynet#WebSocket backends...use_backend mynet_ws if is_cookie_mynet is_websocket
 ```
 
 ### 4. Add new backend sections to the end of the file
@@ -79,46 +60,8 @@ Add new `backend_mynet` and `backend_mynet_ws` sections to the end of the file a
 
 **For example:**
 
-```
-backend mynet
-    #Proxy mode
-    mode http
-
-    #Backend queries should not have network prefix, so we delete it
-    acl is_mynet path_beg /myorg/mynet
-    reqirep ^([^\ ].*)myorg/mynet[/]?(.*) \1\2 if is_mynet
-
-    #Setting headers to mask our query
-    http-request set-header X-Forwarded-Host %[req.hdr(Host)]
-    http-request set-header X-Client-IP %[src]
-    http-request set-header Host my-blockscout-instance.com
-
-    #Specifying cookie to insert
-    cookie network insert
-
-    #Server list. Format:
-    #server <name> <address>:<port> cookie <network_name> check inter 60000 fastinter 1000 fall 3 rise 3 ssl verify none
-    server mynet_server my-blockscout-instance.com:443 cookie mynet check inter 60000 fastinter 1000 fall 3 rise 3 ssl verify none
-
-backend mynet_ws
-    #Check if WebSocket request is correct
-    acl hdr_websocket_key      hdr_cnt(Sec-WebSocket-Key)      eq 1
-    acl hdr_websocket_version  hdr_cnt(Sec-WebSocket-Version)  eq 1
-    http-request deny if ! hdr_websocket_key ! hdr_websocket_version
-
-    #WebSockets should be forwarded, not http proxied
-    option forwardfor
-
-    #Setting headers to mask our query
-    http-request set-header Host my-blockscout-instance.com
-    http-request set-header Origin https://my-blockscout-instance.com
-
-    #Specifying cookie to insert
-    cookie network insert
-
-    #Server list. Format:
-    #server <name> <address>:<port> cookie <network_name> check inter 60000 fastinter 1000 fall 3 rise 3 check inter 60000 fastinter 1000 fall 3 rise 3 ssl verify none maxconn 30000
-    server mynet_server my-blockscout-instance.com:443 cookie mynet check inter 60000 fastinter 1000 fall 3 rise 3 ssl verify none maxconn 30000
+```text
+backend mynet    #Proxy mode    mode http    #Backend queries should not have network prefix, so we delete it    acl is_mynet path_beg /myorg/mynet    reqirep ^([^\ ].*)myorg/mynet[/]?(.*) \1\2 if is_mynet    #Setting headers to mask our query    http-request set-header X-Forwarded-Host %[req.hdr(Host)]    http-request set-header X-Client-IP %[src]    http-request set-header Host my-blockscout-instance.com    #Specifying cookie to insert    cookie network insert    #Server list. Format:    #server <name> <address>:<port> cookie <network_name> check inter 60000 fastinter 1000 fall 3 rise 3 ssl verify none    server mynet_server my-blockscout-instance.com:443 cookie mynet check inter 60000 fastinter 1000 fall 3 rise 3 ssl verify nonebackend mynet_ws    #Check if WebSocket request is correct    acl hdr_websocket_key      hdr_cnt(Sec-WebSocket-Key)      eq 1    acl hdr_websocket_version  hdr_cnt(Sec-WebSocket-Version)  eq 1    http-request deny if ! hdr_websocket_key ! hdr_websocket_version    #WebSockets should be forwarded, not http proxied    option forwardfor    #Setting headers to mask our query    http-request set-header Host my-blockscout-instance.com    http-request set-header Origin https://my-blockscout-instance.com    #Specifying cookie to insert    cookie network insert    #Server list. Format:    #server <name> <address>:<port> cookie <network_name> check inter 60000 fastinter 1000 fall 3 rise 3 check inter 60000 fastinter 1000 fall 3 rise 3 ssl verify none maxconn 30000    server mynet_server my-blockscout-instance.com:443 cookie mynet check inter 60000 fastinter 1000 fall 3 rise 3 ssl verify none maxconn 30000
 ```
 
 {% hint style="warning" %}

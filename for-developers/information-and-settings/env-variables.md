@@ -10,10 +10,8 @@ Additional information related to certain variables is available on the [ansible
 
 * To set variables using the CLI, use the export command. For example:
 
-  ```
-  $ export ETHEREUM_JSONRPC_VARIANT=parity
-  $ export COIN=POA
-  $ export NETWORK=POA
+  ```bash
+  $ export ETHEREUM_JSONRPC_VARIANT=parity$ export COIN=POA$ export NETWORK=POA
   ```
 
 | Variable | Required | Description | Default | Version | Need recompile | Deprecated in Version |
