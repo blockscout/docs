@@ -8,7 +8,7 @@ The configuration variable `db_storage` can be used to define the amount of stor
 | POA Sokol | 500 |
 | Ethereum Classic | 250 |
 | Ethereum Mainnet | 4500 |
-| Kovan Testnet | 1500 |
+| Kovan Testnet | 250 |
 | Ropsten Testnet | 5700 |
 | xDai | 25 |
 
