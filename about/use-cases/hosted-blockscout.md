@@ -1,8 +1,18 @@
+---
+description: >-
+  Projects hosted on blockscout.com receive technical support, automatic updates
+  and increased project visibility.
+---
+
 # Hosted Blockscout
+
+{% hint style="info" %}
+Interested in blockscout.com hosting and technical support? [Read more here](../../for-projects/your-chain-on-blockscout.com.md).
+{% endhint %}
 
 ## Hosted instances on [blockscout.com](http://blockscout.com)
 
-BlockScout team provides hosting for the following EVM chains
+The BlockScout team provides hosting for the following EVM chains
 
 | Instance | Type | URL | Version |
 | :--- | :--- | :--- | :--- |
@@ -23,8 +33,4 @@ BlockScout team provides hosting for the following EVM chains
 | Rinkeby | testnet | [https://blockscout.com/eth/rinkeby](https://blockscout.com/eth/rinkeby) |
 | Goerli | testnet | [https://blockscout.com/eth/goerli](https://blockscout.com/eth/goerli) |
 | Callisto | mainnet | [https://blockscout.com/callisto/mainnet](https://blockscout.com/callisto/mainnet) |
-
-{% hint style="info" %}
-If you are interested in having your chain hosted on blockscout.com please read [this post](../../for-projects/your-chain-on-blockscout.com.md) 
-{% endhint %}
 
