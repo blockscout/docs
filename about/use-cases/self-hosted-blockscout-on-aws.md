@@ -16,14 +16,22 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 > **BlockScout url:** [https://submarine.oceanprotocol.com](https://submarine.oceanprotocol.com)  
 > **Description:** Decentralized data access and exchange protocol for AI applications.
 
+![Pacific Ocean Explorer](../../.gitbook/assets/ocean_protocol.png)
+
 > **Project:** [Matic](https://matic.network/)  
 > **Mainnet Explorer:**[https://alpha-mainnet.explorer.matic.network](https://alpha-mainnet.explorer.matic.network)  
 > **Testnet Explorer:** [https://explorer.testnet2.matic.network](https://explorer.testnet2.matic.network/)  
 > **Description:** Sidechain scaling solution based on the Plasma framework.
 
+![Matic Alpha network](../../.gitbook/assets/matic.png)
+
 > **Project:** [Fuse Network](https://explorer.fusenet.io/)  
 > **BlockScout URL:** [https://explorer.fusenet.io/](https://explorer.fusenet.io/)  
 > **Description:** Open-source platform for economic-based community creation.
+
+![Fuse Explorer](../../.gitbook/assets/fuse.png)
+
+
 
 
 
