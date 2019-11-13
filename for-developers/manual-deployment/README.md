@@ -1,6 +1,14 @@
+---
+description: General deployment instructions for a hardware or cloud services environment
+---
+
 # Manual Deployment
 
-For automated deployment, see [Ansible deployment](../ansible-deployment/).
+{% hint style="info" %}
+For automated deployment on AWS, see [Ansible deployment](../ansible-deployment/).
+{% endhint %}
+
+Check your environment is prepared with General Requirements and [Database Storage Requirements](../information-and-settings/database-storage-requirements.md).
 
 BlockScout requires a **full archive node** in order to import every state change for every address on the target network. For client specific settings related to a node running parity or geth, please see [Client Settings](../information-and-settings/client-settings-parity-geth-ganache.md).
 
@@ -75,7 +83,7 @@ export ...
 ```
 
 {% hint style="info" %}
-The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client \(parity, geth etc\). [See this forum post](https://forum.poa.network/t/faq-what-settings-are-required-on-a-parity-or-geth-client/1805) for more information on client settings.
+The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client \(parity, geth etc\). [More information on client settings](../information-and-settings/client-settings-parity-geth-ganache.md).
 {% endhint %}
 
 12\) Return to the root directory and start the Phoenix Server. `mix phx.server`

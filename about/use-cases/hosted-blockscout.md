@@ -2,7 +2,7 @@
 
 ## Hosted instances on [blockscout.com](http://blockscout.com)
 
-BlockScout team is hosting it for the following EVM chains
+BlockScout team provides hosting for the following EVM chains
 
 | Instance | Type | URL | Version |
 | :--- | :--- | :--- | :--- |

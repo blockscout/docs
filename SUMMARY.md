@@ -7,6 +7,8 @@
 * [Features](about/features.md)
 * [Use Cases](about/use-cases/README.md)
   * [Hosted Blockscout](about/use-cases/hosted-blockscout.md)
+  * [Self-hosted BlockScout on AWS](about/use-cases/self-hosted-blockscout-on-aws.md)
+  * [Self-hosted BlockScout on BYO Servers](about/use-cases/self-hosted-blockscout-on-byo-servers.md)
 * [Roadmap](about/roadmap.md)
 
 ## For Developers
@@ -20,7 +22,7 @@
   * [haproxy settings for blockscout.com](for-developers/information-and-settings/haproxy-settings-for-blockscout.com.md)
   * [Docker Integration \(Local Use Only\)](for-developers/information-and-settings/docker-integration-local-use-only.md)
   * [ENV Variables](for-developers/information-and-settings/env-variables.md)
-* [Ansible Deployment](for-developers/ansible-deployment/README.md)
+* [Ansible Deployment \(AWS only\)](for-developers/ansible-deployment/README.md)
   * [Prerequisites](for-developers/ansible-deployment/prerequisites.md)
   * [AWS Permissions & Settings](for-developers/ansible-deployment/aws-permissions/README.md)
     * [Creating a Secret Key Pair](for-developers/ansible-deployment/aws-permissions/creating-a-secret-key-pair.md)
