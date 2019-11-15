@@ -58,7 +58,8 @@ Additional information related to certain variables is available on the [ansible
 | `LINK_TO_OTHER_EXPLORERS` |  | true/false. If true, links to other explorers are added in the footer | \(empty\) | v1.3.0+ |  |  |
 | `COINMARKETCAP_PAGES` |  | the number of pages on coinmarketcap to list in order to find token's price | 10 | v1.3.10+ |  | v2.0.4 |
 | `SUPPORTED_CHAINS` |  | Array of supported chains that displays in the footer and in the chains dropdown. This var was introduced in this PR [\#1900](https://github.com/poanetwork/blockscout/pull/1900) and looks like an array of JSON objects. | \(empty\) | v2.0.0+ |  |  |
-| `BLOCK_COUNT_CACHE_PERIOD` |  | time to live of cache in seconds. This var was introduced in [\#1876](https://github.com/poanetwork/blockscout/pull/1876) | 600 | v2.0.0+ |  |  |
+| `BLOCK_COUNT_CACHE_PERIOD` |  | time to live of blocks with consensus count cache in seconds. This var was introduced in [\#1876](https://github.com/poanetwork/blockscout/pull/1876) | 600 | v2.0.0+ |  |  |
+| `ADDRESS_SUM_CACHE_PERIOD` |  | time to live of addresses sum (except burn address) cache in seconds. This var was introduced in [\#2862](https://github.com/poanetwork/blockscout/pull/2862) | 3600 | master |  |  |
 | `ADDRESS_COUNT_CACHE_PERIOD` |  | time to live of cache in seconds. This var was introduced in [\#2822](https://github.com/poanetwork/blockscout/pull/2822) | 60  _60_  2 | master |  |  |
 | `ALLOWED_EVM_VERSIONS` |  | the comma-separated list of allowed EVM versions for contracts verification. This var was introduced in [\#1964](https://github.com/poanetwork/blockscout/pull/1964) | "homestead, tangerineWhistle, spuriousDragon, byzantium, constantinople, petersburg" | v2.0.0+ |  |  |
 | `UNCLES_IN_AVERAGE_BLOCK_TIME` |  | Include or exclude nonconsensus blocks in avg block time calculation. Exclude if `false`. | false | v2.0.1+ |  |  |
