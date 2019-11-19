@@ -34,7 +34,7 @@ Additional information related to certain variables is available on the [ansible
 | `PORT` | ✅ | Default port the application runs on is 4000 | 4000 | all |  |  |
 | `COIN` | ✅ | The coin here is checked via the CoinGecko API to obtain USD prices on graphs and other areas of the UI | POA | all |  |  |
 | `METADATA_CONTRACT` |  | This environment variable is specifically used by POA Network to obtain Validators information to display in the UI. | \(empty\) | all |  |  |
-| `VALIDATORS_CONTRACT` |  | This environment variable is specifically used by POA Network to obtain the Emission Fund contract. | \(empty\) | all |  |  |
+| `VALIDATORS_CONTRACT` |  | This environment variable is specifically used by POA Network to obtain the list of current validators. | \(empty\) | all |  |  |
 | `SUPPLY_MODULE` |  | This environment variable is used by the xDai Chain in order to tell the application how to calculate the total supply of the chain. | false | all |  |  |
 | `SOURCE_MODULE` |  | This environment variable is used to calculate the exchange rate and is specifically used by the xDai Chain. | false | all |  |  |
 | `DATABASE_URL` |  | Production environment variable to define the Database endpoint. | \(empty\) | all |  |  |
