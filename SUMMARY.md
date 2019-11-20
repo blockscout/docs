@@ -75,6 +75,7 @@
   * [How do I manage deployment with AWS CodeDeploy?](resources/faqs/how-do-i-manage-deployment-with-aws-codedeploy.md)
   * [How do I replace missing assets/version number in my BlockScout deployment?](resources/faqs/i-am-missing-assets-version-number-in-my-blockscout-deployment.md)
   * [How do I fix the Gettext.Error?](resources/faqs/how-do-i-fix-the-gettext.error.md)
+  * [How do I update memory consumption to fix indexer memory errors?](resources/faqs/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md)
   * [What does "In" or "Out" label mean](resources/faqs/what-does-in-or-out-label-mean.md)
 * [Forum](https://forum.poa.network/c/blockscout)
 * [Gitter Channel](https://gitter.im/poanetwork/blockscout)
