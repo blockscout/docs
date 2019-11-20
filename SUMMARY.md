@@ -69,6 +69,7 @@
 ## Resources
 
 * [FAQs](resources/faqs/README.md)
+  * [How do I speed up my hosted BlockScout instance?](resources/faqs/how-do-i-speed-up-my-hosted-blockscout-instance.md)
   * [How do I manage deployment with AWS CodeDeploy?](resources/faqs/how-do-i-manage-deployment-with-aws-codedeploy.md)
 * [Forum](https://forum.poa.network/c/blockscout)
 * [Gitter Channel](https://gitter.im/poanetwork/blockscout)
