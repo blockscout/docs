@@ -42,7 +42,7 @@
   * [Automating Restarts](for-developers/configuration-options/automating-restarts.md)
   * [Front-end Config Files](for-developers/configuration-options/front-end-config-files.md)
   * [Circle CI Updates](for-developers/configuration-options/circle-ci-updates.md)
-  * [Internationalization](for-developers/configuration-options/untitled-1.md)
+  * [Internationalization](for-developers/configuration-options/internationalization.md)
   * [Metrics](for-developers/configuration-options/untitled-2.md)
   * [Tracing](for-developers/configuration-options/tracing.md)
   * [Memory Usage](for-developers/configuration-options/memory-usage.md)
@@ -68,7 +68,9 @@
 
 ## Resources
 
-* [Forum & FAQs](https://forum.poa.network/c/blockscout)
+* [FAQs](resources/faqs/README.md)
+  * [How do I manage deployment with AWS CodeDeploy?](resources/faqs/how-do-i-manage-deployment-with-aws-codedeploy.md)
+* [Forum](https://forum.poa.network/c/blockscout)
 * [Gitter Channel](https://gitter.im/poanetwork/blockscout)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
