@@ -1,4 +1,4 @@
-# I am missing assets/version number in my BlockScout deployment
+# How do I replace missing assets/version number in my BlockScout deployment?
 
 ## Missing Assets
 
@@ -20,6 +20,6 @@ The app version number should be in the footer of BlockScout instance
 5. Restart the Blockscout instance with `sudo systemctl restart explorer.service`
 
 {% hint style="success" %}
-This content was moved from: [https://forum.poa.network/t/faq-missing-assets-version-number-in-blockscout-deployment/2459](https://forum.poa.network/t/faq-missing-assets-version-number-in-blockscout-deployment/2459)
+Content moved from: [https://forum.poa.network/t/faq-missing-assets-version-number-in-blockscout-deployment/2459](https://forum.poa.network/t/faq-missing-assets-version-number-in-blockscout-deployment/2459)
 {% endhint %}
 

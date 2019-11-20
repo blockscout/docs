@@ -13,6 +13,6 @@
 4\) Once complete, use the public DNS address of the Amazon EC2 instance to view in a web browser. \(To get the public DNS value, choose your Amazon EC2 instance in the Amazon EC2 console, and look for the value in **Public DNS i**n the **Description** tab\).
 
 {% hint style="success" %}
-This instruction was moved from: [https://forum.poa.network/t/monitor-and-manage-a-blockscout-deployment-using-codedeploy-in-your-aws-console/2499](https://forum.poa.network/t/monitor-and-manage-a-blockscout-deployment-using-codedeploy-in-your-aws-console/2499)
+Content moved from: [https://forum.poa.network/t/monitor-and-manage-a-blockscout-deployment-using-codedeploy-in-your-aws-console/2499](https://forum.poa.network/t/monitor-and-manage-a-blockscout-deployment-using-codedeploy-in-your-aws-console/2499)
 {% endhint %}
 

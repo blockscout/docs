@@ -11,6 +11,6 @@ BlockScout can be resource intensive. If your instance is running slowly:
 Instructions for accessing and upgrading CPUs/memory will differ based on your setup. If you are running BlockScout on AWS, these settings can be accessed through your AWS services portal.
 
 {% hint style="success" %}
-This content was moved from: [https://forum.poa.network/t/faq-hosted-blockscout-instance-is-running-slowly/2473](https://forum.poa.network/t/faq-hosted-blockscout-instance-is-running-slowly/2473)
+Content moved from: [https://forum.poa.network/t/faq-hosted-blockscout-instance-is-running-slowly/2473](https://forum.poa.network/t/faq-hosted-blockscout-instance-is-running-slowly/2473)
 {% endhint %}
 
