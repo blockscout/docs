@@ -71,6 +71,7 @@
 * [FAQs](resources/faqs/README.md)
   * [How do I speed up my hosted BlockScout instance?](resources/faqs/how-do-i-speed-up-my-hosted-blockscout-instance.md)
   * [How do I manage deployment with AWS CodeDeploy?](resources/faqs/how-do-i-manage-deployment-with-aws-codedeploy.md)
+  * [I am missing assets/version number in my BlockScout deployment](resources/faqs/i-am-missing-assets-version-number-in-my-blockscout-deployment.md)
 * [Forum](https://forum.poa.network/c/blockscout)
 * [Gitter Channel](https://gitter.im/poanetwork/blockscout)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
