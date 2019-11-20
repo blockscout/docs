@@ -77,6 +77,7 @@
   * [How do I fix the Gettext.Error?](resources/faqs/how-do-i-fix-the-gettext.error.md)
   * [How do I fix indexer timeouts?](resources/faqs/how-do-i-fix-indexer-timeouts.md)
   * [How do I update memory consumption to fix indexer memory errors?](resources/faqs/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md)
+  * [How do I update menu links in the header / footer?](resources/faqs/how-do-i-update-menu-links-in-the-header-footer.md)
   * [What does "In" or "Out" label mean](resources/faqs/what-does-in-or-out-label-mean.md)
 * [Forum](https://forum.poa.network/c/blockscout)
 * [Gitter Channel](https://gitter.im/poanetwork/blockscout)
