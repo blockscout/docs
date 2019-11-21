@@ -2,7 +2,7 @@
 description: Blockscout.com uses haproxy for all BlockScout hosted and external instances.
 ---
 
-# haproxy settings for blockscout.com
+# haproxy Settings for Blockscout.com
 
 {% hint style="success" %}
 If you would like to add your instance to Blockscout.com, make the required changes and submit a PR to [https://github.com/blockscout/haproxy-config](https://github.com/blockscout/haproxy-config) 
