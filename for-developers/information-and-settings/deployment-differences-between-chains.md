@@ -66,7 +66,9 @@
 | :--- | :--- |
 | BLOCK\_TRANSFORMER | `clique` |
 
-\*\*\*\*
+{% hint style="success" %}
+Content moved from [https://forum.poa.network/t/deployment-differences-between-each-blockscout-chain/1950](https://forum.poa.network/t/deployment-differences-between-each-blockscout-chain/1950)
+{% endhint %}
 
 
 
