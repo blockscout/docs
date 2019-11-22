@@ -38,9 +38,9 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 \*\*\*\*
 
-### **Trustlines network**
+### **Trustlines Blockchain**
 
-> **Project:** [Trustlines network](https://trustlines.network/)  
+> **Project:** [Trustlines Network](https://trustlines.network/)  
 > **BlockScout url:** [https://explore.tlbc.trustlines.foundation/](https://explore.tlbc.trustlines.foundation/)  
 > **Description:** The **Trustlines Network** ecosystem aims to promote financial & economic inclusion of all people through decentralized and open source systems
 
