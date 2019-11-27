@@ -36,8 +36,6 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![Pirl Explorer](../../.gitbook/assets/pirl.png)
 
-\*\*\*\*
-
 ### **Trustlines Blockchain**
 
 > **Project:** [Trustlines Network](https://trustlines.network/)  
