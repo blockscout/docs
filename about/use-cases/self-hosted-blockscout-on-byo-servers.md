@@ -47,7 +47,8 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 ### iExec viviani
 
 > **Project:** iExec  
-> **BlockScout url:** [https://blockscout-viviani.iex.ec/](https://blockscout-viviani.iex.ec/)
+> **BlockScout url:** [https://blockscout-viviani.iex.ec/](https://blockscout-viviani.iex.ec/)  
+> **Description:** The First Decentralized Marketplace for Cloud Resources
 
 ![](../../.gitbook/assets/screenshot-2019-12-04-at-18.42.09.png)
 
