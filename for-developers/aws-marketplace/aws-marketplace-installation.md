@@ -2,7 +2,7 @@
 description: Prerequisites and installation parameters
 ---
 
-# AWS Marketplace Installation
+# Prerequisites & Install Parameters
 
 ## Installation Prerequisites:
 
@@ -28,9 +28,13 @@ B\) Configure Cognito settings
 
 * Change the callback URL\(s\) in client settings. [https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-settings.html](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-settings.html)
 
+## AWS Installation:
+
+See [Install from AWS Marketplace](install-from-aws-marketplace.md) for an installation walkthrough.
+
 ## Installation Parameters:
 
-Most parameters can be left as default during installation. For a full list of variables see the ENV variables list.
+Most parameters can be left as default during installation. For a full list of variables see the [ENV variables list](../information-and-settings/env-variables.md).
 
 {% hint style="info" %}
 During configuration, the first item to input is **Stack Name.** This is an identifier that helps you find a particular stack from a list of stacks. It must start with an alphabetic character and can't be longer than 128 characters.
@@ -43,13 +47,13 @@ The following parameters require a user-input value.
 | ARNCertificate | SSL certificate from point 3 above. More information on certificates is available here: [https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html)  Example: `arn:aws:acm:us-east-1:123456789012:certificate/1156aa0c-daa3-4cb1-af6d-6f16202ebf2c` |
 | CognitoCallbackDomain | Add the domain\(s\) where you will access BlockScout and append “/oauth2/idpresponse" to the end. **If you do not have a domain, leave this field blank**. It will be populated with the LoadBalancerDNS created at the end of the process.  Example: `https://your.domain/oauth2/idpresponse` |
 | CognitoUserEmail | Enter any valid email. You will receive a temporary password here after deployment.    Example: `youremail@email.com` |
-| DBPassword | Add a secure password here for database access. Record this password for later access. |
+| DBPassword | Add a secure password here for database access. Must contain only letters and numbers, and be 8 characters or more. **Record this password for later access**. |
 | EthereumJsonRPCHttpURL | This is the node url used to fetch blocks, transactions, receipts & tokens. See the instructions on setting up a node on AWS for more information. If setup through AWS, you can find the address in EC2 Dashboard -&gt; Instances -&gt; click to corresponding archive node instance.  You will retrieve the ip address and add the port number afterwards. The port for Parity is 8545.  Example: `http://node.ip.address:8545` |
 | EthereumJsonRPCTraceURL | Input the same value as above. This is used to fetch internal transactions and block traces.  Example: `http://node.ip.address:8545` |
 | EthereumJsonRPCWsURL | The Network RPC endpoint in websocket mode. The default parity port is 8546.  Example: `ws://localhost:8546` |
 | GraphiQLTransaction | Any transaction from the chain can be used. This hash provides a sample query in the GraphIQL Playground and always begins with “0x…”  Example: `0x9415741aa80cacb3e2a9f48506010a3f31fddc7e7a00421381b4e4679d5eba20` |
 | IngressIPRangeLB | IP address range for access to your LoadBalancer instance. Recommend using `0.0.0.0/0` for access from all IPs, or specify your local IP with `your.ip/32`. You can find your ip here: [https://support.google.com/websearch/answer/1696588](https://support.google.com/websearch/answer/1696588) |
-| InstanceKey | From step 2 above. The instance key is located at EC2 Dashboard -&gt; Network & Security -&gt; Key Pairs. It should be available as a dropdown. |
+| InstanceKey | From step 2 above. The instance key name is located at EC2 Dashboard -&gt; Network & Security -&gt; Key Pairs. It should be available as a dropdown in the template. |
 | SecretKeybase | Secret key for production assets protection in base64. You can generate this on the command line of your local machine using the following command: "openssl rand -base64 16"   Example: `d29vbmcyY2hhaUNvaG5nCg==` |
 
 {% hint style="success" %}
