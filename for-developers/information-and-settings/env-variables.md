@@ -63,7 +63,7 @@ Additional information related to certain variables is available on the [ansible
 | `ADDRESS_COUNT_CACHE_PERIOD` |  | time to live of cache in seconds. This var was introduced in [\#2822](https://github.com/poanetwork/blockscout/pull/2822) | 60  _60_  2 | v2.1.1+ |  |  |  |  |  |
 | `ALLOWED_EVM_VERSIONS` |  | the comma-separated list of allowed EVM versions for contracts verification. This var was introduced in [\#1964](https://github.com/poanetwork/blockscout/pull/1964) | "homestead, tangerineWhistle, spuriousDragon, byzantium, constantinople, petersburg" | v2.0.0+ |  |  |  |  |  |
 | `UNCLES_IN_AVERAGE_BLOCK_TIME` |  | Include or exclude nonconsensus blocks in avg block time calculation. Exclude if `false`. | false | v2.0.1+ |  |  |  |  |  |
-| `AVERAGE_BLOCK_CACHE_PERIOD` |  | Update of average block cache, in seconds | 30 minutes | v2.0.2+ |  |  |  |  |  |
+| `AVERAGE_BLOCK_CACHE_PERIOD` |  | Update of average block period cache, in seconds | 30 minutes | v2.0.2+ |  |  |  |  |  |
 | `MARKET_HISTORY_CACHE_PERIOD` |  | Update of market history cache, in seconds | 6 hours | v2.0.2+ |  |  |  |  |  |
 | `DISABLE_WEBAPP` |  | If `true`, endpoints to webapp are hidden \(compile-time\). Also, enabling it makes notifications go through `db_notify` | `false` | v2.0.3+ | ✅ |  |  |  |  |
 | `DISABLE_READ_API` |  | If `true`, read-only endpoints to API are hidden \(compile-time\) | `false` | v2.0.3+ | ✅ |  |  |  |  |
