@@ -10,7 +10,20 @@ Projects may also self-host and use a proxy server for additional load balancing
 
 Sites can be configured to reflect a chain's unique branding, color scheme, logos and more. See the examples below.
 
-## Self-hosted BlockScout instance examples
+## Self-hosted BlockScout examples
+
+### ETC Cooperative
+
+> **Projects:** Görli Testnet, Kotti Testnet, Mordor Testnet  
+> **Testnet Explorers:** 
+>
+> * Görli: [http://goerli.etccoopexplorer.com/](http://goerli.etccoopexplorer.com/)
+> * Kotti: [http://kotti.etccoopexplorer.com/](http://kotti.etccoopexplorer.com/)
+> * Mordor: [http://mordor.etccoopexplorer.com/](http://mordor.etccoopexplorer.com/)
+>
+> **Description:** Görli Ethereum and Kotti Ethereum Classic Testnets provide reliable and robust Proof-of-Authority networks for testing across client implementations. Mordor is an Ethereum Classic Proof-of-Work Testnet launched in October 2019.
+
+![Mordor ETC Explorer](../../.gitbook/assets/mordor-testnet.png)
 
 ### CELO
 
@@ -51,4 +64,6 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 > **Description:** The First Decentralized Marketplace for Cloud Resources
 
 ![](../../.gitbook/assets/screenshot-2019-12-04-at-18.42.09.png)
+
+
 
