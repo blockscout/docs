@@ -14,7 +14,7 @@ Before you start, make sure you have completed the [prerequisites](aws-marketpla
 
 ![](../../.gitbook/assets/bs_search.png)
 
-3\) From the main BlockScout Page, click the **Continue to** **Subscribe** button.
+3\) From the main BlockScout Page, click the **Continue to** **Subscribe** button \(The parameters should be set and do not require any changes\)
 
 ![](../../.gitbook/assets/blockscout_marketplace_1.png)
 
