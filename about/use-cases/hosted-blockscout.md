@@ -16,6 +16,7 @@ The BlockScout team provides hosting for the following EVM chains
 
 | Instance | Type | URL | Version |
 | :--- | :--- | :--- | :--- |
+| Ethereum | mainnet | [https://blockscout.com/eth/mainnet/](https://blockscout.com/eth/mainnet/) | v3.0.0 |
 | Classic | mainnet | [https://blockscout.com/etc/mainnet/](https://blockscout.com/etc/mainnet/) | v2.1.0 |
 | POA Core | mainnet | [https://blockscout.com/poa/core](https://blockscout.com/poa/core) | v2.1.0 |
 | xDai Chain | mainnet | [https://blockscout.com/poa/xdai](https://blockscout.com/poa/xdai) | v2.1.0 |
@@ -28,7 +29,6 @@ The BlockScout team provides hosting for the following EVM chains
 
 | Instance | Type | URL |
 | :--- | :--- | :--- |
-| Ethereum | mainnet | [https://blockscout.com/eth/mainnet](https://blockscout.com/eth/mainnet) |
 | Ropsten | testnet | [https://blockscout.com/eth/ropsten](https://blockscout.com/eth/ropsten) |
 | Rinkeby | testnet | [https://blockscout.com/eth/rinkeby](https://blockscout.com/eth/rinkeby) |
 | Goerli | testnet | [https://blockscout.com/eth/goerli](https://blockscout.com/eth/goerli) |
