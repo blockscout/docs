@@ -33,7 +33,7 @@ BlockScout requires a **full archive node** in order to import every state chang
 _Example usage:_ Changing the default Postgres port from localhost:15432 if [Boxen](https://github.com/boxen/boxen) is installed.
 {% endhint %}
 
-5\) If you have deployed previously, delete the `apps/block_scout_web/priv/static` folder. This removes static assets from the previous build.
+5\) If you have deployed previously, delete the `apps/block_scout_web/priv/static` folder. This removes static assets from the previous build. Take a look [Clear an instance from the previous deployment section](https://docs.blockscout.com/for-developers/manual-deployment/clear-instance-from-previous-deployment) to learn how to quickly delete other build assets.
 
 6\) Set your environment variables as needed.
 
