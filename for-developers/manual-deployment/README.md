@@ -59,8 +59,9 @@ To check [postgres status](https://www.postgresql.org/docs/9.6/app-pg-isready.ht
 
 9\) Create and migrate database `mix do ecto.create, ecto.migrate`
 
-{% hint style="info" %}
-If you have run previously, drop the previous database `mix do ecto.drop, ecto.create, ecto.migrate`
+{% hint style="danger" %}
+If you have run previously, drop the previous database `mix do ecto.drop, ecto.create, ecto.migrate`  
+Be careful since it will delete all data from the DB. Don't execute it on production if you don't want to loose all the data!
 {% endhint %}
 
 10\) Install Node.js dependencies
