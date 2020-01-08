@@ -71,7 +71,7 @@ Be careful since it will delete all data from the DB. Don't execute it on produc
 
 11\) Build static assets for deployment `mix phx.digest`
 
-11\) Enable HTTPS in development. The Phoenix server only runs with HTTPS.
+12\) Enable HTTPS in development. The Phoenix server only runs with HTTPS.
 
 * `cd apps/block_scout_web`
 * `mix phx.gen.cert blockscout blockscout.local; cd -`
@@ -89,7 +89,7 @@ Be careful since it will delete all data from the DB. Don't execute it on produc
 If using Chrome, Enable `chrome://flags/#allow-insecure-localhost`
 {% endhint %}
 
-12\) Return to the root directory and start the Phoenix Server. `mix phx.server`
+13\) Return to the root directory and start the Phoenix Server. `mix phx.server`
 
 ## 
 
