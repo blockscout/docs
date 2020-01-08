@@ -38,7 +38,7 @@
   * [Common Additional Tasks](for-developers/ansible-deployment/common-additional-tasks.md)
   * [Common Errors and Questions](for-developers/ansible-deployment/common-errors-and-questions.md)
 * [Manual Deployment](for-developers/manual-deployment/README.md)
-  * [Check your Manual Deployment Instance](for-developers/manual-deployment/check-your-manual-deployment-instance.md)
+  * [Clear an instance from the previous deployment](for-developers/manual-deployment/check-your-manual-deployment-instance.md)
 * [Configuration Options](for-developers/configuration-options/README.md)
   * [CSS Configuration & Presets](for-developers/configuration-options/css-configuration-and-presets.md)
   * [Automating Restarts](for-developers/configuration-options/automating-restarts.md)

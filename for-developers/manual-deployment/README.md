@@ -68,6 +68,8 @@ If you have run previously, drop the previous database `mix do ecto.drop, ecto.c
 * `cd apps/block_scout_web/assets; npm install && node_modules/webpack/bin/webpack.js --mode production; cd -`
 * `cd apps/explorer && npm install; cd -`
 
+11\) Build static assets for deployment `mix phx.digest`
+
 11\) Enable HTTPS in development. The Phoenix server only runs with HTTPS.
 
 * `cd apps/block_scout_web`
@@ -87,8 +89,6 @@ If using Chrome, Enable `chrome://flags/#allow-insecure-localhost`
 {% endhint %}
 
 12\) Return to the root directory and start the Phoenix Server. `mix phx.server`
-
-13\) [Check your instance](check-your-manual-deployment-instance.md)
 
 ## 
 

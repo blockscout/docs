@@ -1,17 +1,16 @@
-# Check your Manual Deployment Instance
+# Clear an instance from the previous deployment
 
-1. Check that there are no visual artifacts, all assets exist and there are no database errors.
-2. If there are no errors, stop BlockScout \(`ctrl+c`\)
-3. Build static assets for deployment `mix phx.digest`
-4. Delete build artifacts:
+In order to delete build artifacts anyone can run `./rel/commands/clear_build.sh` form the root project directory. It will perform deletion of these folders:
 
-   a. Script: `./rel/commands/clear_build.sh`
+* delete `_build` & `deps` directories
+* delete node modules located at
+* `apps/block_scout_web/assets/node_modules`
+* & `apps/explorer/node_modules`
+* delete `logs/dev` directory
 
-   b. Manually:
+{% hint style="info" %}
+If it is required to delete static assets too \(`apps/block_scout_web/priv/static` folder\), for instance, before their rebuilding in order to apply changes to front-end, anyone should run the previous command with `-f` flag:
 
-   * delete `_build` & `deps` directories
-   * delete node modules located at
-   * `apps/block_scout_web/assets/node_modules`
-   * & `apps/explorer/node_modules`
-   * delete `logs/dev` directory
+`./rel/commands/clear_build.sh -f`
+{% endhint %}
 
