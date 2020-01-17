@@ -78,4 +78,5 @@ Additional information related to certain variables is available on the [ansible
 | `REWARDS_CONTRACT_ADDRESS` |  | Emission rewards contract address. This env var is used only if `EMISSION_FORMAT` is set to `POA` | `0xeca443e8e1ab29971a45a9c57a6a9875701698a5` | v2.0.4+ |  |  |  |  |  |
 | `SHOW_ADDRESS_MARKETCAP_PERCENTAGE` |  | Configures marketcap percentage column on the top accounts page | `true` | v2.1.1+ |  |  |  |  |  |
 | `BLOCKSCOUT_PROTOCOL` |  | Url scheme for blockscout | in prod env `https` is used, in dev env `http` is used | v2.1.0+ |  |  |  |  |  |
+| `SOCKET_ROOT` |  | Custom websocket url | empty string by default | master |  |  |  |  |  |
 
