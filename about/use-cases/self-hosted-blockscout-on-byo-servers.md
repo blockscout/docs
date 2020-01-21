@@ -65,5 +65,13 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![](../../.gitbook/assets/screenshot-2019-12-04-at-18.42.09.png)
 
+### 
 
+### EtherCore
+
+> **Project:** EtherCore  
+> **BlockScout url:** [https://explorer.ethercore.org](https://explorer.ethercore.org)  
+> **Description:** Security, Scalability and Decentralization Application Platform Powered by ProgPoW Consensus
+
+![EtherCore](../../.gitbook/assets/screenshot-2020-01-21-at-19.07.02.png)
 
