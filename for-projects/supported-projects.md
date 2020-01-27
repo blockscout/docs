@@ -74,7 +74,8 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"><a href="https://blockexplorer.oasiscloud.io/">Oasis Labs</a>
       </td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://blockscout.noordung.fairdatasociety.org/">Fair Data Society</a>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"></td>
