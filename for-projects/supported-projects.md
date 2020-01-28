@@ -13,7 +13,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       </th>
       <th style="text-align:left"><b>Semi<br />Hosted*</b>
       </th>
-      <th style="text-align:left"><b>ETC Cooperative Hosted</b>
+      <th style="text-align:left"><b>ETC Cooperative Hosted *</b>
       </th>
       <th style="text-align:left"><b>Self Hosted Chains </b>
       </th>
@@ -29,7 +29,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       </td>
       <td style="text-align:left"><a href="https://blockscout.com/artis/sigma1">ARTIS Sigma Mainnet</a>
       </td>
-      <td style="text-align:left"><a href="http://kotti.etccoopexplorer.com/">Kotti Testnet</a>
+      <td style="text-align:left"><a href="https://blockscout.com/etc/mainnet">Ethereum Classic</a>
       </td>
       <td style="text-align:left"><a href="https://explorer.ethercore.org/">EtherCore</a>
       </td>
@@ -46,7 +46,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       </td>
       <td style="text-align:left"><a href="https://blockscout.com/artis/tau1">ARTIS Tau Testnet</a>
       </td>
-      <td style="text-align:left"><a href="http://mordor.etccoopexplorer.com/">Mordor Testnet</a>
+      <td style="text-align:left"><a href="https://blockscout.com/etc/mordor">Mordor Testnet</a>
       </td>
       <td style="text-align:left"><a href="https://submarine.oceanprotocol.com/">Ocean protocol</a>
       </td>
@@ -54,12 +54,12 @@ description: Hosted Projects list as well as public and private chains using Blo
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href="https://blockscout.com/etc/mainnet">Ethereum Classic</a>
+      <td style="text-align:left"><a href="https://blockscout.com/rsk/mainnet">RSK</a>
       </td>
       <td style="text-align:left"><a href="https://blockscout.com/poa/sokol">POA Sokol Testnet</a>
       </td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="http://goerli.etccoopexplorer.com/">G&#xF6;rli  Testnet</a>
+      <td style="text-align:left"><a href="https://blockscout.com/etc/mordor">Kotti Testnet</a>
       </td>
       <td style="text-align:left"><a href="https://explorer.fusenet.io/">Fuse Network</a>
       </td>
@@ -67,8 +67,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href="https://blockscout.com/rsk/mainnet">RSK</a>
-      </td>
+      <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
@@ -182,6 +181,6 @@ See a list of [current BlockScout versions for hosted projects](../about/use-cas
 {% endhint %}
 
 {% hint style="warning" %}
-\*Semi-Hosted instances incorporate a reverse proxy.
+\*Semi-Hosted and ETC Cooperative hosted instances incorporate a reverse proxy.
 {% endhint %}
 

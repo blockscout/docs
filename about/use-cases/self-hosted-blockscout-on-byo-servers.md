@@ -14,14 +14,14 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ### ETC Cooperative
 
-> **Projects:** Görli Testnet, Kotti Testnet, Mordor Testnet  
-> **Testnet Explorers:** 
+> **Projects:** ETC Mainnet, Kotti Testnet, Mordor Testnet  
+> **Explorers:**
+
+> * ETC Mainnet: [https://blockscout.com/etc/mainnet](https://blockscout.com/etc/mainnet)
+> * Kotti: [https://blockscout.com/etc/kotti](https://blockscout.com/etc/kotti)
+> * Mordor: [https://blockscout.com/etc/mordor](https://blockscout.com/etc/mordor)
 >
-> * Görli: [http://goerli.etccoopexplorer.com/](http://goerli.etccoopexplorer.com/)
-> * Kotti: [http://kotti.etccoopexplorer.com/](http://kotti.etccoopexplorer.com/)
-> * Mordor: [http://mordor.etccoopexplorer.com/](http://mordor.etccoopexplorer.com/)
->
-> **Description:** Görli Ethereum and Kotti Ethereum Classic Testnets provide reliable and robust Proof-of-Authority networks for testing across client implementations. Mordor is an Ethereum Classic Proof-of-Work Testnet launched in October 2019.
+> **Description:** ETC Cooperative hosts all instances. Proxies are used to include these chains at blockscout.com. ****Kotti Ethereum Classic Testnets provide reliable and robust Proof-of-Authority networks for testing across client implementations. Mordor is an Ethereum Classic Proof-of-Work Testnet launched in October 2019.
 
 ![Mordor ETC Explorer](../../.gitbook/assets/mordor-testnet.png)
 
