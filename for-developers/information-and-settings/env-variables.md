@@ -80,4 +80,4 @@ Additional information related to certain variables is available on the [ansible
 | `BLOCKSCOUT_HOST` |  | Host for API endpoint examples | \(empty\) | v2.1.0+ |  |  |
 | `BLOCKSCOUT_PROTOCOL` |  | Url scheme for blockscout | in prod env `https` is used, in dev env `http` is used | v2.1.0+ |  |  |
 | `SOCKET_ROOT` |  | Custom websocket url | empty string by default | v3.0.0+ |  |  |
-
+| `API_PATH` |  | PATH in API endpoint URL on API docs page | / | master |  |  |
