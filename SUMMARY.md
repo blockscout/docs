@@ -59,10 +59,10 @@
 
 ## For users
 
-* [Smart Contract Interaction](for-users/untitled/README.md)
-  * [Verifying a Smart Contract](for-users/untitled/verifying-a-smart-contract.md)
-  * [EVM Version Information](for-users/untitled/evm-version-information.md)
-  * [ABI-Encoded Constructor Arguments](for-users/untitled/abi-encoded-constructor-arguments.md)
+* [Smart Contract Interaction](for-users/smart-contract-interaction/README.md)
+  * [Verifying a Smart Contract](for-users/smart-contract-interaction/verifying-a-smart-contract.md)
+  * [EVM Version Information](for-users/smart-contract-interaction/evm-version-information.md)
+  * [ABI-Encoded Constructor Arguments](for-users/smart-contract-interaction/abi-encoded-constructor-arguments.md)
 * [API](for-users/api/README.md)
   * [GraphQL in Blockscout](for-users/api/graphql.md)
 * [FAQs](for-users/faqs/README.md)
