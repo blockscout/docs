@@ -25,7 +25,7 @@ Blockscout will be available on `localhost:4000`
 {% hint style="info" %}
 **mac/Windows**: Docker provides a special URL -  `host.docker.internal` - that is available in the container and routed to your local machine. 
 
-**Linux: D**ocker is starting using `--network=host` and all services are available on `localhost`
+**Linux:** Docker is starting using `--network=host` and all services are available on `localhost`
 {% endhint %}
 
 #### Migrations

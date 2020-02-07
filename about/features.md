@@ -9,6 +9,7 @@ description: 'BlockScout is a full-featured, open-source blockchain explorer'
 * **Smart contract interaction**: Users can read and verify Solidity smart contracts and access pre-existing contracts to fast-track development. 
 * **Token support**: Support for ERC20 and ERC721 tokens.
 * **Decoded views:** Contract method calls and logs are decoded to provide additional information directly from the UI.
+* **Full-featured API:** GraphQL provides the opportunity to test API calls directly from a web interface, and RPC methods are well documented.
 * **User customization**: Users can easily deploy on a network and customize the Bootstrap interface.
 * **Ethereum ecosystem support**: BlockScout supports the POA network and EVM forks like Ethereum Classic, xDAI, additional sidechains, and private EVM networks. 
 

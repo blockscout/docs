@@ -1,10 +1,23 @@
-# AWS Permissions
+---
+description: AWS requirements for deployment
+---
 
-See our forum for a detailed [AWS settings and setup tutorial](https://forum.poa.network/t/aws-settings-for-blockscout-terraform-deployment/1962).
+# AWS Permissions & Settings
 
-During deployment you will provide credentials to your AWS account. The deployment process requires a wide set of permissions, so it works best if you specify the administrator account credentials.
+During deployment you will provide credentials to your AWS account. Given the large number of services involved, and the unpredictability of which specific API calls will be needed during provisioning, it is recommended you provide a user account with full access. 
 
-However, if you want to restrict the permissions, here is the list of resources which are created during the deployment process:
+You do not need to keep this user around \(or enabled\) except during the initial provisioning, and for any subsequent runs to update the infrastructure.
+
+You may need to reference these items during deployment:
+
+* [Creating a Secret Key Pair in AWS](creating-a-secret-key-pair.md)
+* [Logging in with AWS CLI](login-with-aws-cli.md)
+* [Creating an SSL certificate](creating-an-aws-certificate-for-ssl.md)
+* [Manually resource cleaning \(if deployment fails or you need to remove items\)](manually-cleaning-terraform-related-instances.md)
+
+### Resources Created During Deployment
+
+If you do want to restrict the permissions, the following list of resources is created during the deployment process:
 
 * An S3 bucket to keep Terraform state files;
 * DynamoDB table to manage Terraform state files leases;
@@ -24,4 +37,8 @@ However, if you want to restrict the permissions, here is the list of resources 
 Each configured chain receives its own ASG \(autoscaling group\) and deployment group. When application updates are pushed to CodeDeploy, all autoscaling groups will deploy the new version using a blue/green strategy. Currently, there is only one EC2 host to run, and the ASG is configured to allow scaling up, but no triggers are set up to actually perform the scaling yet. This is something that may come in the future.
 
 When deployment begins, Ansible creates the S3 bucket and DynamoDB table required for Terraform state management. This ensures that the Terraform state is stored in a centralized location, allowing multiple people to use Terraform on the same infra without interfering with one another. Terraform prevents interference by holding locks \(via DynamoDB\) against the state data \(stored in S3\).
+
+{% hint style="success" %}
+This instruction was moved from [https://forum.poa.network/t/aws-settings-for-blockscout-terraform-deployment/1962](https://forum.poa.network/t/aws-settings-for-blockscout-terraform-deployment/1962)
+{% endhint %}
 

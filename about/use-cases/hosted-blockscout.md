@@ -1,29 +1,47 @@
+---
+description: >-
+  Projects hosted on blockscout.com receive technical support, automatic updates
+  and increased project visibility.
+---
+
 # Hosted Blockscout
+
+{% hint style="info" %}
+Interested in blockscout.com hosting and technical support? [Read more here](../../for-projects/your-chain-on-blockscout.com.md).
+{% endhint %}
 
 ## Hosted instances on [blockscout.com](http://blockscout.com)
 
-BlockScout team is hosting it for the following EVM chains
+The BlockScout team provides hosting for the following EVM chains
 
 | Instance | Type | URL | Version |
 | :--- | :--- | :--- | :--- |
-| Classic | mainnet | [https://blockscout.com/etc/mainnet/](https://blockscout.com/etc/mainnet/) | v2.0.0 |
-| POA Core | mainnet | [https://blockscout.com/poa/core](https://blockscout.com/poa/core) | v2.0.0 |
-| xDai Chain | mainnet | [https://blockscout.com/poa/xdai](https://blockscout.com/poa/xdai) | v2.0.0 |
-| POA Sokol | testnet | [https://blockscout.com/poa/sokol](https://blockscout.com/poa/sokol) | v2.0.0 |
-| Lukso L14 | testnet | [https://blockscout.com/lukso/l14](https://blockscout.com/lukso/l14) | v2.0.0 |
-| Kovan | testnet | [https://blockscout.com/eth/kovan](https://blockscout.com/eth/kovan) | v2.0.0 |
+| Ethereum | mainnet | [https://blockscout.com/eth/mainnet/](https://blockscout.com/eth/mainnet/) | v3.0.0 |
+| POA Core | mainnet | [https://blockscout.com/poa/core](https://blockscout.com/poa/core) | v3.0.0 |
+| xDai Chain | mainnet | [https://blockscout.com/poa/xdai](https://blockscout.com/poa/xdai) | v3.0.0 |
+| POA Sokol | testnet | [https://blockscout.com/poa/sokol](https://blockscout.com/poa/sokol) | v3.0.0 |
+| Lukso L14 | testnet | [https://blockscout.com/lukso/l14](https://blockscout.com/lukso/l14) | v3.0.0 |
+| Kovan | testnet | [https://blockscout.com/eth/kovan](https://blockscout.com/eth/kovan) | v3.0.0 |
+| RSK | mainnet | [https://blockscout.com/rsk/mainnet](https://blockscout.com/rsk/mainnet) | v3.0.0 |
+| Classic\* | mainnet | [https://blockscout.com/etc/mainnet/](https://blockscout.com/etc/mainnet/) | v3.0.0 |
+
+{% hint style="info" %}
+\* Ethereum Classic \(ETC\) is hosted by the ETC Cooperative. We run a proxy to maintain the current blockscout based-url. ETC Cooperative also hosts the Kotti and Mordor testnets:
+
+* [https://blockscout.com/etc/kotti](https://blockscout.com/etc/kotti)
+* [https://blockscout.com/etc/mordor](https://blockscout.com/etc/mordor)
+{% endhint %}
 
 ## Discontinued hosted instances on BlockScout
 
-| Instance | Type | URL |
+{% hint style="success" %}
+Dumps of verified smart contracts from discontinued hosted BlockScout instances can be found here [https://github.com/blockscout/verified-smart-contracts](https://github.com/blockscout/verified-smart-contracts)
+{% endhint %}
+
+| Instance | Type | Previous URL |
 | :--- | :--- | :--- |
-| Ethereum | mainnet | [https://blockscout.com/eth/mainnet](https://blockscout.com/eth/mainnet) |
 | Ropsten | testnet | [https://blockscout.com/eth/ropsten](https://blockscout.com/eth/ropsten) |
 | Rinkeby | testnet | [https://blockscout.com/eth/rinkeby](https://blockscout.com/eth/rinkeby) |
 | Goerli | testnet | [https://blockscout.com/eth/goerli](https://blockscout.com/eth/goerli) |
 | Callisto | mainnet | [https://blockscout.com/callisto/mainnet](https://blockscout.com/callisto/mainnet) |
-
-{% hint style="info" %}
-If you are interested in having your chain hosted on blockscout.com please read [this post](../../for-projects/your-chain-on-blockscout.com.md) 
-{% endhint %}
 

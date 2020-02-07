@@ -4,23 +4,183 @@ description: Hosted Projects list as well as public and private chains using Blo
 
 # List of Projects Using BlockScout
 
-| **Hosted Mainnets** | **Hosted Testnets** | **Additional Chains using BlockScout** | **Additional Testnets using BlockScout** |
-| :--- | :--- | :--- | :--- |
-| [POA Core Network](https://blockscout.com/poa/core) | [Kovan Testnet](https://blockscout.com/eth/kovan) | [ARTIS](https://explorer.sigma1.artis.network) | [Celo Testnet](https://alfajores-blockscout.celo-testnet.org/) |
-| [xDai Chain](https://blockscout.com/poa/dai) | [LUKSO L14 Testnet](https://blockscout.com/lukso/l14) | [Ether-1](https://blocks.ether1.wattpool.net/) | [Matic Testnet](https://explorer.testnet2.matic.network/) |
-| [Ethereum Classic](https://blockscout.com/etc/mainnet) | [POA Sokol Testnet](https://blockscout.com/poa/sokol) | [Ocean protocol](https://submarine.oceanprotocol.com/) | [Athereum Testnet](http://athexplorer.ava.network/) |
-| [RSK](https://blockscout.com/rsk/mainnet) |  | [Fuse Network](https://explorer.fuse.io/) | [Kotti Testnet](https://kottiexplorer.ethernode.io/) |
-|  |  | [Oasis Labs](https://blockexplorer.oasiscloud.io/) |  |
-|  |  | [Petrichor](https://explorer.petrachor.com/) |  |
-|  |  | [PIRL](http://pirl.es/) |  |
-|  |  | [SafeChain](https://explorer.safechain.io) |  |
-|  |  | [SpringChain](https://explorer.springrole.com/) |  |
-|  |  | [Tenda](https://tenda.network) |  |
-|  |  | [Loom](http://plasma-blockexplorer.dappchains.com/) |  |
-|  |  | [GoJoy Chain](https://gojoychain.com/) |  |
-|  |  | [Xerom](https://blocks.xerom.org/) |  |
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left"><b>Hosted Mainnets</b>
+      </th>
+      <th style="text-align:left"><b>Hosted Testnets</b>
+      </th>
+      <th style="text-align:left"><b>Semi<br />Hosted*</b>
+      </th>
+      <th style="text-align:left"><b>ETC Cooperative Hosted *</b>
+      </th>
+      <th style="text-align:left"><b>Self Hosted Chains </b>
+      </th>
+      <th style="text-align:left"><b>Self-Hosted Testnets </b>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><a href="https://blockscout.com/poa/core">POA Core Network</a>
+      </td>
+      <td style="text-align:left"><a href="https://blockscout.com/eth/kovan">Kovan Testnet</a>
+      </td>
+      <td style="text-align:left"><a href="https://blockscout.com/artis/sigma1">ARTIS Sigma Mainnet</a>
+      </td>
+      <td style="text-align:left"><a href="https://blockscout.com/etc/mainnet">Ethereum Classic</a>
+      </td>
+      <td style="text-align:left"><a href="https://explorer.ethercore.org/">EtherCore</a>
+      </td>
+      <td style="text-align:left">
+        <p><a href="https://baklava-blockscout.celo-testnet.org/">Celo Testnet</a> 1</p>
+        <p><a href="https://alfajores-blockscout.celo-testnet.org/">Celo Testnet 2</a>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="https://blockscout.com/poa/dai">xDai Chain</a>
+      </td>
+      <td style="text-align:left"><a href="https://blockscout.com/lukso/l14">LUKSO L14 Testnet</a>
+      </td>
+      <td style="text-align:left"><a href="https://blockscout.com/artis/tau1">ARTIS Tau Testnet</a>
+      </td>
+      <td style="text-align:left"><a href="https://blockscout.com/etc/mordor">Mordor Testnet</a>
+      </td>
+      <td style="text-align:left"><a href="https://submarine.oceanprotocol.com/">Ocean protocol</a>
+      </td>
+      <td style="text-align:left"><a href="https://explorer.testnet2.matic.network/">Matic Testnet</a>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><a href="https://blockscout.com/rsk/mainnet">RSK</a>
+      </td>
+      <td style="text-align:left"><a href="https://blockscout.com/poa/sokol">POA Sokol Testnet</a>
+      </td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://blockscout.com/etc/mordor">Kotti Testnet</a>
+      </td>
+      <td style="text-align:left"><a href="https://explorer.fusenet.io/">Fuse Network</a>
+      </td>
+      <td style="text-align:left"><a href="http://athexplorer.ava.network/">Athereum Testnet</a>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://blockexplorer.oasiscloud.io/">Oasis Labs</a>
+      </td>
+      <td style="text-align:left"><a href="https://blockscout.noordung.fairdatasociety.org/">Fair Data Society</a>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://alpha-mainnet.explorer.matic.network">Matic</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://explorer.petrachor.com/">Petrichor</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="http://pirl.es/">PIRL</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://www.safechain.io/">SafeChain</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://springrole.com/">SpringChain</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://tenda.network">Tenda</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://basechain-blockexplorer.dappchains.com/">Loom</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://gojoychain.com/">GoJoy Chain</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://blocks.xerom.org/">Xerom</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://explore.tlbc.trustlines.foundation/">Trustlines Network</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://blocks.ether1.wattpool.net/">Ether-1</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+</table>{% hint style="info" %}
+See a list of [current BlockScout versions for hosted projects](../about/use-cases/hosted-blockscout.md)
+{% endhint %}
 
-{% hint style="info" %}
-[Current BlockScout versions for hosted projects](../about/use-cases/hosted-blockscout.md)
+{% hint style="warning" %}
+\*Semi-Hosted and ETC Cooperative hosted instances incorporate a reverse proxy.
 {% endhint %}
 

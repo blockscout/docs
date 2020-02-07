@@ -1,5 +1,9 @@
 # Deploying the BlockScout Infrastructure
 
+{% hint style="danger" %}
+Deployment with Terraform 12 is unstable due to these bugs: [\#144](https://github.com/poanetwork/blockscout-terraform/issues/144), [\#147](https://github.com/poanetwork/blockscout-terraform/issues/147), [\#148](https://github.com/poanetwork/blockscout-terraform/issues/148), [\#149](https://github.com/poanetwork/blockscout-terraform/issues/149). Please use TF 11.11 - 11.14 and following branch for deployment [https://github.com/poanetwork/blockscout-terraform/tree/before-t12](https://github.com/poanetwork/blockscout-terraform/tree/before-t12)
+{% endhint %}
+
 {% hint style="success" %}
 Go to [Deploying BlockScout](deploying-blockscout.md) if you already have an infrastructure and simply want to install or update your BlockScout instance.
 {% endhint %}

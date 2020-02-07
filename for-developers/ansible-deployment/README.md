@@ -2,7 +2,7 @@
 description: Deployment with Playbooks on AWS
 ---
 
-# Ansible Deployment
+# Ansible Deployment \(AWS only\)
 
 ## Playbook Overview
 
