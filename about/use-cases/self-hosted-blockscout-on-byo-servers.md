@@ -77,3 +77,11 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![EtherCore](../../.gitbook/assets/screenshot-2020-01-21-at-19.07.02.png)
 
+### Elastos
+
+> **Project:** Elastos  
+> **BlockScout url:** [https://explorer.elaeth.io/](https://explorer.elaeth.io/)  
+> **Description:** Elastos \(ELA\) bills itself as the 'first completely safe and decentralized infrastructure for the internet'. Its vision is to create a blockchain-powered decentralized internet that enables digital rights and secure transactions
+
+![Elastos](../../.gitbook/assets/screenshot-2020-02-12-at-19.22.41.png)
+
