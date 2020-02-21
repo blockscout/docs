@@ -1,6 +1,6 @@
 # Tracing
 
-BlockScout supports tracing via [Spandex](http://git@github.com:spandex-project/spandex.git). Each application has its own internally configured tracer.
+BlockScout supports tracing via [Spandex](https://github.com/spandex-project/spandex). Each application has its own internally configured tracer.
 
 To enable tracing, visit each application's `config/<env>.ex` and change `disabled?: true` to `disabled?: false`. Do this for each application you'd like included in your trace data.
 
