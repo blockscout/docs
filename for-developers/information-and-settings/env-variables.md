@@ -82,5 +82,7 @@ Additional information related to certain variables is available on the [ansible
 | `SOCKET_ROOT` |  | Custom websocket url | empty string by default | v3.0.0+ |  |  |
 | `API_PATH` |  | PATH in API endpoint URL on API docs page | / | master |  |  |
 | `CHECKSUM_ADDRESS_HASHES` |  | If set to `true`, redirects to checksummed version of address hashes | true | master |  |  |
-| `CHECKSUM_FUNCTION` | \`\` | Defines checksum address function. 2 available values: "rsk", "eth" | eth | v2.0.1+ |  |  |
+| `CHECKSUM_FUNCTION` |  | Defines checksum address function. 2 available values: "rsk", "eth" | eth | v2.0.1+ |  |  |
+
+
 
