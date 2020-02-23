@@ -8,6 +8,10 @@ This table is horizontally scrollable, version information is located in the las
 Additional information related to certain variables is available on the [ansible deployment](../ansible-deployment/) page.
 {% endhint %}
 
+{% hint style="info" %}
+You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blockscout.com/for-developers/information-and-settings/deprecated-env-variables) chapter
+{% endhint %}
+
 * To set variables using the CLI, use the export command. For example:
 
   ```bash
