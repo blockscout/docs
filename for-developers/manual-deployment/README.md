@@ -23,6 +23,10 @@ BlockScout requires a **full archive node** in order to import every state chang
 
 `cp apps/block_scout_web/config/dev.secret.exs.example apps/block_scout_web/config/dev.secret.exs`
 
+{% hint style="info" %}
+In order to generate a new `secret_key_base` run `mix phx.gen.secret`
+{% endhint %}
+
 4\) Update `apps/explorer/config/dev.secret.exs`
 
 * **Linux:** Update the database username and password configuration
