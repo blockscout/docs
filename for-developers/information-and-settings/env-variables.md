@@ -32,10 +32,10 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `ETHEREUM_JSONRPC_TRACE_URL` |  | The RPC endpoint specifically for the Geth/Parity client used by trace\_block and trace\_replayTransaction. This can be used to designate a tracing node. | localhost:8545 | all |  |
 | `ETHEREUM_JSONRPC_WS_URL` | ✅ | The WebSockets RPC endpoint used to subscribe to the `newHeads` subscription alerting the indexer to fetch new blocks. | ws://localhost:8546 | all |  |
 | `ETHEREUM_JSONRPC_TRANSPORT` |  | Specifies the transport for blockscout to connect to the Ethereum Node. Available transports are `http` and `ipc`. If `ipc` is selected, also set `IPC_PATH` variable | http | master |  |
-| `IPC_PATH` |  | Path to the ipc file of the running node |  | v2.1.1+ |  |
+| `IPC_PATH` |  | Path to the ipc file of the running node | \(empty\) | v2.1.1+ |  |
 | `NETWORK_PATH` |  | Used to set a network path other than what is displayed in the root directory. An example would be to add /eth/mainnet/ to the root directory. | \(empty\) | all |  |
 | `API_PATH` |  | PATH in API endpoint URL on API docs page | / | master |  |
-| `SOCKET_ROOT` |  | Custom websocket url | empty string by default | v3.0.0+ |  |
+| `SOCKET_ROOT` |  | Custom websocket url | \(empty\) | v3.0.0+ |  |
 | `BLOCKSCOUT_HOST` |  | Host for API endpoint examples | \(empty\) | v2.1.0+ |  |
 | `BLOCKSCOUT_PROTOCOL` |  | Url scheme for blockscout | in prod env `https` is used, in dev env `http` is used | v2.1.0+ |  |
 | `SECRET_KEY_BASE` | ✅ | Use mix phx.gen.secret to generate a new Secret Key Base string to protect production assets. | \(empty\) | all |  |
@@ -85,6 +85,4 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `SHOW_ADDRESS_MARKETCAP_PERCENTAGE` |  | Configures marketcap percentage column on the top accounts page | `true` | v2.1.1+ |  |
 | `CHECKSUM_ADDRESS_HASHES` |  | If set to `true`, redirects to checksummed version of address hashes | true | master |  |
 | `CHECKSUM_FUNCTION` |  | Defines checksum address function. 2 available values: "rsk", "eth" | eth | v2.0.1+ |  |
-
-
 
