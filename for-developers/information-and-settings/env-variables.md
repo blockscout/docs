@@ -26,19 +26,19 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `SUBNETWORK` | ✅ | Environment variable for the subnetwork such as Core or Sokol Network. This will be displayed as selected in the chains list dropdown. | POA Sokol | all |  |
 | `LOGO` | ✅ | Environment variable for the header logo image location. The logo files names for different chains can be found [here](https://github.com/poanetwork/blockscout/tree/master/apps/block_scout_web/assets/static/images) | /images/blockscout\_logo.svg | all |  |
 | `LOGO_FOOTER` | ✅ | Environment variable for the footer logo image location. The logo files names for different chains can be found [here](https://github.com/poanetwork/blockscout/tree/master/apps/block_scout_web/assets/static/images) | /images/blockscout\_logo.svg |  |  |
-| `ETHEREUM_JSONRPC_VARIANT` | ✅ | Tells the application which RPC Client the node is using \(i.e. Geth, Parity, or Ganache\) \([See Client Settings for more info](client-settings-parity-geth-ganache.md)\) | parity | all |  |
+| `ETHEREUM_JSONRPC_VARIANT` | ✅ | Tells the application which RPC Client the node is using \(i.e. `geth`, `parity`, or `ganache`\) \([See Client Settings for more info](client-settings-parity-geth-ganache.md)\) | parity | all |  |
 | `ETHEREUM_JSONRPC_HTTP_URL` | ✅ | The RPC endpoint used to fetch blocks, transactions, receipts, tokens. | localhost:8545 | all |  |
 | `ETHEREUM_JSONRPC_TRACE_URL` |  | The RPC endpoint specifically for the Geth/Parity client used by trace\_block and trace\_replayTransaction. This can be used to designate a tracing node. | localhost:8545 | all |  |
 | `ETHEREUM_JSONRPC_WS_URL` | ✅ | The WebSockets RPC endpoint used to subscribe to the `newHeads` subscription alerting the indexer to fetch new blocks. | ws://localhost:8546 | all |  |
 | `ETHEREUM_JSONRPC_TRANSPORT` |  | Specifies the transport for blockscout to connect to the Ethereum Node. Available transports are `http` and `ipc`. If `ipc` is selected, also set `IPC_PATH` variable | http | master |  |
-| `IPC_PATH` |  | Path to the ipc file of the running node | \(empty\) | v2.1.1+ |  |
-| `NETWORK_PATH` |  | Used to set a network path other than what is displayed in the root directory. An example would be to add /eth/mainnet/ to the root directory. | / | all |  |
-| `API_PATH` |  | PATH in API endpoint URL on API docs page | / | master |  |
+| `IPC_PATH` |  | Path to the ipc file of the running node if IPC transport is chosen | \(empty\) | v2.1.1+ |  |
+| `NETWORK_PATH` |  | Used to set a network path other than what is displayed in the root directory. An example would be to add `/eth/mainnet/` to the root directory. | / | all |  |
+| `API_PATH` |  | PATH in API endpoint URL at API docs page | / | master |  |
 | `SOCKET_ROOT` |  | Custom websocket path | \(empty\) | v3.0.0+ |  |
 | `BLOCKSCOUT_HOST` |  | Host for API endpoint examples | localhost | v2.1.0+ |  |
 | `BLOCKSCOUT_PROTOCOL` |  | Url scheme for blockscout | in prod env `https` is used, in dev env `http` is used | v2.1.0+ |  |
 | `SECRET_KEY_BASE` | ✅ | Use mix phx.gen.secret to generate a new Secret Key Base string to protect production assets. | \(empty\) | all |  |
-| `CHECK_ORIGIN` |  | Used to check the origin of requests when the origin header is present. It defaults to false. In case of true, it will check against the host value. | false | all |  |
+| `CHECK_ORIGIN` |  | Used to check the origin of requests when the origin header is present. It defaults to `false`. In case of true, it will check against the host value. | false | all |  |
 | `PORT` | ✅ | Default port the application runs on is 4000 | 4000 | all |  |
 | `COIN` | ✅ | The coin here is checked via the CoinGecko API to obtain USD prices on graphs and other areas of the UI | POA | all |  |
 | `METADATA_CONTRACT` |  | This environment variable is specifically used by POA Network to obtain Validators information to display in the UI. | \(empty\) | all |  |
@@ -59,9 +59,9 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `HEART_COMMAND` |  | Production environment variable to restart the application in the event of a crash. | systemctl restart explorer.service | all |  |
 | `BLOCKSCOUT_VERSION` |  | Added to the footer to signify the current BlockScout version. | \(empty\) | v1.3.4+ |  |
 | `RELEASE_LINK` |  | The link to Blockscout release notes in the footer. | https: //github.com/poanetwork/  blockscout/releases/   tag/${BLOCKSCOUT\_VERSION} | v1.3.5+ |  |
-| `ELIXIR_VERSION` |  | Elixir version to install on the node before Blockscout deploy. | \(empty\) | all |  |
+| `ELIXIR_VERSION` |  | Elixir version to install on the node before Blockscout deploy. It is used in bash script inn Terraform / Ansible deployment script | \(empty\) | all |  |
 | `BLOCK_TRANSFORMER` |  | Transformer for blocks: base or clique. | base | v1.3.4+ |  |
-| `GRAPHIQL_TRANSACTION` |  | Default transaction in query to GraphiQL. | \(empty\) | v1.2.0+ | ✅ |
+| `GRAPHIQL_TRANSACTION` |  | Default transaction hash in a sample query to GraphiQL. | \(empty\) | v1.2.0+ | ✅ |
 | `FIRST_BLOCK` |  | The block number, where indexing begins from. | 0 | v1.3.8+ |  |
 | `LAST_BLOCK` |  | The block number, where indexing stops. | \(empty\) | v2.0.3+ |  |
 | `LINK_TO_OTHER_EXPLORERS` |  | true/false. If true, links to other explorers are added in the footer | \(empty\) | v1.3.0+ |  |
@@ -79,9 +79,9 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `DISABLE_READ_API` |  | If `true`, read-only endpoints to API are hidden \(compile-time\) | `false` | v2.0.3+ | ✅ |
 | `DISABLE_WRITE_API` |  | If `true`, write endpoints to API are hidden \(compile-time\) | `false` | v2.0.3+ | ✅ |
 | `DISABLE_INDEXER` |  | If `true`, indexer application doesn't run | `false` | v2.0.3+ | ✅ |
-| `WEBAPP_URL` |  | Link to web application instance, e.g. `http://host/path` | \(empty\) | v2.0.3+ |  |
-| `API_URL` |  | Link to API instance, e.g. `http://host/path` | \(empty\) | v2.0.3+ |  |
+| `WEBAPP_URL` |  | Link to web application instance, e.g. `protocol://host/path` | \(empty\) | v2.0.3+ |  |
+| `API_URL` |  | Link to API instance, e.g. `protocol://host/path` | \(empty\) | v2.0.3+ |  |
 | `SHOW_ADDRESS_MARKETCAP_PERCENTAGE` |  | Configures market cap percentage column on the top accounts page | `true` | v2.1.1+ |  |
 | `CHECKSUM_ADDRESS_HASHES` |  | If set to `true`, redirects to checksummed version of address hashes | true | master |  |
-| `CHECKSUM_FUNCTION` |  | Defines checksum address function. 2 available values: "rsk", "eth" | eth | v2.0.1+ |  |
+| `CHECKSUM_FUNCTION` |  | Defines checksum address function. 2 available values: `rsk`, `eth` | eth | v2.0.1+ |  |
 
