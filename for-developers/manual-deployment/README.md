@@ -40,8 +40,8 @@ _Example usage:_ Changing the default Postgres port from localhost:5432 if [Boxe
 CLI Example:
 
 ```text
+export ETHEREUM_JSONRPC_VARIANT=parity
 export COIN=DAI
-export NETWORK_ICON=_network_icon.html
 export ... 
 ```
 
