@@ -32,10 +32,10 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `ETHEREUM_JSONRPC_WS_URL` | ✅ | The WebSockets RPC endpoint used to subscribe to the `newHeads` subscription alerting the indexer to fetch new blocks. | ws://localhost:8546 | all |  |
 | `ETHEREUM_JSONRPC_TRANSPORT` |  | Specifies the transport for blockscout to connect to the Ethereum Node. Available transports are `http` and `ipc`. If `ipc` is selected, also set `IPC_PATH` variable | http | master |  |
 | `IPC_PATH` |  | Path to the ipc file of the running node | \(empty\) | v2.1.1+ |  |
-| `NETWORK_PATH` |  | Used to set a network path other than what is displayed in the root directory. An example would be to add /eth/mainnet/ to the root directory. | \(empty\) | all |  |
+| `NETWORK_PATH` |  | Used to set a network path other than what is displayed in the root directory. An example would be to add /eth/mainnet/ to the root directory. | / | all |  |
 | `API_PATH` |  | PATH in API endpoint URL on API docs page | / | master |  |
-| `SOCKET_ROOT` |  | Custom websocket url | \(empty\) | v3.0.0+ |  |
-| `BLOCKSCOUT_HOST` |  | Host for API endpoint examples | \(empty\) | v2.1.0+ |  |
+| `SOCKET_ROOT` |  | Custom websocket path | \(empty\) | v3.0.0+ |  |
+| `BLOCKSCOUT_HOST` |  | Host for API endpoint examples | localhost | v2.1.0+ |  |
 | `BLOCKSCOUT_PROTOCOL` |  | Url scheme for blockscout | in prod env `https` is used, in dev env `http` is used | v2.1.0+ |  |
 | `SECRET_KEY_BASE` | ✅ | Use mix phx.gen.secret to generate a new Secret Key Base string to protect production assets. | \(empty\) | all |  |
 | `CHECK_ORIGIN` |  | Used to check the origin of requests when the origin header is present. It defaults to false. In case of true, it will check against the host value. | false | all |  |
@@ -43,8 +43,8 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `COIN` | ✅ | The coin here is checked via the CoinGecko API to obtain USD prices on graphs and other areas of the UI | POA | all |  |
 | `METADATA_CONTRACT` |  | This environment variable is specifically used by POA Network to obtain Validators information to display in the UI. | \(empty\) | all |  |
 | `VALIDATORS_CONTRACT` |  | This environment variable is specifically used by POA Network to obtain the list of current validators. | \(empty\) | all |  |
-| `REWARDS_CONTRACT_ADDRESS` |  | Emission rewards contract address. This env var is used only if `EMISSION_FORMAT` is set to `POA` | `0xeca443e8e1ab29971a45a9c57a6a9875701698a5` | v2.0.4+ |  |
-| `EMISSION_FORMAT` |  | Should be set to `POA` if you have block emission indentical to POA Network. This env var is used only if `CHAIN_SPEC_PATH` is set | `STANDARD` | v2.0.4+ |  |
+| `REWARDS_CONTRACT` |  | Emission rewards contract address. This env var is used only if `EMISSION_FORMAT` is set to `POA` | `0xeca443e8e1ab29971a45a9c57a6a9875701698a5` | v2.0.4+ |  |
+| `EMISSION_FORMAT` |  | Should be set to `POA` if you have block emission identical to POA Network. This env var is used only if `CHAIN_SPEC_PATH` is set | `DEFAULT` | v2.0.4+ |  |
 | `SUPPLY_MODULE` |  | This environment variable is used by the xDai Chain in order to tell the application how to calculate the total supply of the chain. | false | all |  |
 | `SOURCE_MODULE` |  | This environment variable is used to calculate the exchange rate and is specifically used by the xDai Chain. | false | all |  |
 | `DATABASE_URL` |  | Production environment variable to define the Database endpoint. | \(empty\) | all |  |
@@ -66,14 +66,14 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `LINK_TO_OTHER_EXPLORERS` |  | true/false. If true, links to other explorers are added in the footer | \(empty\) | v1.3.0+ |  |
 | `SUPPORTED_CHAINS` |  | Array of supported chains that displays in the footer and in the chains dropdown. This var was introduced in this PR [\#1900](https://github.com/poanetwork/blockscout/pull/1900) and looks like an array of JSON objects. | \(empty\) | v2.0.0+ |  |
 | `BLOCK_COUNT_CACHE_PERIOD` |  | time to live of blocks with consensus count cache in seconds. This var was introduced in [\#1876](https://github.com/poanetwork/blockscout/pull/1876) | 600 | v2.0.0+ |  |
-| `TXS_COUNT_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates the total txs count. | 60  _60_  2 | v1.3.9+ |  |
-| `ADDRESS_COUNT_CACHE_PERIOD` |  | time to live of cache in seconds. This var was introduced in [\#2822](https://github.com/poanetwork/blockscout/pull/2822) | 60  _60_  2 | v2.1.1+ |  |
+| `TXS_COUNT_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates the total txs count. | 60 \* 60 _\*_ 2 | v1.3.9+ |  |
+| `ADDRESS_COUNT_CACHE_PERIOD` |  | time to live of cache in seconds. This var was introduced in [\#2822](https://github.com/poanetwork/blockscout/pull/2822) | 60 \* 60 _\*_ 2 | v2.1.1+ |  |
 | `ADDRESS_SUM_CACHE_PERIOD` |  | time to live of addresses sum \(except burn address\) cache in seconds. This var was introduced in [\#2862](https://github.com/poanetwork/blockscout/pull/2862) | 3600 | v2.1.1+ |  |
 | `ADDRESS_WITH_BALANCES`   `_UPDATE_INTERVAL` |  | Interval in seconds to restart the task, which calculates addresses with balances. | 30 \* 60 | v1.3.9+ |  |
 | `AVERAGE_BLOCK_CACHE_PERIOD` |  | Update of average block period cache, in seconds | 30 minutes | v2.0.2+ |  |
 | `MARKET_HISTORY_CACHE_PERIOD` |  | Update of market history cache, in seconds | 6 hours | v2.0.2+ |  |
 | `ALLOWED_EVM_VERSIONS` |  | the comma-separated list of allowed EVM versions for contracts verification. This var was introduced in [\#1964](https://github.com/poanetwork/blockscout/pull/1964) | "homestead, tangerineWhistle, spuriousDragon, byzantium, constantinople, petersburg" | v2.0.0+ |  |
-| `UNCLES_IN_AVERAGE_BLOCK_TIME` |  | Include or exclude nonconsensus blocks in avg block time calculation. Exclude if `false`. | false | v2.0.1+ |  |
+| `UNCLES_IN_AVERAGE_BLOCK_TIME` |  | Include or exclude non-consensus blocks in avg block time calculation. Exclude if `false`. | false | v2.0.1+ |  |
 | `DISABLE_WEBAPP` |  | If `true`, endpoints to webapp are hidden \(compile-time\). Also, enabling it makes notifications go through `db_notify` | `false` | v2.0.3+ | ✅ |
 | `DISABLE_READ_API` |  | If `true`, read-only endpoints to API are hidden \(compile-time\) | `false` | v2.0.3+ | ✅ |
 | `DISABLE_WRITE_API` |  | If `true`, write endpoints to API are hidden \(compile-time\) | `false` | v2.0.3+ | ✅ |
@@ -81,7 +81,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `WEBAPP_URL` |  | Link to web application instance, e.g. `http://host/path` | \(empty\) | v2.0.3+ |  |
 | `API_URL` |  | Link to API instance, e.g. `http://host/path` | \(empty\) | v2.0.3+ |  |
 | `CHAIN_SPEC_PATH` |  | Chain specification path \(absolute file system path or url\) to import block emission reward ranges and genesis account balances from | \(empty\) | v2.0.4+ |  |
-| `SHOW_ADDRESS_MARKETCAP_PERCENTAGE` |  | Configures marketcap percentage column on the top accounts page | `true` | v2.1.1+ |  |
+| `SHOW_ADDRESS_MARKETCAP_PERCENTAGE` |  | Configures market cap percentage column on the top accounts page | `true` | v2.1.1+ |  |
 | `CHECKSUM_ADDRESS_HASHES` |  | If set to `true`, redirects to checksummed version of address hashes | true | master |  |
 | `CHECKSUM_FUNCTION` |  | Defines checksum address function. 2 available values: "rsk", "eth" | eth | v2.0.1+ |  |
 
