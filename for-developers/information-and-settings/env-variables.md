@@ -45,6 +45,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `VALIDATORS_CONTRACT` |  | This environment variable is specifically used by POA Network to obtain the list of current validators. | \(empty\) | all |  |
 | `REWARDS_CONTRACT` |  | Emission rewards contract address. This env var is used only if `EMISSION_FORMAT` is set to `POA` | `0xeca443e8e1ab29971a45a9c57a6a9875701698a5` | v2.0.4+ |  |
 | `EMISSION_FORMAT` |  | Should be set to `POA` if you have block emission identical to POA Network. This env var is used only if `CHAIN_SPEC_PATH` is set | `DEFAULT` | v2.0.4+ |  |
+| `CHAIN_SPEC_PATH` |  | Chain specification path \(absolute file system path or url\) to import block emission reward ranges and genesis account balances from | \(empty\) | v2.0.4+ |  |
 | `SUPPLY_MODULE` |  | This environment variable is used by the xDai Chain in order to tell the application how to calculate the total supply of the chain. | false | all |  |
 | `SOURCE_MODULE` |  | This environment variable is used to calculate the exchange rate and is specifically used by the xDai Chain. | false | all |  |
 | `DATABASE_URL` |  | Production environment variable to define the Database endpoint. | \(empty\) | all |  |
@@ -80,7 +81,6 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `DISABLE_INDEXER` |  | If `true`, indexer application doesn't run | `false` | v2.0.3+ | ✅ |
 | `WEBAPP_URL` |  | Link to web application instance, e.g. `http://host/path` | \(empty\) | v2.0.3+ |  |
 | `API_URL` |  | Link to API instance, e.g. `http://host/path` | \(empty\) | v2.0.3+ |  |
-| `CHAIN_SPEC_PATH` |  | Chain specification path \(absolute file system path or url\) to import block emission reward ranges and genesis account balances from | \(empty\) | v2.0.4+ |  |
 | `SHOW_ADDRESS_MARKETCAP_PERCENTAGE` |  | Configures market cap percentage column on the top accounts page | `true` | v2.1.1+ |  |
 | `CHECKSUM_ADDRESS_HASHES` |  | If set to `true`, redirects to checksummed version of address hashes | true | master |  |
 | `CHECKSUM_FUNCTION` |  | Defines checksum address function. 2 available values: "rsk", "eth" | eth | v2.0.1+ |  |
