@@ -30,7 +30,7 @@ BlockScout requires a **full archive node** in order to import every state chang
 * **Optional:** Set up a default configuration for testing. `cp apps/explorer/config/test.secret.exs.example apps/explorer/config/test.secret.exs` 
 
 {% hint style="info" %}
-_Example usage:_ Changing the default Postgres port from localhost:15432 if [Boxen](https://github.com/boxen/boxen) is installed.
+_Example usage:_ Changing the default Postgres port from localhost:5432 if [Boxen](https://github.com/boxen/boxen) is installed.
 {% endhint %}
 
 5\) If you have deployed previously, delete the `apps/block_scout_web/priv/static` folder. This removes static assets from the previous build. Take a look [Clear an instance from the previous deployment section](https://docs.blockscout.com/for-developers/manual-deployment/clear-instance-from-previous-deployment) to learn how to quickly delete other build assets.
