@@ -24,7 +24,6 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | `NETWORK` | ✅ | Environment variable for the main EVM network such as Ethereum Network or POA Network | POA Network | all |  |
 | `SUBNETWORK` | ✅ | Environment variable for the subnetwork such as Core or Sokol Network | Sokol Testnet | all |  |
-| `NETWORK_ICON` | ✅ | Environment variable for the main network icon or testnet icon. Two options are  `_test_network_icon.html` and `_network_icon.html` | `_test_network_icon.html` | all |  |
 | `LOGO` | ✅ | Environment variable for the header logo image location. The logo files names for different chains can be found [here](https://github.com/poanetwork/blockscout/tree/master/apps/block_scout_web/assets/static/images) | /images/blockscout\_logo.svg | all |  |
 | `LOGO_FOOTER` | ✅ | Environment variable for the footer logo image location. The logo files names for different chains can be found [here](https://github.com/poanetwork/blockscout/tree/master/apps/block_scout_web/assets/static/images) | /images/blockscout\_logo.svg |  |  |
 | `ETHEREUM_JSONRPC_VARIANT` | ✅ | Tells the application which RPC Client the node is using \(i.e. Geth, Parity, or Ganache\) \([See Client Settings for more info](client-settings-parity-geth-ganache.md)\) | parity | all |  |
