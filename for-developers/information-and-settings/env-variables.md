@@ -22,8 +22,8 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 
 | Variable | Required | Description | Default | Version | Need recompile |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| `NETWORK` | ✅ | Environment variable for the main EVM network such as Ethereum Network or POA Network | POA Network | all |  |
-| `SUBNETWORK` | ✅ | Environment variable for the subnetwork such as Core or Sokol Network | Sokol Testnet | all |  |
+| `NETWORK` | ✅ | Environment variable for the main EVM network such as Ethereum or POA | POA | all |  |
+| `SUBNETWORK` | ✅ | Environment variable for the subnetwork such as Core or Sokol Network. This will be displayed as selected in the chains list dropdown. | POA Sokol | all |  |
 | `LOGO` | ✅ | Environment variable for the header logo image location. The logo files names for different chains can be found [here](https://github.com/poanetwork/blockscout/tree/master/apps/block_scout_web/assets/static/images) | /images/blockscout\_logo.svg | all |  |
 | `LOGO_FOOTER` | ✅ | Environment variable for the footer logo image location. The logo files names for different chains can be found [here](https://github.com/poanetwork/blockscout/tree/master/apps/block_scout_web/assets/static/images) | /images/blockscout\_logo.svg |  |  |
 | `ETHEREUM_JSONRPC_VARIANT` | ✅ | Tells the application which RPC Client the node is using \(i.e. Geth, Parity, or Ganache\) \([See Client Settings for more info](client-settings-parity-geth-ganache.md)\) | parity | all |  |
