@@ -18,16 +18,8 @@ BlockScout requires a **full archive node** in order to import every state chang
 
 2\) `cd blockscout`
 
-3\) Setup default configurations:  
- `cp apps/explorer/config/dev.secret.exs.example apps/explorer/config/dev.secret.exs`
-
-`cp apps/block_scout_web/config/dev.secret.exs.example apps/block_scout_web/config/dev.secret.exs`
-
-{% hint style="info" %}
-In order to generate a new `secret_key_base` run `mix phx.gen.secret`
-{% endhint %}
-
-4\) Update `apps/explorer/config/dev.secret.exs`
+3\) Provide DB URL:  
+`export DATABASE_URL=postgresql://user:password@localhost:5432/blockscout` 
 
 * **Linux:** Update the database username and password configuration
 * **Mac:** Remove the `username` and `password` fields
@@ -37,9 +29,16 @@ In order to generate a new `secret_key_base` run `mix phx.gen.secret`
 _Example usage:_ Changing the default Postgres port from localhost:5432 if [Boxen](https://github.com/boxen/boxen) is installed.
 {% endhint %}
 
+4\) Generate a new secret\_key\_base for the DB by setting a corresponding ENV var:  
+`export SECRET_KEY_BASE=VTIB3uHDNbvrY0+60ZWgUoUBKDn9ppLR8MI4CpRz4/qLyEFs54ktJfaNT6Z221No`
+
+{% hint style="info" %}
+In order to generate a new `secret_key_base` run `mix phx.gen.secret`
+{% endhint %}
+
 5\) If you have deployed previously, delete the `apps/block_scout_web/priv/static` folder. This removes static assets from the previous build. Take a look [Clear an instance from the previous deployment section](https://docs.blockscout.com/for-developers/manual-deployment/clear-instance-from-previous-deployment) to learn how to quickly delete other build assets.
 
-6\) Set your environment variables as needed.
+6\) Set other environment variables as needed.
 
 CLI Example:
 
@@ -55,9 +54,9 @@ export ...
 The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client \(parity, geth etc\). [More information on client settings](../information-and-settings/client-settings-parity-geth-ganache.md).
 {% endhint %}
 
-7\) Install dependencies. `mix do deps.get, local.rebar --force, deps.compile, compile`
+7\) Install dependencies, compile dependencies and compile the application:`mix do deps.get, local.rebar --force, deps.compile, compile`
 
-8\) If not already running, start postgres: `pg_ctl -D /usr/local/var/postgres start`
+8\) If not already running, start Postgres: `pg_ctl -D /usr/local/var/postgres start`
 
 {% hint style="success" %}
 To check [postgres status](https://www.postgresql.org/docs/9.6/app-pg-isready.html): `pg_isready`
@@ -66,7 +65,7 @@ To check [postgres status](https://www.postgresql.org/docs/9.6/app-pg-isready.ht
 9\) Create and migrate database `mix do ecto.create, ecto.migrate`
 
 {% hint style="danger" %}
-If you have run previously, drop the previous database `mix do ecto.drop, ecto.create, ecto.migrate`  
+If you in dev environment and have run the application previously with the different blockchain, drop the previous database `mix do ecto.drop, ecto.create, ecto.migrate`  
 Be careful since it will delete all data from the DB. Don't execute it on production if you don't want to lose all the data!
 {% endhint %}
 
@@ -79,8 +78,7 @@ Be careful since it will delete all data from the DB. Don't execute it on produc
 
 12\) Enable HTTPS in development. The Phoenix server only runs with HTTPS.
 
-* `cd apps/block_scout_web`
-* `mix phx.gen.cert blockscout blockscout.local; cd -`
+* `cd apps/block_scout_web; mix phx.gen.cert blockscout blockscout.local; cd -`
 * Add blockscout and blockscout.local to your `/etc/hosts`
 
 ```text
