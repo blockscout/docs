@@ -22,8 +22,7 @@ BlockScout requires a **full archive node** in order to import every state chang
 `export DATABASE_URL=postgresql://user:password@localhost:5432/blockscout` 
 
 * **Linux:** Update the database username and password configuration
-* **Mac:** Remove the `username` and `password` fields
-* **Optional:** Set up a default configuration for testing. `cp apps/explorer/config/test.secret.exs.example apps/explorer/config/test.secret.exs` 
+* **Mac:** Use logged-in user name and empty password
 
 {% hint style="info" %}
 _Example usage:_ Changing the default Postgres port from localhost:5432 if [Boxen](https://github.com/boxen/boxen) is installed.

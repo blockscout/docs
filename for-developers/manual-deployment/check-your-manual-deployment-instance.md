@@ -1,4 +1,4 @@
-# Manual cleanning an instance from the previous deployment
+# Clear an instance from the previous deployment
 
 In order to delete build artifacts anyone can run `./rel/commands/clear_build.sh` form the root project directory. It will perform deletion of these folders:
 
