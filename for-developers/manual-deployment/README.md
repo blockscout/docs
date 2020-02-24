@@ -36,7 +36,7 @@ _Example usage:_ Changing the default Postgres port from localhost:5432 if [Boxe
 In order to generate a new `secret_key_base` run `mix phx.gen.secret`
 {% endhint %}
 
-5\) If you have deployed previously, delete the `apps/block_scout_web/priv/static` folder. This removes static assets from the previous build. Take a look [Clear an instance from the previous deployment section](https://docs.blockscout.com/for-developers/manual-deployment/clear-instance-from-previous-deployment) to learn how to quickly delete other build assets.
+5\) If you have deployed previously, remove static assets from the previous build `mix phx.digest.clean`.
 
 6\) Set other environment variables as needed.
 
