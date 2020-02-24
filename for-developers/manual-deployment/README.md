@@ -53,7 +53,7 @@ export ...
 The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client \(parity, geth etc\). [More information on client settings](../information-and-settings/client-settings-parity-geth-ganache.md).
 {% endhint %}
 
-7\) Install dependencies, compile dependencies and compile the application:`mix do deps.get, local.rebar --force, deps.compile, compile`
+7\) Install Mix dependencies, compile them and compile the application:`mix do deps.get, local.rebar --force, deps.compile, compile`
 
 8\) If not already running, start Postgres: `pg_ctl -D /usr/local/var/postgres start`
 
