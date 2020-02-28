@@ -4,10 +4,10 @@ The configuration variable `db_storage` can be used to define the amount of stor
 
 | Chain | Storage \(GiB\) |
 | :--- | :--- |
-| POA Core | 100 |
-| POA Sokol | 500 |
+| POA Core | 80 |
+| POA Sokol | 60 |
 | Ethereum Classic | 250 |
-| Ethereum Mainnet | 4500 |
+| Ethereum Mainnet | 3800 |
 | Kovan Testnet | 250 |
 | Ropsten Testnet | 5700 |
 | xDai | 25 |
