@@ -4,6 +4,8 @@
 BlockScout on AWS Marketplace is available here: [https://aws.amazon.com/marketplace/pp/B07Z78PC2F?qid=1576601748071](https://aws.amazon.com/marketplace/pp/B07Z78PC2F?qid=1576601748071)
 {% endhint %}
 
+![BlockScout BlockChain Explorer on AWS](../../.gitbook/assets/blockscout_on_aws.png)
+
 ## Installation instructions
 
 1. Check that you have the [necessary prerequisites](aws-marketplace-installation.md) \(including an [accessible node running a blockchain](aws-ec2-archive-node-setup.md)\)
@@ -14,8 +16,6 @@ BlockScout on AWS Marketplace is available here: [https://aws.amazon.com/marketp
 {% hint style="warning" %}
 If you are deploying **without the marketplace**, see the [Ansible Deployment](../ansible-deployment/) section for deployment instructions to the AWS cloud using Terraform.
 {% endhint %}
-
-![BlockScout BlockChain Explorer on AWS](../../.gitbook/assets/blockscout_on_aws.png)
 
 
 

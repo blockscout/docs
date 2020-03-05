@@ -52,6 +52,7 @@
   * [Memory Usage](for-developers/configuration-options/memory-usage.md)
 * [AWS Marketplace](for-developers/aws-marketplace/README.md)
   * [Overview](for-developers/aws-marketplace/overview.md)
+  * [CloudFormation Template](for-developers/aws-marketplace/cloudformation-template.md)
   * [Prerequisites & Install Parameters](for-developers/aws-marketplace/aws-marketplace-installation.md)
   * [Install from AWS Marketplace](for-developers/aws-marketplace/install-from-aws-marketplace.md)
   * [AWS EC2 archive node setup with Parity](for-developers/aws-marketplace/aws-ec2-archive-node-setup.md)
