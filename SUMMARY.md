@@ -88,6 +88,7 @@
 
 ## Resources
 
+* [Media kit](resources/media-kit.md)
 * [Forum](https://forum.poa.network/c/blockscout)
 * [Gitter Channel](https://gitter.im/poanetwork/blockscout)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
