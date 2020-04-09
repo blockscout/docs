@@ -30,10 +30,10 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `ETHEREUM_JSONRPC_HTTP_URL` | ✅ | The RPC endpoint used to fetch blocks, transactions, receipts, tokens. | localhost:8545 | all |  |
 | `ETHEREUM_JSONRPC_TRACE_URL` |  | The RPC endpoint specifically for the Geth/Parity client used by trace\_block and trace\_replayTransaction. This can be used to designate a tracing node. | localhost:8545 | all |  |
 | `ETHEREUM_JSONRPC_WS_URL` | ✅ | The WebSockets RPC endpoint used to subscribe to the `newHeads` subscription alerting the indexer to fetch new blocks. | ws://localhost:8546 | all |  |
-| `ETHEREUM_JSONRPC_TRANSPORT` |  | Specifies the transport for blockscout to connect to the Ethereum Node. Available transports are `http` and `ipc`. If `ipc` is selected, also set `IPC_PATH` variable | http | master |  |
+| `ETHEREUM_JSONRPC_TRANSPORT` |  | Specifies the transport for blockscout to connect to the Ethereum Node. Available transports are `http` and `ipc`. If `ipc` is selected, also set `IPC_PATH` variable | http | v3.1.0+ |  |
 | `IPC_PATH` |  | Path to the ipc file of the running node if IPC transport is chosen | \(empty\) | v2.1.1+ |  |
 | `NETWORK_PATH` |  | Used to set a network path other than what is displayed in the root directory. An example would be to add `/eth/mainnet/` to the root directory. | / | all |  |
-| `API_PATH` |  | PATH in API endpoint URL at API docs page | / | master |  |
+| `API_PATH` |  | PATH in API endpoint URL at API docs page | / | v3.1.0+ |  |
 | `SOCKET_ROOT` |  | Custom websocket path | \(empty\) | v3.0.0+ |  |
 | `BLOCKSCOUT_HOST` |  | Host for API endpoint examples | localhost | v2.1.0+ |  |
 | `BLOCKSCOUT_PROTOCOL` |  | Url scheme for blockscout | in prod env `https` is used, in dev env `http` is used | v2.1.0+ |  |
@@ -82,6 +82,12 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `WEBAPP_URL` |  | Link to web application instance, e.g. `protocol://host/path` | \(empty\) | v2.0.3+ |  |
 | `API_URL` |  | Link to API instance, e.g. `protocol://host/path` | \(empty\) | v2.0.3+ |  |
 | `SHOW_ADDRESS_MARKETCAP_PERCENTAGE` |  | Configures market cap percentage column on the top accounts page | `true` | v2.1.1+ |  |
-| `CHECKSUM_ADDRESS_HASHES` |  | If set to `true`, redirects to checksummed version of address hashes | true | master |  |
+| `CHECKSUM_ADDRESS_HASHES` |  | If set to `true`, redirects to checksummed version of address hashes | true | v3.1.0+ |  |
 | `CHECKSUM_FUNCTION` |  | Defines checksum address function. 2 available values: `rsk`, `eth` | eth | v2.0.1+ |  |
+| `DISABLE_EXCHANGE_RATES` |  | Disables or enables fetching of coin price from Coingecko API | false | master |  |
+| `SHOW_PRICE_CHART` |  | Disables or enables price and market cap of coin charts on the main page | false | master |  |
+| `SHOW_TXS_CHART` |  | Disables or enables txs count per day chart on the main page | false | master |  |
+| `HISTORY_FETCH_INTERVAL` |  | Interval in minutes how often to request count of txs per current day in order to display txs count per day chart on the main page | 60 | master |  |
+| `TXS_HISTORIAN_INIT_LAG` |  | The initial delay in minutes in txs count history fetching in order to display txs count per day history chart on the main page | 0 | master |  |
+| `TXS_STATS_DAYS_TO_COMPILE_AT_INIT` |  | Number of days for fetching of history of txs count per day in order to display it in txs count per day history chart on the main page | 365 | master |  |
 
