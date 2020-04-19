@@ -44,7 +44,7 @@ CLI Example:
 
 ```text
 export ETHEREUM_JSONRPC_VARIANT=parity
-export ETHEREUM_JSONPRC_HTTP_URL=http://localhost:8545
+export ETHEREUM_JSONRPC_HTTP_URL=http://localhost:8545
 export DATABASE_URL=postgresql://...
 export COIN=DAI
 export ... 
