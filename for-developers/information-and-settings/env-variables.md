@@ -41,6 +41,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `CHECK_ORIGIN` |  | Used to check the origin of requests when the origin header is present. It defaults to `false`. In case of true, it will check against the host value. | false | all |  |
 | `PORT` | ✅ | Default port the application runs on is 4000 | 4000 | all |  |
 | `COIN` | ✅ | The coin here is checked via the CoinGecko API to obtain USD prices on graphs and other areas of the UI | POA | all |  |
+| `COINGECKO_COIN_ID` |  | Explicitly set CoinGecko coin ID | \(empty\) | master |  |
 | `METADATA_CONTRACT` |  | This environment variable is specifically used by POA Network to obtain Validators information to display in the UI. | \(empty\) | all |  |
 | `VALIDATORS_CONTRACT` |  | This environment variable is specifically used by POA Network to obtain the list of current validators. | \(empty\) | all |  |
 | `KEYS_MANAGER_CONTRACT` |  | This environment variable is specifically used by POA Network to set KeysManager proxy contract in order to obtain payout key by mining key. This need to identify distributed reward to validator. | \(empty\) | master |  |
