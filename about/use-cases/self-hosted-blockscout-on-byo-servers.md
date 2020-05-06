@@ -27,12 +27,14 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ### CELO
 
-> **Project:** [Celo](https://celo.org/)  
+> **Project:** [Celo](https://celo.org/)
+>
+> **Mainnet RC1 explorer:**  
+> - [https://explorer.celo.org/](https://explorer.celo.org/)
+>
 > **Testnet Explorers:**   
 > - [https://alfajores-blockscout.celo-testnet.org/](https://alfajores-blockscout.celo-testnet.org/)  
 > - [https://baklava-blockscout.celo-testnet.org/](https://baklava-blockscout.celo-testnet.org/)  
-> **Mainnet RC1 explorer:**  
-> - [https://explorer.celo.org/](https://explorer.celo.org/)  
 > **Description:** Proof of stake blockchain optimized for mobile-based financial transactions.
 
 ![CELO Mainnet RC1 ](../../.gitbook/assets/image.png)
