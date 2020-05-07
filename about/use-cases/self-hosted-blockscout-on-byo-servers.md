@@ -89,3 +89,11 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![Elastos](../../.gitbook/assets/screenshot-2020-02-12-at-19.22.41.png)
 
+### ThePayCash
+
+> **Project:** ThePayCash  
+> **BlockScout url:** [https://explorer.thepay.cash/](https://explorer.thepay.cash/)  
+> **Description:** Stable coins payment network
+
+![ThePayCash](../../.gitbook/assets/screenshot-2020-05-07-at-21.27.00.png)
+
