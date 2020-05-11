@@ -41,10 +41,10 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `CHECK_ORIGIN` |  | Used to check the origin of requests when the origin header is present. It defaults to `false`. In case of true, it will check against the host value. | false | all |  |
 | `PORT` | ✅ | Default port the application runs on is 4000 | 4000 | all |  |
 | `COIN` | ✅ | The coin here is checked via the CoinGecko API to obtain USD prices on graphs and other areas of the UI | POA | all |  |
-| `COINGECKO_COIN_ID` |  | Explicitly set CoinGecko coin ID | \(empty\) | master |  |
+| `COINGECKO_COIN_ID` |  | Explicitly set CoinGecko coin ID | \(empty\) | v3.1.2+ |  |
 | `METADATA_CONTRACT` |  | This environment variable is specifically used by POA Network to obtain Validators information to display in the UI. | \(empty\) | all |  |
 | `VALIDATORS_CONTRACT` |  | This environment variable is specifically used by POA Network to obtain the list of current validators. | \(empty\) | all |  |
-| `KEYS_MANAGER_CONTRACT` |  | This environment variable is specifically used by POA Network to set KeysManager proxy contract in order to obtain payout key by mining key. This need to identify distributed reward to validator. | \(empty\) | master |  |
+| `KEYS_MANAGER_CONTRACT` |  | This environment variable is specifically used by POA Network to set KeysManager proxy contract in order to obtain payout key by mining key. This need to identify distributed reward to validator. | \(empty\) | v3.1.2+ |  |
 | `REWARDS_CONTRACT` |  | Emission rewards contract address. This env var is used only if `EMISSION_FORMAT` is set to `POA` | `0xeca443e8e1ab29971a45a9c57a6a9875701698a5` | v2.0.4+ |  |
 | `EMISSION_FORMAT` |  | Should be set to `POA` if you have block emission identical to POA Network. This env var is used only if `CHAIN_SPEC_PATH` is set | `DEFAULT` | v2.0.4+ |  |
 | `CHAIN_SPEC_PATH` |  | Chain specification path \(absolute file system path or url\) to import block emission reward ranges and genesis account balances from | \(empty\) | v2.0.4+ |  |
@@ -86,10 +86,11 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `SHOW_ADDRESS_MARKETCAP_PERCENTAGE` |  | Configures market cap percentage column on the top accounts page | `true` | v2.1.1+ |  |
 | `CHECKSUM_ADDRESS_HASHES` |  | If set to `true`, redirects to checksummed version of address hashes | true | v3.1.0+ |  |
 | `CHECKSUM_FUNCTION` |  | Defines checksum address function. 2 available values: `rsk`, `eth` | eth | v2.0.1+ |  |
-| `DISABLE_EXCHANGE_RATES` |  | Disables or enables fetching of coin price from Coingecko API | false | master |  |
-| `SHOW_PRICE_CHART` |  | Disables or enables price and market cap of coin charts on the main page | false | master |  |
-| `SHOW_TXS_CHART` |  | Disables or enables txs count per day chart on the main page | false | master |  |
-| `HISTORY_FETCH_INTERVAL` |  | Interval in minutes how often to request count of txs per current day in order to display txs count per day chart on the main page | 60 | master |  |
-| `TXS_HISTORIAN_INIT_LAG` |  | The initial delay in minutes in txs count history fetching in order to display txs count per day history chart on the main page | 0 | master |  |
-| `TXS_STATS_DAYS_TO_COMPILE_AT_INIT` |  | Number of days for fetching of history of txs count per day in order to display it in txs count per day history chart on the main page | 365 | master |  |
+| `DISABLE_EXCHANGE_RATES` |  | Disables or enables fetching of coin price from Coingecko API | false | v3.1.2+ |  |
+| `ENABLE_TX_STATS` |  | Disables or enables txs per day stats gathering | false | v3.1.2+ |  |
+| `SHOW_PRICE_CHART` |  | Disables or enables price and market cap of coin charts on the main page | false | v3.1.2+ |  |
+| `SHOW_TXS_CHART` |  | Disables or enables txs count per day chart on the main page | false | v3.1.2+ |  |
+| `HISTORY_FETCH_INTERVAL` |  | Interval in minutes how often to request count of txs per current day in order to display txs count per day chart on the main page | 60 | v3.1.2+ |  |
+| `TXS_HISTORIAN_INIT_LAG` |  | The initial delay in minutes in txs count history fetching in order to display txs count per day history chart on the main page | 0 | v3.1.2+ |  |
+| `TXS_STATS_DAYS_TO_COMPILE_AT_INIT` |  | Number of days for fetching of history of txs count per day in order to display it in txs count per day history chart on the main page | 365 | v3.1.2+ |  |
 
