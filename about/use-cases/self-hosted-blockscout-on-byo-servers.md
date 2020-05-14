@@ -97,3 +97,16 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![ThePayCash](../../.gitbook/assets/screenshot-2020-05-07-at-21.27.00.png)
 
+### AVA
+
+> **Project:** C-Chain AVA  
+> **Blockscout url:** [http://athexplorer.ava.network/](http://athexplorer.ava.network/)  
+> **Description:**   
+> AVA is  
+> - A heterogeneous network of custom, interoperable blockchains and custom validator sets  
+> - A platform for defining, launching and maintaining custom blockchains  
+> - A platform for creating and trading smart digital assets  
+> - A way to store and transfer value without a centralized entity
+
+![C-Chain AVA](../../.gitbook/assets/screenshot-2020-05-14-at-18.52.30.png)
+
