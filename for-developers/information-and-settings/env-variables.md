@@ -93,4 +93,4 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `HISTORY_FETCH_INTERVAL` |  | Interval in minutes how often to request count of txs per current day in order to display txs count per day chart on the main page | 60 | v3.1.2+ |  |
 | `TXS_HISTORIAN_INIT_LAG` |  | The initial delay in minutes in txs count history fetching in order to display txs count per day history chart on the main page | 0 | v3.1.2+ |  |
 | `TXS_STATS_DAYS_TO_COMPILE_AT_INIT` |  | Number of days for fetching of history of txs count per day in order to display it in txs count per day history chart on the main page | 365 | v3.1.2+ |  |
-
+| `POS_STAKING_CONTRACT` | | The address of POSDAO staking contract. When provided, enables staking DApp. ValidatorSet and BlockReward contract addresses are fetched using corresponding getters. | (empty) | master | |
