@@ -25,11 +25,11 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![Matic Alpha network](../../.gitbook/assets/matic.png)
 
-> **Project:** [Fuse Network](https://explorer.fusenet.io/)  
-> **BlockScout URL:** [https://explorer.fusenet.io/](https://explorer.fusenet.io/)  
+> **Project:** [Fuse Network](https://explorer.fuse.io/)  
+> **BlockScout URL:** [https://explorer.fuse.io](https://explorer.fuse.io)  
 > **Description:** Open-source platform for economic-based community creation.
 
-![Fuse Explorer](../../.gitbook/assets/fuse.png)
+![Fuse Dashboard](../../.gitbook/assets/fuse.io.png)
 
 
 

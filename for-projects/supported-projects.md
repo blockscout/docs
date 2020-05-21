@@ -61,7 +61,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"><a href="https://blockscout.com/etc/mordor">Kotti Testnet</a>
       </td>
-      <td style="text-align:left"><a href="https://explorer.fusenet.io/">Fuse Network</a>
+      <td style="text-align:left"><a href="https://explorer.fuse.io">Fuse Network</a>
       </td>
       <td style="text-align:left"><a href="http://athexplorer.ava.network/">Athereum Testnet</a>
       </td>
