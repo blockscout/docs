@@ -110,3 +110,16 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![C-Chain AVA](../../.gitbook/assets/screenshot-2020-05-14-at-18.52.30.png)
 
+### Energy Web
+
+> **Project:** Energy Web  
+> **Blockscout urls:   
+>    Mainnet:** [https://explorer.energyweb.org/](https://explorer.energyweb.org/)   
+>    **Testnet:** [https://volta-explorer.energyweb.org/](https://volta-explorer.energyweb.org/)  
+> **Description:** The ****Energy Web Chain is the world’s first open-source, enterprise blockchain platform tailored to the energy sector. Energy Web has become the industry’s leading blockchain partner and most-respected voice of authority on energy blockchain.
+
+![Energy Web](../../.gitbook/assets/energy-web.png)
+
+  
+****
+
