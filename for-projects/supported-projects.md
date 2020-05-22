@@ -83,7 +83,8 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"><a href="https://alpha-mainnet.explorer.matic.network">Matic</a>
       </td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://volta-explorer.energyweb.org/">Energy Web Volta</a>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"></td>
@@ -172,6 +173,15 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"><a href="https://blocks.ether1.wattpool.net/">Ether-1</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://explorer.energyweb.org/">Energy Web</a>
       </td>
       <td style="text-align:left"></td>
     </tr>
