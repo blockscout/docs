@@ -120,6 +120,11 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![Energy Web](../../.gitbook/assets/energy-web.png)
 
-  
-****
+### **Chiliz**
+
+> **Project:** Chiliz  
+> **Blockscout url:** [https://explorer.chiliz.com/](https://explorer.chiliz.com/)  
+> **Description:** The blockchain fintech provider for Sports & Entertainment
+
+![](../../.gitbook/assets/screenshot-2020-06-02-at-13.07.21.png)
 

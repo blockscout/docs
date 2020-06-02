@@ -186,7 +186,9 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
     </tr>
   </tbody>
-</table>{% hint style="info" %}
+</table>
+
+{% hint style="info" %}
 See a list of [current BlockScout versions for hosted projects](../about/use-cases/hosted-blockscout.md)
 {% endhint %}
 
