@@ -34,7 +34,7 @@ The Grafana dashboard may also be used for metrics display.
    3. Click "Load"
 6. View the dashboards. \(You will need to click-around and use BlockScout for the web-related metrics to show up.\)
 
-Example of dashboards:
+Examples of dashboards:
 
 ![](../../.gitbook/assets/screenshot-2020-06-09-at-11.20.20.png)
 
