@@ -15,17 +15,17 @@ description: Hosted Projects list as well as public and private chains using Blo
       </th>
       <th style="text-align:left"><b>ETC Cooperative Hosted *</b>
       </th>
-      <th style="text-align:left"><b>Self Hosted Chains </b>
+      <th style="text-align:left"><b>Self Hosted Chains</b>
       </th>
-      <th style="text-align:left"><b>Self-Hosted Testnets </b>
+      <th style="text-align:left"><b>Self-Hosted Testnets</b>
       </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left"><a href="https://blockscout.com/poa/core">POA Core Network</a>
+      <td style="text-align:left"><a href="https://blockscout.com/poa/core">POA</a>
       </td>
-      <td style="text-align:left"><a href="https://blockscout.com/eth/kovan">Kovan Testnet</a>
+      <td style="text-align:left"><a href="https://blockscout.com/lukso/l14">LUKSO L14 Testnet</a>
       </td>
       <td style="text-align:left"><a href="https://blockscout.com/artis/sigma1">ARTIS Sigma Mainnet</a>
       </td>
@@ -40,9 +40,9 @@ description: Hosted Projects list as well as public and private chains using Blo
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href="https://blockscout.com/poa/dai">xDai Chain</a>
+      <td style="text-align:left"><a href="https://blockscout.com/poa/dai">xDai</a>
       </td>
-      <td style="text-align:left"><a href="https://blockscout.com/lukso/l14">LUKSO L14 Testnet</a>
+      <td style="text-align:left"><a href="https://blockscout.com/poa/sokol">POA Sokol Testnet</a>
       </td>
       <td style="text-align:left"><a href="https://blockscout.com/artis/tau1">ARTIS Tau Testnet</a>
       </td>
@@ -56,24 +56,13 @@ description: Hosted Projects list as well as public and private chains using Blo
     <tr>
       <td style="text-align:left"><a href="https://blockscout.com/rsk/mainnet">RSK</a>
       </td>
-      <td style="text-align:left"><a href="https://blockscout.com/poa/sokol">POA Sokol Testnet</a>
-      </td>
+      <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"><a href="https://blockscout.com/etc/mordor">Kotti Testnet</a>
       </td>
       <td style="text-align:left"><a href="https://explorer.fuse.io">Fuse Network</a>
       </td>
-      <td style="text-align:left"><a href="http://athexplorer.ava.network/">Athereum Testnet</a>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://blockexplorer.oasiscloud.io/">Oasis Labs</a>
-      </td>
-      <td style="text-align:left"><a href="https://blockscout.noordung.fairdatasociety.org/">Fair Data Society</a>
+      <td style="text-align:left"><a href="https://volta-explorer.energyweb.org/">Energy Web Volta</a>
       </td>
     </tr>
     <tr>
@@ -83,8 +72,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"><a href="https://alpha-mainnet.explorer.matic.network">Matic</a>
       </td>
-      <td style="text-align:left"><a href="https://volta-explorer.energyweb.org/">Energy Web Volta</a>
-      </td>
+      <td style="text-align:left"></td>
     </tr>
     <tr>
       <td style="text-align:left"></td>
@@ -109,24 +97,6 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://www.safechain.io/">SafeChain</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://springrole.com/">SpringChain</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
       <td style="text-align:left"><a href="https://tenda.network">Tenda</a>
       </td>
       <td style="text-align:left"></td>
@@ -137,15 +107,6 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"><a href="https://basechain-blockexplorer.dappchains.com/">Loom</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://gojoychain.com/">GoJoy Chain</a>
       </td>
       <td style="text-align:left"></td>
     </tr>
@@ -191,6 +152,15 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"><a href="https://scan.morpher.com/">Morpher</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="http://athexplorer.ava.network/">AVA</a>
       </td>
       <td style="text-align:left"></td>
     </tr>
