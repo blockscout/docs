@@ -70,7 +70,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://alpha-mainnet.explorer.matic.network">Matic</a>
+      <td style="text-align:left"><a href="https://explorer.matic.network/">Matic</a>
       </td>
       <td style="text-align:left"></td>
     </tr>
