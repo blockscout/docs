@@ -19,8 +19,8 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 ![Pacific Ocean Explorer](../../.gitbook/assets/ocean_protocol.png)
 
 > **Project:** [Matic](https://matic.network/)  
-> **Mainnet Explorer:**[https://alpha-mainnet.explorer.matic.network](https://alpha-mainnet.explorer.matic.network)  
-> **Testnet Explorer:** [https://explorer.testnet2.matic.network](https://explorer.testnet2.matic.network/)  
+> **Mainnet Explorer:** [https://explorer.matic.network/](https://explorer.matic.network/)  
+> **Testnet Explorers:** [https://explorer.testnet2.matic.network](https://explorer.testnet2.matic.network/) and [https://alpha-mainnet.explorer.matic.network](https://alpha-mainnet.explorer.matic.network)  
 > **Description:** Sidechain scaling solution based on the Plasma framework.
 
 ![Matic Alpha network](../../.gitbook/assets/matic.png)
