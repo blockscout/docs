@@ -95,5 +95,3 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `TXS_STATS_DAYS_TO_COMPILE_AT_INIT` |  | Number of days for fetching of history of txs count per day in order to display it in txs count per day history chart on the main page | 365 | v3.1.2+ |  |
 | `COIN_BALANCE_HISTORY_DAYS` |  | Number of days to consider at coin balance history chart | 10 | v3.1.3+ |  |
 
-
-

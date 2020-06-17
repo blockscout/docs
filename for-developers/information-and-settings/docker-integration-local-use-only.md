@@ -1,7 +1,7 @@
 # Docker Integration \(Local Use Only\)
 
 {% hint style="warning" %}
-This integration is not production ready - use locally for now. 
+This integration is not production ready - use locally for now.
 {% endhint %}
 
 ## Usage
@@ -23,14 +23,14 @@ make start
 Blockscout will be available on `localhost:4000`
 
 {% hint style="info" %}
-**mac/Windows**: Docker provides a special URL -  `host.docker.internal` - that is available in the container and routed to your local machine. 
+**mac/Windows**: Docker provides a special URL - `host.docker.internal` - that is available in the container and routed to your local machine.
 
 **Linux:** Docker is starting using `--network=host` and all services are available on `localhost`
 {% endhint %}
 
 #### Migrations
 
-By default, `Makefile` completes migrations on `PostgreSQL` creation. 
+By default, `Makefile` completes migrations on `PostgreSQL` creation.
 
 You can also run migrations manually using the `make migrate` command.
 
@@ -58,11 +58,9 @@ Do not use `sudo with make start` command since
 otherwise, application inside the container cannot read environment variables including archive node's RPC/WebSockets endpoints
 {% endhint %}
 
-
-
 **Available options are:**
 
-* `parity` - Parity JSON RPC (it works fine for Nethermind client as well) \(**Default**\)
+* `parity` - Parity JSON RPC \(works for OpenEthereum & Nethermind client as well\) \(**Default**\)
 * `geth` - Geth JSON RPC
 * `besu` - Hyperledger Besu RPC
 * `ganache` - Ganache JSON RPC
