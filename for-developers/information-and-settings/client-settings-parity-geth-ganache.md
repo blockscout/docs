@@ -2,11 +2,12 @@
 
 ## Supported Clients
 
-BlockScout currently supports `Parity`, `Geth`, and `Ganache` clients. To define the node variant, it's advised to define the `ETHEREUM_JSONRPC_VARIANT` environment variable. Correct values include:
+BlockScout currently supports Parity, Geth, Nethermind, Hyperledger Besu, and Ganache clients. To define the node variant, it's advised to define the `ETHEREUM_JSONRPC_VARIANT` environment variable. Correct values include:
 
-1. `parity` \(default\)
+1. `parity` the same for Parity and Nethermind \(default\)
 2. `geth`
-3. `ganache`
+3. `besu`
+5. `ganache`
 
 {% hint style="info" %}
 BlockScout currently requires a full archive node in order to import every state change for every address on the target network.

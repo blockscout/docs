@@ -62,13 +62,14 @@ otherwise, application inside the container cannot read environment variables in
 
 **Available options are:**
 
-* `parity` - Parity JSON RPC \(**Default**\)
+* `parity` - Parity JSON RPC (it works fine for Nethermind client as well) \(**Default**\)
 * `geth` - Geth JSON RPC
+* `besu` - Hyperledger Besu RPC
 * `ganache` - Ganache JSON RPC
 
 | Variable | Description | Default value |
 | :--- | :--- | :--- |
-| `ETHEREUM_JSONRPC_VARIANT` | Variant of your JSON RPC service: `parity`, `geth` or `ganache` | `parity` |
+| `ETHEREUM_JSONRPC_VARIANT` | Variant of your JSON RPC service: `parity`, `geth`, `besu` or `ganache` | `parity` |
 | `ETHEREUM_JSONRPC_HTTP_URL` | HTTP JSON RPC URL Only for `geth` or `ganache` variant | See below - based on JSONRPC variant |
 | `ETHEREUM_JSONRPC_WS_URL` | WS JSON RPC url | See below - based on JSONRPC variant |
 | `ETHEREUM_JSONRPC_TRACE_URL` | Trace URL **Only for `parity` variant** | `http://localhost:8545` |
@@ -85,11 +86,13 @@ otherwise, application inside the container cannot read environment variables in
 
 * For `parity` - `http://localhost:8545`
 * For `geth` - `https://mainnet.infura.io/8lTvJTKmHPCHazkneJsY`
+* For `besu` - `http://localhost:8545`
 * For `ganache` - `http://localhost:7545`
 
 `ETHEREUM_JSONRPC_WS_URL` default values:
 
 * For `parity` - `ws://localhost:8546`
 * For `geth` - `wss://mainnet.infura.io/8lTvJTKmHPCHazkneJsY/ws`
+* For `besu` - `ws://localhost:8546`
 * For `ganache` - `ws://localhost:7545`
 
