@@ -60,6 +60,7 @@
   * [Customizing CSS](for-developers/aws-marketplace/customizing-css.md)
 * [Testing](for-developers/testing.md)
 * [Contributing to BlockScout](for-developers/contributing-to-blockscout.md)
+* [Db schema](for-developers/db-schema.md)
 
 ## For users
 
