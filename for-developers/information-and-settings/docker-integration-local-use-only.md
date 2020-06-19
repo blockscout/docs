@@ -94,3 +94,19 @@ otherwise, application inside the container cannot read environment variables in
 * For `besu` - `ws://localhost:8546`
 * For `ganache` - `ws://localhost:7545`
 
+
+## Known issues
+
+### Windows Makefile error
+
+C:\Program Files\Docker\Docker\resources\bin\docker.exe: Error response from daemon: OCI runtime create failed: container_linux.go:349: starting container process caused "exec: "C:/Program Files/Git/usr/bin/sh": stat C:/Program Files/Git/usr/bin/sh: no such file or directory": unknown.
+make: *** [Makefile:265: start] Error 127
+
+
+On receiving this error you can change the Makefile and make the following adjustments to `docker\Makefile`:
+
+* From: `$(DOCKER_IMAGE) /bin/sh -c "echo $$MIX_ENV && mix do ecto.create, ecto.migrate"`
+* To: `$(DOCKER_IMAGE) //bin/sh -c "echo $$MIX_ENV && mix do ecto.create, ecto.migrate"`
+
+* From: `$(DOCKER_IMAGE) /bin/sh -c "mix phx.server"`
+* To: `$(DOCKER_IMAGE) //bin/sh -c "mix phx.server"`
