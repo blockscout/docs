@@ -16,12 +16,12 @@ The BlockScout team provides hosting for the following EVM chains
 
 | Instance | Type | URL | Version |
 | :--- | :--- | :--- | :--- |
-| Ethereum | mainnet | [https://blockscout.com/eth/mainnet/](https://blockscout.com/eth/mainnet/) | v3.1.2 |
-| POA | mainnet | [https://blockscout.com/poa/core](https://blockscout.com/poa/core) | v3.1.3 |
-| xDai | mainnet | [https://blockscout.com/poa/xdai](https://blockscout.com/poa/xdai) | v3.1.3 |
-| Sokol | testnet | [https://blockscout.com/poa/sokol](https://blockscout.com/poa/sokol) | v3.1.3 |
-| Lukso L14 | testnet | [https://blockscout.com/lukso/l14](https://blockscout.com/lukso/l14) | v3.1.2 |
-| RSK | mainnet | [https://blockscout.com/rsk/mainnet](https://blockscout.com/rsk/mainnet) | v3.1.2 |
+| Ethereum | mainnet | [https://blockscout.com/eth/mainnet/](https://blockscout.com/eth/mainnet/) | v3.1.3 |
+| POA | mainnet | [https://blockscout.com/poa/core](https://blockscout.com/poa/core) | v3.2.0 |
+| xDai | mainnet | [https://blockscout.com/poa/xdai](https://blockscout.com/poa/xdai) | v3.2.0 |
+| Sokol | testnet | [https://blockscout.com/poa/sokol](https://blockscout.com/poa/sokol) | v3.2.0 |
+| Lukso L14 | testnet | [https://blockscout.com/lukso/l14](https://blockscout.com/lukso/l14) | v3.1.3 |
+| RSK | mainnet | [https://blockscout.com/rsk/mainnet](https://blockscout.com/rsk/mainnet) | v3.1.3 |
 | Classic\* | mainnet | [https://blockscout.com/etc/mainnet/](https://blockscout.com/etc/mainnet/) | v3.1.1 |
 
 {% hint style="info" %}
