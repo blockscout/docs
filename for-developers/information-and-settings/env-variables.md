@@ -50,7 +50,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `CHAIN_SPEC_PATH` |  | Chain specification path \(absolute file system path or url\) to import block emission reward ranges and genesis account balances from | \(empty\) | v2.0.4+ |  |
 | `SUPPLY_MODULE` |  | This environment variable is used by the xDai Chain/RSK in order to tell the application how to calculate the total supply of the chain. Available values are `TokenBridge`, `RSK` | \(empty\) | all |  |
 | `SOURCE_MODULE` |  | This environment variable is used to calculate the exchange rate and is specifically used by the xDai Chain. Available value is `TokenBridge` | \(empty\) | all |  |
-| `DATABASE_URL` |  | Production environment variable to define the Database endpoint. | \(empty\) | all |  |
+| `DATABASE_URL` | ✅ | Variable to define the Database endpoint. | \(empty\) | all |  |
 | `POOL_SIZE` |  | Production environment variable to define the number of database connections allowed. | 20 | all |  |
 | `ECTO_USE_SSL` |  | Production environment variable to use SSL on Ecto queries. | true | all |  |
 | `DATADOG_HOST` |  | Host configuration setting for [Datadog integration](https://docs.datadoghq.com/integrations/) | \(empty\) | all |  |
