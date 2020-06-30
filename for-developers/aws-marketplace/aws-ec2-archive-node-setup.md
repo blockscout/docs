@@ -27,7 +27,7 @@ Any chain requires an amount of storage capable of storing all archive data. For
    **Example:** `ssh -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com`  
 
 3. Install Parity `bash <(curl https://get.parity.io -kL)` 
-4. Create a config file called node.toml \(**see below for config file specs**\) and edit accordingly `vim node.toml` 
+4. Create a config file called node.toml \(**see below for config file specs including xDai archive node specs**\) and edit accordingly `vim node.toml` 
 5. Connect and Sync an archive node with the xDai Chain using the config file. `parity --config node.toml` 
 6. Find your EC2 url to connect with BlockScout: Go to **EC2 Dashboard -&gt; Instances -&gt;** _**corresponding archive node instance**_ and record the ip address. When configuring BlockScout you will use this address along with port 8545 to connect via the EthereumJsonRPCHttpURL parameter.
 
