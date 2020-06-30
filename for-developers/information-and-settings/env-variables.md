@@ -47,7 +47,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `KEYS_MANAGER_CONTRACT` |  | This environment variable is specifically used by POA Network to set KeysManager proxy contract in order to obtain payout key by mining key. This need to identify distributed reward to validator. | \(empty\) | v3.1.2+ |  |
 | `REWARDS_CONTRACT` |  | Emission rewards contract address. This env var is used only if `EMISSION_FORMAT` is set to `POA` | `0xeca443e8e1ab29971a45a9c57a6a9875701698a5` | v2.0.4+ |  |
 | `EMISSION_FORMAT` |  | Should be set to `POA` if you have block emission identical to POA Network. This env var is used only if `CHAIN_SPEC_PATH` is set | `DEFAULT` | v2.0.4+ |  |
-| `CHAIN_SPEC_PATH` |  | Chain specification path \(absolute file system path or url\) to import block emission reward ranges and genesis account balances from | \(empty\) | v2.0.4+ |  |
+| `CHAIN_SPEC_PATH` |  | Chain specification path \(absolute file system path or url\) to import block emission reward ranges and genesis account balances from. Geth- and Parity-style specs are supported. | \(empty\) | v2.0.4+ |  |
 | `SUPPLY_MODULE` |  | This environment variable is used by the xDai Chain/RSK in order to tell the application how to calculate the total supply of the chain. Available values are `TokenBridge`, `RSK` | \(empty\) | all |  |
 | `SOURCE_MODULE` |  | This environment variable is used to calculate the exchange rate and is specifically used by the xDai Chain. Available value is `TokenBridge` | \(empty\) | all |  |
 | `DATABASE_URL` | ✅ | Variable to define the Database endpoint. | \(empty\) | all |  |
