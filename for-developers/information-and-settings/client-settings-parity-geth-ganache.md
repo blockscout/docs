@@ -49,7 +49,7 @@ variant =
   end
 ```
 
-## Parity Client
+## OpenEthereum Client
 
 ```text
 --jsonrpc-interface all --jsonrpc-apis web3,eth,net,parity,pubsub,traces --ws-interface all --fat-db=on --pruning=archive --ws-apis all --ws-origins all --ws-hosts all

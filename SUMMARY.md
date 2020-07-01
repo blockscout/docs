@@ -55,7 +55,7 @@
   * [CloudFormation Template](for-developers/aws-marketplace/cloudformation-template.md)
   * [Prerequisites & Install Parameters](for-developers/aws-marketplace/aws-marketplace-installation.md)
   * [Install from AWS Marketplace](for-developers/aws-marketplace/install-from-aws-marketplace.md)
-  * [AWS EC2 archive node setup with Parity](for-developers/aws-marketplace/aws-ec2-archive-node-setup.md)
+  * [AWS EC2 archive node setup with OpenEthereum \(formerly Parity\)](for-developers/aws-marketplace/aws-ec2-archive-node-setup.md)
   * [Updating & Redeploying in AWS](for-developers/aws-marketplace/updating-and-redeploying-in-aws.md)
   * [Customizing CSS](for-developers/aws-marketplace/customizing-css.md)
 * [Testing](for-developers/testing.md)
