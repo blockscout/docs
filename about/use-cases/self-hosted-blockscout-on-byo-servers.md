@@ -100,7 +100,7 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 ### AVA
 
 > **Project:** C-Chain AVA  
-> **Blockscout url:** [http://athexplorer.ava.network/](http://athexplorer.ava.network/)  
+> **Blockscout url:** [http://cchain.avaexplorer.com/](http://cchain.avaexplorer.com/)  
 > **Description:**   
 > AVA is  
 > - A heterogeneous network of custom, interoperable blockchains and custom validator sets  
