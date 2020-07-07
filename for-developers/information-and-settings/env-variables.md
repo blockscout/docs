@@ -74,6 +74,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `ADDRESS_COUNT_CACHE_PERIOD` |  | time to live of cache in seconds. This var was introduced in [\#2822](https://github.com/poanetwork/blockscout/pull/2822) | 60 \* 60 _\*_ 2 | v2.1.1+ |  |
 | `ADDRESS_SUM_CACHE_PERIOD` |  | time to live of addresses sum \(except burn address\) cache in seconds. This var was introduced in [\#2862](https://github.com/poanetwork/blockscout/pull/2862) | 3600 | v2.1.1+ |  |
 | `ADDRESS_WITH_BALANCES`   `_UPDATE_INTERVAL` |  | Interval in seconds to restart the task, which calculates addresses with balances. | 30 \* 60 | v1.3.9+ |  |
+| `TOKEN_METADATA_UPDATE_INTERVAL` |  | Interval in seconds to restart the task which updates token metadata | 60 \* 60 \* 24 _\*_ 2 | v2.0.1+ |  |
 | `AVERAGE_BLOCK_CACHE_PERIOD` |  | Update of average block period cache, in seconds | 30 minutes | v2.0.2+ |  |
 | `MARKET_HISTORY_CACHE_PERIOD` |  | Update of market history cache, in seconds | 6 hours | v2.0.2+ |  |
 | `ALLOWED_EVM_VERSIONS` |  | the comma-separated list of allowed EVM versions for contracts verification. This var was introduced in [\#1964](https://github.com/poanetwork/blockscout/pull/1964) | "homestead, tangerineWhistle, spuriousDragon, byzantium, constantinople, petersburg" | v2.0.0+ |  |
