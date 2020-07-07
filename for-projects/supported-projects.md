@@ -160,7 +160,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="http://athexplorer.ava.network/">AVA</a>
+      <td style="text-align:left"><a href="http://cchain.avaexplorer.com/">AVA</a>
       </td>
       <td style="text-align:left"></td>
     </tr>
