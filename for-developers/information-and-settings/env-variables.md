@@ -95,4 +95,5 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `TXS_HISTORIAN_INIT_LAG` |  | The initial delay in minutes in txs count history fetching in order to display txs count per day history chart on the main page | 0 | v3.1.2+ |  |
 | `TXS_STATS_DAYS_TO_COMPILE_AT_INIT` |  | Number of days for fetching of history of txs count per day in order to display it in txs count per day history chart on the main page | 365 | v3.1.2+ |  |
 | `COIN_BALANCE_HISTORY_DAYS` |  | Number of days to consider at coin balance history chart | 10 | v3.1.3+ |  |
-
+| `APPS_MENU` |  | true/false. If true, Apps navigation menu item appears | false | master |  |
+| `EXTERNAL_APPS` |  | Array of external apps to display in Apps menun item. This var was introduced in this PR [\#3184](https://github.com/poanetwork/blockscout/pull/3184) and looks like an array of JSON objects. | \(empty\) | master |  |
