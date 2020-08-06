@@ -46,7 +46,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `VALIDATORS_CONTRACT` |  | This environment variable is specifically used by POA Network to obtain the list of current validators. | \(empty\) | all |  |
 | `KEYS_MANAGER_CONTRACT` |  | This environment variable is specifically used by POA Network to set KeysManager proxy contract in order to obtain payout key by mining key. This need to identify distributed reward to validator. | \(empty\) | v3.1.2+ |  |
 | `REWARDS_CONTRACT` |  | Emission rewards contract address. This env var is used only if `EMISSION_FORMAT` is set to `POA` | `0xeca443e8e1ab29971a45a9c57a6a9875701698a5` | v2.0.4+ |  |
-| `TOKEN_BRIDGE_CONTRACT` |  | Token bridge proxy contract. For \`TokennBridge\` supply module. | `0x7301CFA0e1756B71869E93d4e4Dca5c7d0eb0AA6` | v1.3.2+ |  |
+| `TOKEN_BRIDGE_CONTRACT` |  | Token bridge proxy contract. For \`TokenBridge\` supply module. | `0x7301CFA0e1756B71869E93d4e4Dca5c7d0eb0AA6` | v1.3.2+ |  |
 | `EMISSION_FORMAT` |  | Should be set to `POA` if you have block emission identical to POA Network. This env var is used only if `CHAIN_SPEC_PATH` is set | `DEFAULT` | v2.0.4+ |  |
 | `CHAIN_SPEC_PATH` |  | Chain specification path \(absolute file system path or url\) to import block emission reward ranges and genesis account balances from. Geth- and Parity-style specs are supported. | \(empty\) | v2.0.4+ |  |
 | `SUPPLY_MODULE` |  | This environment variable is used by the xDai Chain/RSK in order to tell the application how to calculate the total supply of the chain. Available values are `TokenBridge`, `RSK` | \(empty\) | all |  |
@@ -62,7 +62,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `HEART_COMMAND` |  | Production environment variable to restart the application in the event of a crash. | systemctl restart explorer.service | all |  |
 | `BLOCKSCOUT_VERSION` |  | Added to the footer to signify the current BlockScout version. | \(empty\) | v1.3.4+ |  |
 | `RELEASE_LINK` |  | The link to Blockscout release notes in the footer. | https: //github.com/poanetwork/  blockscout/releases/   tag/${BLOCKSCOUT\_VERSION} | v1.3.5+ |  |
-| `ELIXIR_VERSION` |  | Elixir version to install on the node before Blockscout deploy. It is used in bash script inn Terraform / Ansible deployment script | \(empty\) | all |  |
+| `ELIXIR_VERSION` |  | Elixir version to install on the node before Blockscout deploy. It is used in bash script in Terraform / Ansible deployment script | \(empty\) | all |  |
 | `BLOCK_TRANSFORMER` |  | Transformer for blocks: base or clique. | base | v1.3.4+ |  |
 | `GRAPHIQL_TRANSACTION` |  | Default transaction hash in a sample query to GraphiQL. | \(empty\) | v1.2.0+ | ✅ |
 | `FIRST_BLOCK` |  | The block number, where indexing begins from. | 0 | v1.3.8+ |  |
