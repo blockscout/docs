@@ -128,3 +128,11 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![](../../.gitbook/assets/screenshot-2020-06-02-at-13.07.21.png)
 
+### IDChain
+
+> **Project:** IDChain  
+> **Blockscout url:** [https://explorer.idchain.one/](https://explorer.idchain.one/)  
+> **Description:** IDChain is a fork of the [official Golang implementation of the Ethereum protocol](https://github.com/ethereum/go-ethereum) with a small change to burn gas fees instead of awarding them to the block sealers.
+
+![](../../.gitbook/assets/screenshot-2020-08-13-at-17.15.02.png)
+
