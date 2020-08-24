@@ -85,7 +85,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `DISABLE_INDEXER` |  | If `true`, indexer application doesn't run | `false` | v2.0.3+ | ✅ |
 | `WEBAPP_URL` |  | Link to web application instance, e.g. `protocol://host/path` | \(empty\) | v2.0.3+ |  |
 | `API_URL` |  | Link to API instance, e.g. `protocol://host/path` | \(empty\) | v2.0.3+ |  |
-| `WOBSERVER_ENABLED` |  | If `true` enables wobserver interface | \(empty\) | master | ✅ |
+| `WOBSERVER_ENABLED` |  | If `true` enables wobserver interface | \(empty\) | v3.3.2+ | ✅ |
 | `SHOW_ADDRESS_MARKETCAP_PERCENTAGE` |  | Configures market cap percentage column on the top accounts page | `true` | v2.1.1+ |  |
 | `CHECKSUM_ADDRESS_HASHES` |  | If set to `true`, redirects to checksummed version of address hashes | true | v3.1.0+ |  |
 | `CHECKSUM_FUNCTION` |  | Defines checksum address function. 2 available values: `rsk`, `eth` | eth | v2.0.1+ |  |
@@ -97,7 +97,8 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `TXS_HISTORIAN_INIT_LAG` |  | The initial delay in minutes in txs count history fetching in order to display txs count per day history chart on the main page | 0 | v3.1.2+ |  |
 | `TXS_STATS_DAYS_TO_COMPILE_AT_INIT` |  | Number of days for fetching of history of txs count per day in order to display it in txs count per day history chart on the main page | 365 | v3.1.2+ |  |
 | `COIN_BALANCE_HISTORY_DAYS` |  | Number of days to consider at coin balance history chart | 10 | v3.1.3+ |  |
-| `APPS_MENU` |  | true/false. If true, Apps navigation menu item appears | false | master |  |
-| `EXTERNAL_APPS` |  | An array of external apps to display in Apps menu item. This var was introduced in this PR [\#3184](https://github.com/poanetwork/blockscout/pull/3184) and looks like an array of JSON objects. | \(empty\) | master |  |
-|  `MULTI_TOKEN_BRIDGE_MEDIATOR` |  | An address of AMB mediator for multi tokens. Providing this address enables bridged tokens functionality: bridged status and link to the original token in the foreign chain. | \(empty\) | master |  |
+| `APPS_MENU` |  | true/false. If true, Apps navigation menu item appears | false | v3.3.1+ |  |
+| `EXTERNAL_APPS` |  | An array of external apps to display in Apps menu item. This var was introduced in this PR [\#3184](https://github.com/poanetwork/blockscout/pull/3184) and looks like an array of JSON objects. | \(empty\) | v3.3.1+ |  |
+|  `MULTI_TOKEN_BRIDGE_MEDIATOR` |  | An address of AMB mediator for multi tokens. Providing this address enables bridged tokens functionality: bridged status and link to the original token in the foreign chain. | \(empty\) | v3.3.2+ |  |
+| `GAS_PRICE` |  | Gas price in Gwei. If the variable is present, gas price displays at the main page | \(empty\) | v3.3.2+ |  |
 
