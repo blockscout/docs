@@ -144,3 +144,11 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![](../../.gitbook/assets/screenshot-2020-08-31-at-08.34.34.png)
 
+### Binance smart chain testnet
+
+> **Project:** Binance smart chain testnet  
+> **Blockscout url:** [https://explorer.binance.org/smart-testnet](https://explorer.binance.org/smart-testnet)  
+> **Description:** A Parallel Binance Chain to Enable Smart ContractsA Parallel Binance Chain to Enable Smart Contracts.
+
+![](../../.gitbook/assets/screenshot-2020-08-31-at-10.33.45.png)
+
