@@ -136,3 +136,11 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![](../../.gitbook/assets/screenshot-2020-08-13-at-17.15.02.png)
 
+### Velas
+
+> **Project:** Velas  
+> **Blockscout url:** [https://explorer.velas.com/](https://explorer.velas.com/)  
+> **Description:** Velas blockchain uses AI-enhanced DPOS \(AIDPOS\) consensus for high volume transactions processing that reportedly does not come at the expense of decentralization and security.
+
+![](../../.gitbook/assets/screenshot-2020-08-31-at-08.34.34.png)
+
