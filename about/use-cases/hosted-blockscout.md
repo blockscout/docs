@@ -21,7 +21,7 @@ The BlockScout team provides hosting for the following EVM chains
 | qDai | testnet | [https://blockscout.com/poa/qdai](%20%20https://blockscout.com/poa/qdai) | v3.3.2 |
 | Sokol | testnet | [https://blockscout.com/poa/sokol](https://blockscout.com/poa/sokol) | v3.3.2 |
 | Lukso L14 | testnet | [https://blockscout.com/lukso/l14](https://blockscout.com/lukso/l14) | v3.3.1 |
-| RSK | mainnet | [https://blockscout.com/rsk/mainnet](https://blockscout.com/rsk/mainnet) | v3.3.1 |
+| RSK | mainnet | [https://blockscout.com/rsk/mainnet](https://blockscout.com/rsk/mainnet) | v3.3.2 |
 | Classic\* | mainnet | [https://blockscout.com/etc/mainnet/](https://blockscout.com/etc/mainnet/) | v3.1.1 |
 
 {% hint style="info" %}
