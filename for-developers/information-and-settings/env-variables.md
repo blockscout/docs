@@ -101,4 +101,5 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `EXTERNAL_APPS` |  | An array of external apps to display in Apps menu item. This var was introduced in this PR [\#3184](https://github.com/poanetwork/blockscout/pull/3184) and looks like an array of JSON objects. | \(empty\) | v3.3.1+ |  |
 |  `MULTI_TOKEN_BRIDGE_MEDIATOR` |  | An address of AMB mediator for multi tokens. Providing this address enables bridged tokens functionality: bridged status and link to the original token in the foreign chain. | \(empty\) | v3.3.2+ |  |
 | `GAS_PRICE` |  | Gas price in Gwei. If the variable is present, gas price displays at the main page | \(empty\) | v3.3.2+ |  |
+| `FOREIGN_JSON_RPC` |  | JSON RPC endpoint to the foreign chain in order to get metadata of bridged through Omni-bridge token. It was introduced in this PR [\#3282](https://github.com/poanetwork/blockscout/pull/3282) | \(empty\) | master |  |
 
