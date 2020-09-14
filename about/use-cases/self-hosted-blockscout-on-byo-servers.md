@@ -100,7 +100,7 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 ### AVA
 
 > **Project:** C-Chain AVA  
-> **Blockscout url:** [http://cchain.avaexplorer.com/](http://cchain.avaexplorer.com/)  
+> **Blockscout url:** [https://cchain.explorer.avax.network/](https://cchain.explorer.avax.network/)  
 > **Description:**   
 > AVA is  
 > - A heterogeneous network of custom, interoperable blockchains and custom validator sets  
@@ -108,7 +108,7 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 > - A platform for creating and trading smart digital assets  
 > - A way to store and transfer value without a centralized entity
 
-![C-Chain AVA](../../.gitbook/assets/screenshot-2020-05-14-at-18.52.30.png)
+![](../../.gitbook/assets/screenshot-2020-09-14-at-21.09.41.png)
 
 ### Energy Web
 
