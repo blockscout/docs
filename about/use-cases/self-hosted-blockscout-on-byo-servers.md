@@ -152,3 +152,11 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![](../../.gitbook/assets/screenshot-2020-08-31-at-10.33.45.png)
 
+### Energi
+
+> **Project:** Energi  
+> **Blockscout url:** [https://explorer.energi.network/](https://explorer.energi.network/)  
+> **Description:** Energi \(NRG\) is a next-generation Proof of Stake \(PoS\) cryptocurrency that combines smart contract capabilities, decentralized governance, and a self-funding treasury.
+
+![](../../.gitbook/assets/screenshot-2020-09-14-at-15.40.32.png)
+
