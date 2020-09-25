@@ -103,4 +103,8 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `GAS_PRICE` |  | Gas price in Gwei. If the variable is present, gas price displays at the main page | \(empty\) | v3.3.2+ |  |
 | `FOREIGN_JSON_RPC` |  | JSON RPC endpoint to the foreign chain in order to get metadata of bridged through Omni-bridge token. It was introduced in this PR [\#3282](https://github.com/poanetwork/blockscout/pull/3282) | \(empty\) | master |  |
 | `BRIDGE_MARKET_CAP_UPDATE_INTERVAL` |  | Market cap update interval for \`TokenBridge\` supply module as for TokenBridge and for OmniBridge as well, in seconds. It was introduced in this PR [\#3293](https://github.com/poanetwork/blockscout/pull/3293) | 30 minutes | master |  |
+| `RESTRICTED_LIST` |  | A comma-separated list of addresses to enable restricted access on them | \(empty\) | master |  |
+| `RESTRICTED_LIST_KEY` |  | A key to access  addresses listed in`RESTRICTED_LIST` variable. Can be passed via query param to the page's URL: `?key=...` | \(empty\) | master |  |
+
+
 
