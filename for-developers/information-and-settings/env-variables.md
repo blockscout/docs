@@ -30,8 +30,8 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `ETHEREUM_JSONRPC_HTTP_URL` | ✅ | The RPC endpoint used to fetch blocks, transactions, receipts, tokens. | localhost:8545 | all |  |
 | `ETHEREUM_JSONRPC_TRACE_URL` |  | The RPC endpoint specifically for the Geth/Parity/Besu client used by trace\_block and trace\_replayTransaction. This can be used to designate a tracing node. | localhost:8545 | all |  |
 | `ETHEREUM_JSONRPC_WS_URL` | ✅ | The WebSockets RPC endpoint used to subscribe to the `newHeads` subscription alerting the indexer to fetch new blocks. | ws://localhost:8546 | all |  |
-| `ETHEREUM_JSONRPC_TRANSPORT` |  | Specifies the transport for blockscout to connect to the Ethereum Node. Available transports are `http` and `ipc`. If `ipc` is selected, also set `IPC_PATH` variable | http | v3.1.0+ |  |
-| `IPC_PATH` |  | Path to the ipc file of the running node if IPC transport is chosen | \(empty\) | v2.1.1+ |  |
+| `ETHEREUM_JSONRPC_TRANSPORT` |  | Specifies the transport for Blockscout to connect to the Ethereum Node. Available transports are `http` and `ipc`. If `ipc` is selected, also set `IPC_PATH` variable | http | v3.1.0+ |  |
+| `IPC_PATH` |  | Path to the IPC file of the running node if IPC transport is chosen | \(empty\) | v2.1.1+ |  |
 | `NETWORK_PATH` |  | Used to set a network path other than what is displayed in the root directory. An example would be to add `/eth/mainnet/` to the root directory. | / | all |  |
 | `API_PATH` |  | PATH in API endpoint URL at API docs page | / | v3.1.0+ |  |
 | `SOCKET_ROOT` |  | Custom websocket path | \(empty\) | v3.0.0+ |  |
@@ -44,11 +44,11 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `COINGECKO_COIN_ID` |  | Explicitly set CoinGecko coin ID | \(empty\) | v3.1.2+ |  |
 | `METADATA_CONTRACT` |  | This environment variable is specifically used by POA Network to obtain Validators information to display in the UI. | \(empty\) | all |  |
 | `VALIDATORS_CONTRACT` |  | This environment variable is specifically used by POA Network to obtain the list of current validators. | \(empty\) | all |  |
-| `KEYS_MANAGER_CONTRACT` |  | This environment variable is specifically used by POA Network to set KeysManager proxy contract in order to obtain payout key by mining key. This need to identify distributed reward to validator. | \(empty\) | v3.1.2+ |  |
+| `KEYS_MANAGER_CONTRACT` |  | This environment variable is specifically used by POA Network to set KeysManager proxy contract in order to obtain payout key by mining key. This need to identify distributed reward to the validator. | \(empty\) | v3.1.2+ |  |
 | `REWARDS_CONTRACT` |  | Emission rewards contract address. This env var is used only if `EMISSION_FORMAT` is set to `POA` | `0xeca443e8e1ab29971a45a9c57a6a9875701698a5` | v2.0.4+ |  |
 | `TOKEN_BRIDGE_CONTRACT` |  | Token bridge proxy contract. For \`TokenBridge\` supply module. | `0x7301CFA0e1756B71869E93d4e4Dca5c7d0eb0AA6` | v1.3.2+ |  |
 | `EMISSION_FORMAT` |  | Should be set to `POA` if you have block emission identical to POA Network. This env var is used only if `CHAIN_SPEC_PATH` is set | `DEFAULT` | v2.0.4+ |  |
-| `CHAIN_SPEC_PATH` |  | Chain specification path \(absolute file system path or url\) to import block emission reward ranges and genesis account balances from. Geth- and Parity-style specs are supported. | \(empty\) | v2.0.4+ |  |
+| `CHAIN_SPEC_PATH` |  | Chain specification path \(absolute file system path or URL\) to import block emission reward ranges and genesis account balances from. Geth- and OpenEthereum-style specs are supported. | \(empty\) | v2.0.4+ |  |
 | `SUPPLY_MODULE` |  | This environment variable is used by the xDai Chain/RSK in order to tell the application how to calculate the total supply of the chain. Available values are `TokenBridge`, `RSK` | \(empty\) | all |  |
 | `SOURCE_MODULE` |  | This environment variable is used to calculate the exchange rate and is specifically used by the xDai Chain. Available value is `TokenBridge` | \(empty\) | all |  |
 | `DATABASE_URL` | ✅ | Variable to define the Database endpoint. | \(empty\) | all |  |
@@ -68,7 +68,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `FIRST_BLOCK` |  | The block number, where indexing begins from. | 0 | v1.3.8+ |  |
 | `LAST_BLOCK` |  | The block number, where indexing stops. | \(empty\) | v2.0.3+ |  |
 | `LINK_TO_OTHER_EXPLORERS` |  | true/false. If true, links to other explorers are added in the footer | \(empty\) | v1.3.0+ |  |
-| `SUPPORTED_CHAINS` |  | Array of supported chains that displays in the footer and in the chains dropdown. This var was introduced in this PR [\#1900](https://github.com/poanetwork/blockscout/pull/1900) and looks like an array of JSON objects. | \(empty\) | v2.0.0+ |  |
+| `SUPPORTED_CHAINS` |  | An array of supported chains that display in the footer and in the chains dropdown. This var was introduced in this PR [\#1900](https://github.com/poanetwork/blockscout/pull/1900) and looks like an array of JSON objects. | \(empty\) | v2.0.0+ |  |
 | `BLOCK_COUNT_CACHE_PERIOD` |  | time to live of blocks with consensus count cache in seconds. This var was introduced in [\#1876](https://github.com/poanetwork/blockscout/pull/1876) | 600 | v2.0.0+ |  |
 | `TXS_COUNT_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates the total txs count. | 60 \* 60 _\*_ 2 | v1.3.9+ |  |
 | `ADDRESS_COUNT_CACHE_PERIOD` |  | time to live of cache in seconds. This var was introduced in [\#2822](https://github.com/poanetwork/blockscout/pull/2822) | 60 \* 60 _\*_ 2 | v2.1.1+ |  |
@@ -97,9 +97,10 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `TXS_HISTORIAN_INIT_LAG` |  | The initial delay in minutes in txs count history fetching in order to display txs count per day history chart on the main page | 0 | v3.1.2+ |  |
 | `TXS_STATS_DAYS_TO_COMPILE_AT_INIT` |  | Number of days for fetching of history of txs count per day in order to display it in txs count per day history chart on the main page | 365 | v3.1.2+ |  |
 | `COIN_BALANCE_HISTORY_DAYS` |  | Number of days to consider at coin balance history chart | 10 | v3.1.3+ |  |
-| `APPS_MENU` |  | true/false. If true, Apps navigation menu item appears | false | v3.3.1+ |  |
+| `APPS_MENU` |  | true/false. If true, the Apps navigation menu item appears | false | v3.3.1+ |  |
 | `EXTERNAL_APPS` |  | An array of external apps to display in Apps menu item. This var was introduced in this PR [\#3184](https://github.com/poanetwork/blockscout/pull/3184) and looks like an array of JSON objects. | \(empty\) | v3.3.1+ |  |
-|  `MULTI_TOKEN_BRIDGE_MEDIATOR` |  | An address of AMB mediator for multi tokens. Providing this address enables bridged tokens functionality: bridged status and link to the original token in the foreign chain. | \(empty\) | v3.3.2+ |  |
+|  `OMNI_BRIDGE_MEDIATOR` |  | An address of OmniBridge mediator to bridge multiple tokens. Providing this address enables bridged tokens functionality: bridged status and link to the original token in the foreign chain. | \(empty\) | v3.3.2+ |  |
+| `AMB_BRIDGE_MEDIATORS` |  | A comma-separated list of AMB extensions' mediators' addresses' hashes to fetch bridged tokens through those mediators. | \(empty\) | master |  |
 | `GAS_PRICE` |  | Gas price in Gwei. If the variable is present, gas price displays at the main page | \(empty\) | v3.3.2+ |  |
 | `FOREIGN_JSON_RPC` |  | JSON RPC endpoint to the foreign chain in order to get metadata of bridged through Omni-bridge token. It was introduced in this PR [\#3282](https://github.com/poanetwork/blockscout/pull/3282) | \(empty\) | master |  |
 | `BRIDGE_MARKET_CAP_UPDATE_INTERVAL` |  | Market cap update interval for \`TokenBridge\` supply module as for TokenBridge and for OmniBridge as well, in seconds. It was introduced in this PR [\#3293](https://github.com/poanetwork/blockscout/pull/3293) | 30 minutes | master |  |
