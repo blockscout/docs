@@ -106,6 +106,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `BRIDGE_MARKET_CAP_UPDATE_INTERVAL` |  | Market cap update interval for \`TokenBridge\` supply module as for TokenBridge and for OmniBridge as well, in seconds. It was introduced in this PR [\#3293](https://github.com/poanetwork/blockscout/pull/3293) | 30 minutes | v3.3.3+ |  |
 | `RESTRICTED_LIST` |  | A comma-separated list of addresses to enable restricted access on them | \(empty\) | v3.3.3+ |  |
 | `RESTRICTED_LIST_KEY` |  | A key to access  addresses listed in`RESTRICTED_LIST` variable. Can be passed via query param to the page's URL: `?key=...` | \(empty\) | v3.3.3+ |  |
+| `ADDRESS_TRANSACTIONS_CACHE_PERIOD` |  | time to live of address' transactions counter in seconds. This var was introduced in [\#3330](https://github.com/poanetwork/blockscout/pull/3330) | 1 hour | master |  |
 
 
 
