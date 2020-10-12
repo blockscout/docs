@@ -45,7 +45,8 @@ BlockScout supports 3 different JSON RPC Variants. Variant can be configured usi
 **Example:**
 
 ```text
-ETHEREUM_JSONRPC_VARIANT=ganache make start
+ETHEREUM_JSONRPC_VARIANT=ganache \
+make start
 ```
 
 {% hint style="warning" %}
