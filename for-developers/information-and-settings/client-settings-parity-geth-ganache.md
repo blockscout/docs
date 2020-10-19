@@ -1,12 +1,13 @@
-# Client Settings \(Parity, Geth, Ganache\)
+# Client Settings \(Parity, OpenEthereum, Hyperledger Besu, Geth, Ganache\)
 
 ## Supported Clients
 
-BlockScout currently supports `Parity`, `Geth`, and `Ganache` clients. To define the node variant, it's advised to define the `ETHEREUM_JSONRPC_VARIANT` environment variable. Correct values include:
+BlockScout currently supports Parity, OpenEthereum, Geth, Nethermind, Hyperledger Besu, and Ganache clients. To define the node variant, it's advised to define the `ETHEREUM_JSONRPC_VARIANT` environment variable. Correct values include:
 
-1. `parity` \(default\)
+1. `parity` the same for Parity, OpenEthereum and Nethermind \(default\)
 2. `geth`
-3. `ganache`
+3. `besu`
+4. `ganache`
 
 {% hint style="info" %}
 BlockScout currently requires a full archive node in order to import every state change for every address on the target network.
@@ -48,7 +49,7 @@ variant =
   end
 ```
 
-## Parity Client
+## OpenEthereum Client
 
 ```text
 --jsonrpc-interface all --jsonrpc-apis web3,eth,net,parity,pubsub,traces --ws-interface all --fat-db=on --pruning=archive --ws-apis all --ws-origins all --ws-hosts all
@@ -62,7 +63,7 @@ variant =
 
 ### Development
 
-Explorer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/explorer/config/dev/parity.exs\#L8-L22](https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/explorer/config/dev/parity.exs#L8-L22) 
+Explorer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/explorer/config/dev/parity.exs\#L8-L22](https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/explorer/config/dev/parity.exs#L8-L22)
 
 Indexer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/indexer/config/dev/parity.exs\#L9-L23](https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/indexer/config/dev/parity.exs#L9-L23)
 
@@ -89,7 +90,7 @@ _Tracing and pruning: By default, state for the last 128 blocks kept in memory. 
 
 Explorer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/explorer/config/dev/geth.exs\#L8-L17](https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/explorer/config/dev/geth.exs#L8-L17)
 
-Indexer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/indexer/config/dev/geth.exs\#L9-L18](https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/indexer/config/dev/geth.exs#L9-L18) 
+Indexer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/indexer/config/dev/geth.exs\#L9-L18](https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/indexer/config/dev/geth.exs#L9-L18)
 
 ### Production
 

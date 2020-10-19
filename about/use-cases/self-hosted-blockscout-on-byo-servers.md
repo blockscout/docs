@@ -100,7 +100,7 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 ### AVA
 
 > **Project:** C-Chain AVA  
-> **Blockscout url:** [http://athexplorer.ava.network/](http://athexplorer.ava.network/)  
+> **Blockscout url:** [https://cchain.explorer.avax.network/](https://cchain.explorer.avax.network/)  
 > **Description:**   
 > AVA is  
 > - A heterogeneous network of custom, interoperable blockchains and custom validator sets  
@@ -108,5 +108,55 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 > - A platform for creating and trading smart digital assets  
 > - A way to store and transfer value without a centralized entity
 
-![C-Chain AVA](../../.gitbook/assets/screenshot-2020-05-14-at-18.52.30.png)
+![](../../.gitbook/assets/screenshot-2020-09-14-at-21.09.41.png)
+
+### Energy Web
+
+> **Project:** Energy Web  
+> **Blockscout urls:   
+>    Mainnet:** [https://explorer.energyweb.org/](https://explorer.energyweb.org/)   
+>    **Testnet:** [https://volta-explorer.energyweb.org/](https://volta-explorer.energyweb.org/)  
+> **Description:** The ****Energy Web Chain is the world’s first open-source, enterprise blockchain platform tailored to the energy sector. Energy Web has become the industry’s leading blockchain partner and most-respected voice of authority on energy blockchain.
+
+![Energy Web](../../.gitbook/assets/energy-web.png)
+
+### **Chiliz**
+
+> **Project:** Chiliz  
+> **Blockscout url:** [https://explorer.chiliz.com/](https://explorer.chiliz.com/)  
+> **Description:** The blockchain fintech provider for Sports & Entertainment
+
+![](../../.gitbook/assets/screenshot-2020-06-02-at-13.07.21.png)
+
+### IDChain
+
+> **Project:** IDChain  
+> **Blockscout url:** [https://explorer.idchain.one/](https://explorer.idchain.one/)  
+> **Description:** IDChain is a fork of the [official Golang implementation of the Ethereum protocol](https://github.com/ethereum/go-ethereum) with a small change to burn gas fees instead of awarding them to the block sealers.
+
+![](../../.gitbook/assets/screenshot-2020-08-13-at-17.15.02.png)
+
+### Velas
+
+> **Project:** Velas  
+> **Blockscout url:** [https://explorer.velas.com/](https://explorer.velas.com/)  
+> **Description:** Velas blockchain uses AI-enhanced DPOS \(AIDPOS\) consensus for high volume transactions processing that reportedly does not come at the expense of decentralization and security.
+
+![](../../.gitbook/assets/screenshot-2020-08-31-at-08.34.34.png)
+
+### Binance smart chain testnet
+
+> **Project:** Binance smart chain testnet  
+> **Blockscout url:** [https://explorer.binance.org/smart-testnet](https://explorer.binance.org/smart-testnet)  
+> **Description:** A Parallel Binance Chain to Enable Smart ContractsA Parallel Binance Chain to Enable Smart Contracts.
+
+![](../../.gitbook/assets/screenshot-2020-08-31-at-10.33.45.png)
+
+### Energi
+
+> **Project:** Energi  
+> **Blockscout url:** [https://explorer.energi.network/](https://explorer.energi.network/)  
+> **Description:** Energi \(NRG\) is a next-generation Proof of Stake \(PoS\) cryptocurrency that combines smart contract capabilities, decentralized governance, and a self-funding treasury.
+
+![](../../.gitbook/assets/screenshot-2020-09-14-at-15.40.32.png)
 

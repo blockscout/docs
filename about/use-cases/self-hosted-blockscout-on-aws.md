@@ -12,24 +12,33 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ### Example BlockScout instances self-hosted on AWS
 
+### Ocean Protocol
+
 > **Project:** [Ocean Protocol](https://oceanprotocol.com/)  
 > **BlockScout url:** [https://submarine.oceanprotocol.com](https://submarine.oceanprotocol.com)  
 > **Description:** Decentralized data access and exchange protocol for AI applications.
 
 ![Pacific Ocean Explorer](../../.gitbook/assets/ocean_protocol.png)
 
+### Matic
+
 > **Project:** [Matic](https://matic.network/)  
-> **Mainnet Explorer:**[https://alpha-mainnet.explorer.matic.network](https://alpha-mainnet.explorer.matic.network)  
-> **Testnet Explorer:** [https://explorer.testnet2.matic.network](https://explorer.testnet2.matic.network/)  
+> **Mainnet Explorer:** [https://explorer.matic.network/](https://explorer.matic.network/)  
+> **Testnet Explorers:   
+> -** [https://explorer.testnet2.matic.network](https://explorer.testnet2.matic.network/)  
+> - [https://alpha-mainnet.explorer.matic.network](https://alpha-mainnet.explorer.matic.network)  
+> - [https://mumbai-explorer.matic.today](https://mumbai-explorer.matic.today/)  
 > **Description:** Sidechain scaling solution based on the Plasma framework.
 
 ![Matic Alpha network](../../.gitbook/assets/matic.png)
 
-> **Project:** [Fuse Network](https://explorer.fusenet.io/)  
-> **BlockScout URL:** [https://explorer.fusenet.io/](https://explorer.fusenet.io/)  
+### Fuse Network
+
+> **Project:** [Fuse Network](https://explorer.fuse.io/)  
+> **BlockScout URL:** [https://explorer.fuse.io](https://explorer.fuse.io)  
 > **Description:** Open-source platform for economic-based community creation.
 
-![Fuse Explorer](../../.gitbook/assets/fuse.png)
+![Fuse Dashboard](../../.gitbook/assets/fuse.io.png)
 
 
 

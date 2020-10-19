@@ -16,12 +16,12 @@ The BlockScout team provides hosting for the following EVM chains
 
 | Instance | Type | URL | Version |
 | :--- | :--- | :--- | :--- |
-| Ethereum | mainnet | [https://blockscout.com/eth/mainnet/](https://blockscout.com/eth/mainnet/) | v3.1.2 |
-| POA Core | mainnet | [https://blockscout.com/poa/core](https://blockscout.com/poa/core) | v3.1.2 |
-| xDai Chain | mainnet | [https://blockscout.com/poa/xdai](https://blockscout.com/poa/xdai) | v3.1.2 |
-| POA Sokol | testnet | [https://blockscout.com/poa/sokol](https://blockscout.com/poa/sokol) | v3.1.2 |
-| Lukso L14 | testnet | [https://blockscout.com/lukso/l14](https://blockscout.com/lukso/l14) | v3.1.2 |
-| RSK | mainnet | [https://blockscout.com/rsk/mainnet](https://blockscout.com/rsk/mainnet) | v3.1.2 |
+| POA | mainnet | [https://blockscout.com/poa/core](https://blockscout.com/poa/core) | v3.3.2 |
+| xDai | mainnet | [https://blockscout.com/poa/xdai](https://blockscout.com/poa/xdai) | v3.3.2 |
+| qDai | testnet | [https://blockscout.com/poa/qdai](%20%20https://blockscout.com/poa/qdai) | v3.3.2 |
+| Sokol | testnet | [https://blockscout.com/poa/sokol](https://blockscout.com/poa/sokol) | v3.3.2 |
+| Lukso L14 | testnet | [https://blockscout.com/lukso/l14](https://blockscout.com/lukso/l14) | v3.3.1 |
+| RSK | mainnet | [https://blockscout.com/rsk/mainnet](https://blockscout.com/rsk/mainnet) | v3.3.2 |
 | Classic\* | mainnet | [https://blockscout.com/etc/mainnet/](https://blockscout.com/etc/mainnet/) | v3.1.1 |
 
 {% hint style="info" %}
@@ -39,6 +39,7 @@ Dumps of verified smart contracts from discontinued hosted BlockScout instances 
 
 | Instance | Type | Previous URL |
 | :--- | :--- | :--- |
+| Ethereum | mainnet | [https://blockscout.com/eth/mainnet](https://blockscout.com/eth/mainnet/) |
 | Kovan | testnet | [https://blockscout.com/eth/kovan](https://blockscout.com/eth/kovan) |
 | Ropsten | testnet | [https://blockscout.com/eth/ropsten](https://blockscout.com/eth/ropsten) |
 | Rinkeby | testnet | [https://blockscout.com/eth/rinkeby](https://blockscout.com/eth/rinkeby) |

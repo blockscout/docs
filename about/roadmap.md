@@ -19,7 +19,8 @@ BlockScout will support the new POSDAO staking consensus mechanism through an on
 
 ## Smart Contract Write Functionality
 
-**Target Date:** Q2 - Q3 2020
+**Target Date:** Q2 - Q3 2020  
+Status: ✅ Complete, Write contract/ write proxy functionnalities are implemented \([Release 3.3.0](https://forum.poa.network/t/blockscout-v3-3-0-beta/3558)\).
 
 Users can currently verify and read contracts on BlockScout. The next smart contract development phase will allow users to interact with contracts directly through the interface.  Verified contract methods will be accessible and users can connect through a web3 wallet \(such as MetaMask\) to access and execute contract functions.
 

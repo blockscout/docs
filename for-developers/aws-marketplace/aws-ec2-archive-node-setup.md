@@ -4,10 +4,10 @@ description: >-
   will vary per chain.
 ---
 
-# AWS EC2 archive node setup with Parity
+# AWS EC2 archive node setup with OpenEthereum \(formerly Parity\)
 
 {% hint style="warning" %}
-See the [Parity Documentation](https://wiki.parity.io/) for complete instructions for any chain setup
+See the [OpenEthereum Documentation](https://openethereum.github.io/wiki/) for complete instructions for any chain setup
 {% endhint %}
 
 {% hint style="info" %}
@@ -26,9 +26,9 @@ Any chain requires an amount of storage capable of storing all archive data. For
   
    **Example:** `ssh -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com`  
 
-3. Install Parity `bash <(curl https://get.parity.io -kL)` 
-4. Create a config file called node.toml \(**see below for config file specs**\) and edit accordingly `vim node.toml` 
-5. Connect and Sync an archive node with the xDai Chain using the config file. `parity --config node.toml` 
+3. Install OpenEthereum from [GitHub releases page](https://github.com/openethereum/openethereum/releases) for the corresponding platform 
+4. Create a config file called node.toml \(**see below for config file specs including** [**xDai archive node specs**](aws-ec2-archive-node-setup.md#xdai-archive-node-configuration)\) and edit accordingly `vim node.toml` 
+5. Connect and Sync an archive node using the config file. `parity --config node.toml` 
 6. Find your EC2 url to connect with BlockScout: Go to **EC2 Dashboard -&gt; Instances -&gt;** _**corresponding archive node instance**_ and record the ip address. When configuring BlockScout you will use this address along with port 8545 to connect via the EthereumJsonRPCHttpURL parameter.
 
    For example: `192.0.2.1:8545`
@@ -36,7 +36,7 @@ Any chain requires an amount of storage capable of storing all archive data. For
 **Additional Resources**
 
 * [AWS Marketplace Instructions](aws-marketplace-installation.md)
-* [See the xDai Docs for instructions on installing a local instance of xDai using Parity or Nethermind](https://www.xdaichain.com/for-developers/install-xdai-client).
+* [See the xDai Docs for instructions on installing a local instance of xDai using OpenEthereum or Nethermind](https://www.xdaichain.com/for-developers/install-xdai-client).
 
 #### Node.toml file general instructions
 
@@ -44,11 +44,13 @@ Below we provide a general example file as well as the settings we use for our x
 
 * Parity should run in "fatdb+archive+traces" mode with `pruning="archive"`, `fatdb="on"`, `tracing="on"`.
 * Both RPC and WebSockets interfaces should be opened and allow calls to `"web3","eth","net","parity","pubsub","traces"` APIs.
-* A full list of configuration options is available at: [https://wiki.parity.io/Configuring-Parity-Ethereum](https://wiki.parity.io/Configuring-Parity-Ethereum)
+* A full list of configuration options is available at: [https://wiki.parity.io/Configuring-Parity-Ethereum](https://openethereum.github.io/wiki/Configuring-Parity-Ethereum)
 
 ## Configuration file example
 
-The following example file outlines general parameters - Performance-related parameters like `processing_threads`, `server_threads` or `cache_size_db` will vary based on the chain size, available hardware, parity version, general traffic load etc. Often these are adjusted through a trial-and-error process.
+The following example file outlines general parameters - Performance-related parameters like `processing_threads`, `server_threads` or `cache_size_db` will vary based on the chain size, available hardware, parity version, general traffic load etc. Often these are adjusted through a trial-and-error process. [See below for xDai Archive Node Specs.](aws-ec2-archive-node-setup.md#xdai-archive-node-configuration)
+
+### General Specs
 
 ```text
 [parity]
@@ -86,7 +88,7 @@ fat_db = "on"
 cache_size_db = 12000
 ```
 
-#### xDai archive node configuration
+### xDai archive node configuration
 
 These are the settings we use to run the xDai archive node.
 
