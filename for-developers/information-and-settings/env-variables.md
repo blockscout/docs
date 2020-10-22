@@ -99,7 +99,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `COIN_BALANCE_HISTORY_DAYS` |  | Number of days to consider at coin balance history chart | 10 | v3.1.3+ |  |
 | `APPS_MENU` |  | true/false. If true, the Apps navigation menu item appears | false | v3.3.1+ |  |
 | `EXTERNAL_APPS` |  | An array of external apps to display in Apps menu item. This var was introduced in this PR [\#3184](https://github.com/poanetwork/blockscout/pull/3184) and looks like an array of JSON objects. | \(empty\) | v3.3.1+ |  |
-|  `OMNI_BRIDGE_MEDIATOR` |  | An address of OmniBridge mediator to bridge multiple tokens. Providing this address enables bridged tokens functionality: bridged status and link to the original token in the foreign chain. | \(empty\) | v3.3.2+ |  |
+| `OMNI_BRIDGE_MEDIATOR` |  | An address of OmniBridge mediator to bridge multiple tokens. Providing this address enables bridged tokens functionality: bridged status and link to the original token in the foreign chain. | \(empty\) | v3.3.2+ |  |
 | `AMB_BRIDGE_MEDIATORS` |  | A comma-separated list of AMB extensions' mediators' addresses' hashes to fetch bridged tokens through those mediators. | \(empty\) | v3.3.3+ |  |
 | `GAS_PRICE` |  | Gas price in Gwei. If the variable is present, gas price displays at the main page | \(empty\) | v3.3.2+ |  |
 | `FOREIGN_JSON_RPC` |  | JSON RPC endpoint to the foreign chain in order to get metadata of bridged through Omni-bridge token. It was introduced in this PR [\#3282](https://github.com/poanetwork/blockscout/pull/3282) | \(empty\) | v3.3.3+ |  |
@@ -108,4 +108,5 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `RESTRICTED_LIST_KEY` |  | A key to access  addresses listed in`RESTRICTED_LIST` variable. Can be passed via query param to the page's URL: `?key=...` | \(empty\) | v3.3.3+ |  |
 | `ADDRESS_TRANSACTIONS_CACHE_PERIOD` |  | time to live of address' transactions counter in seconds. This var was introduced in [\#3330](https://github.com/poanetwork/blockscout/pull/3330) | 1 hour | master |  |
 | `DISABLE_BRIDGE_MARKET_CAP_UPDATER` |  | Disables recurring consolidation of TokenBridge market cap from TokenBridge, OmniBridge and AMB extensions | \(empty\) | v3.3.3+ |  |
-| `POS_STAKING_CONTRACT` | | The address of POSDAO staking contract. When provided, enables staking DApp. ValidatorSet and BlockReward contract addresses are fetched using corresponding getters. | (empty) | master | |
+| `POS_STAKING_CONTRACT` |  | The address of POSDAO staking contract. When provided, enables staking DApp. ValidatorSet and BlockReward contract addresses are fetched using corresponding getters. | \(empty\) | master |  |
+
