@@ -92,6 +92,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `CHECKSUM_ADDRESS_HASHES` |  | If set to `true`, redirects to checksummed version of address hashes | true | v3.1.0+ |  |
 | `CHECKSUM_FUNCTION` |  | Defines checksum address function. 2 available values: `rsk`, `eth` | eth | v2.0.1+ |  |
 | `DISABLE_EXCHANGE_RATES` |  | Disables or enables fetching of coin price from Coingecko API | false | v3.1.2+ |  |
+| `DISABLE_KNOWN_TOKENS` |  | Disables or enables token symbol for known contract | false | master |  |
 | `ENABLE_TXS_STATS` |  | Disables or enables txs per day stats gathering | false | v3.1.2+ |  |
 | `SHOW_PRICE_CHART` |  | Disables or enables price and market cap of coin charts on the main page | false | v3.1.2+ |  |
 | `SHOW_TXS_CHART` |  | Disables or enables txs count per day chart on the main page | false | v3.1.2+ |  |
