@@ -68,6 +68,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `FIRST_BLOCK` |  | The block number, where indexing begins from. | 0 | v1.3.8+ |  |
 | `LAST_BLOCK` |  | The block number, where indexing stops. | \(empty\) | v2.0.3+ |  |
 | `LINK_TO_OTHER_EXPLORERS` |  | true/false. If true, links to other explorers are added in the footer | \(empty\) | v1.3.0+ |  |
+| `OTHER_EXPLORERS` |  | The list of alternative explorers. This env var was introduced in PR [\#3414](https://github.com/poanetwork/blockscout/pull/3414). | \(empty\) | master |  |
 | `SUPPORTED_CHAINS` |  | An array of supported chains that display in the footer and in the chains dropdown. This var was introduced in this PR [\#1900](https://github.com/poanetwork/blockscout/pull/1900) and looks like an array of JSON objects. | \(empty\) | v2.0.0+ |  |
 | `BLOCK_COUNT_CACHE_PERIOD` |  | time to live of blocks with consensus count cache in seconds. This var was introduced in [\#1876](https://github.com/poanetwork/blockscout/pull/1876) | 600 | v2.0.0+ |  |
 | `TXS_COUNT_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates the total txs count. | 60 \* 60 _\*_ 2 | v1.3.9+ |  |
