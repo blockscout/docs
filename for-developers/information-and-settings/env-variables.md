@@ -70,15 +70,15 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `LINK_TO_OTHER_EXPLORERS` |  | true/false. If true, links to other explorers are added in the footer | \(empty\) | v1.3.0+ |  |
 | `OTHER_EXPLORERS` |  | The list of alternative explorers. This env var was introduced in PR [\#3414](https://github.com/poanetwork/blockscout/pull/3414). | \(empty\) | master |  |
 | `SUPPORTED_CHAINS` |  | An array of supported chains that display in the footer and in the chains dropdown. This var was introduced in this PR [\#1900](https://github.com/poanetwork/blockscout/pull/1900) and looks like an array of JSON objects. | \(empty\) | v2.0.0+ |  |
-| `BLOCK_COUNT_CACHE_PERIOD` |  | time to live of blocks with consensus count cache in seconds. This var was introduced in [\#1876](https://github.com/poanetwork/blockscout/pull/1876) | 600 | v2.0.0+ |  |
-| `TXS_COUNT_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates the total txs count. | 60 \* 60 _\*_ 2 | v1.3.9+ |  |
-| `ADDRESS_COUNT_CACHE_PERIOD` |  | time to live of cache in seconds. This var was introduced in [\#2822](https://github.com/poanetwork/blockscout/pull/2822) | 60 \* 60 _\*_ 2 | v2.1.1+ |  |
-| `ADDRESS_SUM_CACHE_PERIOD` |  | time to live of addresses sum \(except burn address\) cache in seconds. This var was introduced in [\#2862](https://github.com/poanetwork/blockscout/pull/2862) | 3600 | v2.1.1+ |  |
-| `TOTAL_GAS_USAGE_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates the total gas usage. | 30 minutes | master |  |
-| `ADDRESS_TRANSACTIONS_GAS_USAGE_COUNTER_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates gas usage at the address. | 30 \* 60 | master |  |
+| `BLOCK_COUNT_CACHE_PERIOD` |  | time to live of blocks with consensus count cache in seconds. This var was introduced in [\#1876](https://github.com/poanetwork/blockscout/pull/1876) | 2 hours | v2.0.0+ |  |
+| `TXS_COUNT_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates the total txs count. | 2 hours | v1.3.9+ |  |
+| `ADDRESS_COUNT_CACHE_PERIOD` |  | time to live of cache in seconds. This var was introduced in [\#2822](https://github.com/poanetwork/blockscout/pull/2822) | 2 hours | v2.1.1+ |  |
+| `ADDRESS_SUM_CACHE_PERIOD` |  | time to live of addresses sum \(except burn address\) cache in seconds. This var was introduced in [\#2862](https://github.com/poanetwork/blockscout/pull/2862) | 1 hour | v2.1.1+ |  |
+| `TOTAL_GAS_USAGE_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates the total gas usage. | 2 hours | master |  |
+| `ADDRESS_TRANSACTIONS_GAS_USAGE_COUNTER_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates gas usage at the address. | 30 minutes | master |  |
 | `TOKEN_HOLDERS_COUNTER_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates holders count of the token. | 1 hour | master |  |
 | `TOKEN_TRANSFERS_COUNTER_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates transfers count of the token. | 1 hour | master |  |
-| `ADDRESS_WITH_BALANCES_UPDATE_INTERVAL` |  | Interval in seconds to restart the task, which calculates addresses with balances. | 30 \* 60 | v1.3.9+ |  |
+| `ADDRESS_WITH_BALANCES_UPDATE_INTERVAL` |  | Interval in seconds to restart the task, which calculates addresses with balances. | 30 minutes | v1.3.9+ |  |
 | `TOKEN_METADATA_UPDATE_INTERVAL` |  | Interval in seconds to restart the task which updates token metadata | 60 \* 60 \* 24 _\*_ 2 | v2.0.1+ |  |
 | `AVERAGE_BLOCK_CACHE_PERIOD` |  | Update of average block period cache, in seconds | 30 minutes | v2.0.2+ |  |
 | `MARKET_HISTORY_CACHE_PERIOD` |  | Update of market history cache, in seconds | 6 hours | v2.0.2+ |  |
