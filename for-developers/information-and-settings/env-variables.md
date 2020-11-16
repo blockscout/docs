@@ -68,16 +68,16 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `FIRST_BLOCK` |  | The block number, where indexing begins from. | 0 | v1.3.8+ |  |
 | `LAST_BLOCK` |  | The block number, where indexing stops. | \(empty\) | v2.0.3+ |  |
 | `LINK_TO_OTHER_EXPLORERS` |  | true/false. If true, links to other explorers are added in the footer | \(empty\) | v1.3.0+ |  |
-| `OTHER_EXPLORERS` |  | The list of alternative explorers. This env var was introduced in PR [\#3414](https://github.com/poanetwork/blockscout/pull/3414). | \(empty\) | master |  |
+| `OTHER_EXPLORERS` |  | The list of alternative explorers. This env var was introduced in PR [\#3414](https://github.com/poanetwork/blockscout/pull/3414). | \(empty\) | v3.4.0+ |  |
 | `SUPPORTED_CHAINS` |  | An array of supported chains that display in the footer and in the chains dropdown. This var was introduced in this PR [\#1900](https://github.com/poanetwork/blockscout/pull/1900) and looks like an array of JSON objects. | \(empty\) | v2.0.0+ |  |
 | `BLOCK_COUNT_CACHE_PERIOD` |  | time to live of blocks with consensus count cache in seconds. This var was introduced in [\#1876](https://github.com/poanetwork/blockscout/pull/1876) | 2 hours | v2.0.0+ |  |
 | `TXS_COUNT_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates the total txs count. | 2 hours | v1.3.9+ |  |
 | `ADDRESS_COUNT_CACHE_PERIOD` |  | time to live of cache in seconds. This var was introduced in [\#2822](https://github.com/poanetwork/blockscout/pull/2822) | 2 hours | v2.1.1+ |  |
 | `ADDRESS_SUM_CACHE_PERIOD` |  | time to live of addresses sum \(except burn address\) cache in seconds. This var was introduced in [\#2862](https://github.com/poanetwork/blockscout/pull/2862) | 1 hour | v2.1.1+ |  |
-| `TOTAL_GAS_USAGE_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates the total gas usage. | 2 hours | master |  |
-| `ADDRESS_TRANSACTIONS_GAS_USAGE_COUNTER_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates gas usage at the address. | 30 minutes | master |  |
-| `TOKEN_HOLDERS_COUNTER_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates holders count of the token. | 1 hour | master |  |
-| `TOKEN_TRANSFERS_COUNTER_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates transfers count of the token. | 1 hour | master |  |
+| `TOTAL_GAS_USAGE_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates the total gas usage. | 2 hours | v3.4.0+ |  |
+| `ADDRESS_TRANSACTIONS_GAS_USAGE_COUNTER_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates gas usage at the address. | 30 minutes | v3.4.0+ |  |
+| `TOKEN_HOLDERS_COUNTER_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates holders count of the token. | 1 hour | v3.4.0+ |  |
+| `TOKEN_TRANSFERS_COUNTER_CACHE_PERIOD` |  | Interval in seconds to restart the task, which calculates transfers count of the token. | 1 hour | v3.4.0+ |  |
 | `ADDRESS_WITH_BALANCES_UPDATE_INTERVAL` |  | Interval in seconds to restart the task, which calculates addresses with balances. | 30 minutes | v1.3.9+ |  |
 | `TOKEN_METADATA_UPDATE_INTERVAL` |  | Interval in seconds to restart the task which updates token metadata | 60 \* 60 \* 24 _\*_ 2 | v2.0.1+ |  |
 | `AVERAGE_BLOCK_CACHE_PERIOD` |  | Update of average block period cache, in seconds | 30 minutes | v2.0.2+ |  |
@@ -95,7 +95,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `CHECKSUM_ADDRESS_HASHES` |  | If set to `true`, redirects to checksummed version of address hashes | true | v3.1.0+ |  |
 | `CHECKSUM_FUNCTION` |  | Defines checksum address function. 2 available values: `rsk`, `eth` | eth | v2.0.1+ |  |
 | `DISABLE_EXCHANGE_RATES` |  | Disables or enables fetching of coin price from Coingecko API | false | v3.1.2+ |  |
-| `DISABLE_KNOWN_TOKENS` |  | Disables or enables token symbol for known contract | false | master |  |
+| `DISABLE_KNOWN_TOKENS` |  | Disables or enables token symbol for known contract | false | v3.4.0+ |  |
 | `ENABLE_TXS_STATS` |  | Disables or enables txs per day stats gathering | false | v3.1.2+ |  |
 | `SHOW_PRICE_CHART` |  | Disables or enables price and market cap of coin charts on the main page | false | v3.1.2+ |  |
 | `SHOW_TXS_CHART` |  | Disables or enables txs count per day chart on the main page | false | v3.1.2+ |  |
@@ -112,7 +112,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `BRIDGE_MARKET_CAP_UPDATE_INTERVAL` |  | Market cap update interval for \`TokenBridge\` supply module as for TokenBridge and for OmniBridge as well, in seconds. It was introduced in this PR [\#3293](https://github.com/poanetwork/blockscout/pull/3293) | 30 minutes | v3.3.3+ |  |
 | `RESTRICTED_LIST` |  | A comma-separated list of addresses to enable restricted access on them | \(empty\) | v3.3.3+ |  |
 | `RESTRICTED_LIST_KEY` |  | A key to access  addresses listed in`RESTRICTED_LIST` variable. Can be passed via query param to the page's URL: `?key=...` | \(empty\) | v3.3.3+ |  |
-| `ADDRESS_TRANSACTIONS_CACHE_PERIOD` |  | time to live of address' transactions counter in seconds. This var was introduced in [\#3330](https://github.com/poanetwork/blockscout/pull/3330) | 1 hour | master |  |
+| `ADDRESS_TRANSACTIONS_CACHE_PERIOD` |  | time to live of address' transactions counter in seconds. This var was introduced in [\#3330](https://github.com/poanetwork/blockscout/pull/3330) | 1 hour | v3.4.0+ |  |
 | `DISABLE_BRIDGE_MARKET_CAP_UPDATER` |  | Disables recurring consolidation of TokenBridge market cap from TokenBridge, OmniBridge and AMB extensions | \(empty\) | v3.3.3+ |  |
-| `POS_STAKING_CONTRACT` |  | The address of POSDAO staking contract. When provided, enables staking DApp. ValidatorSet and BlockReward contract addresses are fetched using corresponding getters. | \(empty\) | master |  |
+| `POS_STAKING_CONTRACT` |  | The address of POSDAO staking contract. When provided, enables staking DApp. ValidatorSet and BlockReward contract addresses are fetched using corresponding getters. | \(empty\) | v3.4.0+ |  |
 
