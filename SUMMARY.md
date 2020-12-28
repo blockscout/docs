@@ -81,6 +81,8 @@
   * [How do I update memory consumption to fix indexer memory errors?](for-users/faqs/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md)
   * [How do I update menu links in the header / footer?](for-users/faqs/how-do-i-update-menu-links-in-the-header-footer.md)
   * [What does "In" or "Out" label mean](for-users/faqs/what-does-in-or-out-label-mean.md)
+* [Premium features](for-users/premium-features/README.md)
+  * [Contracts verification via Sourcify](for-users/premium-features/contracts-verification-via-sourcify.md)
 
 ## For projects
 
