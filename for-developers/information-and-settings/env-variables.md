@@ -115,6 +115,6 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `ADDRESS_TRANSACTIONS_CACHE_PERIOD` |  | time to live of address' transactions counter in seconds. This var was introduced in [\#3330](https://github.com/poanetwork/blockscout/pull/3330) | 1 hour | v3.4.0+ |  |
 | `DISABLE_BRIDGE_MARKET_CAP_UPDATER` |  | Disables recurring consolidation of TokenBridge market cap from TokenBridge, OmniBridge and AMB extensions | \(empty\) | v3.3.3+ |  |
 | `POS_STAKING_CONTRACT` |  | The address of POSDAO staking contract. When provided, enables staking DApp. ValidatorSet and BlockReward contract addresses are fetched using corresponding getters. | \(empty\) | v3.4.0+ |  |
-| `TOKEN_EXCHANGE_RATE_CACHE_PERIOD` |  | Managing of cache invalidation for token's exchange rate. | \(empty\) | master |  |
-| `ADDRESS_TOKENS_USD_SUM_CACHE_PERIOD` |  | Managing of cache invalidation period for the sum of USD value of tokens per tokens' holder address | \(empty\) | master |  |
+| `TOKEN_EXCHANGE_RATE_CACHE_PERIOD` |  | Managing of cache invalidation for token's exchange rate. | \(empty\) | v3.5.0+ |  |
+| `ADDRESS_TOKENS_USD_SUM_CACHE_PERIOD` |  | Managing of cache invalidation period for the sum of USD value of tokens per tokens' holder address | \(empty\) | v3.5.0+ |  |
 
