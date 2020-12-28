@@ -2,7 +2,9 @@
 description: Support of an Ethereum-compatible smart contract parachain on Polkadot
 ---
 
-# Moonbeam support
+# Moonbeam Support
+
+The following premium customization includes:
 
 * Customized styles for Moonbeam parachain's Blockscout instance
 * Support of Moonbeam's Ethereum RPC node

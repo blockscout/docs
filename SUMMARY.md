@@ -87,8 +87,8 @@
 * [List of Projects Using BlockScout](for-projects/supported-projects.md)
 * [Host your Chain on blockscout.com](for-projects/your-chain-on-blockscout.com.md)
 * [Premium features](for-projects/premium-features/README.md)
-  * [Contracts verification via Sourcify](for-projects/premium-features/contracts-verification-via-sourcify.md)
-  * [Moonbeam support](for-projects/premium-features/moonbeam-support.md)
+  * [Contract Verification via Sourcify](for-projects/premium-features/contracts-verification-via-sourcify.md)
+  * [Moonbeam Support](for-projects/premium-features/moonbeam-support.md)
 
 ## Resources
 
