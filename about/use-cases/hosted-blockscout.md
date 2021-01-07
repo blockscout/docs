@@ -6,8 +6,8 @@ description: >-
 
 # Hosted Blockscout
 
-{% hint style="info" %}
-Interested in blockscout.com hosting and technical support? [Read more here](../../for-projects/your-chain-on-blockscout.com.md).
+{% hint style="success" %}
+Interested in blockscout.com hosting and technical support? [Read more here](../../for-projects/premium-features/your-chain-on-blockscout.com.md).
 {% endhint %}
 
 ## Hosted instances on [blockscout.com](http://blockscout.com)

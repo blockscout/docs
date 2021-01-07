@@ -84,11 +84,12 @@
 
 ## For projects
 
-* [List of Projects Using BlockScout](for-projects/supported-projects.md)
-* [Host your Chain on blockscout.com](for-projects/your-chain-on-blockscout.com.md)
-* [Premium features](for-projects/premium-features/README.md)
+* [Premium Features](for-projects/premium-features/README.md)
+  * [Custom / Branded Themes](for-projects/premium-features/custom-branded-themes.md)
+  * [Hosted Instance on BlockScout.com](for-projects/premium-features/your-chain-on-blockscout.com.md)
   * [Contract Verification via Sourcify](for-projects/premium-features/contracts-verification-via-sourcify.md)
   * [Moonbeam Support](for-projects/premium-features/moonbeam-support.md)
+* [List of Projects Using BlockScout](for-projects/supported-projects.md)
 
 ## Resources
 
