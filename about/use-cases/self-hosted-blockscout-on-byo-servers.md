@@ -160,3 +160,11 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![](../../.gitbook/assets/screenshot-2020-09-14-at-15.40.32.png)
 
+### PublicMint
+
+> **Project:** PublicMint  
+> **Blockscout url:** [https://explorer.publicmint.io/](https://explorer.publicmint.io/)  
+> **Description:** Public Mint offers a fiat-native blockchain, APIs and web components, open and ready for anyone to build fiat-native applications ****and accept credit cards, ACH, wire transfers and more. No bank accounts needed.
+
+![](../../.gitbook/assets/screenshot-2021-01-21-at-09.50.36.png)
+
