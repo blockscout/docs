@@ -14,4 +14,5 @@
 | Make | - | `sudo apt install make`if Debian 9 |
 | G++ Compiler | - | `sudo apt install g++`if Debian 9 |
 | Rust | - | [Install Rust](https://www.rust-lang.org/tools/install) |
+| Cargo | - | Ubuntu - `apt-get install cargo` |
 
