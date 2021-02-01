@@ -89,6 +89,7 @@
   * [Hosted Instance on BlockScout.com](for-projects/premium-features/your-chain-on-blockscout.com.md)
   * [Contract Verification via Sourcify](for-projects/premium-features/contracts-verification-via-sourcify.md)
   * [Moonbeam Support](for-projects/premium-features/moonbeam-support.md)
+  * [Export to CSV](for-projects/premium-features/export-to-csv.md)
 * [List of Projects Using BlockScout](for-projects/supported-projects.md)
 
 ## Resources
