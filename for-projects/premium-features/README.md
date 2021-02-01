@@ -3,7 +3,7 @@
 Custom integrations and premium functionality are available for projects looking to extend their BlockScout instances. The following features are available, with more in development. 
 
 {% hint style="info" %}
-If your project has a feature in mind that you don't see here \(or one you do!\), [contact our team](https://gitter.im/poanetwork/blockscout) to discuss the details.
+To implement a premium feature or if your project has a feature in mind that you don't see here, [contact our team](https://gitter.im/poanetwork/blockscout) to discuss the details. 
 {% endhint %}
 
 🦎 [**Custom Themes:**](custom-branded-themes.md) A custom theme helps create a seamless blockchain experience for users.  A consistent look and feel helps orient the user, and custom elements like links to various related elements \(NFTs, website links etc\) can add engagement with your application. Maintaining a consistent presence across platforms is key, and custom themes can help with the process.
