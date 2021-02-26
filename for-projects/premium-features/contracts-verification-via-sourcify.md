@@ -1,6 +1,6 @@
 # Contract Verification via Sourcify
 
-Along with contract verification through a flattened source file \(the default option in Blockscout\), we provide a verification option through the [Sourcify](https://sourcify.dev/) API. The _Verification with Sourcify_ premium feature is enabled in the [xDai instance of Blockscout](https://blockscout.com/poa/xdai).
+Along with contract verification through a flattened source file \(the default option in Blockscout\), we provide a verification option through the [Sourcify](https://sourcify.dev/) API. The _Verification with Sourcify_ premium feature is enabled in the [xDai instance of Blockscout](https://blockscout.com/xdai/mainnet).
 
 ## Usage Example
 
@@ -28,6 +28,6 @@ After several seconds your contract should be verified through Sourcify's API \(
 
 Example Contract:
 
-* Contract [verified via Sourcify contract in Blockscout](https://blockscout.com/poa/xdai/address/0x4f15a6e74CFC2F80D5967a8aB75F3c83D8043cF4/contracts). 
+* Contract [verified via Sourcify contract in Blockscout](https://blockscout.com/xdai/mainnet/address/0x4f15a6e74CFC2F80D5967a8aB75F3c83D8043cF4/contracts). 
 * The same contract in the [Sourcify contract repository](https://contractrepo.komputing.org/contracts/full_match/100/0x4f15a6e74CFC2F80D5967a8aB75F3c83D8043cF4/).
 
