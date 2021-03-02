@@ -6,6 +6,10 @@ description: Verifying your deployed contract is always a good idea!
 
 Once verified, a smart contract or token contract's source code becomes publicly available and verifiable. This creates transparency and trust. Plus, it's easy to do!
 
+{% hint style="info" %}
+If you are verifying on xDai chain \(or another chain with this feature implemented\) you can also use the [Sourcify integration to verify without flattening contracts](../../for-projects/premium-features/contracts-verification-via-sourcify.md).
+{% endhint %}
+
 1\) On contract creation, you will receive an address to check a pending transaction. If it does not redirect you to [blockscout.com](https://blockscout.com/), go to BlockScout, verify you are on the chain where the contract was deployed, and type the contract's address into the search bar. Your contract details should come up.  
 
 
