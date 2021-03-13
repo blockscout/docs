@@ -14,7 +14,7 @@ To view Modules and API Reference documentation:
 
 ## BlockScout API Usage
 
-Api calls can be accessed from the BlockScout UI menu. BlockScout supports several methods:
+Api calls can be accessed from the BlockScout footer \(or top menu depending on the BlockScout instance\). BlockScout supports several methods:
 
 1. [Graphiql](https://github.com/graphql/graphiql): An IDE for exploring GraphQL
 2. RPC: API provided for developers transitioning their applications from Etherscan to BlockScout. Supports GET and POST requests.
