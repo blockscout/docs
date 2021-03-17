@@ -115,6 +115,14 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `ADDRESS_TRANSACTIONS_CACHE_PERIOD` |  | time to live of address' transactions counter in seconds. This var was introduced in [\#3330](https://github.com/poanetwork/blockscout/pull/3330) | 1 hour | v3.4.0+ |  |
 | `DISABLE_BRIDGE_MARKET_CAP_UPDATER` |  | Disables recurring consolidation of TokenBridge market cap from TokenBridge, OmniBridge and AMB extensions | \(empty\) | v3.3.3+ |  |
 | `POS_STAKING_CONTRACT` |  | The address of POSDAO staking contract. When provided, enables staking DApp. ValidatorSet and BlockReward contract addresses are fetched using corresponding getters. | \(empty\) | v3.4.0+ |  |
+| `ENABLE_POS_STAKING_IN_MENU` |  | Enables Staking dapp in the menu | false | master |  |
 | `TOKEN_EXCHANGE_RATE_CACHE_PERIOD` |  | Managing of cache invalidation for token's exchange rate. | \(empty\) | v3.5.0+ |  |
 | `ADDRESS_TOKENS_USD_SUM_CACHE_PERIOD` |  | Managing of cache invalidation period for the sum of USD value of tokens per tokens' holder address | \(empty\) | v3.5.0+ |  |
+| `SHOW_MAINTENANCE_ALERT` |  | Disables/enables announcement at the top of the explorer | false | master |  |
+| `MAINTENANCE_ALERT_MESSAGE` |  | Message text of the announcement at the top of the explorer | \(empty\) | master |  |
+| `SHOW_STAKING_WARNING` |  | Disables/enables announcement inside staking dapp | false | master |  |
+| `STAKING_WARNING_MESSAGE` |  | Message text of the announcement inside staking dapp | \(empty\) | master |  |
+| `CUSTOM_CONTRACT_ADDRESSES_TEST_TOKEN` |  | List of test tokens addresses: test label will applied and those tokens will be excluded from omni bridge market cap calculation | \(empty\) | master |  |
+
+
 
