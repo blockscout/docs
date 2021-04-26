@@ -123,6 +123,10 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `SHOW_STAKING_WARNING` |  | Disables/enables announcement inside staking dapp | false | v3.6.0+ |  |
 | `STAKING_WARNING_MESSAGE` |  | Message text of the announcement inside staking dapp | \(empty\) | v3.6.0+ |  |
 | `CUSTOM_CONTRACT_ADDRESSES_TEST_TOKEN` |  | List of test tokens addresses: test label will applied and those tokens will be excluded from omni bridge market cap calculation | \(empty\) | v3.6.0+ |  |
+| `ENABLE_SOURCIFY_INTEGRATION` |  | Enables or disables verification of contracts through Sourcify | false | master |  |
+| `SOURCIFY_SERVER_URL` |  | URL to Sourcify backend | [https://sourcify.dev/server](https://sourcify.dev/server) | master |  |
+| `SOURCIFY_REPO_URL` |  | URL to Sourcify repository with fully verified contracts | [https://repo.sourcify.dev/contracts/full\_match/](https://repo.sourcify.dev/contracts/full_match/) | master |  |
+| `CHAIN_ID` |  | Chain ID of the network. For instance, 100 in case of xDai chain. | \(empty\) | master |  |
 
 
 
