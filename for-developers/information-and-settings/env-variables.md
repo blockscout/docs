@@ -82,7 +82,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `TOKEN_METADATA_UPDATE_INTERVAL` |  | Interval in seconds to restart the task which updates token metadata | 60 \* 60 \* 24 _\*_ 2 | v2.0.1+ |  |
 | `AVERAGE_BLOCK_CACHE_PERIOD` |  | Update of average block period cache, in seconds | 30 minutes | v2.0.2+ |  |
 | `MARKET_HISTORY_CACHE_PERIOD` |  | Update of market history cache, in seconds | 6 hours | v2.0.2+ |  |
-| `ALLOWED_EVM_VERSIONS` |  | the comma-separated list of allowed EVM versions for contracts verification. This var was introduced in [\#1964](https://github.com/poanetwork/blockscout/pull/1964) | "homestead, tangerineWhistle, spuriousDragon, byzantium, constantinople, petersburg" | v2.0.0+ |  |
+| `ALLOWED_EVM_VERSIONS` |  | the comma-separated list of allowed EVM versions for contract verification. This var was introduced in [\#1964](https://github.com/poanetwork/blockscout/pull/1964) | "homestead, tangerineWhistle, spuriousDragon, byzantium, constantinople, petersburg" | v2.0.0+ |  |
 | `UNCLES_IN_AVERAGE_BLOCK_TIME` |  | Include or exclude non-consensus blocks in avg block time calculation. Exclude if `false`. | false | v2.0.1+ |  |
 | `DISABLE_WEBAPP` |  | If `true`, endpoints to webapp are hidden \(compile-time\). Also, enabling it makes notifications go through `db_notify` | `false` | v2.0.3+ | ✅ |
 | `DISABLE_READ_API` |  | If `true`, read-only endpoints to API are hidden \(compile-time\) | `false` | v2.0.3+ | ✅ |
@@ -107,26 +107,26 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `EXTERNAL_APPS` |  | An array of external apps to display in Apps menu item. This var was introduced in this PR [\#3184](https://github.com/poanetwork/blockscout/pull/3184) and looks like an array of JSON objects. | \(empty\) | v3.3.1+ |  |
 | `OMNI_BRIDGE_MEDIATOR` |  | An address of OmniBridge mediator to bridge multiple tokens. Providing this address enables bridged tokens functionality: bridged status and link to the original token in the foreign chain. | \(empty\) | v3.3.2+ |  |
 | `AMB_BRIDGE_MEDIATORS` |  | A comma-separated list of AMB extensions' mediators' addresses' hashes to fetch bridged tokens through those mediators. | \(empty\) | v3.3.3+ |  |
-| `GAS_PRICE` |  | Gas price in Gwei. If the variable is present, gas price displays at the main page | \(empty\) | v3.3.2+ |  |
+| `GAS_PRICE` |  | Gas price in Gwei. If the variable is present, gas price displays on the main page | \(empty\) | v3.3.2+ |  |
 | `FOREIGN_JSON_RPC` |  | JSON RPC endpoint to the foreign chain in order to get metadata of bridged through Omni-bridge token. It was introduced in this PR [\#3282](https://github.com/poanetwork/blockscout/pull/3282) | \(empty\) | v3.3.3+ |  |
 | `BRIDGE_MARKET_CAP_UPDATE_INTERVAL` |  | Market cap update interval for \`TokenBridge\` supply module as for TokenBridge and for OmniBridge as well, in seconds. It was introduced in this PR [\#3293](https://github.com/poanetwork/blockscout/pull/3293) | 30 minutes | v3.3.3+ |  |
-| `RESTRICTED_LIST` |  | A comma-separated list of addresses to enable restricted access on them | \(empty\) | v3.3.3+ |  |
+| `RESTRICTED_LIST` |  | A comma-separated list of addresses to enable restricted access to them | \(empty\) | v3.3.3+ |  |
 | `RESTRICTED_LIST_KEY` |  | A key to access  addresses listed in`RESTRICTED_LIST` variable. Can be passed via query param to the page's URL: `?key=...` | \(empty\) | v3.3.3+ |  |
 | `ADDRESS_TRANSACTIONS_CACHE_PERIOD` |  | time to live of address' transactions counter in seconds. This var was introduced in [\#3330](https://github.com/poanetwork/blockscout/pull/3330) | 1 hour | v3.4.0+ |  |
 | `DISABLE_BRIDGE_MARKET_CAP_UPDATER` |  | Disables recurring consolidation of TokenBridge market cap from TokenBridge, OmniBridge and AMB extensions | \(empty\) | v3.3.3+ |  |
 | `POS_STAKING_CONTRACT` |  | The address of POSDAO staking contract. When provided, enables staking DApp. ValidatorSet and BlockReward contract addresses are fetched using corresponding getters. | \(empty\) | v3.4.0+ |  |
 | `ENABLE_POS_STAKING_IN_MENU` |  | Enables Staking dapp in the menu | false | v3.6.0+ |  |
-| `TOKEN_EXCHANGE_RATE_CACHE_PERIOD` |  | Managing of cache invalidation for token's exchange rate. | \(empty\) | v3.5.0+ |  |
+| `TOKEN_EXCHANGE_RATE_CACHE_PERIOD` |  | Managing cache invalidation for token's exchange rate. | \(empty\) | v3.5.0+ |  |
 | `ADDRESS_TOKENS_USD_SUM_CACHE_PERIOD` |  | Managing of cache invalidation period for the sum of USD value of tokens per tokens' holder address | \(empty\) | v3.5.0+ |  |
 | `SHOW_MAINTENANCE_ALERT` |  | Disables/enables announcement at the top of the explorer | false | v3.6.0+ |  |
 | `MAINTENANCE_ALERT_MESSAGE` |  | Message text of the announcement at the top of the explorer | \(empty\) | v3.6.0+ |  |
 | `SHOW_STAKING_WARNING` |  | Disables/enables announcement inside staking dapp | false | v3.6.0+ |  |
 | `STAKING_WARNING_MESSAGE` |  | Message text of the announcement inside staking dapp | \(empty\) | v3.6.0+ |  |
-| `CUSTOM_CONTRACT_ADDRESSES_TEST_TOKEN` |  | List of test tokens addresses: test label will applied and those tokens will be excluded from omni bridge market cap calculation | \(empty\) | v3.6.0+ |  |
-| `ENABLE_SOURCIFY_INTEGRATION` |  | Enables or disables verification of contracts through Sourcify | false | master |  |
-| `SOURCIFY_SERVER_URL` |  | URL to Sourcify backend | [https://sourcify.dev/server](https://sourcify.dev/server) | master |  |
-| `SOURCIFY_REPO_URL` |  | URL to Sourcify repository with fully verified contracts | [https://repo.sourcify.dev/contracts/full\_match/](https://repo.sourcify.dev/contracts/full_match/) | master |  |
-| `CHAIN_ID` |  | Chain ID of the network. For instance, 100 in case of xDai chain. | \(empty\) | master |  |
+| `CUSTOM_CONTRACT_ADDRESSES_TEST_TOKEN` |  | List of test tokens addresses: test label will be applied and those tokens will be excluded from omni bridge market cap calculation | \(empty\) | v3.6.0+ |  |
+| `ENABLE_SOURCIFY_INTEGRATION` |  | Enables or disables verification of contracts through Sourcify | false | v3.7.0+ |  |
+| `SOURCIFY_SERVER_URL` |  | URL to Sourcify backend | [https://sourcify.dev/server](https://sourcify.dev/server) | v3.7.0+ |  |
+| `SOURCIFY_REPO_URL` |  | URL to Sourcify repository with fully verified contracts | [https://repo.sourcify.dev/contracts/full\_match/](https://repo.sourcify.dev/contracts/full_match/) | v3.7.0+ |  |
+| `CHAIN_ID` |  | Chain ID of the network. For instance, 100 in the case of xDai chain. | \(empty\) | v3.7.0+ |  |
 
 
 
