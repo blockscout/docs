@@ -25,6 +25,13 @@ BlockScout will support the new POSDAO staking consensus mechanism through an on
 
 Users can currently verify and read contracts on BlockScout. The next smart contract development phase will allow users to interact with contracts directly through the interface.  Verified contract methods will be accessible and users can connect through a web3 wallet \(such as MetaMask\) to access and execute contract functions.
 
+## ERC1155 Support
+
+**Target Date:** Q2 2021  
+**Status**: ✅ Basic Functionality added for xDai chain, additional support in process.
+
+ERC-1155 tokens are increasing in popularity as a way to manage multiple-token types including fungible and non-fungible tokens within a single instance. This feature provides parsing and display of tokens contained within an ERC-1155. Additional functionality such as metadata display is in process.
+
 ## Data Storage Optimization
 
 **Target Date:** Ongoing

@@ -10,11 +10,11 @@ To implement a premium feature or if your project has a feature in mind that you
 
 🚄 [**Hosting on blockscout.com**](your-chain-on-blockscout.com.md): Self-hosting can be difficult and requires a dev-ops team to make critical in-house updates and/or customizations. A hosted chain not only gives projects access to expert, dedicated technical support, it also greatly increases project visibility.
 
-\*\*\*\*🧠 [**Sourcify Contract Verification**](contracts-verification-via-sourcify.md):  Smart Contract verification is important for transparency and interactivity. However, verification can be cumbersome when using flat files. The Sourcify integration greatly simplifies the process, leading to more verified contracts and more trust throughout the ecosystem.
-
 🌜 [**Moonbeam Support**](moonbeam-support.md)**:** We offer support and customizations specific to MoonBeam parachain contracts.
 
 ✍ [**Advanced CSV Exports**](export-to-csv.md)**:** Define a time period and download chain data to csv including transactions, internal transactions, tokens and logs for any address. 
+
+🤹 ERC-1155 Support:  [ERC-1155s](https://eips.ethereum.org/EIPS/eip-1155) are increasingly popular for batching and flexible multi-token interactions. ERC-1155 support includes instance recognition, single and batched transfer parsing and indexing for both fungible and non-fungible tokens.
 
 
 

@@ -65,7 +65,8 @@
 ## For users
 
 * [Smart Contract Interaction](for-users/smart-contract-interaction/README.md)
-  * [Verifying a Smart Contract](for-users/smart-contract-interaction/verifying-a-smart-contract.md)
+  * [Verifying a Smart Contract](for-users/smart-contract-interaction/verifying-a-smart-contract/README.md)
+    * [Contract Verification via Sourcify](for-users/smart-contract-interaction/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
   * [EVM Version Information](for-users/smart-contract-interaction/evm-version-information.md)
   * [ABI-Encoded Constructor Arguments](for-users/smart-contract-interaction/abi-encoded-constructor-arguments.md)
 * [API](for-users/api/README.md)
@@ -87,9 +88,9 @@
 * [Premium Features](for-projects/premium-features/README.md)
   * [Custom / Branded Themes](for-projects/premium-features/custom-branded-themes.md)
   * [Hosted Instance on BlockScout.com](for-projects/premium-features/your-chain-on-blockscout.com.md)
-  * [Contract Verification via Sourcify](for-projects/premium-features/contracts-verification-via-sourcify.md)
   * [Moonbeam Support](for-projects/premium-features/moonbeam-support.md)
   * [Export to CSV](for-projects/premium-features/export-to-csv.md)
+  * [ERC-1155 Support](for-projects/premium-features/erc-1155-support.md)
 * [List of Projects Using BlockScout](for-projects/supported-projects.md)
 
 ## Resources
