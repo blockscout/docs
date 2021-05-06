@@ -168,3 +168,11 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![](../../.gitbook/assets/screenshot-2021-01-21-at-09.50.36.png)
 
+### Quadrans
+
+> **Project:** [Quadrans Foundation](https://quadrans.io/)  
+> **Mainnet Explorer:**  [https://explorer.quadrans.io/](https://explorer.quadrans.io/)  
+> **Testnet Explorer:**  [https://explorer.testnet.quadrans.io/](https://explorer.testnet.quadrans.io/)  
+> **Description:** Quadrans is an open-source, public, decentralised blockchain infrastructure for Smart-Contracts and dApps, where individuals and enterprises can store and share any type of data (public or encrypted), validate business processes and optimise governance procedures.
+
+![Quadrans Mainnet Explorer](../../.gitbook/assets/quadrans-mainnet-explorer.png)
