@@ -16,12 +16,12 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 > **Projects:** ETC Mainnet, Kotti Testnet, Mordor Testnet  
 > **Explorers:**
-
+>
 > * ETC Mainnet: [https://blockscout.com/etc/mainnet](https://blockscout.com/etc/mainnet)
 > * Kotti: [https://blockscout.com/etc/kotti](https://blockscout.com/etc/kotti)
 > * Mordor: [https://blockscout.com/etc/mordor](https://blockscout.com/etc/mordor)
 >
-> **Description:** ETC Cooperative hosts all instances. Proxies are used to include these chains at blockscout.com. ****Kotti Ethereum Classic Testnets provide reliable and robust Proof-of-Authority networks for testing across client implementations. Mordor is an Ethereum Classic Proof-of-Work Testnet launched in October 2019.
+> **Description:** ETC Cooperative hosts all instances. Proxies are used to include these chains at blockscout.com. _\*\*_Kotti Ethereum Classic Testnets provide reliable and robust Proof-of-Authority networks for testing across client implementations. Mordor is an Ethereum Classic Proof-of-Work Testnet launched in October 2019.
 
 ![Mordor ETC Explorer](../../.gitbook/assets/mordor-testnet.png)
 
@@ -29,13 +29,16 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 > **Project:** [Celo](https://celo.org/)
 >
-> **Mainnet RC1 explorer:**  
-> - [https://explorer.celo.org/](https://explorer.celo.org/)
+> **Mainnet RC1 explorer:**
 >
-> **Testnet Explorers:**   
-> - [https://alfajores-blockscout.celo-testnet.org/](https://alfajores-blockscout.celo-testnet.org/)  
-> - [https://baklava-blockscout.celo-testnet.org/](https://baklava-blockscout.celo-testnet.org/)  
-> **Description:** Proof of stake blockchain optimized for mobile-based financial transactions.
+> * [https://explorer.celo.org/](https://explorer.celo.org/)
+>
+> **Testnet Explorers:**
+>
+> * [https://alfajores-blockscout.celo-testnet.org/](https://alfajores-blockscout.celo-testnet.org/)  
+> * [https://baklava-blockscout.celo-testnet.org/](https://baklava-blockscout.celo-testnet.org/)  
+>
+>   **Description:** Proof of stake blockchain optimized for mobile-based financial transactions.
 
 ![CELO Mainnet RC1 ](../../.gitbook/assets/image.png)
 
@@ -71,8 +74,6 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![](../../.gitbook/assets/screenshot-2019-12-04-at-18.42.09.png)
 
-### 
-
 ### EtherCore
 
 > **Project:** EtherCore  
@@ -101,22 +102,23 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 > **Project:** C-Chain AVA  
 > **Blockscout url:** [https://cchain.explorer.avax.network/](https://cchain.explorer.avax.network/)  
-> **Description:**   
-> AVA is  
-> - A heterogeneous network of custom, interoperable blockchains and custom validator sets  
-> - A platform for defining, launching and maintaining custom blockchains  
-> - A platform for creating and trading smart digital assets  
-> - A way to store and transfer value without a centralized entity
+> **Description:**  
+> AVA is
+>
+> * A heterogeneous network of custom, interoperable blockchains and custom validator sets  
+> * A platform for defining, launching and maintaining custom blockchains  
+> * A platform for creating and trading smart digital assets  
+> * A way to store and transfer value without a centralized entity
 
 ![](../../.gitbook/assets/screenshot-2020-09-14-at-21.09.41.png)
 
 ### Energy Web
 
 > **Project:** Energy Web  
-> **Blockscout urls:   
->    Mainnet:** [https://explorer.energyweb.org/](https://explorer.energyweb.org/)   
->    **Testnet:** [https://volta-explorer.energyweb.org/](https://volta-explorer.energyweb.org/)  
-> **Description:** The ****Energy Web Chain is the world’s first open-source, enterprise blockchain platform tailored to the energy sector. Energy Web has become the industry’s leading blockchain partner and most-respected voice of authority on energy blockchain.
+> **Blockscout urls:  
+> Mainnet:** [https://explorer.energyweb.org/](https://explorer.energyweb.org/)  
+> **Testnet:** [https://volta-explorer.energyweb.org/](https://volta-explorer.energyweb.org/)  
+> **Description:** The _\*\*_Energy Web Chain is the world’s first open-source, enterprise blockchain platform tailored to the energy sector. Energy Web has become the industry’s leading blockchain partner and most-respected voice of authority on energy blockchain.
 
 ![Energy Web](../../.gitbook/assets/energy-web.png)
 
@@ -164,15 +166,16 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 > **Project:** PublicMint  
 > **Blockscout url:** [https://explorer.publicmint.io/](https://explorer.publicmint.io/)  
-> **Description:** Public Mint offers a fiat-native blockchain, APIs and web components, open and ready for anyone to build fiat-native applications ****and accept credit cards, ACH, wire transfers and more. No bank accounts needed.
+> **Description:** Public Mint offers a fiat-native blockchain, APIs and web components, open and ready for anyone to build fiat-native applications _\*\*_and accept credit cards, ACH, wire transfers and more. No bank accounts needed.
 
 ![](../../.gitbook/assets/screenshot-2021-01-21-at-09.50.36.png)
 
 ### Quadrans
 
 > **Project:** [Quadrans Foundation](https://quadrans.io/)  
-> **Mainnet Explorer:**  [https://explorer.quadrans.io/](https://explorer.quadrans.io/)  
-> **Testnet Explorer:**  [https://explorer.testnet.quadrans.io/](https://explorer.testnet.quadrans.io/)  
-> **Description:** Quadrans is an open-source, public, decentralised blockchain infrastructure for Smart-Contracts and dApps, where individuals and enterprises can store and share any type of data (public or encrypted), validate business processes and optimise governance procedures.
+> **Mainnet Explorer:** [https://explorer.quadrans.io/](https://explorer.quadrans.io/)  
+> **Testnet Explorer:** [https://explorer.testnet.quadrans.io/](https://explorer.testnet.quadrans.io/)  
+> **Description:** Quadrans is an open-source, public, decentralised blockchain infrastructure for Smart-Contracts and dApps, where individuals and enterprises can store and share any type of data \(public or encrypted\), validate business processes and optimise governance procedures.
 
 ![Quadrans Mainnet Explorer](../../.gitbook/assets/quadrans-mainnet-explorer.png)
+
