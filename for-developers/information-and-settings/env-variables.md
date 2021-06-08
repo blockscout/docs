@@ -105,7 +105,8 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `COIN_BALANCE_HISTORY_DAYS` |  | Number of days to consider at coin balance history chart | 10 | v3.1.3+ |  |
 | `APPS_MENU` |  | true/false. If true, the Apps navigation menu item appears | false | v3.3.1+ |  |
 | `EXTERNAL_APPS` |  | An array of external apps to display in Apps menu item. This var was introduced in this PR [\#3184](https://github.com/poanetwork/blockscout/pull/3184) and looks like an array of JSON objects. | \(empty\) | v3.3.1+ |  |
-| `OMNI_BRIDGE_MEDIATOR` |  | An address of OmniBridge mediator to bridge multiple tokens. Providing this address enables bridged tokens functionality: bridged status and link to the original token in the foreign chain. | \(empty\) | v3.3.2+ |  |
+| `ETH_OMNI_BRIDGE_MEDIATOR` |  | An address of home OmniBridge mediator to bridge multiple tokens from Ethereum. Providing this address enables bridged tokens functionality: bridged status and link to the original token in the foreign chain. | \(empty\) | v3.6.0+ |  |
+| `BSC_OMNI_BRIDGE_MEDIATOR` |  | An address of home OmniBridge mediator to bridge multiple tokens from Binance Smart Chain. Providing this address enables bridged tokens functionality: bridged status and link to the original token in the foreign chain. | \(empty\) | v3.6.0+ |  |
 | `AMB_BRIDGE_MEDIATORS` |  | A comma-separated list of AMB extensions' mediators' addresses' hashes to fetch bridged tokens through those mediators. | \(empty\) | v3.3.3+ |  |
 | `GAS_PRICE` |  | Gas price in Gwei. If the variable is present, gas price displays on the main page | \(empty\) | v3.3.2+ |  |
 | `FOREIGN_JSON_RPC` |  | JSON RPC endpoint to the foreign chain in order to get metadata of bridged through Omni-bridge token. It was introduced in this PR [\#3282](https://github.com/poanetwork/blockscout/pull/3282) | \(empty\) | v3.3.3+ |  |

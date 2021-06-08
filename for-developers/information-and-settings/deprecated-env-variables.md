@@ -11,6 +11,7 @@ This table is horizontally scrollable, version information is located in the las
 | `COIN_GECKO_ID` |  | CoinGecko coin id required for fetching an exchange rate | poa-network | v2.0.4+ |  | v2.1.0+ |
 | `NETWORK_ICON` |  | Environment variable for the main network icon or testnet icon. Two options are `_test_network_icon.html` and `_network_icon.html` | \_network\_icon.html | All |  | v2.0.0+ |
 | `REWARDS_CONTRACT_ADDRESS` |  | Emission rewards contract address. This env var is used only if `EMISSION_FORMAT` is set to `POA` . Replaced with `REWARDS_CONTRACT` | `0xeca443e8e1ab29971a45a9c57a6a9875701698a5` | v2.0.4+ |  | v3.1.0 |
+| `OMNI_BRIDGE_MEDIATOR` |  | An address of home OmniBridge mediator to bridge multiple tokens from Ethereum. Providing this address enables bridged tokens functionality: bridged status and link to the original token in the foreign chain. | \(empty\) | v3.3.2+ |  | v3.6.0 |
 
 
 
