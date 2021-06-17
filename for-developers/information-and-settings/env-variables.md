@@ -59,7 +59,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `SPANDEX_BATCH_SIZE` |  | [Spandex](https://github.com/spandex-project/spandex) and Datadog configuration setting. | \(empty\) | all |  |
 | `SPANDEX_SYNC_THRESHOLD` |  | [Spandex](https://github.com/spandex-project/spandex) and Datadog configuration setting. | \(empty\) | all |  |
 | `HEART_BEAT_TIMEOUT` |  | Production environment variable to restart the application in the event of a crash. | 30 | all |  |
-| `HEART_COMMAND` |  | Production environment variable to restart the application in the event of a crash. | systemctl restart explorer.service | all |  |
+| `HEART_COMMAND` |  | Production environment variable to restart the application in the event of a crash. | \(empty\) | all |  |
 | `BLOCKSCOUT_VERSION` |  | Added to the footer to signify the current BlockScout version. | \(empty\) | v1.3.4+ |  |
 | `RELEASE_LINK` |  | The link to Blockscout release notes in the footer. | https: //github.com/poanetwork/  blockscout/releases/   tag/${BLOCKSCOUT\_VERSION} | v1.3.5+ |  |
 | `ELIXIR_VERSION` |  | Elixir version to install on the node before Blockscout deploy. It is used in bash script in Terraform / Ansible deployment script | \(empty\) | all |  |
