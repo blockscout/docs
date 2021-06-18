@@ -130,5 +130,3 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `CHAIN_ID` |  | Chain ID of the network. For instance, 100 in the case of xDai chain. | \(empty\) | v3.7.0+ |  |
 | `MAX_SIZE_UNLESS_HIDE_ARRAY` |  | Hide long arrays in smart-contracts. To get more details: [\#4218](https://github.com/blockscout/blockscout/pull/4218) | 50 | master |  |
 
-
-
