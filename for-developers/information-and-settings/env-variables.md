@@ -128,6 +128,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
 | `SOURCIFY_SERVER_URL` |  | URL to Sourcify backend | [https://sourcify.dev/server](https://sourcify.dev/server) | v3.7.0+ |  |
 | `SOURCIFY_REPO_URL` |  | URL to Sourcify repository with fully verified contracts | [https://repo.sourcify.dev/contracts/full\_match/](https://repo.sourcify.dev/contracts/full_match/) | v3.7.0+ |  |
 | `CHAIN_ID` |  | Chain ID of the network. For instance, 100 in the case of xDai chain. | \(empty\) | v3.7.0+ |  |
+| `MAX_SIZE_UNLESS_HIDE_ARRAY` |  | Hide long arrays in smart-contracts. To get more details: [\#4218](https://github.com/blockscout/blockscout/pull/4218) | 50 | master |  |
 
 
 
