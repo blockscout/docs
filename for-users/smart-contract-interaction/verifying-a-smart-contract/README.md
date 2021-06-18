@@ -27,7 +27,7 @@ In addition to the methods below, you can also use the [Sourcify integration to 
 
 ![](../../../.gitbook/assets/solidity-1.png)
 
-## Via flattened source Code
+### Via flattened source Code
 
 ![](../../../.gitbook/assets/flattened-code.png)
 
@@ -57,7 +57,7 @@ In addition to the methods below, you can also use the [Sourcify integration to 
 6. Click the `Verify and Publish` button.
 7. If all goes well, you will see a checkmark ✅ next to Code in the code tab, and an additional tab called `Read Contract`. The contract name will now appear in BlockScout with any transactions related to your contract.
 
-## Sourcify
+### Sourcify
 
 See the [Contract Verification via Sourcify](contracts-verification-via-sourcify.md) page for details.
 
