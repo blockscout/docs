@@ -6,7 +6,7 @@ BlockScout provides metadata on Validators of [POA Core ](https://blockscout.com
 
 ![Validator details](../../.gitbook/assets/v2.png)
 
-This information is sourced through the [Validators Contract](https://blockscout.com/poa/core/address/0xa105db0e6671c7b5f4f350ff1af6460e6c696e71/read_contract) and the [Validator Metadata Contract](https://blockscout.com/poa/core/address/0xe3fffd154931eb80b2ace096ec32d6df23661203/read_contract). These contracts are defined through environment variables located here:
+This information is sourced through the [Validators Contract](https://blockscout.com/poa/core/address/0xa105Db0e6671C7B5f4f350ff1Af6460E6C696e71/read-contract) and the [Validator Metadata ](https://blockscout.com/poa/core/address/0xE3FfFD154931EB80b2aCE096EC32D6df23661203/read-contract)Contract. These contracts are defined through environment variables located here:
 
 [https://github.com/poanetwork/blockscout/blob/12aa15671142af00b35ff05aeac107c2c686c4c8/apps/explorer/config/config.exs\#L33-L41](https://github.com/poanetwork/blockscout/blob/12aa15671142af00b35ff05aeac107c2c686c4c8/apps/explorer/config/config.exs#L33-L41)
 
