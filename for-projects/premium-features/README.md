@@ -3,7 +3,7 @@
 Custom integrations and premium functionality are available for projects looking to extend their BlockScout instances. Our premium-level offerings feature personalized, proactive services from an assigned technical account manager who will work with you to implement and optimize your Blockscout solution, minimize risk, and achieve your business and technology goals. The following features are available, with more in development.
 
 {% hint style="info" %}
-To implement a premium feature or if your project has a feature in mind that you don't see here, [contact our team](https://gitter.im/poanetwork/blockscout) to discuss the details. 
+To implement a premium feature or if your project has a feature in mind that you don't see here, [contact the team in Discord](https://discord.gg/ZUnrZTK) to start the discussion. 
 {% endhint %}
 
 🚄 [**Hosting on blockscout.com**](your-chain-on-blockscout.com.md): Self-hosting can be difficult, often requiring a dev-ops team to make critical in-house updates and/or customizations. A Blockscout-hosted chain not only gives projects access to expert, dedicated technical support, it also greatly increases project visibility.
