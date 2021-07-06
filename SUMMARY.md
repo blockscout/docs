@@ -90,6 +90,7 @@
   * [Hosted Instance on BlockScout.com](for-projects/premium-features/your-chain-on-blockscout.com.md)
   * [Moonbeam Support](for-projects/premium-features/moonbeam-support.md)
   * [Export to CSV](for-projects/premium-features/export-to-csv.md)
+  * [Premium Transaction Pages](for-projects/premium-features/premium-transaction-pages.md)
   * [ERC-1155 Support](for-projects/premium-features/erc-1155-support.md)
 * [List of Projects Using BlockScout](for-projects/supported-projects.md)
 

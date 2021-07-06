@@ -16,7 +16,7 @@ To implement a premium feature or if your project has a feature in mind that you
 
 \*\*\*\*🐍 **Vyper Smart Contracts Support:** [Vyper](https://vyper.readthedocs.io/en/stable/) is gaining more popularity as devs with Python experience move into the blockchain space. The Vyper Smart Contracts Verification module can be added and customized to your blockscout instance to allow for easy on-chain vyper contract interaction and verification.
 
-\*\*\*\*👨🔬 **Premium Transaction Pages:**  Enhancements to the transaction pages layout gives users additional transaction data fields displayed and organized in a user-friendly, easy-to-read format. 
+\*\*\*\*👨🔬 [**Premium Transaction Pages**](premium-transaction-pages.md)**:**  Enhancements to the transaction pages layout gives users additional transaction data fields displayed and organized in a user-friendly, easy-to-read format. 
 
 🤹 **ERC-1155 Support:**  [ERC-1155s](https://eips.ethereum.org/EIPS/eip-1155) are increasingly popular for batching and flexible multi-token interactions. ERC-1155 support includes instance recognition, single and batched transfer parsing and indexing for both fungible and non-fungible tokens.
 
