@@ -82,7 +82,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"><a href="https://explorer.petrachor.com/">Petrichor</a>
       </td>
-      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://explorer.palm-uat.xyz/">Palm Testnet</a></td>
     </tr>
     <tr>
       <td style="text-align:left"></td>
@@ -174,6 +174,15 @@ description: Hosted Projects list as well as public and private chains using Blo
       </td>
       <td style="text-align:left"></td>
     </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://explorer.palm.io/">Palm</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>    
   </tbody>
 </table>
 
