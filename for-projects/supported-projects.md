@@ -25,7 +25,7 @@ description: Hosted Projects list as well as public and private chains using Blo
     <tr>
       <td style="text-align:left"><a href="https://blockscout.com/poa/core">POA</a>
       </td>
-      <td style="text-align:left"><a href="https://blockscout.com/lukso/l14">LUKSO L14 Testnet</a>
+      <td style="text-align:left"><a href="https://blockscout.com/poa/sokol">POA Sokol Testnet</a>
       </td>
       <td style="text-align:left"><a href="https://blockscout.com/artis/sigma1">ARTIS Sigma Mainnet</a>
       </td>
@@ -42,8 +42,7 @@ description: Hosted Projects list as well as public and private chains using Blo
     <tr>
       <td style="text-align:left"><a href="https://blockscout.com/poa/dai">xDai</a>
       </td>
-      <td style="text-align:left"><a href="https://blockscout.com/poa/sokol">POA Sokol Testnet</a>
-      </td>
+      <td style="text-align:left"></td>
       <td style="text-align:left"><a href="https://blockscout.com/artis/tau1">ARTIS Tau Testnet</a>
       </td>
       <td style="text-align:left"><a href="https://blockscout.com/etc/mordor">Mordor Testnet</a>
@@ -66,7 +65,8 @@ description: Hosted Projects list as well as public and private chains using Blo
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://blockscout.com/lukso/l14">LUKSO L14</a>
+      </td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
