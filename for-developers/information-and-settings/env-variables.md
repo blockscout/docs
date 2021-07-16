@@ -1095,7 +1095,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
       <td style="text-align:left"></td>
       <td style="text-align:left">URL to Sourcify repository with fully verified contracts</td>
       <td style="text-align:left">
-        <p><a href="https://repo.sourcify.dev/contracts/full_match/">https://repo.sourcify.dev/contracts/</a>*</p>
+        <p><a href="https://repo.sourcify.dev/contracts/">https://repo.sourcify.dev/contracts/</a>*</p>
         <p></p>
         <p>*before 3.7.1 <a href="https://repo.sourcify.dev/contracts/full_match/">https://repo.sourcify.dev/contracts/full_match/</a>
         </p>
