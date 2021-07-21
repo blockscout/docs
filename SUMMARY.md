@@ -43,6 +43,7 @@
   * [Manual cleaning an instance from the previous deployment](for-developers/manual-deployment/check-your-manual-deployment-instance.md)
 * [Configuration Options](for-developers/configuration-options/README.md)
   * [CSS Configuration & Presets](for-developers/configuration-options/css-configuration-and-presets.md)
+  * [Branding Configs](for-developers/configuration-options/branding-configs.md)
   * [Automating Restarts](for-developers/configuration-options/automating-restarts.md)
   * [Front-end Config Files](for-developers/configuration-options/front-end-config-files.md)
   * [Circle CI Updates](for-developers/configuration-options/circle-ci-updates.md)

@@ -20,6 +20,8 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
   $ export NETWORK=POA
   ```
 
+{% file src="../../.gitbook/assets/blockscout-env.csv" caption="ENV Variables CSV \(7.21.2021\)" %}
+
 <table>
   <thead>
     <tr>
