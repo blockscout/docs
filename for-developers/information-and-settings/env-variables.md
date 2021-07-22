@@ -262,8 +262,8 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
       </td>
       <td style="text-align:left"></td>
       <td style="text-align:left">This environment variable is specifically used by POA Network to set KeysManager
-        proxy contract in order to obtain payout key by mining key. This need to
-        identify distributed reward to the validator.</td>
+        proxy contract in order to obtain payout key by mining key. This needs
+        to identify distributed reward to the validator.</td>
       <td style="text-align:left">(empty)</td>
       <td style="text-align:left">v3.1.2+</td>
       <td style="text-align:left"></td>
@@ -1122,7 +1122,7 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
       <td style="text-align:left">Hide long arrays in smart-contracts. To get more details: <a href="https://github.com/blockscout/blockscout/pull/4218">#4218</a>
       </td>
       <td style="text-align:left">50</td>
-      <td style="text-align:left">master</td>
+      <td style="text-align:left">v3.7.1+</td>
       <td style="text-align:left"></td>
     </tr>
   </tbody>
