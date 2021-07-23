@@ -5,7 +5,11 @@ This page is currently in development. See the [ENV Variables page](../informati
 {% endhint %}
 
 {% hint style="info" %}
-Note: if you've previously deployed and are updating your BlockScout version with new assets, be sure to remove static assets from the previous build \(use `mix phx.digest.clean`or manually delete assets located in _apps/block\_scout\_web/priv/static_ folder\) before updating current files and restarting/rebuilding BlockScout. 
+Note: if you've previously deployed and are updating your BlockScout version with new assets, be sure to remove static assets from the previous build \(use `mix phx.digest.clean`or manually delete assets located in _apps/block\_scout\_web/priv/static_ folder\) before updating current files and restarting/rebuilding BlockScout.   
+In order to rebuild new front-end assets run:
+
+1. `cd apps/block_scout_web/assets; npm install && node_modules/webpack/bin/webpack.js --mode production; cd -`
+2. `mix phx.digest`
 {% endhint %}
 
 1. **Theme Colors and other CSS-based attributes**: See [CSS Configs and Presets](css-configuration-and-presets.md) to set your instance to the stylesheet you want to use.
