@@ -19,8 +19,12 @@ In order to rebuild new front-end assets run:
 5. **Titles / Subtitles**: Browser tab displays the title from the 2 SUBNETWORK + NETWORK [env variables](../information-and-settings/env-variables.md).
 6. **Favicon**: replace the current favicons located in the `apps/block_scout_web/assets/static/images` folder to replace.
 7. **Menus**: Use the APPS\_MENU ****[env variable](../information-and-settings/env-variables.md) to include an apps menu and ****EXTERNAL\_APPS ****to populate the menu.
-8. **Footer**: Data is rendered from here: `/apps/block_scout_web/lib/block_scout_web/templates/layout/_footer.html.eex`
-9. **Custom Theming**: Custom theming is available from the BlockScout team. [Learn More](../../for-projects/premium-features/custom-branded-themes.md).
+8. **Top navigation bar**: Data is rendered from here:
+
+   `/apps/block_scout_web/lib/block_scout_web/templates/layout/_topnav.html.eex`
+
+9. **Footer**: Data is rendered from here: `/apps/block_scout_web/lib/block_scout_web/templates/layout/_footer.html.eex`
+10. **Custom Theming**: Custom theming is available from the BlockScout team. [Learn More](../../for-projects/premium-features/custom-branded-themes.md).
 
 
 
