@@ -32,6 +32,27 @@ Users can currently verify and read contracts on BlockScout. The next smart cont
 
 ERC-1155 tokens are increasing in popularity as a way to manage multiple-token types including fungible and non-fungible tokens within a single instance. This feature provides parsing and display of tokens contained within an ERC-1155. Additional functionality such as metadata display is in process.
 
+## Search Enhancements
+
+**Target Date:** Q3 2021  
+**Status**:  ☑ Ongoing
+
+Most users access an explorer through the search function. Search should be robust, optimized for mobile and include additional information about contracts, tokens etc. We will continue to optimize the search functionality to provide users with robust search data on BlockScout.
+
+## EIP-1559 Support
+
+**Target Date:** Q3 2021  
+**Status**:  ☑ Ongoing
+
+The London upgrade will create additional data points for exploration, including burn fees, priority fees, current gas target and more. These items will be incorporated into the explorer for chains after the London upgrade is completed.
+
+## My Account Functionality
+
+**Target Date:** Q4 2021  
+**Status**:  R&D
+
+We will explore adding account features for users looking for explorer personalizations, including alerts and notifications, the ability to watch specific addresses, name and customize data within the dashboard, and other advanced features.
+
 ## Data Storage Optimization
 
 **Target Date:** Ongoing
