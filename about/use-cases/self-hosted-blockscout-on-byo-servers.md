@@ -179,3 +179,11 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![Quadrans Mainnet Explorer](../../.gitbook/assets/quadrans-mainnet-explorer.png)
 
+### Cronos chain
+
+> **Project:** [Cronos chain](https://cronos.crypto.org/)  
+> **Testnet Explorer:** [https://cronos-explorer.crypto.org/](https://cronos-explorer.crypto.org/)  
+> **Description:** Get Instant DApp Portability with EVM Support.
+
+![](../../.gitbook/assets/screenshot-2021-07-29-at-12.53.51.png)
+
