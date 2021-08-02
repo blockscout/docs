@@ -1,5 +1,5 @@
 ---
-description: Upcoming enhancements to BlockScout
+description: Upcoming enhancements and updates to BlockScout
 ---
 
 # Roadmap
@@ -34,24 +34,72 @@ ERC-1155 tokens are increasing in popularity as a way to manage multiple-token t
 
 ## Search Enhancements
 
-**Target Date:** Q3 2021  
+**Target Date:** Q4 2021  
 **Status**:  ☑ Ongoing
 
-Most users access an explorer through the search function. Search should be robust, optimized for mobile and include additional information about contracts, tokens etc. We will continue to optimize the search functionality to provide users with robust search data on BlockScout.
+Most users access an explorer through the search function. Search should be robust, optimized for mobile and include additional information about contracts, tokens etc. We will continue to optimize the search functionality to provide users with robust search data on BlockScout. Some items of focus include:
+
+* Prominent search bar
+* Mobile upgrades
+* Improved dropdown
+* Full-page results
+* Search control functionality
 
 ## EIP-1559 Support
 
-**Target Date:** Q3 2021  
+**Target Date:** Q3-Q4 2021  
 **Status**:  ☑ Ongoing
 
 The London upgrade will create additional data points for exploration, including burn fees, priority fees, current gas target and more. These items will be incorporated into the explorer for chains after the London upgrade is completed.
 
+## Ethereum Mainnet BlockScout Instance
+
+**Target Date:** Q4 2021  
+**Status**: In Development
+
+BlockScout offered prior support for the Ethereum mainnet. This instance was discontinued;  however a new instance is now planned to further increase explorer diversity on Etheum and provide additional transparency for Ethereum users.
+
 ## My Account Functionality
 
 **Target Date:** Q4 2021  
-**Status**:  R&D
+**Status**: R&D
 
 We will explore adding account features for users looking for explorer personalizations, including alerts and notifications, the ability to watch specific addresses, name and customize data within the dashboard, and other advanced features.
+
+## Rollup Support
+
+**Target Date:** Q4 2021  
+**Status**: R&D
+
+BlockScout availability and support for both optimistic and zkRollups in operation on chains supported by BlockScout.
+
+## Deployment Improvements
+
+**Target Date:** Q4 2021  
+**Status**: In Development
+
+BlockScout deployment can be complicated for new users. Deployment improvements within a Docker environment will enable a fast path for easy setup and deployment.
+
+## NFT View Interface
+
+**Target Date:** Q4 2021  
+**Status**: Ideation phase
+
+As NFTs become more important to the ecosystem, the explorer will be updated and redesigned to display images, attributes and other data in a user-friendly interface.
+
+## Block/Address Detail Page Improvements
+
+**Target Date:** Q4 2021  
+**Status**: Ideation phase
+
+Improve data views, add additional fields, and update display and organization so users can clearly and quickly find and explore blockchain data on detail pages.
+
+## Data Sorting/Filtering
+
+**Target Date:** Q4 2021  
+**Status**:  Ideation phase
+
+Data in a tabular format should be easily sortable \(ascending, descending by column\). Improved pagination and filtering will give users access to view and filter data directly within the BlockScout interface.
 
 ## Data Storage Optimization
 
