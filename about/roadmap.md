@@ -4,6 +4,12 @@ description: Upcoming enhancements and updates to BlockScout
 
 # Roadmap
 
+{% hint style="info" %}
+The Blockscout roadmap is a high-level strategic plan designed to guide xDai research and development. **Target dates and details are reviewed regularly by the team and subject to move, adjust and change as the project evolves**. Note that only completed items \( ✅ Status: Complete\) are considered achieved project milestones.
+
+_Last update: August 04, 2021 \|_ [_Changelog_](roadmap.md#change-log)\_\_
+{% endhint %}
+
 ## ERC721 Metadata
 
 **Target Date:** Q4 2019  
@@ -80,6 +86,13 @@ BlockScout availability and support for both optimistic and zkRollups in operati
 
 BlockScout deployment can be complicated for new users. Deployment improvements within a Docker environment will enable a fast path for easy setup and deployment.
 
+## Multi-file Contract Source Code Verification
+
+**Target Date:** Q4 2021  
+**Status:**  In Development
+
+BlockScout will support verification for contracts deployed via Hardhat and Truffle \(dev environments for compiling, deploying, testing and debugging Ethereum-based DApps\). This will facilitate a seamless flow from creation to verification.
+
 ## NFT View Interface
 
 **Target Date:** Q4 2021  
@@ -113,5 +126,37 @@ Updating and optimizing the indexing scheme for storable data. We are working to
 
 As chain data grows exponentially, load speed, database optimization & caching, data parsing and front-end improvements are all required to maintain optimal performance. These efforts will continue as additional features are added to BlockScout.
 
-## 
+## Change Log
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Update</th>
+      <th style="text-align:left">Items</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><em>04.08.2021</em>
+      </td>
+      <td style="text-align:left">
+        <p></p>
+        <ul>
+          <li>Added multiple new items to Q4 Roadmap including:
+            <ul>
+              <li>EIP-1559 Support</li>
+              <li>Ethereum Mainnet Instance</li>
+              <li>My Account Functionality</li>
+              <li>Rollup Support</li>
+              <li>Deployment Improvements</li>
+              <li>Multi-file Contract Source Code Verification</li>
+              <li>Block/Address Detail Page Improvements</li>
+              <li>Data Sorting/Filtering</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
