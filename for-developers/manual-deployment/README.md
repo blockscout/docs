@@ -12,6 +12,10 @@ Check your environment is prepared with General Requirements and [Database Stora
 
 BlockScout requires a **full archive node** in order to import every state change for every address on the target network. For client specific settings related to a node running parity or geth, please see [Client Settings](../information-and-settings/client-settings-parity-geth-ganache.md).
 
+{% hint style="info" %}
+For testing purposes, instead of an archive node, a test Ethereum client can be used. For instance, [ganache-cli](https://github.com/trufflesuite/ganache-cli)
+{% endhint %}
+
 ## Deployment Steps
 
 1\) `git clone https://github.com/poanetwork/blockscout`
