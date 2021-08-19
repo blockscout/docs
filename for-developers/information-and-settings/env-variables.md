@@ -1123,6 +1123,16 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
       <td style="text-align:left">master</td>
       <td style="text-align:left"></td>
     </tr>
+	<tr>
+      <td style="text-align:left"><code>ENABLE_1559_SUPPORT</code>
+      </td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">Enable support EIP-1559. To get more details: <a href="https://github.com/blockscout/blockscout/pull/4520">#4520</a>
+      </td>
+      <td style="text-align:left">false</td>
+      <td style="text-align:left">master</td>
+      <td style="text-align:left"></td>
+    </tr>
   </tbody>
 </table>
 
