@@ -76,7 +76,7 @@ Indexer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d
 ## Geth Client
 
 ```text
-sudo /usr/bin/geth --rpc --rpcaddr 0.0.0.0 --port 30303 --rpcport 8545 --rpcapi debug,net,eth,shh,web3,txpool --wsapi "eth,net,web3,network,debug,txpool" --ws --wsaddr 0.0.0.0 --wsport 8546 --wsorigins "*" --rinkeby --datadir=/rinkeby --syncmode=full --gcmode=archive --rpcvhosts=*
+sudo /usr/bin/geth --http --http.addr 0.0.0.0 --port 30303 --http.port 8545 --http.api debug,net,eth,shh,web3,txpool --wsapi "eth,net,web3,network,debug,txpool" --ws --ws.addr 0.0.0.0 --ws.port 8546 --wsorigins "*" --rinkeby --datadir=/rinkeby --syncmode=full --gcmode=archive --http.vhosts=*
 ```
 
 _Tracing and pruning: By default, state for the last 128 blocks kept in memory. Most states are garbage collected. If you are running a block explorer or other service relying on transaction tracing without an archive node \(--gcmode=archive\), you need to trace within this window! Alternatively, specify the "reexec" tracer option to allow regenerating historical state; and ideally switch to chain tracing which amortizes overhead across all traced blocks._
