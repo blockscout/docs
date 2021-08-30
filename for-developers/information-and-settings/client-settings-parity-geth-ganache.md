@@ -75,6 +75,8 @@ Indexer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d
 
 ## Geth Client
 
+More information on Geth JSON-RPC [available here](https://geth.ethereum.org/docs/rpc/server).
+
 ```text
 sudo /usr/bin/geth --http --http.addr 0.0.0.0 --port 30303 --http.port 8545 --http.api debug,net,eth,shh,web3,txpool --wsapi "eth,net,web3,network,debug,txpool" --ws --ws.addr 0.0.0.0 --ws.port 8546 --wsorigins "*" --rinkeby --datadir=/rinkeby --syncmode=full --gcmode=archive --http.vhosts=*
 ```
