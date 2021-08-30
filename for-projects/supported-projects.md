@@ -75,7 +75,21 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.matic.network/">Matic</a>
+      <td style="text-align:left"><a href="https://cchain.explorer.avax.network/">Avalanche C-Chain</a>
+      </td>
+      <td style="text-align:left"><a href="https://cchain.explorer.avax-test.network/">Avalanche Fuji Testnet</a>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">
+        <p><a href="https://explorer.quadrans.io/">Quadrans</a>
+        </p>
+        <p></p>
+        <p></p>
       </td>
       <td style="text-align:left"><a href="https://explorer.testnet.quadrans.io/">Quadrans Testnet</a>
       </td>
@@ -85,18 +99,10 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.ethercore.org/">EtherCore</a>
+      <td style="text-align:left"><a href="https://explorer.palm.io">Palm</a>
       </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.petrachor.com/">Petrichor</a>
+      <td style="text-align:left"><a href="https://explorer.palm-uat.xyz">Palm Testnet</a>
       </td>
-      <td style="text-align:left"></td>
     </tr>
     <tr>
       <td style="text-align:left"></td>
@@ -130,7 +136,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://blocks.xerom.org/">Xerom</a>
+      <td style="text-align:left"><a href="https://explorer.ethercore.org/">EtherCore</a>
       </td>
       <td style="text-align:left"></td>
     </tr>
@@ -175,7 +181,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="http://cchain.avaexplorer.com/">AVA</a>
+      <td style="text-align:left"><a href="https://explorer.petrachor.com/">Petrichor</a>
       </td>
       <td style="text-align:left"></td>
     </tr>
@@ -184,7 +190,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.quadrans.io/">Quadrans</a>
+      <td style="text-align:left"><a href="https://blocks.xerom.org/">Xerom</a>
       </td>
       <td style="text-align:left"></td>
     </tr>
