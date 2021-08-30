@@ -45,16 +45,16 @@ description: Hosted Projects list as well as public and private chains using Blo
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href="https://blockscout.com/poa/dai">xDai</a>
+      <td style="text-align:left"><a href="https://blockscout.com/xdai/mainnet/">xDai</a>
       </td>
       <td style="text-align:left"></td>
       <td style="text-align:left"><a href="https://blockscout.com/artis/tau1">ARTIS Tau Testnet</a>
       </td>
       <td style="text-align:left"><a href="https://blockscout.com/etc/mordor">Mordor Testnet</a>
       </td>
-      <td style="text-align:left"><a href="https://submarine.oceanprotocol.com/">Ocean protocol</a>
+      <td style="text-align:left"><a href="https://cchain.explorer.avax.network/">Avalanche C-Chain</a>
       </td>
-      <td style="text-align:left"><a href="https://explorer.testnet2.matic.network/">Matic Testnet</a>
+      <td style="text-align:left"><a href="https://cchain.explorer.avax-test.network/">Avalanche Fuji Testnet</a>
       </td>
     </tr>
     <tr>
@@ -62,7 +62,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       </td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://blockscout.com/etc/mordor">Kotti Testnet</a>
+      <td style="text-align:left"><a href="https://blockscout.com/etc/kotti">Kotti Testnet</a>
       </td>
       <td style="text-align:left"><a href="https://explorer.fuse.io">Fuse Network</a>
       </td>
@@ -75,21 +75,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://cchain.explorer.avax.network/">Avalanche C-Chain</a>
-      </td>
-      <td style="text-align:left"><a href="https://cchain.explorer.avax-test.network/">Avalanche Fuji Testnet</a>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">
-        <p><a href="https://explorer.quadrans.io/">Quadrans</a>
-        </p>
-        <p></p>
-        <p></p>
+      <td style="text-align:left"><a href="https://explorer.quadrans.io/">Quadrans</a>
       </td>
       <td style="text-align:left"><a href="https://explorer.testnet.quadrans.io/">Quadrans Testnet</a>
       </td>
@@ -99,7 +85,11 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.palm.io">Palm</a>
+      <td style="text-align:left">
+        <p><a href="https://explorer.palm.io">Palm</a>
+        </p>
+        <p></p>
+        <p></p>
       </td>
       <td style="text-align:left"><a href="https://explorer.palm-uat.xyz">Palm Testnet</a>
       </td>
@@ -109,7 +99,26 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="http://pirl.es/">PIRL</a>
+      <td style="text-align:left"><a href="https://explorer.petrachor.com/">Petrachor</a>
+      </td>
+      <td style="text-align:left"><a href="https://blockscout.moonriver.moonbeam.network/">MoonBeam</a>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://explorer.atheios.org/">Atheios</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://explorer.chiliz.com/">Chilliz</a>
       </td>
       <td style="text-align:left"></td>
     </tr>
@@ -136,7 +145,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.ethercore.org/">EtherCore</a>
+      <td style="text-align:left"><a href="https://explorer.ethercore.io/">EtherCore</a>
       </td>
       <td style="text-align:left"></td>
     </tr>
@@ -154,7 +163,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://blocks.ether1.wattpool.net/">Ether-1</a>
+      <td style="text-align:left"><a href="https://explorer.ethoprotocol.com/">Etho Protocol</a>
       </td>
       <td style="text-align:left"></td>
     </tr>
@@ -181,7 +190,7 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.petrachor.com/">Petrichor</a>
+      <td style="text-align:left"><a href="https://explorer.energi.network/">Energi</a>
       </td>
       <td style="text-align:left"></td>
     </tr>
@@ -190,7 +199,43 @@ description: Hosted Projects list as well as public and private chains using Blo
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
       <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://blocks.xerom.org/">Xerom</a>
+      <td style="text-align:left"><a href="https://bx.veriscope.network/">Veriscope</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://explorer.idchain.one/">ID Chain</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://explorer.velas.com/">Velas</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://explorer.publicmint.io/">Public Mint</a>
+      </td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://cronos-explorer.crypto.org/">Cronos</a>
       </td>
       <td style="text-align:left"></td>
     </tr>

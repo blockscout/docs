@@ -8,7 +8,7 @@
 * [Use Cases](about/use-cases/README.md)
   * [Hosted Blockscout](about/use-cases/hosted-blockscout.md)
   * [Self-hosted BlockScout on AWS](about/use-cases/self-hosted-blockscout-on-aws.md)
-  * [Self-hosted BlockScout on BYO Servers](about/use-cases/self-hosted-blockscout-on-byo-servers.md)
+  * [Self-hosted BlockScout](about/use-cases/self-hosted-blockscout-on-byo-servers.md)
 * [Roadmap](about/roadmap.md)
 
 ## For Developers

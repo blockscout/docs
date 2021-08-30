@@ -2,13 +2,13 @@
 description: BlockScout can be hosted in a hardware or cloud service environment
 ---
 
-# Self-hosted BlockScout on BYO Servers
+# Self-hosted BlockScout
 
 BlockScout can be [manually deployed](../../for-developers/manual-deployment/) to a selected server environment. This provides control over costs, server location, decentralization and other factors that may influence hosting decisions.
 
-Projects may also self-host and use a proxy server for additional load balancing, data caching or security.
+BlockScout [Ansible Playbooks ](../../for-developers/ansible-deployment/)and the [AWS Marketplace ](../../for-developers/aws-marketplace/)integration provide several step-by-step options for deploying to AWS ****if desired. ****Projects may also self-host and use a proxy server for additional load balancing, data caching or security.
 
-Sites can be configured to reflect a chain's unique branding, color scheme, logos and more. See the examples below.
+Sites can be configured to reflect a chain's unique branding, color scheme, logos and more. 
 
 ## Self-hosted BlockScout examples
 
@@ -42,6 +42,14 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![CELO Mainnet RC1 ](../../.gitbook/assets/image.png)
 
+### Fuse Network
+
+> **Project:** [Fuse Network](https://explorer.fuse.io/)  
+> **BlockScout URL:** [https://explorer.fuse.io](https://explorer.fuse.io)  
+> **Description:** Open-source platform for economic-based community creation.
+
+![Fuse Dashboard](../../.gitbook/assets/fuse.io.png)
+
 ### **Petrachor**
 
 > **Project:** [Petrachor](https://Petrachor.com)  
@@ -49,14 +57,6 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 > **Description:** Light-weight blockchain with a "secure and eco-friendly Satoshi-style protocol"
 
 ![Petrachor Explorer](../../.gitbook/assets/petrachor.png)
-
-### Pirl
-
-> **Project:** [Pirl](https://pirl.io/en/)  
-> **BlockScout url:** [https://explorer.pirl.network/](https://explorer.pirl.network/)  
-> **Description:** Community based smart contract platform utilizing masternodes for decentralized data storage.
-
-![Pirl Explorer](../../.gitbook/assets/pirl.png)
 
 ### **Trustlines Blockchain**
 
@@ -66,22 +66,6 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 ![](../../.gitbook/assets/screenshot-2019-11-22-at-12.14.37.png)
 
-### iExec viviani
-
-> **Project:** iExec  
-> **BlockScout url:** [https://blockscout-viviani.iex.ec/](https://blockscout-viviani.iex.ec/)  
-> **Description:** The First Decentralized Marketplace for Cloud Resources
-
-![](../../.gitbook/assets/screenshot-2019-12-04-at-18.42.09.png)
-
-### EtherCore
-
-> **Project:** EtherCore  
-> **BlockScout url:** [https://explorer.ethercore.org](https://explorer.ethercore.org)  
-> **Description:** Security, Scalability and Decentralization Application Platform Powered by ProgPoW Consensus
-
-![EtherCore](../../.gitbook/assets/screenshot-2020-01-21-at-19.07.02.png)
-
 ### Elastos
 
 > **Project:** Elastos  
@@ -89,14 +73,6 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 > **Description:** Elastos \(ELA\) bills itself as the 'first completely safe and decentralized infrastructure for the internet'. Its vision is to create a blockchain-powered decentralized internet that enables digital rights and secure transactions
 
 ![Elastos](../../.gitbook/assets/screenshot-2020-02-12-at-19.22.41.png)
-
-### ThePayCash
-
-> **Project:** ThePayCash  
-> **BlockScout url:** [https://explorer.thepay.cash/](https://explorer.thepay.cash/)  
-> **Description:** Stable coins payment network
-
-![ThePayCash](../../.gitbook/assets/screenshot-2020-05-07-at-21.27.00.png)
 
 ### AVA
 
@@ -145,14 +121,6 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 > **Description:** Velas blockchain uses AI-enhanced DPOS \(AIDPOS\) consensus for high volume transactions processing that reportedly does not come at the expense of decentralization and security.
 
 ![](../../.gitbook/assets/screenshot-2020-12-28-at-08.21.22.png)
-
-### Binance smart chain testnet
-
-> **Project:** Binance smart chain testnet  
-> **Blockscout url:** [https://explorer.binance.org/smart-testnet](https://explorer.binance.org/smart-testnet)  
-> **Description:** A Parallel Binance Chain to Enable Smart ContractsA Parallel Binance Chain to Enable Smart Contracts.
-
-![](../../.gitbook/assets/screenshot-2020-08-31-at-10.33.45.png)
 
 ### Energi
 
