@@ -31,11 +31,16 @@ description: Hosted Projects list as well as public and private chains using Blo
       </td>
       <td style="text-align:left"><a href="https://blockscout.com/etc/mainnet">Ethereum Classic</a>
       </td>
-      <td style="text-align:left"><a href="https://explorer.ethercore.org/">EtherCore</a>
+      <td style="text-align:left">
+        <p></p>
+        <p><a href="https://explorer.celo.org">Celo</a>
+        </p>
       </td>
       <td style="text-align:left">
-        <p><a href="https://baklava-blockscout.celo-testnet.org/">Celo Testnet</a> 1</p>
-        <p><a href="https://alfajores-blockscout.celo-testnet.org/">Celo Testnet 2</a>
+        <p><a href="https://baklava-blockscout.celo-testnet.org/">Celo Baklava Testnet</a> 
+        </p>
+        <p>
+          <br /><a href="https://alfajores-blockscout.celo-testnet.org/">Celo Alphajores Testnet</a>
         </p>
       </td>
     </tr>
@@ -74,6 +79,15 @@ description: Hosted Projects list as well as public and private chains using Blo
       </td>
       <td style="text-align:left"><a href="https://explorer.testnet.quadrans.io/">Quadrans Testnet</a>
       </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"><a href="https://explorer.ethercore.org/">EtherCore</a>
+      </td>
+      <td style="text-align:left"></td>
     </tr>
     <tr>
       <td style="text-align:left"></td>
