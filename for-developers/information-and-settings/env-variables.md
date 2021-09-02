@@ -1125,6 +1125,17 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
       <td style="text-align:left">v3.7.1+</td>
       <td style="text-align:left"></td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>ENABLE_1559_SUPPORT</code>
+      </td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">Enables store and display of additional fields on block and transaction
+        according to <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md">EIP-1559</a>
+      </td>
+      <td style="text-align:left">false</td>
+      <td style="text-align:left">master</td>
+      <td style="text-align:left"></td>
+    </tr>
   </tbody>
 </table>
 
