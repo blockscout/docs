@@ -27,12 +27,12 @@ On the next screen, you will see a drop field where you will add files.
 
 ![](../../../.gitbook/assets/screenshot-2020-12-28-at-08.57.42_2.png)
 
-After several seconds your contract should be verified through Sourcify's API \(If verification fails, you will see the reason in the dropzone\). Verification metadata will be saved in the Blockscout DB and you will see the verified contract page with the link to the same metadata in the [Sourcify contract repository](https://contractrepo.komputing.org/contracts/full_match/100/) \(chain ID is 100 for the xDai chain\).
+After several seconds your contract should be verified through Sourcify's API \(If verification fails, you will see the reason in the dropzone\). Verification metadata will be saved in the Blockscout DB and you will see the verified contract page with the link to the same metadata in the [Sourcify contract repository](https://repo.sourcify.dev/contracts/full_match/100/) \(chain ID is 100 for the xDai chain\).
 
 ![](../../../.gitbook/assets/screenshot-2020-12-28-at-08.59.50.png)
 
 Example Contract:
 
 * Contract [verified via Sourcify contract in Blockscout](https://blockscout.com/xdai/mainnet/address/0x4f15a6e74CFC2F80D5967a8aB75F3c83D8043cF4/contracts). 
-* The same contract in the [Sourcify contract repository](https://contractrepo.komputing.org/contracts/full_match/100/0x4f15a6e74CFC2F80D5967a8aB75F3c83D8043cF4/).
+* The same contract in the [Sourcify contract repository](https://repo.sourcify.dev/contracts/full_match/100/0x4f15a6e74CFC2F80D5967a8aB75F3c83D8043cF4/).
 
