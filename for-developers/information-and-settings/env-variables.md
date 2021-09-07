@@ -1136,6 +1136,17 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
       <td style="text-align:left">master</td>
       <td style="text-align:left"></td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>HIDE_BLOCK_MINER</code>
+      </td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">Hides miner/validator/sequencer on block page and tiles if the value is
+        `true` Implemented in <a href="https://github.com/blockscout/blockscout/pull/4611">#4611</a>
+      </td>
+      <td style="text-align:left">(empty)</td>
+      <td style="text-align:left">master</td>
+      <td style="text-align:left"></td>
+    </tr>
   </tbody>
 </table>
 
