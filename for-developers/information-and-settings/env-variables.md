@@ -1147,6 +1147,17 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
       <td style="text-align:left">master</td>
       <td style="text-align:left"></td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>DISPLAY_TOKEN_ICONS</code>
+      </td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">Displays token icons from TrustWallet assets repository if <code>true</code>.
+        Implemented in <a href="https://github.com/blockscout/blockscout/pull/4596">#4596</a>
+      </td>
+      <td style="text-align:left">(empty)</td>
+      <td style="text-align:left">master</td>
+      <td style="text-align:left"></td>
+    </tr>
   </tbody>
 </table>
 
