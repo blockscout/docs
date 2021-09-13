@@ -23,7 +23,7 @@ The BlockScout team provides hosting for the following EVM chains
 | Sokol | testnet | [https://blockscout.com/poa/sokol](https://blockscout.com/poa/sokol) | v3.7.3 |
 | LUKSO L14 | mainnet | [https://blockscout.com/lukso/l14](https://blockscout.com/lukso/l14) | v3.7.2 |
 | RSK | mainnet | [https://blockscout.com/rsk/mainnet](https://blockscout.com/rsk/mainnet) | v3.7.2 |
-| Classic\* | mainnet | [https://blockscout.com/etc/mainnet/](https://blockscout.com/etc/mainnet/) | v3.5.0 |
+| Classic\* | mainnet | [https://blockscout.com/etc/mainnet/](https://blockscout.com/etc/mainnet/) | v3.7.3 |
 
 {% hint style="info" %}
 \* Ethereum Classic \(ETC\) is hosted by the ETC Cooperative. We run a proxy to maintain the current blockscout based-url. ETC Cooperative also hosts the Kotti and Mordor testnets:
