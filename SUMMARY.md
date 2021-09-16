@@ -59,6 +59,7 @@
   * [AWS EC2 archive node setup with OpenEthereum \(formerly Parity\)](for-developers/aws-marketplace/aws-ec2-archive-node-setup.md)
   * [Updating & Redeploying in AWS](for-developers/aws-marketplace/updating-and-redeploying-in-aws.md)
   * [Customizing CSS](for-developers/aws-marketplace/customizing-css.md)
+* [Indexing](for-developers/indexing.md)
 * [Testing](for-developers/testing.md)
 * [Contributing to BlockScout](for-developers/contributing-to-blockscout.md)
 * [Db schema](for-developers/db-schema.md)
