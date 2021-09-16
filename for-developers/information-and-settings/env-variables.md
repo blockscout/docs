@@ -1158,6 +1158,31 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
       <td style="text-align:left">master</td>
       <td style="text-align:left"></td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>SHOW_TENDERLY_LINK</code>
+      </td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">if <code>true</code>, &quot;Open in Tenderly&quot; button is displayed
+        on the transaction page. Implemented in <a href="https://github.com/blockscout/blockscout/pull/4656">#4656</a>
+      </td>
+      <td style="text-align:left">(empty)</td>
+      <td style="text-align:left">master</td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>TENDERLY_CHAIN_PATH</code>
+      </td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">Chain path to the transaction in Tenderly. For instance, for transactions
+        in xDai, Tenderly link looks like this https://dashboard.tenderly.co/tx/xdai/0x...,
+        then <code>TENDERLY_CHAIN_PATH =/xdai. </code>Implemented in <a href="https://github.com/blockscout/blockscout/pull/4656">#4656</a>
+      </td>
+      <td style="text-align:left">(empty)</td>
+      <td style="text-align:left">master</td>
+      <td style="text-align:left"></td>
+    </tr>
   </tbody>
 </table>
+
+
 
