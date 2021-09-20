@@ -1181,6 +1181,16 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
       <td style="text-align:left">master</td>
       <td style="text-align:left"></td>
     </tr>
+	 <tr>
+      <td style="text-align:left"><code>MAX_STRING_LENGTH_WITHOUT_TRIMMING</code>
+      </td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">Hide long contract method data. For more details: <a href="https://github.com/blockscout/blockscout/pull/4667">#4667</a>
+      </td>
+      <td style="text-align:left">2040</td>
+      <td style="text-align:left">master</td>
+      <td style="text-align:left"></td>
+    </tr>
   </tbody>
 </table>
 
