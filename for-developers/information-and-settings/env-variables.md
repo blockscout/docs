@@ -1098,7 +1098,6 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
       <td style="text-align:left">URL to Sourcify repository with fully verified contracts</td>
       <td style="text-align:left">
         <p><a href="https://repo.sourcify.dev/contracts/">https://repo.sourcify.dev/contracts/</a>*</p>
-        <p></p>
         <p>*before 3.7.1 <a href="https://repo.sourcify.dev/contracts/full_match/">https://repo.sourcify.dev/contracts/full_match/</a>
         </p>
       </td>
@@ -1175,13 +1174,13 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
       <td style="text-align:left"></td>
       <td style="text-align:left">Chain path to the transaction in Tenderly. For instance, for transactions
         in xDai, Tenderly link looks like this https://dashboard.tenderly.co/tx/xdai/0x...,
-        then <code>TENDERLY_CHAIN_PATH =/xdai. </code>Implemented in <a href="https://github.com/blockscout/blockscout/pull/4656">#4656</a>
+        then <code>TENDERLY_CHAIN_PATH =/xdai.</code> Implemented in <a href="https://github.com/blockscout/blockscout/pull/4656">#4656</a>
       </td>
       <td style="text-align:left">(empty)</td>
       <td style="text-align:left">master</td>
       <td style="text-align:left"></td>
     </tr>
-	 <tr>
+    <tr>
       <td style="text-align:left"><code>MAX_STRING_LENGTH_WITHOUT_TRIMMING</code>
       </td>
       <td style="text-align:left"></td>
@@ -1193,6 +1192,4 @@ You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blo
     </tr>
   </tbody>
 </table>
-
-
 
