@@ -14,12 +14,15 @@ Rather than create a new database, you may want to add an existing instance to u
 
 **Notes**
 
-1. While executing `ansible-playbook attach_existing_rds.yml` the S3 and DynamoDB instances will be automatically created \(if `backend` variable is set to `true`\) to store Terraform state files.
-2. The actual name of your resource must include the prefix you are using with this deployment. Example: Real resource: tf-poa `prefix` variable: tf `chain_db_id` variable: poa
+1. While executing `ansible-playbook attach_existing_rds.yml` the S3 and DynamoDB instances will be automatically created (if `backend` variable is set to `true`) to store Terraform state files.
+2. The actual name of your resource must include the prefix you are using with this deployment.\
+   Example:\
+   Real resource: tf-poa\
+   `prefix` variable: tf\
+   `chain_db_id` variable: poa
 3. Make sure MultiAZ is disabled on your database.
 4. Make sure that all the variables at `group_vars/all.yml` are exactly the same as your existing DB.
 
 ## Using AWS CodeDeploy to Monitor and manage a BlockScout deployment
 
 BlockScout deployment can be managed through the AWS console. [A brief tutorial is available on our forum](https://forum.poa.network/t/monitor-and-manage-a-blockscout-deployment-using-codedeploy-in-your-aws-console/2499).
-

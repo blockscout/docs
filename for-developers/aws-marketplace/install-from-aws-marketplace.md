@@ -12,17 +12,17 @@ Before you start, make sure you have completed the [prerequisites](aws-marketpla
 
 2\) Go to [https://aws.amazon.com/marketplace/search/results](https://aws.amazon.com/marketplace/search/results) and search for BlockScout. Click on **BlockScout Blockchain Explorer** to view.
 
-![](../../.gitbook/assets/bs_search.png)
+![](../../.gitbook/assets/bs\_search.png)
 
-3\) From the main BlockScout Page, click the **Continue to** **Subscribe** button \(The parameters should be set and do not require any changes\)
+3\) From the main BlockScout Page, click the **Continue to** **Subscribe** button (The parameters should be set and do not require any changes)
 
-![](../../.gitbook/assets/blockscout_marketplace_1.png)
+![](../../.gitbook/assets/blockscout\_marketplace\_1.png)
 
 4\) Click **Continue to Configuration**.
 
-![](../../.gitbook/assets/bs_subscribed.png)
+![](../../.gitbook/assets/bs\_subscribed.png)
 
-5\) Select BlockScout BlockChain Explorer as Fulfillment option and Software Version 3 \(both should be selected by default\) and **Continue to Launch**.
+5\) Select BlockScout BlockChain Explorer as Fulfillment option and Software Version 3 (both should be selected by default) and **Continue to Launch**.
 
 ![](../../.gitbook/assets/bs-continue-to-launch.png)
 
@@ -30,7 +30,7 @@ Before you start, make sure you have completed the [prerequisites](aws-marketpla
 
 ![](../../.gitbook/assets/bs-choose-action.png)
 
-7\)  Start to configure the stack.  Maintain the default selections \(Template is ready\) and click **Next**.
+7\)  Start to configure the stack.  Maintain the default selections (Template is ready) and click **Next**.
 
 ![](../../.gitbook/assets/bs-templa-specify.png)
 
@@ -40,9 +40,9 @@ Before you start, make sure you have completed the [prerequisites](aws-marketpla
 
 9\) Add any optional items.
 
-* [Resource Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html?icmpid=docs_cfn_console)
-* [Permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-servicerole.html?icmpid=docs_cfn_console)
-* [Advanced Stack Options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.html?icmpid=docs_cfn_console)
+* [Resource Tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html?icmpid=docs\_cfn\_console)
+* [Permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-servicerole.html?icmpid=docs\_cfn\_console)
+* [Advanced Stack Options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-add-tags.html?icmpid=docs\_cfn\_console)
 
 ![Click Next after filling in any additional options](../../.gitbook/assets/stack-options.png)
 
@@ -52,9 +52,9 @@ Before you start, make sure you have completed the [prerequisites](aws-marketpla
 If any items do not match template specifics, you can fix by clicking previous, changing an item, and returning to the Create stack page.
 {% endhint %}
 
-![](../../.gitbook/assets/create-stack%20%281%29%20%281%29.png)
+![](<../../.gitbook/assets/create-stack (1) (1).png>)
 
-11\) Your instance will be located in the CloudFormation section of AWS \(search CloudFormation under services to find\). You can manage the stack here, including monitoring processes, updating and deleting.
+11\) Your instance will be located in the CloudFormation section of AWS (search CloudFormation under services to find). You can manage the stack here, including monitoring processes, updating and deleting.
 
 ![Instance creation in CloudFormation](../../.gitbook/assets/cloudformation.png)
 
@@ -62,7 +62,7 @@ If any items do not match template specifics, you can fix by clicking previous, 
 
 ![](../../.gitbook/assets/bs-outputs.png)
 
-13\) Enter the username and password from the email you received during setup \(email sent to value entered for **CognitoUserEmail** parameter\)
+13\) Enter the username and password from the email you received during setup (email sent to value entered for **CognitoUserEmail** parameter)
 
 ![](../../.gitbook/assets/bs-password.png)
 
@@ -79,13 +79,11 @@ For additional configuration options, see:
 * [Customizing CSS](customizing-css.md)
 * [Updating BlockScout on AWS](updating-and-redeploying-in-aws.md)
 
-\*\*\*\*
+****
 
 
 
-\*\*\*\*
-
-
+****
 
 
 

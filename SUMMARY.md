@@ -2,7 +2,7 @@
 
 * [Welcome to BlockScout](README.md)
 
-## About BlockScout <a id="about"></a>
+## About BlockScout <a href="#about" id="about"></a>
 
 * [Features](about/features.md)
 * [Use Cases](about/use-cases/README.md)
@@ -19,13 +19,13 @@
   * [Deprecated ENV Variables](for-developers/information-and-settings/deprecated-env-variables.md)
   * [Database Storage Requirements](for-developers/information-and-settings/database-storage-requirements.md)
   * [Umbrella Project Organization](for-developers/information-and-settings/untitled.md)
-  * [Client Settings \(Parity, OpenEthereum, Hyperledger Besu, Geth, Ganache\)](for-developers/information-and-settings/client-settings-parity-geth-ganache.md)
+  * [Client Settings (Parity, OpenEthereum, Hyperledger Besu, Geth, Ganache)](for-developers/information-and-settings/client-settings-parity-geth-ganache.md)
   * [Deployment Differences Between Chains](for-developers/information-and-settings/deployment-differences-between-chains.md)
   * [Add Validator MetaData](for-developers/information-and-settings/add-validator-metadata.md)
   * [ShareLock](for-developers/information-and-settings/sharelock.md)
   * [haproxy Settings for Blockscout.com](for-developers/information-and-settings/haproxy-settings-for-blockscout.com.md)
-  * [Docker Integration \(Local Use Only\)](for-developers/information-and-settings/docker-integration-local-use-only.md)
-* [Ansible Deployment \(AWS Cloud\)](for-developers/ansible-deployment/README.md)
+  * [Docker Integration (Local Use Only)](for-developers/information-and-settings/docker-integration-local-use-only.md)
+* [Ansible Deployment (AWS Cloud)](for-developers/ansible-deployment/README.md)
   * [Overview](for-developers/ansible-deployment/overview.md)
   * [Prerequisites](for-developers/ansible-deployment/prerequisites.md)
   * [AWS Permissions & Settings](for-developers/ansible-deployment/aws-permissions/README.md)
@@ -56,7 +56,7 @@
   * [CloudFormation Template](for-developers/aws-marketplace/cloudformation-template.md)
   * [Prerequisites & Install Parameters](for-developers/aws-marketplace/aws-marketplace-installation.md)
   * [Install from AWS Marketplace](for-developers/aws-marketplace/install-from-aws-marketplace.md)
-  * [AWS EC2 archive node setup with OpenEthereum \(formerly Parity\)](for-developers/aws-marketplace/aws-ec2-archive-node-setup.md)
+  * [AWS EC2 archive node setup with OpenEthereum (formerly Parity)](for-developers/aws-marketplace/aws-ec2-archive-node-setup.md)
   * [Updating & Redeploying in AWS](for-developers/aws-marketplace/updating-and-redeploying-in-aws.md)
   * [Customizing CSS](for-developers/aws-marketplace/customizing-css.md)
 * [Indexing](for-developers/indexing.md)
@@ -66,7 +66,7 @@
 
 ## For users
 
-* [Smart Contract Interaction](for-users/smart-contract-interaction/README.md)
+* [Smart Contract Verification & Interaction](for-users/smart-contract-interaction/README.md)
   * [Verifying a Smart Contract](for-users/smart-contract-interaction/verifying-a-smart-contract/README.md)
     * [Contract Verification via Sourcify](for-users/smart-contract-interaction/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
   * [EVM Version Information](for-users/smart-contract-interaction/evm-version-information.md)
@@ -103,4 +103,3 @@
 * [Forum](https://forum.poa.network/c/blockscout)
 * [Gitter Channel](https://gitter.im/poanetwork/blockscout)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
-

@@ -5,41 +5,44 @@ description: Blockscout.com uses haproxy for all BlockScout hosted and external 
 # haproxy Settings for Blockscout.com
 
 {% hint style="success" %}
-If you would like to add your instance to Blockscout.com, make the required changes and submit a PR to [https://github.com/blockscout/haproxy-config](https://github.com/blockscout/haproxy-config) 
+If you would like to add your instance to Blockscout.com, make the required changes and submit a PR to [https://github.com/blockscout/haproxy-config](https://github.com/blockscout/haproxy-config)&#x20;
 {% endhint %}
 
 ## Instructions
 
-Blockscout uses two-part path names for network urls:  
-the first part \(`org`\)  designates the organization/type of the network,   
-the second part \(`netname`\) names the network. 
+Blockscout uses two-part path names for network urls:\
+the first part (`org`)  designates the organization/type of the network, \
+the second part (`netname`) names the network.&#x20;
 
 **For example:**
 
-* **Eth mainnet:** `https://blockscout.com/eth/mainnet`   \(`org=eth`, `netname=mainnet`\)
-* **Ethereum Classic mainnet:** `https://blockscout.com/etc/mainnet`   \(`org=etc`, `netname=mainnet`\)
-* **Kovan testnet:** `https://blockscout.com/eth/kovan`  \(`org=eth`, `netname=kovan`\)
+* **Eth mainnet:** `https://blockscout.com/eth/mainnet` \
+  &#x20;(`org=eth`, `netname=mainnet`)
+* **Ethereum Classic mainnet:** `https://blockscout.com/etc/mainnet` \
+  &#x20;(`org=etc`, `netname=mainnet`)
+* **Kovan testnet:** `https://blockscout.com/eth/kovan` \
+  (`org=eth`, `netname=kovan`)
 
 ### 1. Add a new `org` for your blockscout instance's url
 
-1\) Add a new `acl` under the  \#**Check for network type** section in the cfg file.
+1\) Add a new `acl` under the  #**Check for network type** section in the cfg file.
 
-```text
+```
 #Check for network type
 ...
 acl is_myorg path_beg -i /myorg
 ```
 
-2\)  Add a corresponding exception `!is_myorg` to the  **\#default redirect** section
+2\)  Add a corresponding exception `!is_myorg` to the  **#default redirect** section
 
-```text
+```
 # default redirect
 redirect prefix /poa/xdai if !is_websocket !is_poa !is_etc !is_eth !is_lukso !is_rsk !is_myorg !is_cookie
 ```
 
-3\) add `!is_myorg` to **every line** in the **\#redirect for networks** section
+3\) add `!is_myorg` to **every line** in the **#redirect for networks** section
 
-```text
+```
 #redirect for networks
 redirect prefix /poa/core if !is_websocket !is_poa !is_etc !is_eth !is_lukso !is_rsk !is_myorg is_cookie_core
 redirect prefix /poa/sokol if !is_websocket !is_poa !is_etc !is_eth !is_lukso !is_rsk !is_myorg is_cookie_sokol
@@ -49,17 +52,17 @@ redirect prefix /poa/sokol if !is_websocket !is_poa !is_etc !is_eth !is_lukso !i
 
 ### 2. Add a new acl with your netname
 
-In the  **\#Check for network name** section add a new `acl` with your `netname` similar to existing ones
+In the  **#Check for network name** section add a new `acl` with your `netname` similar to existing ones
 
-```text
+```
 #Check for network name
 ...
 acl is_mynet path_beg -i /myorg/mynet
 ```
 
-### 3\) Set the cookie and name of rpc/websockets servers
+### 3) Set the cookie and name of rpc/websockets servers
 
-```text
+```
 #Check for cookies
 ...
 acl is_cookie_mynet hdr_sub(cookie) network=mynet
@@ -79,7 +82,7 @@ Add new `backend_mynet` and `backend_mynet_ws` sections to the end of the file a
 
 **For example:**
 
-```text
+```
 backend mynet
     #Proxy mode
     mode http
@@ -136,6 +139,5 @@ Change the following parameters to match your specific case
   * `server mynet_server...` - **don't forget port 443 here**
 
 {% hint style="success" %}
-Submit a PR to the configuration repo at [https://github.com/blockscout/haproxy-config](https://github.com/blockscout/haproxy-config) 
+Submit a PR to the configuration repo at [https://github.com/blockscout/haproxy-config](https://github.com/blockscout/haproxy-config)&#x20;
 {% endhint %}
-

@@ -12,12 +12,11 @@ Default Blockscout transaction pages included basic information for users such a
 
 ### Primary Differences
 
-|  | Basic Tx Page | Premium Tx Page |
-| :--- | :--- | :--- |
-| Basic info | ✔  | ✔  |
-| Squares layout | ✔ |  |
-| Tooltip layout |  | ✔ |
-| Status/blocks since confirmation |  | ✔ |
-| Separate To/From fields with easy copy icon |  | ✔ |
-| Gas Price/ Gas Used by Tx % |  | ✔ |
-
+|                                             | Basic Tx Page         | Premium Tx Page       |
+| ------------------------------------------- | --------------------- | --------------------- |
+| Basic info                                  | :heavy\_check\_mark:  | :heavy\_check\_mark:  |
+| Squares layout                              | :heavy\_check\_mark:  |                       |
+| Tooltip layout                              |                       | :heavy\_check\_mark:  |
+| Status/blocks since confirmation            |                       | :heavy\_check\_mark:  |
+| Separate To/From fields with easy copy icon |                       | :heavy\_check\_mark:  |
+| Gas Price/ Gas Used by Tx %                 |                       | :heavy\_check\_mark:  |
