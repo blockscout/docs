@@ -13,12 +13,12 @@
 
 ## For users
 
-* [Verifying a Smart Contract](for-users/verifying-a-smart-contract/README.md)
-  * [Hardhat Verification Plugin](for-users/verifying-a-smart-contract/hardhat-verification-plugin.md)
+* [Verifying a Smart Contract](for-users/smart-contract-interaction/verifying-a-smart-contract/README.md)
+  * [Hardhat Verification Plugin](for-users/smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md)
   * [Sourcify Plugin for Hardhat](for-users/verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
-  * [Contract Verification via Sourcify](for-users/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
-* [EVM Version Information](for-users/evm-version-information.md)
-* [ABI-Encoded Constructor Arguments](for-users/abi-encoded-constructor-arguments.md)
+  * [Contract Verification via Sourcify](for-users/smart-contract-interaction/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
+* [EVM Version Information](for-users/smart-contract-interaction/evm-version-information.md)
+* [ABI-Encoded Constructor Arguments](for-users/smart-contract-interaction/abi-encoded-constructor-arguments.md)
 * [FAQs](for-users/faqs/README.md)
   * [How do I speed up my hosted BlockScout instance?](for-users/faqs/how-do-i-speed-up-my-hosted-blockscout-instance.md)
   * [How can I customize the coin symbol?](for-users/faqs/how-can-i-customize-the-coin-symbol.md)

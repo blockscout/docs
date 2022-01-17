@@ -4,40 +4,43 @@ description: Verifying your deployed contract is always a good idea!
 
 # Verifying a Smart Contract
 
-Once verified, a smart contract or token contract's source code becomes publicly available and verifiable. This creates transparency and trust. Plus, it's easy to do! Verification is available for both Solidity and Vyper contracts. There are multiple methods for verification using the BlockScout UI - all are cataloged below.
+Once verified, a smart contract or token contract's source code becomes publicly available and verifiable. This creates transparency and trust. Plus, it's easy to do! Verification is available for both Solidity and Vyper contracts.&#x20;
+
+There are multiple methods for verification using the BlockScout UI - all are cataloged below.
 
 * [Via flattened source code (Solidity)](./#via-flattened-source-code)
 * [Via standard JSON input](./#via-standard-json-input)
 * [Via Sourcify: Sources and metadata JSON file](contracts-verification-via-sourcify.md)
 * [Vyper contract](./#vyper-contract)
 
-In addition, depending on your dev flow, you can also use the following methods:
+{% hint style="info" %}
+👷🏻‍♂️If preferred you can choose the following methods to verify directly from your Hardhat dev environment.&#x20;
 
 * [Hardhat Verification Plugin](hardhat-verification-plugin.md)
-* Hardhat Sourcify Plugin
-* [Contract Verification via Sourcify API ](contracts-verification-via-sourcify.md)
+* [Sourcify Plugin for Hardhat](../../verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
+{% endhint %}
 
-## Smart Contract Verification
+## Smart Contract Verification with BlockScout
 
 1\) On contract creation, you will receive an address to check a pending transaction. If it does not redirect you to [blockscout.com](https://blockscout.com), go to BlockScout, verify you are on the chain where the contract was deployed, and type the contract's address into the search bar. Your contract details should come up.\
 
 
-![The contract address is shown in contract creation details](../../.gitbook/assets/contract\_address.png)
+![The contract address is shown in contract creation details](../../../.gitbook/assets/contract\_address.png)
 
-![Contract details page](../../.gitbook/assets/verity.png)
+![Contract details page - Click the Verify & Publish button](../../../.gitbook/assets/verity.png)
 
 2\) Select the `Code` tab to view the bytecode, click the **Verify & Publish** button. You will see several options for verification.
 
 * [Via flattened source code (Solidity)](./#via-flattened-source-code)
-* Via standard JSON input
+* [Via standard JSON input](./#via-standard-json-input)
 * [Via Sourcify: Sources and metadata JSON file](contracts-verification-via-sourcify.md)
 * [Vyper contract](./#vyper-contract)
 
-![](../../.gitbook/assets/verification-1.png)
+![](../../../.gitbook/assets/verification-1.png)
 
 ## Via Flattened Source Code
 
-![](../../.gitbook/assets/flattened-code.png)
+![](../../../.gitbook/assets/flattened-code.png)
 
 1. **Contract Address:** The `0x` address supplied on contract creation.&#x20;
 2. **Contract Name:** Name of the class whose constructor was called in the .sol file. For example, in `contract MyContract {..` **MyContract** is the contract name.&#x20;
@@ -55,7 +58,7 @@ In addition, depending on your dev flow, you can also use the following methods:
 
 ## Via standard JSON input
 
-![](../../.gitbook/assets/standard-json.png)
+![](../../../.gitbook/assets/standard-json.png)
 
 1. **Contract Name**. There are several options:
    1. Leave blank.
@@ -75,7 +78,7 @@ See the [Contract Verification via Sourcify](contracts-verification-via-sourcify
 
 ## Vyper Contract
 
-![](../../.gitbook/assets/vyper.png)
+![](../../../.gitbook/assets/vyper.png)
 
 1. **Contract Address:** The `0x` address supplied on contract creation. Should autopopulate
 2. **Contract Name:** Should autopopulate
@@ -84,8 +87,6 @@ See the [Contract Verification via Sourcify](contracts-verification-via-sourcify
 5. **ABI-encoded Constructor Arguments (if required):**  [See this page for more info](../abi-encoded-constructor-arguments.md).
 6. Click the `Verify and Publish` button.
 7. If all goes well, you will see a checkmark :white\_check\_mark: next to Code in the code tab, and an additional tab called `Read Contract`. The contract name will now appear in BlockScout with any transactions related to your contract.
-
-###
 
 ## Troubleshooting
 
@@ -101,4 +102,6 @@ Check all version digits - for example 0.5.1 is different from 0.5.10
 
 3\) Copy, paste and verify your source code in Remix. You may find some exceptions here.
 
-##
+### Verification in a dev environment
+
+The [Hardhat verification plugin](hardhat-verification-plugin.md) supports BlockScout. You can also choose to use the [Sourcify plugin](../../verifying-a-smart-contract/sourcify-plugin-for-hardhat.md) to verify with Sourcify from your hardhat environment.
