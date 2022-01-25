@@ -6,7 +6,7 @@
 
 ### **1) Install Hardhat**
 
-you need to create an npm project by going to an empty folder, running `npm init`, and following its instructions. Once your project is ready:
+If you are starting from scratch, create an npm project by going to an empty folder, running `npm init`, and following the instructions. Once your project is ready:
 
 **npm instructions**
 
@@ -42,13 +42,13 @@ yarn add --dev @nomiclabs/hardhat-etherscan
 
 ### 4) Add plugin reference to config file
 
-Add the following statement to your `hardhat.config.js`
+Add the following statement to your `hardhat.config.js`.
 
 ```
 require("@nomiclabs/hardhat-etherscan");
 ```
 
-if you are using TypeScript, add this to your `hardhat.config.ts.` [More info on using typescript with hardhat available here](https://hardhat.org/guides/typescript.html#typescript-support).
+If using TypeScript, add this to your `hardhat.config.ts.` [More info on using typescript with hardhat available here](https://hardhat.org/guides/typescript.html#typescript-support).
 
 ```
 import "@nomiclabs/hardhat-etherscan";
@@ -56,9 +56,9 @@ import "@nomiclabs/hardhat-etherscan";
 
 ## Config File
 
-Your basic [Hardhat config file](https://hardhat.org/config/) (javascript or typescript: `hardhat.config.js` or `hardhat.config.ts`) will be setup to support the network you are working on. In this example we use the Sokol test network and a `.js` file. &#x20;
+Your basic [Hardhat config file](https://hardhat.org/config/) (`hardhat.config.js` or `hardhat.config.ts`) will be setup to support the network you are working on. In this example we use the Sokol test network and a `.js` file. &#x20;
 
-We are using an RPC url without an API key, however a value is still required. You can use any arbitrary string. [More info](https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html#multiple-api-keys-and-alternative-block-explorers).
+Here we add an RPC url without an API key, however some value is still required. You can use any arbitrary string. [More info](https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html#multiple-api-keys-and-alternative-block-explorers).
 
 ```
 require("@nomiclabs/hardhat-waffle");
