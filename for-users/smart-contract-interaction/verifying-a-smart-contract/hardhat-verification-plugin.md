@@ -94,16 +94,16 @@ Contract deployed to: 0x8595e22825Ba499dB8C77C5c830c235D80f9C0fa
 
 ### Verify
 
-You can include constructor arguments with the verify task
+You can include constructor arguments with the verify task.
 
 ```
 npx hardhat verify --network <network> DEPLOYED_CONTRACT_ADDRESS "Constructor argument 1"
 ```
 
-Sokol example (no constructors):
+Sokol example (no constructors).
 
 ```bash
-D:\hard_hat>npx hardhat verify 0x8595e22825Ba499dB8C77C5c830c235D80f9C0fa --network sokol
+D:\hard_hat>npx hardhat verify --network sokol 0x8595e22825Ba499dB8C77C5c830c235D80f9C0fa 
 Nothing to compile
 Compiling 1 file with 0.8.0
 Successfully submitted source code for contract
