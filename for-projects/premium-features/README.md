@@ -1,7 +1,7 @@
 # Premium Features
 
 {% hint style="warning" %}
-Premium version of Blockscout will be discontinued in 2022. The majority of premium features will be open-sourced. All existing premium services will remain operational until further notice.
+The premium version of Blockscout and premium services will be discontinued in 2022. The majority of premium features will be open-sourced. All existing premium services will remain operational until further notice.
 
 If you have questions about integrating services or current premium integrations please ask in the [#blockscout channel in Discord.](https://discord.com/invite/ZUnrZTK)
 {% endhint %}
