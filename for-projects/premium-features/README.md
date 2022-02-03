@@ -1,10 +1,10 @@
 # Premium Features
 
 {% hint style="warning" %}
-Premium version of Blockscout will be discontinued in 2022. The majority of premium features will be open-sourced. All existing premium instances services will remain operational until further notice.&#x20;
+Premium version of Blockscout will be discontinued in 2022. The majority of premium features will be open-sourced. All existing premium services will remain operational until further notice.
+
+If you have questions about integrating services or current premium integrations please ask in the [#blockscout channel in Discord.](https://discord.com/invite/ZUnrZTK)
 {% endhint %}
-
-
 
 Custom integrations and premium functionality are available for projects looking to extend their BlockScout instances. Our premium-level offerings feature personalized, proactive services from an assigned technical account manager who will work with you to implement and optimize your Blockscout solution, minimize risk, and achieve your business and technology goals. The following features are available, with more in development.
 
