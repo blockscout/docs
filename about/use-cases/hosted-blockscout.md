@@ -14,16 +14,17 @@ Interested in blockscout.com hosting and technical support? [Read more here](../
 
 The BlockScout team provides hosting for the following EVM chains
 
-| Instance     | Type    | URL                                                                        | Version |
-| ------------ | ------- | -------------------------------------------------------------------------- | ------- |
-| POA          | mainnet | [https://blockscout.com/poa/core](https://blockscout.com/poa/core)         | v4.1.1  |
-| xDai         | mainnet | [https://blockscout.com/xdai/mainnet](https://blockscout.com/xdai/mainnet) | v4.1.1  |
-| AoX          | mainnet | [https://blockscout.com/xdai/aox](https://blockscout.com/xdai/aox)         | v4.1.1  |
-| xDai testnet | testnet | [https://blockscout.com/xdai/testnet](https://blockscout.com/xdai/testnet) | v4.1.0  |
-| Sokol        | testnet | [https://blockscout.com/poa/sokol](https://blockscout.com/poa/sokol)       | v4.1.1  |
-| LUKSO L14    | mainnet | [https://blockscout.com/lukso/l14](https://blockscout.com/lukso/l14)       | v4.1.1  |
-| RSK          | mainnet | [https://blockscout.com/rsk/mainnet](https://blockscout.com/rsk/mainnet)   | v4.1.1  |
-| Classic\*    | mainnet | [https://blockscout.com/etc/mainnet/](https://blockscout.com/etc/mainnet/) | v4.1.0  |
+| Instance     | Type    | URL                                                                            | Version |
+| ------------ | ------- | ------------------------------------------------------------------------------ | ------- |
+| POA          | mainnet | [https://blockscout.com/poa/core](https://blockscout.com/poa/core)             | v4.1.2  |
+| xDai         | mainnet | [https://blockscout.com/xdai/mainnet](https://blockscout.com/xdai/mainnet)     | v4.1.1  |
+| AoX          | mainnet | [https://blockscout.com/xdai/aox](https://blockscout.com/xdai/aox)             | v4.1.1  |
+| Optimism     | mainnet | [https://blockscout.com/xdai/optimisim](https://blockscout.com/xdai/optimisim) | v4.1.1  |
+| xDai testnet | testnet | [https://blockscout.com/xdai/testnet](https://blockscout.com/xdai/testnet)     | v4.1.0  |
+| Sokol        | testnet | [https://blockscout.com/poa/sokol](https://blockscout.com/poa/sokol)           | v4.1.2  |
+| LUKSO L14    | mainnet | [https://blockscout.com/lukso/l14](https://blockscout.com/lukso/l14)           | v4.1.1  |
+| RSK          | mainnet | [https://blockscout.com/rsk/mainnet](https://blockscout.com/rsk/mainnet)       | v4.1.1  |
+| Classic\*    | mainnet | [https://blockscout.com/etc/mainnet/](https://blockscout.com/etc/mainnet/)     | v4.1.0  |
 
 {% hint style="info" %}
 \* Ethereum Classic (ETC) is hosted by the ETC Cooperative. We run a proxy to maintain the current blockscout based-url. ETC Cooperative also hosts the Kotti and Mordor testnets:
