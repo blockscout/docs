@@ -104,6 +104,7 @@ Note that transactions can accept the following arguments:
 * first
 * after
 * before
+* order (ASC / DESC)
 
 This request could be sent via an HTTP GET to the Ethereum Mainnet using:
 
