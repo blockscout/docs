@@ -22,7 +22,18 @@
 5. Check the Elixir code for vulnerabilities. `cd apps/explorer && mix sobelow --config; cd -` `cd apps/block_scout_web && mix sobelow --config; cd -`
 6. Lint JavaScript code. `cd apps/block_scout_web/assets && npm run eslint; cd -`
 7. Test JavaScript code. `cd apps/block_scout_web/assets && npm run test; cd -`
-8. Run the test suite inside the umbrella application: `mix cmd --app block_scout_web mix test`.&#x20;
+8. Run separate test suites for the Umbrella application\
+   \- `indexer`\
+   `mix do ecto.create --quiet, ecto.migrate && cd apps/indexer && mix do compile, test --no-start && cd -` \
+   \
+   \- `explorer`\
+   `mix do ecto.create --quiet, ecto.migrate && cd apps/explorer && mix do compile, test --no-start && cd -`  \
+   \
+   \- `block_scout_web`\
+   `mix do ecto.create --quiet, ecto.migrate && cd apps/block_scout_web && mix do compile, test --no-start && cd -`\
+   \
+   &#x20;\- `ethereum_jsonrpc`\
+   `mix do ecto.create --quiet, ecto.migrate && cd apps/ethereum_jsonrpc && mix do compile, test --no-start && cd -`
 
 ### **Parity**
 
