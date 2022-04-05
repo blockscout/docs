@@ -107,4 +107,5 @@
 
 ## CAREERS
 
+* [Jobs at Blockscout](careers/jobs-at-blockscout.md)
 * [Elixir Developer](careers/elixir-developer.md)
