@@ -1,252 +1,71 @@
 ---
-description: Hosted Projects list as well as public and private chains using BlockScout
+description: Hosted Projects list, public and private chains using BlockScout
 ---
 
 # List of Projects Using BlockScout
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"><b>Hosted Mainnets</b>
-      </th>
-      <th style="text-align:left"><b>Hosted Testnets</b>
-      </th>
-      <th style="text-align:left"><b>Semi<br />Hosted*</b>
-      </th>
-      <th style="text-align:left"><b>ETC Cooperative Hosted *</b>
-      </th>
-      <th style="text-align:left"><b>Self Hosted Chains</b>
-      </th>
-      <th style="text-align:left"><b>Self-Hosted Testnets</b>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"><a href="https://blockscout.com/poa/core">POA</a>
-      </td>
-      <td style="text-align:left"><a href="https://blockscout.com/poa/sokol">POA Sokol Testnet</a>
-      </td>
-      <td style="text-align:left"><a href="https://blockscout.com/artis/sigma1">ARTIS Sigma Mainnet</a>
-      </td>
-      <td style="text-align:left"><a href="https://blockscout.com/etc/mainnet">Ethereum Classic</a>
-      </td>
-      <td style="text-align:left">
-        <p></p>
-        <p><a href="https://explorer.celo.org">Celo</a>
-        </p>
-      </td>
-      <td style="text-align:left">
-        <p><a href="https://baklava-blockscout.celo-testnet.org/">Celo Baklava Testnet</a> 
-        </p>
-        <p>
-          <br /><a href="https://alfajores-blockscout.celo-testnet.org/">Celo Alphajores Testnet</a>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><a href="https://blockscout.com/xdai/mainnet/">xDai</a>
-      </td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://blockscout.com/artis/tau1">ARTIS Tau Testnet</a>
-      </td>
-      <td style="text-align:left"><a href="https://blockscout.com/etc/mordor">Mordor Testnet</a>
-      </td>
-      <td style="text-align:left"><a href="https://cchain.explorer.avax.network/">Avalanche C-Chain</a>
-      </td>
-      <td style="text-align:left"><a href="https://cchain.explorer.avax-test.network/">Avalanche Fuji Testnet</a>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><a href="https://blockscout.com/rsk/mainnet">RSK</a>
-      </td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://blockscout.com/etc/kotti">Kotti Testnet</a>
-      </td>
-      <td style="text-align:left"><a href="https://explorer.fuse.io">Fuse Network</a>
-      </td>
-      <td style="text-align:left"><a href="https://volta-explorer.energyweb.org/">Energy Web Volta</a>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><a href="https://blockscout.com/lukso/l14">LUKSO L14</a>
-      </td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.quadrans.io/">Quadrans</a>
-      </td>
-      <td style="text-align:left"><a href="https://explorer.testnet.quadrans.io/">Quadrans Testnet</a>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">
-        <p><a href="https://explorer.palm.io">Palm</a>
-        </p>
-        <p></p>
-        <p></p>
-      </td>
-      <td style="text-align:left"><a href="https://explorer.palm-uat.xyz">Palm Testnet</a>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.petrachor.com/">Petrachor</a>
-      </td>
-      <td style="text-align:left"><a href="https://blockscout.moonriver.moonbeam.network/">MoonBeam</a>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.atheios.org/">Atheios</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.chiliz.com/">Chilliz</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://tenda.network">Tenda</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://basechain-blockexplorer.dappchains.com/">Loom</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.ethercore.io/">EtherCore</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explore.tlbc.trustlines.foundation/">Trustlines Network</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.ethoprotocol.com/">Etho Protocol</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.energyweb.org/">Energy Web</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://scan.morpher.com/">Morpher</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.energi.network/">Energi</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://bx.veriscope.network/">Veriscope</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.idchain.one/">ID Chain</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.velas.com/">Velas</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://explorer.publicmint.io/">Public Mint</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"><a href="https://cronos-explorer.crypto.org/">Cronos</a>
-      </td>
-      <td style="text-align:left"></td>
-    </tr>
-  </tbody>
-</table>
+{% tabs %}
+{% tab title="Hosted" %}
+**Hosted Mainnets**
 
-{% hint style="info" %}
-See a list of [current BlockScout versions for hosted projects](../about/use-cases/hosted-blockscout.md)
-{% endhint %}
+* [Gnosis Chain](https://blockscout.com/xdai/mainnet/)
+  * [Optimism on Gnosis Chain](https://blockscout.com/xdai/optimism)
+* [POA](https://blockscout.com/poa/core)
+* [RSK](https://blockscout.com/rsk/mainnet)
+* [LUKSO L14](https://blockscout.com/lukso/l14)\
 
-{% hint style="warning" %}
-\*Semi-Hosted and ETC Cooperative hosted instances incorporate a reverse proxy.
-{% endhint %}
 
+**Hosted Testnets**
+
+* [POA Sokol Testnet](https://blockscout.com/poa/sokol)
+{% endtab %}
+
+{% tab title="Semi-hosted" %}
+\*Semi-hosted instances incorporate a reverse proxy.
+
+* [ARTIS Sigma Mainnet](https://blockscout.com/artis/sigma1)
+* [ARTIS Tau Testnet](https://blockscout.com/artis/tau1)
+{% endtab %}
+
+{% tab title="Self-hosted" %}
+**Self Hosted Mainnets**
+
+* [Celo](https://explorer.celo.org)
+* [Fuse Network](https://explorer.fuse.io)
+* [Quadrans](https://explorer.quadrans.io)
+* [Palm](https://explorer.palm.io)
+* [Petrachor](https://explorer.petrachor.com)
+* [Atheios](https://explorer.atheios.org)
+* [Chilliz](https://explorer.chiliz.com)
+* [Tenda](https://tenda.network)
+* [Loom](https://basechain-blockexplorer.dappchains.com)
+* [EtherCore](https://explorer.ethercore.io)
+* [Trustlines Network](https://explore.tlbc.trustlines.foundation)
+* [Etho Protocol](https://explorer.ethoprotocol.com)
+* [Energy Web](https://explorer.energyweb.org)
+* [Morpher](https://scan.morpher.com)
+* [Energi](https://explorer.energi.network)
+* [Veriscope](https://bx.veriscope.network)
+* [ID Chain](https://explorer.idchain.one)
+* [Velas](https://explorer.velas.com)
+* [Public Mint](https://explorer.publicmint.io)
+* [Cronos](https://cronos-explorer.crypto.org)
+
+**Self-hosted Testnets**
+
+* [Celo Baklava Testnet](https://baklava-blockscout.celo-testnet.org)&#x20;
+* [Celo Alphajores Testnet](https://alfajores-blockscout.celo-testnet.org)
+* [Energy Web Volta](https://volta-explorer.energyweb.org)
+* [Quadrans Testnet](https://explorer.testnet.quadrans.io)
+* [Palm Testnet](https://explorer.palm-uat.xyz)
+* [MoonBeam](https://blockscout.moonriver.moonbeam.network)
+{% endtab %}
+
+{% tab title="ETC Cooperative Hosted" %}
+ETC Coop hosted instances incorporate a reverse proxy.
+
+* [Ethereum Classic](https://blockscout.com/etc/mainnet)
+* [Mordor Testnet](https://blockscout.com/etc/mordor)
+* [Kotti Testnet](https://blockscout.com/etc/kotti)
+{% endtab %}
+{% endtabs %}
