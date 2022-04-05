@@ -104,3 +104,7 @@
 * [Forum](https://forum.poa.network/c/blockscout)
 * [Gitter Channel](https://gitter.im/poanetwork/blockscout)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
+
+## CAREERS
+
+* [Elixir Developer](careers/elixir-developer.md)
