@@ -19,19 +19,10 @@
   * [Contract Verification via Sourcify](for-users/smart-contract-interaction/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
 * [EVM Version Information](for-users/smart-contract-interaction/evm-version-information.md)
 * [ABI-Encoded Constructor Arguments](for-users/smart-contract-interaction/abi-encoded-constructor-arguments.md)
-* [FAQs](for-users/faqs/README.md)
-  * [How do I speed up my hosted BlockScout instance?](for-users/faqs/how-do-i-speed-up-my-hosted-blockscout-instance.md)
-  * [How can I customize the coin symbol?](for-users/faqs/how-can-i-customize-the-coin-symbol.md)
-  * [How do I disable exchange rates?](for-users/faqs/how-do-i-disable-exchange-rates.md)
-  * [How do I manage deployment with AWS CodeDeploy?](for-users/faqs/how-do-i-manage-deployment-with-aws-codedeploy.md)
-  * [How do I replace missing assets/version number in my BlockScout deployment?](for-users/faqs/i-am-missing-assets-version-number-in-my-blockscout-deployment.md)
-  * [How do I fix the Gettext.Error?](for-users/faqs/how-do-i-fix-the-gettext.error.md)
-  * [How do I fix indexer timeouts?](for-users/faqs/how-do-i-fix-indexer-timeouts.md)
-  * [How do I update memory consumption to fix indexer memory errors?](for-users/faqs/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md)
-  * [How do I update menu links in the header / footer?](for-users/faqs/how-do-i-update-menu-links-in-the-header-footer.md)
-  * [What does "In" or "Out" label mean](for-users/faqs/what-does-in-or-out-label-mean.md)
 * [API](for-users/api/README.md)
   * [GraphQL in Blockscout](for-users/api/graphql.md)
+* [User FAQs](for-users/faqs/README.md)
+  * [What does "In" or "Out" label mean](for-users/faqs/what-does-in-or-out-label-mean.md)
 
 ## For Developers
 
@@ -85,6 +76,16 @@
 * [Testing](for-developers/testing.md)
 * [Contributing to BlockScout](for-developers/contributing-to-blockscout.md)
 * [Db schema](for-developers/db-schema.md)
+* [Developer FAQs](for-developers/developer-faqs/README.md)
+  * [How do I speed up my hosted BlockScout instance?](for-developers/developer-faqs/how-do-i-speed-up-my-hosted-blockscout-instance.md)
+  * [How can I customize the coin symbol?](for-developers/developer-faqs/how-can-i-customize-the-coin-symbol.md)
+  * [How do I manage deployment with AWS CodeDeploy?](for-developers/developer-faqs/how-do-i-manage-deployment-with-aws-codedeploy.md)
+  * [How do I replace missing assets/version number in my BlockScout deployment?](for-developers/developer-faqs/i-am-missing-assets-version-number-in-my-blockscout-deployment.md)
+  * [How do I fix the Gettext.Error?](for-developers/developer-faqs/how-do-i-fix-the-gettext.error.md)
+  * [How do I fix indexer timeouts?](for-developers/developer-faqs/how-do-i-fix-indexer-timeouts.md)
+  * [How do I update memory consumption to fix indexer memory errors?](for-developers/developer-faqs/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md)
+  * [How do I update menu links in the header / footer?](for-developers/developer-faqs/how-do-i-update-menu-links-in-the-header-footer.md)
+  * [How do I disable exchange rates?](for-developers/developer-faqs/how-do-i-disable-exchange-rates.md)
 
 ## For projects
 
