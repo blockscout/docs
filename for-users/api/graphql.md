@@ -56,11 +56,11 @@ subscription {
 
 To access Blockscout GraphQL interface you can you can use GraphiQL - in-browser IDE for exploring GraphQL. It's built in to Blockscout.
 
-From the `APIs` dropdown menu choose `GraphQL`
+From the `APIs` dropdown menu choose `GraphQL.` Depending on the implementation you may also find the link in the page footer.
 
 ![Access GraphQL from the top menu](../../.gitbook/assets/graphql.png)
 
-Or you can use your favorite http client:
+You can also use your favorite http client:
 
 ```
 curl 'https://blockscout.com/eth/kovan/graphiql'
@@ -70,7 +70,7 @@ curl 'https://blockscout.com/eth/kovan/graphiql'
 
 ## **Queries**
 
-Blockscout's GraphQL API provides 4 queries and 1 subscription. You can view them in the GraphQL interface under `Schema` tab. Example Queries:
+Blockscout's GraphQL API provides queries and a subscription. You can view them in the GraphQL interface in the `Docs` menu. Example Queries:
 
 | Query                                           | Description                 | Example                                                                                                                                   |
 | ----------------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -78,6 +78,8 @@ Blockscout's GraphQL API provides 4 queries and 1 subscription. You can view the
 | addresses (hashes: \[AddressHash!]): \[Address] | Gets addresses by hashes    | {addresses(hashes: \["0x1fddEc96688e0538A316C64dcFd211c491ECf0d8",  "0x3948c17c0f45017064858b8352580267a85a762c"]) {hash, contractCode} } |
 | block(number: Int!): Block                      | Gets a block by number      | {block(number: 1) {parentHash, size, nonce\}}                                                                                             |
 | transaction (hash: FullHash!): Transaction      | Gets a transaction by hash. | {transaction(hash: "0xc391da8f433b3bea0b3eb45da40fdd194c7a0e07d1b5ad656bf98940f80a6cf6") {input, gasUsed\}}                               |
+
+![Queries schema can be found by clicking on the Docs tab ](../../.gitbook/assets/Graphi.png)
 
 ### Example Query to retrieve transactions for a specific address
 
