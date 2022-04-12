@@ -12,9 +12,9 @@ Key concepts of the GraphQL query language are:
 
 Advantages of GraphQL:
 
-* Declarative integration on client \(what data/operations do I need\)
+* Declarative integration on client (what data/operations do I need)
 * A standard way to expose data and operations
-* Support for real-time data \(with subscriptions\)
+* Support for real-time data (with subscriptions)
 
 ## **Query types**
 
@@ -22,7 +22,7 @@ There are three main query types in GraphQL schema:
 
 1\) **Query:** fetch data
 
-```text
+```
 query {
   allPosts {
     description
@@ -33,7 +33,7 @@ query {
 
 2\) **Mutation:** change data.
 
-```text
+```
    mutation {
      updatePost(id: 1, text: "text") {
        text
@@ -43,7 +43,7 @@ query {
 
 1. **Subscription:**  subscribe to real-time data.
 
-```text
+```
 subscription {
   newPost(category: [1]) {
     description
@@ -62,7 +62,7 @@ From the `APIs` dropdown menu choose `GraphQL`
 
 Or you can use your favorite http client:
 
-```text
+```
 curl 'https://blockscout.com/eth/kovan/graphiql'
   -H 'Authorization: Bearer YOUR_AUTH_TOKEN'
   -d '{"query":""{transaction(hash:\"0x69e3923eef50eada197c3336d546936d0c994211492c9f947a24c02827568f9f\"){blockNumbertoAddressHashfromAddressHashcreatedContractAddressHashvaluestatusnoncehasherrorgasgasPricegasUsedcumulativeGasUsedidindexinputrsv}}""}'
@@ -72,16 +72,16 @@ curl 'https://blockscout.com/eth/kovan/graphiql'
 
 Blockscout's GraphQL API provides 4 queries and 1 subscription. You can view them in the GraphQL interface under `Schema` tab. Example Queries:
 
-| Query | Description | Example |
-| :--- | :--- | :--- |
-| address\(hash: AddressHash!\):  Address | Gets an address by hash | {address\(hash: "0x1fddEc96688e0538A316C64dcFd211c491ECf0d8"\) {hash, contractCode} } |
-| addresses \(hashes: \[AddressHash!\]\): \[Address\] | Gets addresses by hashes | {addresses\(hashes: \["0x1fddEc96688e0538A316C64dcFd211c491ECf0d8",  "0x3948c17c0f45017064858b8352580267a85a762c"\]\) {hash, contractCode} } |
-| block\(number: Int!\): Block | Gets a block by number | {block\(number: 1\) {parentHash, size, nonce}} |
-| transaction \(hash: FullHash!\): Transaction | Gets a transaction by hash. | {transaction\(hash: "0xc391da8f433b3bea0b3eb45da40fdd194c7a0e07d1b5ad656bf98940f80a6cf6"\) {input, gasUsed}} |
+| Query                                           | Description                 | Example                                                                                                                                   |
+| ----------------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| address(hash: AddressHash!):  Address           | Gets an address by hash     | {address(hash: "0x1fddEc96688e0538A316C64dcFd211c491ECf0d8") {hash, contractCode} }                                                       |
+| addresses (hashes: \[AddressHash!]): \[Address] | Gets addresses by hashes    | {addresses(hashes: \["0x1fddEc96688e0538A316C64dcFd211c491ECf0d8",  "0x3948c17c0f45017064858b8352580267a85a762c"]) {hash, contractCode} } |
+| block(number: Int!): Block                      | Gets a block by number      | {block(number: 1) {parentHash, size, nonce\}}                                                                                             |
+| transaction (hash: FullHash!): Transaction      | Gets a transaction by hash. | {transaction(hash: "0xc391da8f433b3bea0b3eb45da40fdd194c7a0e07d1b5ad656bf98940f80a6cf6") {input, gasUsed\}}                               |
 
 ### Example Query to retrieve transactions for a specific address
 
-```text
+```
 {
   address(hash: "0x...") {
     transactions(first:5) {
@@ -104,12 +104,6 @@ Note that transactions can accept the following arguments:
 * first
 * after
 * before
-
-This request could be sent via an HTTP GET to the Ethereum Mainnet using:
-
-`https://blockscout.com/eth/mainnet/graphql?query={ address(hash: "0x….") { transactions(first: 10) { edges { node { blockNumber createdContractAddressHash fromAddressHash gas hash } } } } }`
-
-
 
 
 
