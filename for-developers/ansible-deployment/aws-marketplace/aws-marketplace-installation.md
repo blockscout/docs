@@ -34,7 +34,7 @@ See [Install from AWS Marketplace](install-from-aws-marketplace.md) for an insta
 
 ## Installation Parameters:
 
-Most parameters can be left as default during installation. For a full list of variables see the [ENV variables list](../information-and-settings/env-variables.md).
+Most parameters can be left as default during installation. For a full list of variables see the [ENV variables list](../../information-and-settings/env-variables.md).
 
 {% hint style="info" %}
 During configuration, the first item to input is **Stack Name.** This is an identifier that helps you find a particular stack from a list of stacks. It must start with an alphabetic character and can't be longer than 128 characters.

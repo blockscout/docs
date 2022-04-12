@@ -6,7 +6,7 @@ description: BlockScout can be hosted in a hardware or cloud service environment
 
 BlockScout can be [manually deployed](../../for-developers/manual-deployment/) to a selected server environment. This provides control over costs, server location, decentralization and other factors that may influence hosting decisions.
 
-BlockScout [Ansible Playbooks ](../../for-developers/ansible-deployment/)and the [AWS Marketplace ](../../for-developers/aws-marketplace/)integration provide several step-by-step options for deploying to AWS **** if desired. **** Projects may also self-host and use a proxy server for additional load balancing, data caching or security.
+BlockScout [Ansible Playbooks ](../../for-developers/ansible-deployment/)and the [AWS Marketplace ](../../for-developers/ansible-deployment/aws-marketplace/)integration provide several step-by-step options for deploying to AWS **** if desired. **** Projects may also self-host and use a proxy server for additional load balancing, data caching or security.
 
 Sites can be configured to reflect a chain's unique branding, color scheme, logos and more.&#x20;
 
