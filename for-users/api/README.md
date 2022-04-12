@@ -4,17 +4,16 @@
 
 To view Modules and API Reference documentation:
 
-1. Generate documentation.
+1.  Generate documentation.
 
-   `mix docs`
+    `mix docs`
+2.  View the generated docs.
 
-2. View the generated docs.
-
-   `open doc/index.html`
+    `open doc/index.html`
 
 ## BlockScout API Usage
 
-Api calls can be accessed from the BlockScout footer \(or top menu depending on the BlockScout instance\). BlockScout supports several methods:
+Api calls can be accessed from the BlockScout footer (or top menu depending on the BlockScout instance). BlockScout supports several methods:
 
 1. [Graphiql](https://github.com/graphql/graphiql): An IDE for exploring GraphQL
 2. RPC: API provided for developers transitioning their applications from Etherscan to BlockScout. Supports GET and POST requests.
@@ -28,11 +27,18 @@ Send Queries to quickly get information. Use the **Docs button** to quickly find
 
 ## ETH RPC
 
-We support the following methods. Requests and return data are identical to the documentation.
+Blockscout supports the following methods. Requests and return data are identical to the [documentation](https://eth.wiki/json-rpc/API).
 
-* [eth\_getBalance](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getbalance)
-* [eth\_getLogs](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getlogs)
-* [eth\_blockNumber](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_blocknumber)
-
-
+* eth\_blockNumber&#x20;
+* eth\_call&#x20;
+* eth\_getBalance&#x20;
+* eth\_getCode&#x20;
+* eth\_getBlockByHash&#x20;
+* eth\_getBlockByNumber&#x20;
+* eth\_getTransactionByHash&#x20;
+* eth\_getTransactionByBlockHashAndIndex
+* eth\_getTransactionByBlockNumberAndIndex&#x20;
+* eth\_getTransactionReceipt&#x20;
+* eth\_getUncleByBlockHashAndIndex&#x20;
+* eth\_getLogs
 
