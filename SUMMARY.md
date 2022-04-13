@@ -1,14 +1,14 @@
 # Table of contents
 
-* [Welcome to BlockScout](README.md)
+* [Welcome to Blockscout](README.md)
 
 ## About BlockScout <a href="#about" id="about"></a>
 
 * [Features](about/features.md)
 * [Use Cases](about/use-cases/README.md)
   * [Hosted Blockscout](about/use-cases/hosted-blockscout.md)
-  * [Self-hosted BlockScout on AWS](about/use-cases/self-hosted-blockscout-on-aws.md)
-  * [Self-hosted BlockScout](about/use-cases/self-hosted-blockscout-on-byo-servers.md)
+  * [Self-hosted Blockscout on AWS](about/use-cases/self-hosted-blockscout-on-aws.md)
+  * [Self-hosted Blockscout](about/use-cases/self-hosted-blockscout-on-byo-servers.md)
 * [Roadmap](about/roadmap.md)
 
 ## For users
@@ -27,7 +27,7 @@
 ## For Developers
 
 * [Information & Settings](for-developers/information-and-settings/README.md)
-  * [General Requirements / BlockScout Prerequisites](for-developers/information-and-settings/requirements.md)
+  * [General Requirements / Blockscout Prerequisites](for-developers/information-and-settings/requirements.md)
   * [ENV Variables](for-developers/information-and-settings/env-variables.md)
   * [Deprecated ENV Variables](for-developers/information-and-settings/deprecated-env-variables.md)
   * [Database Storage Requirements](for-developers/information-and-settings/database-storage-requirements.md)
@@ -47,8 +47,8 @@
     * [Creating an AWS certificate for SSL](for-developers/ansible-deployment/aws-permissions/creating-an-aws-certificate-for-ssl.md)
     * [Manually Cleaning Terraform Related Instances](for-developers/ansible-deployment/aws-permissions/manually-cleaning-terraform-related-instances.md)
   * [Variables](for-developers/ansible-deployment/variables.md)
-  * [Deploying the BlockScout Infrastructure](for-developers/ansible-deployment/deploying-the-blockscout-infrastructure.md)
-  * [Deploying BlockScout](for-developers/ansible-deployment/deploying-blockscout.md)
+  * [Deploying the Blockscout Infrastructure](for-developers/ansible-deployment/deploying-the-blockscout-infrastructure.md)
+  * [Deploying Blockscout](for-developers/ansible-deployment/deploying-blockscout.md)
   * [Destroying Provisioned Infrastructure](for-developers/ansible-deployment/destroying-provisioned-infrastructure.md)
   * [Common Additional Tasks](for-developers/ansible-deployment/common-additional-tasks.md)
   * [Common Errors and Questions](for-developers/ansible-deployment/common-errors-and-questions.md)
@@ -74,8 +74,8 @@
   * [Memory Usage](for-developers/configuration-options/memory-usage.md)
 * [Indexing](for-developers/indexing.md)
 * [Testing](for-developers/testing.md)
-* [Contributing to BlockScout](for-developers/contributing-to-blockscout.md)
 * [Db schema](for-developers/db-schema.md)
+* [Contributing to Blockscout](for-developers/contributing-to-blockscout.md)
 * [Developer FAQs](for-developers/developer-faqs/README.md)
   * [How do I speed up my hosted BlockScout instance?](for-developers/developer-faqs/how-do-i-speed-up-my-hosted-blockscout-instance.md)
   * [How can I customize the coin symbol?](for-developers/developer-faqs/how-can-i-customize-the-coin-symbol.md)
@@ -96,7 +96,7 @@
   * [Export to CSV](for-projects/premium-features/export-to-csv.md)
   * [Premium Transaction Pages](for-projects/premium-features/premium-transaction-pages.md)
   * [ERC-1155 Support](for-projects/premium-features/erc-1155-support.md)
-* [List of Projects Using BlockScout](for-projects/supported-projects.md)
+* [List of Projects Using Blockscout](for-projects/supported-projects.md)
 
 ## Resources
 

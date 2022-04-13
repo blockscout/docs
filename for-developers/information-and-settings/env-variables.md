@@ -9,7 +9,7 @@ Additional information related to certain variables is available on the [ansible
 {% endhint %}
 
 {% hint style="info" %}
-You will find deprecated ENV vars in [Deprecated ENV Variables](https://docs.blockscout.com/for-developers/information-and-settings/deprecated-env-variables) chapter
+You will find deprecated ENV vars on the [Deprecated ENV Variables](https://docs.blockscout.com/for-developers/information-and-settings/deprecated-env-variables) page.
 {% endhint %}
 
 *   To set variables using the CLI, use the export command. For example:

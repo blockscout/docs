@@ -6,7 +6,7 @@ description: Verifying your deployed contract is always a good idea!
 
 Once verified, a smart contract or token contract's source code becomes publicly available and verifiable. This creates transparency and trust. Plus, it's easy to do! Verification is available for both Solidity and Vyper contracts.&#x20;
 
-There are multiple methods for verification using the BlockScout UI - all are cataloged below.
+There are multiple methods for verification using the Blockscout UI - all are cataloged below.
 
 * [Via flattened source code (Solidity)](./#via-flattened-source-code)
 * [Via standard JSON input](./#via-standard-json-input)
@@ -20,9 +20,9 @@ There are multiple methods for verification using the BlockScout UI - all are ca
 * [Sourcify Plugin for Hardhat](../../verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
 {% endhint %}
 
-## Smart Contract Verification with BlockScout
+## Smart Contract Verification with Blockscout
 
-1\) On contract creation, you will receive an address to check a pending transaction. If it does not redirect you to [blockscout.com](https://blockscout.com), go to BlockScout, verify you are on the chain where the contract was deployed, and type the contract's address into the search bar. Your contract details should come up.\
+1\) On contract creation, you will receive an address to check a pending transaction. If it does not redirect you to [blockscout.com](https://blockscout.com), go to Blockscout, verify you are on the chain where the contract was deployed, and type the contract's address into the search bar. Your contract details should come up.\
 
 
 ![The contract address is shown in contract creation details](../../../.gitbook/assets/contract\_address.png)
