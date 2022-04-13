@@ -1,6 +1,6 @@
 # API
 
-## BlockScout Internal Documentation
+## Blockscout Internal Documentation
 
 To view Modules and API Reference documentation:
 
@@ -11,17 +11,17 @@ To view Modules and API Reference documentation:
 
     `open doc/index.html`
 
-## BlockScout API Usage
+## Blockscout API Usage
 
-Api calls can be accessed from the BlockScout footer (or top menu depending on the BlockScout instance). BlockScout supports several methods:
+Api calls can be accessed from the Blockscout footer (or top menu depending on the Blockscout instance). Blockscout supports several methods:
 
 1. [Graphiql](https://github.com/graphql/graphiql): An IDE for exploring GraphQL
-2. RPC: API provided for developers transitioning their applications from Etherscan to BlockScout. Supports GET and POST requests.
+2. RPC: API provided for developers transitioning their applications from Etherscan to Blockscout. Supports GET and POST requests.
 3. Eth RPC: Supports the most popular [JSON RPC methods](https://github.com/ethereum/wiki/wiki/JSON-RPC).
 
 ## GraphQL
 
-Send Queries to quickly get information. Use the **Docs button** to quickly find arguments accepted by the schema. More information is available in our [BlockScout GraphQL tutorial](https://forum.poa.network/t/graphql-in-blockscout/1971).
+Send Queries to quickly get information. Use the **Docs button** to quickly find arguments accepted by the schema. More information is available in our [Blockscout GraphQL tutorial](https://forum.poa.network/t/graphql-in-blockscout/1971).
 
 ![Docs button for GraphQL](../../.gitbook/assets/screen-shot-2019-10-08-at-10.48.07-am.png)
 

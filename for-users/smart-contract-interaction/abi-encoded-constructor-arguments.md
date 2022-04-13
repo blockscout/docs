@@ -14,7 +14,7 @@ When are constructor arguments used?
 
 ### Steps to include Constructor Arguments when verifying a contract.
 
-1\) Access the contract creation TX in BlockScout. This is the transaction that created the contract, not the address of the actual contract. You should see a link to it in your wallet history.
+1\) Access the contract creation TX in Blockscout. This is the transaction that created the contract, not the address of the actual contract. You should see a link to it in your wallet history.
 
 ![Contract Deployment Transaction](../../.gitbook/assets/deploy\_1.png)
 
