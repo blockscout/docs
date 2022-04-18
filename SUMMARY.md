@@ -2,7 +2,7 @@
 
 * [Welcome to Blockscout](README.md)
 
-## About BlockScout <a href="#about" id="about"></a>
+## 💡 About BlockScout <a href="#about" id="about"></a>
 
 * [Features](about/features.md)
 * [Use Cases](about/use-cases/README.md)
@@ -11,7 +11,7 @@
   * [Self-hosted Blockscout](about/use-cases/self-hosted-blockscout-on-byo-servers.md)
 * [Roadmap](about/roadmap.md)
 
-## For users
+## 🧑🎤 For users
 
 * [Verifying a Smart Contract](for-users/smart-contract-interaction/verifying-a-smart-contract/README.md)
   * [Hardhat Verification Plugin](for-users/smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md)
@@ -24,7 +24,7 @@
 * [User FAQs](for-users/faqs/README.md)
   * [What does "In" or "Out" label mean](for-users/faqs/what-does-in-or-out-label-mean.md)
 
-## For Developers
+## 🥷 For Developers
 
 * [Information & Settings](for-developers/information-and-settings/README.md)
   * [General Requirements / Blockscout Prerequisites](for-developers/information-and-settings/requirements.md)
@@ -87,7 +87,7 @@
   * [How do I update menu links in the header / footer?](for-developers/developer-faqs/how-do-i-update-menu-links-in-the-header-footer.md)
   * [How do I disable exchange rates?](for-developers/developer-faqs/how-do-i-disable-exchange-rates.md)
 
-## For projects
+## 👓 For projects
 
 * [Premium Features](for-projects/premium-features/README.md)
   * [Custom / Branded Themes](for-projects/premium-features/custom-branded-themes.md)
@@ -99,7 +99,7 @@
 * [Resource Requirements](for-projects/resource-requirements.md)
 * [List of Projects Using Blockscout](for-projects/supported-projects.md)
 
-## Resources
+## 🧩 Resources
 
 * [Media kit](resources/media-kit.md)
 * [Discord Channel](https://discord.gg/ZUnrZTK)
@@ -107,7 +107,7 @@
 * [Gitter Channel](https://gitter.im/poanetwork/blockscout)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
-## CAREERS
+## 👩🏫 CAREERS
 
 * [Jobs at Blockscout](careers/jobs-at-blockscout/README.md)
   * [Elixir Developer](careers/jobs-at-blockscout/elixir-developer.md)
