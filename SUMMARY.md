@@ -96,6 +96,7 @@
   * [Export to CSV](for-projects/premium-features/export-to-csv.md)
   * [Premium Transaction Pages](for-projects/premium-features/premium-transaction-pages.md)
   * [ERC-1155 Support](for-projects/premium-features/erc-1155-support.md)
+* [Resource Requirements](for-projects/resource-requirements.md)
 * [List of Projects Using Blockscout](for-projects/supported-projects.md)
 
 ## Resources
