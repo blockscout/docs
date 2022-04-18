@@ -20,7 +20,7 @@ Minimums are listed for an AWS Cloud instance and can be inferred to other hosti
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | Application                   | <ul><li>1x EC2 t3.Medium instance running Linux</li><li>8GB of EBS General Purpose SSD (NVMe)</li></ul>                                    |
 | Database                      | <ul><li>1x RDS Database running on db.t3.Medium using PostgreSQL</li><li> 500GB of General Purpose SSD (depending on chain size)</li></ul> |
-| Amazon Elastic Load Balancing | Average 100 **** new connections/sec per Elastic Load Balancer                                                                             |
+| Amazon Elastic Load Balancing | <ul><li>Average 100 <strong></strong> new connections/sec per Elastic Load Balancer</li></ul>                                              |
 
 {% hint style="info" %}
 Requirements will vary based on chain. For example, these are the recommended requirements for a Harmony Explorer Node:
@@ -51,17 +51,17 @@ Requirements will vary based on chain. For example, these are the recommended re
 
 ### **Fetching Pending Transactions**
 
-| Client                            | Method                                             |
-| --------------------------------- | -------------------------------------------------- |
-| <p>OpenEthereum<br>Nethermind</p> | `parity_pendingTransactions`                       |
-| Geth                              | `txpool_content` (for parity\_pendingTransactions) |
+| Client                            | Method                                                                         |
+| --------------------------------- | ------------------------------------------------------------------------------ |
+| <p>OpenEthereum<br>Nethermind</p> | <ul><li><code>parity_pendingTransactions</code></li></ul>                      |
+| Geth                              | <ul><li><code>txpool_content</code> (for parity_pendingTransactions)</li></ul> |
 
 ### Enable Tracing to Fetch internal Transactions
 
 | Client                            | Method                                                                                                              |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | <p>OpenEthereum<br>Nethermind</p> | <ul><li><code>trace_replayBlockTransactions</code></li><li><code>trace_block</code> (fetch block rewards)</li></ul> |
-| Geth                              | `debug_traceTransactions`  (for trace\_replayBlockTransactions)                                                     |
+| Geth                              | <ul><li><code>debug_traceTransactions</code>  (for trace_replayBlockTransactions)</li></ul>                         |
 
 ### JSON RPC Performance Benchmarks
 
