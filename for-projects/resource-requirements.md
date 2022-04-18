@@ -2,6 +2,8 @@
 
 Resource requirements may vary based on chain size and other parameters. This mainly impacts [database storage](../for-developers/information-and-settings/database-storage-requirements.md) requirements. Basic [prerequisites ](../for-developers/information-and-settings/requirements.md)and settings can be found throughout the [Information and Settings](../for-developers/information-and-settings/) section for developers.
 
+BlockScout requires a full archive node to import every state change for every address on the target network.
+
 ## Recommended Base Hardware
 
 EVM chains can differ in size and requirements, these are the recommendations for optimal performance.
@@ -68,3 +70,11 @@ Time measures for response time of crucial JSON RPC methods for indexing in Bloc
 1. `eth_getBlockByNumber` without transaction receipts for a block with 15 transactions:  Desired response time is < 0.5s. For instance, in case of the Gnosis chain archive node, the response time for the block with \~20 transactions is \~0.4s.
 2. `eth_getTransactionReceipt` for random transactions desired response time is < 0.5s. For the Gnosis chain archive node the response time is \~0.3 - 0.4s.
 3. Batched `eth_getTransactionReceipt` for 15 transactions acceptable response time is Less than 1s. For the Gnosis chain archive node, it is \~0.6 - 0.7s
+
+## EVM Requirements & Clients
+
+* All EVM chains must [define these variables](../for-developers/information-and-settings/deployment-differences-between-chains.md) during configuration.&#x20;
+* BlockScout currently supports Parity, OpenEthereum, Geth, Nethermind, Hyperledger Besu, and Ganache clients. Define the node variant using the `ETHEREUM_JSONRPC_VARIANT` environment variable. [More information](../for-developers/information-and-settings/client-settings-parity-geth-ganache.md)
+
+
+
