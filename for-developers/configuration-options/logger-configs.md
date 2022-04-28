@@ -25,8 +25,8 @@ config :logger, :reading_token_functions,
 
 &#x20;`config :logger` defines several variables including:&#x20;
 
-* **level**: (`info`, `debug`, `error`) log level of detail
-* **rotate**:  {max bytes:  `52,428,800`  max size in bytes for each file, keep:  `19` max number of files to store}
+* **level**: (`info`, `debug`, `error`) _log level of detail_
+* **rotate**:  {max bytes:  `52,428,800`  _max size in bytes for each file_, keep:  `19` _max number of files to store_}
 
 If you are having issues with disc space, change the level, default number of files, and max bytes to consume less space with logs.
 
