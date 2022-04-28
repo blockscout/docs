@@ -71,6 +71,7 @@
   * [Internationalization](for-developers/configuration-options/internationalization.md)
   * [Metrics](for-developers/configuration-options/untitled-2.md)
   * [Tracing](for-developers/configuration-options/tracing.md)
+  * [Logger Configs](for-developers/configuration-options/logger-configs.md)
   * [Memory Usage](for-developers/configuration-options/memory-usage.md)
 * [Indexing](for-developers/indexing.md)
 * [Testing](for-developers/testing.md)
