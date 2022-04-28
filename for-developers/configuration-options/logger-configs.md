@@ -30,7 +30,7 @@ config :logger, :reading_token_functions,
 
 If you are having issues with disc space, change the level, default number of files, and max bytes to consume less space with logs.
 
-Additional log rotation configs for `ecto.log` (DB interactions wrapper) and `error.log` are located in the common config file [https://github.com/blockscout/blockscout/blob/master/config/config.exs](https://github.com/blockscout/blockscout/blob/master/config/config.exs)
+Additional log rotation configs for `ecto.log` (DB interactions wrapper) and `error.log` are located in the common config file [https://github.com/blockscout/blockscout/blob/master/config/config.exs#L47-L61](https://github.com/blockscout/blockscout/blob/master/config/config.exs##L47-L61)
 
 
 
