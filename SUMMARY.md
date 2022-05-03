@@ -112,3 +112,4 @@
 
 * [Jobs at Blockscout](careers/jobs-at-blockscout/README.md)
   * [Elixir Developer](careers/jobs-at-blockscout/elixir-developer.md)
+  * [Senior Front-end Engineer / Front-end Architect](careers/jobs-at-blockscout/senior-front-end-engineer-front-end-architect.md)
