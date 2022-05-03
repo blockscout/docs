@@ -2,7 +2,7 @@
 
 ### About us
 
-**BlockScout** provides a comprehensive, easy-to-use interface for users to view, confirm, and inspect transactions on EVM (Ethereum Virtual Machine) blockchains. It is the block explorer of choice for many large blockchain projects including xDai, Ethereum Classic, Polygon, Celo, POA Network, and many others.
+**BlockScout** provides a comprehensive, easy-to-use interface for users to view, confirm, and inspect transactions on EVM (Ethereum Virtual Machine) blockchains. It is the block explorer of choice for many large blockchain projects including Gnosis Chain, Ethereum Classic, Polygon, Celo, POA Network, and many others.
 
 **BlockScout** is an open-source portal that allows users to search transactions, view accounts and balances, and verify smart contracts on the Ethereum network including all forks and sidechains.
 
