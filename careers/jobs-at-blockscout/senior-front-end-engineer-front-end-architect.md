@@ -10,7 +10,7 @@ Join the **BlockScout** product team as a Senior **Front-end Engineer / Front-en
 
 This position is a unique opportunity to join a small and experienced team of veteran engineers in the blockchain space with an established product used by millions. If you value decentralization, making a difference, and participating in the cutting-edge world of crypto, we encourage you to apply.
 
-The Blockscout documentation can be found here[https://docs.blockscout.com/](https://docs.blockscout.com).
+The Blockscout documentation can be found here: [https://docs.blockscout.com/](https://docs.blockscout.com).
 
 ([https://github.com/poanetwork/blockscout](https://github.com/poanetwork/blockscout),[https://blockscout.com/](https://blockscout.com))
 
