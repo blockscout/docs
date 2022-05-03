@@ -36,6 +36,4 @@ Basic knowledge of stack technologies. Knowledge of EVM, Kubernetes, AWS, Ansibl
 * Developing new functionality: native support for new types of tokens/contracts, developing new API endpoints, consolidating and creating new monitoring metrics, organizing new ways to deploy infrastructure, implementing and configuring infrastructure scaling, supporting data imports from nodes on new types of Ethereum clients
 * Support of existing functionality: improving performance of database queries, improving fault tolerance of the web application, improving database architecture, improving processing speed of data import from Ethereum nodes, improving user experience, fixing UI bugs, customizing browser for blockchain clients, implementing user requests for new functionality, improving and enhancing browser infrastructure deployment procedure, reducing downtime for deployment updates
 
-### Apply&#x20;
-
-Contact ulyana@blockscout.com
+###
