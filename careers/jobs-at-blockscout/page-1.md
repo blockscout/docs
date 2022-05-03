@@ -6,7 +6,7 @@
 
 **BlockScout** is an open-source portal that allows users to search transactions, view accounts and balances, and verify smart contracts on the Ethereum network including all forks and sidechains.
 
-Join the **BlockScout** product team as a Senior **Front-end Engineer / Front-end Architect**, and work to create, develop, and drive the next generation of Ethereum-based ecosystem products.
+Join the **BlockScout** product team as a **Senior Senior QA Engineer**, and work to create, develop, and drive the next generation of Ethereum-based ecosystem products.
 
 This position is a unique opportunity to join a small and experienced team of veteran engineers in the blockchain space with an established product used by millions. If you value decentralization, making a difference, and participating in the cutting-edge world of crypto, we encourage you to apply.
 
