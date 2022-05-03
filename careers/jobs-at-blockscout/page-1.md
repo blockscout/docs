@@ -12,7 +12,7 @@ This position is a unique opportunity to join a small and experienced team of ve
 
 The Blockscout documentation can be found here: [https://docs.blockscout.com/](https://docs.blockscout.com).
 
-([https://github.com/poanetwork/blockscout](https://github.com/poanetwork/blockscout),[https://blockscout.com/](https://blockscout.com))
+Github: [https://github.com/blockscout/](https://github.com/blockscout/)&#x20;
 
 ### What we have to offer you
 
