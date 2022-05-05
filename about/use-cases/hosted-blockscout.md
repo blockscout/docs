@@ -16,7 +16,7 @@ The BlockScout team provides hosting for the following EVM chains
 
 | Instance     | Type    | URL                                                                            | Version |
 | ------------ | ------- | ------------------------------------------------------------------------------ | ------- |
-| POA          | mainnet | [https://blockscout.com/poa/core](https://blockscout.com/poa/core)             | v4.1.2  |
+| POA          | mainnet | [https://blockscout.com/poa/core](https://blockscout.com/poa/core)             | v4.1.3  |
 | xDai         | mainnet | [https://blockscout.com/xdai/mainnet](https://blockscout.com/xdai/mainnet)     | v4.1.2  |
 | AoX          | mainnet | [https://blockscout.com/xdai/aox](https://blockscout.com/xdai/aox)             | v4.1.3  |
 | Optimism     | mainnet | [https://blockscout.com/xdai/optimisim](https://blockscout.com/xdai/optimisim) | v4.1.3  |
