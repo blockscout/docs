@@ -2,7 +2,7 @@
 description: Hosted Projects list, public and private chains using BlockScout
 ---
 
-# List of Projects Using BlockScout
+# List of Projects Using Blockscout
 
 {% tabs %}
 {% tab title="Hosted" %}
@@ -32,33 +32,36 @@ description: Hosted Projects list, public and private chains using BlockScout
 
 * [Celo](https://explorer.celo.org)
 * [Fuse Network](https://explorer.fuse.io)
-* [Quadrans](https://explorer.quadrans.io)
+* [Quadrans](https://explorer.quadrans.io/)
 * [Palm](https://explorer.palm.io)
-* [Petrachor](https://explorer.petrachor.com)
-* [Atheios](https://explorer.atheios.org)
-* [Chilliz](https://explorer.chiliz.com)
+* [Petrachor](https://explorer.petrachor.com/)
+* [Atheios](https://explorer.atheios.org/)
+* [Chilliz](https://explorer.chiliz.com/)
 * [Tenda](https://tenda.network)
-* [Loom](https://basechain-blockexplorer.dappchains.com)
-* [EtherCore](https://explorer.ethercore.io)
-* [Trustlines Network](https://explore.tlbc.trustlines.foundation)
-* [Etho Protocol](https://explorer.ethoprotocol.com)
-* [Energy Web](https://explorer.energyweb.org)
-* [Morpher](https://scan.morpher.com)
-* [Energi](https://explorer.energi.network)
-* [Veriscope](https://bx.veriscope.network)
-* [ID Chain](https://explorer.idchain.one)
-* [Velas](https://explorer.velas.com)
-* [Public Mint](https://explorer.publicmint.io)
-* [Cronos](https://cronos-explorer.crypto.org)
+* [Loom](https://basechain-blockexplorer.dappchains.com/)
+* [EtherCore](https://explorer.ethercore.io/)
+* [Trustlines Network](https://explore.tlbc.trustlines.foundation/)
+* [Etho Protocol](https://explorer.ethoprotocol.com/)
+* [Energy Web](https://explorer.energyweb.org/)
+* [Morpher](https://scan.morpher.com/)
+* [Energi](https://explorer.energi.network/)
+* [Veriscope](https://bx.veriscope.network/)
+* [ID Chain](https://explorer.idchain.one/)
+* [Velas](https://explorer.velas.com/)
+* [Public Mint](https://explorer.publicmint.io/)
+* [Cronos](https://cronos-explorer.crypto.org/)
+
+
 
 **Self-hosted Testnets**
 
-* [Celo Baklava Testnet](https://baklava-blockscout.celo-testnet.org)&#x20;
-* [Celo Alphajores Testnet](https://alfajores-blockscout.celo-testnet.org)
-* [Energy Web Volta](https://volta-explorer.energyweb.org)
-* [Quadrans Testnet](https://explorer.testnet.quadrans.io)
+* [Celo Baklava Testnet](https://baklava-blockscout.celo-testnet.org/)&#x20;
+* [Celo Alphajores Testnet](https://alfajores-blockscout.celo-testnet.org/)
+* [Energy Web Volta](https://volta-explorer.energyweb.org/)
+* [Quadrans Testnet](https://explorer.testnet.quadrans.io/)
 * [Palm Testnet](https://explorer.palm-uat.xyz)
-* [MoonBeam](https://blockscout.moonriver.moonbeam.network)
+* [MoonBeam](https://blockscout.moonriver.moonbeam.network/)
+* [zkSync v2](https://zksync2-testnet.zkscan.io/)
 {% endtab %}
 
 {% tab title="ETC Cooperative Hosted" %}
