@@ -79,7 +79,7 @@
 * [Contributing to Blockscout](for-developers/contributing-to-blockscout.md)
 * [Developer FAQs](for-developers/developer-faqs/README.md)
   * [How do I speed up my hosted BlockScout instance?](for-developers/developer-faqs/how-do-i-speed-up-my-hosted-blockscout-instance.md)
-  * [How can I customize the coin symbol?](for-developers/developer-faqs/how-can-i-customize-the-coin-symbol.md)
+  * [How can I customize the coin symbol / name?](for-developers/developer-faqs/how-can-i-customize-the-coin-symbol.md)
   * [How do I manage deployment with AWS CodeDeploy?](for-developers/developer-faqs/how-do-i-manage-deployment-with-aws-codedeploy.md)
   * [How do I replace missing assets/version number in my BlockScout deployment?](for-developers/developer-faqs/i-am-missing-assets-version-number-in-my-blockscout-deployment.md)
   * [How do I fix the Gettext.Error?](for-developers/developer-faqs/how-do-i-fix-the-gettext.error.md)
