@@ -104,8 +104,7 @@
 
 * [Media kit](resources/media-kit.md)
 * [Discord Channel](https://discord.gg/ZUnrZTK)
-* [Forum](https://forum.poa.network/c/blockscout)
-* [Gitter Channel](https://gitter.im/poanetwork/blockscout)
+* [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
 ## 👩🏫 CAREERS

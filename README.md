@@ -12,4 +12,4 @@ Blockscout is an open-source Elixir application that allows users to search tran
 
 Currently available block explorers (i.e. Etherscan and Etherchain) are closed systems which are not independently verifiable. As Ethereum sidechains continue to proliferate in both private and public settings, transparent tools are needed to analyze and validate transactions.
 
-Information on the latest release and version history is available [on our forum](https://forum.poa.network/c/blockscout/releases)
+Information on the latest release and version history is available in the [Github repo](https://github.com/blockscout/blockscout/releases).
