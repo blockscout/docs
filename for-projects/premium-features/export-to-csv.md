@@ -20,7 +20,7 @@ _Note:_ under the _Tokens_ tab, the list of token transfers will be exported.
 
 After clicking the button you will be forwarded to a  _/csv-export_ page for a given address and given type of export (transactions, internal-transactions, token-transfers, logs).
 
-![](<../../.gitbook/assets/screenshot-2021-01-28-at-20.46.23 (1) (1) (1) (1) (1) (1).png>)
+![](<../../.gitbook/assets/screenshot-2021-01-28-at-20.46.23 (1) (1) (1) (1) (1).png>)
 
 It is possible to specify an arbitrary period for the data export. By default, the current period is the previous month. After completing the reCaptcha, the data for the chosen period should be exported.
 

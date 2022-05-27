@@ -17,6 +17,7 @@
   * [Hardhat Verification Plugin](for-users/smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md)
   * [Sourcify Plugin for Hardhat](for-users/verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
   * [Contract Verification via Sourcify](for-users/smart-contract-interaction/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
+* [My Account](for-users/my-account.md)
 * [EVM Version Information](for-users/smart-contract-interaction/evm-version-information.md)
 * [ABI-Encoded Constructor Arguments](for-users/smart-contract-interaction/abi-encoded-constructor-arguments.md)
 * [API](for-users/api/README.md)

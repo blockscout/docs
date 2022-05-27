@@ -22,7 +22,7 @@ There are multiple methods for verification using the Blockscout UI - all are ca
 
 ## Smart Contract Verification with Blockscout
 
-1\) On contract creation, you will receive an address to check a pending transaction. If it does not redirect you to [blockscout.com](https://blockscout.com), go to Blockscout, verify you are on the chain where the contract was deployed, and type the contract's address into the search bar. Your contract details should come up.\
+1\) On contract creation, you will receive an address to check a pending transaction. If it does not redirect you to [blockscout.com](https://blockscout.com/), go to Blockscout, verify you are on the chain where the contract was deployed, and type the contract's address into the search bar. Your contract details should come up.\
 
 
 ![The contract address is shown in contract creation details](../../../.gitbook/assets/contract\_address.png)

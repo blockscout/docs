@@ -2,7 +2,7 @@
 description: BlockScout includes detailed AWS configs & setup instructions
 ---
 
-# Self-hosted BlockScout on AWS
+# Self-hosted Blockscout on AWS
 
 
 
@@ -10,7 +10,7 @@ description: BlockScout includes detailed AWS configs & setup instructions
 
 ### Fuse Network
 
-> **Project:** [Fuse Network](https://explorer.fuse.io)\
+> **Project:** [Fuse Network](https://explorer.fuse.io/)\
 > **BlockScout URL:** [https://explorer.fuse.io](https://explorer.fuse.io)****\
 > **Description:** Open-source platform for economic-based community creation.
 
