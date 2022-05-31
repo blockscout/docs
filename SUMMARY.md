@@ -87,6 +87,8 @@
   * [How do I fix indexer timeouts?](for-developers/developer-faqs/how-do-i-fix-indexer-timeouts.md)
   * [How do I update memory consumption to fix indexer memory errors?](for-developers/developer-faqs/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md)
   * [How do I update menu links in the header / footer?](for-developers/developer-faqs/how-do-i-update-menu-links-in-the-header-footer.md)
+  * [How can I view smart contracts with RPC?](for-developers/developer-faqs/how-can-i-view-smart-contracts-with-rpc.md)
+  * [Why are Market Cap/Token Price stats wrong?](for-developers/developer-faqs/why-are-market-cap-token-price-stats-wrong.md)
   * [How do I disable exchange rates?](for-developers/developer-faqs/how-do-i-disable-exchange-rates.md)
 
 ## 👓 For projects
