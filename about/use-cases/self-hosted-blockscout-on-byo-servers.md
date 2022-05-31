@@ -69,7 +69,7 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 ### Elastos
 
 > **Project:** Elastos\
-> **BlockScout url:** [https://esc.elastos.io/](https://esc.elastos.io/)\
+> **BlockScout url:** [https://explorer.elaeth.io/](https://explorer.elaeth.io/)\
 > **Description:** Elastos (ELA) bills itself as the 'first completely safe and decentralized infrastructure for the internet'. Its vision is to create a blockchain-powered decentralized internet that enables digital rights and secure transactions
 
 ![Elastos](../../.gitbook/assets/screenshot-2020-02-12-at-19.22.41.png)
@@ -96,14 +96,14 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 
 > **Project:** IDChain\
 > **Blockscout url:** [https://explorer.idchain.one/](https://explorer.idchain.one/)\
-> **Description:** IDChain is built to synchronize BrightID node operations. It is a fork of the [official Golang implementation of the Ethereum protocol](https://github.com/ethereum/go-ethereum) with a small change to burn gas fees instead of awarding them to the block sealers.
+> **Description:** IDChain is a fork of the [official Golang implementation of the Ethereum protocol](https://github.com/ethereum/go-ethereum) with a small change to burn gas fees instead of awarding them to the block sealers.
 
 ![](../../.gitbook/assets/screenshot-2020-08-13-at-17.15.02.png)
 
 ### Velas
 
 > **Project:** Velas\
-> **Blockscout url:** [https://evmexplorer.velas.com/](https://evmexplorer.velas.com/)\
+> **Blockscout url:** [https://explorer.velas.com/](https://explorer.velas.com/)\
 > **Description:** Velas blockchain uses AI-enhanced DPOS (AIDPOS) consensus for high volume transactions processing that reportedly does not come at the expense of decentralization and security.
 
 ![](../../.gitbook/assets/screenshot-2020-12-28-at-08.21.22.png)
@@ -136,7 +136,7 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 ### Cronos chain
 
 > **Project:** [Cronos chain](https://cronos.crypto.org/)\
-> **Explorer:** [https://cronos.org/explorer/](https://cronos.org/explorer/)\
+> **Testnet Explorer:** [https://cronos-explorer.crypto.org/](https://cronos-explorer.crypto.org/)\
 > **Description:** Get Instant DApp Portability with EVM Support.
 
 ![](../../.gitbook/assets/screenshot-2021-07-29-at-12.53.51.png)
