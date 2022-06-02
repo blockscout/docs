@@ -80,6 +80,7 @@ description: Hosted Projects list, public and private chains using BlockScout
 * [Mandala Testnet](https://blockscout.mandala.acala.network/)
 * [Pulsechain Testnet](https://scan.v2b.testnet.pulsechain.com/)
 * [Syscoin Tanenbaum testnet](https://tanenbaum.io/)
+* [AIAX Network testnet](https://aiaxscan.com/)
 {% endtab %}
 
 {% tab title="ETC Cooperative Hosted" %}
