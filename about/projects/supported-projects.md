@@ -68,6 +68,7 @@ If you are using Blockscout but your project is not listed, please [let us know]
 * [Eluv](https://exp.contentfabric.io/)
 * [Egem](https://blockscout.egem.io/)
 * [Elastos](https://eth.elastos.io/)
+* [Candle](https://candleexplorer.com)
 
 
 

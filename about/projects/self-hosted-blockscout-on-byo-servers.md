@@ -140,3 +140,11 @@ Sites can be configured to reflect a chain's unique branding, color scheme, logo
 > **Description:** Get Instant DApp Portability with EVM Support.
 
 ![](../../.gitbook/assets/screenshot-2021-07-29-at-12.53.51.png)
+
+### Candle
+
+> **Project:** [Candle](https://candlelabs.org/) \
+> **BlockScout URL:** [https://candleexplorer.com](https://candleexplorer.com)\
+> **Description:** Interoperable ecosystem with a focus on decentralizing religion.
+
+![](../../.gitbook/assets/candle-explorer.png)
