@@ -90,6 +90,7 @@
   * [How can I view smart contracts with RPC?](for-developers/developer-faqs/how-can-i-view-smart-contracts-with-rpc.md)
   * [Why are Market Cap/Token Price stats wrong?](for-developers/developer-faqs/why-are-market-cap-token-price-stats-wrong.md)
   * [How do I disable exchange rates?](for-developers/developer-faqs/how-do-i-disable-exchange-rates.md)
+  * [How to migrate verified contracts between databases?](for-developers/developer-faqs/how-to-migrate-verified-contracts-between-databases.md)
 
 ## 👓 For projects
 
