@@ -5,10 +5,10 @@
 ## 💡 About BlockScout <a href="#about" id="about"></a>
 
 * [Features](about/features.md)
-* [Use Cases](about/use-cases/README.md)
-  * [Hosted Blockscout](about/use-cases/hosted-blockscout.md)
-  * [Self-hosted Blockscout on AWS](about/use-cases/self-hosted-blockscout-on-aws.md)
-  * [Self-hosted Blockscout](about/use-cases/self-hosted-blockscout-on-byo-servers.md)
+* [Projects Using Blockscout](about/projects/README.md)
+  * [Projects List](about/projects/supported-projects.md)
+  * [Hosted Blockscout](about/projects/hosted-blockscout.md)
+  * [Self-hosted Blockscout](about/projects/self-hosted-blockscout-on-byo-servers.md)
 * [Roadmap](about/roadmap.md)
 
 ## 🧑🎤 For users
@@ -102,7 +102,6 @@
   * [Premium Transaction Pages](for-projects/premium-features/premium-transaction-pages.md)
   * [ERC-1155 Support](for-projects/premium-features/erc-1155-support.md)
 * [Resource Requirements](for-projects/resource-requirements.md)
-* [List of Projects Using Blockscout](for-projects/supported-projects.md)
 
 ## 🧩 Resources
 

@@ -2,7 +2,11 @@
 description: Hosted Projects list, public and private chains using BlockScout
 ---
 
-# List of Projects Using Blockscout
+# Projects List
+
+{% hint style="info" %}
+If you are using Blockscout but your project is not listed, please [let us know](https://discord.com/invite/ZUnrZTK) or [add a PR](https://github.com/blockscout/docs) to include your project.
+{% endhint %}
 
 {% tabs %}
 {% tab title="Hosted" %}
