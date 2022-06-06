@@ -107,6 +107,8 @@ Note that transactions can accept the following arguments:
 * after
 * before
 * order (ASC / DESC)
+* rangeStart (`{ blockHash: string, txHash: string}`)
+* rangeEnd (`string` <- a blockHash )
 
 
 
