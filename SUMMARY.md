@@ -76,7 +76,7 @@
   * [Memory Usage](for-developers/configuration-options/memory-usage.md)
 * [Indexing](for-developers/indexing.md)
 * [Testing](for-developers/testing.md)
-* [Db schema](for-developers/db-schema.md)
+* [DB schema](for-developers/db-schema.md)
 * [Contributing to Blockscout](for-developers/contributing-to-blockscout.md)
 * [Developer FAQs](for-developers/developer-faqs/README.md)
   * [How do I speed up my hosted BlockScout instance?](for-developers/developer-faqs/how-do-i-speed-up-my-hosted-blockscout-instance.md)

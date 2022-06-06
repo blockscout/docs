@@ -1,8 +1,17 @@
----
-description: Blockscout Db schema (as of version of application 3.2.0)
----
+# DB schema
 
-# Db schema
+### Tables
 
-![](../.gitbook/assets/bs_db_scheme.png)
+[https://blockscout.github.io/blockscout-db-schema/index.html](https://blockscout.github.io/blockscout-db-schema/index.html)
 
+### Columns
+
+[https://blockscout.github.io/blockscout-db-schema/constraints.html](https://blockscout.github.io/blockscout-db-schema/constraints.html)
+
+### Constraints
+
+[https://blockscout.github.io/blockscout-db-schema/constraints.html](https://blockscout.github.io/blockscout-db-schema/constraints.html)
+
+### Relationships&#x20;
+
+[https://blockscout.github.io/blockscout-db-schema/relationships.html](https://blockscout.github.io/blockscout-db-schema/relationships.html)
