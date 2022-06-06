@@ -106,7 +106,6 @@ Note that transactions can accept the following arguments:
 * first
 * after
 * before
-* order (ASC / DESC)
 
 
 
