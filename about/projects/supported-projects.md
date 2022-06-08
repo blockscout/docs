@@ -41,7 +41,6 @@ If you are using Blockscout but your project is not listed, please [let us know]
 * [Petrachor](https://explorer.petrachor.com/)
 * [Atheios](https://explorer.atheios.org/)
 * [Chilliz](https://explorer.chiliz.com/)
-* [Tenda](https://tenda.network)
 * [Loom](https://basechain-blockexplorer.dappchains.com/)
 * [Trustlines Network](https://explore.tlbc.trustlines.foundation/)
 * [Etho Protocol](https://explorer.ethoprotocol.com/)
