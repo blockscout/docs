@@ -8,7 +8,7 @@ Additional information related to certain variables is available on the [ansible
 You will find deprecated ENV vars on the [Deprecated ENV Variables](https://docs.blockscout.com/for-developers/information-and-settings/deprecated-env-variables) page.
 {% endhint %}
 
-### Set Variables with CLI
+### Set ENV Variables with CLI
 
 Use the export command to set variables. For example:
 
@@ -18,13 +18,13 @@ $ export COIN=POA
 $ export NETWORK=POA
 ```
 
-### Example Variables Set
+### Example ENV Variables Set
 
 The following variables are set for the [Gnosis Chain Blockscout Instance](https://blockscout.com/xdai/mainnet/).
 
 {% file src="../../.gitbook/assets/Gnosis-Chain-Variables.txt" %}
 
-### Full ENV CSV file
+### Full ENV Variables CSV file
 
 Last updated 13 June, 2022.
 
