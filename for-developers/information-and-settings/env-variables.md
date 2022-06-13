@@ -10,7 +10,7 @@ You will find deprecated ENV vars on the [Deprecated ENV Variables](https://docs
 
 ### Set Variables with CLI
 
-Use the export command. For example:
+Use the export command to set variables. For example:
 
 ```bash
 $ export ETHEREUM_JSONRPC_VARIANT=parity
@@ -18,7 +18,13 @@ $ export COIN=POA
 $ export NETWORK=POA
 ```
 
-### ENV CSV file
+### Example Variables Set
+
+The following variables are set for the [Gnosis Chain Blockscout Instance](https://blockscout.com/xdai/mainnet/).
+
+{% file src="../../.gitbook/assets/Gnosis-Chain-Variables.txt" %}
+
+### Full ENV CSV file
 
 Last updated 13 June, 2022.
 
