@@ -38,7 +38,7 @@
   * [Add Validator MetaData](for-developers/information-and-settings/add-validator-metadata.md)
   * [ShareLock](for-developers/information-and-settings/sharelock.md)
   * [haproxy Settings for Blockscout.com](for-developers/information-and-settings/haproxy-settings-for-blockscout.com.md)
-  * [Docker Integration (Local Use Only)](for-developers/information-and-settings/docker-integration-local-use-only.md)
+  * [Docker Integration](for-developers/information-and-settings/docker-integration-local-use-only.md)
 * [Ansible Deployment (AWS Cloud)](for-developers/ansible-deployment/README.md)
   * [Overview](for-developers/ansible-deployment/overview.md)
   * [Prerequisites](for-developers/ansible-deployment/prerequisites.md)
