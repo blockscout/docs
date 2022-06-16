@@ -72,6 +72,12 @@ If you are using Blockscout but your project is not listed, please [let us know]
 * [Mitgate](https://explorer.mitgate.com/)
 * [KCC (Kukoin Community Chain)](https://scan.kcc.io/)
 * [Etho Protocol](https://ethoprotocol.com/)
+* [Kardia Chain](https://explorer.kardiachain.io/)
+* [Boba Network](https://blockexplorer.boba.network/)
+* [Findora EVM Explorer](https://findorascan.io/)
+* [Andromeda Metis](https://andromeda-explorer.metis.io/)
+* [Ekta](https://ektascan.io/)
+* [Polis](https://explorer.polis.tech/)
 
 
 
