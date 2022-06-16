@@ -68,6 +68,10 @@ If you are using Blockscout but your project is not listed, please [let us know]
 * [Egem](https://blockscout.egem.io/)
 * [Elastos](https://eth.elastos.io/)
 * [Candle](https://candleexplorer.com)
+* [Ammer](https://ammer.network/)
+* [Mitgate](https://explorer.mitgate.com/)
+* [KCC (Kukoin Community Chain)](https://scan.kcc.io/)
+* [Etho Protocol](https://ethoprotocol.com/)
 
 
 
@@ -85,6 +89,7 @@ If you are using Blockscout but your project is not listed, please [let us know]
 * [Pulsechain Testnet](https://scan.v2b.testnet.pulsechain.com/)
 * [Syscoin Tanenbaum testnet](https://tanenbaum.io/)
 * [AIAX Network testnet](https://aiaxscan.com/)
+* [Venidium testnet](https://evm-testnet.venidiumexplorer.com/)
 {% endtab %}
 
 {% tab title="ETC Cooperative Hosted" %}

@@ -110,7 +110,7 @@
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
-## 👩🏫 CAREERS
+## 👩🏫 Careers
 
 * [Jobs at Blockscout](careers/jobs-at-blockscout/README.md)
   * [Elixir Developer](careers/jobs-at-blockscout/elixir-developer.md)
