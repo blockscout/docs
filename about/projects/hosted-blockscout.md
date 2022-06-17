@@ -18,7 +18,9 @@ The BlockScout team provides hosting for the following EVM chains
 | ------------------------ | ------- | ------------------------------------------------------------------------------ | ------- |
 | Ethereum                 | mainnet | [https://blockscout.com/eth/mainnet](https://blockscout.com/eth/mainnet)       | v4.1.5  |
 | Gnosis Chain             | mainnet | [https://blockscout.com/xdai/mainnet](https://blockscout.com/xdai/mainnet)     | v4.1.5  |
-| AoX                      | mainnet | [https://blockscout.com/xdai/aox](https://blockscout.com/xdai/aox)             | v4.1.5  |
+| Astar EVM                | mainnet | [https://blockscout.com/astar](https://blockscout.com/astar)                   | v4.1.5  |
+| Shiden EVM               | mainnet | [https://blockscout.com/shiden](https://blockscout.com/shiden)                 | v4.1.5  |
+|  Shibuya                 | testnet | [https://blockscout.com/shibuya](https://blockscout.com/shibuya)               | v4.1.5  |
 | Optimism on Gnosis Chain | mainnet | [https://blockscout.com/xdai/optimisim](https://blockscout.com/xdai/optimisim) | v4.1.5  |
 | xDai testnet             | testnet | [https://blockscout.com/xdai/testnet](https://blockscout.com/xdai/testnet)     | v4.1.5  |
 | POA                      | mainnet | [https://blockscout.com/poa/core](https://blockscout.com/poa/core)             | v4.1.5  |
