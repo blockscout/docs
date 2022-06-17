@@ -17,7 +17,7 @@ The BlockScout team provides hosting for the following EVM chains
 | Instance                 | Type    | URL                                                                            | Version |
 | ------------------------ | ------- | ------------------------------------------------------------------------------ | ------- |
 | Ethereum                 | mainnet | [https://blockscout.com/eth/mainnet](https://blockscout.com/eth/mainnet)       | v4.1.5  |
-| Gnosis Chain             | mainnet | [https://blockscout.com/xdai/mainnet](https://blockscout.com/xdai/mainnet)     | v4.1.4  |
+| Gnosis Chain             | mainnet | [https://blockscout.com/xdai/mainnet](https://blockscout.com/xdai/mainnet)     | v4.1.5  |
 | AoX                      | mainnet | [https://blockscout.com/xdai/aox](https://blockscout.com/xdai/aox)             | v4.1.5  |
 | Optimism on Gnosis Chain | mainnet | [https://blockscout.com/xdai/optimisim](https://blockscout.com/xdai/optimisim) | v4.1.5  |
 | xDai testnet             | testnet | [https://blockscout.com/xdai/testnet](https://blockscout.com/xdai/testnet)     | v4.1.5  |
