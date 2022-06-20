@@ -4,13 +4,14 @@ The configuration variable `db_storage` can be used to define the amount of stor
 
 &#x20;The `db_storage` can only be adjusted 1 time in a 24 hour period on AWS.
 
-| Chain            | Storage (GiB) |
-| ---------------- | ------------- |
-| POA Core         | 90            |
-| POA Sokol        | 80            |
-| Ethereum Classic | 250           |
-| Ethereum Mainnet | 5000          |
-| Kovan Testnet    | 250           |
-| Ropsten Testnet  | 6000          |
-| Gnosis Chain     | 100           |
+| Chain                | Storage (GiB) |
+| -------------------- | ------------- |
+| POA Core             | 790           |
+| POA Sokol            | 320           |
+| Ethereum Classic     | 250           |
+| Ethereum Mainnet     | 11000         |
+| Kovan Testnet        | 250           |
+| Ropsten Testnet      | 6000          |
+| Gnosis Chain         | 1900          |
+| Gnosis Chain Testnet | 10            |
 
