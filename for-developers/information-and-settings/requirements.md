@@ -1,5 +1,14 @@
 # General Requirements / Blockscout Prerequisites
 
+{% hint style="success" %}
+Install the software below prior to Blockscout installation. For additional requirements see:
+
+* [Database Storage Requirements](database-storage-requirements.md): Storage required for common chains to give a sense of needed storage
+* [Node Tracing Requirements](node-tracing-json-rpc-requirements.md): JSON RPC methods&#x20;
+* [Client Setting Requirements](client-settings-parity-geth-ganache.md): Settings related to client implementations (ie Geth, OpenEthereum, etc)
+* [Hardware/Hosting Requirements](../../for-projects/resource-requirements.md): Base requirements for a hosted instance of Blockscout.
+{% endhint %}
+
 | Dependency                                                       | Mac                       | Linux                                                                                                                                                           |
 | ---------------------------------------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Erlang/OTP 24](https://github.com/erlang/otp)                   | `brew install erlang`     | [Erlang Install Example](https://github.com/poanetwork/blockscout-terraform/blob/33f68e816e36dc2fb055911fa0372531f0e956e7/modules/stack/libexec/init.sh#L134)   |

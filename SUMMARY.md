@@ -29,11 +29,12 @@
 
 * [Information & Settings](for-developers/information-and-settings/README.md)
   * [General Requirements / Blockscout Prerequisites](for-developers/information-and-settings/requirements.md)
+  * [Database Storage Requirements](for-developers/information-and-settings/database-storage-requirements.md)
+  * [Node Tracing / JSON RPC Requirements](for-developers/information-and-settings/node-tracing-json-rpc-requirements.md)
+  * [Client Setting Requirements (Parity, OpenEthereum, Hyperledger Besu, Geth, Ganache)](for-developers/information-and-settings/client-settings-parity-geth-ganache.md)
   * [ENV Variables](for-developers/information-and-settings/env-variables.md)
   * [Deprecated ENV Variables](for-developers/information-and-settings/deprecated-env-variables.md)
-  * [Database Storage Requirements](for-developers/information-and-settings/database-storage-requirements.md)
   * [Umbrella Project Organization](for-developers/information-and-settings/untitled.md)
-  * [Client Settings (Parity, OpenEthereum, Hyperledger Besu, Geth, Ganache)](for-developers/information-and-settings/client-settings-parity-geth-ganache.md)
   * [Deployment Differences Between Chains](for-developers/information-and-settings/deployment-differences-between-chains.md)
   * [Add Validator MetaData](for-developers/information-and-settings/add-validator-metadata.md)
   * [ShareLock](for-developers/information-and-settings/sharelock.md)
@@ -101,7 +102,7 @@
   * [Export to CSV](for-projects/premium-features/export-to-csv.md)
   * [Premium Transaction Pages](for-projects/premium-features/premium-transaction-pages.md)
   * [ERC-1155 Support](for-projects/premium-features/erc-1155-support.md)
-* [Resource Requirements](for-projects/resource-requirements.md)
+* [Hardware/Hosting Requirements](for-projects/resource-requirements.md)
 
 ## 🧩 Resources
 
