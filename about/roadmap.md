@@ -35,7 +35,7 @@ BlockScout offered prior support for the Ethereum mainnet. This instance was dis
 ### My Account Functionality
 
 **Target Date:** Q2 2022\
-**Status**: R\&D
+**Status**:  :ballot\_box\_with\_check: Instance deployed on Gnosis Chain. Undergoing improvements.
 
 We will explore adding account features for users looking for explorer personalizations, including alerts and notifications, the ability to watch specific addresses, name and customize data within the dashboard, and other advanced features.
 
@@ -55,7 +55,7 @@ As NFTs become more important to the ecosystem, the explorer will be updated and
 
 ### Block/Address Detail Page Improvements
 
-**Target Date:** Q2 2022\
+**Target Date:** Q3 2022\
 **Status**: In Development
 
 A new UI interface is under development which will improve views and UX for Blockscout users.
@@ -79,9 +79,16 @@ Updating and optimizing the indexing scheme for storable data. We are working to
 
 As chain data grows exponentially, load speed, database optimization & caching, data parsing and front-end improvements are all required to maintain optimal performance. These efforts will continue as additional features are added to BlockScout.
 
+### Custom transaction views&#x20;
+
+**Target Date:** Q3 2022\
+**Status**:  In active research
+
+Create views for different actions / transactions to provide clarity for complex transactions, trade-specific transactions and multi-sig transactions.
+
 ### Landing Page
 
-**Target Date:** Q2 2022\
+**Target Date:** Q3 2022\
 **Status**:  In process
 
 A new landing page is in development for Blockscout to assist new users and developers understand the Blockscout feature set.
