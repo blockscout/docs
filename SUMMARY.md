@@ -111,10 +111,9 @@
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
-## 👩🏫 Careers
+## 👩🏫 Job Openings
 
-* [Jobs at Blockscout](careers/jobs-at-blockscout/README.md)
-  * [DevOps Engineer](careers/jobs-at-blockscout/devops-engineer.md)
-  * [Elixir Developer](careers/jobs-at-blockscout/elixir-developer.md)
-  * [Senior Front-end Engineer / Front-end Architect](careers/jobs-at-blockscout/senior-front-end-engineer-front-end-architect.md)
-  * [Senior QA Engineer](careers/jobs-at-blockscout/page-1.md)
+* [DevOps Engineer](job-openings/devops-engineer.md)
+* [Elixir Developer](job-openings/elixir-developer.md)
+* [Senior Front-end Engineer / Front-end Architect](job-openings/senior-front-end-engineer-front-end-architect.md)
+* [Senior QA Engineer](job-openings/page-1.md)
