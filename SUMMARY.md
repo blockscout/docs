@@ -24,6 +24,7 @@
   * [GraphQL in Blockscout](for-users/api/graphql.md)
 * [User FAQs](for-users/faqs/README.md)
   * [What does "In" or "Out" label mean](for-users/faqs/what-does-in-or-out-label-mean.md)
+  * [CSV export has error 504](for-users/faqs/csv-export-has-error-504.md)
 
 ## 🥷 For Developers
 
@@ -92,6 +93,8 @@
   * [Why are Market Cap/Token Price stats wrong?](for-developers/developer-faqs/why-are-market-cap-token-price-stats-wrong.md)
   * [How do I disable exchange rates?](for-developers/developer-faqs/how-do-i-disable-exchange-rates.md)
   * [How to migrate verified contracts between databases?](for-developers/developer-faqs/how-to-migrate-verified-contracts-between-databases.md)
+  * [Which Linux distro for manual deployment?](for-developers/developer-faqs/which-linux-distro-for-manual-deployment.md)
+  * [Do I need to enable ws?](for-developers/developer-faqs/do-i-need-to-enable-ws.md)
 
 ## 👓 For projects
 
@@ -113,7 +116,7 @@
 
 ## 👩🏫 Job Openings
 
-* [DevOps Engineer](job-openings/devops-engineer.md)
-* [Elixir Developer](job-openings/elixir-developer.md)
-* [Senior Front-end Engineer / Front-end Architect](job-openings/senior-front-end-engineer-front-end-architect.md)
-* [Senior QA Engineer](job-openings/page-1.md)
+* [DevOps Engineer](careers/jobs-at-blockscout/devops-engineer.md)
+* [Elixir Developer](careers/jobs-at-blockscout/elixir-developer.md)
+* [Senior Front-end Engineer / Front-end Architect](careers/jobs-at-blockscout/senior-front-end-engineer-front-end-architect.md)
+* [Senior QA Engineer](careers/jobs-at-blockscout/page-1.md)
