@@ -5,7 +5,7 @@ description: Upcoming enhancements and updates to BlockScout
 # Roadmap
 
 {% hint style="info" %}
-The Blockscout roadmap is a high-level strategic plan designed to guide xDai research and development. **Target dates and details are reviewed regularly by the team and subject to move, adjust and change as the project evolves**. Note that only completed items ( :white\_check\_mark: Status: Complete) are considered achieved project milestones.
+The Blockscout roadmap is a high-level strategic plan designed to guide research and development. **Target dates and details are reviewed regularly by the team and subject to move, adjust and change as the project evolves**. Note that only completed items ( :white\_check\_mark: Status: Complete) are considered achieved project milestones.
 
 _Last update: April 11, 2022 |_ [_Changelog_](roadmap.md#change-log)__
 {% endhint %}
