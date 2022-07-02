@@ -78,6 +78,7 @@ If you are using Blockscout but your project is not listed, please [let us know]
 * [Andromeda Metis](https://andromeda-explorer.metis.io/)
 * [Ekta](https://ektascan.io/)
 * [Polis](https://explorer.polis.tech/)
+* [smartBCH](https://sonar.cash/)
 
 
 
@@ -96,6 +97,7 @@ If you are using Blockscout but your project is not listed, please [let us know]
 * [Syscoin Tanenbaum testnet](https://tanenbaum.io/)
 * [AIAX Network testnet](https://aiaxscan.com/)
 * [Venidium testnet](https://evm-testnet.venidiumexplorer.com/)
+* [smartBCH Amber testnet](https://testnet.sonar.cash/)
 {% endtab %}
 
 {% tab title="ETC Cooperative Hosted" %}
