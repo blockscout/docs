@@ -11,7 +11,7 @@
   * [Self-hosted Blockscout](about/projects/self-hosted-blockscout-on-byo-servers.md)
 * [Roadmap](about/roadmap.md)
 
-## 🧑🎤 For users
+## 🧑🎤 🧑🎤 For users
 
 * [Verifying a Smart Contract](for-users/smart-contract-interaction/verifying-a-smart-contract/README.md)
   * [Hardhat Verification Plugin](for-users/smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md)
@@ -114,7 +114,7 @@
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
-## 👩🏫 Job Openings
+## 👩🏫 👩🏫 Job Openings
 
 * [DevOps Engineer](careers/jobs-at-blockscout/devops-engineer.md)
 * [Elixir Developer](careers/jobs-at-blockscout/elixir-developer.md)
