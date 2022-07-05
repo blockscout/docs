@@ -6,7 +6,7 @@ description: Blockchain Explorer for inspecting and analyzing EVM Chains.
 
 Blockscout provides a comprehensive, easy-to-use interface for users to view, confirm, and inspect transactions on EVM (Ethereum Virtual Machine) blockchains. Blockscout currently hosts the Gnosis Chain, Ethereum Classic, Sokol & Kovan testnets and many other testnets, private chains and sidechains. [A complete list of projects is available here](about/projects/supported-projects.md).
 
-![xDai Chain BlockScout Instance](.gitbook/assets/xdai-blockscout.png)
+![Blockscout Ethereum mainnet version](.gitbook/assets/ethereum-instance.png)
 
 Blockscout is an open-source Elixir application that allows users to search transactions, view accounts and balances, and verify smart contracts on Ethereum including forks and sidechains.
 

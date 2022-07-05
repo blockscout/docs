@@ -1,18 +1,10 @@
 # Premium Features
 
-{% hint style="warning" %}
-The premium version of Blockscout and premium services will be discontinued in 2022. The majority of premium features will be open-sourced. All existing premium services will remain operational until further notice.
+Premium features and services are available to projects using Blockscout hosting services. If you have questions about integrating services or current premium integrations please ask in [Discord.](https://discord.gg/XmNatGKbPS)
 
-If you have questions about integrating services or current premium integrations please ask in the [#blockscout channel in Discord.](https://discord.com/invite/ZUnrZTK)
-{% endhint %}
+:bullettrain\_side: [**Hosting on blockscout.com**](your-chain-on-blockscout.com.md): Self-hosting can be difficult, often requiring a dev-ops team to make critical in-house updates and/or customizations. A Blockscout-hosted chain not only gives projects access to expert, dedicated technical support, it also greatly increases project visibility and provides access to the premium feature set.
 
-Custom integrations and premium functionality are available for projects looking to extend their BlockScout instances. Our premium-level offerings feature personalized, proactive services from an assigned technical account manager who will work with you to implement and optimize your Blockscout solution, minimize risk, and achieve your business and technology goals. The following features are available, with more in development.
-
-{% hint style="info" %}
-To implement a premium feature or if your project has a feature in mind that you don't see here, [contact the team in Discord](https://discord.gg/ZUnrZTK) to start the discussion.&#x20;
-{% endhint %}
-
-:bullettrain\_side: [**Hosting on blockscout.com**](your-chain-on-blockscout.com.md): Self-hosting can be difficult, often requiring a dev-ops team to make critical in-house updates and/or customizations. A Blockscout-hosted chain not only gives projects access to expert, dedicated technical support, it also greatly increases project visibility.
+### Premium Feature Set
 
 :lizard: [**Custom Themes:**](custom-branded-themes.md) Custom themes help create a seamless blockchain experience for users.  A consistent look and feel helps orient the user, and custom elements like links to various related elements (NFTs, website links etc) can increase engagement and trust with your application across platforms.
 
