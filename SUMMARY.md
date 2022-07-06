@@ -5,8 +5,7 @@
 ## 💡 About BlockScout <a href="#about" id="about"></a>
 
 * [Features](about/features.md)
-* [Projects Using Blockscout](about/projects/README.md)
-  * [Projects List](about/projects/supported-projects.md)
+* [Projects Using Blockscout](about/projects.md)
 * [Roadmap](about/roadmap.md)
 
 ## 🧑🎤 For users
