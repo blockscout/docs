@@ -7,8 +7,6 @@
 * [Features](about/features.md)
 * [Projects Using Blockscout](about/projects/README.md)
   * [Projects List](about/projects/supported-projects.md)
-  * [Hosted Blockscout](about/projects/hosted-blockscout.md)
-  * [Self-hosted Blockscout](about/projects/self-hosted-blockscout-on-byo-servers.md)
 * [Roadmap](about/roadmap.md)
 
 ## 🧑🎤 For users
@@ -110,7 +108,7 @@
 ## 🧩 Resources
 
 * [Media kit](resources/media-kit.md)
-* [Discord Channel](https://discord.gg/ZUnrZTK)
+* [Discord Channel](https://discord.com/invite/GePYkFuq)
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
