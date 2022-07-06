@@ -7,15 +7,36 @@ description: Upcoming enhancements and updates to BlockScout
 {% hint style="info" %}
 The Blockscout roadmap is a high-level strategic plan designed to guide research and development. **Target dates and details are reviewed regularly by the team and subject to move, adjust and change as the project evolves**. Note that only completed items ( :white\_check\_mark: Status: Complete) are considered achieved project milestones.
 
-_Last update: April 11, 2022 |_ [_Changelog_](roadmap.md#change-log)__
+_Last update: July 06, 2022 |_ [_Changelog_](roadmap.md#change-log)__
 {% endhint %}
 
 ## Ongoing
 
+### UI Overhaul&#x20;
+
+**Target Date:** Q3-Q4 2021\
+**Status**: :ballot\_box\_with\_check: Ongoing
+
+A new UI interface is under development to improve data exploration, optimize views, and provide overall better UX for Blockscout users. The UI is being built from the ground up. It will overhaul all aspects of Blockscout engagement, creating a complete all-in-one interface for chain exploration.
+
+### Modular Plug-and-Play Library
+
+**Target Date:** Q4 2021\
+**Status**: :ballot\_box\_with\_check: Ongoing
+
+Chain users will be able to access applications and modules directly from Blockscout, vastly improving the overall chain experience. Interoperability, swaps, transactions, and 3rd party project-based apps will be accessible and integrated with the modular interface.
+
+### Landing Page
+
+**Target Date:** Q3 2022\
+**Status**: :ballot\_box\_with\_check: In process
+
+A new landing page is in development for Blockscout to assist new users and developers understand the Blockscout feature set and find information quickly.
+
 ### Search Enhancements
 
 **Target Date:** Q4 2021\
-**Status**:  :ballot\_box\_with\_check: Ongoing
+**Status**: :ballot\_box\_with\_check: Ongoing
 
 Most users access an explorer through the search function. Search should be robust, optimized for mobile and include additional information about contracts, tokens etc. We will continue to optimize the search functionality to provide users with robust search data on BlockScout. Some items of focus include:
 
@@ -25,16 +46,9 @@ Most users access an explorer through the search function. Search should be robu
 * Full-page results
 * Search control functionality
 
-### Ethereum Mainnet BlockScout Instance
-
-**Target Date:** Q2 2022\
-**Status**: :ballot\_box\_with\_check: Instance deployed, currently in optimization and benchmarking phases
-
-BlockScout offered prior support for the Ethereum mainnet. This instance was discontinued;  however a new instance is now planned to further increase explorer diversity on Ethereum and provide additional transparency for Ethereum users.
-
 ### My Account Functionality
 
-**Target Date:** Q2 2022\
+**Target Date:** Q3 2022\
 **Status**:  :ballot\_box\_with\_check: Instance deployed on Gnosis Chain. Undergoing improvements.
 
 We will explore adding account features for users looking for explorer personalizations, including alerts and notifications, the ability to watch specific addresses, name and customize data within the dashboard, and other advanced features.
@@ -48,52 +62,52 @@ BlockScout deployment can be complicated for new users. Deployment improvements 
 
 ### NFT View Interface
 
-**Target Date:** Q3 2022\
+**Target Date:** Q4 2022\
 **Status**: Ideation phase
 
 As NFTs become more important to the ecosystem, the explorer will be updated and redesigned to display images, attributes and other data in a user-friendly interface.
 
-### Block/Address Detail Page Improvements
-
-**Target Date:** Q3 2022\
-**Status**: In Development
-
-A new UI interface is under development which will improve views and UX for Blockscout users.
-
 ### Data Sorting/Filtering
 
-**Target Date:** Q3 2022\
+**Target Date:** Q4 2022\
 **Status**:  Ideation phase
 
 Data in a tabular format should be easily sortable (ascending, descending by column). Improved pagination and filtering will give users access to view and filter data directly within the BlockScout interface.
 
+### Custom transaction views&#x20;
+
+**Target Date:** Q4 2022\
+**Status**:  In active research
+
+Create views for different actions / transactions to provide clarity for complex transactions, trade-specific transactions and multi-sig transactions.
+
+### Analytics Dashboards
+
+**Target Date:** Q4 2022\
+**Status**:  In active research
+
+We will incorporate new views and visual dashboards to better represent various data points.
+
 ### Data Storage Optimization
 
-**Target Date:** Ongoing
+**Target Date:** **** :ballot\_box\_with\_check: Ongoing
 
 Updating and optimizing the indexing scheme for storable data. We are working to decrease the BlockScout database size while preserving the same level of functionality.
 
 ### Performance Enhancements
 
-**Target Date:** Ongoing - [80% covered in release 3.0.0](https://forum.poa.network/t/blockscout-v3-0-0-beta-block-hash-indexing-approach/3250)
+**Target Date:** :ballot\_box\_with\_check: Ongoing - [80% covered in release 3.0.0](https://forum.poa.network/t/blockscout-v3-0-0-beta-block-hash-indexing-approach/3250)
 
 As chain data grows exponentially, load speed, database optimization & caching, data parsing and front-end improvements are all required to maintain optimal performance. These efforts will continue as additional features are added to BlockScout.
 
-### Custom transaction views&#x20;
-
-**Target Date:** Q3 2022\
-**Status**:  In active research
-
-Create views for different actions / transactions to provide clarity for complex transactions, trade-specific transactions and multi-sig transactions.
-
-### Landing Page
-
-**Target Date:** Q3 2022\
-**Status**:  In process
-
-A new landing page is in development for Blockscout to assist new users and developers understand the Blockscout feature set.
-
 ## Completed
+
+### Ethereum Mainnet BlockScout Instance
+
+**Target Date:** Q2 2022\
+**Status**: :white\_check\_mark: Instance deployed, optimizations ongoing.
+
+BlockScout offered prior support for the Ethereum mainnet. This instance was discontinued;  however a new instance is now planned to further increase explorer diversity on Ethereum and provide additional transparency for Ethereum users.
 
 ### ERC721 Metadata
 
@@ -151,5 +165,6 @@ BlockScout supports verification for contracts via multiple methods including Ha
 
 | Update       | Items                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 06.07.2022   | <p>Added:</p><ul><li>Analytics Dashboards</li><li>UI Overhaul</li><li>Modular Plug-and-Play Library</li></ul><p>Completed:</p><ul><li>Ethereum Mainnet Instance<br></li></ul>                                                                                                                                                                                                    |
 | 11.04.2022   | <ul><li>Rearranged into Completed and Ongoing Categories. </li><li>Updated Ongoing Item dates</li><li>Added UI enhancements</li><li><p>Marked as Completed</p><ul><li>EIP-1559 Support &#x3C;Completed></li><li>Rollup Support &#x3C;Completed></li><li>Multi-file Contract Source Code Verification &#x3C;Completed></li></ul></li></ul>                                        |
 | _04.08.2021_ | <p></p><ul><li><p>Added multiple new items to Q4 Roadmap including:</p><ul><li>EIP-1559 Support</li><li>Ethereum Mainnet Instance</li><li>My Account Functionality</li><li>Rollup Support</li><li>Deployment Improvements</li><li>Multi-file Contract Source Code Verification</li><li>Block/Address Detail Page Improvements</li><li>Data Sorting/Filtering</li></ul></li></ul> |
