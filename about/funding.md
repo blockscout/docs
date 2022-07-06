@@ -2,9 +2,9 @@
 
 We would like to thank projects, individuals, and agencies who have helped support Blockscout open-source explorer growth either through direct giving or grants to support instances.&#x20;
 
-We are open to additional grant opportunities and welcome queries from projects in need of a new open-source explorer instance or maintenance of their current instances.
+We are open to additional grant opportunities and [welcome queries](https://discord.gg/XmNatGKbPS) from projects in need of a new open-source explorer instance or maintenance of their current instances.
 
-Funding sources include:
+Funding grants include:
 
 * Seed Grant from the [Ethprize Foundation](http://ethprize.io/)
 * [Gitcoin Grants](https://gitcoin.co/grants/3364/blockscout) ongoing rounds
