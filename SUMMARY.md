@@ -6,6 +6,7 @@
 
 * [Features](about/features.md)
 * [Projects Using Blockscout](about/projects.md)
+* [Funding](about/funding.md)
 * [Roadmap](about/roadmap.md)
 
 ## 🧑🎤 For users
