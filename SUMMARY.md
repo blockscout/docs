@@ -97,8 +97,8 @@
 ## 👓 For projects
 
 * [Premium Features](for-projects/premium-features/README.md)
-  * [Custom / Branded Themes](for-projects/premium-features/custom-branded-themes.md)
   * [Hosted Instance on BlockScout.com](for-projects/premium-features/your-chain-on-blockscout.com.md)
+  * [Custom / Branded Themes](for-projects/premium-features/custom-branded-themes.md)
   * [Moonbeam Support](for-projects/premium-features/moonbeam-support.md)
   * [Export to CSV](for-projects/premium-features/export-to-csv.md)
   * [Premium Transaction Pages](for-projects/premium-features/premium-transaction-pages.md)
