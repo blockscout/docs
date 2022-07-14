@@ -9,7 +9,7 @@
 * [Funding](about/funding.md)
 * [Roadmap](about/roadmap.md)
 
-## 🧑🎤 For users
+## 🧑🎤 🧑🎤 For users
 
 * [Verifying a Smart Contract](for-users/smart-contract-interaction/verifying-a-smart-contract/README.md)
   * [Hardhat Verification Plugin](for-users/smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md)
@@ -22,6 +22,7 @@
   * [GraphQL in Blockscout](for-users/api/graphql.md)
 * [User FAQs](for-users/faqs/README.md)
   * [What does "In" or "Out" label mean](for-users/faqs/what-does-in-or-out-label-mean.md)
+  * [What are the different transaction types?](for-users/faqs/what-are-the-different-transaction-types.md)
   * [CSV export has error 504](for-users/faqs/csv-export-has-error-504.md)
 
 ## 🥷 For Developers
@@ -112,7 +113,7 @@
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
-## 👩🏫 Job Openings
+## 👩🏫 👩🏫 Job Openings
 
 * [DevOps Engineer](careers/jobs-at-blockscout/devops-engineer.md)
 * [Elixir Developer](careers/jobs-at-blockscout/elixir-developer.md)
