@@ -6,7 +6,7 @@
 * WebSocket interface (optional/highly recommended to enable) is used to subscribe to new block heads. Otherwise, Blockscout will trigger new blocks fetching by periodical polling of JSON RPC **** `eth_blockNumber` method.
 * Support for the following standard Ethereum JSON RPC methods:&#x20;
   * ``[`eth_blockNumber`](https://eth.wiki/json-rpc/API#eth\_blocknumber)
-  * [ `eth_cal`](https://eth.wiki/json-rpc/API#eth\_call)``
+  * [ `eth_call`](https://eth.wiki/json-rpc/API#eth\_call)
   * ``[`eth_getBalance`](https://eth.wiki/json-rpc/API#eth\_getbalance)``
   * ``[`eth_getCode`](https://eth.wiki/json-rpc/API#eth\_getcode)``
   * ``[`eth_getBlockByHash`](https://eth.wiki/json-rpc/API#eth\_getblockbyhash)``
