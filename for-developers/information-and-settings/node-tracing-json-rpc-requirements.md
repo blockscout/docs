@@ -1,6 +1,6 @@
 # Node Tracing / JSON RPC Requirements
 
-## Node Tracing Requirements
+### Standard JSON RPC Requirements
 
 * Archive node with JSON RPC interface should strictly follow input/output interface described in [https://eth.wiki/json-rpc/API](https://eth.wiki/json-rpc/API).
 * WebSocket interface (optional/highly recommended to enable) is used to subscribe to new block heads. Otherwise, Blockscout will trigger new blocks fetching by periodical polling of JSON RPC **** `eth_blockNumber` method.
