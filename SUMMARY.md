@@ -16,8 +16,9 @@
   * [Sourcify Plugin for Hardhat](for-users/verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
   * [Contract Verification via Sourcify](for-users/smart-contract-interaction/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
 * [My Account](for-users/my-account.md)
-* [EVM Version Information](for-users/smart-contract-interaction/evm-version-information.md)
+* [CSV Exports](for-users/export-to-csv.md)
 * [ABI-Encoded Constructor Arguments](for-users/smart-contract-interaction/abi-encoded-constructor-arguments.md)
+* [ERC-1155 Support](for-users/erc-1155-support.md)
 * [API](for-users/api/README.md)
   * [GraphQL in Blockscout](for-users/api/graphql.md)
 * [User FAQs](for-users/faqs/README.md)
@@ -75,6 +76,7 @@
   * [Tracing](for-developers/configuration-options/tracing.md)
   * [Logger Configs](for-developers/configuration-options/logger-configs.md)
   * [Memory Usage](for-developers/configuration-options/memory-usage.md)
+* [EVM Version Information](for-developers/evm-version-information.md)
 * [Indexing](for-developers/indexing.md)
 * [Testing](for-developers/testing.md)
 * [DB schema](for-developers/db-schema.md)
@@ -97,13 +99,9 @@
 
 ## 👓 For projects
 
-* [Premium Features](for-projects/premium-features/README.md)
+* [Hosted Features](for-projects/premium-features/README.md)
   * [Hosted Instance on BlockScout.com](for-projects/premium-features/your-chain-on-blockscout.com.md)
   * [Custom / Branded Themes](for-projects/premium-features/custom-branded-themes.md)
-  * [Moonbeam Support](for-projects/premium-features/moonbeam-support.md)
-  * [Export to CSV](for-projects/premium-features/export-to-csv.md)
-  * [Premium Transaction Pages](for-projects/premium-features/premium-transaction-pages.md)
-  * [ERC-1155 Support](for-projects/premium-features/erc-1155-support.md)
 * [Hardware/Hosting Requirements](for-projects/resource-requirements.md)
 
 ## 🧩 Resources
