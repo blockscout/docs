@@ -2,7 +2,7 @@
 
 The My Account feature provides the ability to watch addresses (and receive email notifications regarding activity), create private tags, and add API keys to an account.&#x20;
 
-Additional future features include an upcoming redesign and a rollout for more chains (currently My Account is only available on the [Gnosis Chain Blockscout instance](https://blockscout.com/xdai/mainnet)).
+Additional future features include an upcoming redesign and a rollout for more chains.&#x20;
 
 ## Get Started
 

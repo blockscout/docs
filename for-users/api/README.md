@@ -13,11 +13,13 @@ To view Modules and API Reference documentation:
 
 ## Blockscout API Usage
 
-Api calls can be accessed from the Blockscout footer (or top menu depending on the Blockscout instance). Blockscout supports several methods:
+Api calls can be accessed from the **Blockscout footer** (or top menu depending on the Blockscout instance). Blockscout supports several methods:
 
 1. [Graphiql](https://github.com/graphql/graphiql): An IDE for exploring GraphQL
 2. RPC: API provided for developers transitioning their applications from Etherscan to Blockscout. Supports GET and POST requests.
 3. Eth RPC: Supports the most popular [JSON RPC methods](https://github.com/ethereum/wiki/wiki/JSON-RPC).
+
+![API links in the Gnosis Chain instance footer ](../../.gitbook/assets/APIs.png)
 
 ## GraphQL
 
