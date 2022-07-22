@@ -4,12 +4,10 @@ description: Blockchain Explorer for inspecting and analyzing EVM Chains.
 
 # Welcome to Blockscout
 
-Blockscout provides a comprehensive, easy-to-use interface for users to view, confirm, and inspect transactions on EVM (Ethereum Virtual Machine) blockchains. Blockscout currently supports a wide range of projects and hosts the Gnosis Chain, Ethereum Classic, RSK, LUKSO, Astar, Sokol & Kovan testnets and many other testnets, private chains, sidechains, L1 & L2 chains.&#x20;
+Blockscout provides a comprehensive, easy-to-use interface for users to view, confirm, and inspect transactions on EVM (Ethereum Virtual Machine) blockchains. Blockscout currently supports a wide range of projects and hosts chains such as Ethereum, Ethereum Classic, Gnosis Chain, RSK, LUKSO, Astar, and many more. See our [projects list](about/projects.md) for more details.
 
 ![Blockscout Ethereum mainnet version](.gitbook/assets/ethereum-instance.png)
 
-Blockscout is an open-source Elixir application that allows users to search transactions, view accounts and balances, and verify smart contracts on Ethereum including forks and sidechains.
-
-Currently available block explorers (i.e. Etherscan and Etherchain) are closed systems which are not independently verifiable. As Ethereum sidechains continue to proliferate in both private and public settings, transparent tools are needed to analyze and validate transactions.
+While there are several explores available to blockchain projects, most are closed systems (ie Etherscan, Etherchain) which are not independently verifiable. Blockscout provides a much needed open-source alternative. As the multi-chain paradigm continues to take hold in both private and public settings, transparent tools are needed to analyze and validate transactions.
 
 Information on the latest release and version history is available in the [Github repo](https://github.com/blockscout/blockscout/releases).
