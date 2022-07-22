@@ -12,13 +12,13 @@ When are constructor arguments used?
 >
 > After the constructor has executed, the final code of the contract is deployed to the blockchain. This code includes all public and external functions and all functions that are reachable from there through function calls. The deployed code does not include the constructor code or internal functions only called from the constructor.
 
-### Steps to include Constructor Arguments when verifying a contract.
+### Steps to find and include Constructor Arguments when verifying a contract.
 
-1\) Access the contract creation TX in Blockscout. This is the transaction that created the contract, not the address of the actual contract. You should see a link to it in your wallet history.
+1\) Find the contract creation transaction. This is the transaction that created the contract, not the address of the actual contract. You should see a link to it in your wallet history. Copy and paste into Blockscout.
 
-![Contract Deployment Transaction](../../.gitbook/assets/deploy\_1.png)
+![Contract Deployment Transaction ](../../.gitbook/assets/deploy\_1.png)
 
-2\) Go to the transaction details page for the contract creation TX. Within the details, you will see the Raw input. Copy this input in Hex format and paste into a txt or spreadsheet where you will compare against a second ABI code.
+2\) Go to the transaction details page for the contract creation TX. Within the details, you will see the Raw input. Copy this input in Hex format and paste into a txt document or spreadsheet where you will compare against a second ABI code.
 
 ![](../../.gitbook/assets/trans\_details.png)
 
@@ -30,7 +30,7 @@ When are constructor arguments used?
 
 ![Copy Contract Byte Code](../../.gitbook/assets/contract\_byte\_code.png)
 
-6\) Paste into a document next to the original raw input ABI. This will allow you to compare the two. Anything that appears at the **END** of the Raw input code that does not exist at the end of the Contract Code is the ABI code for the constructor arguments.
+6\) Paste into a document next to the original raw input ABI. This will allow you to compare the two. Anything that appears at the **END** of the **Raw input code** that does not exist at the end of the Contract Code is the ABI code for the constructor arguments.
 
 | Raw ABI Code (truncated)                                                                                                                                                                                                                                                                                                                                              | Contract Byte Code(truncated)                                                                                                     |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
