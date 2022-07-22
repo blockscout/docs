@@ -2,7 +2,7 @@
 description: Export of blockchain entities related to address into a CSV file
 ---
 
-# Export to CSV
+# CSV Exports
 
 Export to CSV is a premium feature providing users a way to easily download and analyze blockchain data. It is available for tabs on the address page including transactions, internal transactions, tokens, and logs.
 

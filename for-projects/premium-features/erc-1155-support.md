@@ -14,4 +14,4 @@ ERC-1155s are supported for the Gnosis Chain and any new ERC-1155 instances are 
 \
 [https://blockscout.com/xdai/mainnet/tokens/0x93d0c9a35c43f6BC999416A06aaDF21E68B29EBA/token-transfers](https://blockscout.com/xdai/mainnet/tokens/0x93d0c9a35c43f6BC999416A06aaDF21E68B29EBA/token-transfers)
 
-![](../.gitbook/assets/erc1155-example.png)
+![](../../.gitbook/assets/erc1155-example.png)

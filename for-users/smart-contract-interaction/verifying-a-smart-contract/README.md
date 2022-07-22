@@ -46,7 +46,7 @@ There are multiple methods for verification using the Blockscout UI - all are ca
 2. **Contract Name:** Name of the class whose constructor was called in the .sol file. For example, in `contract MyContract {..` **MyContract** is the contract name.&#x20;
 3. **Include Nightly Builds**: Yes if you want to show nightly builds.
 4. **Compiler:** derived from the first line in the contract `pragma solidity X.X.X`. Use the corresponding compiler version rather than the nightly build.
-5. **EVM Version:** [See EVM version information](../../../for-developers/evm-version-information.md)
+5. **EVM Version:** [See EVM version information](../evm-version-information.md)
 6. **Optimization:** If you enabled optimization during compilation, check yes.
 7. **Optimization Runs:** 200 is the Solidity Compiler default value. Only change if you changed this value while compiling.
 8. &#x20;**Enter the Solidity Contract Code:** You may need to flatten your solidity code if it utilizes a library or inherits dependencies from another contract. We recommend the [POA solidity flattener](https://github.com/poanetwork/solidity-flattener) or the [truffle flattener](https://www.npmjs.com/package/truffle-flattener).
