@@ -101,7 +101,7 @@ If your chain is not in the list, you can add a `customChains` object to the con
 &#x20;Find an extensive list of ChainIDs at [https://chainlist.org/](https://chainlist.org/).
 {% endhint %}
 
-For example, if Sokol were not in the default list, this is how it would be added to the config file. Note the network in `customChains` must match the name of the `apiKey` object.
+For example, if Sokol were not in the default list, this is how it would be added to the config file. Note the network name in `customChains` must match the  network name in the `apiKey` object.
 
 ```
 etherscan: {
