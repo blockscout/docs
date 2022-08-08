@@ -6,7 +6,9 @@
 
 ### **1) Install Hardhat**
 
-If you are starting from scratch, create an npm project by going to an empty folder, running `npm init`, and following the instructions. Once your project is ready:
+If you are starting from scratch, create an npm project by going to an empty folder, running `npm init`, and following the instructions. Recommend npm 7 or higher.
+
+Once your project is ready:
 
 **npm instructions**
 
@@ -60,6 +62,8 @@ Your basic [Hardhat config file](https://hardhat.org/config/) (`hardhat.config.j
 
 Here we add an RPC url without an API key, however some value is still required. You can use any arbitrary string. [More info](https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html#multiple-api-keys-and-alternative-block-explorers).
 
+If you prefer, you can migrate to [hardhat-toolbox](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-toolbox) to use a plugin bundle.
+
 ```
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
@@ -68,7 +72,7 @@ require('hardhat-deploy');
 let secret = require("./secret");
 
 module.exports = {
-  solidity: "0.8.0",
+  solidity: "0.8.9",
   networks: {
     sokol: {
       url: 'https://sokol.poa.network/',
@@ -81,6 +85,40 @@ module.exports = {
     apiKey: "abc"
   }
 };
+```
+
+### Add an Unsupported Network
+
+Some chains are not supported by the plugin (to check run `npx hardhat verify --list-networks`)
+
+If your chain is not in the list, you can add a `customChains` object to the config file. It includes:
+
+* `chainID` - Network chain ID
+* `apiURL` - RPC verification endpoint URL
+* `browserURL` - Explorer URL
+
+{% hint style="info" %}
+&#x20;Find an extensive list of ChainIDs and RPCs at [https://chainlist.org/](https://chainlist.org/).
+{% endhint %}
+
+For example, if Sokol were not in the default list, this is how it would be added to the config file. Note the network in `customChains` must match the name of the `apiKey` object.
+
+```
+etherscan: {
+  apiKey: {
+    sokol: "abc"
+  },
+  customChains: [
+    {
+      network: "sokol",
+      chainId: 77,
+      urls: {
+        apiURL: "https://sokol.poa.network",
+        browserURL: "https://blockscout.com/poa/sokol"
+      }
+    }
+  ]
+}
 ```
 
 ## Deploy and Verify
