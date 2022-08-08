@@ -94,11 +94,11 @@ Some chains are not supported by the plugin (to check run `npx hardhat verify --
 If your chain is not in the list, you can add a `customChains` object to the config file. It includes:
 
 * `chainID` - Network chain ID
-* `apiURL` - RPC verification endpoint URL
-* `browserURL` - Explorer URL
+* `apiURL` - Block explorer API URL
+* `browserURL` - Block explorer URL
 
 {% hint style="info" %}
-&#x20;Find an extensive list of ChainIDs and RPCs at [https://chainlist.org/](https://chainlist.org/).
+&#x20;Find an extensive list of ChainIDs at [https://chainlist.org/](https://chainlist.org/).
 {% endhint %}
 
 For example, if Sokol were not in the default list, this is how it would be added to the config file. Note the network in `customChains` must match the name of the `apiKey` object.
@@ -113,7 +113,7 @@ etherscan: {
       network: "sokol",
       chainId: 77,
       urls: {
-        apiURL: "https://sokol.poa.network",
+        apiURL: "https://blockscout.com/poa/sokol/api",
         browserURL: "https://blockscout.com/poa/sokol"
       }
     }
