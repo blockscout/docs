@@ -20,6 +20,7 @@
 * [ABI-Encoded Constructor Arguments](for-users/smart-contract-interaction/abi-encoded-constructor-arguments.md)
 * [ERC-1155 Support](for-projects/premium-features/erc-1155-support.md)
 * [API](for-users/api/README.md)
+  * [Requests & Limits](for-users/api/requests-and-limits.md)
   * [GraphQL in Blockscout](for-users/api/graphql.md)
 * [User FAQs](for-users/faqs/README.md)
   * [What does "In" or "Out" label mean](for-users/faqs/what-does-in-or-out-label-mean.md)
