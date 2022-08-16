@@ -1,8 +1,8 @@
 # Address Tags
 
-Address tags are useful for tracking specific addresses, either EOAs (Externally Owned Addresses) or smart contracts. When you are logged in, a small grey tag will be added with the name you select to any specified addresses.
+Address tags are useful for tracking specific addresses, either EOAs (Externally Owned Addresses) or smart contracts. When logged in, a small grey tag is added with the selected name to any specified addresses.
 
-Use cases might include tags for specific wallet accounts (EOAs) you are interested in, Gnosis safe multisig wallets you want highlighted, or tags for specific applications, tokens, NFTs etc.
+Use cases might include tags for specific wallet accounts (EOAs) of interest, Gnosis safe multisig wallets to highlight, or tags for specific applications, tokens, NFTs etc.
 
 **1) Login to Blockscout** to create a tag.
 
