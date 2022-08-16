@@ -18,6 +18,7 @@
 * [My Account](for-users/my-account/README.md)
   * [Watchlist](for-users/my-account/watchlist.md)
   * [Address Tags](for-users/my-account/address-tags.md)
+  * [Transaction Tags](for-users/my-account/transaction-tags.md)
 * [CSV Exports](for-projects/premium-features/export-to-csv.md)
 * [ABI-Encoded Constructor Arguments](for-users/smart-contract-interaction/abi-encoded-constructor-arguments.md)
 * [ERC-1155 Support](for-projects/premium-features/erc-1155-support.md)
