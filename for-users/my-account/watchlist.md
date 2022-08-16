@@ -2,11 +2,11 @@
 
 Sign up for email notifications for different actions related to an EOA or contract address. This can include incoming/outgoing transactions for native tokens, ERC-20 tokens or NFTs like ERC-721 and ERC-1155s.
 
-1\) Click Add address.
+1\) **Login to My Account in Blockscout** <[_login instructions_](./)> . From the Watchlist menu click Add address.
 
 ![](../../.gitbook/assets/address-1.png)
 
-2\) Fill in information including:
+2\) **Fill in information** including:
 
 * Address:
 * Name: For your reference, will be created as a private tag for this address as well
@@ -16,7 +16,7 @@ Sign up for email notifications for different actions related to an EOA or contr
 
 ![](../../.gitbook/assets/address-2.png)
 
-3\) Info will appear in your watchlist dashboard. You can edit info, remove, or add more items.
+3\) **New address added** to your watchlist dashboard. You can edit info, remove, or add more items.
 
 ![](../../.gitbook/assets/address-3.png)
 

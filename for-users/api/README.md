@@ -13,13 +13,17 @@ To view Modules and API Reference documentation:
 
 ## Blockscout API Usage
 
-Api calls can be accessed from the **Blockscout footer** (or top menu depending on the Blockscout instance). Blockscout supports several methods:
+Api calls can be accessed from the Blockscout footer or top menu depending on the instance. Blockscout supports several methods:
 
-1. [Graphiql](https://github.com/graphql/graphiql): An IDE for exploring GraphQL
-2. RPC: API provided for developers transitioning their applications from Etherscan to Blockscout. Supports GET and POST requests.
-3. Eth RPC: Supports the most popular [JSON RPC methods](https://github.com/ethereum/wiki/wiki/JSON-RPC).
+1. ****[**Graphiql**](https://github.com/graphql/graphiql): An IDE for exploring GraphQL
+2. **RPC**: API provided for developers transitioning their applications from Etherscan to Blockscout. Supports GET and POST requests.&#x20;
+   1. Typically located at `https://blockscout.com/instance/networktype/api-docs`.&#x20;
+   2. For example, Ethereum mainnet docs are located at [https://blockscout.com/eth/mainnet/api-docs](https://blockscout.com/eth/mainnet/api-docs)
+3. **Eth RPC**: Supports the most popular [JSON RPC methods](https://github.com/ethereum/wiki/wiki/JSON-RPC).
 
-![API links in the Gnosis Chain instance footer ](../../.gitbook/assets/APIs.png)
+![APIs in header menu](../../.gitbook/assets/header.png)
+
+![API links in the  footer (ie Gnosis Chain instance)](../../.gitbook/assets/APIs.png)
 
 ## GraphQL
 
@@ -43,4 +47,13 @@ Blockscout supports the following methods. Requests and return data are identica
 * eth\_getTransactionReceipt&#x20;
 * eth\_getUncleByBlockHashAndIndex&#x20;
 * eth\_getLogs
+
+## API Keys
+
+If My Account is enabled, users can add up to 3 API keys to ensure 10 request/second limits. When API Keys are not used, the global default is 50 requests/second.
+
+* More info on [My Account and adding API Keys](../my-account/api-keys.md)
+* More info on [API Requests and Limits](requests-and-limits.md)
+
+
 

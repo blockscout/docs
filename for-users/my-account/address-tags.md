@@ -4,7 +4,7 @@ Address tags are useful for tracking specific addresses, either EOAs (Externally
 
 Use cases might include tags for specific wallet accounts (EOAs) of interest, Gnosis safe multisig wallets to highlight, or tags for specific applications, tokens, NFTs etc.
 
-**1) Login to Blockscout** to create a tag.
+**1)  Login to My Account in Blockscout** <[_login instructions_](./)> to create a tag.
 
 1. Go to Address Tags in the user menu.
 2. Press Add address tag.
