@@ -102,6 +102,7 @@
   * [How do I disable exchange rates?](for-developers/developer-faqs/how-do-i-disable-exchange-rates.md)
   * [How to migrate verified contracts between databases?](for-developers/developer-faqs/how-to-migrate-verified-contracts-between-databases.md)
   * [Which Linux distro for manual deployment?](for-developers/developer-faqs/which-linux-distro-for-manual-deployment.md)
+  * [Can I set RPC variable to a normal http(s) url?](for-developers/developer-faqs/can-i-set-rpc-variable-to-a-normal-http-s-url.md)
   * [Do I need to enable ws?](for-developers/developer-faqs/do-i-need-to-enable-ws.md)
 
 ## 👓 For projects
