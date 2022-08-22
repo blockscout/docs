@@ -22,6 +22,8 @@
   * [API Keys](for-users/my-account/api-keys.md)
   * [Custom ABI](for-users/my-account/custom-abi.md)
   * [Public Tags](for-users/my-account/public-tags.md)
+* [Blockscout Apps](for-users/blockscout-apps/README.md)
+  * [Allowance Checker](for-users/blockscout-apps/allowance-checker.md)
 * [CSV Exports](for-projects/premium-features/export-to-csv.md)
 * [ABI-Encoded Constructor Arguments](for-users/smart-contract-interaction/abi-encoded-constructor-arguments.md)
 * [ERC-1155 Support](for-projects/premium-features/erc-1155-support.md)
