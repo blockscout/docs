@@ -117,7 +117,7 @@
 ## 🧩 Resources
 
 * [Media kit](resources/media-kit.md)
-* [Discord Channel](https://discord.com/invite/GePYkFuq)
+* [Discord Channel](https://discord.gg/blockscout)
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
