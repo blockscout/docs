@@ -3,7 +3,7 @@
 Blockscout serves a wide range of execution-layer chains within the Ethereum ecosystem and beyond. Projects can deploy Blockscout themselves to support their chains, or use Blockscout customization and/or hosting services to supercharge their instances.
 
 {% hint style="success" %}
-If you have an instance not listed here, [contact us](https://discord.com/invite/GePYkFuq) or [submit a PR ](https://github.com/blockscout/docs)to add your project.
+If you have an instance not listed here, [contact us](https://discord.gg/blockscout) or [submit a PR ](https://github.com/blockscout/docs)to add your project.
 
 [Testnet instances](projects.md#testnet-instances) are catalogued in a second table below.
 {% endhint %}
