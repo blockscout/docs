@@ -9,7 +9,7 @@
 * [Funding](about/funding.md)
 * [Roadmap](about/roadmap.md)
 
-## 🧑🎤 For Users
+## 🧑🎤 🧑🎤 For Users
 
 * [Verifying a Smart Contract](for-users/smart-contract-interaction/verifying-a-smart-contract/README.md)
   * [Hardhat Verification Plugin](for-users/smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md)
@@ -49,6 +49,7 @@
   * [Add Validator MetaData](for-developers/information-and-settings/add-validator-metadata.md)
   * [ShareLock](for-developers/information-and-settings/sharelock.md)
   * [haproxy Settings for Blockscout.com](for-developers/information-and-settings/haproxy-settings-for-blockscout.com.md)
+  * [Smart Contract Verification](for-developers/information-and-settings/smart-contract-verification.md)
   * [Docker Integration](for-developers/information-and-settings/docker-integration-local-use-only.md)
 * [Ansible Deployment (AWS Cloud)](for-developers/ansible-deployment/README.md)
   * [Overview](for-developers/ansible-deployment/overview.md)
@@ -121,7 +122,7 @@
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
-## 👩🏫 Job Openings
+## 👩🏫 👩🏫 Job Openings
 
 * [DevOps Engineer](careers/jobs-at-blockscout/devops-engineer.md)
 * [Elixir Developer](careers/jobs-at-blockscout/elixir-developer.md)
