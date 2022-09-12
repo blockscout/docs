@@ -11,14 +11,14 @@ A microservice written in Rust provides fast and efficient contract verification
 * [Solidity and Vyper Verfication](smart-contract-verification.md#solidity-and-vyper-verification)
 * [Sourcify Verification](smart-contract-verification.md#sourcify-verification)
 * [Verification Algorithm](smart-contract-verification.md#verification-algorithm)
-* Http API
+* [Http API](smart-contract-verification.md#verification-http-api)
 
 ## Basic Info
 
 ### **Location**
 
 * Application: [https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier)
-* Http: [https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier-http](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier-http)
+* Http API: [https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier-http](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier-http)
 
 ### **Activation**
 
@@ -26,14 +26,14 @@ A microservice written in Rust provides fast and efficient contract verification
 * Add the following ENV variables:
   * `ENABLE_RUST_VERIFICATION_SERVICE=true`
   * `RUST_VERIFICATION_SERVICE_URL=...`  (verifier endpoint, see [http configuration](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier-http) for more details)
-* If running locally, the application is integrated with [`docker-compose`](https://github.com/blockscout/blockscout/tree/master/docker-compose)``
+* If running locally, the smart-contract-verifier is integrated with [`docker-compose`](https://github.com/blockscout/blockscout/tree/master/docker-compose)``
 
 ### Architecture
 
-The service consists of 2 parts, a verification library and transport binaries that serve requests. This modular framework allows us to add new verification request protocols more easily.&#x20;
+The service consists of 2 parts, a verification library and a transport layer that serves requests. This modular framework allows us to add new verification request protocols more easily.&#x20;
 
 * **Verification Library**: Provides verification and a communication interface for verification functions. Includes modules for Solidity, Sourcify, and Vyper.
-* **Transport Layer**: Verification requests are sent via HTTP requests.&#x20;
+* **Transport Layer**: Verification requests are sent via HTTP.&#x20;
 
 ### Benefits
 
@@ -41,7 +41,7 @@ We've seen a 10X improvement in verification speed over the previous implementat
 
 * **Scalability**: Remove CPU intensive tasks from the primary Blockscout instance. Modularity provides the ability to scale quickly.
 * **Speed**: Using native compilers greatly increases compilation speed relative to the JS wrapped versions running on Node.js used previously.
-* **Improved algorithm**. New algorithm supports contracts that contain several metadata hashes, improving efficiency.
+* **Improved efficiency**. New algorithm supports contracts that contain several metadata hashes, improving efficiency.
 
 ## Library Initialization
 
@@ -142,7 +142,7 @@ An additional space in the source code can be used for the modification process.
 // pragma solidity ^0.8.7; contract Main {}
 ```
 
-`CreationTxInput: 6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfe`<mark style="color:blue;">`a264697066735822`</mark><mark style="color:blue;background-color:yellow;">**`12203cc19b771ee83d8cc6995191bd9092a82f3e66b95aacaf1cfc893d3dc27abcd2`**</mark><mark style="color:blue;">`64736f6c63430008070033`</mark>
+`creationTxInput: 6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfe`<mark style="color:blue;">`a264697066735822`</mark><mark style="color:blue;background-color:yellow;">**`12203cc19b771ee83d8cc6995191bd9092a82f3e66b95aacaf1cfc893d3dc27abcd2`**</mark><mark style="color:blue;">`64736f6c63430008070033`</mark>
 
 #### Example 2
 
@@ -150,22 +150,58 @@ An additional space in the source code can be used for the modification process.
 // pragma solidity ^0.8.7; contract Main {}
 ```
 
-`CreationTxInput: 6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfe`<mark style="color:blue;">`a264697066735822`</mark><mark style="color:blue;">**`1220b3902f5797f05bb62858c8d41f09402093c85957c4ae1d773e4eb1cb2000f093`**</mark><mark style="color:blue;">`64736f6c63430008070033`</mark>
+`creationTxInput: 6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfe`<mark style="color:blue;">`a264697066735822`</mark><mark style="color:blue;">**`1220b3902f5797f05bb62858c8d41f09402093c85957c4ae1d773e4eb1cb2000f093`**</mark><mark style="color:blue;">`64736f6c63430008070033`</mark>
 
 ### Verification Process
 
 1. Compile the original contracts using data provided by the caller then compile those contracts again while passing in the additional library. We will get two slightly different `CreationTxInputs` if there is any encoded metadata.
 2. Separate the  `MainPart` and the `MetadataPart`.
-   1. &#x20;`MainPart` consists of consecutive bytes which are not related to the metadata hash (all bytes are the same for both local _CreationTxInputs_). \
-      `MetadataPart` consists of consecutive bytes related to metadata hash (some bytes differ between local _CreationTxInputs_).
-3.  Iterate through the two local contracts byte by byte to find the first byte that differs.&#x20;
+   1. &#x20;`MainPart` consists of consecutive bytes which are not related to the metadata hash (all bytes are the same for both local c_reationTxInputs_). \
+      `MetadataPart` consists of consecutive bytes related to metadata hash (some bytes differ between local c_reationTxInputs_).
+3. Iterate through the two local contracts byte by byte to find the first byte that differs.&#x20;
+   1. If there are no such bytes, then there is no metadata hash and the whole _creationTxInput_ consists of just one `MainPart`.
+   2. If any differences are found, identify it as a hash part of the metadata hash.&#x20;
+   3. Iterate back byte by byte to find the beginning of that metadata hash. When we find the beginning we know where that metadata hash starts and ends. All non-categorized bytes before the start are identified as the  `MainPart` and bytes between the start and end identified as the `MetadataPart`. Continue until there are no uncategorized bytes.
+   4. Once the entire local _creationTxInput_ is categorized, we compare those parts with the corresponding remote _creationTxInput_ bytes. For the `MainPart` remote _creationTxInput_ must have exact equivalence. For the `MetadataPart` we compare some parts of the metadata (e.g. that encoded solc versions are the same), but in general we do not require them to be equal.
 
-    1. If there are no such bytes, then there is no metadata hash and the whole _creationTxInput_ consists of just one `MainPart`.
-    2. If any differences are found, identify it as a hash part of the metadata hash.&#x20;
-    3. Iterate back byte by byte to find the beginning of that metadata hash. When we find the beginning we know where that metadata hash starts and ends. All non-categorized bytes before the start are identified as the  `MainPart` and bytes between the start and end identified as the `MetadataPart`.
-    4. Continue until there are no uncategorized bytes.
+**Example**&#x20;
 
+```markdown
+LocalCreationTxInput1:
+608060405234801561001057600080fd5b506040518060200161002190610050565b6020820181038252601f19601f820116604052506000908051906020019061004a92919061005c565b5061015f565b605c806101ac83390190565b8280546100689061012e565b90600052602060002090601f01602090048101928261008a57600085556100d1565b82601f106100a357805160ff19168380011785556100d1565b828001600101855582156100d1579182015b828111156100d05782518255916020019190600101906100b5565b5b5090506100de91906100e2565b5090565b5b808211156100fb5760008160009055506001016100e3565b5090565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b6000600282049050600182168061014657607f821691505b602082108103610159576101586100ff565b5b50919050565b603f8061016d6000396000f3fe6080604052600080fdfea2646970667358221220187a584947e37ebca43172929f7e159fe28696b0edd97bbfad5b0a265f6f886964736f6c634300080e00336080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220805aa9fe4ec055702024afa5ac21c2104f0b14be0ffab086f0d6e9b5701073f864736f6c634300080e0033
 
+Parts 1:
+[
+  MainPart(608060405234801561001057600080fd5b506040518060200161002190610050565b6020820181038252601f19601f820116604052506000908051906020019061004a92919061005c565b5061015f565b605c806101ac83390190565b8280546100689061012e565b90600052602060002090601f01602090048101928261008a57600085556100d1565b82601f106100a357805160ff19168380011785556100d1565b828001600101855582156100d1579182015b828111156100d05782518255916020019190600101906100b5565b5b5090506100de91906100e2565b5090565b5b808211156100fb5760008160009055506001016100e3565b5090565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b6000600282049050600182168061014657607f821691505b602082108103610159576101586100ff565b5b50919050565b603f8061016d6000396000f3fe6080604052600080fdfe),
+  MetadataPart(a2646970667358221220187a584947e37ebca43172929f7e159fe28696b0edd97bbfad5b0a265f6f886964736f6c634300080e0033),
+  MainPart(6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfe),
+  MetadataPart(a2646970667358221220805aa9fe4ec055702024afa5ac21c2104f0b14be0ffab086f0d6e9b5701073f864736f6c634300080e0033)
+]
 
+LocalCreationTxInput2:
+608060405234801561001057600080fd5b506040518060200161002190610050565b6020820181038252601f19601f820116604052506000908051906020019061004a92919061005c565b5061015f565b605c806101ac83390190565b8280546100689061012e565b90600052602060002090601f01602090048101928261008a57600085556100d1565b82601f106100a357805160ff19168380011785556100d1565b828001600101855582156100d1579182015b828111156100d05782518255916020019190600101906100b5565b5b5090506100de91906100e2565b5090565b5b808211156100fb5760008160009055506001016100e3565b5090565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b6000600282049050600182168061014657607f821691505b602082108103610159576101586100ff565b5b50919050565b603f8061016d6000396000f3fe6080604052600080fdfea26469706673582212202e82fb6222f966f0e56dc49cd1fb8a6b5eac9bdf74f62b8a5e9d8812901095d664736f6c634300080e00336080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220bd9f7fd5fb164e10dd86ccc9880d27a177e74ba873e6a9b97b6c4d7062b26ff064736f6c634300080e0033
 
+Parts 2:
+[
+  MainPart(608060405234801561001057600080fd5b506040518060200161002190610050565b6020820181038252601f19601f820116604052506000908051906020019061004a92919061005c565b5061015f565b605c806101ac83390190565b8280546100689061012e565b90600052602060002090601f01602090048101928261008a57600085556100d1565b82601f106100a357805160ff19168380011785556100d1565b828001600101855582156100d1579182015b828111156100d05782518255916020019190600101906100b5565b5b5090506100de91906100e2565b5090565b5b808211156100fb5760008160009055506001016100e3565b5090565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b6000600282049050600182168061014657607f821691505b602082108103610159576101586100ff565b5b50919050565b603f8061016d6000396000f3fe6080604052600080fdfe),
+  MetadataPart(a26469706673582212202e82fb6222f966f0e56dc49cd1fb8a6b5eac9bdf74f62b8a5e9d8812901095d664736f6c634300080e0033),
+  MainPart(6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfe),
+  MetadataPart(a2646970667358221220bd9f7fd5fb164e10dd86ccc9880d27a177e74ba873e6a9b97b6c4d7062b26ff064736f6c634300080e0033)
+]
+
+```
+
+#### Constructor arguments
+
+Constructor arguments are extracted at the end of the verification process. Constructor arguments are appended at the end of the creation transaction input returned by the compiler. So, to extract these arguments we remove parts presented in local creation tx input, and consider everything else as possible constructor arguments.
+
+After that we attempt to map potential constructor args to the constructor abi of the contract. If successful, extracted args are returned as actual constructor arguments.
+
+## Verification Http Api
+
+Currently, verification requests are sent via HTTP requests. This module runs an HTTP server and provides endpoints through which external services (main Blockscout instance, in our case) send verification requests and get a response. Endpoints that the service provides and configuration details are described in the [corresponding Readme file](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier-http).&#x20;
+
+{% hint style="info" %}
+Currently only synchronous endpoints are available. In the future a new service that handles asynchronous requests on top of the current smart-contract-verifier may be implemented.
+{% endhint %}
 
