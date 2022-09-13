@@ -6,15 +6,19 @@ description: Verifying your deployed contract is always a good idea!
 
 Once verified, a smart contract or token contract's source code becomes publicly available and verifiable. This creates transparency and trust. Plus, it's easy to do! Verification is available for both Solidity and Vyper contracts.&#x20;
 
-There are multiple methods for verification using the Blockscout UI - all are cataloged below.
+There are multiple methods for verification using the Blockscout UI - all are cataloged below.&#x20;
 
 * [Via flattened source code (Solidity)](./#via-flattened-source-code)
 * [Via standard JSON input](./#via-standard-json-input)
 * [Via Sourcify: Sources and metadata JSON file](contracts-verification-via-sourcify.md)
 * [Vyper contract](./#vyper-contract)
 
+{% hint style="success" %}
+To learn more about the smart contract verification Rust microservice and verification algorithm [see this page for developers](../../../for-developers/information-and-settings/smart-contract-verification.md).
+{% endhint %}
+
 {% hint style="info" %}
-👷🏻‍♂️If preferred you can choose the following methods to verify directly from your Hardhat dev environment.&#x20;
+👷🏻‍♂️ If preferred you can choose the following methods to verify directly from your Hardhat dev environment.&#x20;
 
 * [Hardhat Verification Plugin](hardhat-verification-plugin.md)
 * [Sourcify Plugin for Hardhat](../../verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
