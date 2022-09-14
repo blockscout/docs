@@ -107,6 +107,7 @@
   * [Which Linux distro for manual deployment?](for-developers/developer-faqs/which-linux-distro-for-manual-deployment.md)
   * [Can I set RPC variable to a normal http(s) url?](for-developers/developer-faqs/can-i-set-rpc-variable-to-a-normal-http-s-url.md)
   * [Do I need to enable ws?](for-developers/developer-faqs/do-i-need-to-enable-ws.md)
+  * [How to fix Unknown Private Network error?](for-developers/developer-faqs/how-to-fix-unknown-private-network-error.md)
 
 ## 👓 For projects
 
