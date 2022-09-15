@@ -1,9 +1,5 @@
-# How do I update menu links in the header / footer?
+# How do I update the UI?
 
-Update menu here in the config.exs file in the block\_scout\_web directory. Changes carry over to both the footer and header links\
-\
-[https://github.com/poanetwork/blockscout/blob/d164c35e02a1c75b94d93129422485245d22120d/apps/block\_scout\_web/config/config.exs#L24-L71](https://github.com/poanetwork/blockscout/blob/d164c35e02a1c75b94d93129422485245d22120d/apps/block\_scout\_web/config/config.exs#L24-L71)
+See the [Branding configs](../configuration-options/branding-configs.md) page for details related to different UI elements.&#x20;
 
-{% hint style="success" %}
-Content moved from [https://forum.poa.network/t/remove-other-networks-in-menu-in-nav-bar-using-docker/2101](https://forum.poa.network/t/remove-other-networks-in-menu-in-nav-bar-using-docker/2101)
-{% endhint %}
+For updates like adding elements/links etc you will need to change .eex templates. When changing .eex templates you don't need to rebuild. Run the application in dev mode (MIX\_ENV=dev), and change the template. You'll see changes on-the-fly. When chaging js/scss while running the application, you need to run `mix phx.digest` to apply the changes.

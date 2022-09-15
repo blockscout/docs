@@ -23,7 +23,11 @@ In order to rebuild new front-end assets run:
 8.  **Top navigation bar**: Data is rendered from here:
 
     `/apps/block_scout_web/lib/block_scout_web/templates/layout/_topnav.html.eex`
-9. **Footer**: Data is rendered from here: `/apps/block_scout_web/lib/block_scout_web/templates/layout/_footer.html.eex`
+9. **Footer**: Data is rendered from here: `/apps/block_scout_web/lib/block_scout_web/templates/layout/_footer.html.eex`\
+   ``**ENV variables for footer links**
+   1. `FOOTER_CHAT_LINK ​`
+   2. `FOOTER_FORUM_LINK`&#x20;
+   3. `FOOTER_GITHUB_LINK`
 10. **Custom Theming**: Custom theming is available from the BlockScout team. [Learn More](../../for-projects/premium-features/custom-branded-themes.md).
 
 
