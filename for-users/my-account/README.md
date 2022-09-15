@@ -24,11 +24,13 @@ Additional future features include an upcoming redesign and multi-chain rollout.
 
 ![](../../.gitbook/assets/sign-in-1.png)
 
-2\) Choose to create a new account with an email address and password or connect your github account.
+2\) Choose to create a new account with either: \
+a. An email address and password or \
+b. Your github credentials
 
 ![](../../.gitbook/assets/sign-up-2.png)
 
-2a) Email and Password
+2a) Email and Password: Enter a valid email and password to setup an account.
 
 ![](../../.gitbook/assets/email-login.png)
 
