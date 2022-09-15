@@ -30,7 +30,7 @@ b. Your github credentials
 
 ![](../../.gitbook/assets/sign-up-2.png)
 
-2a) Email and Password: Enter a valid email and password to setup an account.
+2a) Email and Password: Enter a valid email and password to setup an account. You will receive a validation notice to your email, be sure to check spam filters as it will come from _noreply@blockscout.com_.
 
 ![](../../.gitbook/assets/email-login.png)
 
