@@ -41,7 +41,7 @@
   * [General Requirements / Blockscout Prerequisites](for-developers/information-and-settings/requirements.md)
   * [Database Storage Requirements](for-developers/information-and-settings/database-storage-requirements.md)
   * [Node Tracing / JSON RPC Requirements](for-developers/information-and-settings/node-tracing-json-rpc-requirements.md)
-  * [Client Setting Requirements](for-developers/information-and-settings/client-settings-parity-geth-ganache.md)
+  * [Client Setting Requirements](for-developers/information-and-settings/client-settings.md)
   * [ENV Variables](for-developers/information-and-settings/env-variables.md)
   * [Deprecated ENV Variables](for-developers/information-and-settings/deprecated-env-variables.md)
   * [Umbrella Project Organization](for-developers/information-and-settings/untitled.md)

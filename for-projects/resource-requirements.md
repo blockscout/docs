@@ -37,7 +37,7 @@ For additional information, see:
 * [General Requirements:](../for-developers/information-and-settings/requirements.md) Software required for deployment
 * [Database Storage Requirements](../for-developers/information-and-settings/database-storage-requirements.md): Storage required for common chains to give a sense of needed storage
 * [Node Tracing Requirements](../for-developers/information-and-settings/node-tracing-json-rpc-requirements.md): JSON RPC methods&#x20;
-* [Client Setting Requirements](../for-developers/information-and-settings/client-settings-parity-geth-ganache.md): Settings related to client implementations (ie Geth, OpenEthereum, etc)
+* [Client Setting Requirements](../for-developers/information-and-settings/client-settings.md): Settings related to client implementations (ie Geth, OpenEthereum, etc)
 {% endhint %}
 
 

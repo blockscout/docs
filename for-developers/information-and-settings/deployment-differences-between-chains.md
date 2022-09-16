@@ -13,7 +13,7 @@
 | ETHEREUM\_JSONRPC\_HTTP\_URL  | `http://localhost:8545`                   |
 | ETHEREUM\_JSONRPC\_TRACE\_URL | `http://localhost:8545`                   |
 | ETHEREUM\_JSONRPC\_WS\_URL    | `ws://localhost:8546`                     |
-| ETHEREUM\_JSONRPC\_VARIANT    | `parity`                                  |
+| ETHEREUM\_JSONRPC\_VARIANT    | `nethermind`                                  |
 | HEART\_BEAT\_TIMEOUT          | `30`                                      |
 | HEART\_COMMAND                | `sudo systemctl restart explorer.service` |
 | LOGO                          | `/images/blockscout_logo.svg`             |
