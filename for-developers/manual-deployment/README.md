@@ -10,7 +10,7 @@ For automated deployment on AWS, see [Ansible deployment](../ansible-deployment/
 
 Check your environment is prepared with General Requirements and [Database Storage Requirements](../information-and-settings/database-storage-requirements.md).
 
-BlockScout requires a **full archive node** in order to import every state change for every address on the target network. For client specific settings related to a node running parity or geth, please see [Client Settings](../information-and-settings/client-settings-parity-geth-ganache.md).
+BlockScout requires a **full archive node** in order to import every state change for every address on the target network. For client specific settings related to a node running Erigon/Geth/Nethermind, please see [Client Settings](../information-and-settings/client-settings.md).
 
 {% hint style="info" %}
 For testing purposes, instead of an archive node, a test Ethereum client can be used. For instance, [ganache-cli](https://github.com/trufflesuite/ganache-cli)
@@ -49,7 +49,7 @@ In order to generate a new `secret_key_base` run `mix phx.gen.secret`
 CLI Example:
 
 ```
-export ETHEREUM_JSONRPC_VARIANT=parity
+export ETHEREUM_JSONRPC_VARIANT=nethermind
 export ETHEREUM_JSONRPC_HTTP_URL=http://localhost:8545
 export DATABASE_URL=postgresql://...
 export COIN=DAI
@@ -57,7 +57,7 @@ export ...
 ```
 
 {% hint style="info" %}
-The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (parity, geth etc). [More information on client settings](../information-and-settings/client-settings-parity-geth-ganache.md).
+The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](../information-and-settings/client-settings.md).
 {% endhint %}
 
 8\)  Compile the application:`mix compile`

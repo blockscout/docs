@@ -1,4 +1,4 @@
-ETHEREUM_JSONRPC_VARIANT=parity
+ETHEREUM_JSONRPC_VARIANT=nethermind
 LOGO=/images/gc_logo_rebrand.svg
 LOGO_FOOTER=/images/gc_logo_rebrand.svg
 NETWORK=(Gnosis)

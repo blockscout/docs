@@ -35,24 +35,24 @@
    &#x20;\- `ethereum_jsonrpc`\
    `mix do ecto.create --quiet, ecto.migrate && cd apps/ethereum_jsonrpc && mix do compile, test --no-start && cd -`
 
-### **Parity**
+### **Nethermind**
 
 **Mox**
 
 **This is the default setup. `mix test --no-start` will work on its own, but to be explicit, use the following setup**:
 
 ```
-ETHEREUM_JSONRPC_CASE=EthereumJSONRPC.Case.Parity.Mox \
+ETHEREUM_JSONRPC_CASE=EthereumJSONRPC.Case.Nethermind.Mox \
 ETHEREUM_JSONRPC_WEB_SOCKET_CASE=EthereumJSONRPC.WebSocket.Case.Mox \
-mix test --no-start --exclude no_parity
+mix test --no-start --exclude no_nethermind
 ```
 
 **HTTP / WebSocket**
 
 ```
-ETHEREUM_JSONRPC_CASE=EthereumJSONRPC.Case.Parity.HTTPWebSocket \
-ETHEREUM_JSONRPC_WEB_SOCKET_CASE=EthereumJSONRPC.WebSocket.Case.Parity \
-mix test --no-start --exclude no_parity
+ETHEREUM_JSONRPC_CASE=EthereumJSONRPC.Case.Nethermind.HTTPWebSocket \
+ETHEREUM_JSONRPC_WEB_SOCKET_CASE=EthereumJSONRPC.WebSocket.Case.Nethermind \
+mix test --no-start --exclude no_nethermind
 ```
 
 | Protocol  | URL                     |

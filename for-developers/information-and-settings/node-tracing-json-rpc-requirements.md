@@ -22,14 +22,14 @@
 
 | Client                            | Method                                                                         |
 | --------------------------------- | ------------------------------------------------------------------------------ |
-| <p>OpenEthereum<br>Nethermind</p> | <ul><li><code>parity_pendingTransactions</code></li></ul>                      |
+| <p>OpenEthereum<br>Nethermind<br>Erigon</p> | <ul><li><code>parity_pendingTransactions</code></li></ul>                      |
 | Geth                              | <ul><li><code>txpool_content</code> (for parity_pendingTransactions)</li></ul> |
 
 ### Enable Tracing to Fetch internal Transactions
 
 | Client                            | Method                                                                                                              |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| <p>OpenEthereum<br>Nethermind</p> | <ul><li><code>trace_replayBlockTransactions</code></li><li><code>trace_block</code> (fetch block rewards)</li></ul> |
+| <p>OpenEthereum<br>Nethermind<br>Erigon</p> | <ul><li><code>trace_replayBlockTransactions</code></li><li><code>trace_block</code> (fetch block rewards)</li></ul> |
 | Geth                              | <ul><li><code>debug_traceTransactions</code>  (for trace_replayBlockTransactions)</li></ul>                         |
 
 ### JSON RPC Performance Benchmarks
@@ -43,4 +43,4 @@ Time measures for response time of crucial JSON RPC methods for indexing in Bloc
 ## EVM Requirements & Clients
 
 * All EVM chains must [define these variables](deployment-differences-between-chains.md) during configuration.&#x20;
-* BlockScout currently supports Parity, OpenEthereum, Geth, Nethermind, Hyperledger Besu, and Ganache clients. Define the node variant using the `ETHEREUM_JSONRPC_VARIANT` environment variable. [More information](client-settings-parity-geth-ganache.md)
+* BlockScout currently supports Erigon, Geth, Nethermind, Hyperledger Besu, and Ganache clients. Define the node variant using the `ETHEREUM_JSONRPC_VARIANT` environment variable. [More information](client-settings.md)

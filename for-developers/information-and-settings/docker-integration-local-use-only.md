@@ -57,17 +57,18 @@ otherwise, application inside the container cannot read environment variables in
 
 **Available options are:**
 
-* `parity` - Parity JSON RPC (works for OpenEthereum & Nethermind client as well) (**Default**)
+* `nethermind` - Nethermind JSON RPC (**Default**)
+* `erigon` - Erigon JSON RPC
 * `geth` - Geth JSON RPC
 * `besu` - Hyperledger Besu RPC
 * `ganache` - Ganache JSON RPC
 
 | Variable                     | Description                                                             | Default value                        |
 | ---------------------------- | ----------------------------------------------------------------------- | ------------------------------------ |
-| `ETHEREUM_JSONRPC_VARIANT`   | Variant of your JSON RPC service: `parity`, `geth`, `besu` or `ganache` | `parity`                             |
+| `ETHEREUM_JSONRPC_VARIANT`   | Variant of your JSON RPC service: `nethermind`, `erigon`, `geth`, `besu` or `ganache` | `nethermind`                             |
 | `ETHEREUM_JSONRPC_HTTP_URL`  | HTTP JSON RPC URL Only for `geth` or `ganache` variant                  | See below - based on JSONRPC variant |
 | `ETHEREUM_JSONRPC_WS_URL`    | WS JSON RPC url                                                         | See below - based on JSONRPC variant |
-| `ETHEREUM_JSONRPC_TRACE_URL` | Trace URL **Only for `parity` variant**                                 | `http://localhost:8545`              |
+| `ETHEREUM_JSONRPC_TRACE_URL` | Trace URL **Only for `nethermind`, `erigon`, `besu` variants**                                 | `http://localhost:8545`              |
 | `COIN`                       | Default Coin                                                            | `POA`                                |
 | `LOGO`                       | Coin logo                                                               | Empty                                |
 | `NETWORK`                    | Network                                                                 | Empty                                |
@@ -79,17 +80,13 @@ otherwise, application inside the container cannot read environment variables in
 
 `ETHEREUM_JSONRPC_HTTP_URL` default values:
 
-* For `parity` - `http://localhost:8545`
-* For `geth` - `https://mainnet.infura.io/8lTvJTKmHPCHazkneJsY`
-* For `besu` - `http://localhost:8545`
+* For `erigon`, `geth`, `nethermind`, `besu` - `http://localhost:8545`
 * For `ganache` - `http://localhost:7545`
 
-`ETHEREUM_JSONRPC_WS_URL` default values:
+`ETHEREUM_JSONRPC_TRACE_URL` default values:
 
-* For `parity` - `ws://localhost:8546`
-* For `geth` - `wss://mainnet.infura.io/8lTvJTKmHPCHazkneJsY/ws`
-* For `besu` - `ws://localhost:8546`
-* For `ganache` - `ws://localhost:7545`
+* For `erigon`, `nethermind`, `besu` - `http://localhost:8545`
+* For `ganache` - `http://localhost:7545`
 
 ## Known issues
 

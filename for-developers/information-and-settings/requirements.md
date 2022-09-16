@@ -5,7 +5,7 @@ Install the software below prior to Blockscout installation. For additional requ
 
 * [Database Storage Requirements](database-storage-requirements.md): Storage required for common chains to give a sense of needed storage
 * [Node Tracing Requirements](node-tracing-json-rpc-requirements.md): JSON RPC methods&#x20;
-* [Client Setting Requirements](client-settings-parity-geth-ganache.md): Settings related to client implementations (ie Geth, OpenEthereum, etc)
+* [Client Setting Requirements](client-settings.md): Settings related to client implementations (ie Geth, OpenEthereum, etc)
 * [Hardware/Hosting Requirements](../../for-projects/resource-requirements.md): Base requirements for a hosted instance of Blockscout.
 {% endhint %}
 
