@@ -9,12 +9,12 @@
 * [Funding](about/funding.md)
 * [Roadmap](about/roadmap.md)
 
-## 🧑🎤 🧑🎤 For Users
+## 🧑🎤 For Users
 
-* [Verifying a Smart Contract](for-users/smart-contract-interaction/verifying-a-smart-contract/README.md)
-  * [Hardhat Verification Plugin](for-users/smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md)
-  * [Sourcify Plugin for Hardhat](for-users/verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
-  * [Contract Verification via Sourcify](for-users/smart-contract-interaction/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
+* [Overviews](for-users/overviews/README.md)
+  * [Top Menu](for-users/overviews/top-menu.md)
+* [Blockscout Apps](for-users/blockscout-apps/README.md)
+  * [Token Approval Tracker](for-users/blockscout-apps/token-approval-tracker.md)
 * [My Account](for-users/my-account/README.md)
   * [Watchlist](for-users/my-account/watchlist.md)
   * [Address Tags](for-users/my-account/address-tags.md)
@@ -22,10 +22,12 @@
   * [API Keys](for-users/my-account/api-keys.md)
   * [Custom ABI](for-users/my-account/custom-abi.md)
   * [Public Tags](for-users/my-account/public-tags.md)
-* [Blockscout Apps](for-users/blockscout-apps/README.md)
-  * [Token Approval Tracker](for-users/blockscout-apps/token-approval-tracker.md)
-* [CSV Exports](for-projects/premium-features/export-to-csv.md)
+* [Verifying a Smart Contract](for-users/smart-contract-interaction/verifying-a-smart-contract/README.md)
+  * [Hardhat Verification Plugin](for-users/smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md)
+  * [Sourcify Plugin for Hardhat](for-users/verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
+  * [Contract Verification via Sourcify](for-users/smart-contract-interaction/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
 * [ABI-Encoded Constructor Arguments](for-users/smart-contract-interaction/abi-encoded-constructor-arguments.md)
+* [CSV Exports](for-projects/premium-features/export-to-csv.md)
 * [ERC-1155 Support](for-projects/premium-features/erc-1155-support.md)
 * [API](for-users/api/README.md)
   * [Requests & Limits](for-users/api/requests-and-limits.md)
@@ -123,7 +125,7 @@
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
-## 👩🏫 👩🏫 Job Openings
+## 👨🔧 Job Openings
 
 * [DevOps Engineer](careers/jobs-at-blockscout/devops-engineer.md)
 * [Elixir Developer](careers/jobs-at-blockscout/elixir-developer.md)
