@@ -9,8 +9,7 @@ In order to delete build artifacts anyone can run `./rel/commands/clear_build.sh
 * delete `logs/dev` directory
 
 {% hint style="info" %}
-If it is required to delete static assets too \(`apps/block_scout_web/priv/static` folder\), for instance, before rebuilding to apply changes to front-end, anyone should run the previous command with `-f` flag:
+You should also delete static assets  (`apps/block_scout_web/priv/static` folder). Before rebuilding to apply changes to the front-end, run the previous command with `-f` flag:
 
 `./rel/commands/clear_build.sh -f`
 {% endhint %}
-
