@@ -7,7 +7,7 @@ This page is currently in development. See the [ENV Variables page](../informati
 {% hint style="info" %}
 Note: if you've previously deployed and are updating your BlockScout version with new assets, be sure to remove static assets from the previous build (use `mix phx.digest.clean`or manually delete assets located in _apps/block\_scout\_web/priv/static_ folder) before updating current files and restarting/rebuilding BlockScout.&#x20;
 
-In order to rebuild new front-end assets run:
+In order to rebuild new front-end assets run the following. _Note:  If preferred, use `npm ci` rather than `npm install` to strictly follow all package versions in `package-lock.json`_
 
 1. `cd apps/block_scout_web/assets; npm install && node_modules/webpack/bin/webpack.js --mode production; cd -`
 2. `mix phx.digest`

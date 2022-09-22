@@ -18,12 +18,12 @@ For testing purposes, instead of an archive node, a test Ethereum client can be 
 
 ## Deployment Steps
 
-1\) `git clone https://github.com/poanetwork/blockscout`
+1\) `git clone https://github.com/blockscout/blockscout`
 
 2\) `cd blockscout`
 
 3\) Provide DB URL:\
-`export DATABASE_URL=postgresql://user:password@localhost:5432/blockscout`&#x20;
+`export DATABASE_URL=postgresql://user:password@localhost:5432/blockscout`
 
 * **Linux:** Update the database username and password configuration
 * **Mac:** Use logged-in user name and empty password
@@ -60,7 +60,7 @@ export ...
 The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](../information-and-settings/client-settings.md).
 {% endhint %}
 
-8\)  Compile the application:`mix compile`
+8\) Compile the application:`mix compile`
 
 9\) If not already running, start Postgres: `pg_ctl -D /usr/local/var/postgres start`
 
@@ -71,11 +71,15 @@ To check [postgres status](https://www.postgresql.org/docs/9.6/app-pg-isready.ht
 10\) Create and migrate database `mix do ecto.create, ecto.migrate`
 
 {% hint style="danger" %}
-If you in dev environment and have run the application previously with the different blockchain, drop the previous database `mix do ecto.drop, ecto.create, ecto.migrate`\
+If you are in dev environment and have run the application previously with a different blockchain, drop the previous database `mix do ecto.drop, ecto.create, ecto.migrate`\
 Be careful since it will delete all data from the DB. Don't execute it on production if you don't want to lose all the data!
 {% endhint %}
 
 11\) Install Node.js dependencies
+
+{% hint style="info" %}
+_Optional: If preferred, use `npm ci` rather than `npm install` to strictly follow all package versions in `package-lock.json`._
+{% endhint %}
 
 * `cd apps/block_scout_web/assets; npm install && node_modules/webpack/bin/webpack.js --mode production; cd -`
 * `cd apps/explorer && npm install; cd -`
