@@ -9,7 +9,7 @@
 * [Funding](about/funding.md)
 * [Roadmap](about/roadmap.md)
 
-## 🧑🎤 For Users
+## 🧑🎤 🧑🎤 For Users
 
 * [Overviews](for-users/overviews/README.md)
   * [Top Menu](for-users/overviews/top-menu.md)
@@ -125,7 +125,7 @@
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
-## 👨🔧 Job Openings
+## 👨🔧 👨🔧 Job Openings
 
 * [DevOps Engineer](careers/jobs-at-blockscout/devops-engineer.md)
 * [Elixir Developer](careers/jobs-at-blockscout/elixir-developer.md)
