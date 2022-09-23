@@ -253,7 +253,7 @@ This table is horizontally scrollable, version information is located in the las
 
 | Variable                               | Required | Description                                                                                                           | Default                   | Version |
 | -------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------- | ------- |
-| `ACCOUNT_ENABLED`                      |          | Switcher of account functionality. If value is`true`, account functionality is enabled.                               | (empty)                   | 5.0.0   |
+| `ACCOUNT_ENABLED`                      |          | Turn on/off account functionality. If value is`true`, account functionality is enabled.                               | (empty)                   | 5.0.0   |
 | `ACCOUNT_DATABASE_URL`                 |          | Account DB connection string                                                                                          | value from `DATABASE_URL` | 5.0.0   |
 | `ACCOUNT_REDIS_URL`                    |          | Account Redis connection string (for session storing configuration)                                                   | (empty)                   | 5.0.0   |
 | `ACCOUNT_POOL_SIZE`                    |          | Account DB `pool_size`                                                                                                | 50                        | 5.0.0   |
