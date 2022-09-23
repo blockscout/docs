@@ -14,11 +14,7 @@ As mentioned above, future work is entered into memory to be processed later. Th
 
 ### Updating Memory Consumption
 
-The default Memory limit is 1 GiB and can be edited by setting `INDEXER_MEMORY_LIMIT` environment variable, which is used in runtime config:
-
-[https://github.com/blockscout/blockscout/blob/174bccc7038de5f699109f9ae0c718eefee18142/config/runtime.exs#L15](https://github.com/blockscout/blockscout/blob/174bccc7038de5f699109f9ae0c718eefee18142/config/runtime.exs#L15)
-
-This configuration utilizes Bitwise which in our case calculates the result of an arithmetic left bitshift. The recommended minimum Memory to index Ethereum Mainnet is 30 GiB.
+The default Memory limit is 1 GiB and can be edited by setting `INDEXER_MEMORY_LIMIT` environment variable. See [Memory Usage](../configuration-options/memory-usage.md) for more info.
 
 ### Left Bitshift Conversion Table
 
@@ -43,7 +39,3 @@ To perform a left bitshift conversion yourself open the interactive shell.&#x20;
 | `40 <<< 30`   | 42949672960 | 43   |
 | `45 <<< 30`   | 48318382080 | 48.3 |
 | `50 <<< 30`   | 53687091200 | 53.7 |
-
-{% hint style="success" %}
-Content moved from [https://forum.poa.network/t/faq-indexer-memory-errors/1857](https://forum.poa.network/t/faq-indexer-memory-errors/1857)
-{% endhint %}

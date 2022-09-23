@@ -9,7 +9,7 @@
 * [Funding](about/funding.md)
 * [Roadmap](about/roadmap.md)
 
-## 🧑🎤 🧑🎤 For Users
+## 🙎 For Users
 
 * [Overviews](for-users/overviews/README.md)
   * [Top Menu](for-users/overviews/top-menu.md)
@@ -46,6 +46,7 @@
   * [Client Setting Requirements](for-developers/information-and-settings/client-settings.md)
   * [ENV Variables](for-developers/information-and-settings/env-variables.md)
   * [Deprecated ENV Variables](for-developers/information-and-settings/deprecated-env-variables.md)
+  * [My Account Settings](for-developers/information-and-settings/my-account-settings.md)
   * [Umbrella Project Organization](for-developers/information-and-settings/untitled.md)
   * [Deployment Differences Between Chains](for-developers/information-and-settings/deployment-differences-between-chains.md)
   * [Add Validator MetaData](for-developers/information-and-settings/add-validator-metadata.md)
@@ -125,9 +126,9 @@
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
-## 👨🔧 👨🔧 Job Openings
+## 👨🔧 Job Openings <a href="#jobs" id="jobs"></a>
 
-* [DevOps Engineer](careers/jobs-at-blockscout/devops-engineer.md)
-* [Elixir Developer](careers/jobs-at-blockscout/elixir-developer.md)
-* [Senior Front-end Engineer / Front-end Architect](careers/jobs-at-blockscout/senior-front-end-engineer-front-end-architect.md)
-* [Senior QA Engineer](careers/jobs-at-blockscout/page-1.md)
+* [DevOps Engineer](jobs/devops-engineer.md)
+* [Elixir Developer](jobs/elixir-developer.md)
+* [Senior Front-end Engineer / Front-end Architect](jobs/senior-front-end-engineer-front-end-architect.md)
+* [Senior QA Engineer](jobs/page-1.md)

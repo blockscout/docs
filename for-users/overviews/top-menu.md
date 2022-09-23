@@ -56,5 +56,5 @@ The comprehensive search bar allows for search by address, token name, token sym
 
 Also included in the top menu is the Project logo. Projects can add and change custom logo using ENV variables during deployment. [More info here](../../for-developers/configuration-options/branding-configs.md).
 
-<figure><img src="../../.gitbook/assets/customizable-logo.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/customizable-logo (1).png" alt=""><figcaption></figcaption></figure>
 
