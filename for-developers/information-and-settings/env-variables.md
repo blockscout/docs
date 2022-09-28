@@ -168,7 +168,7 @@ This table is horizontally scrollable, version information is located in the las
 | `GAS_PRICE_ORACLE_SAFELOW_PERCENTILE` |          | Gas price oracle: safelow percentile                                   | 35      | v4.1.4+ |
 | `GAS_PRICE_ORACLE_AVERAGE_PERCENTILE` |          | Gas price oracle: average percentile                                   | 60      | v4.1.4+ |
 | `GAS_PRICE_ORACLE_FAST_PERCENTILE`    |          | Gas price oracle: fast percentile                                      | 90      | v4.1.4+ |
-| `GAS_PRICE_ORACLE_CACHE_PERIOD`       |          | Gas price oracle: perriod of gar prices update                         | 30 sec  | v4.1.4+ |
+| `GAS_PRICE_ORACLE_CACHE_PERIOD`       |          | Gas price oracle: period of gas prices update                         | 30 sec  | v4.1.4+ |
 
 ### Main page dashboard management
 
