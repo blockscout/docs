@@ -5,7 +5,7 @@ BlockScout can take some time to fully index a chain. Larger chains require more
 ### Messages during indexing 
 
 1. **n% Blocks Indexed - We're indexing this chain right now. Some of the counts may be inaccurate.** This means blocks are still being collected and processed by BlockScout. The message should disappear once the genesis block is indexed.
-2. **Indexing tokens - We're indexing this chain right now. Some of the counts may be inaccurate.** This means BlockScout has collected all blocks but is still indexing internal transactions using the archive node tracing api.
+2. **Indexing Internal Transactions - We're indexing this chain right now. Some of the counts may be inaccurate.** This means BlockScout has collected all blocks but is still indexing internal transactions using the archive node tracing api. This missage will disappear when `INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER=true` is provided.
 
 ### Monitoring indexing processes
 
