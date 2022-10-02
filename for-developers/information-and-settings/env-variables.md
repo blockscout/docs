@@ -223,6 +223,7 @@ This table is horizontally scrollable, version information is located in the las
 | `UNCLES_IN_AVERAGE_BLOCK_TIME`       |          | Include or exclude non-consensus blocks in avg block time calculation. Exclude if `false`.                                                                         | false                                                                                         | v2.0.1+ |
 | `COIN_BALANCE_HISTORY_DAYS`          |          | Number of days to consider at coin balance history chart.                                                                                                          | 10                                                                                            | v3.1.3+ |
 | `ADMIN_PANEL_ENABLED`                |          | if `true` admin/\* routes are available. Implemented in [#5208](https://github.com/blockscout/blockscout/pull/5208)                                                | (empty)                                                                                       | v4.1.2+ |
+| `CONTRACT_VERIFICATION_MAX_LIBRARIES`                |          | Max amount of libraries to consider in smart-contract verification from flat/multi-part file(s). Implemented in [#6204](https://github.com/blockscout/blockscout/pull/6204)                                                | (empty)                                                                                       | master |
 
 ### CSV export
 
