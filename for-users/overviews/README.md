@@ -10,7 +10,7 @@ Blockscout informational displays depending on the page, section and instance yo
 * Tokens
 * Blocks
 * Transactions
-* EOAs (Externally Owned Addresses
+* EOAs (Externally Owned Addresses)
 * Contracts
 * [My Account](../my-account/)
 
