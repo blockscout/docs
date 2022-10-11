@@ -13,6 +13,7 @@
 
 * [Overviews](for-users/overviews/README.md)
   * [Top Menu](for-users/overviews/top-menu.md)
+  * [Blocks](for-users/overviews/blocks.md)
 * [Blockscout Apps](for-users/blockscout-apps/README.md)
   * [Token Approval Tracker](for-users/blockscout-apps/token-approval-tracker.md)
 * [My Account](for-users/my-account/README.md)
