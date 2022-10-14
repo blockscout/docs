@@ -9,8 +9,8 @@ description: Blockscout is a full-featured, open-source blockchain explorer
 * **Deep Search**: Find all the information you need on Blocks, Transactions, Tags and more through the integrated search box.
 * **Interact with Contracts**: Read and write to contracts directly from the Blockscout UI.
 * **Verify Contracts:**  Use [Hardhat](../for-users/smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md), [Sourcify](../for-users/smart-contract-interaction/verifying-a-smart-contract/contracts-verification-via-sourcify.md), and other tools to quickly verify  contracts.
-* **Make API calls**: Make requests to a [robust API](../for-users/api/) using standard and customized endpoints.
-* **Customize your instance**: Use the [My Account](../for-users/my-account/) features to add tags, watchlists and other features
+* **Make API Calls**: Make requests to a [robust API](../for-users/api/) using standard and customized endpoints.
+* **Customize Views**: Use the [My Account](../for-users/my-account/) features to add tags, watchlists and other features.
 
 ### **Key Features**
 
