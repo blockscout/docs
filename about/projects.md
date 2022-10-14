@@ -4,23 +4,27 @@ description: List of projects and links
 
 # Projects Using Blockscout
 
-Blockscout serves a wide range of execution-layer chains within the Ethereum ecosystem and beyond. Projects can deploy Blockscout themselves to support their chains, or use Blockscout customization and/or hosting services to supercharge their instances.
+Blockscout serves more than 100 execution-layer chains and testnets within the Ethereum ecosystem and beyond. Open-source code gives all types of projects and chains the ability to spin up an instance and provide data exploration capabilities for their users.
 
-{% hint style="success" %}
-If you have an instance not listed here, [contact us](https://discord.gg/blockscout) or [submit a PR ](https://github.com/blockscout/docs)to add your project. Chain compatibility is considered below when categorizing Blockscout instances.
+Projects can choose to deploy Blockscout themselves or use customization and hosting services for their instances.
+
+{% hint style="info" %}
+If you have an instance not listed here, [contact us](https://discord.gg/blockscout) or [submit a PR ](https://github.com/blockscout/docs)to add your project. Chain compatibility is considered when categorizing Blockscout instances.
 
 Categories:
 
-* [Ethereum Ecosystem L1: High Usage Chains](projects.md#ethereum-ecosystem-l1-tier-1-high-usage-chains)
-* [Ethereum L2 & Rollups Ecosystems](projects.md#ethereum-l2-and-rollups-ecosystem)
-* [Polkadot Ecosystem](projects.md#polkadot-ecosystem)
-* [Cosmos Ecosystem](projects.md#cosmos-ecosystem)
-* [Bitcoin/BCH Merged Mining / AuxPOW](projects.md#bitcoin-bch-merged-mining-auxpow)
-* [Near Ecosystem](projects.md#near-ecosystem)
-* [Solana Ecosystem](projects.md#solana-ecosystem)
-* [Cardano Ecosytem](projects.md#cardano-ecosystem)
-* [Ethereum Greater Ecosystem L1: Mid Range Usage](projects.md#ethereum-ecosystem-l1-tier-2-mid-to-low-range-usage)
-* [Testnets (all ecosystems)](projects.md#testnet-instances)
+* [**Ethereum** Ecosystem L1: High Usage Chains](projects.md#ethereum-ecosystem-l1-tier-1-high-usage-chains)
+* [**Polygon** Ecosystem](projects.md#undefined)&#x20;
+* ****[**Optimism** Ecosystem](projects.md#optimism-ecosystem)
+* [Additional Ethereum **L2s & Rollups**](projects.md#ethereum-l2-and-rollups-ecosystem)
+* ****[**Polkadot** Ecosystem](projects.md#polkadot-ecosystem)
+* [**Cosmos** Ecosystem](projects.md#cosmos-ecosystem)
+* ****[**Bitcoin/BCH** Merged Mining / AuxPOW](projects.md#bitcoin-bch-merged-mining-auxpow)
+* [**Near** Ecosystem](projects.md#near-ecosystem)
+* [**Solana** Ecosystem](projects.md#solana-ecosystem)
+* ****[**Cardano** Ecosytem](projects.md#cardano-ecosystem)
+* [**Ethereum** Greater Ecosystem L1: Mid Range Usage](projects.md#ethereum-ecosystem-l1-tier-2-mid-to-low-range-usage)
+* [**Testnets** (all ecosystems)](projects.md#testnet-instances)
 {% endhint %}
 
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -44,16 +48,34 @@ Categories:
 | <img src="../.gitbook/assets/oasis (1).png" alt="" data-size="line"> [Oasis](https://explorer.emerald.oasis.dev/)                    | Privacy-enabled and scalable layer-1 blockchain network.  <mark style="background-color:blue;">Self Hosted</mark>[ 🌐 site](https://oasisprotocol.org/)                                                                               |
 | <img src="../.gitbook/assets/cloudwalk (1).png" alt="" data-size="line">[Cloudwalk](https://explorer.mainnet.cloudwalk.io/)          | Democratizing the payments industry in Brazil with a goal to create a global payments network.  <mark style="background-color:blue;">Self Hosted</mark> 🌐[ site](https://www.cloudwalk.io/)                                          |
 
-### Ethereum L2 & Rollups Ecosystem
+### Polygon Ecosystem
+
+Polygon is currently using Blockscout for testing zkEVM and Polygon Edge instances. Look for more instances in the future!
+
+| Blockscout Instance                                                                                                                     | Description                                                                                                                                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="../.gitbook/assets/zkevm.png" alt="" data-size="line"> [Polygon zkEVM](https://public.zkevm-test.net:8443/)                   | Testnet for the publically available zkEVM. Additional private instances are in queue. <mark style="background-color:blue;">Self Hosted</mark>  [🌐 site](https://polygon.technology/solutions/polygon-zkevm)                         |
+| <img src="../.gitbook/assets/edgenet_polygon.png" alt="" data-size="line"> [Polygon Edge](https://explorer-edgenet.polygon.technology/) | Beta version of Polygon Edge, which will allow projects to spin up a chain and a Blockscout instance with ease. <mark style="background-color:blue;">Self Hosted</mark>  [🌐 site](https://polygon.technology/solutions/polygon-edge) |
+
+### Optimism Ecosystem
+
+We are working with Optimism to create a robust explorer infrastructure to support OP chains. Additional instances are in progress.
+
+| Blockscout Instance                                                                                                                    | Description                                                                                                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <img src="../.gitbook/assets/optimism (1).png" alt="" data-size="line"> [Bedrock Alpha](https://blockscout.com/optimism/bedrock-alpha) | OP testnet with 2 second block times and customized theming. <mark style="background-color:green;">Hosted by Blockscout</mark> [🌐 site](https://www.optimism.io/)                         |
+| <img src="../.gitbook/assets/optimism (1).png" alt="" data-size="line"> [Goerli Testnet](https://blockscout.com/optimism/goerli)       | A second testnet with batches sent to the Goerli network. <mark style="background-color:green;">Hosted by Blockscout</mark> [🌐 site](https://www.optimism.io/)                            |
+| <img src="../.gitbook/assets/opcraft.png" alt="" data-size="line"> [OPCraft](https://blockscout.com/optimism/opcraft/)                 | OPCraft beta. OPCraft brings generated minecraft inspired worlds to the blockchain.  <mark style="background-color:green;">Hosted by Blockscout</mark> [🌐 site](https://www.optimism.io/) |
+
+### Additional Ethereum L2s & Rollups
 
 | Blockscout Instance                                                                                                            | Description                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <img src="../.gitbook/assets/Arbitrum Nov.png" alt="" data-size="line"> [Arbitrum Nova](https://nova-explorer.arbitrum.io/)    | Committee-based chain with rollup fallback designed for social applications and gaming and built using [Arbitrum AnyTrust](https://medium.com/offchainlabs/introducing-anytrust-chains-cheaper-faster-l2-chains-with-minimal-trust-assumptions-31def59eb8d7).  <mark style="background-color:blue;">Self Hosted</mark>   [🌐 site](https://offchainlabs.com/) |
-| ![](../.gitbook/assets/opcraft.png) [OPCraft](https://blockscout.com/optimism/opcraft/)                                        | Optimism Minecraft testnet. Additional Optimism instances are currently in process. <mark style="background-color:green;">Hosted by Blockscout</mark> [🌐 site](https://www.optimism.io/)                                                                                                                                                                     |
 | <img src="../.gitbook/assets/metis.png" alt="" data-size="line"> [Metis](https://andromeda-explorer.metis.io/)                 | The Metis Andromeda network is an L2 optimistic rollup running on Ethereum. <mark style="background-color:blue;">Self Hosted</mark>  [🌐 site](https://www.metis.io/)                                                                                                                                                                                         |
-| <img src="../.gitbook/assets/boba (1).png" alt="" data-size="line">[Boba](https://blockexplorer.boba.network/)                 | Optimistic rollup scaling & augmenting Ethereum. <mark style="background-color:blue;">Self Hosted</mark>  [🌐 site](https://boba.network/)                                                                                                                                                                                                                    |
+| <img src="../.gitbook/assets/boba (1).png" alt="" data-size="line"> [Boba](https://blockexplorer.boba.network/)                | Optimistic rollup scaling & augmenting Ethereum. <mark style="background-color:blue;">Self Hosted</mark>  [🌐 site](https://boba.network/)                                                                                                                                                                                                                    |
 | <img src="../.gitbook/assets/nahmii.png" alt="" data-size="line"> [Nahmii](https://explorer.nahmii.io/)                        | Rollup with high throughput, low latency and instant finality. <mark style="background-color:blue;">Self Hosted</mark>  [🌐 site](https://nahmii.io/)                                                                                                                                                                                                         |
-|  <img src="../.gitbook/assets/scroll.png" alt="" data-size="line"> [Scroll](https://l1scan.scroll.io/)                         | A native zkEVM Layer 2 Solution for Ethereum. <mark style="background-color:blue;">Self Hosted</mark>  [🌐 site](https://scroll.io/)                                                                                                                                                                                                                          |
+|  <img src="../.gitbook/assets/scroll.io.png" alt="" data-size="line"> [Scroll](https://l1scan.scroll.io/)                      | A native zkEVM Layer 2 Solution for Ethereum. <mark style="background-color:blue;">Self Hosted</mark>  [🌐 site](https://scroll.io/)                                                                                                                                                                                                                          |
 | <img src="../.gitbook/assets/Optimism_GNO.png" alt="" data-size="line"> [Optimism on GC](https://blockscout.com/xdai/optimism) | Fork of Optimism running on the Gnosis Chain. <mark style="background-color:green;">Hosted by Blockscout</mark>[ 🌐 site](https://developers.gnosischain.com/for-developers/optimism-optimistic-rollups-on-gc)                                                                                                                                                |
 | <img src="../.gitbook/assets/gton.png" alt="" data-size="line"> [Gton Capital](https://explorer.gton.network/)                 | Community governed Ethereum rollup protocol with a native stablecoin. [🌐 site](https://gton.capital/)                                                                                                                                                                                                                                                        |
 
