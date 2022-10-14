@@ -4,7 +4,6 @@ description: Branding and Logos
 
 # Media kit
 
-## 5280A1
+<figure><img src="../.gitbook/assets/MediaKit.png" alt=""><figcaption></figcaption></figure>
 
-![](../.gitbook/assets/100blockscout_alternative.png)
-
+{% file src="../.gitbook/assets/Blockscout_media_kit.zip" %}
