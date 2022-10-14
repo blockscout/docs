@@ -27,6 +27,7 @@
   * [Hardhat Verification Plugin](for-users/smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md)
   * [Sourcify Plugin for Hardhat](for-users/verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
   * [Contract Verification via Sourcify](for-users/smart-contract-interaction/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
+* [Interacting with Smart Contracts](for-users/interacting-with-smart-contracts.md)
 * [ABI-Encoded Constructor Arguments](for-users/smart-contract-interaction/abi-encoded-constructor-arguments.md)
 * [CSV Exports](for-projects/premium-features/export-to-csv.md)
 * [ERC-1155 Support](for-projects/premium-features/erc-1155-support.md)
