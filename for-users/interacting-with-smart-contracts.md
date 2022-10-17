@@ -45,9 +45,44 @@ The result shows this address holds 1,000,000 of the token, which converts to 1 
 ## Write Contract
 
 {% hint style="info" %}
-Coming Soon :construction\_worker:
-{% endhint %}
-
-{% hint style="warning" %}
 Many write functions can only be performed by an approved owner. Connect the owner wallet when performing gated functions.&#x20;
 {% endhint %}
+
+1\) We'll use Blockscout to transfer 0.50 USDC from 1 address to another. You can perform this action directly through a wallet UI, we use the Blockscout interface here for demonstration purposes. \
+\
+See steps 1-3 above for accessing USDC on Gnosis Chain, or simply type the contract address (_0xDDAfbb505ad214D7b80b1f830fcCc89B60fb7A83_) into the search bar. Scroll down and select **Write Proxy**.
+
+<figure><img src="../.gitbook/assets/write-proxy-1.png" alt=""><figcaption></figcaption></figure>
+
+2\) We scroll down to find the `transferFrom` method.
+
+<figure><img src="../.gitbook/assets/transfer-b4.png" alt=""><figcaption><p>Empty fields with prompts</p></figcaption></figure>
+
+Boxes are filled with the following information:
+
+1. `_sender(address)`: The `0x` address sending the USDC. Note this account is the one to connect to Blockscout to write to the contract.
+2. `_recipient(address)`: The `0x` address receiving the USDC.
+3. `_amount(uint256)`: Amount to transfer. We use 6 decimals of precision for USDC - for other tokens this can differ. Here we enter 500000 to denote $0.50.
+
+<figure><img src="../.gitbook/assets/transfer-after.png" alt=""><figcaption><p>Filled fields</p></figcaption></figure>
+
+3\) We press the **Write** button, and MetaMask or another web3 wallet takes us through the transaction. If a wallet is not connected, there will be several prompts to connect an account to Blockscout. Once connected, we confirm the transaction.&#x20;
+
+{% hint style="info" %}
+The connected wallet must contain enough native tokens (in this case xDai) to pay gas for the transaction.
+{% endhint %}
+
+<figure><img src="../.gitbook/assets/confirm-transactions.png" alt=""><figcaption></figcaption></figure>
+
+4\) We can check our wallet to confirm the transaction, and can view tx details in Blockscout (or return to the [Read Contract](interacting-with-smart-contracts.md#read-contract) `balanceOf` method to view new balances for the addresses).
+
+<figure><img src="../.gitbook/assets/meta-2.png" alt=""><figcaption></figcaption></figure>
+
+Transaction hash: [0x2c93c4e6618b30c552b95ce2eef16b6e663d99aa2f4a8ea55a70b693de70f113](https://blockscout.com/xdai/mainnet/tx/0x2c93c4e6618b30c552b95ce2eef16b6e663d99aa2f4a8ea55a70b693de70f113)
+
+<figure><img src="../.gitbook/assets/tx-details.png" alt=""><figcaption></figcaption></figure>
+
+
+
+
+

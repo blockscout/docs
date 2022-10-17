@@ -7,7 +7,7 @@ Blockscout informational displays depending on the page, section and instance yo
 {% endhint %}
 
 * [Top Menu](top-menu.md)
-* Blocks
+* [Blocks](blocks.md)
 * Transactions
 * Tokens
 * EOAs (Externally Owned Addresses)
