@@ -8,6 +8,7 @@
 * [Projects Using Blockscout](about/projects.md)
 * [Funding](about/funding.md)
 * [Roadmap](about/roadmap.md)
+* [FAQs](about/faqs.md)
 
 ## 🙎 For Users
 
@@ -34,14 +35,10 @@
 * [API](for-users/api/README.md)
   * [Requests & Limits](for-users/api/requests-and-limits.md)
   * [GraphQL in Blockscout](for-users/api/graphql.md)
-* [User FAQs](for-users/faqs/README.md)
-  * [What does "In" or "Out" label mean](for-users/faqs/what-does-in-or-out-label-mean.md)
-  * [What are the different transaction types?](for-users/faqs/what-are-the-different-transaction-types.md)
-  * [CSV export has error 504](for-users/faqs/csv-export-has-error-504.md)
 
 ## 🥷 For Developers
 
-* [Information & Settings](for-developers/information-and-settings/README.md)
+* [Info, Params & Settings](for-developers/information-and-settings/README.md)
   * [General Requirements / Blockscout Prerequisites](for-developers/information-and-settings/requirements.md)
   * [Database Storage Requirements](for-developers/information-and-settings/database-storage-requirements.md)
   * [Node Tracing / JSON RPC Requirements](for-developers/information-and-settings/node-tracing-json-rpc-requirements.md)
@@ -91,28 +88,13 @@
   * [Tracing](for-developers/configuration-options/tracing.md)
   * [Logger Configs](for-developers/configuration-options/logger-configs.md)
   * [Memory Usage](for-developers/configuration-options/memory-usage.md)
+* [Indexing](for-developers/indexing/README.md)
+  * [How do I fix indexer timeouts?](for-developers/indexing/how-do-i-fix-indexer-timeouts.md)
+  * [How do I update memory consumption to fix indexer memory errors?](for-developers/indexing/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md)
 * [EVM Version Information](for-users/smart-contract-interaction/evm-version-information.md)
-* [Indexing](for-developers/indexing.md)
 * [Testing](for-developers/testing.md)
 * [DB schema](for-developers/db-schema.md)
 * [Contributing to Blockscout](for-developers/contributing-to-blockscout.md)
-* [Developer FAQs](for-developers/developer-faqs/README.md)
-  * [How do I speed up my hosted BlockScout instance?](for-developers/developer-faqs/how-do-i-speed-up-my-hosted-blockscout-instance.md)
-  * [How can I customize the coin symbol / name?](for-developers/developer-faqs/how-can-i-customize-the-coin-symbol.md)
-  * [How do I manage deployment with AWS CodeDeploy?](for-developers/developer-faqs/how-do-i-manage-deployment-with-aws-codedeploy.md)
-  * [How do I replace missing assets/version number in my BlockScout deployment?](for-developers/developer-faqs/i-am-missing-assets-version-number-in-my-blockscout-deployment.md)
-  * [How do I fix the Gettext.Error?](for-developers/developer-faqs/how-do-i-fix-the-gettext.error.md)
-  * [How do I fix indexer timeouts?](for-developers/developer-faqs/how-do-i-fix-indexer-timeouts.md)
-  * [How do I update memory consumption to fix indexer memory errors?](for-developers/developer-faqs/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md)
-  * [How do I update the UI?](for-developers/developer-faqs/how-do-i-update-menu-links-in-the-header-footer.md)
-  * [How can I view smart contracts with RPC?](for-developers/developer-faqs/how-can-i-view-smart-contracts-with-rpc.md)
-  * [Why are Market Cap/Token Price stats wrong?](for-developers/developer-faqs/why-are-market-cap-token-price-stats-wrong.md)
-  * [How do I disable exchange rates?](for-developers/developer-faqs/how-do-i-disable-exchange-rates.md)
-  * [How to migrate verified contracts between databases?](for-developers/developer-faqs/how-to-migrate-verified-contracts-between-databases.md)
-  * [Which Linux distro for manual deployment?](for-developers/developer-faqs/which-linux-distro-for-manual-deployment.md)
-  * [Can I set RPC variable to a normal http(s) url?](for-developers/developer-faqs/can-i-set-rpc-variable-to-a-normal-http-s-url.md)
-  * [Do I need to enable ws?](for-developers/developer-faqs/do-i-need-to-enable-ws.md)
-  * [How to fix Unknown Private Network error?](for-developers/developer-faqs/how-to-fix-unknown-private-network-error.md)
 
 ## 👓 For projects
 
@@ -128,7 +110,7 @@
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
-## 👨🔧 👨🔧 👨🔧 Job Openings <a href="#jobs" id="jobs"></a>
+## 👨🔧 Job Openings <a href="#jobs" id="jobs"></a>
 
 * [DevOps Engineer](jobs/devops-engineer.md)
 * [Elixir Developer](jobs/elixir-developer.md)

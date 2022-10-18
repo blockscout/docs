@@ -10,7 +10,7 @@ For example, to increase the soft limit to 3GiB:
 INDEXER_MEMORY_LIMIT=3
 ```
 
-This configuration utilizes Bitwise which in our case calculates the result of an [arithmetic left bitshift](../developer-faqs/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md#left-bitshift-conversion-table). The recommended minimum Memory to index Ethereum Mainnet is 30 GiB.
+This configuration utilizes Bitwise which in our case calculates the result of an [arithmetic left bitshift](../indexing/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md#left-bitshift-conversion-table). The recommended minimum Memory to index Ethereum Mainnet is 30 GiB.
 
 Memory usage is checked once per minute. If the soft-limit is reached, the shrinkable work queues will shed half their load. The shed load will be restored from the database, the same as when a restart of the server occurs, so rebuilding the work queue will be slower, but use less memory.
 
