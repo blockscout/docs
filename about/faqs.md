@@ -137,6 +137,16 @@ export COIN_NAME=POA
 
 <details>
 
+<summary>What's the best way to deploy to AWS?</summary>
+
+Currently the best existing way is through docker compose [https://github.com/blockscout/blockscout/tree/master/docker-compose](https://github.com/blockscout/blockscout/tree/master/docker-compose).&#x20;
+
+We are currently working on deployment through Kubernetes (K8s) and other methods for easily spinning up an instance on AWS.
+
+</details>
+
+<details>
+
 <summary>How do I replace missing assets/version numbers?</summary>
 
 ## Missing Assets
@@ -289,5 +299,31 @@ In a self-hosted or locally deployed instance, when attempting to do a **write t
 
 * More on [indexer timeouts](faqs.md#undefined)
 * More on [updating memory consumption](../for-developers/indexing/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md)
+
+</details>
+
+<details>
+
+<summary>How to incorporate "Add to MM" functionality</summary>
+
+Check that you are running the latest version and set the following variables. These can be set at runtime.
+
+```
+CHAIN_ID=
+NETWORK_PATH=
+SUBNETWORK=
+COIN_NAME=
+JSON_RPC=
+```
+
+Gnosis Chain Example:
+
+```
+CHAIN_ID=100
+NETWORK_PATH=/xdai/mainnet
+SUBNETWORK=Gnosis Chain
+COIN_NAME=xDai
+JSON_RPC=https://rpc.gnosischain.com/
+```
 
 </details>
