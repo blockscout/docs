@@ -40,6 +40,10 @@ Time measures for response time of crucial JSON RPC methods for indexing in Bloc
 2. `eth_getTransactionReceipt` for random transactions desired response time is < 0.5s. For the Gnosis chain archive node the response time is \~0.3 - 0.4s.
 3. Batched `eth_getTransactionReceipt` for 15 transactions acceptable response time is Less than 1s. For the Gnosis chain archive node, it is \~0.6 - 0.7s
 
+### Rate Limit
+
+The desired rate limit for RPC endpoint is 200 req/sec for the indexing phase and 100 req/sec for the indexed chain.
+
 ## EVM Requirements & Clients
 
 * All EVM chains must [define these variables](deployment-differences-between-chains.md) during configuration.
