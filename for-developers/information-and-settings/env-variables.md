@@ -98,6 +98,8 @@ This table is horizontally scrollable, version information is located in the las
 | `CHAIN_ID`                             |          | Chain ID of the network. For instance, 100 in the case of xDai chain.                                                                                                                   | (empty)                                                | v3.7.0+ |                |
 | `JSON_RPC`                             |          | JSON RPC endpoint of the chain for the WalletConnect integration. Implemented in [#4931](https://github.com/blockscout/blockscout/pull/4931)                                            | (empy)                                                 | v4.1.0+ |                |
 | `HEALTHY_BLOCKS_PERIOD`                |          | New blocks indexed max delay in /health API endpoint. Implemented in [#2294](https://github.com/blockscout/blockscout/pull/2294/)                                                       | 5 mins                                                 | v2.0.2+ |                |
+| `NEW_TAGS`                |          | Add public tag labels. More info in [#6316](https://github.com/blockscout/blockscout/pull/6316)                                                       | (empy)                                                 | master |                |
+| `CUSTOM_CONTRACT_ADDRESSES_${tag_name}`                |          | Specify addresses for some label. More info in [#6316](https://github.com/blockscout/blockscout/pull/6316)                                                       | (empy)                                                 | master |                |
 
 ### Indexer management
 
