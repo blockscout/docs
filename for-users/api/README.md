@@ -36,16 +36,7 @@ Send Queries to quickly get information. Use the **Docs button** to quickly find
 Blockscout supports the following methods. Requests and return data are identical to the [documentation](https://eth.wiki/json-rpc/API).
 
 * eth\_blockNumber&#x20;
-* eth\_call&#x20;
 * eth\_getBalance&#x20;
-* eth\_getCode&#x20;
-* eth\_getBlockByHash&#x20;
-* eth\_getBlockByNumber&#x20;
-* eth\_getTransactionByHash&#x20;
-* eth\_getTransactionByBlockHashAndIndex
-* eth\_getTransactionByBlockNumberAndIndex&#x20;
-* eth\_getTransactionReceipt&#x20;
-* eth\_getUncleByBlockHashAndIndex&#x20;
 * eth\_getLogs
 
 ## API Keys
