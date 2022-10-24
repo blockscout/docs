@@ -8,7 +8,7 @@ description: General deployment instructions for a hardware or cloud services en
 For automated deployment on AWS, see [Ansible deployment](../ansible-deployment/).
 {% endhint %}
 
-Check your environment is prepared with General Requirements and [Database Storage Requirements](../information-and-settings/database-storage-requirements.md).
+Check your environment is prepared with [General Requirements](../information-and-settings/requirements.md) and [Database Storage Requirements](../information-and-settings/database-storage-requirements.md).
 
 BlockScout requires a **full archive node** in order to import every state change for every address on the target network. For client specific settings related to a node running Erigon/Geth/Nethermind, please see [Client Settings](../information-and-settings/client-settings.md).
 
@@ -44,7 +44,7 @@ In order to generate a new `secret_key_base` run `mix phx.gen.secret`
 
 6\) If you have deployed previously, remove static assets from the previous build `mix phx.digest.clean`.
 
-7\) Set other environment variables as needed.
+7\) Set [environment variables](../information-and-settings/env-variables.md) as needed.
 
 CLI Example:
 
@@ -60,22 +60,34 @@ export ...
 The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](../information-and-settings/client-settings.md).
 {% endhint %}
 
-8\) Compile the application:`mix compile`
+8\) Install and run[ smart contract verification microservice](../information-and-settings/smart-contract-verification.md). You can [use docker](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#using-docker), [build from source](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#building-from-source), or use cargo directly (example below).
 
-9\) If not already running, start Postgres: `pg_ctl -D /usr/local/var/postgres start`
+1. `cargo install --git https://github.com/blockscout/blockscout-rs smart-contract-verifier-http`
+2. Run the binary from cargo/.bin  `smart-contract-verifier-http`
+3. Set ENV variables in CLI to enable the rust microservice for Blockscout (these can also be set at runtime).
+
+```
+export ENABLE_RUST_VERIFICATION_SERVICE=true
+export RUST_VERIFICATION_SERVICE_URL=http://0.0.0.0:8043/
+
+```
+
+9\) Compile the application:`mix compile`
+
+10\) If not already running, start Postgres: `pg_ctl -D /usr/local/var/postgres start`
 
 {% hint style="success" %}
 To check [postgres status](https://www.postgresql.org/docs/9.6/app-pg-isready.html): `pg_isready`
 {% endhint %}
 
-10\) Create and migrate database `mix do ecto.create, ecto.migrate`
+11\) Create and migrate database `mix do ecto.create, ecto.migrate`
 
 {% hint style="danger" %}
 If you are in dev environment and have run the application previously with a different blockchain, drop the previous database `mix do ecto.drop, ecto.create, ecto.migrate`\
 Be careful since it will delete all data from the DB. Don't execute it on production if you don't want to lose all the data!
 {% endhint %}
 
-11\) Install Node.js dependencies
+12\) Install Node.js dependencies
 
 {% hint style="info" %}
 _Optional: If preferred, use `npm ci` rather than `npm install` to strictly follow all package versions in `package-lock.json`._
@@ -84,9 +96,9 @@ _Optional: If preferred, use `npm ci` rather than `npm install` to strictly foll
 * `cd apps/block_scout_web/assets; npm install && node_modules/webpack/bin/webpack.js --mode production; cd -`
 * `cd apps/explorer && npm install; cd -`
 
-12\) Build static assets for deployment `mix phx.digest`
+13\) Build static assets for deployment `mix phx.digest`
 
-13\) Enable HTTPS in development. The Phoenix server only runs with HTTPS.
+14\) Enable HTTPS in development. The Phoenix server only runs with HTTPS.
 
 * `cd apps/block_scout_web; mix phx.gen.cert blockscout blockscout.local; cd -`
 * Add blockscout and blockscout.local to your `/etc/hosts`
@@ -103,6 +115,6 @@ _Optional: If preferred, use `npm ci` rather than `npm install` to strictly foll
 If using Chrome, Enable `chrome://flags/#allow-insecure-localhost`
 {% endhint %}
 
-14\) Return to the root directory and start the Phoenix Server. `mix phx.server`
+15\) Return to the root directory and start the Phoenix Server. `mix phx.server`
 
 ##
