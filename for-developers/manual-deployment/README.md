@@ -60,10 +60,10 @@ export ...
 The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](../information-and-settings/client-settings.md).
 {% endhint %}
 
-**8)** Install and run[ smart contract verification microservice](../information-and-settings/smart-contract-verification.md). You can [use docker](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#using-docker), [build from source](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#building-from-source), or use cargo directly (example below).
+**8)** Install and start[ smart contract verification microservice](../information-and-settings/smart-contract-verification.md). You can [use docker](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#using-docker), [build from source](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#building-from-source), or use cargo directly (example below).
 
 1. `cargo install --git https://github.com/blockscout/blockscout-rs smart-contract-verifier-http`
-2. Run the binary from cargo/.bin  `smart-contract-verifier-http`
+2. Run the binary as  `smart-contract-verifier-http`
 3. Set ENV variables in CLI to enable the rust microservice for Blockscout (these can also be set at runtime).
 
 ```
