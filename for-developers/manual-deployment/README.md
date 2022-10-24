@@ -18,11 +18,11 @@ For testing purposes, instead of an archive node, a test Ethereum client can be 
 
 ## Deployment Steps
 
-1\) `git clone https://github.com/blockscout/blockscout`
+**1)** `git clone https://github.com/blockscout/blockscout`
 
-2\) `cd blockscout`
+**2)** `cd blockscout`
 
-3\) Provide DB URL:\
+**3)** Provide DB URL:\
 `export DATABASE_URL=postgresql://user:password@localhost:5432/blockscout`
 
 * **Linux:** Update the database username and password configuration
@@ -33,18 +33,18 @@ For testing purposes, instead of an archive node, a test Ethereum client can be 
 _Example usage:_ Changing the default Postgres port from localhost:5432 if [Boxen](https://github.com/boxen/boxen) is installed.
 {% endhint %}
 
-4\) Install Mix dependencies and compile them \``mix do deps.get, local.rebar --force, deps.compile`\`
+**4)** Install Mix dependencies and compile them \``mix do deps.get, local.rebar --force, deps.compile`\`
 
-5\) Generate a new secret\_key\_base for the DB by setting a corresponding ENV var:\
+**5)** Generate a new secret\_key\_base for the DB by setting a corresponding ENV var:\
 `export SECRET_KEY_BASE=VTIB3uHDNbvrY0+60ZWgUoUBKDn9ppLR8MI4CpRz4/qLyEFs54ktJfaNT6Z221No`
 
 {% hint style="info" %}
 In order to generate a new `secret_key_base` run `mix phx.gen.secret`
 {% endhint %}
 
-6\) If you have deployed previously, remove static assets from the previous build `mix phx.digest.clean`.
+**6)** If you have deployed previously, remove static assets from the previous build `mix phx.digest.clean`.
 
-7\) Set [environment variables](../information-and-settings/env-variables.md) as needed.
+**7)** Set [environment variables](../information-and-settings/env-variables.md) as needed.
 
 CLI Example:
 
@@ -60,7 +60,7 @@ export ...
 The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](../information-and-settings/client-settings.md).
 {% endhint %}
 
-8\) Install and run[ smart contract verification microservice](../information-and-settings/smart-contract-verification.md). You can [use docker](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#using-docker), [build from source](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#building-from-source), or use cargo directly (example below).
+**8)** Install and run[ smart contract verification microservice](../information-and-settings/smart-contract-verification.md). You can [use docker](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#using-docker), [build from source](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#building-from-source), or use cargo directly (example below).
 
 1. `cargo install --git https://github.com/blockscout/blockscout-rs smart-contract-verifier-http`
 2. Run the binary from cargo/.bin  `smart-contract-verifier-http`
@@ -69,25 +69,24 @@ The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, g
 ```
 export ENABLE_RUST_VERIFICATION_SERVICE=true
 export RUST_VERIFICATION_SERVICE_URL=http://0.0.0.0:8043/
-
 ```
 
-9\) Compile the application:`mix compile`
+**9)** Compile the application:`mix compile`
 
-10\) If not already running, start Postgres: `pg_ctl -D /usr/local/var/postgres start`
+**10)** If not already running, start Postgres: `pg_ctl -D /usr/local/var/postgres start`
 
 {% hint style="success" %}
 To check [postgres status](https://www.postgresql.org/docs/9.6/app-pg-isready.html): `pg_isready`
 {% endhint %}
 
-11\) Create and migrate database `mix do ecto.create, ecto.migrate`
+**11)** Create and migrate database `mix do ecto.create, ecto.migrate`
 
 {% hint style="danger" %}
 If you are in dev environment and have run the application previously with a different blockchain, drop the previous database `mix do ecto.drop, ecto.create, ecto.migrate`\
 Be careful since it will delete all data from the DB. Don't execute it on production if you don't want to lose all the data!
 {% endhint %}
 
-12\) Install Node.js dependencies
+**12)** Install Node.js dependencies
 
 {% hint style="info" %}
 _Optional: If preferred, use `npm ci` rather than `npm install` to strictly follow all package versions in `package-lock.json`._
@@ -96,9 +95,9 @@ _Optional: If preferred, use `npm ci` rather than `npm install` to strictly foll
 * `cd apps/block_scout_web/assets; npm install && node_modules/webpack/bin/webpack.js --mode production; cd -`
 * `cd apps/explorer && npm install; cd -`
 
-13\) Build static assets for deployment `mix phx.digest`
+**13)** Build static assets for deployment `mix phx.digest`
 
-14\) Enable HTTPS in development. The Phoenix server only runs with HTTPS.
+**14)** Enable HTTPS in development. The Phoenix server only runs with HTTPS.
 
 * `cd apps/block_scout_web; mix phx.gen.cert blockscout blockscout.local; cd -`
 * Add blockscout and blockscout.local to your `/etc/hosts`
@@ -115,6 +114,6 @@ _Optional: If preferred, use `npm ci` rather than `npm install` to strictly foll
 If using Chrome, Enable `chrome://flags/#allow-insecure-localhost`
 {% endhint %}
 
-15\) Return to the root directory and start the Phoenix Server. `mix phx.server`
+**15)** Return to the root directory and start the Phoenix Server. `mix phx.server`
 
 ##
