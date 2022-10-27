@@ -275,6 +275,14 @@ No, it is not required. If ws is disabled, leave the `ETHEREUM_JSONRPC_WS_URL` e
 
 <details>
 
+<summary>How to fix error message "execution timeout at <code>pushGasToTopCall</code>"?</summary>
+
+Try increasing time for the `ETHEREUM_JSONRPC_DEBUG_TRACE_TRANSACTION_TIMEOUT` [ENV variable](../for-developers/information-and-settings/env-variables.md#indexer-management). The default is 5 sec.
+
+</details>
+
+<details>
+
 <summary>How do I fix Unknown Private Network error?</summary>
 
 In a self-hosted or locally deployed instance, when attempting to do a **write transaction** on a verified contract, the following errors may appear:
