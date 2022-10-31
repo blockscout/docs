@@ -100,6 +100,7 @@ This table is horizontally scrollable, version information is located in the las
 | `HEALTHY_BLOCKS_PERIOD`                |          | New blocks indexed max delay in /health API endpoint. Implemented in [#2294](https://github.com/blockscout/blockscout/pull/2294/)                                                       | 5 mins                                                 | v2.0.2+ |                |
 | `NEW_TAGS`                |          | Add public tag labels. More info in [#6316](https://github.com/blockscout/blockscout/pull/6316)                                                       | (empy)                                                 | master |                |
 | `CUSTOM_CONTRACT_ADDRESSES_${tag_name}`                |          | Specify addresses for some label. More info in [#6316](https://github.com/blockscout/blockscout/pull/6316)                                                       | (empy)                                                 | master |                |
+| `API_V2_ENABLED`                |          | Enable API V2. Implemented in [#6361](https://github.com/blockscout/blockscout/pull/6361)                                                       | (empy)                                                 | master |                |
 
 ### Indexer management
 
