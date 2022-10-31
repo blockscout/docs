@@ -33,7 +33,7 @@ For testing purposes, instead of an archive node, a test Ethereum client can be 
 _Example usage:_ Changing the default Postgres port from localhost:5432 if [Boxen](https://github.com/boxen/boxen) is installed.
 {% endhint %}
 
-**4)** Install Mix dependencies and compile them \``mix do deps.get, local.rebar --force, deps.compile`\`
+**4)** Install Mix dependencies and compile them `mix do deps.get, local.rebar --force, deps.compile`
 
 **5)** Generate a new secret\_key\_base for the DB by setting a corresponding ENV var:\
 `export SECRET_KEY_BASE=VTIB3uHDNbvrY0+60ZWgUoUBKDn9ppLR8MI4CpRz4/qLyEFs54ktJfaNT6Z221No`
