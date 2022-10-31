@@ -5,18 +5,18 @@
 * Archive node with JSON RPC interface should strictly follow input/output interface described in [https://eth.wiki/json-rpc/API](https://eth.wiki/json-rpc/API).
 * WebSocket interface (optional/highly recommended to enable) is used to subscribe to new block heads. Otherwise, Blockscout will trigger new blocks fetching by periodical polling of JSON RPC \*\*\*\* `eth_blockNumber` method.
 * Support for the following standard Ethereum JSON RPC methods:
-  * \`\`[`eth_blockNumber`](https://eth.wiki/json-rpc/API#eth\_blocknumber)
+  * [`eth_blockNumber`](https://eth.wiki/json-rpc/API#eth\_blocknumber)
   * [`eth_call`](https://eth.wiki/json-rpc/API#eth\_call)
-  * ``[`eth_getBalance`](https://eth.wiki/json-rpc/API#eth\_getbalance)``
-  * ``[`eth_getCode`](https://eth.wiki/json-rpc/API#eth\_getcode)``
-  * ``[`eth_getBlockByHash`](https://eth.wiki/json-rpc/API#eth\_getblockbyhash)``
-  * ``[`eth_getBlockByNumber`](https://eth.wiki/json-rpc/API#eth\_getblockbynumber)``
-  * ``[`eth_getTransactionByHash`](https://eth.wiki/json-rpc/API#eth\_gettransactionbyhash)``
-  * ``[`eth_getTransactionByBlockHashAndIndex`](https://eth.wiki/json-rpc/API#eth\_gettransactionbyblockhashandindex)``
-  * ``[`eth_getTransactionByBlockNumberAndIndex`](https://eth.wiki/json-rpc/API#eth\_gettransactionbyblocknumberandindex)``
-  * ``[`eth_getTransactionReceipt`](https://eth.wiki/json-rpc/API#eth\_gettransactionreceipt)``
-  * ``[`eth_getUncleByBlockHashAndIndex`](https://eth.wiki/json-rpc/API#eth\_getunclebyblockhashandindex)``
-  * ``[`eth_getLogs`](https://eth.wiki/json-rpc/API#eth\_getlogs)``
+  * [`eth_getBalance`](https://eth.wiki/json-rpc/API#eth\_getbalance)
+  * [`eth_getCode`](https://eth.wiki/json-rpc/API#eth\_getcode)
+  * [`eth_getBlockByHash`](https://eth.wiki/json-rpc/API#eth\_getblockbyhash)
+  * [`eth_getBlockByNumber`](https://eth.wiki/json-rpc/API#eth\_getblockbynumber)
+  * [`eth_getTransactionByHash`](https://eth.wiki/json-rpc/API#eth\_gettransactionbyhash)
+  * [`eth_getTransactionByBlockHashAndIndex`](https://eth.wiki/json-rpc/API#eth\_gettransactionbyblockhashandindex)
+  * [`eth_getTransactionByBlockNumberAndIndex`](https://eth.wiki/json-rpc/API#eth\_gettransactionbyblocknumberandindex)
+  * [`eth_getTransactionReceipt`](https://eth.wiki/json-rpc/API#eth\_gettransactionreceipt)
+  * [`eth_getUncleByBlockHashAndIndex`](https://eth.wiki/json-rpc/API#eth\_getunclebyblockhashandindex)
+  * [`eth_getLogs`](https://eth.wiki/json-rpc/API#eth\_getlogs)
 
 ### **Fetching Pending Transactions**
 
