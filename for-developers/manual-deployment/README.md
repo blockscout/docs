@@ -8,6 +8,10 @@ description: General deployment instructions for a hardware or cloud services en
 For automated deployment on AWS, see [Ansible deployment](../ansible-deployment/).
 {% endhint %}
 
+{% hint style="info" %}
+For local deployment only using Docker, see [Docker Integration.](../information-and-settings/docker-integration-local-use-only.md)
+{% endhint %}
+
 Check your environment is prepared with [General Requirements](../information-and-settings/requirements.md) and [Database Storage Requirements](../information-and-settings/database-storage-requirements.md).
 
 BlockScout requires a **full archive node** in order to import every state change for every address on the target network. For client specific settings related to a node running Erigon/Geth/Nethermind, please see [Client Settings](../information-and-settings/client-settings.md).
@@ -63,7 +67,7 @@ The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, g
 **8)** Install and start[ smart contract verification microservice](../information-and-settings/smart-contract-verification.md). You can [use docker](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#using-docker), [build from source](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#building-from-source), or use cargo directly (example below).
 
 1. `cargo install --git https://github.com/blockscout/blockscout-rs smart-contract-verifier-http`
-2. Run the binary as  `smart-contract-verifier-http`
+2. Run the binary as `smart-contract-verifier-http`
 3. Set ENV variables in CLI to enable the rust microservice for Blockscout (these can also be set at runtime).
 
 ```

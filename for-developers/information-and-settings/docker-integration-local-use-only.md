@@ -1,102 +1,27 @@
+---
+description: For local builds
+---
+
 # Docker Integration
 
-## Usage
-
-Blockscout requires `PostgreSQL` server. This is provided by starting the script (new docker image will be created named `postgres`)
-
-**Start command** `make start` - Sets everything up and starts BlockScout in a docker container. To connect it to your local environment, configure using the [ENV variables](docker-integration-local-use-only.md#env-variables) described below.
-
-**Example connecting to local `ganache` instance running on port `2000` on Mac/Windows:**
-
-```
-COIN=DAI \
-ETHEREUM_JSONRPC_VARIANT=ganache \ 
-ETHEREUM_JSONRPC_HTTP_URL=http://host.docker.internal:2000 \
-ETHEREUM_JSONRPC_WS_URL=ws://host.docker.internal:2000 \
-make start
-```
-
-Blockscout will be available on `localhost:4000`
-
-{% hint style="info" %}
-**mac/Windows**: Docker provides a special URL - `host.docker.internal` - that is available in the container and routed to your local machine.
-
-**Linux:** Docker is starting using `--network=host` and all services are available on `localhost`
+{% hint style="success" %}
+Please see [https://github.com/blockscout/blockscout/tree/master/docker-compose](https://github.com/blockscout/blockscout/tree/master/docker-compose) for all required information.
 {% endhint %}
 
-#### Migrations
+### Configs for different Ethereum clients
 
-By default, `Makefile` completes migrations on `PostgreSQL` creation.
-
-You can also run migrations manually using the `make migrate` command.
-
-{% hint style="danger" %}
-Migrations will clean up your local database
-{% endhint %}
-
-## Env variables
-
-BlockScout supports 3 different JSON RPC Variants. Variant can be configured using `ETHEREUM_JSONRPC_VARIANT` environment variable.
-
-**Example:**
-
-```
-ETHEREUM_JSONRPC_VARIANT=ganache \
-make start
-```
+The repo above contains built-in configs for different clients without need to build the image.
 
 {% hint style="warning" %}
-Do not use `sudo with make start` command since
-
-> Basically, whenever one uses `sudo` with the Makefile/Docker, it causes this error of not being able to communicate with the node.
-
-[https://github.com/poanetwork/blockscout/issues/2795#issuecomment-546076853](https://github.com/poanetwork/blockscout/issues/2795#issuecomment-546076853)
-
-otherwise, application inside the container cannot read environment variables including archive node's RPC/WebSockets endpoints
+**Note for Linux users**: Linux users who run Blockscout in docker with a local node (for example with `docker-compose-no-build-hardhat-network.yml`) need to run the node on [http://0.0.0.0/](http://0.0.0.0/) rather than [http://127.0.0.1/](http://127.0.0.1/)
 {% endhint %}
 
-**Available options are:**
+* Erigon: `docker-compose -f docker-compose-no-build-erigon.yml up -d`
+* Geth: `docker-compose -f docker-compose-no-build-geth.yml up -d`
+* Nethermind, OpenEthereum: `docker-compose -f docker-compose-no-build-nethermind up -d`
+* Ganache: `docker-compose -f docker-compose-no-build-ganache.yml up -d`
+* HardHat network: `docker-compose -f docker-compose-no-build-hardhat-network.yml up -d`
+* Running only explorer without DB: `docker-compose -f docker-compose-no-build-no-db-container.yml up -d`. In this case, one container is created - for the explorer itself. And it assumes that the DB credentials are provided through `DATABASE_URL` environment variable.
 
-* `nethermind` - Nethermind JSON RPC (**Default**)
-* `erigon` - Erigon JSON RPC
-* `geth` - Geth JSON RPC
-* `besu` - Hyperledger Besu RPC
-* `ganache` - Ganache JSON RPC
+All of the configs assume the Ethereum JSON RPC is running at [http://localhost:8545](http://localhost:8545/).
 
-| Variable                     | Description                                                             | Default value                        |
-| ---------------------------- | ----------------------------------------------------------------------- | ------------------------------------ |
-| `ETHEREUM_JSONRPC_VARIANT`   | Variant of your JSON RPC service: `nethermind`, `erigon`, `geth`, `besu` or `ganache` | `nethermind`                             |
-| `ETHEREUM_JSONRPC_HTTP_URL`  | HTTP JSON RPC URL Only for `geth` or `ganache` variant                  | See below - based on JSONRPC variant |
-| `ETHEREUM_JSONRPC_WS_URL`    | WS JSON RPC url                                                         | See below - based on JSONRPC variant |
-| `ETHEREUM_JSONRPC_TRACE_URL` | Trace URL **Only for `nethermind`, `erigon`, `besu` variants**                                 | `http://localhost:8545`              |
-| `COIN`                       | Default Coin                                                            | `POA`                                |
-| `LOGO`                       | Coin logo                                                               | Empty                                |
-| `NETWORK`                    | Network                                                                 | Empty                                |
-| `SUBNETWORK`                 | Subnetwork                                                              | Empty                                |
-| `NETWORK_ICON`               | Network icon                                                            | Empty                                |
-| `NETWORK_PATH`               | Network path                                                            | `/`                                  |
-
-### Default Values for JSONRPC Variants
-
-`ETHEREUM_JSONRPC_HTTP_URL` default values:
-
-* For `erigon`, `geth`, `nethermind`, `besu` - `http://localhost:8545`
-* For `ganache` - `http://localhost:7545`
-
-`ETHEREUM_JSONRPC_TRACE_URL` default values:
-
-* For `erigon`, `nethermind`, `besu` - `http://localhost:8545`
-* For `ganache` - `http://localhost:7545`
-
-## Known issues
-
-### Windows Makefile error
-
-C:\Program Files\Docker\Docker\resources\bin\docker.exe: Error response from daemon: OCI runtime create failed: container\_linux.go:349: starting container process caused "exec: "C:/Program Files/Git/usr/bin/sh": stat C:/Program Files/Git/usr/bin/sh: no such file or directory": unknown. make: _\*_ \[Makefile:265: start] Error 127
-
-On receiving this error you can change the Makefile and make the following adjustments to `docker\Makefile`:
-
-* From: `$(DOCKER_IMAGE) /bin/sh -c "echo $$MIX_ENV && mix do ecto.create, ecto.migrate"`
-* To: `$(DOCKER_IMAGE) //bin/sh -c "echo $$MIX_ENV && mix do ecto.create, ecto.migrate"`
-* From: `$(DOCKER_IMAGE) /bin/sh -c "mix phx.server"`
-* To: `$(DOCKER_IMAGE) //bin/sh -c "mix phx.server"`
