@@ -27,6 +27,7 @@
 * [Verifying a Smart Contract](for-users/smart-contract-interaction/verifying-a-smart-contract/README.md)
   * [Hardhat Verification Plugin](for-users/smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md)
   * [Sourcify Plugin for Hardhat](for-users/verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
+  * [OpenZeppelin Contract Verification](for-users/verifying-a-smart-contract/openzeppelin-contract-verification.md)
   * [Contract Verification via Sourcify](for-users/smart-contract-interaction/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
 * [Interacting with Smart Contracts](for-users/interacting-with-smart-contracts.md)
 * [ABI-Encoded Constructor Arguments](for-users/smart-contract-interaction/abi-encoded-constructor-arguments.md)
