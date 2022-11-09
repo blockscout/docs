@@ -101,6 +101,9 @@ This table is horizontally scrollable, version information is located in the las
 | `NEW_TAGS`                |          | Add public tag labels. More info in [#6316](https://github.com/blockscout/blockscout/pull/6316)                                                       | (empy)                                                 | master |                |
 | `CUSTOM_CONTRACT_ADDRESSES_${tag_name}`                |          | Specify addresses for some label. More info in [#6316](https://github.com/blockscout/blockscout/pull/6316)                                                       | (empy)                                                 | master |                |
 | `API_V2_ENABLED`                |          | Enable API V2. Implemented in [#6361](https://github.com/blockscout/blockscout/pull/6361)                                                       | (empy)                                                 | master |                |
+| `TOKEN_ID_MIGRATION_FIRST_BLOCK`       |          | Bottom block for token id migration. Implemented in [#6391](https://github.com/blockscout/blockscout/pull/6391)                                                                         | 0                                                      | master  |                |
+| `TOKEN_ID_MIGRATION_CONCURRENCY`       |          | Number of workers performing the token id migration. Implemented in [#6391](https://github.com/blockscout/blockscout/pull/6391)                                                         | 1                                                      | master  |                |
+| `TOKEN_ID_MIGRATION_BATCH_SIZE`        |          | Interval of token transfer block numbers processed by a token id migration worker at a time. Implemented in [#6391](https://github.com/blockscout/blockscout/pull/6391)                 | 500                                                    | master  |                |
 
 ### Indexer management
 
