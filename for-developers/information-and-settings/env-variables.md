@@ -295,6 +295,13 @@ This table is horizontally scrollable, version information is located in the las
 | `ENABLE_RUST_VERIFICATION_SERVICE` |          | If `true`, integration with [Rust smart-contract verifier](https://github.com/blockscout/blockscout-rs) is enabled. Implemented in [#5860](https://github.com/blockscout/blockscout/pull/5860) | (empty) | v4.1.8+ |
 | `RUST_VERIFICATION_SERVICE_URL`    |          | URL of Rust smart-contract verifier. Implemented in [#5860](https://github.com/blockscout/blockscout/pull/5860)                                                                                | (empty) | v4.1.8+ |
 
+#### Sol2Uml
+
+| Variable                        | Required | Description                                                                                                                                                                                                   | Default | Version |
+| ------------------------------- | -------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
+| `VISUALIZE_SOL2UML_ENABLED`     |          | If `true`, integration with [Rust sol2uml visulizer](https://github.com/blockscout/blockscout-rs/tree/main/visualizer) is enabled. Implemented in [#6401](https://github.com/blockscout/blockscout/pull/6401) | (empty) | master  |
+| `VISUALIZE_SOL2UML_SERVICE_URL` |          | URL of Rust visualizer. Implemented in [#6401](https://github.com/blockscout/blockscout/pull/6401)                                                                                                            | (empty) | master  |
+
 #### Sourcify
 
 | Variable                      | Required | Description                                                     | Default                                                                                                                                                                                                                           | Version |
