@@ -330,3 +330,12 @@ This table is horizontally scrollable, version information is located in the las
 | ------------------------ | -------- | ---------------------------------------------------------------------------------------- | ------- | ------- |
 | `SPANDEX_BATCH_SIZE`     |          | [Spandex](https://github.com/spandex-project/spandex) and Datadog configuration setting. | (empty) | all     |
 | `SPANDEX_SYNC_THRESHOLD` |          | [Spandex](https://github.com/spandex-project/spandex) and Datadog configuration setting. | (empty) | all     |
+
+#### Analytics
+
+| Variable           | Required | Description                                                                                                                             | Default | Version |
+| -------------------| -------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
+| `MIXPANEL_TOKEN`   |          | [Mixpanel](https://mixpanel.com/) project token.                                                                                        | (empty) | master  |
+| `MIXPANEL_URL`     |          | Url to use Mixpanel with proxy ([Collection via Proxy](https://developer.mixpanel.com/docs/collection-via-a-proxy)).                    | (empty) | master  |
+| `AMPLITUDE_API_KEY`|          | [Amplitude](https://amplitude.com/) API key.                                                                                            | (empty) | master  |
+| `AMPLITUDE_URL`    |          | Url to use Amplitude with proxy ([Use Domain Proxy to Relay Events](https://www.docs.developers.amplitude.com/analytics/domain-proxy/)).| (empty) | master  |
