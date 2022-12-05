@@ -20,7 +20,7 @@ L1 to L2 transactions need to be clearly defined along with access to the curren
 
 Contract verification should be easy and available to rollup users, and system contracts (including the rollup contracts themselves, bridge contracts and token contracts) should all be verifiable through the explorer interface.&#x20;
 
-These are simply some starting points for L2 data incorporation. As we continue our research into L2 systems we will further define the required data and views to best display digestible information for both the end user and projects requiring access to available RPC methods and cross-L2 exploration tools.
+These are simply some starting points for L2 data incorporation. As we continue our research into L2 systems we will further define the required data and views to best display digestible information for both the end user and projects requiring access to available RPC methods and cross-L2 exploration tools. General specs will be developed along with customization options for different L2 solutions.
 
 {% embed url="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/bd8e76ee-dad4-4d17-b71c-e8fcfb9e42ba/rollup-transaction-submission.drawio.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221205%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20221205T200815Z&X-Amz-Expires=86400&X-Amz-Signature=d17a196e59f57e5ed8a4b9fc42cac5ca78747ceda6013a58f7286b3875f16977&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22rollup-transaction-submission.drawio.svg%22&x-id=GetObject" %}
 General System Overview
@@ -55,7 +55,7 @@ This is a basic outline of our proposed process, open for discussion and subject
 | 3     | Begin UI enhancements, focus on batch data views. Data optimization, RPC extension Bring in front end dev.                                               |
 | 4     | Extend enhancements to other views, incorporate account functionality, focus on contract verification tools and functionality.                           |
 | 5     | L2-specific UI improvements, QA, analytics integrations.                                                                                                 |
-| 6     | Complete new UI for L2 explorers, documentation, rollout. Bring in documentation help.                                                                   |
+| 6     | Complete new generalized UI for L2 explorers, documentation, rollout and customization features. Bring in documentation help.                            |
 
 ## Why Blockscout?
 
