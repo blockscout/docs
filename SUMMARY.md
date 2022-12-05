@@ -6,7 +6,8 @@
 
 * [Features](about/features.md)
 * [Projects Using Blockscout](about/projects.md)
-* [Funding](about/funding.md)
+* [Funding](about/funding/README.md)
+  * [L2 Funding Proposal](about/funding/l2-funding-proposal.md)
 * [Roadmap](about/roadmap.md)
 * [FAQs](about/faqs.md)
 
@@ -111,7 +112,7 @@
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
-## 👨🔧 👨🔧 👨🔧 👨🔧 👨🔧 Job Openings <a href="#jobs" id="jobs"></a>
+## 👨🔧 👨🔧 👨🔧 👨🔧 👨🔧 👨🔧 Job Openings <a href="#jobs" id="jobs"></a>
 
 * [DevOps Engineer](jobs/devops-engineer.md)
 * [Elixir Developer](jobs/elixir-developer.md)
