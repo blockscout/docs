@@ -59,7 +59,7 @@ This is a basic outline of our proposed process, open for discussion and subject
 
 ## Why Blockscout?
 
-As an open-source project with 5+ years experience in the space, Blockscout is uniquely positioned to extend the current explorer implementation to serve the L2 ecosystem. We are already working with various L2s including Optimism on their implementations and will incorporate any non-proprietary learnings into this next generation L2 explorer. Additional grant funding will accelerate and improve this process immensely.&#x20;
+As an open-source project with 5+ years experience in the space, Blockscout is uniquely positioned to extend the current explorer implementation to serve the L2 ecosystem. We are already working with various L2s including Optimism, zkEVM, and zkSync to gather requirements on their implementations and incorporate these learnings into a next generation L2 explorer. Additional grant funding will accelerate and improve this process immensely.&#x20;
 
 
 
