@@ -18,7 +18,7 @@ Blockscout's base configuration is geared towards L1 EVM implementation, centere
 
 L1 to L2 transactions need to be clearly defined along with access to the current fraud proof window when appropriate. Transaction batch and state batch details should be included in an easy-to-explore format. Transaction fraud proof windows should be displayed along with countdowns, and if already executed, the transaction should be linked to its L1 counterpart.
 
-Contract verification should be easy and available to rollup users, and system contracts (including the rollup contracts themselves, bridge contracts and token contracts) should all be verifiable through the explorer interface.&#x20;
+Contract verification should be easy and available to rollup users, and system contracts (including the rollup contracts themselves, bridge contracts and token contracts) should all be verifiable.&#x20;
 
 These are simply some starting points for L2 data incorporation. As we continue our research into L2 systems we will further define the required data and views to best display digestible information for both the end user and projects requiring access to available RPC methods and cross-L2 exploration tools. General specs will be developed along with customization options for different L2 solutions.
 
