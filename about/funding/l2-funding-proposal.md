@@ -8,13 +8,13 @@ Blockscout is a primary open-source explorer for the Ethereum ecosystem. Over 10
 
 While these projects have been able to get Blockscout up-and-running quickly, and in a basic capacity, there is a lack of advanced features available for L2 projects. This has led several L2s to start with the Blockscout UI to setup basic configs, then move operations to Etherscan (while still potentially using some features of the Blockscout API). Users and projects expect Etherscan-like capabilities that Blockscout does not yet support.&#x20;
 
-However, what Blockscout does support is open-source code and ecosystem transparency. In order to more quickly reach parity with closed-source explorers and offer users a superior experience for L2 exploration, Blockscout can greatly benefit from additional grant funding.
+However, what Blockscout does support is open-source code and ecosystem transparency. In order to more quickly reach parity with closed-source explorers and offer users a superior experience for L2 exploration and ultimately a more cohesive and blended L1/L2 experience, Blockscout can greatly benefit from additional grant funding.
 
 ## What is Needed
 
 ### L2 Data Views
 
-Blockscout's base configuration is geared towards L1 EVM implementation, centered around block exploration. To incorporate L2s effectively, batches need to take precendence. In particular batch attributes such as Index, L1 Timestamp, Size, L1 tx hash, L1 block number, and Batch root should be easily explorable.
+Blockscout's base configuration is geared towards L1 EVM implementation, centered around block exploration. To incorporate L2s effectively, batches need to take precendence. In particular batch attributes such as `Index, L1 Timestamp, Size, L1 tx hash, L1 block number, and Batch root` should be easily explorable.
 
 L1 to L2 transactions need to be clearly defined along with access to the current fraud proof window when appropriate. Transaction batch and state batch details should be included in an easy-to-explore format. Transaction fraud proof windows should be displayed along with countdowns, and if already executed, the transaction should be linked to its L1 counterpart.
 
