@@ -12,6 +12,12 @@ For automated deployment on AWS, see [Ansible deployment](../ansible-deployment/
 For local deployment only using Docker, see [Docker Integration.](../information-and-settings/docker-integration-local-use-only.md)
 {% endhint %}
 
+{% hint style="info" %}
+For Polygon-edge deployment, see the [Polygon Docs](https://wiki.polygon.technology/docs/edge/additional-features/blockscout/).
+{% endhint %}
+
+## Manual Deployment
+
 Check your environment is prepared with [General Requirements](../information-and-settings/requirements.md) and [Database Storage Requirements](../information-and-settings/database-storage-requirements.md).
 
 BlockScout requires a **full archive node** in order to import every state change for every address on the target network. For client specific settings related to a node running Erigon/Geth/Nethermind, please see [Client Settings](../information-and-settings/client-settings.md).
