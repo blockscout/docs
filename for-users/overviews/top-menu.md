@@ -1,6 +1,6 @@
 # Top Menu
 
-The top menu contains navigational items for exploration. The menu is customizable, and different instances can have different menus depending on the needs of the chain.&#x20;
+The top menu contains navigational items for exploration. The menu is customizable, and different instances can have different menus depending on the needs of the chain.
 
 <figure><img src="../../.gitbook/assets/top1.png" alt=""><figcaption><p>Ethereum Mainnet Menu</p></figcaption></figure>
 
@@ -20,9 +20,9 @@ The top menu contains navigational items for exploration. The menu is customizab
 
 ## Tokens
 
-Token menu is often configured differently depending on the instance.&#x20;
+Token menu is often configured differently depending on the instance.
 
-* **All:**  A list of ERC-20 tokens deployed to the chain.&#x20;
+* **All:** A list of ERC-20 tokens deployed to the chain.
 * **Native** (ie **ETH** on mainnet): Displays native token holders, ordered by balance.
 * **Bridged**: If a chain includes bridged tokens (ie [Gnosis Chain](https://blockscout.com/xdai/mainnet)) these can be catalogued here.
 
@@ -40,7 +40,7 @@ Customizable menu that can link to different ecosystem applications, utilities a
 
 ## Networks
 
-The current network name along with a dropdown displaying available instances.  Self-hosted chains may choose to only show their Mainnet and testnets. Hosted instances typically include links to other Hosted instances including Ethereum, Ethereum Classic, and Gnosis Chain.
+The current network name along with a dropdown displaying available instances. Self-hosted chains may choose to only show their Mainnet and testnets. Hosted instances typically include links to other Hosted instances including Ethereum, Ethereum Classic, and Gnosis Chain.
 
 ## Night Mode
 
@@ -56,5 +56,4 @@ The comprehensive search bar allows for search by address, token name, token sym
 
 Also included in the top menu is the Project logo. Projects can add and change custom logo using ENV variables during deployment. [More info here](../../for-developers/configuration-options/branding-configs.md).
 
-<figure><img src="../../.gitbook/assets/customizable-logo (1).png" alt=""><figcaption></figcaption></figure>
-
+<figure><img src="../../.gitbook/assets/customizable-logo.png" alt=""><figcaption></figcaption></figure>

@@ -30,7 +30,7 @@ Before you start, make sure you have completed the [prerequisites](aws-marketpla
 
 ![](../../../.gitbook/assets/bs-choose-action.png)
 
-7\)  Start to configure the stack.  Maintain the default selections (Template is ready) and click **Next**.
+7\) Start to configure the stack. Maintain the default selections (Template is ready) and click **Next**.
 
 ![](../../../.gitbook/assets/bs-templa-specify.png)
 
@@ -52,7 +52,7 @@ Before you start, make sure you have completed the [prerequisites](aws-marketpla
 If any items do not match template specifics, you can fix by clicking previous, changing an item, and returning to the Create stack page.
 {% endhint %}
 
-![](<../../../.gitbook/assets/create-stack (1) (1) (1).png>)
+![](<../../../.gitbook/assets/create-stack (1) (1).png>)
 
 11\) Your instance will be located in the CloudFormation section of AWS (search CloudFormation under services to find). You can manage the stack here, including monitoring processes, updating and deleting.
 
@@ -79,17 +79,6 @@ For additional configuration options, see:
 * [Customizing CSS](customizing-css.md)
 * [Updating BlockScout on AWS](updating-and-redeploying-in-aws.md)
 
-****
+***
 
-
-
-****
-
-
-
-
-
-
-
-
-
+***

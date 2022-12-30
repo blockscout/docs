@@ -16,6 +16,7 @@
 * [Overviews](for-users/overviews/README.md)
   * [Top Menu](for-users/overviews/top-menu.md)
   * [Blocks](for-users/overviews/blocks.md)
+  * [Transaction Types](for-users/overviews/transaction-types.md)
 * [Blockscout Apps](for-users/blockscout-apps/README.md)
   * [Token Approval Tracker](for-users/blockscout-apps/token-approval-tracker.md)
 * [My Account](for-users/my-account/README.md)
@@ -112,7 +113,7 @@
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
-## 👨🔧 👨🔧 Job Openings <a href="#jobs" id="jobs"></a>
+## 👨🔧 👨🔧 👨🔧 Job Openings <a href="#jobs" id="jobs"></a>
 
 * [DevOps Engineer](jobs/devops-engineer.md)
 * [Elixir Developer](jobs/elixir-developer.md)
