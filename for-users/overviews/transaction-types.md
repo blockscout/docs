@@ -9,6 +9,7 @@ Different types of transactions are categorized in the Blockscout UI to allow fo
 * **Token creation**: creation of token instance in ERC-1155&#x20;
 * **Token minting**: token transfer of any of ERC-20, 721, 1155 token instance (single or bulk) from 0x0000... address&#x20;
 * **Token transfer**: token transfer of any of ERC-20, 721, 1155 token instance (single or bulk)&#x20;
+* **Transaction**: A contract call where the contract has not yet been identified by Blockscout.
 
 <figure><img src="../../.gitbook/assets/new-ui.png" alt=""><figcaption><p>Transaction types in Blockscout 2.0</p></figcaption></figure>
 
