@@ -6,9 +6,9 @@ description: ShareLock is the row-level locking mechanism used internally by Pos
 
 ### Deadlocks and prevention
 
-When several DB transactions are acting on multiple rows of the same table, it's possible to incur in a deadlock and so into an error. This can be prevented by enforcing the same consistent order of lock aquisition on _all_ the transactions performing `INSERT`, `UPDATE` or `DELETE` on a given table.
+When several DB transactions are acting on multiple rows of the same table, it's possible to incur in a deadlock and so into an error. This can be prevented by enforcing the same consistent order of lock acquisition on _all_ the transactions performing `INSERT`, `UPDATE` or `DELETE` on a given table.
 
-On top of this, if multiple DB transactions act on multiple tables a deadlock will occur, even if they follow the order on each table described above, if they acquire locks on said tables in a different order. This can also be prevented by using a consisten order of lock acquisition _between_ different tables.
+On top of this, if multiple DB transactions act on multiple tables a deadlock will occur, even if they follow the order on each table described above, if they acquire locks on said tables in a different order. This can also be prevented by using a consistent order of lock acquisition _between_ different tables.
 
 ### Imposing the lock acquisition order on a table with Ecto
 
@@ -43,7 +43,7 @@ Repo.update_all(
   timeout: timeout)
 ```
 
-`DELETE` has the same quircks as `UPDATE` and it is too solved in the same way.
+`DELETE` has the same quirks as `UPDATE` and it is too solved in the same way.
 
 For example:
 
