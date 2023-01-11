@@ -8,7 +8,8 @@
 * [Projects Using Blockscout](about/projects.md)
 * [Funding](about/funding/README.md)
   * [L2 Funding Proposal](about/funding/l2-funding-proposal.md)
-* [Roadmap](about/roadmap.md)
+* [Roadmap](about/roadmap/README.md)
+  * [Blockscout 2.0](about/roadmap/blockscout-2.0.md)
 * [FAQs](about/faqs.md)
 
 ## 🙎 For Users

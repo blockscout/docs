@@ -5,7 +5,7 @@ description: Blockchain Explorer for inspecting and analyzing EVM Chains.
 # Welcome to Blockscout
 
 {% hint style="success" %}
-V2.0 is coming soon! Stay tuned for more details....
+Blockscout 2.0 is almost here! This major update is set to transform blockchain exploration. As we near the final stages of development, [we are excited to share more details about what's coming with BlockScout 2.0](about/roadmap/blockscout-2.0.md).
 {% endhint %}
 
 Blockscout provides a comprehensive, easy-to-use interface for users to view, confirm, and inspect transactions on EVM (Ethereum Virtual Machine) blockchains. Blockscout currently supports a wide range of projects and hosts chains such as Ethereum, Ethereum Classic, Polygon, Optimism, Gnosis Chain, Celo, Astar, and many more. See our [projects list](about/projects.md) for more details.
