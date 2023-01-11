@@ -2,7 +2,7 @@
 
 If Constructor Arguments are required by the contract, you will add them to the Constructor Arguments field in [ABI hex encoded form](https://solidity.readthedocs.io/en/develop/abi-spec.html). Constructor arguments are appended to the END of the contract source bytecode when compiled by Solidity.
 
-An easy way to find these arguments is to compare the `raw input` code in the transaction details to to the contract creation code in the code section of the contract.
+An easy way to find these arguments is to compare the `raw input` code in the transaction details to the contract creation code in the code section of the contract.
 
 When are constructor arguments used?
 

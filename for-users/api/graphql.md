@@ -54,7 +54,7 @@ subscription {
 
 ## **Access GraphQL API**
 
-To access Blockscout GraphQL interface you can you can use GraphiQL - in-browser IDE for exploring GraphQL. It's built in to Blockscout.
+To access Blockscout GraphQL interface you can use GraphiQL - in-browser IDE for exploring GraphQL. It's built in to Blockscout.
 
 From the `APIs` dropdown menu choose `GraphQL.` Depending on the implementation you may also find the link in the page footer.
 
