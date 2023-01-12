@@ -39,6 +39,7 @@
 * [API](for-users/api/README.md)
   * [Requests & Limits](for-users/api/requests-and-limits.md)
   * [GraphQL in Blockscout](for-users/api/graphql.md)
+  * [ETH RPC](for-users/api/eth-rpc.md)
 
 ## 🥷 For Developers
 
@@ -114,7 +115,7 @@
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
-## 👨🔧 👨🔧 👨🔧 Job Openings <a href="#jobs" id="jobs"></a>
+## 👨🔧 👨🔧 👨🔧 👨🔧 Job Openings <a href="#jobs" id="jobs"></a>
 
 * [DevOps Engineer](jobs/devops-engineer.md)
 * [Elixir Developer](jobs/elixir-developer.md)
