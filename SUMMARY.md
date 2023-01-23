@@ -36,6 +36,7 @@
 * [ABI-Encoded Constructor Arguments](for-users/smart-contract-interaction/abi-encoded-constructor-arguments.md)
 * [CSV Exports](for-projects/premium-features/export-to-csv.md)
 * [ERC-1155 Support](for-projects/premium-features/erc-1155-support.md)
+* [Beacon Chain Withdrawal Views](for-users/beacon-chain-withdrawal-views.md)
 * [API](for-users/api/README.md)
   * [Requests & Limits](for-users/api/requests-and-limits.md)
   * [GraphQL in Blockscout](for-users/api/graphql.md)
