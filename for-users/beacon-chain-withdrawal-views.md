@@ -6,7 +6,7 @@ description: Coming Soon
 
 Validator withdrawals will soon be activated on the Ethereum mainnet with the Shanghai/Capella hardfork ([EIP-4895](https://eips.ethereum.org/EIPS/eip-4895))**,** and Blockscout will provide views for partial and full withdrawals.
 
-Withdrawals are akin to simple transactions (though they are actually 0 gas balance increases) included in the block structure. Coins are transferred from a validator to a pre-set withdrawal address (either EOA or contract). Each withdrawal also includes a unique integer index starting from 0 and incrementing by 1 with each withdrawal.
+Withdrawals are akin to simple transactions (though they are actually 0 gas balance increases) included in the block structure. Coins are transferred from a validator to a preset withdrawal address (either EOA or contract). Each withdrawal also includes a unique integer index starting from 0 and incrementing by 1 with each withdrawal.
 
 The unique `index`, assigned `validatorIndex`, withdrawal receiving `address`, and `amount` are all included in the withdrawals structure and will be displayed on Blockscout on the block and addresses pages.
 
