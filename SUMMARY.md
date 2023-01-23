@@ -8,7 +8,8 @@
 * [Projects Using Blockscout](about/projects.md)
 * [Funding](about/funding/README.md)
   * [L2 Funding Proposal](about/funding/l2-funding-proposal.md)
-* [Roadmap](about/roadmap.md)
+* [Roadmap](about/roadmap/README.md)
+  * [Blockscout 2.0](about/roadmap/blockscout-2.0.md)
 * [FAQs](about/faqs.md)
 
 ## 🙎 For Users
@@ -16,6 +17,7 @@
 * [Overviews](for-users/overviews/README.md)
   * [Top Menu](for-users/overviews/top-menu.md)
   * [Blocks](for-users/overviews/blocks.md)
+  * [Transaction Types](for-users/overviews/transaction-types.md)
 * [Blockscout Apps](for-users/blockscout-apps/README.md)
   * [Token Approval Tracker](for-users/blockscout-apps/token-approval-tracker.md)
 * [My Account](for-users/my-account/README.md)
@@ -37,6 +39,7 @@
 * [API](for-users/api/README.md)
   * [Requests & Limits](for-users/api/requests-and-limits.md)
   * [GraphQL in Blockscout](for-users/api/graphql.md)
+  * [ETH RPC](for-users/api/eth-rpc.md)
 
 ## 🥷 For Developers
 
@@ -112,7 +115,7 @@
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
 
-## 👨🔧 Job Openings <a href="#jobs" id="jobs"></a>
+## 👨🔧 👨🔧 👨🔧 👨🔧 Job Openings <a href="#jobs" id="jobs"></a>
 
 * [DevOps Engineer](jobs/devops-engineer.md)
 * [Elixir Developer](jobs/elixir-developer.md)

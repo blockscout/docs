@@ -335,3 +335,35 @@ JSON_RPC=https://rpc.gnosischain.com/
 ```
 
 </details>
+
+<details>
+
+<summary>How do I update the internal tx fetcher to skip blocks or start from block to prevent errors?</summary>
+
+Set `TRACE_FIRST_BLOCK` and `TRACE_LAST_BLOCK` [env variables](../for-developers/information-and-settings/env-variables.md).
+
+</details>
+
+<details>
+
+<summary>What is the command to install the smart contract verifier?</summary>
+
+`cargo install --git` [https://github.com/blockscout/blockscout-rs](https://github.com/blockscout/blockscout-rs) `smart-contract-verifier-http`\
+``\
+``[Learn more about the contract verifier](../for-developers/information-and-settings/smart-contract-verification.md)
+
+</details>
+
+<details>
+
+<summary>How to fix error: "Could not compile dependency :libsecp256k1, "mix compile" failed.</summary>
+
+This error can happen when running `mix local.rebar --force`
+
+Try this command:
+
+`cd deps/libsecp256k1` \
+`make`
+
+</details>
+

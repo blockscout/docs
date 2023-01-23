@@ -1,10 +1,10 @@
 # Transaction Tags
 
-Each transaction on a blockchain has a unique identifier called a hash. The transaction hash is created cryptographically from the details of a transaction such as the sender, receiver, value, additional data, and nonce.&#x20;
+Each transaction on a blockchain has a unique identifier called a hash. The transaction hash is created cryptographically from the details of a transaction such as the sender, receiver, value, additional data, and nonce.
 
-Similar to address tags, transaction tags are useful for specifying and organizing  transactions in the Blockscout interface.  When  logged in, a small grey tag will be added with the chosen name to any tagged transaction.
+Similar to address tags, transaction tags are useful for specifying and organizing transactions in the Blockscout interface. When logged in, a small grey tag will be added with the chosen name to any tagged transaction.
 
-**1)  Login to My Account in Blockscout** <[_login instructions_](./)> to create a tag.
+**1) Login to My Account in Blockscout** <[_login instructions_](./)> to create a tag.
 
 1. Go to Transaction Tags in the user menu.
 2. Press Add transaction tag.
@@ -29,4 +29,4 @@ Similar to address tags, transaction tags are useful for specifying and organizi
 Note, you must be logged in to My Account to see your transaction tags.
 {% endhint %}
 
-![](../../.gitbook/assets/tr-4.png)
+![](<../../.gitbook/assets/tr-4 (1).png>)

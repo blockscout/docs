@@ -8,7 +8,7 @@ A microservice written in Rust provides fast and efficient contract verification
 
 * [Basic Info](smart-contract-verification.md#basic-info)
 * [Library Initialization](smart-contract-verification.md#library-initialization)
-* [Solidity and Vyper Verfication](smart-contract-verification.md#solidity-and-vyper-verification)
+* [Solidity and Vyper Verification](smart-contract-verification.md#solidity-and-vyper-verification)
 * [Sourcify Verification](smart-contract-verification.md#sourcify-verification)
 * [Verification Algorithm](smart-contract-verification.md#verification-algorithm)
 * [Http API](smart-contract-verification.md#verification-http-api)
@@ -85,7 +85,7 @@ Each request contains the following values:
 As a result of successful verification the following struct is returned:
 
 * **Compiler input**: Data used as an input for the compiler
-* **Compiler version**: version of the compiler used in verification (corresponds the the version provided in request)
+* **Compiler version**: version of the compiler used in verification (corresponds to the version provided in request)
 * **File path**: path of the file containing verified contract
 * **Contract name**: name of the verified contract
 * **Abi**: application binary interface of the verified contract ([https://docs.soliditylang.org/en/v0.8.13/abi-spec.html?highlight=abi](https://docs.soliditylang.org/en/v0.8.13/abi-spec.html?highlight=abi))
