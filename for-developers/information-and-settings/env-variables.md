@@ -106,6 +106,7 @@ This table is horizontally scrollable, version information is located in the las
 | `TOKEN_ID_MIGRATION_CONCURRENCY`        |          | Number of workers performing the token id migration. Implemented in [#6391](https://github.com/blockscout/blockscout/pull/6391)                                                         | 1                                                      | v5.0.0+  |                |
 | `TOKEN_ID_MIGRATION_BATCH_SIZE`         |          | Interval of token transfer block numbers processed by a token id migration worker at a time. Implemented in [#6391](https://github.com/blockscout/blockscout/pull/6391)                 | 500                                                    | v5.0.0+  |                |
 | `SESSION_COOKIE_DOMAIN`         |          | Value of this env will be added to domain of session cookie. Implemented in [#6544](https://github.com/blockscout/blockscout/pull/6544)                 | (empty)                                                    | v5.0.0+  |                |
+| `DECODE_NOT_A_CONTRACT_CALLS`         |          | Allows to decode contract calls directed to addresses which are not contracts. Implemented in [#6541](https://github.com/blockscout/blockscout/pull/6541)                 | (empty)                                                    | master  |                |
 
 ### Indexer management
 
@@ -298,7 +299,7 @@ This table is horizontally scrollable, version information is located in the las
 
 | Variable                           | Required | Description                                                                                                                                                                                    | Default | Version |
 | ---------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
-| `ENABLE_RUST_VERIFICATION_SERVICE` |          | If `true`, integration with [Rust smart-contract verifier](https://github.com/blockscout/blockscout-rs) is enabled. Implemented in [#5860](https://github.com/blockscout/blockscout/pull/5860) | (empty) | v4.1.8+ |
+| `ENABLE_RUST_VERIFICATION_SERVICE` |          | If `true`, integration with [Rust smart-contract verifier](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier) is enabled. Implemented in [#5860](https://github.com/blockscout/blockscout/pull/5860) | (empty) | v4.1.8+ |
 | `RUST_VERIFICATION_SERVICE_URL`    |          | URL of Rust smart-contract verifier. Implemented in [#5860](https://github.com/blockscout/blockscout/pull/5860)                                                                                | (empty) | v4.1.8+ |
 
 #### Sol2Uml
@@ -307,6 +308,13 @@ This table is horizontally scrollable, version information is located in the las
 | ------------------------------- | -------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
 | `VISUALIZE_SOL2UML_ENABLED`     |          | If `true`, integration with [Rust sol2uml visulizer](https://github.com/blockscout/blockscout-rs/tree/main/visualizer) is enabled. Implemented in [#6401](https://github.com/blockscout/blockscout/pull/6401) | (empty) | v5.0.0+  |
 | `VISUALIZE_SOL2UML_SERVICE_URL` |          | URL of Rust visualizer. Implemented in [#6401](https://github.com/blockscout/blockscout/pull/6401)                                                                                                            | (empty) | v5.0.0+  |
+
+#### Sig-provider
+
+| Variable                           | Required | Description                                                                                                                                                                                    | Default | Version |
+| ---------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
+| `SIG_PROVIDER_SERVICE_URL` |          | If `true`, integration with [Rust sig-provider service](https://github.com/blockscout/blockscout-rs/tree/main/sig-provider) is enabled. Implemented in [#6541](https://github.com/blockscout/blockscout/pull/6541) | (empty) | master |
+| `SIG_PROVIDER_ENABLED`    |          | URL of Rust sig-provider service. Implemented in [#6541](https://github.com/blockscout/blockscout/pull/6541)                                                                                | (empty) | master |
 
 #### Sourcify
 
