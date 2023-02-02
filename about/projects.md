@@ -52,6 +52,8 @@ Categories:
 | <img src="../.gitbook/assets/oasis (1).png" alt="" data-size="line"> [Oasis](https://explorer.emerald.oasis.dev/)                    | Privacy-enabled and scalable layer-1 blockchain network. <mark style="background-color:blue;">Self Hosted</mark>[ 🌐 site](https://oasisprotocol.org/)                                                                               |
 | <img src="../.gitbook/assets/cloudwalk (1).png" alt="" data-size="line">[Cloudwalk](https://explorer.mainnet.cloudwalk.io/)          | Democratizing the payments industry in Brazil with a goal to create a global payments network. <mark style="background-color:blue;">Self Hosted</mark> 🌐[ site](https://www.cloudwalk.io/)                                          |
 
+| <img src="../.gitbook/assets/brnkc.png" alt="" data-size="line">[Bear Network Chain](https://brnkscan.bearnetwork.net/)          | Democratizing the payments industry in Brazil with a goal to create a global payments network. <mark style="background-color:blue;">Self Hosted</mark> 🌐[ site](https://bearnetwork.net/)                                          |
+
 ### Polygon Ecosystem
 
 Polygon is currently using Blockscout for testing zkEVM and Polygon Edge instances. Look for more instances in the future!
