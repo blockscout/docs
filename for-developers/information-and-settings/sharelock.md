@@ -115,6 +115,7 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.InternalTransaction | internal\_transactions | \[asc: :transaction\_hash, asc: :index\] |
 | Explorer.Chain.Token | tokens | asc: :contract\_address\_hash |
 | Explorer.Chain.TokenTransfer | token\_transfers | \[asc: :transaction\_hash, asc: :log\_index\] |
+| Explorer.Chain.TransactionAction | transaction\_actions | \[asc: :hash, asc: :log\_index\] |
 | Explorer.Chain.Address.TokenBalance | address\_token\_balances | \[asc: :address\_hash, asc: :token\_contract\_address\_hash, asc: :block\_number\] |
 | Explorer.Chain.Address.CurrentTokenBalance | address\_current\_token\_balances | \[asc: :address\_hash, asc: :token\_contract\_address\_hash\] |
 | Explorer.Chain.StakingPool | staking\_pools | :staking\_address\_hash |
