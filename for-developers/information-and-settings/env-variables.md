@@ -249,7 +249,9 @@ This table is horizontally scrollable, version information is located in the las
 | `COIN_BALANCE_HISTORY_DAYS`           |          | Number of days to consider at coin balance history chart.                                                                                                                   | 10                                                                                            | v3.1.3+ |
 | `ADMIN_PANEL_ENABLED`                 |          | if `true` admin/\* routes are available. Implemented in [#5208](https://github.com/blockscout/blockscout/pull/5208)                                                         | (empty)                                                                                       | v4.1.2+ |
 | `CONTRACT_VERIFICATION_MAX_LIBRARIES` |          | Max amount of libraries to consider in smart-contract verification from flat/multi-part file(s). Implemented in [#6204](https://github.com/blockscout/blockscout/pull/6204) | (empty)                                                                                       | v5.0.0+  |
-| `PERMANENT_DARK_MODE_ENABLED` |          | If `true`, permanet dark mode is enabled. Dark mode switcher is hidden in this case. Implemented in [#6204](https://github.com/blockscout/blockscout/pull/6763) | (empty)                                                                                       | master  |
+| `PERMANENT_DARK_MODE_ENABLED` |          | If `true`, permanent dark mode is enabled. Dark mode switcher is hidden in this case. Implemented in [#6763](https://github.com/blockscout/blockscout/pull/6763) | (empty)                                                                                       | master  |
+| `PERMANENT_LIGHT_MODE_ENABLED` |          | If `true`, permanent light mode is enabled. Dark mode switcher is hidden. Implemented in [#6838](https://github.com/blockscout/blockscout/pull/6838) | (empty)                                                                                       | master  |
+
 
 ### CSV export
 
