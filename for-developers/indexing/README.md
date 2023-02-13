@@ -5,10 +5,18 @@ BlockScout can take some time to fully index a chain. Larger chains require more
 ### Messages during indexing 
 
 1. **n% Blocks Indexed - We're indexing this chain right now. Some of the counts may be inaccurate.** This means blocks are still being collected and processed by BlockScout. The message should disappear once the genesis block is indexed.
-2. **Indexing Internal Transactions - We're indexing this chain right now. Some of the counts may be inaccurate.** This means BlockScout has collected all blocks but is still indexing internal transactions using the archive node tracing api. This message will disappear when `INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER=true` is provided.
+2. **Blocks With Internal Transactions Indexed - We're indexing this chain right now. Some of the counts may be inaccurate.** This means BlockScout has collected all blocks but is still indexing internal transactions using the archive node tracing api. This message will disappear when `INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER=true` is provided.
 
 ### Monitoring indexing processes
 
 1. Block count should be close to the number of the blocks in the chain. Query using  `SELECT COUNT(1) FROM blocks;` ~= num of blocks in the chain.
-2. Internal transaction fetching can be monitored with this query: `SELECT COUNT(1) FROM pending_block_operations;`  It should move towards zero during internal transaction processing.
+2. The number of missing blocks in the chain can be monitored with this query:
+```
+SELECT COUNT(DISTINCT b1.number)
+FROM generate_series(0, (SELECT MAX(number) FROM blocks)) AS b1(number)
+WHERE NOT EXISTS (
+    SELECT 1 FROM blocks b2 WHERE b2.number=b1.number AND b2.consensus
+);
+```
+3. Internal transaction fetching can be monitored with this query: `SELECT COUNT(1) FROM pending_block_operations;`  It should move towards zero during internal transaction processing.
 
