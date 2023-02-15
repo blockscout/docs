@@ -269,6 +269,7 @@ This table is horizontally scrollable, version information is located in the las
 | `API_RATE_LIMIT_BY_IP`           |          | A dedicated API rate limit for whitelisted IPs. Implemented in [#5090](https://github.com/blockscout/blockscout/pull/5090)                       | 50      | v4.1.1+ |
 | `API_RATE_LIMIT_WHITELISTED_IPS` |          | Comma-separated whitelisted IPs list with dedicated rate limit. Implemented in [#5090](https://github.com/blockscout/blockscout/pull/5090)       | (empty) | v4.1.1+ |
 | `API_RATE_LIMIT_STATIC_API_KEY`  |          | Static API key with dedicated API rate limit. Implemented in [#5080](https://github.com/blockscout/blockscout/pull/5080)                         | (empty) | v4.1.1+ |
+| `API_RATE_LIMIT_DISABLED`                 |          | If`true`, any type of rate limit is ignored. Implemented in [#6908](https://github.com/blockscout/blockscout/pull/6908) | (empty)      | master |
 
 ### Specific smart-contracts
 
