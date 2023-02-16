@@ -35,7 +35,7 @@ Last updated 13 June, 2022.
 {% hint style="info" %}
 This table is horizontally scrollable, version information is located in the last column. ENVs are listed by category:
 
-* [General](env-variables.md#undefined)
+* [General](env-variables.md#general)
 * [Indexer](env-variables.md#indexer-management)
 * [Exchange Rates](env-variables.md#exchange-rates-management)
 * [Cache](env-variables.md#cache-management)
