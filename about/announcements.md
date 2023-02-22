@@ -1,3 +1,3 @@
 # Announcements
 
-Coming Soon!
+🔵 Coming Soon!
