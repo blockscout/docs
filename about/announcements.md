@@ -21,4 +21,4 @@ Blockscout 2.0 is designed to benefit users, developers and projects, providing 
 
 Blockscout is the preferred open-source blockchain explorer for EVM compatible chains, with over five years of production experience. The explorer offers a reliable, customizable, and transparent solution for public chains, private chains, testnets, and many other networks. With a focus on promoting decentralization, transparency, and community, Blockscout is the explorer of choice for more than 100 public networks.
 
-For more information about Blockscout and its latest version, Blockscout 2.0, please visit[ https://blockscout.com/](https://blockscout.com/).
+Learn more about [Blockscout 2.0 here](roadmap/blockscout-2.0.md).
