@@ -15,7 +15,7 @@ Base leverages the open-source OP Stack while relying on Ethereum for L1 securit
 
 Blockscout 2.0 is designed to benefit users, developers and projects, providing a complementary alternative to centralized, proprietary explorers in the space. Newly configured and optimized APIs, a dedicated smart contract verification microservice, and extensive analytics tools help support projects as they deploy and grow within the Base ecosystem.
 
-“Access to reliable, transparent onchain data is critical for web3 developers and users alike. We are excited to work with onchain explorers such as Blockscout to provide Base developers with solutions that make it even easier to build their dapps, and for users to easily understand their onchain activity" said Base Lead Jesse Pollak.
+“Access to reliable, transparent onchain data is critical for web3 developers and users alike. We are excited to work with onchain explorers such as Blockscout to provide Base developers with solutions that make it even easier to build their dapps, and for users to easily understand their onchain activity" said Base lead Jesse Pollak.
 
 ### About Blockscout
 
