@@ -1,6 +1,8 @@
 # ETH RPC
 
-The Blockscout ETH RPC API supports 3 methods in the exact format specified for Ethereum nodes, see the [Ethereum JSON-RPC Specification](https://ethereum.github.io/execution-apis/api-documentation/) for more details. These methods are provided for your convenience. In general, custom RPC methods are recommended.&#x20;
+In addition to the custom [RPC endpoints documented here](rpc-endpoints/), the Blockscout ETH RPC API supports 3 methods in the exact format specified for Ethereum nodes, see the [Ethereum JSON-RPC Specification](https://ethereum.github.io/execution-apis/api-documentation/) for more details.&#x20;
+
+These methods are provided for your convenience. In general, custom RPC methods are recommended.&#x20;
 
 The following 3 methods are supported:
 

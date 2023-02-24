@@ -41,6 +41,14 @@
 * [API](for-users/api/README.md)
   * [Requests & Limits](for-users/api/requests-and-limits.md)
   * [GraphQL in Blockscout](for-users/api/graphql.md)
+  * [RPC Endpoints](for-users/api/rpc-endpoints/README.md)
+    * [Account](for-users/api/rpc-endpoints/account.md)
+    * [Logs](for-users/api/rpc-endpoints/logs.md)
+    * [Token](for-users/api/rpc-endpoints/token.md)
+    * [Stats](for-users/api/rpc-endpoints/stats.md)
+    * [Block](for-users/api/rpc-endpoints/block.md)
+    * [Contract](for-users/api/rpc-endpoints/contract.md)
+    * [Transaction](for-users/api/rpc-endpoints/transaction.md)
   * [ETH RPC](for-users/api/eth-rpc.md)
 
 ## 🥷 For Developers
