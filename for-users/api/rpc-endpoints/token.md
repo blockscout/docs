@@ -91,13 +91,13 @@ Nonnegative integer representing the max number of records to return when pagina
 {% swagger-response status="200: OK" description="successful operation" %}
 {% tabs %}
 {% tab title="Response Model" %}
-| Output                           | Type             | Example                                      |
-| -------------------------------- | ---------------- | -------------------------------------------- |
-| message                          | string           | "OK"                                         |
-| result                           | array            | <p>Token Holder Detail array</p><p></p>      |
-|    array: address hash of holder | 160-bit code     | "0x95426f2bc716022fcf1def006dbc4bb81f5b5164" |
-|    array: value of tokens held   | integer (in wei) | "1000000000000000000"                        |
-| status                           | enum (0,1)       | <p>0 = error<br>1 = ok</p>                   |
+| Output                        | Type             | Example                                      |
+| ----------------------------- | ---------------- | -------------------------------------------- |
+| message                       | string           | "OK"                                         |
+| result                        | array            | <p>Token Holder Detail array</p><p></p>      |
+|    address (holder's address) | address hash     | "0x95426f2bc716022fcf1def006dbc4bb81f5b5164" |
+|    value (token value held)   | integer (in wei) | "1000000000000000000"                        |
+| status                        | enum (0,1)       | <p>0 = error<br>1 = ok</p>                   |
 {% endtab %}
 
 {% tab title="Example Response" %}
