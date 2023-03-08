@@ -1,18 +1,12 @@
 # Logs
 
-{% hint style="info" %}
-Page is under construction. For a list of RPC endpoints, visit [https://blockscout.com/eth/mainnet/api-docs](https://blockscout.com/eth/mainnet/api-docs)
-{% endhint %}
-
-### &#x20;`?module=logs`
+### &#x20;`https://instance_base_url/api?module=logs`
 
 ## Get Event Logs by Address and/or Topic(s)
 
 Event logs for an address and topic. Use **and/or** with the topic operator to specify topic retrieval options when adding multiple topics. Up to a maximum of 1,000 event logs.
 
 **Example:**
-
-`?module=`**`logs`**`&action=`**`getLogs`**`&fromBlock={`**`blockNumber`**`}&toBlock={`**`blockNumber`**`}&address={`**`addressHash`**`}&topic0={`**`firstTopic`**`}`
 
 ```
 https://instance_base_url/api
@@ -48,7 +42,7 @@ _\*=required field_
 {% endtab %}
 
 {% tab title="Example Result" %}
-```
+```json
 {
   "message": "OK",
   "result": [

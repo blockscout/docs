@@ -27,7 +27,7 @@ https://instance_base_url/api
 {% endtab %}
 
 {% tab title="Example Result" %}
-```
+```json
 {
   "message": "OK",
   "result": "663046792267785498951364",
