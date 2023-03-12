@@ -303,7 +303,8 @@ This table is horizontally scrollable, version information is located in the las
 | `ACCOUNT_SENDGRID_API_KEY`             |          | Sendgrid API key for watchlist notifications functionality                                                            | (empty)                   | 5.0.0   |
 | `ACCOUNT_SENDGRID_SENDER`              |          | Sendgrid sender email for watchlist notifications functionality                                                       | (empty)                   | 5.0.0   |
 | `ACCOUNT_SENDGRID_TEMPLATE`            |          | Sendgrid email template for watchlist notifications functionality                                                     | (empty)                   | 5.0.0   |
-| `ACCOUNT_CLOAK_KEY`                    |          | Account DB encryption key. [Instruction how to generate](https://hexdocs.pm/cloak\_ecto/generate\_keys.html#content)) | (empty)                   | 5.0.0   |
+| `ACCOUNT_CLOAK_KEY`                    |          | Account DB encryption key. [Instruction how to generate](https://hexdocs.pm/cloak\_ecto/generate\_keys.html#content) | (empty)                   | 5.0.0   |
+| `ACCOUNT_AUTHENTICATE_ENDPOINT_API_KEY`                    |          | `api/account/v1/authenticate` api key ([#7068](https://github.com/blockscout/blockscout/pull/7068)) | (empty)                   | master   |
 
 ### Integrations
 
