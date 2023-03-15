@@ -3,7 +3,7 @@
 ### Standard JSON RPC Requirements
 
 * Archive node with JSON RPC interface should strictly follow input/output interface described in [https://eth.wiki/json-rpc/API](https://eth.wiki/json-rpc/API).
-* WebSocket interface (optional/highly recommended to enable) is used to subscribe to new block heads. Otherwise, Blockscout will trigger new blocks fetching by periodical polling of JSON RPC \*\*\*\* `eth_blockNumber` method.
+* WebSocket interface (optional/highly recommended to enable) is used to subscribe to new block heads. Otherwise, Blockscout will trigger new blocks fetching by periodical polling the JSON RPC `eth_blockNumber` method.
 * Support for the following standard Ethereum JSON RPC methods:
   * [`eth_blockNumber`](https://eth.wiki/json-rpc/API#eth\_blocknumber)
   * [`eth_call`](https://eth.wiki/json-rpc/API#eth\_call)
@@ -25,12 +25,12 @@
 | <p>OpenEthereum<br>Nethermind<br>Erigon</p> | <ul><li><code>parity_pendingTransactions</code></li></ul>                      |
 | Geth                                        | <ul><li><code>txpool_content</code> (for parity_pendingTransactions)</li></ul> |
 
-### Enable Tracing to Fetch internal Transactions
+### Enable Tracing to Fetch Internal Transactions
 
-| Client                                      | Method                                                                                                              |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| <p>OpenEthereum<br>Nethermind<br>Erigon</p> | <ul><li><code>trace_replayBlockTransactions</code></li><li><code>trace_block</code> (fetch block rewards)</li></ul> |
-| Geth                                        | <ul><li><code>debug_traceTransactions</code> (for trace_replayBlockTransactions). Starting from 5.1.0 release of Blockscout, by default, `callTracer` type of tracer is used. In order to switch to custom JS tracer, maintainer of the Blockscout instance should set `export INDEXER_INTERNAL_TRANSACTIONS_TRACER_TYPE=js` environment variable. Before release 5.1.0 of Blockscout js tracer was a default option.</li></ul>                          |
+| Client                                      | Method                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <p>OpenEthereum<br>Nethermind<br>Erigon</p> | <ul><li><code>trace_replayBlockTransactions</code></li><li><code>trace_block</code> (fetch block rewards)</li></ul>                                                                                                                                                                                                                                                                                             |
+| Geth                                        | <ul><li><code>debug_traceTransactions</code> (for trace_replayBlockTransactions). Starting from the Blockscout 5.1.0 release, <code>callTracer</code> is used by default.To switch to a custom JS tracer, the Blockscout maintainer should set the <code>export INDEXER_INTERNAL_TRANSACTIONS_TRACER_TYPE=js</code> environment variable. Prior to the 5.1.0 release, js tracer was a default option.</li></ul> |
 
 ### JSON RPC Performance Benchmarks
 

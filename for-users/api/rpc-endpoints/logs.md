@@ -1,3 +1,7 @@
+---
+description: '?module=logs'
+---
+
 # Logs
 
 ### &#x20;`https://instance_base_url/api?module=logs`

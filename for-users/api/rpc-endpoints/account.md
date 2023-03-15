@@ -1,22 +1,26 @@
+---
+description: '?module=account'
+---
+
 # Account
 
 {% hint style="info" %}
 Page is under construction. For a list of RPC endpoints, visit [https://blockscout.com/eth/mainnet/api-docs](https://blockscout.com/eth/mainnet/api-docs)
 {% endhint %}
 
-### &#x20;`?module=account`
+### &#x20;`https://instance_base_url/api?module=account`
 
 ## Get the native token balance for an address
 
 Many chains use their own native tokens. On Ethereum, this will return the result in "Ether", on Gnosis it will be "xDai", etc. Results are returned in wei.
 
-Example:
+**Example:**
 
 ```
 https://instance_base_url/api
    ?module=account
    &action=balance
-   &address=0x...abcd
+   &address={addressHash}
 ```
 
 {% tabs %}
