@@ -23,9 +23,9 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Param" %}
-| Parameter       | Description                                                                           |
-| --------------- | ------------------------------------------------------------------------------------- |
-| contractaddress | `string` containing the address hash - A 160-bit code used for identifying contracts. |
+| Parameter       | Description                                                                                    |
+| --------------- | ---------------------------------------------------------------------------------------------- |
+| contractaddress | `string` containing the contract address hash - a 160-bit code used for identifying contracts. |
 {% endtab %}
 
 {% tab title="Example Result" %}

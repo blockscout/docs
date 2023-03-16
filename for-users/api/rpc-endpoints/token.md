@@ -6,37 +6,27 @@ description: '?module=token'
 
 ### &#x20;`https://instance_base_url/api?module=token`
 
-{% swagger method="get" path=" " baseUrl=" &action=getToken" summary="Get ERC-20 or ERC-721 token by contract address" %}
-{% swagger-description %}
+## Get ERC-20 or ERC-721 token by contract address
+
 Info on name, symbol, supply and type for a token contract address.
 
-Example
+**Example**
 
-`https://instance_base_url/api?module=token&action=getToken&contractaddress=0xabcd...abcd`
-{% endswagger-description %}
+```
+https://instance_base_url/api
+   ?module=token
+   &action=getToken
+   &contractaddress={contractaddressHash}
+```
 
-{% swagger-parameter in="query" name="contractaddress" type="160-bit code" required="true" %}
-Contract address hash of the ERC-20/ERC-721 token
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="successful operation" %}
 {% tabs %}
-{% tab title="Response Model" %}
-| Output             | Type                                              | Example                                      |
-| ------------------ | ------------------------------------------------- | -------------------------------------------- |
-| message            | string                                            | ok                                           |
-| result             | token object                                      | \<see following>                             |
-|    catalogued      | boolean                                           | "true"                                       |
-|    contractAddress | address hash                                      | "0x95426f2bc716022fcf1def006dbc4bb81f5b5164" |
-|    decimals        | integer (# of decimals token can be divided into) | "18"                                         |
-|    name            | string                                            | "Some Token Name"                            |
-|    symbol          | string (trading symbol)                           | "STN"                                        |
-|    totalSupply     | integer                                           | "1000000000"                                 |
-|    type            | enum                                              | <p>"ERC-20"<br>"ERC-721"</p>                 |
-| status             | enum (0,1)                                        | <p>0 = error<br>1 = ok</p>                   |
+{% tab title="Request Params" %}
+| Parameter       | Description                                                                                    |
+| --------------- | ---------------------------------------------------------------------------------------------- |
+| contractaddress | `string` containing the contract address hash - a 160-bit code used for identifying contracts. |
 {% endtab %}
 
-{% tab title="Example Response" %}
+{% tab title="Example Result" %}
 ```json
 {
   "message": "OK",
@@ -54,54 +44,33 @@ Contract address hash of the ERC-20/ERC-721 token
 ```
 {% endtab %}
 {% endtabs %}
-{% endswagger-response %}
 
-{% swagger-response status="200: OK" description="error" %}
-```javascript
-{
-  "message": "Invalid contract address hash",
-  "result": null,
-  "status": "0"
-}
+## Get token holders by contract address
+
+Returns an array of token holder's accounts and amounts held for a specified token contract address.
+
+Example
+
 ```
-{% endswagger-response %}
-{% endswagger %}
+https://instance_base_url/api
+   ?module=token
+   &action=getTokenHolders
+   &contractaddress={contractaddressHash}
+   &page={integer}
+   &offset={integer}
+```
 
-{% swagger method="get" path=" " baseUrl=" &action=getTokenHolders" summary="Get token holders by contract address" %}
-{% swagger-description %}
-Return token holder's accounts and amounts held for a specified token contract address.
-
-**Example**
-
-`https://instance_base_url/api?module=token&action=getTokenHolders&contractaddress=0x...abcd&page=2&offset=2`
-{% endswagger-description %}
-
-{% swagger-parameter in="query" name="contractaddress" type="160-bit code" required="true" %}
-Contract address hash of the ERC-20/ERC-721 token
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="page" type="Integer" %}
-Nonnegative integer representing the page number used for pagination. 'offset' must also be provided.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="offset" type="Integer" %}
-Nonnegative integer representing the max number of records to return when paginating. 'page' must also be provided.
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="successful operation" %}
 {% tabs %}
-{% tab title="Response Model" %}
-| Output                        | Type             | Example                                      |
-| ----------------------------- | ---------------- | -------------------------------------------- |
-| message                       | string           | "OK"                                         |
-| result                        | array            | <p>Token Holder Detail array</p><p></p>      |
-|    address (holder's address) | address hash     | "0x95426f2bc716022fcf1def006dbc4bb81f5b5164" |
-|    value (token value held)   | integer (in wei) | "1000000000000000000"                        |
-| status                        | enum (0,1)       | <p>0 = error<br>1 = ok</p>                   |
+{% tab title="Request Params" %}
+| Parameter       | Description                                                                                                                                                                  |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| contractaddress | `string`  containing the contract address hash of the ERC-20/ERC-721 token                                                                                                   |
+| page            | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the page number used for pagination. 'offset' must also be provided.               |
+| offset          | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the max number of records to return when paginating. 'page' must also be provided. |
 {% endtab %}
 
-{% tab title="Example Response" %}
-```
+{% tab title="Example Result" %}
+```json
 {
   "message": "OK",
   "result": [
@@ -119,15 +88,3 @@ Nonnegative integer representing the max number of records to return when pagina
 ```
 {% endtab %}
 {% endtabs %}
-{% endswagger-response %}
-
-{% swagger-response status="200: OK" description="error" %}
-```javascript
-{
-  "message": "Invalid contract address format",
-  "result": null,
-  "status": "0"
-}
-```
-{% endswagger-response %}
-{% endswagger %}
