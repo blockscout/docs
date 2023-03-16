@@ -43,6 +43,7 @@ This table is horizontally scrollable, version information is located in the las
 * [Main Page Dashboard](env-variables.md#main-page-dashboard-management)
 * [Header](env-variables.md#header-management)
 * [Footer](env-variables.md#footer-management)
+* [Contract](env-variables.md#contract-management)
 * [Miscellaneous UI](env-variables.md#misc-ui-management)
 * [CSV Export](env-variables.md#csv-export)
 * [API Rate Limit](env-variables.md#api-rate-limit-management)
