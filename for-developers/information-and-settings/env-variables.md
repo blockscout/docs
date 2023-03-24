@@ -274,8 +274,8 @@ This table is horizontally scrollable, version information is located in the las
 
 | Variable                | Required | Description                                                                                                                           | Default | Version |
 | ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
-| `RE_CAPTCHA_SECRET_KEY` |          | Google reCAPTCHA sectret key. Used by advanced CSV export. Implemented in [#4747](https://github.com/blockscout/blockscout/pull/4747) | (empty) | v4.0.0+ |
-| `RE_CAPTCHA_CLIENT_KEY` |          | Google reCAPTCHA client key. Used by advanced CSV export. Implemented in [#4747](https://github.com/blockscout/blockscout/pull/4747)  | (empty) | v4.0.0+ |
+| `RE_CAPTCHA_SECRET_KEY` |          | Google reCAPTCHA v2 secret key. Used by advanced CSV export. Implemented in [#4747](https://github.com/blockscout/blockscout/pull/4747) | (empty) | v4.0.0+ |
+| `RE_CAPTCHA_CLIENT_KEY` |          | Google reCAPTCHA v2 client key. Used by advanced CSV export. Implemented in [#4747](https://github.com/blockscout/blockscout/pull/4747)  | (empty) | v4.0.0+ |
 
 ### API rate limit management
 
@@ -332,7 +332,7 @@ This table is horizontally scrollable, version information is located in the las
 
 | Variable                        | Required | Description                                                                                                                                                                                                   | Default | Version |
 | ------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
-| `VISUALIZE_SOL2UML_ENABLED`     |          | If `true`, integration with [Rust sol2uml visulizer](https://github.com/blockscout/blockscout-rs/tree/main/visualizer) is enabled. Implemented in [#6401](https://github.com/blockscout/blockscout/pull/6401) | (empty) | v5.0.0+ |
+| `VISUALIZE_SOL2UML_ENABLED`     |          | If `true`, integration with [Rust sol2uml visualizer](https://github.com/blockscout/blockscout-rs/tree/main/visualizer) is enabled. Implemented in [#6401](https://github.com/blockscout/blockscout/pull/6401) | (empty) | v5.0.0+ |
 | `VISUALIZE_SOL2UML_SERVICE_URL` |          | URL of Rust visualizer. Implemented in [#6401](https://github.com/blockscout/blockscout/pull/6401)                                                                                                            | (empty) | v5.0.0+ |
 
 #### Sig-provider
