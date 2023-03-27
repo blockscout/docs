@@ -72,8 +72,11 @@ The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, g
 
 **8)** Install and start[ smart contract verification microservice](../information-and-settings/smart-contract-verification.md). You can [use docker](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#using-docker), [build from source](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#building-from-source), or use cargo directly (example below).
 
-1. `cargo install --git https://github.com/blockscout/blockscout-rs smart-contract-verifier-http`
-2. Run the binary as `smart-contract-verifier-http`
+1. Using docker:
+   * `docker run -p 8043:8043 ghcr.io/blockscout/smart-contract-verifier:latest`
+2. Or install [rust](https://www.rust-lang.org/tools/install) and build from sources:
+   * `cargo install --locked --git https://github.com/blockscout/blockscout-rs smart-contract-verifier-server`
+   * Then run the binary as `smart-contract-verifier-server`
 3. Set ENV variables in CLI to enable the rust microservice for Blockscout (these can also be set at runtime).
 
 ```
