@@ -12,10 +12,6 @@ For automated deployment on AWS, see [Ansible deployment](../ansible-deployment/
 For local deployment only using Docker, see [Docker Integration.](../information-and-settings/docker-integration-local-use-only.md)
 {% endhint %}
 
-{% hint style="info" %}
-For Polygon-edge deployment, see the [Polygon Docs](https://wiki.polygon.technology/docs/edge/additional-features/blockscout/).
-{% endhint %}
-
 ## Manual Deployment
 
 Check your environment is prepared with [General Requirements](../information-and-settings/requirements.md) and [Database Storage Requirements](../information-and-settings/database-storage-requirements.md).
