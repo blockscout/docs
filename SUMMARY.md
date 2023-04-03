@@ -92,6 +92,7 @@
     * [Customizing CSS](for-developers/ansible-deployment/aws-marketplace/customizing-css.md)
 * [Manual Deployment](for-developers/manual-deployment/README.md)
   * [Manual cleaning an instance from the previous deployment](for-developers/manual-deployment/check-your-manual-deployment-instance.md)
+* [Terraform Deployment](for-developers/terraform-deployment.md)
 * [Configuration Options](for-developers/configuration-options/README.md)
   * [CSS Configuration & Presets](for-developers/configuration-options/css-configuration-and-presets.md)
   * [Branding Configs](for-developers/configuration-options/branding-configs.md)
