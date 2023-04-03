@@ -22,5 +22,9 @@ Install the software below prior to Blockscout installation. For additional requ
 | [GMP](https://gmplib.org/)                                       | `brew install gmp`        | [Install GMP Devel](https://github.com/poanetwork/blockscout-terraform/blob/33f68e816e36dc2fb055911fa0372531f0e956e7/modules/stack/libexec/init.sh#L74)         |
 | Make                                                             | -                         | `sudo apt install make`if Debian 9                                                                                                                              |
 | G++ Compiler                                                     | -                         | `sudo apt install g++`if Debian 9                                                                                                                               |
+
+Additional requirements for Blockscout versions below 5.1.3:
+| Dependency                                                       | Mac                       | Linux                                                                                                                                                           |
+| ---------------------------------------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Rust                                                             | -                         | [Install Rust](https://www.rust-lang.org/tools/install)                                                                                                         |
 | Cargo                                                            | -                         | Ubuntu - `apt-get install cargo`                                                                                                                                |
