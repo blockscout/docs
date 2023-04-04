@@ -25,9 +25,9 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter |                                       |
-| --------- | ------------------------------------- |
-| address   | `string` containing the address hash. |
+| Parameter   |  Description                          |
+| ----------- | ------------------------------------- |
+| **address** | `string` containing the address hash. |
 {% endtab %}
 
 {% tab title="Example Result" %}

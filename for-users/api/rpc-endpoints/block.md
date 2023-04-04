@@ -17,7 +17,7 @@ Returns the block reward and 'uncle' block rewards when applicable.
 **Example:**
 
 ```
-https://api.etherscan.io/api
+https://instance_base_url/api
    ?module=block
    &action=getblockreward
    &blockno={blockNumber}
