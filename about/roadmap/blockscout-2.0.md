@@ -1,16 +1,16 @@
 ---
 description: >-
-  Blockscout 2.0 brings new functionality, a reimagined UI and many more
-  optimizations to the #1 open-source block explorer.
+  The new Blockscout redesign brings new functionality, a reimagined UI and many
+  more optimizations to the #1 open-source block explorer.
 ---
 
-# Blockscout 2.0
+# Blockscout Redesign
 
 Blockscout has been serving the greater Ethereum ecosystem since 2018. During that time we've improved features and processing speed and have seen broad adoption of Blockscout across many EVM chains. We've also seen many changes in the space that demand more user-friendly functionality. As a result, we've been working diligently behind the scenes to improve the Blockscout explorer experience and build the tools, views, and features that users need now and into the future.
 
-To celebrate our upcoming 5-year anniversary we will be rolling out a **next-generation open-source explorer, Blockscout 2.0 🎉**!&#x20;
+To celebrate our upcoming 5-year anniversary we will be rolling out a **newly redesigned open-source Blockscout explorer  🎉**!&#x20;
 
-Blockscout 2.0 reimagines the blockchain explorer as a universal portal for exploring chain data, analytics, tools, apps, projects and more. Similar to a web 2.0 search engine, Blockscout will provide a web3 engine for deep exploration of all aspects of a chain.&#x20;
+The redesign reimagines the blockchain explorer as a universal portal for exploring chain data, analytics, tools, apps, projects and more. Similar to a web 2.0 search engine, Blockscout will provide a web3 engine for deep exploration of all aspects of a chain.&#x20;
 
 Upcoming features include:
 

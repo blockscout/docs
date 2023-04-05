@@ -27,7 +27,7 @@ This label appears next to a transaction to signify whether a transaction was se
 An EOA, commonly known as a wallet address, initiates a transaction. Both incoming and outgoing transactions are recorded here, and includes includes any transaction that requires a gas fee (in the native token ETH, xDai etc) for execution.
 
 **Token Transfers:**\
-Transactions of ERC-20 or ERC-721 tokens. **** This can include DeFi transactions (like adding or removing liquidity), EOA transfers, airdrops or other transactions where non-native tokens are sent and received.
+Transactions of ERC-20 or ERC-721 tokens. This can include DeFi transactions (like adding or removing liquidity), EOA transfers, airdrops or other transactions where non-native tokens are sent and received.
 
 **Internal Transactions:**\
 Transactions initiated and executed between smart contracts. Internal transactions are the result of an external transaction (EOA to contract). This initial transaction can then trigger many internal transactions between contracts as functions are called.
@@ -288,7 +288,7 @@ Try increasing time for the `ETHEREUM_JSONRPC_DEBUG_TRACE_TRANSACTION_TIMEOUT` [
 In a self-hosted or locally deployed instance, when attempting to do a **write transaction** on a verified contract, the following errors may appear:
 
 **Unauthorized**\
-****"You connected to Unknown Private Network chain in the wallet, but the current instance of Blockscout is for Unknown Private Network chain"
+"You connected to Unknown Private Network chain in the wallet, but the current instance of Blockscout is for Unknown Private Network chain"
 
 "No "from" address specified in neither the give options, nor the default options."
 
@@ -349,8 +349,8 @@ Set `TRACE_FIRST_BLOCK` and `TRACE_LAST_BLOCK` [env variables](../for-developers
 <summary>What is the command to install the smart contract verifier?</summary>
 
 `cargo install --git` [https://github.com/blockscout/blockscout-rs](https://github.com/blockscout/blockscout-rs) `smart-contract-verifier-http`\
-``\
-``[Learn more about the contract verifier](../for-developers/information-and-settings/smart-contract-verification.md)
+\
+[Learn more about the contract verifier](../for-developers/information-and-settings/smart-contract-verification.md)
 
 </details>
 

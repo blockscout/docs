@@ -23,7 +23,7 @@ Any chain requires an amount of storage capable of storing all archive data. For
 2.  [Connect to your instance using SSH](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html) Specify the private key ( `.pem` ) file, the user name for your AMI, and the public DNS name for your instance. For example, if you used Amazon Linux 2 or the Amazon Linux AMI, the user name is `ec2-user`. If ubuntu, the user name is `ubuntu`. \
     [Find info about your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connection-prereqs.html#connection-prereqs-get-info-about-instance)
 
-    ****\
+    \
     **Example:** `ssh -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com`\
 
 3. Install OpenEthereum from [GitHub releases page](https://github.com/openethereum/openethereum/releases) for the corresponding platform\

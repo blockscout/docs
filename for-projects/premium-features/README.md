@@ -8,5 +8,5 @@ Hosted instances receive access to premium features, support and updates not ava
 
 :woman\_technologist: **Priority Updates:** The Ethereum mainnet BlockScout instance is updated regularly with the latest functionality. Premium hosted versions of BlockScout receive these same updates and patches. This includes community requested features, UI enhancements, protocol updates, fixes, and any other additions.
 
-****:man\_technologist: **Priority Support:** Premium customers receive personalized, priority assistance from the BlockScout support team. The BlockScout team responds to issues, requests, and bug reports from premium customers first and responds to your team's requests through a dedicated support channel.
+:man\_technologist: **Priority Support:** Premium customers receive personalized, priority assistance from the BlockScout support team. The BlockScout team responds to issues, requests, and bug reports from premium customers first and responds to your team's requests through a dedicated support channel.
 

@@ -4,7 +4,7 @@ description: Terms and pricing
 
 # Hosted Instance on BlockScout.com
 
-## **Hosting your chain on** [**BlockScout.com**](http://blockscout.com/)****
+## **Hosting your chain on** [**BlockScout.com**](http://blockscout.com/)
 
 Chains hosted on [BlockScout.com](http://blockscout.com/) are **highly visible to the users who visit the website every day**. In addition, chains hosted on [BlockScout.com](http://blockscout.com/) receive **dedicated technical assistance.**
 

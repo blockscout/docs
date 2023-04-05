@@ -120,7 +120,7 @@ Click the **Delete Application** button and confirm the deletion.
 
 ![Go to Subnet Groups, select the subnet to delete, click the Delete button and confirm](../../../.gitbook/assets/delete\_subnet\_groups.png)
 
-3\) Remove all related RDSs. Select **Databases** __ section in the left menu, select all related databases (usually 1 database for deployment). Select the Database, go to the **Actions** menu, and select **Delete** from the menu. Confirm the deletion.
+3\) Remove all related RDSs. Select **Databases** section in the left menu, select all related databases (usually 1 database for deployment). Select the Database, go to the **Actions** menu, and select **Delete** from the menu. Confirm the deletion.
 
 ![Go to Databases, select the DB to delete, click the Actions menu and select Delete.](../../../.gitbook/assets/remove\_db.png)
 

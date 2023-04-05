@@ -5,9 +5,9 @@ description: Blockchain Explorer for inspecting and analyzing EVM Chains.
 # Welcome to Blockscout
 
 {% hint style="success" %}
-🔵🎉 The first public instance of v2.0 has been released with the Base testnet! [https://base-goerli.blockscout.com](https://base-goerli.blockscout.com/)\
+🔵🎉 The first public instance of the newly redesigned Blockscout has been released with the Base testnet! [https://base-goerli.blockscout.com](https://base-goerli.blockscout.com/)\
 \
-This major update is set to transform open-source blockchain exploration. We will continue improving v2.0 as we approach the mainnet release and additional deployments. [More details about BlockScout 2.0](about/roadmap/blockscout-2.0.md).
+This major update is set to transform open-source blockchain exploration. We will continue improving Blockscout as we approach the mainnet release and additional deployments. [More details about the new BlockScout redesign](about/roadmap/blockscout-2.0.md).
 {% endhint %}
 
 Blockscout provides a comprehensive, easy-to-use interface for users to view, confirm, and inspect transactions on EVM (Ethereum Virtual Machine) blockchains. Blockscout currently supports a wide range of projects and hosts chains such as Ethereum, Ethereum Classic, Polygon, Optimism, Gnosis Chain, Celo, Astar, and many more. See our [projects list](about/projects.md) for more details.

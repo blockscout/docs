@@ -7,7 +7,7 @@ description: 'Adjust # of files and max size to impact disc space'
 Each [umbrella app](../information-and-settings/untitled.md) (indexer, explorer, block\_scout\_web, ethereum\_json\_rpc) contains a log rotation config in the `prod.exs` file.
 
 {% hint style="info" %}
-_Example:_ [_https://github.com/blockscout/blockscout/blob/master/apps/explorer/config/prod.exs#L36-L51_](https://github.com/blockscout/blockscout/blob/master/apps/explorer/config/prod.exs#L36-L51.)__
+_Example:_ [_https://github.com/blockscout/blockscout/blob/master/apps/explorer/config/prod.exs#L36-L51_](https://github.com/blockscout/blockscout/blob/master/apps/explorer/config/prod.exs#L36-L51.)
 {% endhint %}
 
 ```

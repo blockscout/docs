@@ -77,7 +77,7 @@ Note: Never returns more than 1000 log entries. You can use pagination options t
 | <p><code>topics</code> <br>(string, array)</p>   | Array of 32 Byte `DATA` topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options              |
 | `paging_options`                                 | `logIndex` and `blockNumber` explained above.                                                                                      |
 
-****
+
 
 **Example Query**
 

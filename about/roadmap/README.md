@@ -7,7 +7,7 @@ description: Upcoming enhancements and updates to BlockScout
 {% hint style="info" %}
 The Blockscout roadmap is a high-level strategic plan designed to guide research and development. **Target dates and details are reviewed regularly by the team and subject to move, adjust and change as the project evolves**. Note that only completed items ( :white\_check\_mark: Status: Complete) are considered achieved project milestones.
 
-_Last update: July 27, 2022 |_ [_Changelog_](./#change-log)__
+_Last update: July 27, 2022 |_ [_Changelog_](./#change-log)
 {% endhint %}
 
 ## In Progress
@@ -68,7 +68,7 @@ A new landing page is in development for Blockscout to assist new users and deve
 
 ### Data Storage Optimization
 
-**Target Date:** **** :checkered\_flag:Ongoing
+**Target Date:**  :checkered\_flag:Ongoing
 
 Updating and optimizing the indexing scheme for storable data. We are working to decrease the BlockScout database size while preserving the same level of functionality.
 
