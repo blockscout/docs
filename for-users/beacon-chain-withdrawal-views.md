@@ -164,7 +164,7 @@ The unique `index`, assigned `validatorIndex`, withdrawal receiving `address`, a
 
 ## UI display examples&#x20;
 
-_(Note, Blockscout 1.0 mockups shown, Blockscout 2.0 will have a much improved UI)_
+_(Note, Blockscout 1.0 mockups shown, the Blockscout redesign will have a much improved UI)_
 
 ### Block page example
 
