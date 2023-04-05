@@ -29,6 +29,8 @@
   * [API Keys](for-users/my-account/api-keys.md)
   * [Custom ABI](for-users/my-account/custom-abi.md)
   * [Public Tags](for-users/my-account/public-tags.md)
+  * [Verified Addresses](for-users/my-account/verified-addresses/README.md)
+    * [Copy and Sign Message](for-users/my-account/verified-addresses/copy-and-sign-message.md)
 * [Verifying a Smart Contract](for-users/smart-contract-interaction/verifying-a-smart-contract/README.md)
   * [Hardhat Verification Plugin](for-users/smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md)
   * [Sourcify Plugin for Hardhat](for-users/verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
