@@ -295,6 +295,7 @@ This table is horizontally scrollable, version information is located in the las
 | `API_RATE_LIMIT_UI_V2_WITH_TOKEN`           |          | Rate limit after submitting correct CAPTCHA. Implemented in [#7148](https://github.com/blockscout/blockscout/pull/7148)                                                                                                                               | 5       | master  |
 | `API_RATE_LIMIT_TIME_INTERVAL`              |          | Time interval of rate limit. [Time format](env-variables.md#time-format). Implemented in [#7148](https://github.com/blockscout/blockscout/pull/7148)                                                                                                  | 1s      | master  |
 | `API_RATE_LIMIT_BY_IP_TIME_INTERVAL`        |          | Time interval of rate limit set by `API_RATE_LIMIT_BY_IP`. [Time format](env-variables.md#time-format). Implemented in [#7148](https://github.com/blockscout/blockscout/pull/7148)                                                                    | 5m      | master  |
+| `API_RATE_LIMIT_UI_V2_TOKEN_TTL_IN_SECONDS` |          | TTL for token issued after submitting correct CAPTCHA for an API v2 requests from UI. In seconds. Implemented in [#7148](https://github.com/blockscout/blockscout/pull/7148)                                                                        | 18000   | master  |
 
 ### Specific smart-contracts
 
