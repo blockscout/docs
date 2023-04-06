@@ -59,8 +59,13 @@ export ETHEREUM_JSONRPC_VARIANT=nethermind
 export ETHEREUM_JSONRPC_HTTP_URL=http://localhost:8545
 export DATABASE_URL=postgresql://...
 export COIN=DAI
+export MIX_ENV=prod
 export ... 
 ```
+
+{% hint style="warning" %}
+It is important to set the variable **`MIX_ENV=prod`** during deployment. The current default is `MIX_ENV=dev` which is a slower and less secure setting.
+{% endhint %}
 
 {% hint style="info" %}
 The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](../information-and-settings/client-settings.md).
