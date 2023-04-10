@@ -330,12 +330,14 @@ This table is horizontally scrollable, version information is located in the las
 
 ### Integrations
 
-#### Smart-contract verifier
+#### Smart-contract verifier / Eth Bytecode DB
 
 | Variable                           | Required | Description                                                                                                                                                                                                                      | Default | Version |
 | ---------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
 | `ENABLE_RUST_VERIFICATION_SERVICE` |          | If `true`, integration with [Rust smart-contract verifier](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier) is enabled. Implemented in [#5860](https://github.com/blockscout/blockscout/pull/5860) | (empty) | v4.1.8+ |
 | `RUST_VERIFICATION_SERVICE_URL`    |          | URL of Rust smart-contract verifier. Implemented in [#5860](https://github.com/blockscout/blockscout/pull/5860)                                                                                                                  | (empty) | v4.1.8+ |
+| `MICROSERVICE_ETH_BYTECODE_DB_INTERVAL_BETWEEN_LOOKUPS`    |          | Minimal time after unsuccessful check of smart contract's sources in Eth Bytecode DB. Implemented in [#7187](https://github.com/blockscout/blockscout/pull/7187). [Time format](env-variables.md#time-format)                                                                                                                  | 10m | master |
+| `MICROSERVICE_SC_VERIFIER_TYPE`    |          | Type of smart contract microservice could be either `eth_bytecode_db` or `sc_verifier`. Implemented in [#7187](https://github.com/blockscout/blockscout/pull/7187)                                                                                                                  | `sc_verifier` | master |
 
 #### Sol2Uml
 
