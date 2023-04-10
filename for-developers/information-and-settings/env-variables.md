@@ -217,7 +217,6 @@ This table is horizontally scrollable, version information is located in the las
 | `ENABLE_TXS_STATS`                  |          | Disables or enables txs per day stats gathering.                                                                                        | true    | v3.1.2+ |
 | `SHOW_PRICE_CHART`                  |          | Disables or enables price and market cap of coin charts on the main page.                                                               | false   | v3.1.2+ |
 | `SHOW_TXS_CHART`                    |          | Disables or enables txs count per day chart on the main page.                                                                           | true    | v3.1.2+ |
-| `HISTORY_FETCH_INTERVAL`            |          | Interval how often to request count of txs per current day in order to display txs count per day chart on the main page. [Time format](env-variables.md#time-format).    | 1h      | v3.1.2+ |
 | `TXS_HISTORIAN_INIT_LAG`            |          | The initial delay in txs count history fetching in order to display txs count per day history chart on the main page. [Time format](env-variables.md#time-format).        | 0       | v3.1.2+ |
 | `TXS_STATS_DAYS_TO_COMPILE_AT_INIT` |          | Number of days for fetching of history of txs count per day in order to display it in txs count per day history chart on the main page. | 40      | v3.1.2+ |
 
