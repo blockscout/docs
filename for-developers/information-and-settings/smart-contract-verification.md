@@ -25,8 +25,8 @@ A microservice written in Rust provides fast and efficient contract verification
 
 * Update Blockscout to the 4.1.8+ release
 * Add the following ENV variables:
-  * `ENABLE_RUST_VERIFICATION_SERVICE=true`
-  * `RUST_VERIFICATION_SERVICE_URL=...`  (verifier endpoint, see [http configuration](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier/smart-contract-verifier-http) for more details)
+  * `MICROSERVICE_SC_VERIFIER_ENABLED=true`
+  * `MICROSERVICE_SC_VERIFIER_URL=...`  (verifier endpoint, see [http configuration](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier/smart-contract-verifier-http) for more details)
 * If running locally, the smart-contract-verifier is integrated with [`docker-compose`](https://github.com/blockscout/blockscout/tree/master/docker-compose)``
   * Registry of docker images is available via the docker-compose file. For registry information see: [https://github.com/blockscout/blockscout-rs/pkgs/container/smart-contract-verifier](https://github.com/blockscout/blockscout-rs/pkgs/container/smart-contract-verifier)
 
