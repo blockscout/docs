@@ -1,11 +1,5 @@
 # Metrics
 
-## Wobserver
-
-[Wobserver](https://github.com/shinyscorpion/wobserver) is configured to display data from the `/metrics` endpoint in a web interface. To view, go to `/wobserver` for the chain you would like to view.
-
-For example `https://blockscout.com/eth/mainnet/wobserver`
-
 ## Prometheus
 
 BlockScout is setup to export [Prometheus](https://prometheus.io/) metrics at `/metrics`.
