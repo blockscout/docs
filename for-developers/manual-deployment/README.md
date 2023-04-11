@@ -81,8 +81,8 @@ The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, g
 3. Set ENV variables in CLI to enable the rust microservice for Blockscout (these can also be set at runtime).
 
 ```
-export ENABLE_RUST_VERIFICATION_SERVICE=true
-export RUST_VERIFICATION_SERVICE_URL=http://0.0.0.0:8043/
+export MICROSERVICE_SC_VERIFIER_ENABLED=true
+export MICROSERVICE_SC_VERIFIER_URL=http://0.0.0.0:8043/
 ```
 
 **9)** Compile the application:`mix compile`
