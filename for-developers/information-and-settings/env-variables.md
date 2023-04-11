@@ -112,6 +112,7 @@ This table is horizontally scrollable, version information is located in the las
 | `TOKEN_ID_MIGRATION_BATCH_SIZE`         |          | Interval of token transfer block numbers processed by a token id migration worker at a time. Implemented in [#6391](https://github.com/blockscout/blockscout/pull/6391)                                                                     | 500                                                    | v5.0.0+ |                |
 | `SESSION_COOKIE_DOMAIN`                 |          | Value of this env will be added to domain of session cookie. Implemented in [#6544](https://github.com/blockscout/blockscout/pull/6544)                                                                                                     | (empty)                                                | v5.0.0+ |                |
 | `DECODE_NOT_A_CONTRACT_CALLS`           |          | Allows to decode contract calls directed to addresses which are not contracts. Implemented in [#6541](https://github.com/blockscout/blockscout/pull/6541)                                                                                   | `false`                                                | v5.1.0+  | ✅               |
+| `EIP_1559_ELASTICITY_MULTIPLIER`           |          | EIP-1559 elasticity multiplier. Implemented in [#7253](https://github.com/blockscout/blockscout/pull/7253)                                                                                   | 2                                                | master  |                |
 
 ### Indexer management
 
