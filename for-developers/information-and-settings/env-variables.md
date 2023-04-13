@@ -274,10 +274,14 @@ This table is horizontally scrollable, version information is located in the las
 
 ### CSV export
 
+reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only one version of reCAPTCHA should be used.
+
 | Variable                | Required | Description                                                                                                                           | Default | Version |
 | ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
 | `RE_CAPTCHA_SECRET_KEY` |          | Google reCAPTCHA v2 secret key. Used by advanced CSV export. Implemented in [#4747](https://github.com/blockscout/blockscout/pull/4747) | (empty) | v4.0.0+ |
 | `RE_CAPTCHA_CLIENT_KEY` |          | Google reCAPTCHA v2 client key. Used by advanced CSV export. Implemented in [#4747](https://github.com/blockscout/blockscout/pull/4747)  | (empty) | v4.0.0+ |
+| `RE_CAPTCHA_V3_SECRET_KEY` |          | Google reCAPTCHA v3 secret key. Used by advanced CSV export. Implemented in [#7273](https://github.com/blockscout/blockscout/pull/7273) | (empty) | master |
+| `RE_CAPTCHA_V3_CLIENT_KEY` |          | Google reCAPTCHA v3 client key. Used by advanced CSV export. Implemented in [#7273](https://github.com/blockscout/blockscout/pull/7273)  | (empty) | master |
 
 ### API rate limit management
 
