@@ -18,7 +18,7 @@ Initial plans were to create a distinct service with a database responsible for 
 
 <figure><img src="../../.gitbook/assets/InitialMicroservice.svg" alt=""><figcaption></figcaption></figure>
 
-## Restructuring the Initial Search Process
+## Restructuring the Search Process
 
 It is possible to search for similar bytecodes if, for example, bytecodes (or their hashes) are stored in the database along with verification results. The list of already verified bytecodes can then be checked when searching for the source codes of unverified contracts.
 
@@ -47,7 +47,7 @@ The microservice does not care where the contract is deployed (which chain) or e
 
 <figure><img src="../../.gitbook/assets/Ethereum Bytecode DB (1).png" alt=""><figcaption></figcaption></figure>
 
-## Similar Contracts Search Enhancements
+## Similar Contracts Search Enhancement
 
 In Blockscout, two contracts can share the same source code only if their bytecodes are entirely identical. However, not every part of the bytecode is functional (see [**Sourcify partial vs. full match**](https://docs.sourcify.dev/docs/full-vs-partial-match/)). There may also be a metadata hash, usually located at the end of the creation input or deployed bytecode. The source code can also produce different metadata hashes for inconsequential changes, such as when a new space is appended to the file or the file is renamed. This results in bytecodes with the same EVM-executed portion, but they may not be identified by Blockscout's current similar contracts search algorithm.
 
@@ -72,7 +72,9 @@ Implemented as a separate service, _Ethereum Bytecode Database_ may become a uni
 
 Extractors implemented within a Blockscout private setting also allow for the creation of a unique and useful ecosystem-wide database. This will likely create a data source that will be attractive to different explorers and other data aggregators. We are currently looking into the best way to provide 3rd party access to this dataset, possibly as a paid database or verifier service in the future.&#x20;
 
-## API Integration
+## Implementation Details
+
+### API Integration
 
 {% hint style="info" %}
 The swagger definition -[https://app.swaggerhub.com/apis/rimrakhimov/EthereumBytecodeDatabase/v2](https://app.swaggerhub.com/apis/rimrakhimov/EthereumBytecodeDatabase/v2)
@@ -80,13 +82,13 @@ The swagger definition -[https://app.swaggerhub.com/apis/rimrakhimov/EthereumByt
 
 The service has the same public API as the `smart-contract-verifier` service. If a chain wants to start saving verified bytecodes into a database, the only required change is to point `RUST_VERIFICATION_SERVICE_URL` to the `eth-bytecode-db` service instead of the verifier. The service will proxy all requests to the underlying verifier internally.
 
-## Completed Processes
+### Completed Processes
 
 1. The `Eth-bytecode-db` service is implemented with both contract verification proxy and database search functionality ([https://github.com/blockscout/blockscout-rs/tree/main/eth-bytecode-db](https://github.com/blockscout/blockscout-rs/tree/main/eth-bytecode-db)).
 2. All hosted blockscout instances are using `eth-bytecode-db` instead of the original smart-contract-verifier; all newly verified bytecodes and corresponding sources are now stored directly in the database.
 3. Search functionality is integrated. ([https://github.com/blockscout/blockscout/pull/7187](https://github.com/blockscout/blockscout/pull/7187)).
 
-## Future Plans&#x20;
+### Future Plans&#x20;
 
 1. Implement a Blockscout extractor and import all previously verified contracts from Blockscout instances into the running `eth-bytecode-db` database (should expand the current database up to \~100-150k contracts).
 2. Estimate and implement prioritization techniques, so that the service returns potential contracts that are the most probable for the given bytecode first.
