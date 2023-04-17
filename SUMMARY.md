@@ -4,7 +4,8 @@
 
 ## 💡 About BlockScout <a href="#about" id="about"></a>
 
-* [Features](about/features.md)
+* [Features](about/features/README.md)
+  * [Ethereum Bytecode Database Microservice](about/features/ethereum-bytecode-database-microservice.md)
 * [Projects Using Blockscout](about/projects.md)
 * [Funding](about/funding/README.md)
   * [L2 Funding Proposal](about/funding/l2-funding-proposal.md)
