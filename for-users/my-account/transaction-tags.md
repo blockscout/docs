@@ -29,4 +29,4 @@ Similar to address tags, transaction tags are useful for specifying and organizi
 Note, you must be logged in to My Account to see your transaction tags.
 {% endhint %}
 
-![](<../../.gitbook/assets/tr-4 (1).png>)
+![](../../.gitbook/assets/tr-4.png)

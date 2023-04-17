@@ -5,17 +5,165 @@ description: Upcoming enhancements and updates to BlockScout
 # Roadmap
 
 {% hint style="info" %}
-The Blockscout roadmap is a high-level strategic plan designed to guide research and development. **Target dates and details are reviewed regularly by the team and subject to move, adjust and change as the project evolves**. Note that only completed items ( :white\_check\_mark: Status: Complete) are considered achieved project milestones.
+The Blockscout roadmap is a high-level strategic plan designed to guide research and development. **Target dates and details are reviewed by the team and subject to move, adjust and change as the project evolves**. Note that only completed items ( :white\_check\_mark: Status: Complete) are considered achieved project milestones.
 
-_Last update: July 27, 2022 |_ [_Changelog_](./#change-log)
+_Last update: April 17, 2023 |_ [_Changelog_](./#change-log)
 {% endhint %}
 
-## In Progress
+## 🟦 Q2 2023
+
+Items currently in progress. Some are planned for Q2 completion while others will extend to Q3-4.
+
+### 🟦  Admin Dashboard
+
+Rust microservice which will provide a comprehensive dashboard for blockchain administrators. Available for hosted versions first.
+
+* Token info
+* Public tags
+* Real-time network monitoring, chain statistics, user analytics
+
+### 🟦  New Microservices
+
+In addition to the Admin dashboard, other microservices in development include:
+
+* DeFiLlama tags support providing additional information about wallet addresses.
+* Token pricing extension providing real-time market data for various tokens.
+* Visualizer service offering various visualization schemes, such as Sol2UML and transaction graphs for complex blockchain data analysis.
+* Multi-chain search extension for ecosystems where many chains co-exist within a similar environment (ie Optimism, Astar etc.)
+* EOA analytics service for advanced analytics per address including:
+  * Tx type distributions
+  * Tx frequency and popular contract usage
+  * Average values/fees/types
+  * Governance and voting participation
+
+### 🟦  My Account Improvements
+
+My Account beta is active and will be rolled out on a case-by-base basis, with hosted instances receiving priority. Includes adding the following features:
+
+* Watchlists: Users can create watchlists for specific addresses or contracts, and view all transactions from the watchlists on the main page.
+* Enhanced CSV export features
+* Smart contract ownership verification
+* Airdrop eligibility tool
+
+### 🟦  Human Readable Transactions
+
+Display complex transactions in an easily understandable format for non-technical users. This includes the ability to automatically decode transaction data, including tokens, contracts, and events.
+
+### 🟦  Advanced Filter and Sort
+
+Enhance filter and sort options so users can view transaction data in various formats including transaction types, assets & time ranges. Explore ability to save and share custom filter configurations.
+
+### 🟦  ENS Support
+
+Support for the Ethereum Name Service (ENS) and its popular forks by:
+
+* Resolving ENS names for addresses and listing names for the address
+* Enabling search by ENS name
+* Providing advanced name lookup features
+* Resolve ENS name for addresses, list names for the address
+* Search by ENS name
+* Advanced Name lookup
+
+### &#x20;🟦  AWS Deployment Template
+
+Pre-configured AWS templates for easy deployment and setup for those who choose Amazon Web Services deployment environments. We will explore template creation for additional environments once this template is completed.
+
+### 🟦  POS and Rollup Feature Expansion
+
+* POS consensus support including deposits, withdrawals and other pertinent details such as finalization status, proposed slot and epoch, fee recipient and consensus info. This includes tracking and monitoring of deposits on the Ethereum 2.0 Beacon Chain, providing insights into the progress of Ethereum's transition to Proof of Stake (PoS).
+* L2 support including additional features for popular L2 scaling solutions by providing provide insights into L2 network performance, transactions, and smart contracts
+
+### 🟦  Blockscout Swap Native Dapp
+
+A native swap application will be integrated into the Dapp marketplace so that users can trade tokens easily and securely from one convenient location.
+
+### 🟦  Universal Smart Contract Front-end
+
+Improve and simplify the Smart Contract deployment process for developers. Integrate React components to abstract away common on-chain operations.
+
+### 🟦  Improved Indexer Performance
+
+Load speed, database optimization & caching, data parsing features to maintain optimal performance. These efforts will continue as additional features are added to BlockScout.
+
+## 🟨 Q3 2023
+
+Items we are planning for Q3. Additional items may be added from Q2 backlog as well as new features or functionality that arise.
+
+### 🟨 Smart Search
+
+Research incorporating AI functionality to introduce smart search capabilities:
+
+* Natural language queries
+* Boolean search
+* Instant analytics
+
+### 🟨 Governance Views & Interactivity
+
+Governance platforms and voting mechanism integrations, allowing users to monitor and participate in on-chain governance activities directly from Blockscout.
+
+### 🟨 CEX/DEX Views
+
+Provide insights into trading activities and liquidity on both centralized and decentralized exchanges, allowing users to compare and analyze exchange data.
+
+### 🟨 RPC API Expansion&#x20;
+
+Add additional routes and endpoints for users, explore most-requested and most-used endpoints to optimize API.
+
+### 🟨 Personal Asset Management
+
+My Account functionality will be extended to enable portfolio views and management of assets across protocols and chains.
+
+### 🟨 NFT Module Exploration
+
+Explore a dedicated NFT explorer module to include:
+
+* Top NFTs
+* Latest Trades, Transfers and Mints
+* NFT Marketplace & Platform Integrations
+
+### 🟨 News Feed Integration
+
+Dedicated news feed module that aggregates the latest news, updates, and developments related to the chain, keeping users informed and engaged with the ecosystem.
+
+## &#x20;🟪 Q4 2023
+
+Items currently planned for Q4. We will amend and update this list as development priorities evolve.
+
+### &#x20;🟪 Multisender Native Dapp
+
+Users can send transactions to multiple recipients simultaneously, saving time and reducing gas fees.
+
+### 🟪 Gas Tracker
+
+Users can monitor gas prices and trends to help them make informed decisions about transaction fees and timing.
+
+### 🟪 Ongoing Interface Improvements
+
+Add improvements as informed by usage trends. May include "Popular Apps" views for the marketplace module, "Top Statistic" views relevant to most used applications and contracts, and detailed statistics related to node performance.
+
+### 🟪 Ongoing Tooling Improvements
+
+Continue to research and improve tooling for developers including requested tools such as:
+
+* Transaction decoder: decodes raw tx data
+* Balance checker
+* Similar contracts search
+* Unit converter
+* Advanced debugger
+
+## :white\_check\_mark: Completed
+
+### Landing Page
+
+**Target Date:** Q3 2022\
+**Status**: :white\_check\_mark: Completed
+
+A new landing page is in development for Blockscout to assist new users and developers understand the Blockscout feature set and find information quickly.
 
 ### UI Redesign
 
 **Target Date:** Q3-Q4 2021\
-**Status**: :ballot\_box\_with\_check: In Progress
+**Status**: :white\_check\_mark: v1 Completed see [https://eth-goerli.blockscout.com/](https://eth-goerli.blockscout.com/)
 
 A new UI interface is under development to improve data exploration, optimize views, and provide overall better UX for Blockscout users. The UI is being built from the ground up. It will overhaul all aspects of Blockscout engagement, creating a complete all-in-one interface for chain exploration. In addition to a modern design, the upgrade will also improvements to features such as:
 
@@ -23,10 +171,10 @@ A new UI interface is under development to improve data exploration, optimize vi
 * **Data Sort/Filtering**: Ability to sort data (ascending & descending by column). Improved pagination and filtering abilities.
 * **My Account**: See below for features related to My Account functionality.
 
-### DApp Marketplace
+### DApp Marketplace v1
 
 **Target Date:** Q4 2021\
-**Status**: :ballot\_box\_with\_check: In Progress
+**Status**:  :white\_check\_mark: v1 Completed
 
 Chain users will be able to access applications and modules directly from Blockscout, vastly improving the overall chain experience. Interoperability, swaps, transactions, and 3rd party project-based apps will be accessible and integrated with the modular interface.
 
@@ -36,86 +184,19 @@ Blockscout will also develop native applications for this marketplace. Several a
 * **Blockscout Revoke**: Find contracts/apps you have granted allowances to (the ability to spend tokens on your behalf) and revoke these permissions.
 * More TBD
 
-### My Account Functionality
+### My Account Functionality v1
 
 **Target Date:** Q3 2022\
-**Status**:  :ballot\_box\_with\_check: Instance deployed on Gnosis Chain. Undergoing improvements.
+**Status**:  :white\_check\_mark:  Instance deployed on Gnosis Chain. Undergoing improvements.
 
 We will explore adding account features for users looking for explorer personalizations, including alerts and notifications, the ability to watch specific addresses, name and customize data within the dashboard, and other advanced features.
 
-### Blockscout Rust Microservices
+### Blockscout Rust Microservices v1
 
 **Target Date:** Q3 2022\
-**Status**:  :ballot\_box\_with\_check: In Progress
+**Status**:  :white\_check\_mark:  v1 completed - Smart Contract Verification microservice
 
 New Rust-developed microservices will be enabled on Blockscout to extend functionality and modularity. We are revamping smart contract verification to use a Rust module and working on a smart contract uml visualization module to start.
-
-### Multi-Chain Search
-
-**Target Date:** Q3-Q4 2022\
-**Status**:  :ballot\_box\_with\_check: In Progress
-
-Blockscout serves many different chains across the blockchain spectrum. Users currently must switch instances to find addresses/contracts etc for each chain. Multi-chain search will provide a single interface to track addresses across supported chains.&#x20;
-
-### Landing Page
-
-**Target Date:** Q3 2022\
-**Status**: :ballot\_box\_with\_check: In Progress
-
-A new landing page is in development for Blockscout to assist new users and developers understand the Blockscout feature set and find information quickly.
-
-## Ongoing Improvements
-
-### Data Storage Optimization
-
-**Target Date:**  :checkered\_flag:Ongoing
-
-Updating and optimizing the indexing scheme for storable data. We are working to decrease the BlockScout database size while preserving the same level of functionality.
-
-### Performance Enhancements
-
-**Target Date:** :checkered\_flag:Ongoing - [80% covered in release 3.0.0](https://forum.poa.network/t/blockscout-v3-0-0-beta-block-hash-indexing-approach/3250)
-
-As chain data grows exponentially, load speed, database optimization & caching, data parsing and front-end improvements are all required to maintain optimal performance. These efforts will continue as additional features are added to BlockScout.
-
-## Research Phase - Future Items
-
-### NFT  Interface
-
-**Target Date:** 2023\
-**Status**:🧪 Research Phase
-
-As NFTs become more important to the ecosystem, the explorer will be updated and redesigned to display images, attributes and other data in a user-friendly interface. A dedicated NFT explorer module may be introduced to provide advanced features.
-
-### Custom Transaction Views/Actions/Events&#x20;
-
-**Target Date:** 2023\
-**Status**:🧪 Research Phase
-
-Create views for different actions / transactions to provide clarity for complex transactions, trade-specific transactions and multi-sig transactions.
-
-### Personal Asset Management
-
-**Target Date:** 2023\
-**Status**:🧪 Research Phase
-
-My Account functionality will be extended to enable portfolio views and management of assets across protocols and chains.
-
-### Analytics Dashboards
-
-**Target Date:** 2023\
-**Status**: 🧪 Research Phase
-
-We will incorporate new views and visual dashboards to better represent various data points.
-
-### Blockscout ID
-
-**Target Date:** 2023\
-**Status**: 🧪 Research Phase
-
-Develop an optional identification NFT to prove singular identity and increase utility across different apps on the platform (ie application-specific governance).
-
-## Completed
 
 ### Deployment Improvements
 
@@ -187,7 +268,9 @@ BlockScout supports verification for contracts via multiple methods including Ha
 
 | Update       | Items                                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| _17.07.2023_ | <ul><li>Revamp roadmap for 2023 milestones by Q.</li><li>Moved all In-research items to appropriate Q.</li><li><p>Added:</p><ul><li>Q2,Q3,Q4 2023 items</li></ul></li><li><p>Completed:</p><ul><li>Landing Page</li><li>React UI v1</li><li>Rust Microservices v1</li><li>DApp Marketplace v1</li><li>My Account v1</li></ul></li></ul>                                                          |
 | 27.07.2022   | <ul><li>Updated marketplace to include Blockscout native DApps</li><li>Added Blockscout Microservices</li><li>Added Multi-chain search</li><li>Added personal asset management features</li><li>Added Blockscout ID</li><li>Combined several elements into UI category</li><li>Deployment improvements (Docker image) moved to completed.</li><li>Update Research Phase items to 2023.</li></ul> |
 | 06.07.2022   | <p>Added:</p><ul><li>Analytics Dashboards</li><li>UI Overhaul</li><li>Modular Plug-and-Play Library</li></ul><p>Completed:</p><ul><li>Ethereum Mainnet Instance<br></li></ul>                                                                                                                                                                                                                    |
 | 11.04.2022   | <ul><li>Rearranged into Completed and Ongoing Categories. </li><li>Updated Ongoing Item dates</li><li>Added UI enhancements</li><li><p>Marked as Completed</p><ul><li>EIP-1559 Support &#x3C;Completed></li><li>Rollup Support &#x3C;Completed></li><li>Multi-file Contract Source Code Verification &#x3C;Completed></li></ul></li></ul>                                                        |
 | _04.08.2021_ | <p></p><ul><li><p>Added multiple new items to Q4 Roadmap including:</p><ul><li>EIP-1559 Support</li><li>Ethereum Mainnet Instance</li><li>My Account Functionality</li><li>Rollup Support</li><li>Deployment Improvements</li><li>Multi-file Contract Source Code Verification</li><li>Block/Address Detail Page Improvements</li><li>Data Sorting/Filtering</li></ul></li></ul>                 |
+|              |                                                                                                                                                                                                                                                                                                                                                                                                  |
