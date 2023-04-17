@@ -153,16 +153,16 @@ Continue to research and improve tooling for developers including requested tool
 
 ## :white\_check\_mark: Completed
 
-### Landing Page
+### :white\_check\_mark: Landing Page
 
 **Target Date:** Q3 2022\
 **Status**: :white\_check\_mark: Completed
 
 A new landing page is in development for Blockscout to assist new users and developers understand the Blockscout feature set and find information quickly.
 
-### UI Redesign
+### :white\_check\_mark: UI Redesign
 
-**Target Date:** Q3-Q4 2021\
+**Target Date:** Q3-Q4 2022\
 **Status**: :white\_check\_mark: v1 Completed see [https://eth-goerli.blockscout.com/](https://eth-goerli.blockscout.com/)
 
 A new UI interface is under development to improve data exploration, optimize views, and provide overall better UX for Blockscout users. The UI is being built from the ground up. It will overhaul all aspects of Blockscout engagement, creating a complete all-in-one interface for chain exploration. In addition to a modern design, the upgrade will also improvements to features such as:
@@ -171,9 +171,9 @@ A new UI interface is under development to improve data exploration, optimize vi
 * **Data Sort/Filtering**: Ability to sort data (ascending & descending by column). Improved pagination and filtering abilities.
 * **My Account**: See below for features related to My Account functionality.
 
-### DApp Marketplace v1
+### :white\_check\_mark: DApp Marketplace v1
 
-**Target Date:** Q4 2021\
+**Target Date:** Q4 2022\
 **Status**:  :white\_check\_mark: v1 Completed
 
 Chain users will be able to access applications and modules directly from Blockscout, vastly improving the overall chain experience. Interoperability, swaps, transactions, and 3rd party project-based apps will be accessible and integrated with the modular interface.
@@ -184,63 +184,63 @@ Blockscout will also develop native applications for this marketplace. Several a
 * **Blockscout Revoke**: Find contracts/apps you have granted allowances to (the ability to spend tokens on your behalf) and revoke these permissions.
 * More TBD
 
-### My Account Functionality v1
+### :white\_check\_mark: My Account Functionality v1
 
 **Target Date:** Q3 2022\
 **Status**:  :white\_check\_mark:  Instance deployed on Gnosis Chain. Undergoing improvements.
 
 We will explore adding account features for users looking for explorer personalizations, including alerts and notifications, the ability to watch specific addresses, name and customize data within the dashboard, and other advanced features.
 
-### Blockscout Rust Microservices v1
+### :white\_check\_mark: Blockscout Rust Microservices v1
 
 **Target Date:** Q3 2022\
 **Status**:  :white\_check\_mark:  v1 completed - Smart Contract Verification microservice
 
 New Rust-developed microservices will be enabled on Blockscout to extend functionality and modularity. We are revamping smart contract verification to use a Rust module and working on a smart contract uml visualization module to start.
 
-### Deployment Improvements
+### :white\_check\_mark: Deployment Improvements
 
 **Target Date:** Q3 2022\
 **Status**: :white\_check\_mark: Completed, Documentation in progress
 
 BlockScout deployment can be complicated for new users. Deployment improvements within a Docker environment will enable a fast path for easy setup and deployment.
 
-### Ethereum Mainnet BlockScout Instance
+### :white\_check\_mark: Ethereum Mainnet BlockScout Instance
 
 **Target Date:** Q2 2022\
 **Status**: :white\_check\_mark: Instance deployed, optimizations ongoing.
 
 BlockScout offered prior support for the Ethereum mainnet. This instance was discontinued;  however a new instance is now planned to further increase explorer diversity on Ethereum and provide additional transparency for Ethereum users.
 
-### ERC721 Metadata
+### :white\_check\_mark: ERC721 Metadata
 
 **Target Date:** Q4 2019\
 **Status:** :white\_check\_mark: Complete, ERC721 Metadata storage and display ([Release 2.1.0](https://forum.poa.network/t/blockscout-2-1-0-release/3128)) and verification checks ([Release 2.1.1](https://forum.poa.network/t/blockscout-2-1-1-release/3172)) are implemented.
 
 [ERC-721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md) non-fungible tokens represent ownership of digital or physical assets. Each token is unique, and may include images and other data which identifies the asset and provides additional information. This might include registration information (for example land, property or art registration), identifying numbers or other data unique to that token. As ERC-721 tokens continue to proliferate, it is important to display the relevant information related to each owned token.&#x20;
 
-### Staking DApp Integration
+### :white\_check\_mark: Staking DApp Integration
 
 **Target Date:** Q3 2020\
 **Status:** :white\_check\_mark: Complete Q4 2020
 
 BlockScout will support the new POSDAO staking consensus mechanism through an on-board UI. The initial implementation will support the [xDai Stable Chain](https://xdaichain.com). This will allow users to place stake directly from the interface, monitor validator activity, and participate in consensus on the xDai Chain.
 
-### Smart Contract Write Functionality
+### :white\_check\_mark: Smart Contract Write Functionality
 
 **Target Date:** Q2 - Q3 2020\
 **Status**: :white\_check\_mark: Complete, Write contract/ write proxy functionalities are implemented ([Release 3.3.0](https://forum.poa.network/t/blockscout-v3-3-0-beta/3558)).
 
 Users can currently verify and read contracts on BlockScout. The next smart contract development phase will allow users to interact with contracts directly through the interface.  Verified contract methods will be accessible and users can connect through a web3 wallet (such as MetaMask) to access and execute contract functions.
 
-### ERC1155 Support
+### :white\_check\_mark: ERC1155 Support
 
 **Target Date:** Q2 2021\
 **Status**: :white\_check\_mark: Basic Functionality added for xDai chain, additional support in process.
 
 ERC-1155 tokens are increasing in popularity as a way to manage multiple-token types including fungible and non-fungible tokens within a single instance. This feature provides parsing and display of tokens contained within an ERC-1155. Additional functionality such as metadata display is in process.
 
-### Rollup Support
+### :white\_check\_mark: Rollup Support
 
 **Target Date:** Q4 2021\
 **Status**: :white\_check\_mark: Instances for Optimism and Arbitrum on Gnosis Chain
@@ -250,14 +250,14 @@ BlockScout availability and support is available for Optimism and Arbitrum on th
 * Optimism: [https://blockscout.com/xdai/optimism](https://blockscout.com/xdai/optimism)
 * Arbitrum: [https://blockscout.com/xdai/aox/](https://blockscout.com/xdai/aox/)
 
-### EIP-1559 Support
+### :white\_check\_mark: EIP-1559 Support
 
 **Target Date:** Q3-Q4 2021\
 **Status**: :white\_check\_mark: Complete
 
 The Gnosis Chain explorer supports EIP-1559 functionality with a stated transaction type (2 for EIP-1559) and includes data reporting of Max Fee per Gas, Max Priority Fee per Gas and Priority Fee / Tip paid for a transaction.
 
-### Multi-file Contract Source Code Verification
+### :white\_check\_mark: Multi-file Contract Source Code Verification
 
 **Target Date:** Q4 2021\
 **Status:**  :white\_check\_mark: Complete
