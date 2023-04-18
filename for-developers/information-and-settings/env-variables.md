@@ -34,6 +34,8 @@ Last updated 13 June, 2022.
 
 Can be set in format `1h` for 1 hour, `1m` for 1 minute, `1s` or `1` for 1 second, `1ms` for 1 millisecond
 
+_Note_: Before release 5.1.2, all environment variables of time format supported only integers in seconds (without dimensions) as values.
+
 ### Available ENV Variables
 
 {% hint style="info" %}
