@@ -10,25 +10,25 @@ For example, if a contract is verified on Ethereum Mainnet, it cannot be accesse
 
 <figure><img src="../../.gitbook/assets/no-multichain.png" alt=""><figcaption></figcaption></figure>
 
-To address this issue, we have implemented a database for verified contract information which can be shared across all supported chains. This database and it's associated functionality has be been created as a Blockscout microservice called the **Ethereum Bytecode Database (Blockscout EBD)**
+To address this issue, we have implemented a database for verified contract information which can be shared across all supported chains. This database and it's associated functionality has been created as a Blockscout microservice called the **Ethereum Bytecode Database (Blockscout EBD).**
 
 ## Initial Planning
 
-Initial plans were to create a distinct service with a database responsible for maintaining verification results which could be shared among all supported chains. This service would track the contract address and the chain where the contract was deployed, as well as the source files, so that the source files could be extracted for verified contracts. The service would also search for similar verified contracts for contracts which had not yet been verified.
+Initial plans were to create a distinct service with a database responsible for maintaining verification results. This database could then be shared among all supported chains. The service would track the contract address and the chain where the contract was deployed. The source files would also be stored so they could be extracted for verified contracts. The service would also find and match unverified contracts to their verified counterparts if they already existed in the database.
 
 <figure><img src="../../.gitbook/assets/InitialMicroservice.svg" alt=""><figcaption></figcaption></figure>
 
 ## Restructuring the Search Process
 
-It is possible to search for similar bytecodes if, for example, bytecodes (or their hashes) are stored in the database along with verification results. The list of already verified bytecodes can then be checked when searching for the source codes of unverified contracts.
+It is possible to search for similar bytecodes if the bytecodes (or their hashes) are stored in the database along with verification results. The list of already verified bytecodes can then be checked when searching for the source codes of unverified contracts.
 
 However, with this type of search the **`chainId`** and **`contractAddress`** arguments are typically required, as source codes for already verified contracts are stored based on the chain and address where these contracts are deployed. This is how most source code databases are designed (e.g., Sourcify, Etherscan, Blockscout).
 
-With this new service, our main goal was not just to return source codes for verified contracts (since that data is already stored and processed internally within Blockscout's main storage), but rather to search for source codes for unverified contracts. To do this, we realized we could eliminate **`chainId`** and **`contractAddress`** and gain some distinct advantages.
+With this new service, our main goal was not just to return source codes for verified contracts (since that data is already stored and processed internally within Blockscout's main storage), but also to search for source codes for unverified contracts. To do this, we realized we could eliminate **`chainId`** and **`contractAddress`** and gain some advantages.
 
 ## Solution - Ethereum Bytecode Database (Blockscout EBD)
 
-A solution can be found by mapping source codes directly to bytecodes. In this case,  **`chainId`** and **`contractAddress`**  are not needed, only the _bytecode-sourceCode_ correspondence. This is similar to what [4bytes](https://www.4byte.directory/) or [sigEth](https://sig.eth.samczsun.com/) does. However, instead of looking for the function signature based on its identifier, we look for the contracts' source code based on its bytecode.&#x20;
+A solution can be found by mapping source codes directly to bytecodes. In this case,  **`chainId`** and **`contractAddress`**  are not needed, only the _`bytecode`-`sourceCode`_ correspondence if required. This is similar to what [4bytes](https://www.4byte.directory/) or [sigEth](https://sig.eth.samczsun.com/) does. However, instead of looking for the function signature based on its identifier, we look for the contracts' source code based on its bytecode.&#x20;
 
 * **Current Approaches:** Chain → Contract Address → Sources
 * **Blockscout Ethereum Bytecode Database:** Bytecode → Sources
@@ -49,7 +49,7 @@ The microservice does not care where the contract is deployed (which chain) or e
 
 ## Similar Contracts Search Enhancement
 
-In Blockscout, two contracts can share the same source code only if their bytecodes are entirely identical. However, not every part of the bytecode is functional (see [**Sourcify partial vs. full match**](https://docs.sourcify.dev/docs/full-vs-partial-match/)). There may also be a metadata hash, usually located at the end of the creation input or deployed bytecode. The source code can also produce different metadata hashes for inconsequential changes, such as when a new space is appended to the file or the file is renamed. This results in bytecodes with the same EVM-executed portion, but they may not be identified by Blockscout's current similar contracts search algorithm.
+In Blockscout, two contracts share the same source code only if their bytecodes are entirely identical. However, not every part of the bytecode is functional (see [**Sourcify partial vs. full match**](https://docs.sourcify.dev/docs/full-vs-partial-match/)). There may also be a metadata hash, usually located at the end of the creation input or deployed bytecode. The source code can also produce different metadata hashes for inconsequential changes, such as when a new space is appended to the file or the file is renamed. This results in bytecodes with the same EVM-executed portion, but they may not be identified by Blockscout's current similar contracts search algorithm.
 
 As described in [**smart-contract verification**](https://docs.blockscout.com/for-developers/information-and-settings/smart-contract-verification#verification-process), our verification service allows us to split the bytecode into 2 parts, **Main** and **Metadata**. The Ethereum Bytecode Database takes advantage of this and searches for similar bytecodes based only on the **Main** (functionally significant) parts.
 
