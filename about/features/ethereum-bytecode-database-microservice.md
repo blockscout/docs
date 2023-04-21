@@ -57,7 +57,7 @@ As described in [**smart-contract verification**](https://docs.blockscout.com/fo
 
 Removing the notion of chains and contract addresses is powerful in and of itself. However, the addition of extractors provides the opportunity for an extremely robust database.
 
-<figure><img src="../../.gitbook/assets/Ethereum Bytecode DB (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Ethereum Bytecode DB (3).png" alt=""><figcaption></figcaption></figure>
 
 Extractors can be implemented as separate extensions which can index different explorers and different chains, then automatically submit newly verified bytecodes into the Ethereum Bytecode Database. It can also import contracts verified long ago.&#x20;
 
