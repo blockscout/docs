@@ -4,13 +4,11 @@ description: '?module=block'
 
 # Block
 
-{% hint style="info" %}
-Page is under construction. For a list of RPC endpoints, visit [https://blockscout.com/eth/mainnet/api-docs](https://blockscout.com/eth/mainnet/api-docs)
-{% endhint %}
-
 ### `https://instance_base_url/api?module=block`
 
 ## Get block reward by block number
+
+`getblockreward`
 
 Returns the block reward and 'uncle' block rewards when applicable.
 
@@ -48,3 +46,77 @@ https://instance_base_url/api
 {% endtab %}
 {% endtabs %}
 
+## Get block number by time stamp
+
+`getblocknobytime`
+
+Returns the block number created closest to a provided timestamp.
+
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=block
+   &action=getblocknobytime
+   &timestamp={blockTimestamp}
+   &closest={before/after}
+```
+
+{% tabs %}
+{% tab title="Request Param" %}
+
+
+| Parameter | Description                                                          |
+| --------- | -------------------------------------------------------------------- |
+| timestamp | `integer` representing the Unix timestamp in seconds.                |
+| closest   | closest block to the provided timestamp, either `before` or `after`. |
+
+Note: [How to convert date/time to a Unix timestamp](https://www.unixtimestamp.com/).
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+{
+  "message": "OK",
+  "result": {
+    "blockNumber": "2165403"
+  },
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Get the latest block number
+
+`eth_block_number`
+
+Mimics Ethereum JSON RPC's eth\_blockNumber.
+
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=block
+   &action=eth_block_number
+```
+
+{% tabs %}
+{% tab title="Request Param" %}
+| Parameter | Description                                                                                                          |
+| --------- | -------------------------------------------------------------------------------------------------------------------- |
+| id        | <mark style="background-color:yellow;">optional</mark> nonnegative integer that represents the json rpc request id.  |
+
+More on [json rpc request id](https://www.jsonrpc.org/specification).
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+{
+  "jsonrpc": "2.0",
+  "result": "0x103538a",
+  "id": 1
+}
+```
+{% endtab %}
+{% endtabs %}
