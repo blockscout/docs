@@ -108,6 +108,7 @@
   * [Tracing](for-developers/configuration-options/tracing.md)
   * [Logger Configs](for-developers/configuration-options/logger-configs.md)
   * [Memory Usage](for-developers/configuration-options/memory-usage.md)
+  * [Charts and Stats](for-developers/configuration-options/charts-and-stats.md)
 * [Indexing](for-developers/indexing/README.md)
   * [How do I fix indexer timeouts?](for-developers/indexing/how-do-i-fix-indexer-timeouts.md)
   * [How do I update memory consumption to fix indexer memory errors?](for-developers/indexing/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md)
