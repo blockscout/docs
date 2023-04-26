@@ -12,6 +12,8 @@ Page is under construction. For a list of RPC endpoints, visit [https://blocksco
 
 ## Get [ERC-20](https://github.com/ethereum/EIPs/issues/20) or [ERC-721](https://github.com/ethereum/EIPs/issues/721) token total supply by contract address
 
+`tokensupply`
+
 **Example**
 
 ```

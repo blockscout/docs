@@ -12,6 +12,8 @@ Page is under construction. For a list of RPC endpoints, visit [https://blocksco
 
 ## Get a list of contracts
 
+`listcontracts`
+
 List sorted in ascending order based on the time a contact was first indexed by the explorer. With filters \`not\_decompiled\`(\`4\`) or \`not\_verified(4)\` the results will not be sorted for performance reasons.
 
 **Example:**
@@ -53,7 +55,5 @@ https://instance_base_url/api
 {% endtab %}
 {% endtabs %}
 
-## Get transaction receipt status
-
-Also available through a GraphQL 'transaction' query.
+##
 

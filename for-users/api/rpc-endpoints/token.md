@@ -8,6 +8,8 @@ description: '?module=token'
 
 ## Get ERC-20 or ERC-721 token by contract address
 
+`getToken`
+
 Info on name, symbol, supply and type for a token contract address.
 
 **Example**
@@ -46,6 +48,8 @@ https://instance_base_url/api
 {% endtabs %}
 
 ## Get token holders by contract address
+
+`getTokenHolders`
 
 Returns an array of token holder's accounts and amounts held for a specified token contract address.
 

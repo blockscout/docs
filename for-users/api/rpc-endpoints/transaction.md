@@ -4,13 +4,11 @@ description: '?module=transaction'
 
 # Transaction
 
-{% hint style="info" %}
-Page is under construction. For a list of RPC endpoints, visit [https://blockscout.com/eth/mainnet/api-docs](https://blockscout.com/eth/mainnet/api-docs)
-{% endhint %}
-
 ### &#x20;`https://instance_base_url/api?module=transaction`
 
 ## Get transaction info
+
+`gettxinfo`
 
 Information related to a specified transaction. Includes:
 
@@ -82,7 +80,9 @@ https://instance_base_url/api
 {% endtab %}
 {% endtabs %}
 
-## Get transaction receipt status&#x20;
+## Get transaction receipt status
+
+`gettxreceiptstatus`&#x20;
 
 Also available through a GraphQL 'transaction' query. `Status` field return:
 
@@ -118,7 +118,9 @@ https://instance_base_url/api
 {% endtab %}
 {% endtabs %}
 
-## Get error status and message&#x20;
+## Get error status and message
+
+`getstatus`&#x20;
 
 Also available through a GraphQL 'transaction' query. Includes the following:
 

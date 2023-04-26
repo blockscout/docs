@@ -8,6 +8,8 @@ description: '?module=logs'
 
 ## Get Event Logs by Address and/or Topic(s)
 
+`getLogs`
+
 Event logs for an address and topic. Use **and/or** with the topic operator to specify topic retrieval options when adding multiple topics. Up to a maximum of 1,000 event logs.
 
 **Example:**
