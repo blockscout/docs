@@ -116,6 +116,7 @@ This table is horizontally scrollable, version information is located in the las
 | `EIP_1559_ELASTICITY_MULTIPLIER`           |          | EIP-1559 elasticity multiplier. Implemented in [#7253](https://github.com/blockscout/blockscout/pull/7253)                                                                                   | 2                                                | v5.1.3+  |                |
 | `ETHEREUM_JSONRPC_FALLBACK_HTTP_URL`    |          | Fallback JSON RPC HTTP url. Implemented in [#7246](https://github.com/blockscout/blockscout/pull/7246)                                                                                                                                      | (empty)                                                | v5.1.4+  |                |
 | `ETHEREUM_JSONRPC_FALLBACK_TRACE_URL`   |          | Fallback JSON RPC trace url. Implemented in [#7246](https://github.com/blockscout/blockscout/pull/7246)                                                                                                                                     | (empty)                                                | v5.1.4+  |                |
+| `SENSITIVE_ENDPOINTS_API_KEY`   |          | API key to protect some sensitive endpoints. Implemented in [#7355](https://github.com/blockscout/blockscout/pull/7355)                                                                                                                                     | (empty)                                                | master  |                |
 
 ### Indexer management
 
@@ -341,7 +342,6 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | `ACCOUNT_SENDGRID_SENDER`              |          | Sendgrid sender email for watchlist notifications functionality                                                       | (empty)                   | 5.0.0   |
 | `ACCOUNT_SENDGRID_TEMPLATE`            |          | Sendgrid email template for watchlist notifications functionality                                                     | (empty)                   | 5.0.0   |
 | `ACCOUNT_CLOAK_KEY`                    |          | Account DB encryption key. [Instruction how to generate](https://hexdocs.pm/cloak\_ecto/generate\_keys.html#content) | (empty)                   | 5.0.0   |
-| `ACCOUNT_AUTHENTICATE_ENDPOINT_API_KEY`                    |          | `api/account/v1/authenticate` api key ([#7068](https://github.com/blockscout/blockscout/pull/7068)) | (empty)                   | v5.1.2+   |
 
 ### Integrations
 
