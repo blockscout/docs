@@ -5,6 +5,10 @@ description: Blockchain Explorer for inspecting and analyzing EVM Chains.
 # Welcome to Blockscout
 
 {% hint style="success" %}
+Blockscout is participating in Gitcoin Grants Ethereum Infrastructure round. [Donate today to support open-source values and blockchain transparency](https://explorer.gitcoin.co/#/round/1/0xdf22a2c8f6ba9376ff17ee13e6154b784ee92094/0xdf22a2c8f6ba9376ff17ee13e6154b784ee92094-5)!
+{% endhint %}
+
+{% hint style="success" %}
 🔵🎉 The first public instance of the newly redesigned Blockscout has been released with the Base testnet! [https://base-goerli.blockscout.com](https://base-goerli.blockscout.com/)\
 \
 This major update is set to transform open-source blockchain exploration. We will continue improving Blockscout as we approach the mainnet release and additional deployments. [More details about the new BlockScout redesign](about/roadmap/blockscout-2.0.md).
