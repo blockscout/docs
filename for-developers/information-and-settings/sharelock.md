@@ -122,4 +122,5 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.StakingPoolsDelegator | staking\_pools\_delegators | \[asc: :delegator\_address\_hash, asc: :pool\_address\_hash\] |
 | Explorer.Chain.ContractMethod | contract\_methods | \[asc: :identified, asc: :abi\] |
 | Explorer.Market.MarketHistory | market\_history | asc: :date |
+| Explorer.Chain.Withdrawal | withdrawals | asc: :index |
 
