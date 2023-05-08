@@ -300,7 +300,7 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | `RE_CAPTCHA_CLIENT_KEY` |          | Google reCAPTCHA v2 client key. Used by advanced CSV export. Implemented in [#4747](https://github.com/blockscout/blockscout/pull/4747)  | (empty) | v4.0.0+ |
 | `RE_CAPTCHA_V3_SECRET_KEY` |          | Google reCAPTCHA v3 secret key. Used by advanced CSV export. Implemented in [#7273](https://github.com/blockscout/blockscout/pull/7273) | (empty) | v5.1.4+ |
 | `RE_CAPTCHA_V3_CLIENT_KEY` |          | Google reCAPTCHA v3 client key. Used by advanced CSV export. Implemented in [#7273](https://github.com/blockscout/blockscout/pull/7273)  | (empty) | v5.1.4+ |
-| `RE_CAPTCHA_DISABLED` |          | Disable reCAPTCHA. Implemented in [#7416](https://github.com/blockscout/blockscout/pull/7416)  | false | v5.1.5+ |
+| `RE_CAPTCHA_DISABLED` |          | Disable reCAPTCHA. Implemented in [#7416](https://github.com/blockscout/blockscout/pull/7416)  | false | master |
 
 ### API rate limit management
 
