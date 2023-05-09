@@ -347,6 +347,7 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | `ACCOUNT_SENDGRID_SENDER`              |          | Sendgrid sender email for watchlist notifications functionality                                                       | (empty)                   | 5.0.0   |
 | `ACCOUNT_SENDGRID_TEMPLATE`            |          | Sendgrid email template for watchlist notifications functionality                                                     | (empty)                   | 5.0.0   |
 | `ACCOUNT_CLOAK_KEY`                    |          | Account DB encryption key. [Instruction how to generate](https://hexdocs.pm/cloak\_ecto/generate\_keys.html#content) | (empty)                   | 5.0.0   |
+| `ACCOUNT_VERIFICATION_EMAIL_RESEND_INTERVAL`                    |          | Time before resending confirmation email. Implemented in [#7298](https://github.com/blockscout/blockscout/pull/7298). [Time format](env-variables.md#time-format) | `5m`                   | master |
 
 ### Integrations
 
