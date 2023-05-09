@@ -71,10 +71,10 @@ It is important to set the variable **`MIX_ENV=prod`** during deployment. The cu
 The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](../information-and-settings/client-settings.md).
 {% endhint %}
 
-**8)** Install and start[ smart contract verification microservice](../information-and-settings/smart-contract-verification.md). You can [use docker](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#using-docker), [build from source](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#building-from-source), or use cargo directly (example below).
+**8)** Install and start the[ smart contract verification microservice](../information-and-settings/smart-contract-verification.md). You can [use docker](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#using-docker), [build from source](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#building-from-source), or use cargo directly (example below). If you experience issues, see the extensive [smart contract verifier readme](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier/smart-contract-verifier-server#readme).
 
 1. Using docker:
-   * `docker run -p 8043:8043 ghcr.io/blockscout/smart-contract-verifier:latest`
+   * `docker run -p 8050:8050 ghcr.io/blockscout/smart-contract-verifier:latest`
 2. Or install [rust](https://www.rust-lang.org/tools/install) and build from sources:
    * `cargo install --locked --git https://github.com/blockscout/blockscout-rs smart-contract-verifier-server`
    * Then run the binary as `smart-contract-verifier-server`
@@ -82,7 +82,7 @@ The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, g
 
 ```
 export MICROSERVICE_SC_VERIFIER_ENABLED=true
-export MICROSERVICE_SC_VERIFIER_URL=http://0.0.0.0:8043/
+export MICROSERVICE_SC_VERIFIER_URL=http://0.0.0.0:8050/
 ```
 
 **9)** Compile the application:`mix compile`

@@ -32,6 +32,6 @@ Examples of dashboards:
 
 ![](../../.gitbook/assets/screenshot-2020-06-09-at-11.20.20.png)
 
-![](<../../.gitbook/assets/screenshot-2020-06-09-at-11.20.56 (1).png>)
+![](../../.gitbook/assets/screenshot-2020-06-09-at-11.20.56.png)
 
 ![](../../.gitbook/assets/screenshot-2020-06-09-at-11.20.16.png)
