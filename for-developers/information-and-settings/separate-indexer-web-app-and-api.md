@@ -4,18 +4,18 @@ Blockscout supports several modes which run in a single all-in-one application b
 
 **Modes**
 
-* Indexer
-* Web UI
-* API
-* all-in-one (default)
+* [Indexer](separate-indexer-web-app-and-api.md#indexer-mode)
+* [Web UI](separate-indexer-web-app-and-api.md#web-application-mode)
+* [API](separate-indexer-web-app-and-api.md#api-mode)
+* All-in-one (default)
 
-It is also possible to run modes separately or in different combinations. For example, you may want to run the `indexer mode + API` to create an indexed db with programatic access and no UI, or `indexer mode + UI` to leverage Blockscout as a read-only explorer.
+It is possible to run modes separately or in different combinations. For example, you may want to run the `indexer mode + API` to create an indexed db with programatic access and no UI, or `indexer mode + UI` to leverage Blockscout as a read-only explorer.
 
-Note the application is limited to 1 running indexer per 1 Blockscout instance.  However, the indexer automatically reruns child processes within the Elixir architecture, making it quite fault-tolerant.&#x20;
+Note that the application is limited to 1 running indexer per 1 Blockscout instance.  However, the indexer automatically reruns child processes within the Elixir architecture, making it quite fault-tolerant.&#x20;
 
 To run these modes separately, adjust ENV variables as follows:
 
-{% hint style="warning" %}
+{% hint style="info" %}
 After extending the set of environment variables for the instance, recompile the application (or rebuilt the docker image, if this is Docker version) to enable mode settings.
 {% endhint %}
 
