@@ -5,7 +5,7 @@ description: '?module=contract'
 # Contract
 
 {% hint style="info" %}
-Page is under construction. For a list of RPC endpoints, visit [https://blockscout.com/eth/mainnet/api-docs](https://blockscout.com/eth/mainnet/api-docs)
+Page is under construction. For a full description of RPC endpoints, visit [https://blockscout.com/xdai/mainnet/api-docs](https://blockscout.com/xdai/mainnet/api-docs)
 {% endhint %}
 
 ### &#x20;`https://instance_base_url/api?module=contract`
@@ -55,5 +55,30 @@ https://instance_base_url/api
 {% endtab %}
 {% endtabs %}
 
-##
+## Get ABI for verified contract
 
+`getabi`
+
+## Get contract source code for verified contract
+
+`getsourcecode`
+
+## Verify a contract with its source code and contract creation information
+
+`verify`
+
+## Verify a contract through [Sourcify](https://sourcify.dev/)
+
+`verify_via_sourcify`
+
+## Verify a vyper contract with its source code and contract creation information
+
+`verify_vyper_contract`
+
+## Verify a contract with Standard input JSON file
+
+`verifysourcecode`
+
+## Return status of the verification attempt
+
+`checkverifystatus`

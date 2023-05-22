@@ -92,3 +92,8 @@ https://instance_base_url/api
 ```
 {% endtab %}
 {% endtabs %}
+
+## Get bridged tokens list
+
+`bridgedTokenList`
+

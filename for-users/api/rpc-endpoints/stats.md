@@ -5,7 +5,7 @@ description: '?module=stats'
 # Stats
 
 {% hint style="info" %}
-Page is under construction. For a list of RPC endpoints, visit [https://blockscout.com/eth/mainnet/api-docs](https://blockscout.com/eth/mainnet/api-docs)
+Page is under construction. For a full description of RPC endpoints, visit [https://blockscout.com/xdai/mainnet/api-docs](https://blockscout.com/xdai/mainnet/api-docs)
 {% endhint %}
 
 ### &#x20; `https://instance_base_url/api?module=stats`
@@ -40,5 +40,25 @@ https://instance_base_url/api
 ```
 {% endtab %}
 {% endtabs %}
+
+## Get total supply in Wei from exchange
+
+`ethsupplyexchange`
+
+## Get total supply in Wei from DB
+
+`ethsupply`
+
+## Get total coin supply from DB minus burnt number
+
+`coinsupply`
+
+## Get latest price of native coin in USD and BTC
+
+`coinprice`
+
+## Get total transaction fees in Wei paid by users to validators per day
+
+`totalfees`
 
 ##

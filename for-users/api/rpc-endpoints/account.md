@@ -5,7 +5,7 @@ description: '?module=account'
 # Account
 
 {% hint style="info" %}
-Page is under construction. For a list of RPC endpoints, visit [https://blockscout.com/eth/mainnet/api-docs](https://blockscout.com/eth/mainnet/api-docs)
+Page is under construction. For a full description of RPC endpoints, visit [https://blockscout.com/xdai/mainnet/api-docs](https://blockscout.com/xdai/mainnet/api-docs)
 {% endhint %}
 
 ### `https://instance_base_url/api?module=account`
@@ -84,3 +84,39 @@ Also available through a GraphQL `address` query.
 {% hint style="info" %}
 If the balance hasn't been updated recently, the node is double-checked to fetch the absolute latest balance. This will not be reflected in the current request, but once it is updated, subsequent requests will show the updated balance. If you want to know if there is a check for another balance, use the `balancemult`i action. That contains a property called `stale` that will let you know to recheck that balance in the near future.
 {% endhint %}
+
+## Get balance for multiple addresses
+
+`balancemulti`
+
+## Get pending transactions by address
+
+`pendingtxlist`
+
+## Get transactions by address
+
+`txlist`
+
+## Get internal transactions by transaction or address hash
+
+`txlistinternal`
+
+## Get token transfer events by address
+
+`tokentx`
+
+## Get token account balance for token contract address
+
+`tokenbalance`
+
+## Get list of tokens owned by address
+
+`tokenlist`
+
+## Get list of blocks mined by address
+
+`getminedblocks`
+
+## Get a list of accounts and their balances
+
+`listaccounts`
