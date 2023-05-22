@@ -53,7 +53,7 @@ https://instance_base_url/api
 
 Returns an array of token holder's accounts and amounts held for a specified token contract address.
 
-Example
+**Example**
 
 ```
 https://instance_base_url/api
@@ -97,3 +97,58 @@ https://instance_base_url/api
 
 `bridgedTokenList`
 
+Returns an array of bridged token information (uses native bridge application and only returns when applicable - depends on implementation).
+
+**Example**
+
+```
+https://instance_base_url/api
+   ?module=token
+   &action=bridgedTokenList
+   &chainid={chainid}
+   &page={integer}
+   &offset={integer}
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+| Parameter | Description                                                                                                                                                                  |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| chainID   | nonnegative `integer` that represents the chain id where the original token exists.                                                                                          |
+| page      | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the page number used for pagination. 'offset' must also be provided.               |
+| offset    | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the max number of records to return when paginating. 'page' must also be provided. |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+{
+  "message": "OK",
+  "result": [
+    {
+      "foreignChainId": "1",
+      "foreignTokenContractAddressHash": "0x0ae055097c6d159879521c384f1d2123d1f195e6",
+      "homeContractAddressHash": "0xb7d311e2eb55f2f68a9440da38e7989210b9a05e",
+      "homeDecimals": "18",
+      "homeHolderCount": 393,
+      "homeName": "STAKE on xDai",
+      "homeSymbol": "STAKE",
+      "homeTotalSupply": "1484374.775044204093387391",
+      "homeUsdValue": "18807028.39981006586321824397"
+    },
+    {
+      "foreignChainId": "1",
+      "foreignTokenContractAddressHash": "0xf5581dfefd8fb0e4aec526be659cfab1f8c781da",
+      "homeContractAddressHash": "0xd057604a14982fe8d88c5fc25aac3267ea142a08",
+      "homeDecimals": "18",
+      "homeHolderCount": 73,
+      "homeName": "HOPR Token on xDai",
+      "homeSymbol": "HOPR",
+      "homeTotalSupply": "26600449.86076749062791602",
+      "homeUsdValue": "6638727.472651464170990256943"
+    }
+  ],
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}
