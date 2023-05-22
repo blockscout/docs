@@ -30,7 +30,7 @@ https://instance_base_url/api
 | Parameter   |  Description                                                                                                                                                                                                                                                                                                                                                            |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **address** | `string` containing the address hash.                                                                                                                                                                                                                                                                                                                                   |
-| **block**   | <p><mark style="background-color:yellow;">optional</mark>. Block number as a string, or <code>latest</code>, <code>earliest</code> or <code>pending</code> <br><br>Latest is the latest balance in a <em>consensus</em> block. Earliest is the first recorded balance for the address. Pending is the latest balance in a consensus <em>or</em> nonconsensus block.</p> |
+| block       | <p><mark style="background-color:yellow;">optional</mark>. Block number as a string, or <code>latest</code>, <code>earliest</code> or <code>pending</code> <br><br>Latest is the latest balance in a <em>consensus</em> block. Earliest is the first recorded balance for the address. Pending is the latest balance in a consensus <em>or</em> nonconsensus block.</p> |
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -89,34 +89,482 @@ If the balance hasn't been updated recently, the node is double-checked to fetch
 
 `balancemulti`
 
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=account
+   &action=balancemulti
+   &address={addressHash1,addressHash2,addressHash3}
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+| Parameter   |  Description                                                                 |
+| ----------- | ---------------------------------------------------------------------------- |
+| **address** | `string` containing the address hash, comma separated. **Max 20 addresses.** |
+
+
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+{
+  "message": "OK",
+  "result": [
+    {
+      "account": "0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a",
+      "balance": "40807168566070000000000",
+      "stale": true
+    },
+    {
+      "account": "0x63a9975ba31b0b9626b34300f7f627147df1f526",
+      "balance": "332567136222827062478",
+      "stale": false
+    },
+    {
+      "account": "0x198ef1ec325a96cc354c7266a038be8b5c558f67",
+      "balance": "185178830000000000",
+      "stale": false
+    }
+  ],
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+Also available through a GraphQL 'addresses' query
+{% endhint %}
+
+{% hint style="info" %}
+If the balance hasn't been updated in a long time, the node is double checked to fetch the absolute latest balance. This is not reflected in the current request, but once it is updated, subsequent requests will show the updated balance. The **`stale`** attribute will be set to **`true`** if a new balance is being fetched.
+{% endhint %}
+
 ## Get pending transactions by address
 
 `pendingtxlist`
+
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=account
+   &action=pendingtxlist
+   &address={addressHash}
+   &page=1
+   &offset=5
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+| Parameter   |  Description                                                                                                                                           |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **address** | `string` containing the address hash.                                                                                                                  |
+| page        | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. 'offset' must also be provided.     |
+| offset      | <mark style="background-color:yellow;">optional</mark>  `integer` representing number of transactions returned per page. `page` must also be provided. |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+
+  "message": "OK",
+  "result": [
+    {
+      "contractAddress": "",
+      "cumulativeGasUsed": "122207",
+      "from": "0x3fb1cd2cd96c6d5c0b5eb3322d807b34482481d4",
+      "gas": "122261",
+      "gasPrice": "50000000000",
+      "gasUsed": "122207",
+      "hash": "0x98beb27135aa0a25650557005ad962919d6a278c4b3dde7f4f6a3a1e65aa746c",
+      "input": "0xf00d4b5d000000000000000000000000036c8cecce8d8bbf0831d840d7f29c9e3ddefa63000000000000000000000000c5a96db085dda36ffbe390f455315d30d6d3dc52",
+      "nonce": "0",
+      "to": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae",
+      "value": "0"
+    }
+  ],
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Get transactions by address
 
 `txlist`
 
+Maximum of 10,000 transactions. Also available through a GraphQL 'address' query. For faster results, specify a smaller block range to search using the start\_block and end\_block parameters
+
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=account
+   &action=txlist
+   &address={addressHash}
+   &startblock=555555
+   &endblock=666666
+   &page=1
+   &offset=5
+   &sort=asc
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+| Parameter        |  Description                                                                                                                                                                                                       |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **address**      | `string` containing the address hash.                                                                                                                                                                              |
+| sort             | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default.                                                                   |
+| start\_block     | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search                                                                                                          |
+| end\_block       | <mark style="background-color:yellow;">optional</mark>`integer` block number to stop transaction search.                                                                                                           |
+| page             | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided.                                                                 |
+| offset           | <mark style="background-color:yellow;">optional</mark>  `integer` representing number of transactions returned per page. `page` must also be provided.                                                             |
+| filter\_by       | <mark style="background-color:yellow;">optional</mark> string representing the field to filter by. Values include `to` and `from`. If none provided returns transactions that match to, from, or contract address. |
+| start\_timestamp | <mark style="background-color:yellow;">optional</mark> starting block unix timestamp.                                                                                                                              |
+| end\_timestamp   | <mark style="background-color:yellow;">optional</mark> ending block unix timestamp.                                                                                                                                |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+{
+  "message": "OK",
+  "result": [
+    {
+      "blockHash": "0x373d339e45a701447367d7b9c7cef84aab79c2b2714271b908cda0ab3ad0849b",
+      "blockNumber": "65204",
+      "confirmations": "5994246",
+      "contractAddress": "",
+      "cumulativeGasUsed": "122207",
+      "from": "0x3fb1cd2cd96c6d5c0b5eb3322d807b34482481d4",
+      "gas": "122261",
+      "gasPrice": "50000000000",
+      "gasUsed": "122207",
+      "hash": "0x98beb27135aa0a25650557005ad962919d6a278c4b3dde7f4f6a3a1e65aa746c",
+      "input": "0xf00d4b5d000000000000000000000000036c8cecce8d8bbf0831d840d7f29c9e3ddefa63000000000000000000000000c5a96db085dda36ffbe390f455315d30d6d3dc52",
+      "isError": "0",
+      "nonce": "0",
+      "timeStamp": "1439232889",
+      "to": "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae",
+      "transactionIndex": "0",
+      "txreceipt_status": "1",
+      "value": "0"
+    }
+  ],
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## Get internal transactions by transaction or address hash
 
 `txlistinternal`
+
+Up to a maximum of 10,000 internal transactions. Also available through a GraphQL 'transaction' query. For faster results, specify a smaller block range to search using the start\_block and end\_block parameters.
+
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=account
+   &action=txlistinternal
+   &txhash={transactionHash}
+   &startblock=555555
+   &endblock=666666
+   &page=1
+   &offset=5
+   &sort=asc
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+
+
+| Parameter    |  Description                                                                                                                                                                                        |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **txhash**   | `string` representing the transaction hash to check for internal transactions                                                                                                                       |
+| address      | <mark style="background-color:yellow;">optional</mark> `string` containing the address hash.                                                                                                        |
+| sort         | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default. **Only available if 'address' is provided.**       |
+| start\_block | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search. **Only available if 'address' is provided.**                                             |
+| end\_block   | <mark style="background-color:yellow;">optional</mark>`integer` block number to stop transaction search. **Only available if 'address' is provided.**                                               |
+| page         | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided. **Only available if 'address' is provided.**     |
+| offset       | <mark style="background-color:yellow;">optional</mark>  `integer` representing number of transactions returned per page. `page` must also be provided. **Only available if 'address' is provided.** |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+{
+  "message": "OK",
+  "result": [
+    {
+      "blockNumber": "6153702",
+      "callType": "delegatecall",
+      "contractAddress": "0x883103875d905c11f9ac7dacbfc16deb39655361",
+      "errCode": "",
+      "from": "0x2ca1e3f250f56f1761b9a52bc42db53986085eff",
+      "gas": "814937",
+      "gasUsed": "536262",
+      "index": "0",
+      "input": "",
+      "isError": "0",
+      "timeStamp": "1534362606",
+      "to": "",
+      "transactionHash": "0xd65b788c610949704a5f9aac2228c7c777434dfe11c863a12306f57fcbd8cdbb",
+      "type": "call",
+      "value": "5488334153118633"
+    }
+  ],
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Get token transfer events by address
 
 `tokentx`
 
+Up to a maximum of 10,000 token transfer events. Also available through the GraphQL `token_transfers` query.
+
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=account
+   &action=tokentx
+   &address={addressHash}
+   &page=1
+   &offset=10
+   &sort=asc
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+
+
+| Parameter        |  Description                                                                                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **address**      | `string` containing the address hash.                                                                                                                  |
+| contract address | <mark style="background-color:yellow;">optional</mark> `string` with the token contract address to identify a contract.                                |
+| sort             | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default.       |
+| start\_block     | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search                                              |
+| end\_block       | <mark style="background-color:yellow;">optional</mark>`integer` block number to stop transaction search.                                               |
+| page             | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided.     |
+| offset           | <mark style="background-color:yellow;">optional</mark>  `integer` representing number of transactions returned per page. `page` must also be provided. |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+{
+  "message": "OK",
+  "result": [
+    {
+      "blockHash": "0x6169c5dc05d0051564ba3eae8ebfbdefda640c5f5ffc095846b8aed0b44f64ea",
+      "blockNumber": "5997843",
+      "confirmations": "199384",
+      "contractAddress": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+      "cumulativeGasUsed": "1043649",
+      "from": "0x4e83362442b8d1bec281594cea3050c8eb01311c",
+      "gas": "44758",
+      "gasPrice": "7000000000",
+      "gasUsed": "37298",
+      "hash": "0xd65b788c610949704a5f9aac2228c7c777434dfe11c863a12306f57fcbd8cdbb",
+      "input": "0xa9059cbb00000000000000000000000021e21ba085289f81a86921de890eed30f1ad23750000000000000000000000000000000000000000000000008ac7230489e80000",
+      "logIndex": "0",
+      "nonce": "765",
+      "timeStamp": "1532086946",
+      "to": "0x21e21ba085289f81a86921de890eed30f1ad2375",
+      "tokenDecimal": "18",
+      "tokenName": "Maker",
+      "tokenSymbol": "MKR",
+      "transactionIndex": "27",
+      "value": "10000000000000000000"
+    }
+  ],
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## Get token account balance for token contract address
 
 `tokenbalance`
+
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=account
+   &action=tokenbalance
+   &contractaddress={contractAddressHash}
+   &address={addressHash}
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+
+
+| Parameter            |  Description                                                          |
+| -------------------- | --------------------------------------------------------------------- |
+| **contract address** | `string` containing the contract address hash.                        |
+| **address**          | `string` containing the account address hash to retrieve balance for. |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+{
+  "message": "OK",
+  "result": "135499",
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Get list of tokens owned by address
 
 `tokenlist`
 
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=account
+   &action=tokenlist
+   &address={addressHash}
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+| Parameter   |  Description                                  |
+| ----------- | --------------------------------------------- |
+| **address** | `string` containing the account address hash. |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+{
+  "message": "OK",
+  "result": [
+    {
+      "balance": "135499",
+      "contractAddress": "0x0000000000000000000000000000000000000000",
+      "decimals": "18",
+      "name": "Example Token",
+      "symbol": "ET",
+      "type": "ERC-20"
+    },
+    {
+      "balance": "1",
+      "contractAddress": "0x0000000000000000000000000000000000000001",
+      "decimals": "18",
+      "name": "Example ERC-721 Token",
+      "symbol": "ET7",
+      "type": "ERC-721"
+    }
+  ],
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## Get list of blocks mined by address
 
 `getminedblocks`
 
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=account
+   &action=getminedblocks
+   &address={addressHash}
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+| Parameter   |  Description                                                                                                                                           |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **address** | `string` containing the address hash.                                                                                                                  |
+| page        | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. 'offset' must also be provided.     |
+| offset      | <mark style="background-color:yellow;">optional</mark>  `integer` representing number of transactions returned per page. `page` must also be provided. |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+{
+  "message": "OK",
+  "result": [
+    {
+      "blockNumber": "3462296",
+      "blockReward": "5194770940000000000",
+      "timeStamp": "1491118514"
+    }
+  ],
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## Get a list of accounts and their balances
 
 `listaccounts`
+
+Lists accounts and native balances, sorted ascending by the time they were first seen by the explorer.
+
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=account
+   &action=listaccounts
+   &address={addressHash}
+   &page=1
+   &offset=3
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+
+
+| Parameter |  Description                                                                                                                                           |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| page      | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. 'offset' must also be provided.     |
+| offset    | <mark style="background-color:yellow;">optional</mark>  `integer` representing number of transactions returned per page. `page` must also be provided. |
+
+{% hint style="info" %}
+If the balance hasn't been updated in a long time, the node is double checked to fetch the absolute latest balance. This is not reflected in the current request, but once it is updated, subsequent requests will show the updated balance. The **`stale`** attribute will be set to **`true`** if a new balance is being fetched.
+{% endhint %}
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+{
+  "message": "OK",
+  "result": [
+    {
+      "address": "0x3870c57fbf1d7e49b154269331c7bc66c64d8857",
+      "balance": "3790064387342000000",
+      "stale": false
+    },
+    {
+      "address": "0x497d69ae30d7cca0aa84d647c6d85a59a82c16ef",
+      "balance": "2047176464264000000",
+      "stale": false
+    },
+    {
+      "address": "0x9233042b8e9e03d5dc6454bbbe5aee83818ff103",
+      "balance": "444111960222208758647",
+      "stale": false
+    }
+  ],
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}

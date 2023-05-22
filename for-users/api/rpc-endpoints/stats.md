@@ -45,20 +45,120 @@ https://instance_base_url/api
 
 `ethsupplyexchange`
 
+**Example:**
+
+```
+// Some code
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+| Parameter |  Description |
+| --------- | ------------ |
+| param     | description  |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+// Some code
+```
+{% endtab %}
+{% endtabs %}
+
 ## Get total supply in Wei from DB
 
 `ethsupply`
+
+**Example:**
+
+```
+// Some code
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+| Parameter |  Description |
+| --------- | ------------ |
+| param     | description  |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+// Some code
+```
+{% endtab %}
+{% endtabs %}
 
 ## Get total coin supply from DB minus burnt number
 
 `coinsupply`
 
+**Example:**
+
+```
+// Some code
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+| Parameter |  Description |
+| --------- | ------------ |
+| param     | description  |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+// Some code
+```
+{% endtab %}
+{% endtabs %}
+
 ## Get latest price of native coin in USD and BTC
 
 `coinprice`
 
+**Example:**
+
+```
+// Some code
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+| Parameter |  Description |
+| --------- | ------------ |
+| param     | description  |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+// Some code
+```
+{% endtab %}
+{% endtabs %}
+
 ## Get total transaction fees in Wei paid by users to validators per day
 
 `totalfees`
+
+**Example:**
+
+```
+// Some code
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+| Parameter |  Description |
+| --------- | ------------ |
+| param     | description  |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+// Some code
+```
+{% endtab %}
+{% endtabs %}
 
 ##
