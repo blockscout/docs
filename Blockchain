@@ -1,0 +1,14 @@
+descripción
+Blockchain Explorer para inspeccionar y analizar cadenas EVM.
+Bienvenido a Blockscout
+{% estilo de sugerencia="éxito" %} 🔵🎉¡La primera instancia pública del Blockscout recientemente rediseñado se ha lanzado con la red de prueba Base! https://base-goerli.blockscout.com
+
+Esta importante actualización está configurada para transformar la exploración de blockchain de código abierto. Continuaremos mejorando Blockscout a medida que nos acerquemos al lanzamiento de la red principal y las implementaciones adicionales. Más detalles sobre el nuevo rediseño de BlockScout . {% endhint%}
+
+Blockscout proporciona una interfaz completa y fácil de usar para que los usuarios vean, confirmen e inspeccionen transacciones en cadenas de bloques EVM (Ethereum Virtual Machine). Blockscout actualmente admite una amplia gama de proyectos y alberga cadenas como Ethereum, Ethereum Classic, Polygon, Optimism, Gnosis Chain, Celo, Astar y muchas más. Vea nuestra lista de proyectos para más detalles.
+
+Versión de la red principal de Blockscout Ethereum
+
+Si bien hay varias exploraciones disponibles para los proyectos de blockchain, la mayoría son sistemas cerrados (es decir, Etherscan, Etherchain) que no se pueden verificar de forma independiente. Blockscout proporciona una alternativa de código abierto muy necesaria. A medida que el paradigma de cadenas múltiples continúa arraigándose tanto en entornos públicos como privados, se necesitan herramientas transparentes para analizar y validar transacciones.
+
+La información sobre el último lanzamiento y el historial de versiones está disponible en el repositorio de Github .
