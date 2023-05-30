@@ -51,6 +51,7 @@ This table is horizontally scrollable, version information is located in the las
 * [Indexer](env-variables.md#indexer-management)
 * [Polygon Edge](env-variables.md#polygon-edge-management)
 * [Rootstock](env-variables.md#rootstock-management)
+* [zkEVM Rollup](env-variables.md#zkevm-rollup-management)
 * [Exchange Rates](env-variables.md#exchange-rates-management)
 * [Cache](env-variables.md#cache-management)
 * [Gas Price Oracle](env-variables.md#gas-price-oracle-management)
@@ -228,6 +229,10 @@ This table is horizontally scrollable, version information is located in the las
 | -------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------- |
 | `ROOTSTOCK_REMASC_ADDRESS`                         |          | The address hash of remasc address on Rootstock chain. Implemented in [#8542](https://github.com/blockscout/blockscout/pull/8542)                                                                                                                                                                                                                                                                                                                                                                                             |               | v5.3.0+  |
 | `ROOTSTOCK_BRIDGE_ADDRESS`                         |          | The address hash of bridge address on Rootstock chain. Implemented in [#8542](https://github.com/blockscout/blockscout/pull/8542)                                                                                                                                                                                                                                                                                                                                                                                             |               | v5.3.0+  |
+
+### zkEVM Rollup management
+
+| `INDEXER_ZKEVM_BATCHES_ENABLED`        |          | Enables Polygon zkEVM batches fetcher. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584). | `false` | master |
 
 ### Exchange rates management
 
