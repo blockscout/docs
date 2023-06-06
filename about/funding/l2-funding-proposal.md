@@ -48,14 +48,7 @@ We are also incorporating analytics into the interface to include additional tra
 
 This is a basic outline of our proposed process, open for discussion and subject to change.
 
-| Month | Tasks                                                                                                                                                    |
-| ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1     | Resource planning, hire additional developer(s). Research basic requirements, specs, definitions, start on a framework for general L2 data integration.  |
-| 2     | Custom fields and views integration, testnet instance deployments, data indexing.                                                                        |
-| 3     | Begin UI enhancements, focus on batch data views. Data optimization, RPC extension Bring in front end dev.                                               |
-| 4     | Extend enhancements to other views, incorporate account functionality, focus on contract verification tools and functionality.                           |
-| 5     | L2-specific UI improvements, QA, analytics integrations.                                                                                                 |
-| 6     | Complete new generalized UI for L2 explorers, documentation, rollout and customization features. Bring in documentation help.                            |
+<table><thead><tr><th width="99">Month</th><th>Tasks</th></tr></thead><tbody><tr><td>1</td><td>Resource planning, hire additional developer(s). Research basic requirements, specs, definitions, start on a framework for general L2 data integration. </td></tr><tr><td>2</td><td>Custom fields and views integration, testnet instance deployments, data indexing. </td></tr><tr><td>3</td><td>Begin UI enhancements, focus on batch data views. Data optimization, RPC extension Bring in front end dev.</td></tr><tr><td>4</td><td>Extend enhancements to other views, incorporate account functionality, focus on contract verification tools and functionality.</td></tr><tr><td>5</td><td>L2-specific UI improvements, QA, analytics integrations.</td></tr><tr><td>6</td><td>Complete new generalized UI for L2 explorers, documentation, rollout and customization features. Bring in documentation help.</td></tr></tbody></table>
 
 ## Why Blockscout?
 

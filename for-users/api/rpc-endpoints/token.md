@@ -23,9 +23,7 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter       | Description                                                                                    |
-| --------------- | ---------------------------------------------------------------------------------------------- |
-| contractaddress | `string` containing the contract address hash - a 160-bit code used for identifying contracts. |
+<table><thead><tr><th width="247.5">Parameter</th><th>Description</th></tr></thead><tbody><tr><td>contractaddress</td><td><code>string</code> containing the contract address hash - a 160-bit code used for identifying contracts.</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -66,11 +64,7 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter       | Description                                                                                                                                                                  |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| contractaddress | `string`  containing the contract address hash of the ERC-20/ERC-721 token                                                                                                   |
-| page            | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the page number used for pagination. 'offset' must also be provided.               |
-| offset          | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the max number of records to return when paginating. 'page' must also be provided. |
+<table><thead><tr><th width="186.5">Parameter</th><th>Description</th></tr></thead><tbody><tr><td>contractaddress</td><td><code>string</code>  containing the contract address hash of the ERC-20/ERC-721 token</td></tr><tr><td>page</td><td><mark style="background-color:yellow;">optional</mark> nonnegative <code>integer</code> representing the page number used for pagination. 'offset' must also be provided.</td></tr><tr><td>offset</td><td><mark style="background-color:yellow;">optional</mark> nonnegative <code>integer</code> representing the max number of records to return when paginating. 'page' must also be provided.</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -112,11 +106,7 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter | Description                                                                                                                                                                  |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| chainID   | nonnegative `integer` that represents the chain id where the original token exists.                                                                                          |
-| page      | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the page number used for pagination. 'offset' must also be provided.               |
-| offset    | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the max number of records to return when paginating. 'page' must also be provided. |
+<table><thead><tr><th width="186.5">Parameter</th><th>Description</th></tr></thead><tbody><tr><td>chainID</td><td>nonnegative <code>integer</code> that represents the chain id where the original token exists.</td></tr><tr><td>page</td><td><mark style="background-color:yellow;">optional</mark> nonnegative <code>integer</code> representing the page number used for pagination. 'offset' must also be provided.</td></tr><tr><td>offset</td><td><mark style="background-color:yellow;">optional</mark> nonnegative <code>integer</code> representing the max number of records to return when paginating. 'page' must also be provided.</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Example Result" %}

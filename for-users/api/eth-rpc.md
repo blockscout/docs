@@ -38,11 +38,7 @@ Returns the balance of a given address in wei. Note the `earliest` parameter doe
 
 **Required Parameters**
 
-|                          |                                                                               |
-| ------------------------ | ----------------------------------------------------------------------------- |
-| Type                     | <mark style="background-color:green;">POST</mark>                             |
-| Data (string)            | 20 Byte address to check balance                                              |
-| Quantity or Tag (string) | Integer value of a block number, or a tag "latest" for the most recent block. |
+<table><thead><tr><th width="130.5"></th><th></th></tr></thead><tbody><tr><td>Type</td><td><mark style="background-color:green;">POST</mark></td></tr><tr><td>Data (string)</td><td>20 Byte address to check balance</td></tr><tr><td>Quantity or Tag (string)</td><td>Integer value of a block number, or a tag "latest" for the most recent block.</td></tr></tbody></table>
 
 **Example**&#x20;
 
@@ -68,14 +64,7 @@ Note: Never returns more than 1000 log entries. You can use pagination options t
 
 **Parameters**
 
-|                                                  |                                                                                                                                    |
-| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Type                                             | <mark style="background-color:green;">POST</mark>                                                                                  |
-| <p><code>address</code><br>(string, array)</p>   | 20Byte contract address or list of addresses to collect logs from.                                                                 |
-| <p><code>fromBlock</code> <br>(Quantity/Tag)</p> | Integer block number, `"latest"` (default) for the last mined block  or `"pending"`, `"earliest"` for not yet mined transactions.  |
-| <p><code>toBlock</code><br>(Quantity/Tag)</p>    |  Integer block number, `"latest"` (default) for the last mined block  or `"pending"`, `"earliest"` for not yet mined transactions. |
-| <p><code>topics</code> <br>(string, array)</p>   | Array of 32 Byte `DATA` topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options              |
-| `paging_options`                                 | `logIndex` and `blockNumber` explained above.                                                                                      |
+<table><thead><tr><th width="181.5"></th><th></th></tr></thead><tbody><tr><td>Type</td><td><mark style="background-color:green;">POST</mark></td></tr><tr><td><code>address</code><br>(string, array)</td><td>20Byte contract address or list of addresses to collect logs from.</td></tr><tr><td><code>fromBlock</code> <br>(Quantity/Tag)</td><td>Integer block number, <code>"latest"</code> (default) for the last mined block  or <code>"pending"</code>, <code>"earliest"</code> for not yet mined transactions.</td></tr><tr><td><code>toBlock</code><br>(Quantity/Tag)</td><td> Integer block number, <code>"latest"</code> (default) for the last mined block  or <code>"pending"</code>, <code>"earliest"</code> for not yet mined transactions.</td></tr><tr><td><code>topics</code> <br>(string, array)</td><td>Array of 32 Byte <code>DATA</code> topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options</td></tr><tr><td><code>paging_options</code></td><td><code>logIndex</code> and <code>blockNumber</code> explained above.</td></tr></tbody></table>
 
 
 

@@ -18,12 +18,5 @@ An example query includes a module and action(s)/parameters. For example: \
 
 The following modules are supported. Click through to see specific endpoints and parameters.
 
-| [Account](account.md)         | `?module=account`     |
-| ----------------------------- | --------------------- |
-| [Logs](logs.md)               | `?module=logs`        |
-| [Token](token.md)             | `?module=token`       |
-| [Stats](stats.md)             | `?module=stats`       |
-| [Block](block.md)             | `?module=block`       |
-| [Contract](contract.md)       | `?module=contract`    |
-| [Transaction](transaction.md) | `?module=transaction` |
+<table data-header-hidden><thead><tr><th width="158"></th><th></th></tr></thead><tbody><tr><td><a href="account.md">Account</a></td><td><code>?module=account</code></td></tr><tr><td><a href="logs.md">Logs</a></td><td><code>?module=logs</code></td></tr><tr><td><a href="token.md">Token</a></td><td><code>?module=token</code></td></tr><tr><td><a href="stats.md">Stats</a></td><td><code>?module=stats</code></td></tr><tr><td><a href="block.md">Block</a></td><td><code>?module=block</code></td></tr><tr><td><a href="contract.md">Contract</a></td><td><code>?module=contract</code></td></tr><tr><td><a href="transaction.md">Transaction</a></td><td><code>?module=transaction</code></td></tr></tbody></table>
 
