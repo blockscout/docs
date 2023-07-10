@@ -23,7 +23,7 @@ This position is a unique opportunity to join a small and experienced team of ve
 
 ### Technology Stack
 
-Elixir 1.10.4+, Erlang, Phoenix Framework, Postgres 10+, Node JS 12+, Webpack, Sass, Docker, Github, Prometheus
+Elixir 1.10.4+, Erlang, Phoenix Framework, Postgres 12+, Node JS 12+, Webpack, Sass, Docker, Github, Prometheus
 
 ### Requirements
 

@@ -19,7 +19,7 @@ Minimums are listed for an AWS Cloud instance and can be inferred to other hosti
 |                               |                                                                                                                                                                                                                                                                                                               |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Application                   | <ul><li>1x EC2 t3.Medium instance running Linux</li><li>8GB of EBS General Purpose SSD (NVMe)</li></ul>                                                                                                                                                                                                       |
-| Database                      | <ul><li>1x RDS Database running on db.t3.Medium using PostgreSQL</li><li> 500GB of General Purpose SSD (depending on chain size) </li><li>See <a href="../for-developers/information-and-settings/database-storage-requirements.md">Database Storage Requirements</a> for chain-relevant baselines.</li></ul> |
+| Database                      | <ul><li>1x RDS Database running on db.t3.Medium using PostgreSQL v12+</li><li> 500GB of General Purpose SSD (depending on chain size) </li><li>See <a href="../for-developers/information-and-settings/database-storage-requirements.md">Database Storage Requirements</a> for chain-relevant baselines.</li></ul> |
 | Amazon Elastic Load Balancing | <ul><li>Average 100 <strong></strong> new connections/sec per Elastic Load Balancer</li></ul>                                                                                                                                                                                                                 |
 
 {% hint style="info" %}
@@ -39,6 +39,3 @@ For additional information, see:
 * [Node Tracing Requirements](../for-developers/information-and-settings/node-tracing-json-rpc-requirements.md): JSON RPC methods&#x20;
 * [Client Setting Requirements](../for-developers/information-and-settings/client-settings.md): Settings related to client implementations (ie Geth, OpenEthereum, etc)
 {% endhint %}
-
-
-
