@@ -70,7 +70,7 @@ In addition, anyone can start the service from scratch and eventually obtain the
 
 In this video we show a simple example where a contract is deployed and verified on Optimism Goerli. The same contract is then deployed to the Base Goerli instance, and the contract is automatically verified using the Blockscout Bytecode Database.
 
-{% embed url="https://youtu.be/fbMVHp2Jw4c" %}
+{% embed url="https://www.youtube.com/watch?v=fbMVHp2Jw4c" %}
 
 ## Conclusion
 
