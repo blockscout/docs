@@ -66,6 +66,12 @@ _\*This is in the research phase._&#x20;
 
 In addition, anyone can start the service from scratch and eventually obtain their own repository of verified contracts by running extractors they are interested in. Those who would like to host their own instance can obtain a populated database which can also be updated from other chains in the ecosystem.
 
+## Bytecode DB in Action
+
+In this video we show a simple example where a contract is deployed and verified on Optimism Goerli. The same contract is then deployed to the Base Goerli instance, and the contract is automatically verified using the Blockscout Bytecode Database.
+
+{% embed url="https://youtu.be/fbMVHp2Jw4c" %}
+
 ## Conclusion
 
 Implemented as a separate service, _Ethereum Bytecode Database_ may become a unique source of verified contracts working with many chains. Furthermore, the addition of extractors allows verified contracts to be combined from an unlimited number of explorers, and gives users the ability to run the service locally using independently-obtained data.
@@ -87,6 +93,10 @@ The service has the same public API as the `smart-contract-verifier` service. If
 1. The `Eth-bytecode-db` service is implemented with both contract verification proxy and database search functionality ([https://github.com/blockscout/blockscout-rs/tree/main/eth-bytecode-db](https://github.com/blockscout/blockscout-rs/tree/main/eth-bytecode-db)).
 2. All hosted blockscout instances are using `eth-bytecode-db` instead of the original smart-contract-verifier; all newly verified bytecodes and corresponding sources are now stored directly in the database.
 3. Search functionality is integrated. ([https://github.com/blockscout/blockscout/pull/7187](https://github.com/blockscout/blockscout/pull/7187)).
+4. DB is available on production instances including Ethereum Mainnet, Goerli, Gnosis, Optimism and more.&#x20;
+5. Extractor has been implemented for the "[smart-contract-fiesta](https://huggingface.co/datasets/Zellic/smart-contract-fiesta)" dataset.&#x20;
+
+Current production database contains >130k source codes, where \~100k have unique main parts.
 
 ### Future Plans&#x20;
 
