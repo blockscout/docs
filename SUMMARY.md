@@ -44,8 +44,9 @@
 * [Beacon Chain Withdrawal Views](for-users/beacon-chain-withdrawal-views.md)
 * [API](for-users/api/README.md)
   * [Requests & Limits](for-users/api/requests-and-limits.md)
+  * [REST API Endpoints](for-users/api/rest-api-endpoints.md)
   * [GraphQL in Blockscout](for-users/api/graphql.md)
-  * [RPC Endpoints](for-users/api/rpc-endpoints/README.md)
+  * [RPC API Endpoints](for-users/api/rpc-endpoints/README.md)
     * [Account](for-users/api/rpc-endpoints/account.md)
     * [Block](for-users/api/rpc-endpoints/block.md)
     * [Contract](for-users/api/rpc-endpoints/contract.md)
@@ -53,7 +54,7 @@
     * [Stats](for-users/api/rpc-endpoints/stats.md)
     * [Token](for-users/api/rpc-endpoints/token.md)
     * [Transaction](for-users/api/rpc-endpoints/transaction.md)
-  * [ETH RPC](for-users/api/eth-rpc.md)
+  * [ETH RPC API](for-users/api/eth-rpc.md)
 
 ## 🥷 For Developers
 
