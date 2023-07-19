@@ -6,7 +6,7 @@
 
 * [Features](about/features.md)
   * [Ethereum Bytecode Database Microservice](about/features/ethereum-bytecode-database-microservice.md)
-* [Projects Using Blockscout](about/projects.md)
+* [Chains & Projects Using Blockscout](about/projects.md)
 * [Funding](about/funding/README.md)
   * [L2 Funding Proposal](about/funding/l2-funding-proposal.md)
 * [Roadmap](about/roadmap/README.md)

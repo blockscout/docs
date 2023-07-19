@@ -2,13 +2,17 @@
 description: List of projects and links
 ---
 
-# Projects Using Blockscout
+# Chains & Projects Using Blockscout
 
-<figure><img src="../.gitbook/assets/Chains using Blockscout.png" alt=""><figcaption></figcaption></figure>
 
-Blockscout serves more than 100 execution-layer chains and testnets within the Ethereum ecosystem and beyond. Open-source code gives all types of projects and chains the ability to spin up an instance and provide data exploration capabilities for their users.
+
+Blockscout serves execution-layer chains and testnets within the Ethereum ecosystem and beyond. Open-source code gives all types of projects and chains the ability to spin up an instance and provide data exploration capabilities for their users.
 
 Projects can choose to deploy Blockscout themselves or use customization and hosting services for their instances.
+
+### ⭐️ 13+ Ecosystems ⭐️ 200+ Networks, Rollups, and Testnets
+
+<figure><img src="../.gitbook/assets/Chains using Blockscout-2.jpg" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 If you have an instance not listed here, [contact us](https://discord.gg/blockscout) or [submit a PR ](https://github.com/blockscout/docs)to add your project. Chain compatibility is considered when categorizing Blockscout instances.
