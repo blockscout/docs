@@ -12,7 +12,7 @@
 * [Roadmap](about/roadmap/README.md)
   * [Blockscout Redesign](about/roadmap/blockscout-2.0.md)
 * [Integrations](about/integrations.md)
-* [Announcements](about/announcements.md)
+* [Announcements & Media](about/announcements.md)
 * [FAQs](about/faqs.md)
 
 ## 🙎 For Users
