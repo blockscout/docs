@@ -104,9 +104,10 @@ It may take several minutes for the frontend to propagate during this process.&#
 
 There are several required ENVs for the frontend. If required variables are missing or invalid the frontend will show in error message and will not run the app.
 
-A list of [frontend ENVs and descriptions](frontend-common-envs.md) is available here.&#x20;
+* The common list of [frontend ENVs and descriptions](frontend-common-envs.md).&#x20;
+* A detailed list with all available ENVs is in the [frontend repo folder.](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md)
 
-To adjust, you can stop the frontend container, update the env file (or pass variables directly), and restart the container.
+To adjust, stop the frontend container, update the env file (or pass variables directly), and restart the container.
 
 ### 8) Check Microservice  ENVs
 

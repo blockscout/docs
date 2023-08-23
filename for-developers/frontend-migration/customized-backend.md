@@ -49,9 +49,9 @@ cd proxy
 Cat default.conf.template
 ```
 
-Unless you overrode the default configs (or did not provide the `FRONT_PROXY_PASS` variable) , you will see the default port for the backend default is 4000, and 3000 for the frontend.&#x20;
+Unless you overrode the default configs (or did not provide the `FRONT_PROXY_PASS` variable) , you will see the default port for the backend is `4000`, and `3000` for the frontend.&#x20;
 
-However, with the proxy setup the whole application will default to port 80 (which is just localhost). Your instance should now be served on localhost. [More details about the recommended proxy setup](proxy-setup.md).
+However, with the proxy setup the whole application will default to port `80` (which is just localhost). Your frontend instance should now be served on localhost. [More details about the recommended proxy setup](proxy-setup.md).
 
 {% hint style="info" %}
 It may take several minutes for the frontend to propagate during this process.&#x20;
@@ -61,9 +61,10 @@ It may take several minutes for the frontend to propagate during this process.&#
 
 There are several required ENVs for the frontend. If required variables are missing or invalid the frontend will show in error message and will not run the app.
 
-A list of [frontend ENVs and descriptions](frontend-common-envs.md) is available here.&#x20;
+* The common list of [frontend ENVs and descriptions](frontend-common-envs.md).&#x20;
+* A detailed list with all available ENVs is in the [frontend repo folder.](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md)
 
-To adjust, you can stop the frontend container, update the env file (or pass variables directly), and restart the container.
+To adjust, stop the frontend container, update the env file (or pass variables directly), and restart the container.
 
 ### 6) Check Microservice  ENVs
 

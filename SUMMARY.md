@@ -104,6 +104,7 @@
   * [Customized Backend](for-developers/frontend-migration/customized-backend.md)
   * [Proxy Setup](for-developers/frontend-migration/proxy-setup.md)
   * [Frontend Common ENVs](for-developers/frontend-migration/frontend-common-envs.md)
+  * [FAQs](for-developers/frontend-migration/faqs.md)
 * [Configuration Options](for-developers/configuration-options/README.md)
   * [Automating Restarts](for-developers/configuration-options/automating-restarts.md)
   * [Branding Configs](for-developers/configuration-options/branding-configs.md)

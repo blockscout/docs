@@ -50,7 +50,7 @@ _**NOTE:**_ only exact path to `/` should be followed to the frontend
 
 This is an example configuration for NGINX. It is also located in the Blockscout repo at [`docker-compose/proxy/default.conf.template`](https://github.com/blockscout/blockscout/blob/master/docker-compose/proxy/default.conf.template)
 
-In this example the frontend and backend are forwarded to port 80, meaning the new frontend will be available on localhost without needing to specify a port number.
+In this example the frontend and backend are forwarded to port `80`, meaning the new frontend will be available on localhost without needing to specify a port number.
 
 ```
 map $http_upgrade $connection_upgrade {

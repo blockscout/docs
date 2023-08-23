@@ -34,7 +34,7 @@ cd docker-compose
 
 ### 3) Adjust backend envs for your instance
 
-Replace the example environment variables in the `docker-compose-no-build-frontend.yml` file in the `environment:` list.
+Replace the example environment variables in the `environment:` list of the `docker-compose-no-build-frontend.yml` file.
 
 <pre><code><strong>cat docker-compose-no-build-frontend.yml
 </strong></code></pre>
@@ -76,9 +76,9 @@ cd proxy
 Cat default.conf.template
 ```
 
-Unless you overrode the default configs, you will see the default port for the backend default is 4000, and 3000 for the frontend. However, these are not exposed because they are running within the container. **This means localhost:3000 will not work.** &#x20;
+Unless you overrode the default configs, you will see the default port for the backend is 4000, and 3000 for the frontend. However, these are not exposed because they are running within the container. **This means localhost:3000 will not work.** &#x20;
 
-Since the proxy is in place (listen 80) the whole application should default to port 80 (which is just localhost). So your instance should now be served on localhost. [More details about the recommended proxy setup](proxy-setup.md).
+Since the proxy is in place (listen 80) the whole application should default to port 80 (which is just localhost). So your instance with the new frontend should now be served on localhost. [More details about the recommended proxy setup](proxy-setup.md).
 
 {% hint style="info" %}
 It may take several minutes for the frontend to propagate during this process.&#x20;
@@ -88,9 +88,10 @@ It may take several minutes for the frontend to propagate during this process.&#
 
 There are several required ENVs for the frontend. If required variables are missing or invalid the frontend will show in error message and will not run the app.
 
-The common list of [frontend ENVs and descriptions](frontend-common-envs.md) is available here. A detailed list with all available ENVs is in the [frontend repo folder.](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md)
+* The common list of [frontend ENVs and descriptions](frontend-common-envs.md).&#x20;
+* A detailed list with all available ENVs is in the [frontend repo folder.](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md)
 
-To adjust, you can stop the frontend container, update the env file (or pass variables directly), and restart the container.
+To adjust, stop the frontend container, update the env file (or pass variables directly), and restart the container.
 
 ### 7) Check Microservice  ENVs
 
