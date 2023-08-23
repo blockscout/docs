@@ -123,7 +123,7 @@ server {
 ```
 
 {% hint style="info" %}
-_**NOTE:**_ For production usage you should add at a minimum the correct hostname and TLS configuration.
+_**NOTE:**_ For production usage you should add at a minimum the correct `server_name` (ie [eth.blockscout.com](http://eth.blockscout.com/)) and TLS info (`ssl_certificate`, `ssl_certificate_key`, `other required variables?`) at a minimum.
 {% endhint %}
 
 {% hint style="info" %}
