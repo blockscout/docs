@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome to Blockscout](README.md)
+* [Blockscout Open-Source Explorer](README.md)
 
 ## 💡 About BlockScout <a href="#about" id="about"></a>
 
