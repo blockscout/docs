@@ -199,6 +199,7 @@ This table is horizontally scrollable, version information is located in the las
 | `INDEXER_POLYGON_SUPERNET_L2_WITHDRAWALS_START_BLOCK` |       | The number of start block on L2 (child chain) to index withdrawals. If the table of withdrawals is not empty, the process will fill gaps and then continue indexing from the last indexed message. If empty or not defined, the withdrawals are not indexed. Implemented in [#8180](https://github.com/blockscout/blockscout/pull/8180). | (empty)       | master |
 | `INDEXER_POLYGON_SUPERNET_L2_STATE_RECEIVER_CONTRACT`|        | The address of StateReceiver contract on L2 (child chain) used to fetch deposit executes. Required for deposit events indexing. Implemented in [#8180](https://github.com/blockscout/blockscout/pull/8180). | (empty)       | master |
 | `INDEXER_POLYGON_SUPERNET_L2_DEPOSITS_START_BLOCK` |          | The number of start block on L2 (child chain) to index deposit executes. If the table of deposit executes is not empty, the process will fill gaps and then continue indexing from the last indexed message. If empty or not defined, the deposit executes are not indexed. Implemented in [#8180](https://github.com/blockscout/blockscout/pull/8180). | (empty)       | master |
+| `INDEXER_POLYGON_SUPERNET_ETH_GET_LOGS_RANGE_SIZE` |          | Block range size for eth_getLogs request in Polygon Supernet indexer modules. Implemented in [#8180](https://github.com/blockscout/blockscout/pull/8180). | (empty)       | master |
 
 ### Exchange rates management
 
