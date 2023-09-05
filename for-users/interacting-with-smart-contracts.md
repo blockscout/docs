@@ -76,7 +76,7 @@ The connected wallet must contain enough native tokens (in this case xDai) to pa
 
 4\) We can check our wallet to confirm the transaction, and can view tx details in Blockscout (or return to the [Read Contract](interacting-with-smart-contracts.md#read-contract) `balanceOf` method to view new balances for the addresses).
 
-<figure><img src="../.gitbook/assets/meta-2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/meta-2 (1).png" alt=""><figcaption></figcaption></figure>
 
 Transaction hash: [0x2c93c4e6618b30c552b95ce2eef16b6e663d99aa2f4a8ea55a70b693de70f113](https://blockscout.com/xdai/mainnet/tx/0x2c93c4e6618b30c552b95ce2eef16b6e663d99aa2f4a8ea55a70b693de70f113)
 

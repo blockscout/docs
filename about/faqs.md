@@ -60,14 +60,14 @@ There are multiple methods including options from the Blockscout UI as well as a
 
 **Blockscout UI:**
 
-* [Via flattened source code (Solidity)](../for-users/smart-contract-interaction/verifying-a-smart-contract/#via-flattened-source-code)
+* [Via flattened source code (Solidity)](../for-users/verifying-a-smart-contract/#via-flattened-source-code)
 * [Via standard JSON input](faqs.md#via-standard-json-input)
-* [Via Sourcify: Sources and metadata JSON file](../for-users/smart-contract-interaction/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
-* [Vyper contract](../for-users/smart-contract-interaction/verifying-a-smart-contract/#vyper-contract)
+* [Via Sourcify: Sources and metadata JSON file](../for-users/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
+* [Vyper contract](../for-users/verifying-a-smart-contract/#vyper-contract)
 
 **Hardhat:**
 
-* [Hardhat Verification Plugin](../for-users/smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md)
+* [Hardhat Verification Plugin](../for-users/verifying-a-smart-contract/hardhat-verification-plugin.md)
 * [Sourcify Plugin for Hardhat](../for-users/verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
 
 </details>

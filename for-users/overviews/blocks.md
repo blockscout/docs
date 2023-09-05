@@ -10,7 +10,7 @@ The all blocks page can also be accessed from the top menu.
 Blockscout displays are configurable and may show different information depending on the instance and/or consensus method. In this example we show displays from Ethereum mainnet post-merge (PoS consensus).
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/blocks-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/blocks-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## View All Blocks
 

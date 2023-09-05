@@ -52,11 +52,11 @@ Before you start, make sure you have completed the [prerequisites](aws-marketpla
 If any items do not match template specifics, you can fix by clicking previous, changing an item, and returning to the Create stack page.
 {% endhint %}
 
-![](<../../../.gitbook/assets/create-stack (1) (1) (1).png>)
+![](<../../../.gitbook/assets/create-stack (1) (1).png>)
 
 11\) Your instance will be located in the CloudFormation section of AWS (search CloudFormation under services to find). You can manage the stack here, including monitoring processes, updating and deleting.
 
-![Instance creation in CloudFormation](../../../.gitbook/assets/cloudformation.png)
+![Instance creation in CloudFormation](../../../.gitbook/assets/CloudFormation.png)
 
 12\) When creation is complete, go to the Outputs tab to find the DNS value. Copy and paste into a browser.
 
@@ -72,7 +72,7 @@ If any items do not match template specifics, you can fix by clicking previous, 
 
 15\) You should now see your BlockScout instance! Depending on the chain you are running, it may take some time to index the data.
 
-![A brand new instance of BlockScout starting to index](../../../.gitbook/assets/bs.png)
+![A brand new instance of BlockScout starting to index](../../../.gitbook/assets/BS!.png)
 
 For additional configuration options, see:
 

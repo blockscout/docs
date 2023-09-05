@@ -270,7 +270,7 @@ The Gnosis Chain explorer supports EIP-1559 functionality with a stated transact
 **Target Date:** Q4 2021\
 **Status:**  :white\_check\_mark: Complete
 
-BlockScout supports verification for contracts via multiple methods including Hardhat and the Hardhat and Sourcify plugins. [More information is available here](../../for-users/smart-contract-interaction/verifying-a-smart-contract/).
+BlockScout supports verification for contracts via multiple methods including Hardhat and the Hardhat and Sourcify plugins. [More information is available here](../../for-users/verifying-a-smart-contract/).
 
 ## Change Log
 

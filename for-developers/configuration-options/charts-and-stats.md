@@ -4,7 +4,7 @@ description: New Blockscout stats service
 
 # Charts and Stats
 
-<figure><img src="../../.gitbook/assets/stats (1).png" alt=""><figcaption><p>Stats page example</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/stats.png" alt=""><figcaption><p>Stats page example</p></figcaption></figure>
 
 ## Description
 

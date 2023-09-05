@@ -26,7 +26,7 @@ In order to completely manually remove Terraform deployment from AWS you need to
 
 1\) In the Find Services box, type in S3 and select **S3, Scalable Storage in the Cloud**.
 
-![Enter S3 in the Find Services Search Box](../../../.gitbook/assets/search-s3.png)
+![Enter S3 in the Find Services Search Box](<../../../.gitbook/assets/Search S3.png>)
 
 2\) Find related buckets created by Terraform one by one. You can only delete one at a time. They all will be prefixed with `${prefix}` from the Terraform config file. Select a bucket and click **Delete** button. Confirm the deletion. Continue for all related buckets.
 
@@ -36,21 +36,21 @@ In order to completely manually remove Terraform deployment from AWS you need to
 
 1\) In the Find Services box, type in **CodeDeploy** and select.
 
-![Enter in CodeDeploy](../../../.gitbook/assets/select-code-deploy.png)
+![Enter in CodeDeploy](<../../../.gitbook/assets/select code deploy.png>)
 
 2\) Select the **Applications** section in the left menu. Click an application in the list (related to Terraform deployment) to select.&#x20;
 
-![Go to Applications and click on the instance name](../../../.gitbook/assets/select-application-name.png)
+![Go to Applications and click on the instance name](<../../../.gitbook/assets/select application name.png>)
 
 Click the **Delete Application** button and confirm the deletion.
 
-![Delete Application](../../../.gitbook/assets/delete-application2.png)
+![Delete Application](<../../../.gitbook/assets/delete application2.png>)
 
 ### Remove DynamoDB instance
 
 1\) In the Find Services box, type in **DynamoDB** and select.
 
-![Enter DynamoDB](../../../.gitbook/assets/dynamodb1.png)
+![Enter DynamoDB](../../../.gitbook/assets/DynamoDB1.png)
 
 2\) Remove all related DynamoDBs.&#x20;
 
@@ -65,7 +65,7 @@ Click the **Delete Application** button and confirm the deletion.
 
 1\)  In the Find Services box, type in **Route 53** and select.
 
-![Enter Route 53](../../../.gitbook/assets/r531.png)
+![Enter Route 53](../../../.gitbook/assets/R531.png)
 
 2\) Remove all related Hosted zones.&#x20;
 
@@ -80,7 +80,7 @@ Click the **Delete Application** button and confirm the deletion.
 
 1\) In the Find Services box, type in **VPC** and select.
 
-![Enter and select VPC](../../../.gitbook/assets/vpc1.png)
+![Enter and select VPC](../../../.gitbook/assets/VPC1.png)
 
 2\) Remove all related subnets. Select **Subnets** section in the left menu, select all related subnets (usually 1 subnet per deployment). Right mouse click or click **Delete subnet** item in **Actions** menu. Confirm the deletion.
 
@@ -96,11 +96,11 @@ Click the **Delete Application** button and confirm the deletion.
 
 5\) Remove all related DHCP options sets. Select **DHCP Options Sets** section in the left menu, select all related DHCP options sets (usually  1 DHCP option set per deployment). Right mouse click or click **Delete DHCP options** _set_ item in **Actions** menu. Confirm the deletion.
 
-![Select DHCP Option Sets, select set, right click, select Delete DHCP options set and confirm](../../../.gitbook/assets/dhcp-options-set.png)
+![Select DHCP Option Sets, select set, right click, select Delete DHCP options set and confirm](<../../../.gitbook/assets/DHCP options set.png>)
 
 6\) Remove all related Network ACLs. Select **Network ACLs** section in the left menu, select all related Network ACLs (usually 1 Network ACL per deployment). Right mouse click or click **Delete network ACL** item in **Actions** menu. Confirm the deletion.
 
-![Select Network ACLs, select ACL to delete, right click, select Delete network ACL and confirm](../../../.gitbook/assets/delete-network-acl.png)
+![Select Network ACLs, select ACL to delete, right click, select Delete network ACL and confirm](<../../../.gitbook/assets/delete network acl.png>)
 
 7\) Remove all related Security groups. Select **Security Groups** section in the left menu, select all related Security groups (usually 1 Security group for deployment). Right mouse click or click **Delete security group** item in **Actions** menu. Confirm the deletion.
 
@@ -114,7 +114,7 @@ Click the **Delete Application** button and confirm the deletion.
 
 1\)  In the Find Services box, type in **RDS** and select.
 
-![Select RDS](../../../.gitbook/assets/rds1.png)
+![Select RDS](../../../.gitbook/assets/RDS1.png)
 
 2\) Remove all related subnet groups. Select **Subnet groups** section in the left menu, select all related subnet groups (usually  1 subnet group for deployment). Select subnet group and click **Delete** button. Confirm the deletion.
 

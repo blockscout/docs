@@ -36,7 +36,7 @@ Blockscout supports several methods:
 
 Send Queries to quickly get information. Use the **Docs button** to quickly find arguments accepted by the schema. More information is available in our [Blockscout GraphQL tutorial](https://forum.poa.network/t/graphql-in-blockscout/1971).
 
-![Docs button for GraphQL](../../.gitbook/assets/screen-shot-2019-10-08-at-10.48.07-am.png)
+![Docs button for GraphQL](<../../.gitbook/assets/Screen Shot 2019-10-08 at 10.48.07 AM.png>)
 
 ## ETH RPC
 

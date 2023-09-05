@@ -36,7 +36,7 @@ The work is ongoing and can be greatly expedited with additional resources. We f
 
 <figure><img src="../../.gitbook/assets/img-2.png" alt=""><figcaption><p>App marketplace</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/img3.png" alt=""><figcaption><p>L1 homepage UI mockup</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/img3 (1).png" alt=""><figcaption><p>L1 homepage UI mockup</p></figcaption></figure>
 
 ### Developer experience improvements
 

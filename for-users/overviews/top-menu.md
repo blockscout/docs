@@ -9,7 +9,7 @@ The top menu contains navigational items for exploration. The menu is customizab
 ## Blocks
 
 * **Blocks:** Access high-level data for blocks, beginning with the most recent.\
-  <img src="../../.gitbook/assets/blocks-1 (1).png" alt="" data-size="original">
+  <img src="../../.gitbook/assets/blocks-1.png" alt="" data-size="original">
 * **Uncles:** Not valid for PoS consensus (but available for PoW consensus chains such as Ethereum Classic), uncles are created when 2 blocks are mined at the same time. Only 1 block can be added to the chain, and Uncles are the blocks that are not added, but miners still receive rewards for these blocks.
 * **Forked Blocks (Reorgs):** Blocks which are not included in the primary chain due to chain reorganizations.
 

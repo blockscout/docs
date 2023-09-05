@@ -1,8 +1,8 @@
 # Sourcify Plugin for Hardhat
 
-Similar to the  [hardhat verification plugin, ](../smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md)this plugin submits the contract source and other info of all deployed contracts to Sourcify.
+Similar to the  [hardhat verification plugin, ](hardhat-verification-plugin.md)this plugin submits the contract source and other info of all deployed contracts to Sourcify.
 
-1\) **Tune Hardhat environment**. For seamless usage, you should setup your environment [following this tutorial ](https://github.com/wighawag/tutorial-hardhat-deploy)(note, it will take an hour or so to run through). In this example we setup to use the Sokol test network.  See the[ Hardhat Verification Tutorial for more information on the config file setup](../smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md#config-file).
+1\) **Tune Hardhat environment**. For seamless usage, you should setup your environment [following this tutorial ](https://github.com/wighawag/tutorial-hardhat-deploy)(note, it will take an hour or so to run through). In this example we setup to use the Sokol test network.  See the[ Hardhat Verification Tutorial for more information on the config file setup](hardhat-verification-plugin.md#config-file).
 
 2\) **Deploy contract**. [More deployment details here](https://github.com/wighawag/tutorial-hardhat-deploy#7-deploying-to-a-live-network). Note that we run from `node_modules.bin\hardhat` to circumvent package.json warning and use `--network sokol` to specify the network.
 

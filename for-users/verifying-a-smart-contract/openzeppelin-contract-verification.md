@@ -5,7 +5,7 @@ description: Instructions for various development environments
 # OpenZeppelin Contract Verification
 
 {% hint style="info" %}
-Page partially based on [OpenZeppelin Tutorial](https://forum.openzeppelin.com/t/how-to-verify-with-hardhat-or-truffle-a-smart-contract-using-openzeppelin-contracts/4119).&#x20;
+Page partially based on [OpenZeppelin Tutorial](https://forum.openzeppelin.com/t/how-to-verify-with-hardhat-or-truffle-a-smart-contract-using-openzeppelin-contracts/4119).
 {% endhint %}
 
 Due to compiler constraints, contracts which include OpenZeppelin-related source contracts (e.g., `import@openzeppelin/contracts/access/Ownable.sol;`) can cause problems with verification. The sources must be provided explicitly during the contract verification process.
@@ -21,9 +21,9 @@ Below we describe verification information when including these contracts specif
 
 [Hardhat](https://hardhat.org/) is a full-featured development environment for contract compilation, deployment, and verification. The [Hardhat Etherscan plugin](https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html) supports contract verification on Blockscout and includes in-built functionality to address verification with OpenZeppelin-based imports.
 
-A separate tutorial about contract verification via Hardhat on Blockscout [is available here](../smart-contract-interaction/verifying-a-smart-contract/hardhat-verification-plugin.md).
+A separate tutorial about contract verification via Hardhat on Blockscout [is available here](hardhat-verification-plugin.md).
 
-## Truffle&#x20;
+## Truffle
 
 [Truffle](https://trufflesuite.com/) is a world-class development environment, testing framework, and asset pipeline for blockchains using the Ethereum Virtual Machine (EVM). The [truffle-plugin-verify](https://github.com/rkalis/truffle-plugin-verify) supports contract verification on BlockScout.
 
@@ -32,10 +32,9 @@ You can find more details about `truffle-plugin-verify` in their [Readme file](h
 There are two main differences to keep in mind when verifying contracts on Blockscout vs Etherscan:
 
 1. Blockscout does not require ApiKey to verify smart-contracts. However, truffle-plugin-verify requires one to be provided. **You can use any non-empty string**.
-2.  In search of constructor arguments, the plugin makes a request to the explorer’s `?module=`**`account`**`&action=`**`txlist`**`&address={`**`addressHash`**`} endpoint`. This request can fail if verification is taking too long to answer.\
+2.  In search of constructor arguments, the plugin makes a request to the explorer’s `?module=`**`account`**`&action=`**`txlist`**`&address={`**`addressHash`**`} endpoint`. This request can fail if verification is taking too long to answer.\\
 
-
-    If you encounter this problem, specify the constructor arguments explicitly via the [`--forceConstructorArgs string:`](https://github.com/rkalis/truffle-plugin-verify#constructor-arguments-override-optional) option (e.g., `truffle run verify OpenZeppelinSample@0xf1b1B44B70f4531217c8c4B6C7A9a52D2B052F81 --network sokol --forceConstructorArgs string:`). This way, the _txlist_ request is omitted, and the problem should be resolved. \
+    If you encounter this problem, specify the constructor arguments explicitly via the [`--forceConstructorArgs string:`](https://github.com/rkalis/truffle-plugin-verify#constructor-arguments-override-optional) option (e.g., `truffle run verify OpenZeppelinSample@0xf1b1B44B70f4531217c8c4B6C7A9a52D2B052F81 --network sokol --forceConstructorArgs string:`). This way, the _txlist_ request is omitted, and the problem should be resolved.\
     \
     _Note: you can always use just an empty string (as in the example) even if there are some arguments in reality. Blockscout obtains them automatically and ignores any provided value._
 
@@ -49,43 +48,36 @@ Forge is a command-line tool that ships with Foundry. Forge tests, builds, and d
 
 1. Setting the `—verifier=blockscout` flag allows you to not specify any Api key.
 2. While specifying `--verifier-url` flag omit the final slash (e.g., `--verifier-url=`[`https://blockscout.com/poa/sokol/api`](https://blockscout.com/poa/sokol/api)). Otherwise, you will encounter an “_Failed to deserialize response_” error.
-3. You can specify most configuration options (e.g., evm version, disabling optimizations) via the usual Forge configuration (see [https://github.com/foundry-rs/foundry/blob/master/config/README.md](https://github.com/foundry-rs/foundry/blob/master/config/README.md)).
-Note: You might not need an API key to verify on Blockscout. You can use the following format for the --verifier-url flag:
-<blockscout_homepage_explorer_url>/api\? 
+3. You can specify most configuration options (e.g., evm version, disabling optimizations) via the usual Forge configuration (see [https://github.com/foundry-rs/foundry/blob/master/config/README.md](https://github.com/foundry-rs/foundry/blob/master/config/README.md)). Note: You might not need an API key to verify on Blockscout. You can use the following format for the --verifier-url flag: \<blockscout\_homepage\_explorer\_url>/api?
 
 Example:
 
-Verify a contract with Blockscout right after deployment (make sure you add "/api\?" to the end of the Blockscout homepage explorer URL):
+Verify a contract with Blockscout right after deployment (make sure you add "/api?" to the end of the Blockscout homepage explorer URL):
+
 ```sh
 forge create --rpc-url <rpc_https_endpoint> --private-key $devTestnetPrivateKey src/Contract.sol:SimpleStorage --verify --verifier blockscout --verifier-url <blockscout_homepage_explorer_url>/api\? 
 ```
 
 ## Remix
 
-While there are 2 plugins available to help with this process, Etherscan and Flattener. Currently only Flattener works with Blockscout. You can use this plugin to flatten contracts and submit for verification as flattened source code.  This is the recommended option.&#x20;
+While there are 2 plugins available to help with this process, Etherscan and Flattener. Currently only Flattener works with Blockscout. You can use this plugin to flatten contracts and submit for verification as flattened source code. This is the recommended option.
 
 We also include the Manual Standard Input JSON Method below the flattener instructions. This method is not recommended, but included since it is also a viable method.
 
 ### Flattener Plugin
 
 1. Go to Plugin Manager and search for "flattener". Activate the plugin.\
-   ![](../../.gitbook/assets/flattener-1.png)\
-
+   ![](../../.gitbook/assets/flattener-1.png)\\
 2. The plugin is now available in the lefthand menu.\
-   ![](../../.gitbook/assets/flattener-2.png)\
-
+   ![](../../.gitbook/assets/flattener-2.png)\\
 3. Compile the contract you want to verify.\
-   ![](<../../.gitbook/assets/flat-3 (1).png>)\
-
+   ![](<../../.gitbook/assets/flat-3 (1).png>)\\
 4. Return to the Flattener. The ‘Flatten contract\_name’ button should appear. Click the button. Flattened source code is copied onto the clipboard.\
-   ![](../../.gitbook/assets/flattener-4.png)\
-
+   ![](../../.gitbook/assets/flattener-4.png)\\
 5. Go to Blockscout and on the verification page choose the ‘_Via flattened source code_’ method.\
-   ![](../../.gitbook/assets/flat-5.png)\
-
-6. Paste the copied flattened source code into the ‘_Enter the Solidity Contract Code_’ field. \
-   ![](../../.gitbook/assets/flat-6.png)\
-
+   ![](../../.gitbook/assets/flat-5.png)\\
+6. Paste the copied flattened source code into the ‘_Enter the Solidity Contract Code_’ field.\
+   ![](../../.gitbook/assets/flat-6.png)\\
 7. Check that all info is correct and click the Verify and Publish button to verify your contract. Once verified, the code tab will include the :white\_check\_mark: icon and source code will be viewable.\
    ![](../../.gitbook/assets/flat-7.png)
 
@@ -321,7 +313,7 @@ contract OpenZeppelinSample is Ownable {
 
 _Note that the only fields to fill in the contents for each source file. Everything else (including compiler settings) is already filled via the metadata file._
 
-3\) First, add the content for the main `OpenZeppelinSample.sol` file&#x20;
+3\) First, add the content for the main `OpenZeppelinSample.sol` file
 
 ```json
 {
@@ -393,11 +385,9 @@ Copy the source code with the path used in imports:
 }
 ```
 
-
-
 5\) The last source is a "`../utils/Context.sol`" imported from `@openzeppelin/contracts/access/Ownable.sol`. You can find it in the same `.deps/npm` directory.
 
-<figure><img src="../../.gitbook/assets/json-3 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/json-3.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Although import "../utils/Context.sol"; specifies a relative path, the absolute path is used in standard json, and can be found relative to @openzeppelin/contracts/access/Ownable.sol
@@ -437,7 +427,6 @@ Although import "../utils/Context.sol"; specifies a relative path, the absolute 
 
 6\) Submit composed standard json for verification “Via Standard Input JSON” and check results.
 
-<figure><img src="../../.gitbook/assets/json-3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/json-3 (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/json-4.png" alt=""><figcaption></figcaption></figure>
-
