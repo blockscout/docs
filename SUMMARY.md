@@ -98,6 +98,7 @@
 * [Manual Deployment](for-developers/manual-deployment/README.md)
   * [Manual cleaning an instance from the previous deployment](for-developers/manual-deployment/check-your-manual-deployment-instance.md)
 * [Terraform Deployment](for-developers/terraform-deployment.md)
+* [Kubernetes Deployment](for-developers/kubernetes-deployment.md)
 * [Frontend Migration](for-developers/frontend-migration/README.md)
   * [All-In-One Container](for-developers/frontend-migration/all-in-one-container.md)
   * [Separate Frontend](for-developers/frontend-migration/separate-frontend.md)
