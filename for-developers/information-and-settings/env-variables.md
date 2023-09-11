@@ -232,6 +232,8 @@ This table is horizontally scrollable, version information is located in the las
 
 ### zkEVM Rollup management
 
+| Variable                                           | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Default       | Version |
+| -------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------- |
 | `INDEXER_ZKEVM_BATCHES_ENABLED`        |          | Enables Polygon zkEVM batches fetcher. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584). | `false` | master |
 | `INDEXER_ZKEVM_BATCHES_CHUNK_SIZE`     |          | The number of Polygon zkEVM batches in one chunk when reading them from RPC. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584). | 20 | master |
 
