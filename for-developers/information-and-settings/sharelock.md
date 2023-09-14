@@ -116,10 +116,10 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.Token | tokens | asc: :contract\_address\_hash |
 | Explorer.Chain.TokenTransfer | token\_transfers | \[asc: :transaction\_hash, asc: :log\_index\] |
 | Explorer.Chain.TransactionAction | transaction\_actions | \[asc: :hash, asc: :log\_index\] |
-| Explorer.Chain.PolygonSupernetDeposit | polygon\_supernet\_deposits | \[asc: :msg\_id\] |
-| Explorer.Chain.PolygonSupernetDepositExecute | polygon\_supernet\_deposit\_executes | \[asc: :msg\_id\] |
-| Explorer.Chain.PolygonSupernetWithdrawal | polygon\_supernet\_withdrawals | \[asc: :msg\_id\] |
-| Explorer.Chain.PolygonSupernetWithdrawalExit | polygon\_supernet\_withdrawal\_exits | \[asc: :msg\_id\] |
+| Explorer.Chain.PolygonEdge.Deposit | polygon\_edge\_deposits | \[asc: :msg\_id\] |
+| Explorer.Chain.PolygonEdge.DepositExecute | polygon\_edge\_deposit\_executes | \[asc: :msg\_id\] |
+| Explorer.Chain.PolygonEdge.Withdrawal | polygon\_edge\_withdrawals | \[asc: :msg\_id\] |
+| Explorer.Chain.PolygonEdge.WithdrawalExit | polygon\_edge\_withdrawal\_exits | \[asc: :msg\_id\] |
 | Explorer.Chain.Address.TokenBalance | address\_token\_balances | \[asc: :address\_hash, asc: :token\_contract\_address\_hash, asc: :block\_number\] |
 | Explorer.Chain.Address.CurrentTokenBalance | address\_current\_token\_balances | \[asc: :address\_hash, asc: :token\_contract\_address\_hash\] |
 | Explorer.Chain.StakingPool | staking\_pools | :staking\_address\_hash |
