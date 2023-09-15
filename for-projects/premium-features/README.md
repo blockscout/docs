@@ -1,6 +1,6 @@
 # Hosted Features
 
-Hosted instances receive access to premium features, support and updates not available to non-hosted instances. If you have questions about integrating services or current premium integrations please ask in [Discord.](https://discord.gg/XmNatGKbPS)
+Hosted instances receive support and updates not available to non-hosted instances. If you have questions about integrating services or current premium integrations please ask in [Discord.](https://discord.gg/XmNatGKbPS)
 
 :bullettrain\_side: [**Hosting on blockscout.com**](your-chain-on-blockscout.com.md): Self-hosting can be difficult, often requiring a dev-ops team to make critical in-house updates and/or customizations. A Blockscout-hosted chain not only gives projects access to expert, dedicated technical support, it also greatly increases project visibility and provides access to the premium feature set.
 
