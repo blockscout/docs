@@ -188,6 +188,7 @@ This table is horizontally scrollable, version information is located in the las
 | `INDEXER_TOKEN_INSTANCE_RETRY_BATCH_SIZE`                            |          | Concurrency for `retry` token instance fetcher. Implemented in [#8313](https://github.com/blockscout/blockscout/pull/8313) | 10 | master |
 | `INDEXER_TOKEN_INSTANCE_REALTIME_BATCH_SIZE`                         |          | Concurrency for `realtime` token instance fetcher. Implemented in [#8313](https://github.com/blockscout/blockscout/pull/8313). | 1  | master |
 | `INDEXER_TOKEN_INSTANCE_SANITIZE_BATCH_SIZE`                         |          | Concurrency for `sanitize` token instance fetcher. Implemented in [#8313](https://github.com/blockscout/blockscout/pull/8313). | 10 | master |
+| `INDEXER_TOKEN_BALANCES_FETCHER_INIT_QUERY_LIMIT`             |          | Limit for token balance fetcher init queries. Implemented in [#8459](https://github.com/blockscout/blockscout/pull/8459).                                                                                                                                                                                                                                                                                                                                                                                                     | 100000                                     | master |
 
 ### Exchange rates management
 
