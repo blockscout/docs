@@ -5,7 +5,7 @@ description: Migrate to the new frontend using Docker
 # All-In-One Container
 
 {% hint style="info" %}
-You will use the [**`docker-compose-no-build-frontend.yml`**](https://github.com/blockscout/blockscout/blob/master/docker-compose/docker-compose-no-build-frontend.yml) file.
+You will use the [**`docker-compose.yml`**](https://github.com/blockscout/blockscout/blob/master/docker-compose/docker-compose.yml) file.
 {% endhint %}
 
 ## Prerequisites
@@ -34,9 +34,9 @@ cd docker-compose
 
 ### 3) Adjust backend envs for your instance
 
-Replace the example environment variables in the `environment:` list of the `docker-compose-no-build-frontend.yml` file.
+Replace the example environment variables in the `environment:` list of the `docker-compose.yml` file.
 
-<pre><code><strong>cat docker-compose-no-build-frontend.yml
+<pre><code><strong>cat docker-compose.yml
 </strong></code></pre>
 
 By default, standard test setup ENV variables (ganache) are set in the `environment:` list. Replace these with env vars from your existing backend. The only one you **NEED to keep** is **`API_V2_ENABLED='true'`** .  Any values added here will override existing variables when starting the docker container.
@@ -60,7 +60,7 @@ By default, standard test setup ENV variables (ganache) are set in the `environm
 Run all containers (up) and run processes in the background (-d).&#x20;
 
 ```
-docker-compose -f docker-compose-no-build-frontend.yml up -d
+docker-compose up -d
 ```
 
 Check progress and view containers:

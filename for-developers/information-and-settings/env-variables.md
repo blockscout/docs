@@ -375,7 +375,7 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | `MICROSERVICE_SC_VERIFIER_ENABLED`                      |          | If `true`, integration with [Rust smart-contract verifier](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier) is enabled. Implemented in [#5860](https://github.com/blockscout/blockscout/pull/5860) | (empty)       | v5.1.3+ |
 | `MICROSERVICE_SC_VERIFIER_URL`                          |          | URL of Rust smart-contract verifier. Implemented in [#5860](https://github.com/blockscout/blockscout/pull/5860)                                                                                                                  | (empty)       | v5.1.3+ |
 | `MICROSERVICE_ETH_BYTECODE_DB_INTERVAL_BETWEEN_LOOKUPS` |          | Minimal time after unsuccessful check of smart contract's sources in Eth Bytecode DB. Implemented in [#7187](https://github.com/blockscout/blockscout/pull/7187). [Time format](env-variables.md#time-format)                    | 10m           | v5.1.3+ |
-| `MICROSERVICE_SC_VERIFIER_TYPE`                         |          | Type of smart contract microservice could be either `eth_bytecode_db` or `sc_verifier`. Implemented in [#7187](https://github.com/blockscout/blockscout/pull/7187)                                                               | `sc_verifier` | v5.1.3+ |
+| `MICROSERVICE_SC_VERIFIER_TYPE`                         |          | Type of smart contract microservice could be either `eth_bytecode_db` or `sc_verifier`. Implemented in [#7187](https://github.com/blockscout/blockscout/pull/7187)                                                               | `eth_bytecode_db` | v5.1.3+ |
 
 #### Sol2Uml
 

@@ -44,9 +44,9 @@ cd docker-compose
 
 ### 4) Adjust backend envs for your instance
 
-Replace the example environment variables in the `docker-compose-no-build-frontend.yml` file.&#x20;
+Replace the example environment variables in the `docker-compose.yml` file.&#x20;
 
-<pre><code><strong>cat docker-compose-no-build-frontend.yml
+<pre><code><strong>cat docker-compose.yml
 </strong></code></pre>
 
 By default, ENV variables are set to testing settings (ganache) in the `environment:` list. Replace with env vars from your existing backend. The only one you **NEED to keep** is **`API_V2_ENABLED='true'`** .  Any values added here will override existing variables in your instance when you start the container.
