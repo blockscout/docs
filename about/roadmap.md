@@ -7,7 +7,7 @@ description: Upcoming enhancements and updates to BlockScout
 {% hint style="info" %}
 The Blockscout roadmap is a high-level strategic plan designed to guide research and development. **Target dates and details are reviewed by the team and subject to move, adjust and change as the project evolves**. Note that only completed items ( :white\_check\_mark: Status: Complete) are considered achieved project milestones.
 
-_Last update: August 10, 2023 |_ [_Changelog_](./#change-log)
+_Last update: August 10, 2023 |_ [_Changelog_](roadmap.md#change-log)
 {% endhint %}
 
 ## 🟦 Q3 2023
@@ -270,7 +270,7 @@ The Gnosis Chain explorer supports EIP-1559 functionality with a stated transact
 **Target Date:** Q4 2021\
 **Status:**  :white\_check\_mark: Complete
 
-BlockScout supports verification for contracts via multiple methods including Hardhat and the Hardhat and Sourcify plugins. [More information is available here](../../for-users/verifying-a-smart-contract/).
+BlockScout supports verification for contracts via multiple methods including Hardhat and the Hardhat and Sourcify plugins. [More information is available here](../for-users/verifying-a-smart-contract/).
 
 ## Change Log
 

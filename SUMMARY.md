@@ -6,11 +6,11 @@
 
 * [Features](about/features/README.md)
   * [Ethereum Bytecode Database Microservice](about/features/ethereum-bytecode-database-microservice.md)
+  * [Blockscout Redesign](about/features/blockscout-2.0.md)
 * [Chains & Projects Using Blockscout](about/projects.md)
 * [Funding](about/funding/README.md)
   * [L2 Funding Proposal](about/funding/l2-funding-proposal.md)
-* [Roadmap](about/roadmap/README.md)
-  * [Blockscout Redesign](about/roadmap/blockscout-2.0.md)
+* [Roadmap](about/roadmap.md)
 * [Announcements & Media](about/announcements.md)
 * [Integrations](about/integrations.md)
 * [FAQs](about/faqs.md)
