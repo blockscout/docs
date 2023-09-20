@@ -16,5 +16,11 @@ Developers can verify contracts via the [Sourcify](https://sourcify.dev/) API. C
 
 <figure><img src="../.gitbook/assets/sourcify.eth.png" alt="" width="188"><figcaption></figcaption></figure>
 
+## Presto
+
+RaaS service from [Gateway.fm](https://www.gateway.fm) that integrates Blockscout during the simple deployment process. &#x20;
+
+{% embed url="https://www.blog.blockscout.com/blockscout-presto-raas" %}
+
 
 

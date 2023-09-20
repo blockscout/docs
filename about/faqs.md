@@ -24,7 +24,7 @@ This label appears next to a transaction to signify whether a transaction was se
 **There are 3 transaction types which can be accessed from the tabs menu for an EOA (Externally Owned Address) or Smart Contract.**
 
 **Transactions:**\
-An EOA, commonly known as a wallet address, initiates a transaction. Both incoming and outgoing transactions are recorded here, and includes includes any transaction that requires a gas fee (in the native token ETH, xDai etc) for execution.
+An EOA, commonly known as a wallet address, initiates a transaction. Both incoming and outgoing transactions are recorded here, and includes any transaction that requires a gas fee (in the native token ETH, xDai etc) for execution.
 
 **Token Transfers:**\
 Transactions of ERC-20 or ERC-721 tokens. This can include DeFi transactions (like adding or removing liquidity), EOA transfers, airdrops or other transactions where non-native tokens are sent and received.
