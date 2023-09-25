@@ -50,4 +50,10 @@ You should allocate more computing resources/cores to the instance.
 
 </details>
 
-\
+<details>
+
+<summary>What should I set the proxy_pass variable to?</summary>
+
+Typically you should set to [http://youripaddress:your\_port\_number](http://youripaddress:8153/;). Blockscout may not work if you set to [http://0.0.0.0:](http://0.0.0.0:8153/;)your\_port\_number
+
+</details>
