@@ -13,6 +13,7 @@
 * [Roadmap](about/roadmap.md)
 * [Announcements & Media](about/announcements.md)
 * [Integrations](about/integrations.md)
+* [Newsletter and Blog](about/newsletter-and-blog.md)
 * [FAQs](about/faqs.md)
 
 ## 🙎 For Users
