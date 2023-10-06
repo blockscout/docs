@@ -6,6 +6,18 @@
 
 If you have an issue that isn't addressed, please [contact us in Discord](https://discord.gg/blockscout) for troubleshooting.
 
+
+
+<details>
+
+<summary>Are there any additional tutorials for Blockscout deployment?</summary>
+
+We are currently working on more tutorials from the team. There are some user and community generated videos available here:\
+\
+[https://drive.google.com/drive/folders/1dH-ZxV1ShQ-cb7gObTXs3MtwSqVNJOqW ](https://drive.google.com/drive/folders/1dH-ZxV1ShQ-cb7gObTXs3MtwSqVNJOqW)
+
+</details>
+
 <details>
 
 <summary>Where are the environmental variable (ENV) settings located?</summary>
