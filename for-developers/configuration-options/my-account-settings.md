@@ -4,9 +4,9 @@
 
 * [Uberauth](https://hexdocs.pm/ueberauth/readme.html): User authentication & login
 * [Sendgrid](https://sendgrid.com/): Watchlist notifications
-* [Airtable](https://www.airtable.com/):  Public Tag requests via API
+* [Airtable](https://www.airtable.com/): Public Tag requests via API
 
-Once these are setup, [update your Blockscout instance](../manual-deployment/) and add the [My Account ENV variables](../information-and-settings/env-variables.md#account-related-env-variables). Below are examples from the [Gnosis Chain instance](https://blockscout.com/xdai/mainnet) with some private info redacted.&#x20;
+Once these are setup, [update your Blockscout instance](../manual-deployment/) and add the [My Account ENV variables](../information-and-settings/env-variables.md#account-related-env-variables). Below are examples from the [Gnosis Chain instance](https://blockscout.com/xdai/mainnet) with some private info redacted.
 
 ```
 ACCOUNT_ENABLED=true
@@ -22,3 +22,17 @@ ACCOUNT_CLOAK_KEY=...
 ACCOUNT_REDIS_URL=redis://redis_db:6379
 ACCOUNT_DATABASE_URL=postgresql://user:pass@host:port/db
 ```
+
+## Airtable Schema
+
+Add `request_type` and `request_id` variables to the airtable when configuring for your My Account settings.
+
+<figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+
+## List of required variables
+
+The following variables are needed for your airtable.
+
+<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
