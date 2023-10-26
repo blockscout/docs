@@ -127,3 +127,6 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.ContractMethod | contract\_methods | \[asc: :identified, asc: :abi\] |
 | Explorer.Market.MarketHistory | market\_history | asc: :date |
 | Explorer.Chain.Withdrawal | withdrawals | asc: :index |
+| Explorer.Chain.Zkevm.TransactionBatch | zkevm\_transaction\_batches | \[asc: :number\] |
+| Explorer.Chain.Zkevm.BatchTransaction | zkevm\_batch\_l2\_transactions | \[asc: :hash\] |
+| Explorer.Chain.Zkevm.LifecycleTransaction | zkevm\_lifecycle\_l1\_transactions | \[asc: :id\] |
