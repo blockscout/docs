@@ -1,6 +1,6 @@
 # Private Tags
 
-Private tags help customize your Blockscout instance to track the addresses and transactions that are important to you. You can track specific addresses, either EOAs (Externally Owned Addresses) or smart contracts, as well as group and organize specific transactions.
+Private tags help customize your Blockscout instance to track addresses and transactions that are important to you. You can track specific addresses, either EOAs (Externally Owned Addresses) or smart contracts, as well as group and organize specific transactions.
 
 When logged in, a small grey tag is added with the selected name to any specified addresses or transactions. You can also add emojis 😁 for easy identification.
 
@@ -19,7 +19,7 @@ To start with private tags, you must first[ login to My Account](./).&#x20;
 1. Go to Private Tags in the My Account user menu. Address tag will be the default option
 2. Press the **Add address tag** button.
 
-<figure><img src="../../.gitbook/assets/add-private-address-tag.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/add-private-address-tag (1).png" alt=""><figcaption></figcaption></figure>
 
 **2)** **Fill in the fields**.
 
@@ -31,7 +31,7 @@ To start with private tags, you must first[ login to My Account](./).&#x20;
 
 **3) Address tag added** to the Address Tags home screen. You can add additional tags or remove old tags from here.
 
-<figure><img src="../../.gitbook/assets/private-address-tag-added.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/private-transaction-tag-added (1).png" alt=""><figcaption></figcaption></figure>
 
 **4) View tags in Blockscout**. They will appear in grey next to additional tags that may exist for that address.&#x20;
 
@@ -39,14 +39,14 @@ To start with private tags, you must first[ login to My Account](./).&#x20;
 Note, you must be logged in to My Account to see your private tags.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/private-address-tag-in-blockscout.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/private-address-tag-in-blockscout (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 2) Create a Private Transaction Tag
 
 * Go to **Private Tags** in the My Account user menu. Select the **Transaction** tab.&#x20;
 * Press the **Add transaction tag** button.
 
-<figure><img src="../../.gitbook/assets/add-private-transaction-tag.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/add-private-transaction-tag (1).png" alt=""><figcaption></figcaption></figure>
 
 **2)** **Fill in the fields**.
 
@@ -58,7 +58,7 @@ Note, you must be logged in to My Account to see your private tags.
 
 **3) Transaction tag added** to the transaction tags home screen. You can add additional tags or remove old tags from here.
 
-<figure><img src="../../.gitbook/assets/private-transaction-tag-added.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/private-transaction-tag-added (2).png" alt=""><figcaption></figcaption></figure>
 
 **4) View tags in Blockscout**. They will appear in grey next to additional tags that may exist for that address.&#x20;
 
@@ -66,4 +66,4 @@ Note, you must be logged in to My Account to see your private tags.
 Note, you must be logged in to My Account to see your private tags.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/private-transaction-tag-in-blockscout.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/private-transaction-tag-in-blockscout (1).png" alt=""><figcaption></figcaption></figure>

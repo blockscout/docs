@@ -26,11 +26,11 @@ _The following example is created using the_ [_Optimism Blockscout instance_](ht
 
 #### **1) Click the MyAccount Icon**
 
-<figure><img src="../../.gitbook/assets/my-account-icon.png" alt=""><figcaption><p>Generic My Account icon displays when you are not signed in</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/my-account-icon (1).png" alt=""><figcaption><p>Generic My Account icon displays when you are not signed in</p></figcaption></figure>
 
 
 
-<figure><img src="../../.gitbook/assets/my-account-icon-mobile.png" alt=""><figcaption><p>Mobile MyAccount icon</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/my-account-icon-mobile (1).png" alt=""><figcaption><p>Mobile MyAccount icon</p></figcaption></figure>
 
 #### 2) Sign in / Create an Account
 
@@ -46,11 +46,11 @@ Enter a valid email and password to setup an account. You will receive a validat
 
 <figure><img src="../../.gitbook/assets/new-myaccount-sign-in.png" alt=""><figcaption><p>Enter your email and a valid password</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/verify-myaccount-email.png" alt=""><figcaption><p>You will be forwarded to the verify page. Check your email to verify your new account.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/verify-myaccount-email (1).png" alt=""><figcaption><p>You will be forwarded to the verify page. Check your email to verify your new account.</p></figcaption></figure>
 
 
 
-<figure><img src="../../.gitbook/assets/verify-email-2.png" alt=""><figcaption><p>Confirm your account from email. Email will come from noreply@blockscout.com</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/verify-email-2 (1).png" alt=""><figcaption><p>Confirm your account from email. Email will come from noreply@blockscout.com</p></figcaption></figure>
 
 #### 2b) Github
 
