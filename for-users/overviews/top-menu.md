@@ -1,4 +1,36 @@
-# Top Menu
+# Main Menu
+
+## V2 UI
+
+{% hint style="success" %}
+_The following views are taken from the_ [_Optimism Blockscout instance_](https://optimism.blockscout.com/)_._
+{% endhint %}
+
+### Network Menu
+
+Shows available Mainnet and Testnets.
+
+<figure><img src="../../.gitbook/assets/optimism-networks-menu.png" alt=""><figcaption></figcaption></figure>
+
+### Blockchain Menu
+
+Access transactions, blocks, batches and L1 <-> L2 data.
+
+<figure><img src="../../.gitbook/assets/optimism-blockschain-menu.png" alt=""><figcaption></figcaption></figure>
+
+### API Menu
+
+Access API information including the REST API which serves the v2 UI.
+
+<figure><img src="../../.gitbook/assets/optimism-api-menu.png" alt=""><figcaption></figcaption></figure>
+
+
+
+## V1 UI
+
+Many projects still use the previous Blockscout UI, and info below relates to the previous v1 UI. We encourage projects to [upgrade to the new U](../../for-developers/frontend-migration/)I.&#x20;
+
+## Top Menu
 
 The top menu contains navigational items for exploration. The menu is customizable, and different instances can have different menus depending on the needs of the chain.
 

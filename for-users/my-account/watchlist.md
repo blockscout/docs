@@ -1,28 +1,34 @@
-# Watchlist
+# Watch list
+
+{% hint style="success" %}
+_The following example is created using the_ [_Optimism Blockscout instance_](https://optimism.blockscout.com/)_._
+{% endhint %}
 
 Sign up for email notifications for different actions related to an EOA or contract address. This can include incoming/outgoing transactions for native tokens, ERC-20 tokens or NFTs like ERC-721 and ERC-1155s.
 
 1\) **Login to My Account in Blockscout** <[_login instructions_](./)> . From the Watchlist menu click Add address.
 
-![](../../.gitbook/assets/address-1.png)
+<figure><img src="../../.gitbook/assets/watch-list-add-address.png" alt=""><figcaption></figcaption></figure>
 
 2\) **Fill in information** including:
 
-* Address:
-* Name: For your reference, will be created as a private tag for this address as well
-* Notification types: Select which types of transactions you would like to receive email notifications for.
-* Email Notifications: Select to receive.
-* Save
+* **Address**: 0x address of the EOA or contract to watch.
+* **Private tag**: For your reference, will be displayed as a private tag for your Blockscout instance when you are logged in (emoji's accepted 🙂)
+* **Notification types**: Select which types of transactions you would like to receive email notifications for. These include native tokens (in this case ETH), ERC-20 tokens, and NFT tokens.
+* **Email Notifications**: Select to receive.
+* **Add address**: Click button to add to your watchlist.
 
-![](../../.gitbook/assets/address-2.png)
+<figure><img src="../../.gitbook/assets/watch-list-add-parameters.png" alt=""><figcaption></figcaption></figure>
 
-3\) **New address added** to your watchlist dashboard. You can edit info, remove, or add more items.
+3\) A new address along with an info overview will be added to your watchlist dashboard. You can edit info, remove, or add more items.
 
-![](../../.gitbook/assets/address-3.png)
+<figure><img src="../../.gitbook/assets/watch-list-address-added.png" alt=""><figcaption></figcaption></figure>
 
-4\) Click on the address to view anytime in the Blockscout console. Watch list addresses show the Name as a tag when logged into My Account.
+4\) Click the address to view in the Blockscout console. Watch list addresses show the private tag when logged into My Account.
 
-![](../../.gitbook/assets/address-4.png)
+<figure><img src="../../.gitbook/assets/watch-list-address-view.png" alt=""><figcaption></figcaption></figure>
 
+5\) If selected, you will receive emails based on actions completed by this address.
 
+<figure><img src="../../.gitbook/assets/watchlist-address-email (1).png" alt=""><figcaption></figcaption></figure>
 

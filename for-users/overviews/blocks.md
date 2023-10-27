@@ -7,7 +7,7 @@ Click on a specific block number for information about that block, or **View All
 The all blocks page can also be accessed from the top menu.
 
 {% hint style="info" %}
-Blockscout displays are configurable and may show different information depending on the instance and/or consensus method. In this example we show displays from Ethereum mainnet post-merge (PoS consensus).
+Blockscout displays are configurable and may show different information depending on the instance and/or consensus method. These examples use a V1 instance of the UI. **V2 views are in process.**
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/blocks-1 (1).png" alt=""><figcaption></figcaption></figure>
