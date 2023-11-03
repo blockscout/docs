@@ -11,9 +11,10 @@
 * [Funding](about/funding/README.md)
   * [L2 Funding Proposal](about/funding/l2-funding-proposal.md)
 * [Roadmap](about/roadmap.md)
+* [Partners & Integrations](about/partners-and-integrations/README.md)
+  * [RaaS Providers](about/partners-and-integrations/raas-providers.md)
 * [Announcements & Media](about/announcements.md)
-* [Integrations](about/integrations.md)
-* [Newsletter and Blog](about/newsletter-and-blog.md)
+* [Newsletter & Blog](about/newsletter-and-blog.md)
 * [FAQs](about/faqs.md)
 
 ## 🙎 For Users
