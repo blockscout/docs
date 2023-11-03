@@ -10,7 +10,7 @@ Blockscout serves execution-layer chains and testnets within the Ethereum ecosys
 
 Projects can choose to deploy Blockscout themselves or use customization and hosting services for their instances.
 
-### ⭐️ 13+ Ecosystems ⭐️ 270+ Networks, Rollups, and Testnets
+### ⭐️ 13+ Ecosystems ⭐️ 400+ Networks, Rollups, and Testnets
 
 
 
