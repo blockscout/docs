@@ -8,13 +8,13 @@
   * [Ethereum Bytecode Database Microservice](about/features/ethereum-bytecode-database-microservice.md)
   * [Blockscout Redesign](about/features/blockscout-2.0.md)
 * [Chains & Projects Using Blockscout](about/projects.md)
-* [Funding](about/funding/README.md)
-  * [L2 Funding Proposal](about/funding/l2-funding-proposal.md)
-* [Roadmap](about/roadmap.md)
 * [Partners & Integrations](about/partners-and-integrations/README.md)
   * [RaaS Providers](about/partners-and-integrations/raas-providers.md)
 * [Announcements & Media](about/announcements.md)
 * [Newsletter & Blog](about/newsletter-and-blog.md)
+* [Funding](about/funding/README.md)
+  * [L2 Funding Proposal](about/funding/l2-funding-proposal.md)
+* [Roadmap](about/roadmap.md)
 * [FAQs](about/faqs.md)
 
 ## 🙎 For Users
