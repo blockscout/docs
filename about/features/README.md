@@ -11,6 +11,7 @@ description: Blockscout is a full-featured, open-source blockchain explorer
 * **Verify Contracts:**  Use [Hardhat](../../for-users/verifying-a-smart-contract/hardhat-verification-plugin.md), [Sourcify](../../for-users/verifying-a-smart-contract/contracts-verification-via-sourcify.md), and other tools to quickly verify  contracts.
 * **Make API Calls**: Make requests to a [robust API](../../for-users/api/) using standard and customized endpoints.
 * **Customize Views**: Use the [My Account](../../for-users/my-account/) features to add tags, watchlists and other features.
+* **Interact with Apps**: Chains with the [Apps Marketplace](../../for-users/blockscout-apps/) enabled include a portal for discovery and interaction with applications deployed on-chain.
 
 ### **Key Features**
 
