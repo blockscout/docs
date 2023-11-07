@@ -12,7 +12,7 @@ _Last update: November 07, 2023 |_ [_Changelog_](roadmap.md#change-log)
 
 ## 🟦 Q4 2023
 
-Items currently in progress. Some are planned for Q2 completion while others will extend to Q3-4.
+Items currently in progress. Some are planned for Q4 completion while others will extend to 2024.
 
 ### 🟦  New Microservices
 
