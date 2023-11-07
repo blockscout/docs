@@ -13,7 +13,8 @@
 * [Announcements & Media](about/announcements.md)
 * [Newsletter & Blog](about/newsletter-and-blog.md)
 * [Funding](about/funding/README.md)
-  * [L2 Funding Proposal](about/funding/l2-funding-proposal.md)
+  * [L2 Funding Proposal](about/funding/l2-funding-proposal/README.md)
+    * [Aux Funding Images](about/funding/l2-funding-proposal/aux-funding-images.md)
 * [Roadmap](about/roadmap.md)
 * [FAQs](about/faqs.md)
 
