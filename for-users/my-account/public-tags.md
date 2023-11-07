@@ -2,7 +2,7 @@
 description: Request a tag or report an incorrect tag
 ---
 
-# Public Tags
+# Public tags
 
 Request a public tag for your project's contracts on the public Blockscout instance. Tags appear in search, help create brand awareness for projects, and make exploration easier.
 
@@ -19,7 +19,7 @@ _The following example is created using the_ [_Optimism Blockscout instance_](ht
 1. Go to **Public tags** in the My Account Menu
 2. Press **Request to add public tag**.
 
-<figure><img src="../../.gitbook/assets/public-tag-1.png" alt="Block explorer add a public tag step 1"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/public-tag-1.png" alt="Add a public tag to Blockscout"><figcaption></figcaption></figure>
 
 **2)** **Fill in the fields**. Fields with \* are required.
 
@@ -34,9 +34,9 @@ _The following example is created using the_ [_Optimism Blockscout instance_](ht
 * Smart contract / Address (0x...)\*: Provide the 0x address of the contract. If you have several, press the "+" to add.
 * Reason and Description\*: Add any relevant details and include your color preference for the tags. Include any other helpful or clarifying information here.
 
-<figure><img src="../../.gitbook/assets/public-tag-request (1).png" alt="Fill out fields to request a public tag"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/public-tag-request.png" alt="Fill out fields to request a public tag"><figcaption></figcaption></figure>
 
 **3) Public tag request added** to the Public tags home screen. You can edit, request additional tags or delete old tags from here. Public tags are reviewed manually and can take some time in the queue.  If your tag request appears in the dashboard it has been successfully submitted and will be reviewed in the order in which it was received.
 
-<figure><img src="../../.gitbook/assets/public-tag-requested (1).png" alt="Use icons to edit or delete a private tag request"><figcaption><p>Use the icons to edit or delete your public tag request</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/public-tag-requested.png" alt="Use icons to edit or delete a private tag request"><figcaption><p>Use the icons to edit or delete your public tag request</p></figcaption></figure>
 
