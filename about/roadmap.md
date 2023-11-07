@@ -7,10 +7,10 @@ description: Upcoming enhancements and updates to BlockScout
 {% hint style="info" %}
 The Blockscout roadmap is a high-level strategic plan designed to guide research and development. **Target dates and details are reviewed by the team and subject to move, adjust and change as the project evolves**. Note that only completed items ( :white\_check\_mark: Status: Complete) are considered achieved project milestones.
 
-_Last update: August 10, 2023 |_ [_Changelog_](roadmap.md#change-log)
+_Last update: November 07, 2023 |_ [_Changelog_](roadmap.md#change-log)
 {% endhint %}
 
-## 🟦 Q3 2023
+## 🟦 Q4 2023
 
 Items currently in progress. Some are planned for Q2 completion while others will extend to Q3-4.
 
@@ -96,7 +96,7 @@ Explore a dedicated NFT explorer module to include:
 
 Dedicated news feed module that aggregates the latest news, updates, and developments related to the chain, keeping users informed and engaged with the ecosystem.
 
-## &#x20;🟪 Q4 2023
+## &#x20;🟪 Q1 2024
 
 Items currently planned for Q4. We will amend and update this list as development priorities evolve.
 
@@ -276,6 +276,7 @@ BlockScout supports verification for contracts via multiple methods including Ha
 
 | Update       | Items                                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| _07.11.2023_ | Updated milestones to reflect current quarterly work. A more extensive update with many reworked milestones will be added for 2024.                                                                                                                                                                                                                                                              |
 | _10.08.2023_ | <p>Updated Q3 milestones to account for completed items.</p><p></p><p>Completed:</p><ul><li>Improved indexer performace</li><li>Advanced filter and search</li><li>My Account improvements</li><li>Admin Account </li></ul>                                                                                                                                                                      |
 | _17.04.2023_ | <ul><li>Revamp roadmap for 2023 milestones by Q.</li><li>Moved all In-research items to appropriate Q.</li><li><p>Added:</p><ul><li>Q2,Q3,Q4 2023 items</li></ul></li><li><p>Completed:</p><ul><li>Landing Page</li><li>React UI v1</li><li>Rust Microservices v1</li><li>DApp Marketplace v1</li><li>My Account v1</li></ul></li></ul>                                                          |
 | 27.07.2022   | <ul><li>Updated marketplace to include Blockscout native DApps</li><li>Added Blockscout Microservices</li><li>Added Multi-chain search</li><li>Added personal asset management features</li><li>Added Blockscout ID</li><li>Combined several elements into UI category</li><li>Deployment improvements (Docker image) moved to completed.</li><li>Update Research Phase items to 2023.</li></ul> |
