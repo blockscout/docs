@@ -1,6 +1,8 @@
 # Private Tags
 
-Private tags help customize your Blockscout instance to track addresses and transactions that are important to you. You can track specific addresses, either EOAs (Externally Owned Addresses) or smart contracts, as well as group and organize specific transactions.
+Private tags help customize your Blockscout instance to track addresses and transactions that are important to you. You can track specific addresses, either EOAs (Externally Owned Addresses) or smart contracts, as well as group and organize specific transactions.&#x20;
+
+Use the private tags feature to add your own **address tags** and **transaction tags**. These will be viewable on your instance of Blockscout only.
 
 When logged in, a small grey tag is added with the selected name to any specified addresses or transactions. You can also add emojis 😁 for easy identification.
 

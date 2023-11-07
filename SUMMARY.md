@@ -28,7 +28,6 @@
   * [Watch list](for-users/my-account/watchlist.md)
   * [Private Tags](for-users/my-account/private-tags.md)
   * [Public Tags](for-users/my-account/public-tags.md)
-  * [Transaction Tags](for-users/my-account/transaction-tags.md)
   * [API Keys](for-users/my-account/api-keys.md)
   * [Custom ABI](for-users/my-account/custom-abi.md)
   * [Verified Addresses](for-users/my-account/verified-addresses/README.md)
