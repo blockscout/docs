@@ -141,6 +141,7 @@
 
 * [Media kit](resources/media-kit.md)
 * [Release Notes](resources/release-notes/README.md)
+  * [v5.3.0: 10/23/23](resources/release-notes/v5.3.0-10-23-23.md)
   * [v5.2.0: 6/20/23](resources/release-notes/v5.2.0-6-20-23.md)
   * [v5.1.0: 2/13/23](resources/release-notes/v5.1.0-2-13-23.md)
   * [v5.0.0: 1/11/23](resources/release-notes/v5.0.0-1-11-23.md)
