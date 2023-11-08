@@ -2,34 +2,40 @@
 
 The Custom ABI feature is useful for debugging and testing newly deployed smart contracts. This feature can be used with verified or unverified contracts.
 
-Once a custom ABI is added, the user can test methods using the Write Custom and Read Custom features.
+Once a custom ABI is added, the user can test methods using the `Write Custom` feature.
 
 ## Add Custom ABI
 
-**1) Login to My Account in Blockscout** <[_login instructions_](./)> to get started. Once logged in:
+**1)** [Login to My Account](./) in Blockscout to get started. Once logged in:
 
-1. Go to Custom ABI in the user menu.
-2. Press Add Custom ABI button.
+1. Go to **Custom ABI** in the My Account menu.
+2. Press the **Add Custom ABI** button.
 
-![](../../.gitbook/assets/custom-ABI.png)
+<figure><img src="../../.gitbook/assets/start-custom-ABI.png" alt="Go to Custom ABI in the My Account menu"><figcaption></figcaption></figure>
 
 **2)** **Fill in the fields**.
 
-1. Name.  Create a name for your ownreference.&#x20;
-2. Contract Address. Enter the correct 0x address of the deployed contract.
-3. ABI: Copy and paste in the ABI for the contract, either from your development environment (truffle, hardhat, remix etc), or if the contract is already verified, you can copy the ABI from Blockscout, located in the code tab for that contract.
-4. Press Save.
+1. **Smart Contract Address**. Enter the correct `0x` address of the deployed contract.
+2. **Project Name**.  Create a name for your own reference.&#x20;
+3. **Custom ABI**: Copy and paste in the ABI for the contract from your development environment (truffle, hardhat, remix etc) or if the contract is verified you can copy from Blockscout.
+4. Press **Create custom ABI**.
 
-![](../../.gitbook/assets/ABI-2.png)
+<figure><img src="../../.gitbook/assets/add-custom-abi.png" alt="Fill in custom ABI fields for contract, name and ABI"><figcaption></figcaption></figure>
 
-**3) Custom ABI added** to the  home screen. You can edit, remove or add additional custom ABIs from here.
+**3) Custom ABI added** to the home screen. You can edit or remove current custom ABIs or add additional custom ABIs from here.
 
-![](../../.gitbook/assets/abi-3.png)
+<figure><img src="../../.gitbook/assets/abi-added.png" alt="Custom ABI homescreen shows current custom ABIs. Delete and edit from here."><figcaption><p>Edit or delete a custom ABI using the icons</p></figcaption></figure>
 
 ## Interact with a Custom ABI
 
-Go to the contract page and find the Custom button to Read and Write to your contract.&#x20;
+You will need to be logged into My Account to interact with your custom ABIs. Once you added, you can visit the contract to interact with the custom ABI.
 
-{% hint style="info" %}
-More details coming soon.
-{% endhint %}
+1. Go to the contract page.&#x20;
+2. You will see a Write custom button.
+3. Connect your wallet to interact with the contract.
+4. Write to the available methods.&#x20;
+
+<figure><img src="../../.gitbook/assets/custom-abi-interact.png" alt="Login to My Account and connect your wallet to interact with your custom ABIs"><figcaption></figcaption></figure>
+
+
+

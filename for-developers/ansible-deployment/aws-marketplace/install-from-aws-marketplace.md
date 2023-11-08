@@ -79,6 +79,5 @@ For additional configuration options, see:
 * [Customizing CSS](customizing-css.md)
 * [Updating BlockScout on AWS](updating-and-redeploying-in-aws.md)
 
-***
 
-***
+
