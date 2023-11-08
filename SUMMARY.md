@@ -132,9 +132,8 @@
 
 ## 👓 For projects
 
-* [Hosted Features](for-projects/premium-features/README.md)
-  * [Hosted Instance on BlockScout.com](for-projects/premium-features/your-chain-on-blockscout.com.md)
-* [Hardware/Hosting Requirements](for-projects/resource-requirements.md)
+* [EaaS: Hosted Features](for-projects/premium-features.md)
+* [Hardware & Hosting Requirements](for-projects/resource-requirements.md)
 
 ## 🧩 Resources
 
@@ -147,10 +146,3 @@
 * [Discord Channel](https://discord.gg/blockscout)
 * [Discussion](https://github.com/blockscout/blockscout/discussions)
 * [GitHub Repo](https://github.com/poanetwork/blockscout)
-
-## 🌐 Job Openings <a href="#jobs" id="jobs"></a>
-
-* [DevOps Engineer](jobs/devops-engineer.md)
-* [Elixir Developer](jobs/elixir-developer.md)
-* [Senior Front-end Engineer / Front-end Architect](jobs/senior-front-end-engineer-front-end-architect.md)
-* [Senior QA Engineer](jobs/page-1.md)
