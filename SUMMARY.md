@@ -134,7 +134,6 @@
 
 * [Hosted Features](for-projects/premium-features/README.md)
   * [Hosted Instance on BlockScout.com](for-projects/premium-features/your-chain-on-blockscout.com.md)
-  * [Custom / Branded Themes](for-projects/premium-features/custom-branded-themes.md)
 * [Hardware/Hosting Requirements](for-projects/resource-requirements.md)
 
 ## 🧩 Resources

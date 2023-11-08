@@ -5,9 +5,9 @@ This page is currently in development. See the [ENV Variables page](../informati
 {% endhint %}
 
 {% hint style="info" %}
-Note: if you've previously deployed and are updating your BlockScout version with new assets, be sure to remove static assets from the previous build (use `mix phx.digest.clean`or manually delete assets located in _apps/block\_scout\_web/priv/static_ folder) before updating current files and restarting/rebuilding BlockScout.&#x20;
+Note: if you've previously deployed and are updating your BlockScout version with new assets, be sure to remove static assets from the previous build (use `mix phx.digest.clean`or manually delete assets located in _apps/block\_scout\_web/priv/static_ folder) before updating current files and restarting/rebuilding BlockScout.
 
-In order to rebuild new front-end assets run the following. _Note:  If preferred, use `npm ci` rather than `npm install` to strictly follow all package versions in `package-lock.json`_
+In order to rebuild new front-end assets run the following. _Note: If preferred, use `npm ci` rather than `npm install` to strictly follow all package versions in `package-lock.json`_
 
 1. `cd apps/block_scout_web/assets; npm install && node_modules/webpack/bin/webpack.js --mode production; cd -`
 2. `mix phx.digest`
@@ -15,7 +15,7 @@ In order to rebuild new front-end assets run the following. _Note:  If preferred
 
 1. **Theme Colors and other CSS-based attributes**: See [CSS Configs and Presets](css-configuration-and-presets.md) to set your instance to the stylesheet you want to use.
 2. **Logos**: Use the LOGO and FOOTER\_LOGO [env variables](../information-and-settings/env-variables.md) to direct to your uploaded logos. Logos and other assets are located in the `apps/block_scout_web/assets/static/images` folder.
-3. **Coin**: [Customize the coin symbol](../../about/faqs.md#how-do-i-customize-the-coin-symbol-name) using the COIN  & COINGECKO\_COIN\_ID [env variables](../information-and-settings/env-variables.md).
+3. **Coin**: [Customize the coin symbol](../../about/faqs.md#how-do-i-customize-the-coin-symbol-name) using the COIN & COINGECKO\_COIN\_ID [env variables](../information-and-settings/env-variables.md).
 4. **MetaData**: MetaTags can be adjusted for various pages in the templates area. For the home page, tag data is rendered from here: `/apps/block_scout_web/lib/block_scout_web/templates/chain/_metatags.html.eex`
 5. **Titles / Subtitles**: Browser tab displays the title from the 2 SUBNETWORK + NETWORK [env variables](../information-and-settings/env-variables.md).
 6. **Favicon**: replace the current favicons located in the `apps/block_scout_web/assets/static/images` folder.
@@ -26,11 +26,6 @@ In order to rebuild new front-end assets run the following. _Note:  If preferred
 9. **Footer**: Data is rendered from here: `/apps/block_scout_web/lib/block_scout_web/templates/layout/_footer.html.eex`\
    **ENV variables for footer links**
    1. `FOOTER_CHAT_LINK ​`
-   2. `FOOTER_FORUM_LINK`&#x20;
+   2. `FOOTER_FORUM_LINK`
    3. `FOOTER_GITHUB_LINK`
-10. **Custom Theming**: Custom theming is available from the BlockScout team. [Learn More](../../for-projects/premium-features/custom-branded-themes.md).
-
-
-
-
-
+10. **Custom Theming**: Custom theming is available from the BlockScout team. [Learn More](broken-reference).
