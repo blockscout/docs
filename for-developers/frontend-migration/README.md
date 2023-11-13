@@ -9,5 +9,5 @@ If you need help or would like Blockscout to assist with migration or hosting pl
 {% endhint %}
 
 1. [**All-in-one**](all-in-one-container.md): This is an easier deployment process but less flexible. It will deploy everything within a single docker container. **DO NOT use if you plan to host your frontend separately or want to make significant changes to the frontend.**
-2. [**Separate frontend**](separate-frontend.md): Deploy the frontend first, then connect it to the backend. This let you make more front-end customizations, and gives you access to all images etc. **Use this method to run a separate frontend instance.**
+2. [**Separate frontend**](separate-frontend.md): Deploy the frontend first, then connect it to the backend. This lets you make more front-end customizations, and gives you access to all images etc. **Use this method to run a separate frontend instance.**
 3. [**Customized backend**](customized-backend.md): If you've customized the indexer and don't want to override it, keep your previous backend customizations and only deploy the frontend container.

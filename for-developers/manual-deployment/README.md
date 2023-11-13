@@ -130,4 +130,6 @@ If using Chrome, Enable `chrome://flags/#allow-insecure-localhost`
 
 **15)** Return to the root directory and start the Phoenix Server. `mix phx.server`
 
+**16)** Check the [Frontend Migration section](../frontend-migration/) if you would like to connect the enhanced frontend UI to the manually installed backend.
+
 ##
