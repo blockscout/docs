@@ -1,6 +1,6 @@
 # API Keys
 
-API Keys are available to enhance request availability. Keys give users the ability to query the API up to 10 requests/sec.
+API Keys are available to enhance request availability. Keys give users the ability to query the API up to 50 requests/sec.
 
 A maximum of 3 keys can be created for each account.
 
