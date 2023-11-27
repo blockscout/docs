@@ -21,6 +21,10 @@ cd ./docker-compose
 docker-compose up --build
 ```
 
+{% hint style="info" %}
+**Note**: you can use `docker compose` instead of `docker-compose`, if compose v2 plugin is installed in Docker.
+{% endhint %}
+
 {% hint style="warning" %}
 **Note**: if you don't need to make backend customizations, you can run `docker-compose up` in order to launch from pre-build backend Docker image. This will be much faster.
 {% endhint %}
