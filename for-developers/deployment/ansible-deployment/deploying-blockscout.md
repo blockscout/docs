@@ -1,4 +1,4 @@
-# Deploying BlockScout
+# Deploying Blockscout
 
 {% hint style="danger" %}
 Deployment with Terraform 12 is unstable due to these bugs: [#144](https://github.com/poanetwork/blockscout-terraform/issues/144), [#147](https://github.com/poanetwork/blockscout-terraform/issues/147), [#148](https://github.com/poanetwork/blockscout-terraform/issues/148), [#149](https://github.com/poanetwork/blockscout-terraform/issues/149). Please use TF 11.11 - 11.14 and following branch for deployment [https://github.com/poanetwork/blockscout-terraform/tree/before-t12](https://github.com/poanetwork/blockscout-terraform/tree/before-t12)
@@ -22,7 +22,7 @@ To avoid the following error (which results in a Python crash):
 (source: [https://stackoverflow.com/questions/50168647/multiprocessing-causes-python-to-crash-and-gives-an-error-may-have-been-in-progr](https://stackoverflow.com/questions/50168647/multiprocessing-causes-python-to-crash-and-gives-an-error-may-have-been-in-progr));
 {% endhint %}
 
-1\) Ensure all [BlockScout prerequisites](../information-and-settings/requirements.md) are installed with the correct version number
+1\) Ensure all [BlockScout prerequisites](../../information-and-settings/requirements.md) are installed with the correct version number
 
 2\) Create the AWS access key and secret access key for user with sufficient permissions;
 

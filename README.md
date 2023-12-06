@@ -7,7 +7,7 @@ description: >-
 # Blockscout Open-Source Explorer
 
 {% hint style="success" %}
-🔵🎉 See the newly redesigned Blockscout in action on Ethereum, Optimism, BASE and more! Update your instance to the newest frontend now. [Get started here](for-developers/frontend-migration/)!
+🔵🎉 See the newly redesigned Blockscout in action on Ethereum, Optimism, BASE and more! Update your instance to the newest frontend now. [Get started here](for-developers/deployment/frontend-migration/)!
 
 * [https://eth.blockscout.com/](https://eth.blockscout.com/)
 * [https://base.blockscout.com/](https://base.blockscout.com/)

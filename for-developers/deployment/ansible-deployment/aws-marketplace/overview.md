@@ -4,7 +4,7 @@
 BlockScout on AWS Marketplace is available here: [https://aws.amazon.com/marketplace/pp/B07Z78PC2F?qid=1576601748071](https://aws.amazon.com/marketplace/pp/B07Z78PC2F?qid=1576601748071)
 {% endhint %}
 
-![BlockScout BlockChain Explorer on AWS](../../../.gitbook/assets/blockscout\_on\_aws.png)
+![BlockScout BlockChain Explorer on AWS](../../../../.gitbook/assets/blockscout\_on\_aws.png)
 
 ## Installation instructions
 

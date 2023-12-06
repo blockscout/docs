@@ -3,7 +3,7 @@
 ## Playbook Overview
 
 {% hint style="info" %}
-The playbook infrastructure currently only supports [AWS](./#using-aws-codedeploy-to-monitor-and-manage-a-blockscout-deployment) as a cloud provider. If using another provider, please see [manual deployment](../manual-deployment/).
+The playbook infrastructure currently only supports [AWS](./#using-aws-codedeploy-to-monitor-and-manage-a-blockscout-deployment) as a cloud provider. If using another provider, please see [manual deployment](../manual-old-ui/).
 {% endhint %}
 
 We use [Ansible](https://docs.ansible.com/ansible/latest/index.html) & [Terraform](https://www.terraform.io/intro/getting-started/install.html) to build the correct infrastructure to run BlockScout. The playbook repository is located at [https://github.com/poanetwork/blockscout-terraform](https://github.com/poanetwork/blockscout-terraform).&#x20;

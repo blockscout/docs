@@ -28,7 +28,7 @@ Access API information including the REST API which serves the v2 UI.
 
 ## V1 UI
 
-Many projects still use the previous Blockscout UI, and info below relates to the previous v1 UI. We encourage projects to [upgrade to the new U](../../for-developers/frontend-migration/)I.&#x20;
+Many projects still use the previous Blockscout UI, and info below relates to the previous v1 UI. We encourage projects to [upgrade to the new U](../../for-developers/deployment/frontend-migration/)I.&#x20;
 
 ## Top Menu
 
