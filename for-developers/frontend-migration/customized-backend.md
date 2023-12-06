@@ -1,7 +1,7 @@
 # Customized Backend
 
 {% hint style="info" %}
-You will use the [**`docker-compose-no-build-external-backend.yml`**](https://github.com/blockscout/blockscout/blob/master/docker-compose/docker-compose-no-build-external-backend.yml)file.
+You will use the [**`external-backend.yml`**](https://github.com/blockscout/blockscout/blob/master/docker-compose/external-backend.yml)file.
 {% endhint %}
 
 ## Prerequisites
@@ -33,7 +33,7 @@ You will pass in the backend proxy url when running docker compose. The standard
 Run all containers (up) and run processes in the background (-d).&#x20;
 
 ```
-BACK_PROXY_PASS=http//host.docker.internal:4000 docker compose -f docker-compose-no-build-external-backend.yml up -d
+BACK_PROXY_PASS=http//host.docker.internal:4000 docker compose -f external-backend.yml up -d
 ```
 
 View progress and check containers
