@@ -473,6 +473,13 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | `MICROSERVICE_SIG_PROVIDER_URL`     |          | If `true`, integration with [Rust sig-provider service](https://github.com/blockscout/blockscout-rs/tree/main/sig-provider) is enabled. Implemented in [#6541](https://github.com/blockscout/blockscout/pull/6541) | (empty) | v5.1.3+ |
 | `MICROSERVICE_SIG_PROVIDER_ENABLED` |          | URL of Rust sig-provider service. Implemented in [#6541](https://github.com/blockscout/blockscout/pull/6541)                                                                                                       | (empty) | v5.1.3+ |
 
+#### Tx Interpreter (Summary) Service
+
+| Variable                            | Required | Description                                                                                                                                                                                                        | Default | Version |
+| ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------- |
+| `MICROSERVICE_TRANSACTION_INTERPRETATION_URL`     |          | If `true`, integration with Tx Interpreter Service is enabled. Implemented in [#8957](https://github.com/blockscout/blockscout/pull/8957)                                                                     | (empty) | master  |
+| `MICROSERVICE_TRANSACTION_INTERPRETATION_ENABLED` |          | URL of Tx Interpreter Service. Implemented in [#8957](https://github.com/blockscout/blockscout/pull/8957)                                                                                                     | (empty) | master  |
+
 #### Sourcify
 
 | Variable                       | Required | Description                                                     | Default                                                                                                                                                                                                                           | Version |
