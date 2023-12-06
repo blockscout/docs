@@ -515,5 +515,5 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 
 | Variable                 | Required | Description                                                                              | Default | Version |
 | ------------------------ | -------- | ---------------------------------------------------------------------------------------- | ------- | ------- |
-| `SOLIDITYSCAN_CHAIN_ID`     |          | [Solidityscan](https://apidoc.solidityscan.com/solidityscan-security-api/solidityscan-other-apis/quickscan-api-v1) Internal chain id in Solidityscan. It may not match with actual chain ID. Implemented in [#8908](https://github.com/blockscout/blockscout/pull/8908) | (empty) | master     |
-| `SOLIDITYSCAN_API_TOKEN` |          | [Solidityscan](https://apidoc.solidityscan.com/solidityscan-security-api/solidityscan-other-apis/quickscan-api-v1) API token for usage of Solidityscan API. | (empty) | master     |
+| `SOLIDITYSCAN_CHAIN_ID`     |          | [Solidityscan](https://apidoc.solidityscan.com/solidityscan-security-api/solidityscan-other-apis/quickscan-api-v1) Internal chain id in Solidityscan. It may not match with actual chain ID. Implemented in [#8908](https://github.com/blockscout/blockscout/pull/8908) | (empty) | v5.3.3+     |
+| `SOLIDITYSCAN_API_TOKEN` |          | [Solidityscan](https://apidoc.solidityscan.com/solidityscan-security-api/solidityscan-other-apis/quickscan-api-v1) API token for usage of Solidityscan API. | (empty) | v5.3.3+     |
