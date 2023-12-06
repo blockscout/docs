@@ -510,3 +510,10 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | `MIXPANEL_URL`      |          | Url to use Mixpanel with proxy ([Collection via Proxy](https://developer.mixpanel.com/docs/collection-via-a-proxy)).                     | (empty) | v5.0.0+ | ✅              |
 | `AMPLITUDE_API_KEY` |          | [Amplitude](https://amplitude.com/) API key.                                                                                             | (empty) | v5.0.0+ | ✅              |
 | `AMPLITUDE_URL`     |          | Url to use Amplitude with proxy ([Use Domain Proxy to Relay Events](https://www.docs.developers.amplitude.com/analytics/domain-proxy/)). | (empty) | v5.0.0+ | ✅              |
+
+#### Solidityscan
+
+| Variable                 | Required | Description                                                                              | Default | Version |
+| ------------------------ | -------- | ---------------------------------------------------------------------------------------- | ------- | ------- |
+| `SOLIDITYSCAN_CHAIN_ID`     |          | [Solidityscan](https://apidoc.solidityscan.com/solidityscan-security-api/solidityscan-other-apis/quickscan-api-v1) Internal chain id in Solidityscan. It may not match with actual chain ID. Implemented in [#8908](https://github.com/blockscout/blockscout/pull/8908) | (empty) | master     |
+| `SOLIDITYSCAN_API_TOKEN` |          | [Solidityscan](https://apidoc.solidityscan.com/solidityscan-security-api/solidityscan-other-apis/quickscan-api-v1) API token for usage of Solidityscan API. | (empty) | master     |
