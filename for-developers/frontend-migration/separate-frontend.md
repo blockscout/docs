@@ -5,7 +5,7 @@ This option is preferred if you want to modify the UI and/or have more control o
 {% endhint %}
 
 {% hint style="info" %}
-You will use the [**`docker-compose-no-build-external-frontend.yml`**](https://github.com/blockscout/blockscout/blob/master/docker-compose/docker-compose-no-build-external-frontend.yml) file.
+You will use the [**`external-frontend.yml`**](https://github.com/blockscout/blockscout/blob/master/docker-compose/external-frontend.yml) file.
 {% endhint %}
 
 ## Prerequisites
@@ -72,7 +72,7 @@ You will pass in the frontend proxy url when running docker compose. The standar
 Run all containers (up) and run processes in the background (-d).&#x20;
 
 ```
-FRONT_PROXY_PASS=http//host.docker.internal:3000 docker compose -f docker-compose-no-build-external-frontend.yml up -d
+FRONT_PROXY_PASS=http//host.docker.internal:3000 docker compose -f external-frontend.yml up -d
 ```
 
 Check progress and view containers:
