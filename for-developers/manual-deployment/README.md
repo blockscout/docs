@@ -9,7 +9,7 @@ For automated deployment on AWS, see [Ansible deployment](../ansible-deployment/
 {% endhint %}
 
 {% hint style="info" %}
-For deployment using Docker-compose, see [Docker Integration.](../information-and-settings/docker-compose-deployment.md)
+For deployment using Docker-compose, see [Docker Deployment.](../information-and-settings/docker-compose-deployment.md)
 {% endhint %}
 
 ## Manual Deployment

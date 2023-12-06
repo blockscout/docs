@@ -2,7 +2,7 @@
 description: For local builds
 ---
 
-# Docker Integration
+# Docker-compose Deployment
 
 {% hint style="success" %}
 Please see [https://github.com/blockscout/blockscout/tree/master/docker-compose](https://github.com/blockscout/blockscout/tree/master/docker-compose) for all required information.
