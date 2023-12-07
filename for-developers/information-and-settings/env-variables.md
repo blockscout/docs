@@ -445,6 +445,7 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | `ACCOUNT_VERIFICATION_EMAIL_RESEND_INTERVAL` |          | Time before resending confirmation email. Implemented in [#7298](https://github.com/blockscout/blockscout/pull/7298). [Time format](env-variables.md#time-format) | `5m`                      | v5.1.5+ |
 | `ACCOUNT_PRIVATE_TAGS_LIMIT`                 |          | Limit for address & transaction tags. Implemented in [#8528](https://github.com/blockscout/blockscout/pull/8528).                                                 | 2000                      | v5.3.1+ |
 | `ACCOUNT_WATCHLIST_ADDRESSES_LIMIT`          |          | Limit for watch list addresses. Implemented in [#8528](https://github.com/blockscout/blockscout/pull/8528).                                                       | 15                        | v5.3.1+ |
+| `ACCOUNT_WATCHLIST_NOTIFICATIONS_LIMIT_FOR_30_DAYS`          |          | Per account limit for watch list notifications sent for the last 30 days. Implemented in [#8966](https://github.com/blockscout/blockscout/pull/8966).                                                       | 1000                        | master |
 
 ### Integrations
 
