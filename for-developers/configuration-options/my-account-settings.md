@@ -6,7 +6,7 @@
 * [Sendgrid](https://sendgrid.com/): Watchlist notifications
 * [Airtable](https://www.airtable.com/): Public Tag requests via API
 
-Once these are setup, [update your Blockscout instance](../deployment/manual-old-ui/) and add the [My Account ENV variables](../information-and-settings/env-variables/#account-related-env-variables). Below are examples from the [Gnosis Chain instance](https://blockscout.com/xdai/mainnet) with some private info redacted.
+Once these are setup, [update your Blockscout instance](../deployment/manual-old-ui/) and add the [My Account ENV variables](../information-and-settings/env-variables.md#account-related-env-variables). Below are examples from the [Gnosis Chain instance](https://blockscout.com/xdai/mainnet) with some private info redacted.
 
 ```
 ACCOUNT_ENABLED=true

@@ -7,7 +7,7 @@ description: Deploy Blockscout with all microservices
 ## Prerequisites
 
 {% hint style="warning" %}
-Please familiarize yourself with the [general requirements](../../information-and-settings/requirements/requirements.md), [db storage requirements](../../information-and-settings/requirements/database-storage-requirements.md), [JSON RPC requirements](../../information-and-settings/requirements/node-tracing-json-rpc-requirements.md) and [Client setting](../../information-and-settings/requirements/client-settings.md) requirements before installing Blockscout.
+Please familiarize yourself with the [general requirements](../../information-and-settings/requirements.md), [db storage requirements](../../information-and-settings/database-storage-requirements.md), [JSON RPC requirements](../../information-and-settings/node-tracing-json-rpc-requirements.md) and [Client setting](../../information-and-settings/client-settings.md) requirements before installing Blockscout.
 {% endhint %}
 
 ## Machine Requirements
@@ -21,7 +21,7 @@ Please familiarize yourself with the [general requirements](../../information-an
 
 ### Hosting Environment Hardware Requirements
 
-* See [Hardware and Hosting Requirements](../../information-and-settings/requirements/resource-requirements.md)
+* See [Hardware and Hosting Requirements](../../../for-projects/resource-requirements.md)
 
 ## Software
 
@@ -31,19 +31,17 @@ Take careful note of the supported versions. For Erlang/Elixir, [asdf](https://a
 * [Elixir **1.14.x**](https://elixir-lang.org/)
 * [Postgres **14**](https://www.postgresql.org/)
 * [Node.js **18.x.x**](https://nodejs.org/en/)
-* Use the latest version for [additional required software](../../information-and-settings/requirements/requirements.md)
+* Use the latest version for [additional required software](../../information-and-settings/requirements.md)
 
 ## Manual Deployment
 
 The following guide contains 5 sections that cover a complete Blockcout installation.
 
-Prepare the backend
-
-1. Prepare the backend
-2. Run microservices
-3. Add the microservices integration to backend
-4. Run the backend
-5. Run the frontend
+1. [Prepare the backend](./#1.-prepare-the-backend)
+2. [Run microservices](./#2.-run-microservices)
+3. [Add the microservices integration to backend](./#3.-add-the-microservices-integration-to-the-backend)
+4. [Run the backend](./#4.-run-backend)
+5. [Run the frontend](./#5.-run-frontend)
 
 ## 1. Prepare the backend
 

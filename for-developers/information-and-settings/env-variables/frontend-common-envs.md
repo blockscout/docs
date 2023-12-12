@@ -1,5 +1,13 @@
 # Frontend Common ENVs
 
+
+
+{% hint style="warning" %}
+The following are common frontend variables **only.**&#x20;
+
+[Backend ENVs are available here.](../env-variables.md)
+{% endhint %}
+
 {% hint style="info" %}
 **->** [**Full list of ENVs**](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md) with example values
 

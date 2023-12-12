@@ -16,9 +16,9 @@ For deployment using Docker-compose, see [Docker Deployment.](../docker-compose-
 
 ## Manual Deployment
 
-Check your environment is prepared with [General Requirements](../../information-and-settings/requirements/requirements.md) and [Database Storage Requirements](../../information-and-settings/requirements/database-storage-requirements.md).
+Check your environment is prepared with [General Requirements](../../information-and-settings/requirements.md) and [Database Storage Requirements](../../information-and-settings/database-storage-requirements.md).
 
-BlockScout requires a **full archive node** in order to import every state change for every address on the target network. For client specific settings related to a node running Erigon/Geth/Nethermind, please see [Client Settings](../../information-and-settings/requirements/client-settings.md).
+BlockScout requires a **full archive node** in order to import every state change for every address on the target network. For client specific settings related to a node running Erigon/Geth/Nethermind, please see [Client Settings](../../information-and-settings/client-settings.md).
 
 {% hint style="info" %}
 For testing purposes, instead of an archive node, a test Ethereum client can be used. For instance, [ganache-cli](https://github.com/trufflesuite/ganache-cli)
@@ -52,7 +52,7 @@ In order to generate a new `secret_key_base` run `mix phx.gen.secret`
 
 **6)** If you have deployed previously, remove static assets from the previous build `mix phx.digest.clean`.
 
-**7)** Set [environment variables](../../information-and-settings/env-variables/) as needed.
+**7)** Set [environment variables](../../information-and-settings/env-variables.md) as needed.
 
 CLI Example:
 
@@ -70,7 +70,7 @@ It is important to set the variable **`MIX_ENV=prod`** during deployment. The cu
 {% endhint %}
 
 {% hint style="info" %}
-The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](../../information-and-settings/requirements/client-settings.md).
+The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](../../information-and-settings/client-settings.md).
 {% endhint %}
 
 **8)** Install and start the[ smart contract verification microservice](../../information-and-settings/smart-contract-verification.md). You can [use docker](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#using-docker), [build from source](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier#building-from-source), or use cargo directly (example below). If you experience issues, see the extensive [smart contract verifier readme](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier/smart-contract-verifier-server#readme).

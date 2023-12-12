@@ -34,7 +34,7 @@
 
 ### JSON RPC Performance Benchmarks
 
-Time measures for response time of crucial JSON RPC methods for indexing in Blockscout. [Ways to improve speed](../../../about/faqs.md#how-do-i-speed-up-my-self-hosted-instance).
+Time measures for response time of crucial JSON RPC methods for indexing in Blockscout. [Ways to improve speed](../../about/faqs.md#how-do-i-speed-up-my-self-hosted-instance).
 
 1. `eth_getBlockByNumber` without transaction receipts for a block with 15 transactions: Desired response time is < 0.5s. For instance, in case of the Gnosis chain archive node, the response time for the block with \~20 transactions is \~0.4s.
 2. `eth_getTransactionReceipt` for random transactions desired response time is < 0.5s. For the Gnosis chain archive node the response time is \~0.3 - 0.4s.
@@ -46,5 +46,5 @@ The desired rate limit for RPC endpoint is 200 req/sec for the indexing phase an
 
 ## EVM Requirements & Clients
 
-* All EVM chains must [define these variables](../deployment-differences-between-chains.md) during configuration.
+* All EVM chains must [define these variables](deployment-differences-between-chains.md) during configuration.
 * BlockScout currently supports Erigon, Geth, Nethermind, Hyperledger Besu, and Ganache clients. Define the node variant using the `ETHEREUM_JSONRPC_VARIANT` environment variable. [More information](client-settings.md)
