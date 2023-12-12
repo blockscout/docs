@@ -62,12 +62,14 @@
 ## 🥷 For Developers
 
 * [Info, Params & Settings](for-developers/information-and-settings/README.md)
-  * [General Requirements / Blockscout Prerequisites](for-developers/information-and-settings/requirements.md)
-  * [Database Storage Requirements](for-developers/information-and-settings/database-storage-requirements.md)
-  * [Node Tracing / JSON RPC Requirements](for-developers/information-and-settings/node-tracing-json-rpc-requirements.md)
-  * [Client Setting Requirements](for-developers/information-and-settings/client-settings.md)
-  * [ENV Variables](for-developers/information-and-settings/env-variables.md)
-  * [Deprecated ENV Variables](for-developers/information-and-settings/deprecated-env-variables.md)
+  * [✅ Requirements](for-developers/information-and-settings/requirements/README.md)
+    * [General Requirements / Blockscout Prerequisites](for-developers/information-and-settings/requirements/requirements.md)
+    * [Hardware & Hosting Requirements](for-developers/information-and-settings/requirements/resource-requirements.md)
+    * [Database Storage Requirements](for-developers/information-and-settings/requirements/database-storage-requirements.md)
+    * [Node Tracing / JSON RPC Requirements](for-developers/information-and-settings/requirements/node-tracing-json-rpc-requirements.md)
+    * [Client Setting Requirements](for-developers/information-and-settings/requirements/client-settings.md)
+  * [☑ ENV Variables](for-developers/information-and-settings/env-variables/README.md)
+    * [Deprecated ENV Variables](for-developers/information-and-settings/env-variables/deprecated-env-variables.md)
   * [Separate Indexer, Web App, and API](for-developers/information-and-settings/separate-indexer-web-app-and-api.md)
   * [Umbrella Project Organization](for-developers/information-and-settings/untitled.md)
   * [Deployment Differences Between Chains](for-developers/information-and-settings/deployment-differences-between-chains.md)
@@ -76,6 +78,9 @@
   * [haproxy Settings for Blockscout.com](for-developers/information-and-settings/haproxy-settings-for-blockscout.com.md)
   * [Smart Contract Verification](for-developers/information-and-settings/smart-contract-verification.md)
 * [Deployment](for-developers/deployment/README.md)
+  * [Manual Deployment Guide](for-developers/deployment/manual-deployment-guide/README.md)
+    * [Ubuntu Setup](for-developers/deployment/manual-deployment-guide/ubuntu-setup.md)
+    * [MacOS setup](for-developers/deployment/manual-deployment-guide/macos-setup.md)
   * [Docker-compose Deployment](for-developers/deployment/docker-compose-deployment.md)
   * [Kubernetes Deployment](for-developers/deployment/kubernetes-deployment.md)
   * [Manual Deployment (backend + old UI)](for-developers/deployment/manual-old-ui/README.md)
@@ -134,7 +139,6 @@
 ## 👓 For projects
 
 * [EaaS: Hosted Features](for-projects/premium-features.md)
-* [Hardware & Hosting Requirements](for-projects/resource-requirements.md)
 
 ## 🧩 Resources
 

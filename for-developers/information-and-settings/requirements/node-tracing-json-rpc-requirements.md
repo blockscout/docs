@@ -27,14 +27,14 @@
 
 ### Enable Tracing to Fetch Internal Transactions
 
-| Client                                      | Method                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <p>OpenEthereum<br>Nethermind<br>Erigon</p> | <ul><li><code>trace_replayBlockTransactions</code></li><li><code>trace_block</code> (fetch block rewards)</li></ul>                                                                                                                                                                                                                                                                                             |
+| Client                                      | Method                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <p>OpenEthereum<br>Nethermind<br>Erigon</p> | <ul><li><code>trace_replayBlockTransactions</code></li><li><code>trace_block</code> (fetch block rewards)</li></ul>                                                                                                                                                                                                                                                                                            |
 | Geth                                        | <ul><li><code>debug_traceTransaction</code> (for trace_replayBlockTransactions). Starting from the Blockscout 5.1.0 release, <code>callTracer</code> is used by default.To switch to a custom JS tracer, the Blockscout maintainer should set the <code>export INDEXER_INTERNAL_TRANSACTIONS_TRACER_TYPE=js</code> environment variable. Prior to the 5.1.0 release, js tracer was a default option.</li></ul> |
 
 ### JSON RPC Performance Benchmarks
 
-Time measures for response time of crucial JSON RPC methods for indexing in Blockscout. [Ways to improve speed](../../about/faqs.md#how-do-i-speed-up-my-self-hosted-instance).
+Time measures for response time of crucial JSON RPC methods for indexing in Blockscout. [Ways to improve speed](../../../about/faqs.md#how-do-i-speed-up-my-self-hosted-instance).
 
 1. `eth_getBlockByNumber` without transaction receipts for a block with 15 transactions: Desired response time is < 0.5s. For instance, in case of the Gnosis chain archive node, the response time for the block with \~20 transactions is \~0.4s.
 2. `eth_getTransactionReceipt` for random transactions desired response time is < 0.5s. For the Gnosis chain archive node the response time is \~0.3 - 0.4s.
@@ -46,5 +46,5 @@ The desired rate limit for RPC endpoint is 200 req/sec for the indexing phase an
 
 ## EVM Requirements & Clients
 
-* All EVM chains must [define these variables](deployment-differences-between-chains.md) during configuration.
+* All EVM chains must [define these variables](../deployment-differences-between-chains.md) during configuration.
 * BlockScout currently supports Erigon, Geth, Nethermind, Hyperledger Besu, and Ganache clients. Define the node variant using the `ETHEREUM_JSONRPC_VARIANT` environment variable. [More information](client-settings.md)

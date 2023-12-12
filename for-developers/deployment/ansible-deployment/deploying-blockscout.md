@@ -22,7 +22,7 @@ To avoid the following error (which results in a Python crash):
 (source: [https://stackoverflow.com/questions/50168647/multiprocessing-causes-python-to-crash-and-gives-an-error-may-have-been-in-progr](https://stackoverflow.com/questions/50168647/multiprocessing-causes-python-to-crash-and-gives-an-error-may-have-been-in-progr));
 {% endhint %}
 
-1\) Ensure all [BlockScout prerequisites](../../information-and-settings/requirements.md) are installed with the correct version number
+1\) Ensure all [BlockScout prerequisites](../../information-and-settings/requirements/requirements.md) are installed with the correct version number
 
 2\) Create the AWS access key and secret access key for user with sufficient permissions;
 

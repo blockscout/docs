@@ -97,7 +97,7 @@ Instructions for accessing and upgrading CPUs/memory will differ based on your s
 
 ### Exchange Rates Coin Name
 
-* Specify coin name for exchange rates fetcher with the `COIN` [ENV variables](../for-developers/information-and-settings/env-variables.md)
+* Specify coin name for exchange rates fetcher with the `COIN` [ENV variables](../for-developers/information-and-settings/env-variables/)
 
 BlockScout utilizes the `COIN` environment variable which pulls the associated market data from the Coinmarketcap.com API or CoinGecko API to provide pricing data throughout the application.
 
@@ -277,7 +277,7 @@ No, it is not required. If ws is disabled, leave the `ETHEREUM_JSONRPC_WS_URL` e
 
 <summary>How to fix error message "execution timeout at <code>pushGasToTopCall</code>"?</summary>
 
-Try increasing time for the `ETHEREUM_JSONRPC_DEBUG_TRACE_TRANSACTION_TIMEOUT` [ENV variable](../for-developers/information-and-settings/env-variables.md#indexer-management). The default is 5 sec.
+Try increasing time for the `ETHEREUM_JSONRPC_DEBUG_TRACE_TRANSACTION_TIMEOUT` [ENV variable](../for-developers/information-and-settings/env-variables/#indexer-management). The default is 5 sec.
 
 </details>
 
@@ -340,7 +340,7 @@ JSON_RPC=https://rpc.gnosischain.com/
 
 <summary>How do I update the internal tx fetcher to skip blocks or start from block to prevent errors?</summary>
 
-Set `TRACE_FIRST_BLOCK` and `TRACE_LAST_BLOCK` [env variables](../for-developers/information-and-settings/env-variables.md).
+Set `TRACE_FIRST_BLOCK` and `TRACE_LAST_BLOCK` [env variables](../for-developers/information-and-settings/env-variables/).
 
 </details>
 
