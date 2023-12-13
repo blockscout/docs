@@ -127,6 +127,7 @@
   * [Memory Usage](for-developers/configuration-options/memory-usage.md)
   * [Metrics](for-developers/configuration-options/untitled-2.md)
   * [My Account Settings](for-developers/configuration-options/my-account-settings.md)
+  * [Sorting and Pagination](for-developers/configuration-options/sorting-and-pagination.md)
   * [Tracing](for-developers/configuration-options/tracing.md)
 * [Indexing](for-developers/indexing/README.md)
   * [How do I fix indexer timeouts?](for-developers/indexing/how-do-i-fix-indexer-timeouts.md)
