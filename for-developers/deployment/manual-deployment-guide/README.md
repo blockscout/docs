@@ -1,5 +1,5 @@
 ---
-description: Deploy Blockscout with a user-freindly UI and all microservices
+description: Deploy Blockscout with a user-friendly UI and all microservices
 ---
 
 # ⭐ Manual Deployment Guide
