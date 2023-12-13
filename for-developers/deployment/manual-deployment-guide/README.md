@@ -1,39 +1,49 @@
 ---
-description: Deploy Blockscout with all microservices
+description: Deploy Blockscout with a user-freindly UI and all microservices
 ---
 
-# Manual Deployment Guide
+# ⭐ Manual Deployment Guide
 
-## Prerequisites
+{% hint style="success" %}
+📗 This guide walks you through a new Blockscout deployment  including the user-friendly UI frontend and installation of all microservices. If you'd prefer a more automated approach see the [docker-compose deployment page](../docker-compose-deployment.md).
+{% endhint %}
+
+## A. Prerequisites
 
 {% hint style="warning" %}
 Please familiarize yourself with the [general requirements](../../information-and-settings/requirements.md), [db storage requirements](../../information-and-settings/database-storage-requirements.md), [JSON RPC requirements](../../information-and-settings/node-tracing-json-rpc-requirements.md) and [Client setting](../../information-and-settings/client-settings.md) requirements before installing Blockscout.
 {% endhint %}
 
-## Machine Requirements
-
 ### Minimum Local Hardware Requirements
 
-* CPU : 4Core
-* Ram : 8GB
-* Disk : 120GB or 500GB SSD
-* OS : Latest Ubuntu Linux or MacOS recommended
+* CPU:  4core / 8core
+* RAM: 8GB / 16GB / 32GB
+* DISK: 120gb or 500GB NVME SSD or Standart SSD
+* OS: Linux, MacOS
 
 ### Hosting Environment Hardware Requirements
 
-* See [Hardware and Hosting Requirements](../../../for-projects/resource-requirements.md)
+If you are running Blockscout on a cloud server or other remote environment, see the [Hardware and Hosting Requirements](../../../for-projects/resource-requirements.md)
 
-## Software
+### Software Dependencies
 
-Take careful note of the supported versions. For Erlang/Elixir, [asdf](https://asdf-vm.com/) can be used to set the appropriate versions. Instructions for setting up the environment are available for [Ubuntu](ubuntu-setup.md) and [MacOS](macos-setup.md).
+For Erlang/Elixir, [asdf](https://asdf-vm.com/) is recommended to install and set the appropriate versions. Note the supported versions for Erlang/Elixir/Node are specified in the `.tool-versions` file. Additional Instructions for setting up the environment are available for [Ubuntu](ubuntu-setup.md) and [MacOS](macos-setup.md).
 
-* [Erlang/OTP **25**](https://github.com/erlang/otp)
-* [Elixir **1.14.x**](https://elixir-lang.org/)
-* [Postgres **14**](https://www.postgresql.org/)
-* [Node.js **18.x.x**](https://nodejs.org/en/)
-* Use the latest version for [additional required software](../../information-and-settings/requirements.md)
+| Dependency                                                       | Mac                       | Linux                                                                                                                                                           |
+| ---------------------------------------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Erlang/OTP 25](https://github.com/erlang/otp)                   | `brew install erlang`     | [Erlang Install Example](https://github.com/poanetwork/blockscout-terraform/blob/33f68e816e36dc2fb055911fa0372531f0e956e7/modules/stack/libexec/init.sh#L134)   |
+| [Elixir 1.14.x](https://elixir-lang.org/)                        | `brew install elixir`     | [Elixir Install Example](https://github.com/poanetwork/blockscout-terraform/blob/33f68e816e36dc2fb055911fa0372531f0e956e7/modules/stack/libexec/init.sh#L138)   |
+| [Postgres 12, 13, 14](https://www.postgresql.org/)               | `brew install postgresql` | [Postgres Install Example](https://github.com/poanetwork/blockscout-terraform/blob/33f68e816e36dc2fb055911fa0372531f0e956e7/modules/stack/libexec/init.sh#L187) |
+| [Node.js 18.x.x](https://nodejs.org/en/)                         | `brew install node`       | [Node.js Install Example](https://github.com/poanetwork/blockscout-terraform/blob/33f68e816e36dc2fb055911fa0372531f0e956e7/modules/stack/libexec/init.sh#L66)   |
+| [Automake](https://www.gnu.org/software/automake/)               | `brew install automake`   | [Automake Install Example](https://github.com/poanetwork/blockscout-terraform/blob/33f68e816e36dc2fb055911fa0372531f0e956e7/modules/stack/libexec/init.sh#L72)  |
+| [Libtool](https://www.gnu.org/software/libtool/)                 | `brew install libtool`    | [Libtool Install Example](https://github.com/poanetwork/blockscout-terraform/blob/33f68e816e36dc2fb055911fa0372531f0e956e7/modules/stack/libexec/init.sh#L62)   |
+| [Inotify-tools](https://github.com/rvoicilas/inotify-tools/wiki) | Not Required              | Ubuntu - `apt-get install inotify-tools`                                                                                                                        |
+| [GCC Compiler](https://gcc.gnu.org/)                             | `brew install gcc`        | [GCC Compiler Example](https://github.com/poanetwork/blockscout-terraform/blob/33f68e816e36dc2fb055911fa0372531f0e956e7/modules/stack/libexec/init.sh#L70)      |
+| [GMP](https://gmplib.org/)                                       | `brew install gmp`        | [Install GMP Devel](https://github.com/poanetwork/blockscout-terraform/blob/33f68e816e36dc2fb055911fa0372531f0e956e7/modules/stack/libexec/init.sh#L74)         |
+| Make                                                             | -                         | `sudo apt install make`if Debian 9                                                                                                                              |
+| G++ Compiler                                                     | -                         | `sudo apt install g++`if Debian 9                                                                                                                               |
 
-## Manual Deployment
+## B. Manual Deployment
 
 The following guide contains 5 sections that cover a complete Blockcout installation.
 
@@ -71,11 +81,13 @@ You can check the regex pattern for the db url via [https://regex101.com/](https
 <img src="../../../.gitbook/assets/regex1.png" alt="" data-size="original">
 {% endhint %}
 
-**4)** Install Mix dependencies and compile them `mix do deps.get, local.rebar --force, deps.compile`
+**4)** Install Mix dependencies and compile\
+`mix do deps.get, local.rebar --force, deps.compile`
 
-**5)** Generate a new secret\_key\_base for the DB `mix phx.gen.secret`
+**5)** Generate a new secret\_key\_base for the DB\
+&#x20;`mix phx.gen.secret`
 
-**6)** Copy keybase and export as env (for example)\
+**6)** Copy keybase and export as an env (for example)\
 `export SECRET_KEY_BASE=VTIB3uHDNbvrY0+60ZWgUoUBKDn9ppLR8MI4CpRz4/qLyEFs54ktJfaNT6Z221No`
 
 **7)** Export remaining [environment variables](https://www.notion.so/for-developers/information-and-settings/env-variables) as needed.
@@ -92,15 +104,14 @@ export COIN_NAME=yourcoinname
 export DISPLAY_TOKEN_ICONS=true
 ```
 
-{% hint style="warning" %}
-The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](https://www.notion.so/for-developers/information-and-settings/client-settings).
-{% endhint %}
+**Notes:**&#x20;
 
-{% hint style="info" %}
-If you're in production environment, please, set `MIX_ENV=prod`. The current default is `MIX_ENV=dev` which is a slower and less secure setting. However, for development purposes, unsetting or setting is `MIX_ENV=dev` is preferred.
-{% endhint %}
+* The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](https://www.notion.so/for-developers/information-and-settings/client-settings).
+* If you're in production environment, please, set `MIX_ENV=prod`. The current default is `MIX_ENV=dev` which is a slower and less secure setting. However, for development purposes, unsetting or setting is `MIX_ENV=dev` is preferred.
+* To configure “**My Account**” section on the backend, see [https://docs.blockscout.com/for-developers/configuration-options/my-account-settings](https://docs.blockscout.com/for-developers/configuration-options/my-account-settings)
 
-**8)** Compile the application:`mix compile`
+**8)** Compile the application:\
+`mix compile`
 
 **9)** If not already running, start Postgres: `pg_ctl -D /usr/local/var/postgres start` or `brew services start postgresql`
 
@@ -108,10 +119,15 @@ If you're in production environment, please, set `MIX_ENV=prod`. The current def
 Check [postgres status](https://www.postgresql.org/docs/9.6/app-pg-isready.html): `pg_isready`
 {% endhint %}
 
-**10)** Create and migrate database `mix do ecto.create, ecto.migrate`
+**10)** Create and migrate database\
+`mix do ecto.create, ecto.migrate`
 
 {% hint style="danger" %}
-If you are in dev environment and have run the application previously with a different blockchain, drop the previous database `mix do ecto.drop, ecto.create, ecto.migrate` Be careful since it will delete all data from the DB. Don't execute it on production if you don't want to lose all the data!
+If you are in dev environment and have run the application previously with a different blockchain, drop the previous database:\
+\
+`mix do ecto.drop, ecto.create, ecto.migrate` \
+\
+Be careful since this will delete all data from the DB. Don't execute it on production if you don't want to lose all of the data!
 {% endhint %}
 
 **11)** Enable HTTPS in development. The Phoenix server only runs with HTTPS.
@@ -128,9 +144,11 @@ If you are in dev environment and have run the application previously with a dif
    ::1             localhost blockscout blockscout.local
 ```
 
-{% hint style="info" %}
-Note: To configure “**My Account**” section on the backend, see [https://docs.blockscout.com/for-developers/configuration-options/my-account-settings](https://docs.blockscout.com/for-developers/configuration-options/my-account-settings)
+{% hint style="success" %}
+### 🎉 This  completes the backend setup! Proceed to setup microservices.
 {% endhint %}
+
+###
 
 ## 2. Run Microservices
 
@@ -210,6 +228,10 @@ The Blockscout team also provides an endpoint for smart-contract verification. T
 </strong>export MICROSERVICE_SC_VERIFIER_TYPE=eth_bytecode_db
 </code></pre>
 
+{% hint style="success" %}
+### 🎉 This completes the microservices setup! Proceed to run the backend and frontend.
+{% endhint %}
+
 ## 4. Run backend
 
 1. Return to the blockscout-backend directory `./blockscout-backend`
@@ -248,16 +270,13 @@ NEXT_PUBLIC_API_WEBSOCKET_PROTOCOL='ws'
    `yarn dev`
 
 {% hint style="success" %}
-**Once completed, the frontend should be available at `http://localhost:3000`**
+### 🎉  **Once completed, the frontend should be available at `http://localhost:3000`**
 {% endhint %}
 
-{% hint style="warning" %}
-You will need to add additional env variables to configure “**My Account**” section on the frontend. See [https://github.com/blockscout/frontend/blob/main/docs/ENVS.md#my-account](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md#my-account)
-{% endhint %}
+**Notes:**&#x20;
 
-{% hint style="info" %}
-Additional info related to the frontend is available at: [https://github.com/blockscout/frontend/blob/main/docs/CONTRIBUTING.md#local-development](https://github.com/blockscout/frontend/blob/main/docs/CONTRIBUTING.md#local-development)&#x20;
-{% endhint %}
+* To configue the **My Account** section, you will add additional env variables on the frontend. See [https://github.com/blockscout/frontend/blob/main/docs/ENVS.md#my-account](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md#my-account)
+* More info related to the frontend is available at: [https://github.com/blockscout/frontend/blob/main/docs/CONTRIBUTING.md#local-development](https://github.com/blockscout/frontend/blob/main/docs/CONTRIBUTING.md#local-development)&#x20;
 
 
 

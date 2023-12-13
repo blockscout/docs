@@ -6,14 +6,10 @@ description: Blockscout deployment options
 
 There are several methods available for deploying Blockscout and associated services (stats, admin etc).
 
-{% hint style="info" %}
-The manual deployment section with all associated services is in process.
-{% endhint %}
-
-* Manual Deployment
-* [Docker-compose Deployment](docker-compose-deployment.md)
-* [Kubernetes Deployment](kubernetes-deployment.md)
-* [Manual Deployment](manual-old-ui/) with backend and old Blockscout UI
+* [Manual Deployment](manual-deployment-guide/): Includes instructions for deploying Blockscout with the current frontend and all microservices.
+* [Docker-compose Deployment](docker-compose-deployment.md): Includes current frontend and all microservices
+* [Kubernetes Deployment](kubernetes-deployment.md): Includes current frontend and all microservices
+* [Manual Deployment](manual-old-ui/) with backend and **old Blockscout UI (no longer supported)**
 * [Frontend migration](frontend-migration/) (migrating from the previous Blockscout UI to the new UI)
 * [Terraform Deployment](terraform-deployment.md) (Polygon Supernets)
 * [Ansible Deployment](ansible-deployment/) (old UI)

@@ -1,4 +1,4 @@
-# Kubernetes Deployment
+# ⭐ Kubernetes Deployment
 
 We've released a Helm chart to deploy Blockscout stack ([backend](https://github.com/blockscout/blockscout), [frontend](https://github.com/blockscout/frontend) and [stats](https://github.com/blockscout/blockscout-rs/tree/main/stats)) to a kubernetes cluster.&#x20;
 

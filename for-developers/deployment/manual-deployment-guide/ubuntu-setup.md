@@ -62,6 +62,8 @@
     `psql -d blockscout`
 13. If everything is correct, you will see this response `=#`
 14. Quite psql\
-    &#x20;`\q`
+    &#x20;`\q`&#x20;
 
-### You are ready for [manual deployment!](./)
+{% hint style="success" %}
+### 🎉  You are ready for [manual deployment!](./)
+{% endhint %}
