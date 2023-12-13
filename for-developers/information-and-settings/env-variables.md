@@ -469,8 +469,15 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 
 | Variable                            | Required | Description                                                                                                                                                                                                        | Default | Version |
 | ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------- |
-| `MICROSERVICE_SIG_PROVIDER_URL`     |          | If `true`, integration with [Rust sig-provider service](https://github.com/blockscout/blockscout-rs/tree/main/sig-provider) is enabled. Implemented in [#6541](https://github.com/blockscout/blockscout/pull/6541) | (empty) | v5.1.3+ |
-| `MICROSERVICE_SIG_PROVIDER_ENABLED` |          | URL of Rust sig-provider service. Implemented in [#6541](https://github.com/blockscout/blockscout/pull/6541)                                                                                                       | (empty) | v5.1.3+ |
+| `MICROSERVICE_SIG_PROVIDER_ENABLED` |          | If `true`, integration with [Rust sig-provider service](https://github.com/blockscout/blockscout-rs/tree/main/sig-provider) is enabled. Implemented in [#6541](https://github.com/blockscout/blockscout/pull/6541) | (empty) | v5.1.3+ |
+| `MICROSERVICE_SIG_PROVIDER_URL`     |          | URL of Rust sig-provider service. Implemented in [#6541](https://github.com/blockscout/blockscout/pull/6541)                                                                                                       | (empty) | v5.1.3+ |
+
+#### Blockscout ENS
+
+| Variable                            | Required | Description                                                                                                                                                                                                        | Default | Version |
+| ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------- |
+| `MICROSERVICE_BENS_ENABLED`         |          | If `true`, integration with [Blockscout ENS service](https://github.com/blockscout/blockscout-rs/tree/main/blockscout-ens) is enabled. Implemented in [#8972](https://github.com/blockscout/blockscout/pull/8972)  | (empty) | master |
+| `MICROSERVICE_BENS_URL`             |          | URL of Blockscout ENS service. Implemented in [#8972](https://github.com/blockscout/blockscout/pull/8972)                                                                                                          | (empty) | master |
 
 #### Sourcify
 
