@@ -61,11 +61,11 @@ The following guide contains 5 sections that cover a complete Blockcout installa
 **2)** Change directories\
 &#x20;`cd blockscout-backend`
 
-**3)** Provide DB URL \
-`export DATABASE_URL=postgresql://user:password@localhost:5432/blockscout`
+**3)** Provide DB URL with your username\
+`export DATABASE_URL=postgresql://username:password@localhost:5432/blockscout`
 
 * **Linux:** Update the database username and password configuration
-* **Mac:** Use logged-in user name and empty password (`export DATABASE_URL=postgresql://user:@localhost:5432/blockscout` )
+* **Mac:** Use logged-in user name and empty password (`export DATABASE_URL=postgresql://username:@localhost:5432/blockscout` )
 * **Optional:** Change credentials in `apps/explorer/config/test.exs` for test env\
   _Example usage:_ Changing the default Postgres port from localhost:5432 if [Boxen](https://github.com/boxen/boxen) is installed.
 
