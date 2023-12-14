@@ -4,17 +4,11 @@ description: General deployment instructions for a hardware or cloud services en
 
 # Manual Deployment (backend + old UI)
 
-
-
-{% hint style="info" %}
-For automated deployment on AWS, see [Ansible deployment](../ansible-deployment/).
+{% hint style="warning" %}
+This method uses the deprecated UI and is not recommended. Please use the [Manual Deployment Guide](../manual-deployment-guide/) to deploy a new version of Blockscout.
 {% endhint %}
 
-{% hint style="info" %}
-For deployment using Docker-compose, see [Docker Deployment.](../docker-compose-deployment.md)
-{% endhint %}
-
-## Manual Deployment
+## Prepare Environment
 
 Check your environment is prepared with [General Requirements](../../information-and-settings/requirements.md) and [Database Storage Requirements](../../information-and-settings/database-storage-requirements.md).
 
