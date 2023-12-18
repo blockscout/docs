@@ -1,7 +1,7 @@
 # MacOS setup
 
 {% hint style="info" %}
-These instructions use homebrew for setup. [Follow these instructions to install homebrew](https://docs.brew.sh/Installation) if you don't already have it installed.
+These instructions use homebrew for setup. [Install homebrew](https://docs.brew.sh/Installation) if you don't already have it installed.
 {% endhint %}
 
 ### 1. Install Requirements
