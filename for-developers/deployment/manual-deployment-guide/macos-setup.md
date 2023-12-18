@@ -1,8 +1,12 @@
 # MacOS setup
 
-1\. Install Requirements
+{% hint style="info" %}
+These instructions use homebrew for setup. [Follow these instructions to install homebrew](https://docs.brew.sh/Installation) if you don't already have it installed.
+{% endhint %}
 
-Here we use homebrew to install basic prerequisites (not including Erlang/Elixir/Node which are installed via asdf
+### 1. Install Requirements
+
+Use homebrew to install basic prerequisites (not including Erlang/Elixir/Node which are installed via asdf)
 
 <pre class="language-bash"><code class="lang-bash"><strong>brew update
 </strong><strong>brew install node
@@ -24,15 +28,6 @@ asdf plugin add elixir
 asdf plugin add nodejs
 ```
 
-Check your elixir version (`elixir -v`). If there is no response or the proper version is not showing up, you may need to reshim asdf.
-
-```
-asdf reshim  
-export PATH=~/.asdf/shims:$PATH
-```
-
-Check your node version (node -v). If the incorrect version does not show
-
 ### 3. Install and start PostgreSQL-14
 
 ```bash
@@ -40,5 +35,30 @@ brew install postgresql@14
 brew services start postgresql@14
 ```
 
+### 4. Clone the Blockscout repository and install .tool-version from the repository
 
+```bash
+git clone https://github.com/blockscout/blockscout blockscout-backend
+cd blockscout-backend
+asdf install
+```
 
+Check your elixir version (`elixir -v`) and node version (`node -v`). \
+\
+You should have the following installed:
+
+* `Elixir 1.14.3 (compiled with Erlang/OTP 25)`
+* `Node v18.17.1`
+
+If there is no response or the proper version is not showing up, you may need to reshim asdf. Please check the [asdf docs](https://asdf-vm.com/) for further info if this doesn't work.
+
+```
+asdf reshim  
+export PATH=~/.asdf/shims:$PATH
+```
+
+Once complete, recheck your versions and proceed with deployment.
+
+{% hint style="success" %}
+#### 🎉 You are ready for manual deployment! [Proceed to step 3 in the "Prepare the Backend section](./#1.-prepare-the-backend)"
+{% endhint %}
