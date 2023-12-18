@@ -5,7 +5,7 @@ description: Deploy Blockscout with a user-friendly UI and all microservices
 # ⭐ Manual Deployment Guide
 
 {% hint style="success" %}
-📗 This guide walks you through a new Blockscout deployment  including the user-friendly UI frontend and installation of all microservices. If you'd prefer a more automated approach see the [docker-compose deployment page](../docker-compose-deployment.md).
+📗 This guide walks you through a new Blockscout deployment including the user-friendly UI frontend and installation of all microservices. If you'd prefer a more automated approach see the [docker-compose deployment page](../docker-compose-deployment.md).
 {% endhint %}
 
 ## A. Prerequisites
@@ -16,7 +16,7 @@ Please familiarize yourself with the [general requirements](../../information-an
 
 ### Minimum Local Hardware Requirements
 
-* CPU:  4core / 8core
+* CPU: 4core / 8core
 * RAM: 8GB / 16GB / 32GB
 * DISK: 120gb or 500GB NVME SSD or Standart SSD
 * OS: Linux, MacOS
@@ -59,7 +59,7 @@ The following guide contains 5 sections that cover a complete Blockcout installa
 `git clone https://github.com/blockscout/blockscout blockscout-backend`
 
 **2)** Change directories\
-&#x20;`cd blockscout-backend`
+`cd blockscout-backend`
 
 **3)** Provide DB URL with your username\
 `export DATABASE_URL=postgresql://username:password@localhost:5432/blockscout`
@@ -85,14 +85,14 @@ You can check the regex pattern for the db url via [https://regex101.com/](https
 `mix do deps.get, local.rebar --force, deps.compile`
 
 **5)** Generate a new secret\_key\_base for the DB\
-&#x20;`mix phx.gen.secret`
+`mix phx.gen.secret`
 
 **6)** Copy keybase and export as an env (for example)\
 `export SECRET_KEY_BASE=VTIB3uHDNbvrY0+60ZWgUoUBKDn9ppLR8MI4CpRz4/qLyEFs54ktJfaNT6Z221No`
 
 **7)** Export remaining [environment variables](https://www.notion.so/for-developers/information-and-settings/env-variables) as needed.
 
-CLI basic example:&#x20;
+CLI basic example:
 
 ```
 export ETHEREUM_JSONRPC_VARIANT=geth
@@ -104,7 +104,7 @@ export COIN_NAME=yourcoinname
 export DISPLAY_TOKEN_ICONS=true
 ```
 
-**Notes:**&#x20;
+**Notes:**
 
 * The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](https://www.notion.so/for-developers/information-and-settings/client-settings).
 * If you're in production environment, please, set `MIX_ENV=prod`. The current default is `MIX_ENV=dev` which is a slower and less secure setting. However, for development purposes, unsetting or setting is `MIX_ENV=dev` is preferred.
@@ -125,7 +125,7 @@ Check [postgres status](https://www.postgresql.org/docs/9.6/app-pg-isready.html)
 {% hint style="danger" %}
 If you are in dev environment and have run the application previously with a different blockchain, drop the previous database:\
 \
-`mix do ecto.drop, ecto.create, ecto.migrate` \
+`mix do ecto.drop, ecto.create, ecto.migrate`\
 \
 Be careful since this will delete all data from the DB. Don't execute it on production if you don't want to lose all of the data!
 {% endhint %}
@@ -145,7 +145,7 @@ Be careful since this will delete all data from the DB. Don't execute it on prod
 ```
 
 {% hint style="success" %}
-### 🎉 This  completes the backend setup! Proceed to setup microservices.
+#### 🎉 This completes the backend setup! Proceed to setup microservices.
 {% endhint %}
 
 ###
@@ -169,29 +169,30 @@ You will use Docker to run 4 Rust microservices: smart-contract verification, sm
 ### Stats
 
 * Stats will be served from [http://localhost:8080/](http://localhost:8080/)
-* You can check, that service works by requesting [http://localhost:8080/health](http://localhost:8080/health?service=). It should return `` {"status":"SERVING"} ``
+* You can check, that service works by requesting [http://localhost:8080/health](http://localhost:8080/health?service=). It should return `{"status":"SERVING"}`
 
 ### sig-provider
 
 * sig-provider will be at [http://localhost:8083/](http://localhost:8083/)
-* You can check, that service works by requesting [http://localhost:8083/health](http://localhost:8083/health?service=). It should return `` {"status":"SERVING"} ``
+* You can check, that service works by requesting [http://localhost:8083/health](http://localhost:8083/health?service=). It should return `{"status":"SERVING"}`
 
 ### Sc-visualizer
 
 A visualizer for smart contracts.
 
-* sc-visualizer will be lcoated at [http://localhost:8081/](http://localhost:8081/)&#x20;
-* Check the visualizer service works by requesting the  [http://localhost:8081/health](http://localhost:8081/health) page - it should return `` {"status":"SERVING"} ``.
+* sc-visualizer will be lcoated at [http://localhost:8081/](http://localhost:8081/)
+* Check the visualizer service works by requesting the [http://localhost:8081/health](http://localhost:8081/health) page - it should return `{"status":"SERVING"}`.
 
 ### **Sc-verifier**
 
-A separate smart contract verification service.&#x20;
+A separate smart contract verification service.
 
 * sc-verifier will be at [http://localhost:8082/](http://localhost:8082/).
 * Check that the sc-verifier service works by requesting [http://localhost:8082/api/v2/verifier/solidity/versions](http://localhost:8082/api/v2/verifier/solidity/versions) page
 
 <details>
-  <summary> it should return the list of compilers (click to see the sample response)</summary>
+
+<summary>it should return the list of compilers (click to see the sample response)</summary>
 
 {% code overflow="wrap" %}
 ```
@@ -208,7 +209,7 @@ To stop all microservices, run `docker-compose -f microservices.yml down`
 {% endhint %}
 
 {% hint style="info" %}
-To troubleshoot issues with a container,  run `docker ps` to check which containers are not starting.
+To troubleshoot issues with a container, run `docker ps` to check which containers are not starting.
 
 Check logs with `docker logs visualizer -f`
 {% endhint %}
@@ -236,7 +237,7 @@ The Blockscout team also provides an endpoint for smart-contract verification. T
 </code></pre>
 
 {% hint style="success" %}
-### 🎉 This completes the microservices setup! Proceed to run the backend and frontend.
+#### 🎉 This completes the microservices setup! Proceed to run the backend and frontend.
 {% endhint %}
 
 ## 4. Run backend
@@ -248,7 +249,7 @@ The API will be available at [http://localhost:3001/api/](http://localhost:3001/
 
 ## 5. Run frontend
 
-The frontend can be added to the same high-level directory as the blockscout-backend  or a different directory of your choice.&#x20;
+The frontend can be added to the same high-level directory as the blockscout-backend or a different directory of your choice.
 
 1. clone the blockscout frontend repository\
    `git clone https://github.com/blockscout/frontend blockscout-frontend`
@@ -277,13 +278,10 @@ NEXT_PUBLIC_API_WEBSOCKET_PROTOCOL='ws'
    `yarn dev`
 
 {% hint style="success" %}
-### 🎉  **Once completed, the frontend should be available at `http://localhost:3000`**
+#### 🎉 **Once completed, the frontend should be available at `http://localhost:3000`**
 {% endhint %}
 
-**Notes:**&#x20;
+**Notes:**
 
 * To configue the **My Account** section, you will add additional env variables on the frontend. See [https://github.com/blockscout/frontend/blob/main/docs/ENVS.md#my-account](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md#my-account)
-* More info related to the frontend is available at: [https://github.com/blockscout/frontend/blob/main/docs/CONTRIBUTING.md#local-development](https://github.com/blockscout/frontend/blob/main/docs/CONTRIBUTING.md#local-development)&#x20;
-
-
-
+* More info related to the frontend is available at: [https://github.com/blockscout/frontend/blob/main/docs/CONTRIBUTING.md#local-development](https://github.com/blockscout/frontend/blob/main/docs/CONTRIBUTING.md#local-development)

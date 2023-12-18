@@ -2,7 +2,7 @@
 description: For local builds
 ---
 
-# Docker-compose Deployment
+# ⭐ Docker-compose Deployment
 
 {% hint style="success" %}
 Please see [https://github.com/blockscout/blockscout/tree/master/docker-compose](https://github.com/blockscout/blockscout/tree/master/docker-compose) for all required information.
@@ -51,14 +51,14 @@ and 4 containers for microservices (written in Rust):
 
 The repo contains built-in configs for different JSON RPC clients without need to build the image.
 
-| __JSON RPC Client__    | __Docker compose launch command__ |
-| -------- | ------- |
-| Erigon  | `docker-compose -f erigon.yml up -d`    |
-| Geth (suitable for Reth as well) | `docker-compose -f geth.yml up -d`     |
-| Geth Clique    | `docker-compose -f geth-clique-consensus.yml up -d`    |
-| Nethermind, OpenEthereum    | `docker-compose -f nethermind up -d`    |
-| Ganache    | `docker-compose -f ganache.yml up -d`    |
-| HardHat network    | `docker-compose -f hardhat-network.yml up -d`    |
+| **JSON RPC Client**              | **Docker compose launch command**                   |
+| -------------------------------- | --------------------------------------------------- |
+| Erigon                           | `docker-compose -f erigon.yml up -d`                |
+| Geth (suitable for Reth as well) | `docker-compose -f geth.yml up -d`                  |
+| Geth Clique                      | `docker-compose -f geth-clique-consensus.yml up -d` |
+| Nethermind, OpenEthereum         | `docker-compose -f nethermind up -d`                |
+| Ganache                          | `docker-compose -f ganache.yml up -d`               |
+| HardHat network                  | `docker-compose -f hardhat-network.yml up -d`       |
 
 * Running only explorer without DB: `docker-compose -f external-db.yml up -d`. In this case, no db container is created. And it assumes that the DB credentials are provided through `DATABASE_URL` environment variable on the backend container.
 * Running explorer with external backend: `docker-compose -f external-backend.yml up -d`
