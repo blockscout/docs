@@ -22,11 +22,15 @@
    &#x20;`. $HOME/.asdf/asdf.sh`  and ctrl + x (or Save)
 4. Refresh your profile after the update \
    &#x20;`. ~/.profile`&#x20;
-5. `add plugin asdf`
-6. `asdf plugin add erlang`
-7. `asdf plugin add elixir`
-8. `asdf plugin add nodejs`
-9. install additional prerequisites\
+5. Try To Test Active ASDF After Refresh
+   `asdf version`
+   Respon asdf Success Install
+   `v0.13.1-fad23bc`
+6. Now Add Plugin ASDF in Below
+   `asdf plugin add erlang`
+   `asdf plugin add elixir`
+   `asdf plugin add nodejs`
+7. install additional prerequisites\
    `sudo apt-get -y install build-essential autoconf m4 libncurses5-dev libwxgtk3.0-gtk3-dev libwxgtk-webview3.0-gtk3-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev openjdk-11-jdk`&#x20;
 
 ### 3. Install PostgreSQL-14
@@ -63,6 +67,11 @@
 13. If everything is correct, you will see this response `=#`
 14. Quite psql\
     &#x20;`\q`&#x20;
+
+### 5. After installing everything then clone blockscout repository and install .tool-version from repository
+1.  `git clone https://github.com/blockscout/blockscout blockscout-backend`
+2.  `cd blockscout-backend`
+3.  `asdf install`
 
 {% hint style="success" %}
 ### 🎉  You are ready for [manual deployment!](./)
