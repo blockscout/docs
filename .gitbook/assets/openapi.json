@@ -1,0 +1,475 @@
+openapi: 3.0.0
+info:
+  title: 'BS Core api v2: verification'
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:4000'
+paths:
+  /api/v2/smart-contracts/verification/config:
+    get:
+      tags:
+        - General
+      summary: verification cfg Copy
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v2/smart-contracts/0xb12cad649a56e67188bbaa56583c18dc7d2812ed/verification/via/flattened-code:
+    post:
+      tags:
+        - General
+      summary: verification flattened Copy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                compiler_version: v0.8.17+commit.8df45f5f
+                source_code: |-
+                  // SPDX-License-Identifier: GPL-3.0
+
+                  pragma solidity >=0.7.0 <0.9.0;
+
+                  /**
+                   * @title Owner
+                   * @dev Set & change owner
+                   */
+                  contract Owner {
+
+                      address private owner;
+                      
+                      // event for EVM logging 2345678ewqwertyui54567890987654345678
+                      event OwnerSet(address indexed oldOwner, address indexed newOwner);
+                      
+                      // modifier to check if caller is owner
+                      modifier isOwner() {
+                          // If the first argument of 'require' evaluates to 'false', execution terminates and all
+                          // changes to the state and to Ether balances are reverted.
+                          // This used to consume all gas in old EVM versions, but not anymore.
+                          // It is often a good idea to use 'require' to check if functions are called correctly.
+                          // As a second argument, you can also provide an explanation about what went wrong.
+                          require(msg.sender == owner, "Caller is not owner");
+                          _;
+                      }
+                      
+                      /**
+                       * @dev Set contract deployer as owner
+                       */
+                      constructor(uint112 abc, address abb, bytes32 ghnc) {
+                          // console.log("Owner contract deployed by:", msg.sender);
+                          owner = msg.sender; // 'msg.sender' is sender of current call, contract deployer for a constructor
+                          emit OwnerSet(address(0), owner);
+                      }
+
+                      /**
+                       * @dev Change owner
+                       * @param newOwner address of new owner
+                       */
+                      function changeOwner(address newOwner) public isOwner {
+                          emit OwnerSet(owner, newOwner);
+                          owner = newOwner;
+                      }
+
+                      /**
+                       * @dev Return owner address 
+                       * @return address of owner
+                       */
+                      function getOwner() external view returns (address) {
+                          return owner;
+                      }
+                  }
+                is_optimization_enabled: true
+                optimization_runs: 199
+                contract_name: Owner
+                libraries:
+                  Libcheck: '0x030f7c7dbd472864220bcf9e37ede1b8a3125970'
+                  Libcheck_1: '0x030f7c7dbd472864220bcf9e37ede1b8a3125970'
+                evm_version: berlin
+                autodetect_constructor_args: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v2/smart-contracts/0x9c1c619176b4f8521a0ab166945d785b92aef453/verification/via/flattened-code:
+    post:
+      tags:
+        - General
+      summary: verification flattened Copy 2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                compiler_version: v0.8.17+commit.8df45f5f
+                source_code: |-
+                  // SPDX-License-Identifier: GPL-3.0
+
+                  pragma solidity >=0.7.0 <0.9.0;
+
+                  /**
+                   * @title Owner
+                   * @dev Set & change owner
+                   */
+                  contract Owner {
+
+                      address private owner;
+                      
+                      // event for EVM logging 2345678ewqwertyui54567890987654345678
+                      event OwnerSet(address indexed oldOwner, address indexed newOwner);
+                      
+                      // modifier to check if caller is owner
+                      modifier isOwner() {
+                          // If the first argument of 'require' evaluates to 'false', execution terminates and all
+                          // changes to the state and to Ether balances are reverted.
+                          // This used to consume all gas in old EVM versions, but not anymore.
+                          // It is often a good idea to use 'require' to check if functions are called correctly.
+                          // As a second argument, you can also provide an explanation about what went wrong.
+                          require(msg.sender == owner, "Caller is not owner");
+                          _;
+                      }
+                      
+                      /**
+                       * @dev Set contract deployer as owner
+                       */
+                      constructor(uint112 abc, address abb, bytes32 ghnc) {
+                          // console.log("Owner contract deployed by:", msg.sender);
+                          owner = msg.sender; // 'msg.sender' is sender of current call, contract deployer for a constructor
+                          emit OwnerSet(address(0), owner);
+                      }
+
+                      /**
+                       * @dev Change owner
+                       * @param newOwner address of new owner
+                       */
+                      function changeOwner(address newOwner) public isOwner {
+                          emit OwnerSet(owner, newOwner);
+                          owner = newOwner;
+                      }
+
+                      /**
+                       * @dev Return owner address 
+                       * @return address of owner
+                       */
+                      function getOwner() external view returns (address) {
+                          return owner;
+                      }
+                  }
+                is_optimization_enabled: true
+                optimization_runs: 199
+                contract_name: Owner
+                libraries:
+                  Libcheck: '0x030f7c7dbd472864220bcf9e37ede1b8a3125970'
+                  Libcheck_1: '0x030f7c7dbd472864220bcf9e37ede1b8a3125970'
+                evm_version: berlin
+                autodetect_constructor_args: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v2/smart-contracts/0x9c1c619176b4f8521a0ab166945d785b92aef453/verification/via/standard-input:
+    post:
+      tags:
+        - General
+      summary: verification json Copy
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                compiler_version:
+                  type: number
+                  example: v0.8.17+commit.8df45f5f
+                contract_name:
+                  type: string
+                  example: Owner
+                'files[0]':
+                  type: string
+                  format: binary
+                autodetect_constructor_args:
+                  type: boolean
+                  example: 'false'
+                constructor_args:
+                  type: string
+                  example: >-
+                    00000000000000000000000000000000000000000000000000000002d2982db3000000000000000000000000bb36c792b9b45aaf8b848a1392b0d6559202729e666f6f0000000000000000000000000000000000000000000000000000000000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v2/smart-contracts/0x030f7c7dbd472864220bcf9e37ede1b8a3125970/verification/via/sourcify:
+    post:
+      tags:
+        - General
+      summary: verification sourcify Copy
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                'files[0]':
+                  type: string
+                chosen_contract_index:
+                  type: integer
+                  example: '4'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v2/smart-contracts/0x030f7c7dbd472864220bcf9e37ede1b8a3125970/verification/via/multi-part:
+    post:
+      tags:
+        - General
+      summary: verification multipart Copy
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                compiler_version:
+                  type: number
+                  example: v0.8.17+commit.8df45f5f
+                is_optimization_enabled:
+                  type: boolean
+                  example: 'true'
+                libraries:
+                  type: string
+                  example: '{"Libcheck": "0x030f7c7dbd472864220bcf9e37ede1b8a3125970"}'
+                evm_version:
+                  type: string
+                  example: london
+                optimization_runs:
+                  type: integer
+                  example: '199'
+                'files[0]':
+                  type: string
+                'files[1]':
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v2/smart-contracts/0xc3fd3c09d5481f4d6c85e70775804de4c93fe630/verification/via/vyper-multi-part:
+    post:
+      tags:
+        - General
+      summary: verification multipart vyper Copy
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                compiler_version:
+                  type: number
+                  example: v0.3.7+commit.6020b8bb
+                evm_version:
+                  type: string
+                  example: istanbul
+                'files[0]':
+                  type: string
+                  format: binary
+                'files[1]':
+                  type: string
+                  format: binary
+                'interfaces[0]':
+                  type: string
+                  format: binary
+                'interfaces[1]':
+                  type: string
+                  format: binary
+                'interfaces[2]':
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v2/smart-contracts/0xc3fd3c09d5481f4d6c85e70775804de4c93fe630/verification/via/vyper-standard-input:
+    post:
+      tags:
+        - General
+      summary: verification standard json vyper
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                compiler_version:
+                  type: number
+                  example: v0.2.7+commit.0b3f3b3
+                evm_version:
+                  type: string
+                  example: istanbul
+                'files[0]':
+                  type: string
+                  format: binary
+                'files[1]':
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v2/smart-contracts/0xd73249995040f04cb891bdf0f997579ee3a6676c/verification/via/vyper-code:
+    post:
+      tags:
+        - General
+      summary: verification vyper Copy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                compiler_version: v0.2.12+commit.2c6842c
+                source_code: >-
+                  from vyper.interfaces import ERC20
+
+
+                  implements: ERC20
+
+
+                  event Transfer:
+                      sender: indexed(address)
+                      receiver: indexed(address)
+                      value: uint256
+
+                  event Approval:
+                      owner: indexed(address)
+                      spender: indexed(address)
+                      value: uint256
+
+                  name: public(String[64])
+
+                  symbol: public(String[32])
+
+                  decimals: public(uint256)
+
+
+                  balanceOf: public(HashMap[address, uint256])
+
+                  allowance: public(HashMap[address, HashMap[address, uint256]])
+
+                  totalSupply: public(uint256)
+
+                  minter: address
+
+                  _supply: uint256
+
+                  _check: uint256 #1% of the total supply check
+
+
+
+                  @external
+
+                  def __init__():
+                      self._supply = 10_000_000_000 
+                      self._check = 100_000_000
+                      self.decimals = 18
+                      self.name = 'Kooopa'
+                      self.symbol = 'KOO'
+                      
+                      init_supply: uint256 = self._supply * 10 ** self.decimals
+                      
+                      self.balanceOf[msg.sender] = init_supply
+                      self.totalSupply = init_supply
+                      self.minter = msg.sender
+
+                      log Transfer(ZERO_ADDRESS, msg.sender, init_supply)
+
+
+                  @internal
+
+                  def _transfer(_from : address, _to : address, _value :
+                  uint256) -> bool:
+                      assert _value <= self._check, 'Transfer limit of 1%(100 Million) Tokens'
+
+                      TargetBalance: uint256 = self.balanceOf[_to] + _value
+                      assert TargetBalance <= self._check, 'Single wallet cannot hold more than 1%(100 Million) Tokens'
+
+                      self.balanceOf[_from] -= _value
+                      self.balanceOf[_to] += _value
+                      log Transfer(_from, _to, _value)
+                      return True
+
+
+                  @external
+
+                  def transfer(_to : address, _value : uint256) -> bool:
+                      self._transfer(msg.sender, _to, _value)
+                      return True
+
+
+                  @external
+
+                  def transferFrom(_from : address, _to : address, _value :
+                  uint256) -> bool:
+                      self._transfer(_from, _to, _value)
+                      self.allowance[_from][msg.sender] -= _value
+                      return True
+
+
+                  @external
+
+                  def approve(_spender : address, _value : uint256) -> bool:
+                      assert _value <= self._check, 'Cant Approve more than 1%(100 Million) Tokens for transfer'
+
+                      self.allowance[msg.sender][_spender] = _value
+                      log Approval(msg.sender, _spender, _value)
+                      return True
+
+
+                  @external
+
+                  def mint(_to: address, _value: uint256):
+                      assert msg.sender == self.minter
+                      assert _to != ZERO_ADDRESS
+                      self.totalSupply += _value
+                      self.balanceOf[_to] += _value
+                      log Transfer(ZERO_ADDRESS, _to, _value)
+
+
+                  @internal
+
+                  def _burn(_to: address, _value: uint256):
+                      
+                      assert _to != ZERO_ADDRESS
+                      self.totalSupply -= _value
+                      self.balanceOf[_to] -= _value
+                      log Transfer(_to, ZERO_ADDRESS, _value)
+
+
+                  @external
+
+                  def burn(_value: uint256):
+                      self._burn(msg.sender, _value)
+
+
+                  @external
+
+                  def burnFrom(_to: address, _value: uint256):
+                      self.allowance[_to][msg.sender] -= _value
+                      self._burn(_to, _value)
+                constructor_args: null
+                contract_name: Storage
+                evm_version: istanbul
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
