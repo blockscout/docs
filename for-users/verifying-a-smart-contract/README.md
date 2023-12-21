@@ -1,17 +1,20 @@
 ---
-description: Verifying your deployed contract is always a good idea!
+description: Verifying your deployed contract
 ---
 
 # Verifying a Smart Contract
 
-Once verified, a smart contract or token contract's source code becomes publicly available and verifiable. This creates transparency and trust. Plus, it's easy to do! Verification is available for both Solidity and Vyper contracts.&#x20;
+Once verified, a smart contract or token contract's source code becomes publicly available and verifiable, creating transparency and trust.&#x20;
 
-There are multiple methods for verification using the Blockscout UI - all are cataloged below.&#x20;
+Verification is available for both Solidity and Vyper contracts. Currently, there are 7 methods for verification using the Blockscout UI!
 
 * [Via flattened source code (Solidity)](./#via-flattened-source-code)
 * [Via standard JSON input](./#via-standard-json-input)
 * [Via Sourcify: Sources and metadata JSON file](contracts-verification-via-sourcify.md)
+* Via Multi-part Solidity files
 * [Vyper contract](./#vyper-contract)
+* Multi-part Vyper files
+* Vyper contract using a [Standard input JSON](https://docs.vyperlang.org/en/stable/compiling-a-contract.html#compiler-input-and-output-json-description) file.
 
 {% hint style="success" %}
 To learn more about the smart contract verification Rust microservice and verification algorithm [see this page for developers](../../for-developers/information-and-settings/smart-contract-verification.md).
@@ -26,8 +29,11 @@ To learn more about the smart contract verification Rust microservice and verifi
 
 ## Smart Contract Verification with Blockscout
 
-1\) On contract creation, you will receive an address to check a pending transaction. If it does not redirect you to [blockscout.com](https://blockscout.com/), go to Blockscout, verify you are on the chain where the contract was deployed, and type the contract's address into the search bar. Your contract details should come up.\
+{% hint style="warning" %}
+Instructions for the new Blockscout UI are in process. The steps are similar, but these instructions currently use the old UI.
+{% endhint %}
 
+1\) On contract creation, you will receive an address to check a pending transaction. If it does not redirect you to [blockscout.com](https://blockscout.com/), go to Blockscout, verify you are on the chain where the contract was deployed, and type the contract's address into the search bar. Your contract details should come up.
 
 ![The contract address is shown in contract creation details](../../.gitbook/assets/contract\_address.png)
 
