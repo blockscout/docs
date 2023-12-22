@@ -312,13 +312,14 @@ Please note that these Optimism-related variables are only supported in [product
 
 ### Gas price oracle management
 
-| Variable                              | Required | Description                                                                                 | Default | Version |
-| ------------------------------------- | -------- | ------------------------------------------------------------------------------------------- | ------- | ------- |
-| `GAS_PRICE_ORACLE_NUM_OF_BLOCKS`      |          | Gas price oracle: number of blocks to calculate average gas price from                      | 200     | v4.1.4+ |
-| `GAS_PRICE_ORACLE_SAFELOW_PERCENTILE` |          | Gas price oracle: safelow percentile                                                        | 35      | v4.1.4+ |
-| `GAS_PRICE_ORACLE_AVERAGE_PERCENTILE` |          | Gas price oracle: average percentile                                                        | 60      | v4.1.4+ |
-| `GAS_PRICE_ORACLE_FAST_PERCENTILE`    |          | Gas price oracle: fast percentile                                                           | 90      | v4.1.4+ |
-| `GAS_PRICE_ORACLE_CACHE_PERIOD`       |          | Gas price oracle: period of gas prices update. [Time format](env-variables.md#time-format). | 30s     | v4.1.4+ |
+| Variable                                  | Required | Description                                                                                                                            | Default | Version |
+| ----------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
+| `GAS_PRICE_ORACLE_NUM_OF_BLOCKS`          |          | Gas price oracle: number of blocks to calculate average gas price from                                                                 | 200     | v4.1.4+ |
+| `GAS_PRICE_ORACLE_SAFELOW_PERCENTILE`     |          | Gas price oracle: safelow percentile                                                                                                   | 35      | v4.1.4+ |
+| `GAS_PRICE_ORACLE_AVERAGE_PERCENTILE`     |          | Gas price oracle: average percentile                                                                                                   | 60      | v4.1.4+ |
+| `GAS_PRICE_ORACLE_FAST_PERCENTILE`        |          | Gas price oracle: fast percentile                                                                                                      | 90      | v4.1.4+ |
+| `GAS_PRICE_ORACLE_CACHE_PERIOD`           |          | Gas price oracle: period of gas prices update. [Time format](env-variables.md#time-format).                                            | 30s     | v4.1.4+ |
+| `GAS_PRICE_ORACLE_SIMPLE_TRANSACTION_GAS` |          | Gas price oracle: amount of gas for a simple coin transfer. Introduced in [#9044](https://github.com/blockscout/blockscout/pull/9044). | 21000   | master  |
 
 ### Main page dashboard management
 
