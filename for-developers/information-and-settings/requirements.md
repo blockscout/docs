@@ -1,4 +1,4 @@
-# General Requirements / Blockscout Prerequisites
+# General Backend Requirements / Blockscout Backend Prerequisites
 
 {% hint style="success" %}
 Install the software below prior to Blockscout installation. For additional requirements see:
