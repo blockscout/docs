@@ -65,7 +65,7 @@
 * [Info, Params & Settings](for-developers/information-and-settings/README.md)
   * [✅ Requirements](for-developers/information-and-settings/requirements/README.md)
     * [General Backend Requirements / Blockscout Backend Prerequisites](for-developers/information-and-settings/requirements.md)
-    * [Backend/Frontend Compatibility Matrix](for-developers/back-front-compatibility-matrix.md)
+    * [Backend/Frontend Compatibility Matrix](for-developers/information-and-settings/back-front-compatibility-matrix.md)
     * [Hardware & Hosting Requirements](for-projects/resource-requirements.md)
     * [Database Storage Requirements](for-developers/information-and-settings/database-storage-requirements.md)
     * [Client Setting Requirements](for-developers/information-and-settings/client-settings.md)
