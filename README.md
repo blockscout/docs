@@ -16,7 +16,7 @@ description: >-
 
 Blockscout provides a comprehensive, easy-to-use interface for users to view, confirm, inspect and interact on EVM (Ethereum Virtual Machine) blockchains. Blockscout currently supports a wide range of projects and chains, see our [projects list](about/projects.md) for more details.
 
-<figure><img src=".gitbook/assets/Screenshot 2023-09-05 at 5.59.19 PM.png" alt=""><figcaption><p>Ethereum mainnet instance</p></figcaption></figure>
+<figure><img src=".gitbook/assets/ethereum-explorer.png" alt=""><figcaption><p>Ethereum mainnet explorer (winter style)</p></figcaption></figure>
 
 While there are several explores available to blockchain projects, most are closed systems (ie Etherscan, Etherchain) which are not independently verifiable. Blockscout provides a much needed open-source alternative. As the multi-chain paradigm continues to take hold in both private and public settings, transparent tools are needed to analyze and validate transactions.
 

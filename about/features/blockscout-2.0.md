@@ -24,7 +24,7 @@ Features include:
 * **API layer** designed for applications to quickly and confidently retrieve the data they need.
 * **Advanced analytics** with a robust collection of charts to monitor network health, market data, smart contract views and more.
 
-<figure><img src="../../.gitbook/assets/new-ui.png" alt=""><figcaption><p>New UI homepage</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ethereum-explorer.png" alt=""><figcaption><p>New UI homepage</p></figcaption></figure>
 
 
 
