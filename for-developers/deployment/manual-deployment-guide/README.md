@@ -132,13 +132,23 @@ Be careful since this will delete all data from the DB. Don't execute it on prod
 
 **11)** Install Node.js dependencies
 
+{% hint style="info" %}
+_Optional: If preferred, use `npm ci` rather than `npm install` to strictly follow all package versions in `package-lock.json.`_
+{% endhint %}
 
+`cd apps/block_scout_web/assets; npm install && node_modules/webpack/bin/webpack.js --mode production; cd -`
 
-**12)** Enable HTTPS in development. The Phoenix server only runs with HTTPS.
+`cd apps/explorer && npm install; cd -`
+
+**`13)`** Build static assets for deployment
+
+`mix phx.digest`
+
+**14)** Enable HTTPS in development. The Phoenix server only runs with HTTPS.
 
 `cd apps/block_scout_web; mix phx.gen.cert blockscout blockscout.local; cd -`
 
-**13)** Add blockscout and blockscout.local to your `/etc/hosts`
+**15)** Add blockscout and blockscout.local to your `/etc/hosts`
 
 ```
    127.0.0.1       localhost blockscout blockscout.local
@@ -147,6 +157,10 @@ Be careful since this will delete all data from the DB. Don't execute it on prod
 
    ::1             localhost blockscout blockscout.local
 ```
+
+{% hint style="info" %}
+If using Chrome, Enable `chrome://flags/#allow-insecure-localhost`
+{% endhint %}
 
 {% hint style="success" %}
 **🎉 This completes the backend setup! Proceed to setup microservices.**
