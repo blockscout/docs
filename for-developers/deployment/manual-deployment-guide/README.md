@@ -140,15 +140,15 @@ _Optional: If preferred, use `npm ci` rather than `npm install` to strictly foll
 
 `cd apps/explorer && npm install; cd -`
 
-**`13)`** Build static assets for deployment
+**`12)`** Build static assets for deployment
 
 `mix phx.digest`
 
-**14)** Enable HTTPS in development. The Phoenix server only runs with HTTPS.
+**13)** Enable HTTPS in development. The Phoenix server only runs with HTTPS.
 
 `cd apps/block_scout_web; mix phx.gen.cert blockscout blockscout.local; cd -`
 
-**15)** Add blockscout and blockscout.local to your `/etc/hosts`
+**14)** Add blockscout and blockscout.local to your `/etc/hosts`
 
 ```
    127.0.0.1       localhost blockscout blockscout.local
