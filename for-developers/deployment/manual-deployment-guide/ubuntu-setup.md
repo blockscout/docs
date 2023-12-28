@@ -42,35 +42,35 @@
 ### 4. Add user and database in postgres-14
 
 1. Create user on localpc or server\
-   `> adduser dbusername`\
+   \> adduser dbusername\
    **Note:** Replace dbusername with your username.
 2. You will be prompted to create a new profile, just follow the flow.
 3. After Adduser now connect to postgres-14\
-   \> `su - postgres` (for Root) or `sudo -i -u postgres` (for user)
+   \> su - postgres (for Root) or sudo -i -u postgres (for user)
 4. Display when entering postgres user section looks like this in terminal\
-   \> `postgres@ubuntu:~$`
+   \> postgres@ubuntu:\~$
 5. Create user\
-   \> `createuser --interactive dbusername`
+   \> createuser --interactive dbusername
 6. Create database\
-   \> `createdb blockscout`
+   \> createdb blockscout
 7. connect to psql\
-   \> `psql`
+   \> psql
 8. Create Password database in dbusername\
-   `> ALTER USER dbusername WITH PASSWORD 'dbuserpassword';` < Replace dbusername and dbuserpassword that you created
+   \> ALTER USER dbusername WITH PASSWORD 'dbuserpassword'; < Replace dbusername and dbuserpassword that you created
 9. Create Privileges on dbusername to database\
-   `> GRANT ALL PRIVILEGES ON DATABASE blockscout TO dbusername;` < Replace dbusername"
+   \> GRANT ALL PRIVILEGES ON DATABASE blockscout TO dbusername; < Replace dbusername"
 10. exit psql\
-    \> `\q`
+    \> \q
 11. Restart postgresql\
-    \> `sudo systemctl restart postgresql`
+    \> sudo systemctl restart postgresql
 12. Check the new profile that you created at the start of adduser replaceing dbusername with your username.\
-    \> `su - dbusername` (for Root) or `sudo su - dbusername` (for user)
+    \> su - dbusername (for Root) or sudo su - dbusername (for user)
 13. Run this command\
-    \> `psql -d blockscout`
+    \> psql -d blockscout
 14. If everything is correct, you will see this response \
-    \> `blockscout=#`
+    \> blockscout=#
 15. Quit psql\
-    \> `\q`
+    \> \q
 
 ### 5. After installing everything, clone the Blockscout repository and install .tool-version from the repository
 
