@@ -130,11 +130,15 @@ If you are in dev environment and have run the application previously with a dif
 Be careful since this will delete all data from the DB. Don't execute it on production if you don't want to lose all of the data!
 {% endhint %}
 
-**11)** Enable HTTPS in development. The Phoenix server only runs with HTTPS.
+**11)** Install Node.js dependencies
+
+
+
+**12)** Enable HTTPS in development. The Phoenix server only runs with HTTPS.
 
 `cd apps/block_scout_web; mix phx.gen.cert blockscout blockscout.local; cd -`
 
-**12)** Add blockscout and blockscout.local to your `/etc/hosts`
+**13)** Add blockscout and blockscout.local to your `/etc/hosts`
 
 ```
    127.0.0.1       localhost blockscout blockscout.local
@@ -145,7 +149,7 @@ Be careful since this will delete all data from the DB. Don't execute it on prod
 ```
 
 {% hint style="success" %}
-#### 🎉 This completes the backend setup! Proceed to setup microservices.
+**🎉 This completes the backend setup! Proceed to setup microservices.**
 {% endhint %}
 
 ###
@@ -237,7 +241,7 @@ The Blockscout team also provides an endpoint for smart-contract verification. T
 </code></pre>
 
 {% hint style="success" %}
-#### 🎉 This completes the microservices setup! Proceed to run the backend and frontend.
+**🎉 This completes the microservices setup! Proceed to run the backend and frontend.**
 {% endhint %}
 
 ## 4. Run backend
@@ -278,7 +282,7 @@ NEXT_PUBLIC_API_WEBSOCKET_PROTOCOL='ws'
    `yarn dev`
 
 {% hint style="success" %}
-#### 🎉 **Once completed, the frontend should be available at `http://localhost:3000`**
+**🎉 Once completed, the frontend should be available at `http://localhost:3000`**
 {% endhint %}
 
 **Notes:**
