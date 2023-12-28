@@ -22,11 +22,11 @@
    `. $HOME/.asdf/asdf.sh` and ctrl + x (or Save)
 4. Refresh your profile after the update\
    `. ~/.profile`
-5. Test active asdf after refresh `asdf version` \
+5. Test active asdf after refresh `asdf version`\
    Response following successful install `v0.13.1-fad23bc`
 6. Add asdf plugin for erlang, elixir, and nodejs\
-   `asdf plugin add erlang` \
-   `asdf plugin add elixir` \
+   `asdf plugin add erlang`\
+   `asdf plugin add elixir`\
    `asdf plugin add nodejs`
 7. install additional prerequisites\
    `sudo apt-get -y install build-essential autoconf m4 libncurses5-dev libwxgtk3.0-gtk3-dev libwxgtk-webview3.0-gtk3-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev openjdk-11-jdk`
@@ -41,30 +41,36 @@
 
 ### 4. Add user and database in postgres-14
 
-1. `adduser dbusername`\
+1. Create user on localpc or server\
+   `> adduser dbusername`\
    **Note:** Replace dbusername with your username.
 2. You will be prompted to create a new profile, just follow the flow.
 3. After Adduser now connect to postgres-14\
-   `su - postgres` (for Root) or `sudo -i -u postgres` (for user)
-4. Create user\
-   `createuser --interactive dbusername`
-5. Create database\
-   `createdb blockscout`
-6. connect to psql\
-   `psql`
-7. `ALTER USER dbusername WITH PASSWORD 'dbuserpassword';` < Replace dbusername and dbuserpassword that you created
-8. `GRANT ALL PRIVILEGES ON DATABASE blockscout TO dbusername;` < Replace dbusername
-9. exit psql\
-   `\q`
-10. Restart postgresql\
-    `sudo systemctl restart postgresql`
-11. Check the new profile that you created at the start of adduser replaceing dbusername with your username.\
-    `su - dbusername` (for Root) or `sudo su - dbusername` (for user)
-12. Run this command\
-    `psql -d blockscout`
-13. If everything is correct, you will see this response `=#`
-14. Quit psql\
-    `\q`
+   \> `su - postgres` (for Root) or `sudo -i -u postgres` (for user)
+4. Display when entering postgres user section looks like this in terminal\
+   \> `postgres@ubuntu:~$`
+5. Create user\
+   \> `createuser --interactive dbusername`
+6. Create database\
+   \> `createdb blockscout`
+7. connect to psql\
+   \> `psql`
+8. Create Password database in dbusername\
+   `> ALTER USER dbusername WITH PASSWORD 'dbuserpassword';` < Replace dbusername and dbuserpassword that you created
+9. Create Privileges on dbusername to database\
+   `> GRANT ALL PRIVILEGES ON DATABASE blockscout TO dbusername;` < Replace dbusername"
+10. exit psql\
+    \> `\q`
+11. Restart postgresql\
+    \> `sudo systemctl restart postgresql`
+12. Check the new profile that you created at the start of adduser replaceing dbusername with your username.\
+    \> `su - dbusername` (for Root) or `sudo su - dbusername` (for user)
+13. Run this command\
+    \> `psql -d blockscout`
+14. If everything is correct, you will see this response \
+    \> `blockscout=#`
+15. Quit psql\
+    \> `\q`
 
 ### 5. After installing everything, clone the Blockscout repository and install .tool-version from the repository
 
@@ -73,5 +79,5 @@
 3. `asdf install`
 
 {% hint style="success" %}
-#### 🎉 You are ready for manual deployment! [Proceed to step 3 in the "Prepare the Backend section](./#1.-prepare-the-backend)"
+**🎉 You are ready for manual deployment!** [**Proceed to step 3 in the "Prepare the Backend section**](./#1.-prepare-the-backend)**"**
 {% endhint %}
