@@ -160,13 +160,21 @@ If not, check you have the minimum required version of the nomiclabs-hardhat-eth
 
 ## Confirm Verification on BlockScout
 
-Go to your BlockScout instance and paste the contract address into the search bar. If verified, the code tab will display a green checkmark.
+Go to your BlockScout instance and paste the contract address into the search bar.
 
-![](../../.gitbook/assets/blockscout-1.png)
+<figure><img src="../../.gitbook/assets/paste-contract-address-1.png" alt=""><figcaption></figcaption></figure>
 
-**Selecting the Code tab will provide additional information about your contract.**
+Scroll down to see verified status. A green checkmark ✅ means the contract is verified.
 
-![](../../.gitbook/assets/img2.png)
+<figure><img src="../../.gitbook/assets/verify-contract-2.png" alt=""><figcaption></figcaption></figure>
+
+If your screen size is limited, you may need to click the 3 dots to view and click through to the contract.
+
+<figure><img src="../../.gitbook/assets/verify-contract-3.png" alt=""><figcaption></figcaption></figure>
+
+Scroll down to see and interact with the contract code.
+
+<figure><img src="../../.gitbook/assets/verify-contracts-4.png" alt=""><figcaption></figcaption></figure>
 
 ## FAQ
 

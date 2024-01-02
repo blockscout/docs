@@ -425,8 +425,6 @@ Although import "../utils/Context.sol"; specifies a relative path, the absolute 
 }
 ```
 
-6\) Submit composed standard json for verification “Via Standard Input JSON” and check results.
+6\) Submit Standard JSON input for verification.
 
-<figure><img src="../../.gitbook/assets/json-3 (1).png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../../.gitbook/assets/json-4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/standard-input.png" alt=""><figcaption></figcaption></figure>

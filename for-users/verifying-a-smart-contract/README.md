@@ -6,22 +6,14 @@ description: Verifying your deployed contract
 
 Once verified, a smart contract or token contract's source code becomes publicly available and verifiable, creating transparency and trust.&#x20;
 
-Verification is available for both Solidity and Vyper contracts. Currently, there are 7 methods for verification using the Blockscout UI!
-
-* [Via flattened source code (Solidity)](./#via-flattened-source-code)
-* [Via standard JSON input](./#via-standard-json-input)
-* [Via Sourcify: Sources and metadata JSON file](contracts-verification-via-sourcify.md)
-* Via Multi-part Solidity files
-* [Vyper contract](./#vyper-contract)
-* Multi-part Vyper files
-* Vyper contract using a [Standard input JSON](https://docs.vyperlang.org/en/stable/compiling-a-contract.html#compiler-input-and-output-json-description) file.
+Verification is available for both Solidity and Vyper contracts. Currently, there are 7 methods for verification using the Blockscout UI.
 
 {% hint style="success" %}
 To learn more about the smart contract verification Rust microservice and verification algorithm [see this page for developers](../../for-developers/information-and-settings/smart-contract-verification.md).
 {% endhint %}
 
 {% hint style="info" %}
-👷🏻‍♂️ If preferred you can choose the following methods to verify directly from your Hardhat dev environment.&#x20;
+👷🏻‍♂️ If preferred you can verify directly from your Hardhat dev environment.&#x20;
 
 * [Hardhat Verification Plugin](hardhat-verification-plugin.md)
 * [Sourcify Plugin for Hardhat](sourcify-plugin-for-hardhat.md)
@@ -29,26 +21,27 @@ To learn more about the smart contract verification Rust microservice and verifi
 
 ## Smart Contract Verification with Blockscout
 
+1\) Go to the Verify contract page _(Other -> Verify contract)_
+
+<figure><img src="../../.gitbook/assets/sourcify-blockscout-1.png" alt=""><figcaption></figcaption></figure>
+
+2\) Enter in the contract address you received during deployment. The dropdown will show you several available verification options. Select the one you would like to use and continue.
+
+<figure><img src="../../.gitbook/assets/verify-and-publish-2.png" alt=""><figcaption></figcaption></figure>
+
+* Solidity ([Flattened source code)](./#via-flattened-source-code)
+* Solidity ([Standard JSON input](./#via-standard-json-input))
+* Solidity ([Sourcify](contracts-verification-via-sourcify.md))
+* Solidity (Multi-part files)
+* [Vyper (Contract](./#vyper-contract))
+* Vyper (Multi-part files)
+* Vyper (Standard JSON input)
+
+## Solidity (Flattened source code)
+
 {% hint style="warning" %}
 Instructions for the new Blockscout UI are in process. The steps are similar, but these instructions currently use the old UI.
 {% endhint %}
-
-1\) On contract creation, you will receive an address to check a pending transaction. If it does not redirect you to [blockscout.com](https://blockscout.com/), go to Blockscout, verify you are on the chain where the contract was deployed, and type the contract's address into the search bar. Your contract details should come up.
-
-![The contract address is shown in contract creation details](../../.gitbook/assets/contract\_address.png)
-
-![Contract details page - Click the Verify & Publish button](../../.gitbook/assets/verity.png)
-
-2\) Select the `Code` tab to view the bytecode, click the **Verify & Publish** button. You will see several options for verification.
-
-* [Via flattened source code (Solidity)](./#via-flattened-source-code)
-* [Via standard JSON input](./#via-standard-json-input)
-* [Via Sourcify: Sources and metadata JSON file](contracts-verification-via-sourcify.md)
-* [Vyper contract](./#vyper-contract)
-
-![](../../.gitbook/assets/verification-1.png)
-
-## Via Flattened Source Code
 
 ![](../../.gitbook/assets/flattened-code.png)
 
@@ -66,7 +59,11 @@ Instructions for the new Blockscout UI are in process. The steps are similar, bu
 12. Click the `Verify and Publish` button.
 13. If all goes well, you will see a checkmark :white\_check\_mark: next to Code in the code tab, and an additional tab called `Read Contract`. The contract name will now appear in BlockScout with any transactions related to your contract.
 
-## Via standard JSON input
+## Solidity (Standard JSON input)
+
+{% hint style="warning" %}
+Instructions for the new Blockscout UI are in process. The steps are similar, but these instructions currently use the old UI.
+{% endhint %}
 
 ![](../../.gitbook/assets/standard-json.png)
 
@@ -87,6 +84,10 @@ After filling the form click the **Verify & publish** button and wait for the re
 See the [Contract Verification via Sourcify](contracts-verification-via-sourcify.md) page for details.
 
 ## Vyper Contract
+
+{% hint style="warning" %}
+Instructions for the new Blockscout UI are in process. The steps are similar, but these instructions currently use the old UI.
+{% endhint %}
 
 ![](../../.gitbook/assets/vyper.png)
 
