@@ -162,11 +162,21 @@ If not, check you have the minimum required version of the nomiclabs-hardhat-eth
 
 Go to your BlockScout instance and paste the contract address into the search bar. If verified, the code tab will display a green checkmark.
 
-![](../../../.gitbook/assets/blockscout-1.png)
+![](../../.gitbook/assets/blockscout-1.png)
 
 **Selecting the Code tab will provide additional information about your contract.**
 
-![](../../../.gitbook/assets/img2.png)
+![](../../.gitbook/assets/img2.png)
+
+## FAQ
+
+<details>
+
+<summary>I am using an <a href="https://github.com/OpenZeppelin/openzeppelin-upgrades">OpenZeppelin upgrades plugin implementation</a> and receive an error on proxy contract verification. What should I do?</summary>
+
+Although you receive an error, the contracts should be verified during the previous steps and you can ignore. Check in the explorer to make sure the contracts have been verified.&#x20;
+
+</details>
 
 ## Resources
 
