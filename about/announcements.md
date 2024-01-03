@@ -6,6 +6,10 @@ Head of Product Ulyana Skladchikova presented on the future of block explorers a
 
 {% embed url="https://www.youtube.com/watch?v=Aq_IeLtop00" %}
 
+## The Evolution & Future of Infrastructure at Optimism's On-Chain Summit
+
+{% embed url="https://youtu.be/HpIzu5eU9WA?si=QK5-cZfq6pu438gm" %}
+
 ## Base + Blockscout mainnet launch announcement
 
 {% embed url="https://www.blog.blockscout.com/blockscout-base/" %}
