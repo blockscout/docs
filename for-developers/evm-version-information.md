@@ -1,6 +1,6 @@
 # EVM Version Information
 
-You are asked to provide the EVM version the contract uses during the verification process. If the bytecode does not match the version, we try to verify using the latest EVM version (currently London).
+You are asked to provide the EVM version the contract uses during the verification process. If the bytecode does not match the version, we try to verify using the latest EVM version.
 
 For more information, see the [Solidity docs on specifying the EVM version when compiling a contract](https://docs.soliditylang.org/en/v0.8.13/using-the-compiler.html). Note that backward compatibility is not guaranteed between each version.
 

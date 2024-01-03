@@ -39,25 +39,18 @@ To learn more about the smart contract verification Rust microservice and verifi
 
 ## Solidity (Flattened source code)
 
-{% hint style="warning" %}
-Instructions for the new Blockscout UI are in process. The steps are similar, but these instructions currently use the old UI.
-{% endhint %}
+<figure><img src="../../.gitbook/assets/flattened-source-code.png" alt=""><figcaption></figcaption></figure>
 
-![](../../.gitbook/assets/flattened-code.png)
-
-1. **Contract Address:** The `0x` address supplied on contract creation.&#x20;
-2. **Contract Name:** Name of the class whose constructor was called in the .sol file. For example, in `contract MyContract {..` **MyContract** is the contract name.&#x20;
-3. **Include Nightly Builds**: Yes if you want to show nightly builds.
+1. **Contract Address:** The `0x` address supplied on contract creation (added above)
+2. **Is Yul contract:** Select if the contract is coded in Yul for efficiency.
+3. **Include Nightly Builds**: Select if you want to show nightly builds.
 4. **Compiler:** derived from the first line in the contract `pragma solidity X.X.X`. Use the corresponding compiler version rather than the nightly build.
-5. **EVM Version:** [See EVM version information](../../for-developers/evm-version-information.md)
-6. **Optimization:** If you enabled optimization during compilation, check yes.
-7. **Optimization Runs:** 200 is the Solidity Compiler default value. Only change if you changed this value while compiling.
-8. &#x20;**Enter the Solidity Contract Code:** You may need to flatten your solidity code if it utilizes a library or inherits dependencies from another contract. We recommend the [POA solidity flattener](https://github.com/poanetwork/solidity-flattener) or the [truffle flattener](https://www.npmjs.com/package/truffle-flattener).
-9. **Try to fetch constructor arguments automatically**: If similar contracts exist these may be available.
-10. **ABI-encoded Constructor Arguments:** [See this page for more info](../abi-encoded-constructor-arguments.md).
-11. **Add Contract Libraries:** Enter the name and 0x address for any required libraries called in the called in the .sol file.
-12. Click the `Verify and Publish` button.
-13. If all goes well, you will see a checkmark :white\_check\_mark: next to Code in the code tab, and an additional tab called `Read Contract`. The contract name will now appear in BlockScout with any transactions related to your contract.
+5. **EVM Version:** Select the correct[ EVM version ](../../for-developers/evm-version-information.md)if known, otherwise use default.
+6. **Optimization Enabled:** If you enabled optimization during compilation, select and enter the run value. 200 is the Solidity Compiler default value. Only change if you changed this value while compiling.
+7. &#x20;**Enter the Solidity Contract Code:** You may need to flatten your solidity code if it utilizes a library or inherits dependencies from another contract. We recommend [hardhat ](https://hardhat.org/hardhat-runner/docs/advanced/flattening)or the [POA solidity flattener](https://github.com/poanetwork/solidity-flattener).
+8. **Add Contract Libraries:** Enter the name and 0x address for any required libraries called in the .sol file. You can add multiple contracts with the "+" button.
+9. Click the `Verify and Publish` button.
+10. If all goes well, you will see a checkmark :white\_check\_mark: next to Code in the code tab, and an additional tab called `Read Contract`. The contract name will now appear in BlockScout with any transactions related to your contract.
 
 ## Solidity (Standard JSON input)
 

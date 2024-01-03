@@ -33,7 +33,7 @@
   * [Verified addresses](for-users/my-account/verified-addresses/README.md)
     * [Copy and Sign Message](for-users/my-account/verified-addresses/copy-and-sign-message.md)
   * [For developers](for-users/my-account/for-developers.md)
-* [Apps Marketplace](for-users/blockscout-apps/README.md)
+* [DAppscout Apps Marketplace](for-users/blockscout-apps/README.md)
   * [Token Approval Tracker](for-users/blockscout-apps/token-approval-tracker.md)
 * [Verifying a Smart Contract](for-users/verifying-a-smart-contract/README.md)
   * [Hardhat Verification Plugin](for-users/verifying-a-smart-contract/hardhat-verification-plugin.md)
