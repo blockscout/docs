@@ -46,7 +46,7 @@ Pre-configured AWS templates for easy deployment and setup for those who choose 
 ### 🟦  POS and Rollup Feature Expansion
 
 * POS consensus support including deposits, withdrawals and other pertinent details such as finalization status, proposed slot and epoch, fee recipient and consensus info. This includes tracking and monitoring of deposits on the Ethereum 2.0 Beacon Chain, providing insights into the progress of Ethereum's transition to Proof of Stake (PoS).
-* L2 support including additional features for popular L2 scaling solutions by providing provide insights into L2 network performance, transactions, and smart contracts
+* L2 support including additional features for popular L2 scaling solutions by providing insights into L2 network performance, transactions, and smart contracts
 
 ### 🟦  Blockscout Swap Native Dapp
 
