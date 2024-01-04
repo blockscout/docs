@@ -50,7 +50,7 @@ This table is horizontally scrollable, version information is located in the las
 * [Polygon Edge](env-variables.md#polygon-edge-management)
 * [Rootstock](env-variables.md#rootstock-management)
 * [Shibarium](env-variables.md#shibarium-management)
-* [zkEVM Rollup](env-variables.md#zkevm-rollup-management)
+* [Polygon zkEVM Rollup](env-variables.md#polygon-zkevm-rollup-management)
 * [Optimism Rollup](env-variables.md#optimism-rollup-management)
 * [zkSync Rollup](env-variables.md#zksync-rollup-management)
 * [Exchange Rates](env-variables.md#exchange-rates-management)
@@ -280,13 +280,20 @@ This table is horizontally scrollable, version information is located in the las
 | `INDEXER_SHIBARIUM_L2_WETH_CONTRACT`              |          | The address of WETH contract on L2 used to fetch ETH deposits and withdrawals. Required for L2 events indexing. Implemented in [#8929](https://github.com/blockscout/blockscout/pull/8929).                                                                                                                                                             | (empty) | v6.1.0+  |
 | `INDEXER_SHIBARIUM_L2_BONE_WITHDRAW_CONTRACT`     |          | The address of a contract which emits `Withdraw` event on L2. Used to fetch BONE token withdrawals. Required for L2 events indexing. Implemented in [#8929](https://github.com/blockscout/blockscout/pull/8929).                                                                                                                                        | (empty) | v6.1.0+  |
 
-### zkEVM Rollup management
+### Polygon zkEVM Rollup management
 
-| Variable                                 | Required | Description                                                                                                                                              | Default | Version |
-| ---------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
-| `INDEXER_ZKEVM_BATCHES_ENABLED`          |          | Enables Polygon zkEVM batches fetcher. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584).                                       | `false` | v5.3.1+ |
-| `INDEXER_ZKEVM_BATCHES_CHUNK_SIZE`       |          | The number of Polygon zkEVM batches in one chunk when reading them from RPC. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584). | 20      | v5.3.1+ |
-| `INDEXER_ZKEVM_BATCHES_RECHECK_INTERVAL` |          | The latest batch rechecking interval, seconds. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584).                               | 60      | v5.3.1+ |
+| Variable                                         | Required | Description                                                                                                                                              | Default | Version |
+| ------------------------------------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
+| `INDEXER_POLYGON_ZKEVM_BATCHES_ENABLED`          |          | Enables Polygon zkEVM batches fetcher. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584).                                       | `false` | v5.3.1+ |
+| `INDEXER_POLYGON_ZKEVM_BATCHES_CHUNK_SIZE`       |          | The number of Polygon zkEVM batches in one chunk when reading them from RPC. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584). | 20      | v5.3.1+ |
+| `INDEXER_POLYGON_ZKEVM_BATCHES_RECHECK_INTERVAL` |          | The latest batch rechecking interval, seconds. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584).                               | 60      | v5.3.1+ |
+| `INDEXER_POLYGON_ZKEVM_L1_RPC`                   |          | The RPC endpoint for L1 used to fetch Deposit or Withdrawal bridge events. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098).   |         | master  |
+| `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_START_BLOCK`    |          | The number of a start block on L1 to index L1 bridge events. If the table of bridge operations is not empty, the process will continue indexing from the last indexed L1 event. If empty or not defined, the L1 events are not handled. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098). |         | master  |
+| `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_CONTRACT`       |          | The address of PolygonZkEVMBridge contract on L1 used to fetch L1 bridge events. Required for L1 bridge events indexing. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098). |         | master  |
+| `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_NATIVE_SYMBOL`  |          | The symbol of the native coin on L1 to display it in the table of the bridge Deposits and Withdrawals on UI. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098). | ETH | master  |
+| `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_NATIVE_DECIMALS` |          | The number of decimals to correctly display an amount of native coins for some Deposit or Withdrawal bridge operations on UI. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098). | 18 | master  |
+| `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_START_BLOCK`    |          | The number of a start block on L2 to index L2 bridge events. If the table of bridge operations is not empty, the process will continue indexing from the last indexed L2 event. If empty or not defined, the L2 events are not handled. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098). |         | master  |
+| `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_CONTRACT`       |          | The address of PolygonZkEVMBridge contract on L2 used to fetch L2 bridge events. Required for L2 bridge events indexing. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098). |         | master  |
 
 ### Optimism Rollup Management
 
