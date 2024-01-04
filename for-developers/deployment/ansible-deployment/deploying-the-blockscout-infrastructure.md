@@ -54,5 +54,5 @@ More on variable precedence =&gt; [Official Ansible Docs](https://docs.ansible.c
 7\) Run `ansible-playbook deploy_infra.yml`
 
 * During the deployment the "diffs didn't match" error may occur, it will be ignored automatically. If Ansible play recap shows 0 failed plays, then the deployment was successful despite the error.
-* Optionally, you may want to check the variables the were uploaded to the [Parameter Store](https://console.aws.amazon.com/systems-manager/parameters) at AWS Console.
+* Optionally, you may want to check the variables that were uploaded to the [Parameter Store](https://console.aws.amazon.com/systems-manager/parameters) at AWS Console.
 
