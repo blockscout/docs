@@ -566,8 +566,8 @@ https://instance_base_url/api
 {% hint style="info" %}
 Return Options: 
  - `Verification in progress`
- - `Implementation (addressHash) was verified and saved for proxy (addressHash)`
- - `Implementation address was not detected for this smart contract`
+ - `The proxy's ({addressHash}) implementation contract is found at {addressHash} and is successfully updated.`
+ - `A corresponding implementation contract was unfortunately not detected for the proxy address.`
  - `Unknown UID`
 {% endhint %}
 {% endtab %}
