@@ -389,11 +389,42 @@ curl --location --request POST 'http://localhost:4000/api?module=contract&action
 https://instance_base_url/api
  ?module=contract
  &action=verifysourcecode
- &codeformat={solidity-standard-json-input} or {solidity-single-file}
+ &codeformat={solidity-standard-json-input}
  &contractaddress={contractaddress}
  &contractname={contractname}
  &compilerversion={compilerversion}
  &sourceCode={sourceCode}
+```
+
+`solidity-single-file`:
+
+```
+curl --location 'localhost:4000/api?module=contract&action=verifysourcecode' \
+--form 'contractaddress="0xDc2082945d55596bf39F362d9EC0F7F65eDBB9DD"' \
+--form 'sourceCode="// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.7.0 <0.9.0;
+
+contract Storage {
+    uint256 number;
+
+    function store(uint256 num) public {
+        number = num;
+    }
+
+    function retrieve() public view returns (uint256){
+        return number;
+    }
+}"' \
+--form 'contractname="Storage"' \
+--form 'codeformat="solidity-single-file"' \
+--form 'compilerversion="v0.8.17+commit.8df45f5f"' \
+--form 'optimizationUsed="1"' \
+--form 'runs="199"' \
+--form 'constructorArguements=""' \
+--form 'evmversion="london"' \
+--form 'libraryname1="qwe"' \
+--form 'libraryaddress1="0xDc2082945d55596bf39F362d9EC0F7F65eDBB9DD"'
 ```
 
 {% tabs %}
