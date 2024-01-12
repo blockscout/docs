@@ -483,6 +483,13 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | `MICROSERVICE_BENS_ENABLED`         |          | If `true`, integration with [Blockscout ENS service](https://github.com/blockscout/blockscout-rs/tree/main/blockscout-ens) is enabled. Implemented in [#8972](https://github.com/blockscout/blockscout/pull/8972)  | (empty) | v5.4.0+ |
 | `MICROSERVICE_BENS_URL`             |          | URL of Blockscout ENS service. Implemented in [#8972](https://github.com/blockscout/blockscout/pull/8972)                                                                                                          | (empty) | v5.4.0+ |
 
+#### Blockscout Account Abstraction
+
+| Variable                            | Required | Description                                                                                                                                                                                                        | Default | Version |
+| ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------- |
+| `MICROSERVICE_ACCOUNT_ABSTRACTION_ENABLED`         |          | If `true`, integration with [Blockscout Account Abstraction service](https://github.com/blockscout/blockscout-rs/tree/main/user-ops-indexer) is enabled. Implemented in [#9145](https://github.com/blockscout/blockscout/pull/9145)  | (empty) | master |
+| `MICROSERVICE_ACCOUNT_ABSTRACTION_URL`             |          | URL of Blockscout ENS service. Implemented in [#9145](https://github.com/blockscout/blockscout/pull/9145)                                                                                                          | (empty) | master |
+
 #### Tx Interpreter (Summary) Service
 
 | Variable                            | Required | Description                                                                                                                                                                                                        | Default | Version |
