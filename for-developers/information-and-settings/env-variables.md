@@ -58,6 +58,7 @@ This table is horizontally scrollable, version information is located in the las
 * [Header](env-variables.md#header-management)
 * [Footer](env-variables.md#footer-management)
 * [Contract](env-variables.md#contract-management)
+* [Bridged Tokens](env-variables.md#bridged-tokens)
 * [Miscellaneous UI](env-variables.md#misc-ui-management)
 * [CSV Export](env-variables.md#csv-export)
 * [API Rate Limit](env-variables.md#api-rate-limit-management)
@@ -371,6 +372,17 @@ Please note that these Optimism-related variables are only supported in [product
 | `CONTRACT_MAX_STRING_LENGTH_WITHOUT_TRIMMING`         |          | Hide long contract method data. For more details: [#4667](https://github.com/blockscout/blockscout/pull/4667)                                                                                                                                       | 2040                                                                                                                          | v4.0.0+ |
 | `CONTRACT_DISABLE_INTERACTION`                        |          | If `true`, contract interactions via "Write contract" or "Write proxy contract" tabs are disabled. Introduced in [#7088](https://github.com/blockscout/blockscout/pull/7088).                                                                        | (empty)                                                                                                                       | v5.1.2+ |
 | `CONTRACT_PROXY_IMPLEMENTATION_TTL_VIA_AVG_BLOCK_TIME`                        |          | If `false`, proxy contract implementation will be re-fetched immediately once someone opend proxy page bypassing average block time calculation. Implemented in [#9155](https://github.com/blockscout/blockscout/pull/9155).                                                                        | true                                                                                                                       | master |
+
+### Bridged tokens
+
+| Variable                                  | Required | Description                                                                                                                 | Default | Version | Need recompile |
+| ----------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- | ------- | ------- | -------------- |
+| `BRIDGED_TOKENS_ENABLED`                  |          | Variable to enabled bridged tokens functionality. Introduced in [#9169](https://github.com/blockscout/blockscout/pull/9169) | (empty) | master  | ✅             |
+| `BRIDGED_TOKENS_ETH_OMNI_BRIDGE_MEDIATOR` |          | OMNI bridge mediator for ETH tokens. Introduced in [#9169](https://github.com/blockscout/blockscout/pull/9169)              | (empty) | master  |                |
+| `BRIDGED_TOKENS_BSC_OMNI_BRIDGE_MEDIATOR` |          | OMNI bridge mediator for BSC tokens. Introduced in [#9169](https://github.com/blockscout/blockscout/pull/9169)              | (empty) | master  |                |
+| `BRIDGED_TOKENS_POA_OMNI_BRIDGE_MEDIATOR` |          | OMNI bridge mediator for POA tokens. Introduced in [#9169](https://github.com/blockscout/blockscout/pull/9169)              | (empty) | master  |                |
+| `BRIDGED_TOKENS_AMB_BRIDGE_MEDIATORS`     |          | AMB bridge mediator. Introduced in [#9169](https://github.com/blockscout/blockscout/pull/9169)                              | (empty) | master  |                |
+| `BRIDGED_TOKENS_FOREIGN_JSON_RPC`         |          | Ethereum mainnet JSON RPC. Introduced in [#9169](https://github.com/blockscout/blockscout/pull/9169)                        | (empty) | master  |                |
 
 ### Misc UI management
 
