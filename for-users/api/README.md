@@ -21,7 +21,7 @@ Blockscout supports several methods:
 2. [**Graphiql**](https://github.com/graphql/graphiql): An IDE for exploring GraphQL.
 3. **RPC API**: provided for developers transitioning their applications from Etherscan to Blockscout. Supports GET and POST requests.
    1. Typically located at `https://blockscout.com/instance/networktype/api-docs`.
-   2. For example, Ethereum mainnet docs are located at [https://blockscout.com/eth/mainnet/api-docs](https://blockscout.com/eth/mainnet/api-docs)
+   2. For example, Ethereum mainnet docs are located at [https://eth.blockscout.com/api-docs](https://eth.blockscout.com/api-docs)
 4. **Eth RPC API**: Supports the most popular [JSON RPC methods](https://github.com/ethereum/wiki/wiki/JSON-RPC).
 
 

@@ -5,7 +5,7 @@ description: '?module=contract'
 # Contract
 
 {% hint style="info" %}
-Page is under construction. For a full description of RPC endpoints, visit [https://blockscout.com/xdai/mainnet/api-docs](https://blockscout.com/xdai/mainnet/api-docs)
+Page is under construction. For a full description of RPC endpoints, visit [https://gnosis.blockscout.com/api-docs](https://gnosis.blockscout.com/api-docs)
 {% endhint %}
 
 ### &#x20;`https://instance_base_url/api?module=contract`

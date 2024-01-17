@@ -32,10 +32,10 @@ Add the following to the end of a query to use your API key:\
 
 For example, a query to get more info on USDT on the Gnosis Chain with the API key `fdbfa288-1695-454e-a369-4501253a120`would be formatted as follows:&#x20;
 
-`https://blockscout.com/xdai/mainnet/api?module=token&action=getToken&contractaddress=0x4ECaBa5870353805a9F068101A40E0f32ed605C6&apikey=fdbfa288-1695-454e-a369-4501253a120`
+`https://gnosis.blockscout.com/api?module=token&action=getToken&contractaddress=0x4ECaBa5870353805a9F068101A40E0f32ed605C6&apikey=fdbfa288-1695-454e-a369-4501253a120`
 
 {% hint style="info" %}
-More on this RPC call (_Get ERC-20 or ERC-721 token by contract address_) and other calls can be found in the RPC docs for Gnosis Chain at [https://blockscout.com/xdai/mainnet/api-docs#token](https://blockscout.com/xdai/mainnet/api-docs#token)
+More on this RPC call (_Get ERC-20 or ERC-721 token by contract address_) and other calls can be found in the RPC docs for Gnosis Chain at [https://gnosis.blockscout.com/api-docs#token](https://gnosis.blockscout.com/api-docs#token)
 {% endhint %}
 
 

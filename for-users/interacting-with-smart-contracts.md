@@ -78,7 +78,7 @@ The connected wallet must contain enough native tokens (in this case xDai) to pa
 
 <figure><img src="../.gitbook/assets/meta-2 (1).png" alt=""><figcaption></figcaption></figure>
 
-Transaction hash: [0x2c93c4e6618b30c552b95ce2eef16b6e663d99aa2f4a8ea55a70b693de70f113](https://blockscout.com/xdai/mainnet/tx/0x2c93c4e6618b30c552b95ce2eef16b6e663d99aa2f4a8ea55a70b693de70f113)
+Transaction hash: [0x2c93c4e6618b30c552b95ce2eef16b6e663d99aa2f4a8ea55a70b693de70f113](https://gnosis.blockscout.com/tx/0x2c93c4e6618b30c552b95ce2eef16b6e663d99aa2f4a8ea55a70b693de70f113)
 
 <figure><img src="../.gitbook/assets/tx-details.png" alt=""><figcaption></figcaption></figure>
 

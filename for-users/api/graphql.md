@@ -63,9 +63,9 @@ From the `APIs` dropdown menu choose `GraphQL.` Depending on the implementation 
 You can also use your favorite http client:
 
 ```
-curl 'https://blockscout.com/eth/kovan/graphiql'
+curl 'https://eth-sepolia.blockscout.com/graphiql'
   -H 'Authorization: Bearer YOUR_AUTH_TOKEN'
-  -d '{"query":""{transaction(hash:\"0x69e3923eef50eada197c3336d546936d0c994211492c9f947a24c02827568f9f\"){blockNumbertoAddressHashfromAddressHashcreatedContractAddressHashvaluestatusnoncehasherrorgasgasPricegasUsedcumulativeGasUsedidindexinputrsv}}""}'
+  -d '{"query":""{transaction(hash:\"0x4f3a80620613d18a5073108f56558c7cbf0020c8ccb1acbad2c1f1fe3714e5ce\"){blockNumbertoAddressHashfromAddressHashcreatedContractAddressHashvaluestatusnoncehasherrorgasgasPricegasUsedcumulativeGasUsedidindexinputrsv}}""}'
 ```
 
 ## **Queries**

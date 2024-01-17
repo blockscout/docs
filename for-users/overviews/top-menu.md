@@ -56,7 +56,7 @@ Token menu is often configured differently depending on the instance.
 
 * **All:** A list of ERC-20 tokens deployed to the chain.
 * **Native** (ie **ETH** on mainnet): Displays native token holders, ordered by balance.
-* **Bridged**: If a chain includes bridged tokens (ie [Gnosis Chain](https://blockscout.com/xdai/mainnet)) these can be catalogued here.
+* **Bridged**: If a chain includes bridged tokens (ie [Gnosis Chain](https://gnosis.blockscout.com/)) these can be catalogued here.
 
 ## APIs
 
@@ -66,7 +66,7 @@ Token menu is often configured differently depending on the instance.
 
 ## Apps
 
-Customizable menu that can link to different ecosystem applications, utilities and statistics. [Gnosis Chain](https://blockscout.com/xdai/mainnet) currently has the most robust example of the Apps menu.
+Customizable menu that can link to different ecosystem applications, utilities and statistics. [Gnosis Chain](https://gnosis.blockscout.com/) currently has the most robust example of the Apps menu.
 
 <figure><img src="../../.gitbook/assets/Apps.png" alt=""><figcaption></figcaption></figure>
 

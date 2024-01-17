@@ -12,6 +12,6 @@ Recognition and labelling for ERC-1155 contracts, indexing instance balances for
 
 ERC-1155s are supported for the Gnosis Chain and any new ERC-1155 instances are recognized on deployment. For ERC-1155 contracts created prior to the enhanced support, a new single or batched transfer, mint, or token instance creation triggers contract recognition.\
 \
-[https://blockscout.com/xdai/mainnet/tokens/0x93d0c9a35c43f6BC999416A06aaDF21E68B29EBA/token-transfers](https://blockscout.com/xdai/mainnet/tokens/0x93d0c9a35c43f6BC999416A06aaDF21E68B29EBA/token-transfers)
+[https://gnosis.blockscout.com/token/0x93d0c9a35c43f6BC999416A06aaDF21E68B29EBA?tab=token_transfers](https://gnosis.blockscout.com/token/0x93d0c9a35c43f6BC999416A06aaDF21E68B29EBA?tab=token_transfers)
 
 ![](../../.gitbook/assets/erc1155-example.png)

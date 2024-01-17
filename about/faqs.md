@@ -206,7 +206,7 @@ Use the JSON RPC `listcontracts` endpoint. For example, to view verified contrac
 
 ```shell
 curl -X GET "
-https://blockscout.com/xdai/mainnet/api?module=contract&action=listcontracts&page=1&offset=50&filter=verified
+https://gnosis.blockscout.com/api?module=contract&action=listcontracts&page=1&offset=50&filter=verified
 " -H "accept: application/json"
 ```
 
