@@ -1,6 +1,6 @@
 # FAQs
 
-FAQs are divided into 2 sections. [User FAQs](faqs.md#user-faqs) cover questions that may come up when searching for transactions or interacting and verifying smart contracts. Developer FAQs cover questions related to installation, instance customization and hosting. If you have a question that isn't answered here, please contact us in [our Discord](https://discord.gg/blockscout) and the team and community can help troubleshoot your issue.&#x20;
+FAQs are divided into 2 sections. [User FAQs](faqs.md#user-faqs) cover questions that may come up when searching for transactions or interacting and verifying smart contracts. Developer FAQs cover questions related to installation, instance customization and hosting. If you have a question that isn't answered here, please contact us in [our Discord](https://discord.gg/blockscout) and the team and community can help troubleshoot your issue.
 
 ## User FAQs
 
@@ -8,7 +8,7 @@ FAQs are divided into 2 sections. [User FAQs](faqs.md#user-faqs) cover questions
 
 <summary>What does the "in" or "out" label mean on a transaction?</summary>
 
-This label appears next to a transaction to signify whether a transaction was sent or received by a particular address.&#x20;
+This label appears next to a transaction to signify whether a transaction was sent or received by a particular address.
 
 * <mark style="color:green;background-color:green;">**In**</mark>**:** A transaction was sent to the address
 * <mark style="color:orange;background-color:orange;">**Out**</mark>**:** A transaction was initiated from the address
@@ -95,13 +95,13 @@ Instructions for accessing and upgrading CPUs/memory will differ based on your s
 
 <summary>How do I customize the coin symbol / name?</summary>
 
-### Exchange Rates Coin Name
+#### Exchange Rates Coin Name
 
 * Specify coin name for exchange rates fetcher with the `COIN` [ENV variables](../for-developers/information-and-settings/env-variables.md)
 
 BlockScout utilizes the `COIN` environment variable which pulls the associated market data from the Coinmarketcap.com API or CoinGecko API to provide pricing data throughout the application.
 
-### Displayed Coin Symbol
+#### Displayed Coin Symbol
 
 In order to set displayed coin symbol, instance maintainer should set `COIN_NAME` runtime environment variable:
 
@@ -139,7 +139,7 @@ export COIN_NAME=POA
 
 <summary>What's the best way to deploy to AWS?</summary>
 
-Currently the best existing way is through docker compose [https://github.com/blockscout/blockscout/tree/master/docker-compose](https://github.com/blockscout/blockscout/tree/master/docker-compose).&#x20;
+Currently the best existing way is through docker compose [https://github.com/blockscout/blockscout/tree/master/docker-compose](https://github.com/blockscout/blockscout/tree/master/docker-compose).
 
 We are currently working on deployment through Kubernetes (K8s) and other methods for easily spinning up an instance on AWS.
 
@@ -149,14 +149,14 @@ We are currently working on deployment through Kubernetes (K8s) and other method
 
 <summary>How do I replace missing assets/version numbers?</summary>
 
-## Missing Assets
+### Missing Assets
 
 1. Find the public ip of corresponding Blockscout instance in the EC2 -> Instances of AWS Dashboard.
 2. Connect to the host via SSH `ssh -i <host.pem> ec2-user@<public_ip>`, where `<host.pem>` is host’s private key file, `<public_ip>` is the public ip of the host, that can be found in the AWS dashboard.
 3. Go to assets folder `cd /opt/app/apps/block_scout_web/priv/static`
 4. Add missing assets there or to `./images` folder depending on what is missing. Refresh Blockscout instance page. For example, if `favicon.ico` is missing in `./images` folder, just copy it from the root assets folder \`cp favicon.ico ./images/. You should see now the missing assets.
 
-## Missing Version in Footer
+### Missing Version in Footer
 
 The app version number should be in the footer of BlockScout instance
 
@@ -192,7 +192,7 @@ More information on Gettext is [available here](https://hexdocs.pm/gettext/Mix.T
 
 <summary>How do I update the UI?</summary>
 
-See the [Branding configs](../for-developers/configuration-options/branding-configs.md) page for details related to different UI elements.&#x20;
+See the [Branding configs](../for-developers/configuration-options/branding-configs.md) page for details related to different UI elements.
 
 For updates like adding elements/links etc you will need to change .eex templates. When changing .eex templates you don't need to rebuild. Run the application in dev mode (MIX\_ENV=dev), and change the template. You'll see changes on-the-fly. When chaging js/scss while running the application, you need to run `mix phx.digest` to apply the changes.
 
@@ -216,9 +216,9 @@ https://gnosis.blockscout.com/api?module=contract&action=listcontracts&page=1&of
 
 <summary>Why are Market Cap/Token Price stats wrong?</summary>
 
-One reason may be related to the CoinGecko API refusing Blockscout requests without an API key.&#x20;
+One reason may be related to the CoinGecko API refusing Blockscout requests without an API key.
 
-If impacted, apply this pull request to your instance:&#x20;
+If impacted, apply this pull request to your instance:
 
 [https://github.com/blockscout/blockscout/pull/5613](https://github.com/blockscout/blockscout/pull/5613)
 
@@ -244,7 +244,7 @@ Change the Explorer.ExchangeRates variable from `enabled: true` to `enabled: fal
 
 You may want to do this if you are creating a new instance or resyncing a new node.
 
-1. Backup the `smart_contracts` table&#x20;
+1. Backup the `smart_contracts` table
 2. Restore this table following the resync.
 
 </details>
@@ -292,7 +292,7 @@ In a self-hosted or locally deployed instance, when attempting to do a **write t
 
 "No "from" address specified in neither the give options, nor the default options."
 
-### To **T**roubleshoot:&#x20;
+#### To **T**roubleshoot:
 
 * Check that you set the correct `CHAIN_ID` env variable
 * Check correct variable for `NETWORK_ID`
@@ -362,8 +362,7 @@ This error can happen when running `mix local.rebar --force`
 
 Try this command:
 
-`cd deps/libsecp256k1` \
+`cd deps/libsecp256k1`\
 `make`
 
 </details>
-
