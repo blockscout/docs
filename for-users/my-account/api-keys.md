@@ -30,10 +30,10 @@ A maximum of 3 keys can be created for each account.
 Add the following to the end of a query to use your API key:\
 `&apikey=your-api-key`
 
-For example, a query to get more info on USDT on the Gnosis Chain with the API key `fdbfa288-1695-454e-a369-4501253a120`would be formatted as follows:
+For example, a query to get more info on USDT on Optimism with the API key `fdbfa288-1695-454e-a369-4501253a120`would be formatted as follows:
 
-`https://gnosis.blockscout.com/api?module=token&action=getToken&contractaddress=0x4ECaBa5870353805a9F068101A40E0f32ed605C6&apikey=fdbfa288-1695-454e-a369-4501253a120`
+`https://optimism.blockscout.com/api?module=token&action=getToken&contractaddress=0x94b008aA00579c1307B0EF2c499aD98a8ce58e58&apikey=fdbfa288-1695-454e-a369-4501253a120`
 
 {% hint style="info" %}
-More on this RPC call (_Get ERC-20 or ERC-721 token by contract address_) and other calls can be found in the RPC docs for Gnosis Chain at [https://gnosis.blockscout.com/api-docs#token](https://gnosis.blockscout.com/api-docs#token)
+For more info on RPC calls see the [RPC API Endpoints documentation](../api/rpc-endpoints/).
 {% endhint %}
