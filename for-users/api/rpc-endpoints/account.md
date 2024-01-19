@@ -389,6 +389,76 @@ https://instance_base_url/api
 {% endtab %}
 {% endtabs %}
 
+## Get ERC-721 token transfer events by address
+
+`tokennfttx`
+
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=account
+   &action=tokennfttx
+   &address={addressHash}
+   &page=1
+   &offset=10
+   &sort=asc
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+
+
+| Parameter        |  Description                                                                                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **address**      | `string` containing the address hash.                                                                                                                  |
+| contractaddress  | <mark style="background-color:yellow;">optional</mark> `string` with the token contract address to identify a contract.                                |
+| sort             | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default.       |
+| start\_block     | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search                                              |
+| end\_block       | <mark style="background-color:yellow;">optional</mark> `integer` block number to stop transaction search.                                               |
+| page             | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided.     |
+| offset           | <mark style="background-color:yellow;">optional</mark> `integer` representing number of transactions returned per page. `page` must also be provided. |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+{
+  "message": "OK",
+  "result": [
+    {
+      "blockHash": "0x3b8e5e9ecb0ad53e58cd99182de99a1166946dc758b85a5529710bd47e35a49d",
+      "blockNumber": "8879951",
+      "confirmations": "1295191",
+      "contractAddress": "0xe0617cd5b8271070b68bfc275220ef5dd32b8f58",
+      "cumulativeGasUsed": "15289706",
+      "from": "0x0000000000000000000000000000000000000000",
+      "gas": "59636",
+      "gasPrice": "1503183880",
+      "gasUsed": "59636",
+      "hash": "0x844ddc178dbeed48c9caef9a71a86b2d017529c1074a0390d2a61d29baa94c94",
+      "input": "deprecated",
+      "logIndex": "83",
+      "nonce": "301",
+      "timeStamp": "1682283420",
+      "to": "0x34aa3f359a9d614239015126635ce7732c18fdf3",
+      "tokenDecimal": "0",
+      "tokenID": "2",
+      "tokenName": "YourMintableSoulboundCollectible",
+      "tokenSymbol": "YMSC",
+      "transactionIndex": "42"
+    }
+  ],
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+Usage: 
+- To fetch ERC-721 token transfers by address, specify `address` parameter
+- To fetch ERC-721 token transfers by token, specify `contractaddress` parameter
+- To fetch ERC-721 token transfers by address filtered by token, specify both `address` and `contractaddress` parameters
+
 ## Get token account balance for token contract address
 
 `tokenbalance`
