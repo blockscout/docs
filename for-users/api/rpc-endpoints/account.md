@@ -27,10 +27,10 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter   |  Description                                                                                                                                                                                                                                                                                                                                                            |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **address** | `string` containing the address hash.                                                                                                                                                                                                                                                                                                                                   |
-| block       | <p><mark style="background-color:yellow;">optional</mark>. Block number as a string, or <code>latest</code>, <code>earliest</code> or <code>pending</code> <br><br>Latest is the latest balance in a <em>consensus</em> block. Earliest is the first recorded balance for the address. Pending is the latest balance in a consensus <em>or</em> nonconsensus block.</p> |
+| Parameter   | Description                                                                                                                                                                                                                                                                                                                                                            |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **address** | `string` containing the address hash.                                                                                                                                                                                                                                                                                                                                  |
+| block       | <p><mark style="background-color:yellow;">optional</mark>. Block number as a string, or <code>latest</code>, <code>earliest</code> or <code>pending</code><br><br>Latest is the latest balance in a <em>consensus</em> block. Earliest is the first recorded balance for the address. Pending is the latest balance in a consensus <em>or</em> nonconsensus block.</p> |
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -61,7 +61,7 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter   |  Description                          |
+| Parameter   | Description                           |
 | ----------- | ------------------------------------- |
 | **address** | `string` containing the address hash. |
 {% endtab %}
@@ -100,11 +100,9 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter   |  Description                                                                 |
+| Parameter   | Description                                                                  |
 | ----------- | ---------------------------------------------------------------------------- |
 | **address** | `string` containing the address hash, comma separated. **Max 20 addresses.** |
-
-
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -159,11 +157,11 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter   |  Description                                                                                                                                           |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **address** | `string` containing the address hash.                                                                                                                  |
-| page        | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. 'offset' must also be provided.     |
-| offset      | <mark style="background-color:yellow;">optional</mark>  `integer` representing number of transactions returned per page. `page` must also be provided. |
+| Parameter   | Description                                                                                                                                           |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **address** | `string` containing the address hash.                                                                                                                 |
+| page        | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. 'offset' must also be provided.    |
+| offset      | <mark style="background-color:yellow;">optional</mark> `integer` representing number of transactions returned per page. `page` must also be provided. |
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -195,7 +193,7 @@ https://instance_base_url/api
 
 `txlist`
 
-Maximum of 10,000 transactions. Also available through a GraphQL 'address' query. For faster results, specify a smaller block range to search using the start\_block and end\_block parameters
+Maximum of 10,000 transactions. Also available through a GraphQL 'address' query. For faster results, specify a smaller block range to search using the `startblock` and `endblock` parameters
 
 **Example:**
 
@@ -213,14 +211,14 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter        |  Description                                                                                                                                                                                                       |
+| Parameter        | Description                                                                                                                                                                                                        |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **address**      | `string` containing the address hash.                                                                                                                                                                              |
 | sort             | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default.                                                                   |
-| start\_block     | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search                                                                                                          |
-| end\_block       | <mark style="background-color:yellow;">optional</mark>`integer` block number to stop transaction search.                                                                                                           |
+| startblock       | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search                                                                                                          |
+| endblock         | <mark style="background-color:yellow;">optional</mark>`integer` block number to stop transaction search.                                                                                                           |
 | page             | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided.                                                                 |
-| offset           | <mark style="background-color:yellow;">optional</mark>  `integer` representing number of transactions returned per page. `page` must also be provided.                                                             |
+| offset           | <mark style="background-color:yellow;">optional</mark> `integer` representing number of transactions returned per page. `page` must also be provided.                                                              |
 | filter\_by       | <mark style="background-color:yellow;">optional</mark> string representing the field to filter by. Values include `to` and `from`. If none provided returns transactions that match to, from, or contract address. |
 | start\_timestamp | <mark style="background-color:yellow;">optional</mark> starting block unix timestamp.                                                                                                                              |
 | end\_timestamp   | <mark style="background-color:yellow;">optional</mark> ending block unix timestamp.                                                                                                                                |
@@ -280,17 +278,15 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-
-
-| Parameter    |  Description                                                                                                                                                                                        |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **txhash**   | `string` representing the transaction hash to check for internal transactions                                                                                                                       |
-| address      | <mark style="background-color:yellow;">optional</mark> `string` containing the address hash.                                                                                                        |
-| sort         | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default. **Only available if 'address' is provided.**       |
-| start\_block | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search. **Only available if 'address' is provided.**                                             |
-| end\_block   | <mark style="background-color:yellow;">optional</mark>`integer` block number to stop transaction search. **Only available if 'address' is provided.**                                               |
-| page         | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided. **Only available if 'address' is provided.**     |
-| offset       | <mark style="background-color:yellow;">optional</mark>  `integer` representing number of transactions returned per page. `page` must also be provided. **Only available if 'address' is provided.** |
+| Parameter  | Description                                                                                                                                                                                        |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **txhash** | `string` representing the transaction hash to check for internal transactions                                                                                                                      |
+| address    | <mark style="background-color:yellow;">optional</mark> `string` containing the address hash.                                                                                                       |
+| sort       | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default. **Only available if 'address' is provided.**      |
+| startblock | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search. **Only available if 'address' is provided.**                                            |
+| endblock   | <mark style="background-color:yellow;">optional</mark>`integer` block number to stop transaction search. **Only available if 'address' is provided.**                                              |
+| page       | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided. **Only available if 'address' is provided.**    |
+| offset     | <mark style="background-color:yellow;">optional</mark> `integer` representing number of transactions returned per page. `page` must also be provided. **Only available if 'address' is provided.** |
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -342,17 +338,15 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-
-
-| Parameter        |  Description                                                                                                                                           |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **address**      | `string` containing the address hash.                                                                                                                  |
-| contract address | <mark style="background-color:yellow;">optional</mark> `string` with the token contract address to identify a contract.                                |
-| sort             | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default.       |
-| start\_block     | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search                                              |
-| end\_block       | <mark style="background-color:yellow;">optional</mark>`integer` block number to stop transaction search.                                               |
-| page             | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided.     |
-| offset           | <mark style="background-color:yellow;">optional</mark>  `integer` representing number of transactions returned per page. `page` must also be provided. |
+| Parameter        | Description                                                                                                                                           |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **address**      | `string` containing the address hash.                                                                                                                 |
+| contract address | <mark style="background-color:yellow;">optional</mark> `string` with the token contract address to identify a contract.                               |
+| sort             | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default.      |
+| startblock       | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search                                             |
+| endblock         | <mark style="background-color:yellow;">optional</mark>`integer` block number to stop transaction search.                                              |
+| page             | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided.    |
+| offset           | <mark style="background-color:yellow;">optional</mark> `integer` representing number of transactions returned per page. `page` must also be provided. |
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -407,17 +401,15 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-
-
-| Parameter        |  Description                                                                                                                                           |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **address**      | `string` containing the address hash.                                                                                                                  |
-| contractaddress  | <mark style="background-color:yellow;">optional</mark> `string` with the token contract address to identify a contract.                                |
-| sort             | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default.       |
-| start\_block     | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search                                              |
-| end\_block       | <mark style="background-color:yellow;">optional</mark> `integer` block number to stop transaction search.                                               |
-| page             | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided.     |
-| offset           | <mark style="background-color:yellow;">optional</mark> `integer` representing number of transactions returned per page. `page` must also be provided. |
+| Parameter       | Description                                                                                                                                           |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **address**     | `string` containing the address hash.                                                                                                                 |
+| contractaddress | <mark style="background-color:yellow;">optional</mark> `string` with the token contract address to identify a contract.                               |
+| sort            | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default.      |
+| startblock      | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search                                             |
+| endblock        | <mark style="background-color:yellow;">optional</mark> `integer` block number to stop transaction search.                                             |
+| page            | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided.    |
+| offset          | <mark style="background-color:yellow;">optional</mark> `integer` representing number of transactions returned per page. `page` must also be provided. |
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -454,10 +446,11 @@ https://instance_base_url/api
 {% endtab %}
 {% endtabs %}
 
-Usage: 
-- To fetch ERC-721 token transfers by address, specify `address` parameter
-- To fetch ERC-721 token transfers by token, specify `contractaddress` parameter
-- To fetch ERC-721 token transfers by address filtered by token, specify both `address` and `contractaddress` parameters
+Usage:
+
+* To fetch ERC-721 token transfers by address, specify `address` parameter
+* To fetch ERC-721 token transfers by token, specify `contractaddress` parameter
+* To fetch ERC-721 token transfers by address filtered by token, specify both `address` and `contractaddress` parameters
 
 ## Get token account balance for token contract address
 
@@ -475,9 +468,7 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-
-
-| Parameter            |  Description                                                          |
+| Parameter            | Description                                                           |
 | -------------------- | --------------------------------------------------------------------- |
 | **contract address** | `string` containing the contract address hash.                        |
 | **address**          | `string` containing the account address hash to retrieve balance for. |
@@ -509,7 +500,7 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter   |  Description                                  |
+| Parameter   | Description                                   |
 | ----------- | --------------------------------------------- |
 | **address** | `string` containing the account address hash. |
 {% endtab %}
@@ -557,11 +548,11 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter   |  Description                                                                                                                                           |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **address** | `string` containing the address hash.                                                                                                                  |
-| page        | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. 'offset' must also be provided.     |
-| offset      | <mark style="background-color:yellow;">optional</mark>  `integer` representing number of transactions returned per page. `page` must also be provided. |
+| Parameter   | Description                                                                                                                                           |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **address** | `string` containing the address hash.                                                                                                                 |
+| page        | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. 'offset' must also be provided.    |
+| offset      | <mark style="background-color:yellow;">optional</mark> `integer` representing number of transactions returned per page. `page` must also be provided. |
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -600,12 +591,10 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-
-
-| Parameter |  Description                                                                                                                                           |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| page      | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. 'offset' must also be provided.     |
-| offset    | <mark style="background-color:yellow;">optional</mark>  `integer` representing number of transactions returned per page. `page` must also be provided. |
+| Parameter | Description                                                                                                                                           |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| page      | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. 'offset' must also be provided.    |
+| offset    | <mark style="background-color:yellow;">optional</mark> `integer` representing number of transactions returned per page. `page` must also be provided. |
 
 {% hint style="info" %}
 If the balance hasn't been updated in a long time, the node is double checked to fetch the absolute latest balance. This is not reflected in the current request, but once it is updated, subsequent requests will show the updated balance. The **`stale`** attribute will be set to **`true`** if a new balance is being fetched.
