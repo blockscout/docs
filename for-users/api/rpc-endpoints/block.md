@@ -46,6 +46,44 @@ https://instance_base_url/api
 {% endtab %}
 {% endtabs %}
 
+## Get estimated block countdown time by block number
+
+`getblockcountdown`
+
+Returns the estimated time remaining, in seconds, until a certain block is included in blockchain.
+
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=block
+   &action=getblockcountdown
+   &blockno={blockNumber}
+```
+
+{% tabs %}
+{% tab title="Request Param" %}
+| Parameter | Description                                                     |
+| --------- | --------------------------------------------------------------- |
+| blockno   | `integer` block number to check block rewards for eg. `2165403` |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```json
+{
+  "message": "OK",
+  "result": {
+    "CurrentBlock": "115334213",
+    "CountdownBlock": "116015880",
+    "RemainingBlock": "681667",
+    "EstimateTimeInSec": "1363349.0"
+  },
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}
+
 ## Get block number by time stamp
 
 `getblocknobytime`
