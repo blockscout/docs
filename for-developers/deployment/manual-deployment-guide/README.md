@@ -90,7 +90,7 @@ You can check the regex pattern for the db url via [https://regex101.com/](https
 **6)** Copy keybase and export as an env (for example)\
 `export SECRET_KEY_BASE=VTIB3uHDNbvrY0+60ZWgUoUBKDn9ppLR8MI4CpRz4/qLyEFs54ktJfaNT6Z221No`
 
-**7)** Export remaining [environment variables](https://www.notion.so/for-developers/information-and-settings/env-variables) as needed.
+**7)** Export remaining [environment variables](../../information-and-settings/env-variables.md) as needed.
 
 CLI basic example:
 
@@ -106,7 +106,7 @@ export DISPLAY_TOKEN_ICONS=true
 
 **Notes:**
 
-* The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](https://www.notion.so/for-developers/information-and-settings/client-settings).
+* The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](../../information-and-settings/client-settings.md).
 * If you're in production environment, please, set `MIX_ENV=prod`. The current default is `MIX_ENV=dev` which is a slower and less secure setting. However, for development purposes, unsetting or setting is `MIX_ENV=dev` is preferred.
 * To configure “**My Account**” section on the backend, see [https://docs.blockscout.com/for-developers/configuration-options/my-account-settings](https://docs.blockscout.com/for-developers/configuration-options/my-account-settings)
 
@@ -165,8 +165,6 @@ If using Chrome, Enable `chrome://flags/#allow-insecure-localhost`
 {% hint style="success" %}
 **🎉 This completes the backend setup! Proceed to setup microservices.**
 {% endhint %}
-
-###
 
 ## 2. Run Microservices
 
