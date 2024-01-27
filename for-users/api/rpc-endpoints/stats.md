@@ -115,6 +115,30 @@ https://instance_base_url/api
 
 ## Get latest price of native coin in USD and BTC
 
+`ethprice`
+
+**Example:**
+
+```
+// Some code
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+| Parameter |  Description |
+| --------- | ------------ |
+| param     | description  |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+// Some code
+```
+{% endtab %}
+{% endtabs %}
+
+## Get latest price of native coin in USD and BTC in more general format
+
 `coinprice`
 
 **Example:**
