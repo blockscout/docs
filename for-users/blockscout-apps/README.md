@@ -21,7 +21,12 @@ DApps are either embedded into the interface directly (like this [Uniswap exampl
 <figure><img src="../../.gitbook/assets/dappscout-wallet-connected.png" alt=""><figcaption><p>Wallet is connected and ready to use in DAppscout.</p></figcaption></figure>
 
 {% hint style="info" %}
-To enable direct embedding, DApps need to incorporate Safe SDK. Blockscout-specific instructions are in process; [follow the Safe instructions now to get started](https://github.com/safe-global/safe-core-sdk?tab=readme-ov-file).
+To enable direct embedding, DApps need to:
+
+1. Support iframe embedding on 3rd party domains.
+2. Integrate the [Safe Apps SDK](https://docs.safe.global/apps-sdk-overview).
+
+_Blockscout-specific instructions are in process - follow the Safe Apps SDK instructions for now._
 {% endhint %}
 
 ## DApps you can Trust
