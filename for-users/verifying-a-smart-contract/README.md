@@ -60,8 +60,6 @@ To learn more about the smart contract verification Rust microservice and verifi
 [More information on JSON input is available here](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description).&#x20;
 {% endhint %}
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
-
 1. **Include nightly builds**. You can choose **Yes** or **No** depending on your compiler.&#x20;
 2. **Compiler.** Choose the compiler version used to compile your smart contract. If you selected yes for nightly builds, use the compiler version rather than the build.
 3. **Standard Input JSON.** Upload your Standard Input JSON file. File should follows solidity [format](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description) and all the sources must be in Literal Content format, not a URL.
@@ -74,14 +72,11 @@ See the [Contract Verification via Sourcify](contracts-verification-via-sourcify
 
 ## Vyper Contract
 
-
-
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
-
 1. **Contract Name:** Name assigned to the contract.
 2. **Compiler**: Select the compiler version used in the source code.
-3. **Contract Code:** Copy and paste the contract code
-4. Click the `Verify and Publish` button.
+3. **EVM Version:** Select the correct[ EVM version ](../../for-developers/evm-version-information.md)if known, otherwise use default.
+4. **Contract Code:** Copy and paste the contract code
+5. Click the `Verify and Publish` button.
 
 If all goes well, you will see a checkmark :white\_check\_mark: next to Code in the code tab, and an additional tab called `Read Contract`. The contract name will now appear in BlockScout with any transactions related to your contract.
 
