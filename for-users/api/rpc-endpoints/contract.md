@@ -447,41 +447,7 @@ contract Storage {
 | licenseType                     | `string` or `number` representing the license type.                                                                                                                             |
 
 ### License type
-You can specify license type of the smart contract as `string` or `number`. For example for `GNU General Public License v2.0 (GNU GPLv2)` you could pass either `4` or `"gnu_gpl_v2"`
-
-We are supporting such types of license as:
-
-    1. No License (None)
-    2. The Unlicense (Unlicense)
-    3. MIT License (MIT)
-    4. GNU General Public License v2.0 (GNU GPLv2)
-    5. GNU General Public License v3.0 (GNU GPLv3)
-    6. GNU Lesser General Public License v2.1 (GNU LGPLv2.1)
-    7. GNU Lesser General Public License v3.0 (GNU LGPLv3)
-    8. BSD 2-clause "Simplified" license (BSD-2-Clause)
-    9. BSD 3-clause "New" Or "Revised" license* (BSD-3-Clause)
-    10. Mozilla Public License 2.0 (MPL-2.0)
-    11. Open Software License 3.0 (OSL-3.0)
-    12. Apache 2.0 (Apache-2.0)
-    13. GNU Affero General Public License (GNU AGPLv3)
-    14. Business Source License (BSL 1.1)
-  
-API license types:
-
-    none
-    unlicense
-    mit
-    gnu_gpl_v2
-    gnu_gpl_v3
-    gnu_lgpl_v2_1
-    gnu_lgpl_v3
-    bsd_2_clause
-    bsd_3_clause
-    mpl_2_0
-    osl_3_0
-    apache_2_0
-    gnu_agpl_v3
-    bsl_1_1
+"See <a href="../../verifying-a-smart-contract/blockscout-smart-contract-verification-api.md">available license types</a>."
 {% endtab %}
 
 {% tab title="Example Result" %}
