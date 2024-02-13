@@ -444,7 +444,7 @@ contract Storage {
 | evmversion                     | `string` EVM version. Should be set when `codeformat=solidity-single-file`                                                                                                     |
 | constructorArguments           | <mark style="background-color:yellow;">optional</mark> `string` constructor argument data provided.                                                                            |
 | autodetectConstructorArguments | <mark style="background-color:yellow;">optional</mark> `boolean` whether or not automatically detect constructor argument.                                                     |
-| licenseType                     | `string` or number representing the license type.                                                                                                                             |
+| licenseType                     | `string` or `number` representing the license type.                                                                                                                             |
 
 ### License type
 You can specify license type of the smart contract as `string` or `number`. For example for `GNU General Public License v2.0 (GNU GPLv2)` you could pass either `4` or `"gnu_gpl_v2"`
