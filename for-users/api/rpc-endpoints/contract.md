@@ -425,6 +425,7 @@ contract Storage {
 --form 'evmversion="london"' \
 --form 'libraryname1="qwe"' \
 --form 'libraryaddress1="0xDc2082945d55596bf39F362d9EC0F7F65eDBB9DD"'
+--form 'licenseType=0'
 ```
 
 {% tabs %}
@@ -443,6 +444,10 @@ contract Storage {
 | evmversion                     | `string` EVM version. Should be set when `codeformat=solidity-single-file`                                                                                                     |
 | constructorArguments           | <mark style="background-color:yellow;">optional</mark> `string` constructor argument data provided.                                                                            |
 | autodetectConstructorArguments | <mark style="background-color:yellow;">optional</mark> `boolean` whether or not automatically detect constructor argument.                                                     |
+| licenseType                     | `string` or `number` representing the license type.                                                                                                                             |
+
+### License type
+"See <a href="../../verifying-a-smart-contract/blockscout-smart-contract-verification-api.md">available license types</a>."
 {% endtab %}
 
 {% tab title="Example Result" %}

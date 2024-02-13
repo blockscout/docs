@@ -27,6 +27,7 @@ paths:
               type: object
               example:
                 compiler_version: v0.8.17+commit.8df45f5f
+                license_type: mit
                 source_code: |-
                   // SPDX-License-Identifier: GPL-3.0
 
@@ -105,6 +106,7 @@ paths:
               type: object
               example:
                 compiler_version: v0.8.17+commit.8df45f5f
+                license_type: unlicense
                 source_code: |-
                   // SPDX-License-Identifier: GPL-3.0
 
@@ -198,6 +200,9 @@ paths:
                   type: string
                   example: >-
                     00000000000000000000000000000000000000000000000000000002d2982db3000000000000000000000000bb36c792b9b45aaf8b848a1392b0d6559202729e666f6f0000000000000000000000000000000000000000000000000000000000
+                license_type:
+                  type: string
+                  example: gnu_gpl_v2
       responses:
         '200':
           description: Successful response
@@ -238,6 +243,9 @@ paths:
                 compiler_version:
                   type: number
                   example: v0.8.17+commit.8df45f5f
+                license_type:
+                  type: string
+                  example: gnu_gpl_v3
                 is_optimization_enabled:
                   type: boolean
                   example: 'true'
@@ -274,6 +282,9 @@ paths:
                 compiler_version:
                   type: number
                   example: v0.3.7+commit.6020b8bb
+                license_type:
+                  type: string
+                  example: gnu_lgpl_v2_1
                 evm_version:
                   type: string
                   example: istanbul
@@ -311,6 +322,9 @@ paths:
                 compiler_version:
                   type: number
                   example: v0.2.7+commit.0b3f3b3
+                license_type:
+                  type: string
+                  example: gnu_lgpl_v3
                 evm_version:
                   type: string
                   example: istanbul
@@ -337,6 +351,7 @@ paths:
               type: object
               example:
                 compiler_version: v0.2.12+commit.2c6842c
+                license_type: gnu_agpl_v3
                 source_code: >-
                   from vyper.interfaces import ERC20
 
