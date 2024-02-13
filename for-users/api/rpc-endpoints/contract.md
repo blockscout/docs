@@ -8,7 +8,7 @@ description: '?module=contract'
 Page is under construction. For a full description of RPC endpoints, visit [https://gnosis.blockscout.com/api-docs](https://gnosis.blockscout.com/api-docs)
 {% endhint %}
 
-### &#x20;`https://instance_base_url/api?module=contract`
+### `https://instance_base_url/api?module=contract`
 
 ## Get a list of contracts
 
@@ -26,14 +26,14 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter                      | Description                                                                                                                                                                                                              |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| page                           | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the page number used for pagination. 'offset' must also be provided.                                                           |
-| offset                         | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the max number of records to return when paginating. 'page' must also be provided.                                             |
-| filter                         | <mark style="background-color:yellow;">optional</mark>  string `verified`\|`decompiled`\|`unverified`\|`not_decompiled`\|`empty`, or `1`\|`2`\|`3`\|`4`\|`5` respectively. Returns  contracts with the requested status. |
-| not\_decompiled\_with\_version | <mark style="background-color:yellow;">optional</mark> `string` ensures none of the returned contracts were decompiled with the provided version. Ignored unless filtering for `decompiled` contracts.                   |
-| verified\_at\_start\_timestamp | <mark style="background-color:yellow;">optional</mark>  `unix timestamp` Represents the starting timestamp for verified contracts. Only used with `verified` filter.                                                     |
-| verified\_at\_end\_timestamp   | <mark style="background-color:yellow;">optional</mark> `unix timestamp` Represents the ending timestamp for verified contracts. Only used with `verified` filter.                                                        |
+| Parameter                      | Description                                                                                                                                                                                                            |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| page                           | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the page number used for pagination. 'offset' must also be provided.                                                         |
+| offset                         | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the max number of records to return when paginating. 'page' must also be provided.                                           |
+| filter                         | <mark style="background-color:yellow;">optional</mark> string `verified`\|`decompiled`\|`unverified`\|`not_decompiled`\|`empty`, or `1`\|`2`\|`3`\|`4`\|`5` respectively. Returns contracts with the requested status. |
+| not\_decompiled\_with\_version | <mark style="background-color:yellow;">optional</mark> `string` ensures none of the returned contracts were decompiled with the provided version. Ignored unless filtering for `decompiled` contracts.                 |
+| verified\_at\_start\_timestamp | <mark style="background-color:yellow;">optional</mark> `unix timestamp` Represents the starting timestamp for verified contracts. Only used with `verified` filter.                                                    |
+| verified\_at\_end\_timestamp   | <mark style="background-color:yellow;">optional</mark> `unix timestamp` Represents the ending timestamp for verified contracts. Only used with `verified` filter.                                                      |
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -59,7 +59,7 @@ https://instance_base_url/api
 
 `getabi`
 
-Also available through a GraphQL `addresses` query.&#x20;
+Also available through a GraphQL `addresses` query.
 
 **Example:**
 
@@ -72,7 +72,7 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter   |  Description                          |
+| Parameter   | Description                           |
 | ----------- | ------------------------------------- |
 | **address** | `string` containing the address hash. |
 {% endtab %}
@@ -88,13 +88,11 @@ https://instance_base_url/api
 {% endtab %}
 {% endtabs %}
 
-
-
 ## Get contract source code for a verified contract
 
 `getsourcecode`
 
-Also available through a GraphQL `addresses` query.&#x20;
+Also available through a GraphQL `addresses` query.
 
 **Example:**
 
@@ -107,7 +105,7 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter   |  Description                          |
+| Parameter   | Description                           |
 | ----------- | ------------------------------------- |
 | **address** | `string` containing the address hash. |
 {% endtab %}
@@ -132,8 +130,6 @@ https://instance_base_url/api
 {% endtab %}
 {% endtabs %}
 
-
-
 ## Get contract creator address hash and creation transaction hash
 
 `getcontractcreation`
@@ -151,8 +147,8 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter   |  Description                          |
-| ----------- | ------------------------------------- |
+| Parameter             | Description                                          |
+| --------------------- | ---------------------------------------------------- |
 | **contractaddresses** | `string` containing address hashes, separated by `,` |
 {% endtab %}
 
@@ -177,8 +173,6 @@ https://instance_base_url/api
 ```
 {% endtab %}
 {% endtabs %}
-
-
 
 ## Verify a contract with its source code and contract creation information
 
@@ -218,9 +212,9 @@ On successful submission you will receive a guid as a receipt. Use this with [`c
 | **compilerVersion**            | `string` containing the compiler version for the contract.                                                                 |
 | **optimization**               | `enum` whether or not compiler optimizations were enabled `0`=false, `1`=true                                              |
 | **contractSourceCode**         | `string` containing the source code of the contract.                                                                       |
-| constructorArguments           | <mark style="background-color:yellow;">optional</mark>  `string` constructor argument data provided.                       |
+| constructorArguments           | <mark style="background-color:yellow;">optional</mark> `string` constructor argument data provided.                        |
 | autodetectConstructorArguments | <mark style="background-color:yellow;">optional</mark> `boolean` whether or not automatically detect constructor argument. |
-| evmVersion                     | <mark style="background-color:yellow;">optional</mark>  EVM version for the contract.                                      |
+| evmVersion                     | <mark style="background-color:yellow;">optional</mark> EVM version for the contract.                                       |
 | optimizationRuns               | <mark style="background-color:yellow;">optional</mark> number of optimization runs used during compilation                 |
 | library1Name                   | <mark style="background-color:yellow;">optional</mark> `string` name of the first library used.                            |
 | library1Address                | <mark style="background-color:yellow;">optional</mark> `string` address of the first library used.                         |
@@ -296,7 +290,7 @@ Content-Type: application/json
 
 {% tabs %}
 {% tab title="Params" %}
-| Parameter       |  Description                            |
+| Parameter       | Description                             |
 | --------------- | --------------------------------------- |
 | **addressHash** | `string` containing the address hash.   |
 | files           | `array` with sources and metadata files |
@@ -320,8 +314,6 @@ Content-Type: application/json
 ```
 {% endtab %}
 {% endtabs %}
-
-
 
 ## Verify a vyper contract with its source code and contract creation information
 
@@ -349,8 +341,6 @@ curl --location --request POST 'http://localhost:4000/api?module=contract&action
 
 {% tabs %}
 {% tab title="First Tab" %}
-
-
 | Parameter              | Description                                                |
 | ---------------------- | ---------------------------------------------------------- |
 | **addressHash**        | `string` containing the address hash of the contract.      |
@@ -430,8 +420,6 @@ contract Storage {
 
 {% tabs %}
 {% tab title="Params" %}
-
-
 | Parameter                      | Description                                                                                                                                                                    |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **codeformat**                 | Format of sourceCode (`solidity-standard-json-input` or `solidity-single-file`)                                                                                                |
@@ -439,15 +427,16 @@ contract Storage {
 | **contractname**               | `string` name of the contract. It an be an empty string(""), just the contract name("ContractName"), or a filename and contract name("contracts/contract\_1.sol:ContractName") |
 | **compilerversion**            | `string` containing the compiler version for the contract.                                                                                                                     |
 | **sourceCode**                 | `string` standard input json or flattened solidity code                                                                                                                        |
-| optimizationUsed               | could be `0`, `false`, `1`, `true`. Should be set when `codeformat=solidity-single-file`                                                                                         |
+| optimizationUsed               | could be `0`, `false`, `1`, `true`. Should be set when `codeformat=solidity-single-file`                                                                                       |
 | runs                           | `integer` is equal to optimization runs number set on compilation. Should be set when `optimizationUsed` is `1` or `true`                                                      |
 | evmversion                     | `string` EVM version. Should be set when `codeformat=solidity-single-file`                                                                                                     |
 | constructorArguments           | <mark style="background-color:yellow;">optional</mark> `string` constructor argument data provided.                                                                            |
 | autodetectConstructorArguments | <mark style="background-color:yellow;">optional</mark> `boolean` whether or not automatically detect constructor argument.                                                     |
-| licenseType                     | `string` or `number` representing the license type.                                                                                                                             |
+| licenseType                    | `string` or `number` representing the license type.                                                                                                                            |
 
-### License type
-"See <a href="../../verifying-a-smart-contract/blockscout-smart-contract-verification-api.md">available license types</a>."
+#### License type
+
+"See [available license types](../../verifying-a-smart-contract/blockscout-smart-contract-verification-api.md)."
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -480,7 +469,7 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Params" %}
-| Parameter |  Description                                      |
+| Parameter | Description                                       |
 | --------- | ------------------------------------------------- |
 | **guid**  | `string`used for identifying verification attempt |
 {% endtab %}
@@ -500,8 +489,6 @@ Return Options: `Pending in queue` | `Pass - Verified` | `Fail - Unable to verif
 {% endtab %}
 {% endtabs %}
 
-
-
 ## Verify proxy contract
 
 `verifyproxycontract`
@@ -517,9 +504,9 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Params" %}
-| Parameter |  Description                                      |
-| --------- | ------------------------------------------------- |
-| **address**  | `string` containing the address hash of the contract  |
+| Parameter   | Description                                          |
+| ----------- | ---------------------------------------------------- |
+| **address** | `string` containing the address hash of the contract |
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -532,8 +519,6 @@ https://instance_base_url/api
 ```
 {% endtab %}
 {% endtabs %}
-
-
 
 ## Return status of a proxy contract verification attempt
 
@@ -554,7 +539,7 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Params" %}
-| Parameter |  Description                                      |
+| Parameter | Description                                       |
 | --------- | ------------------------------------------------- |
 | **guid**  | `string`used for identifying verification attempt |
 {% endtab %}
@@ -569,11 +554,12 @@ https://instance_base_url/api
 ```
 
 {% hint style="info" %}
-Return Options: 
- - `Verification in progress`
- - `The proxy's ({addressHash}) implementation contract is found at {addressHash} and is successfully updated.`
- - `A corresponding implementation contract was unfortunately not detected for the proxy address.`
- - `Unknown UID`
+Return Options:
+
+* `Verification in progress`
+* `The proxy's ({addressHash}) implementation contract is found at {addressHash} and is successfully updated.`
+* `A corresponding implementation contract was unfortunately not detected for the proxy address.`
+* `Unknown UID`
 {% endhint %}
 {% endtab %}
 {% endtabs %}

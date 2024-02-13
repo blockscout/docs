@@ -48,6 +48,7 @@
 * [CSV Exports](for-users/export-to-csv.md)
 * [ERC-1155 Support](for-users/erc-1155-support.md)
 * [Beacon Chain Withdrawal Views](for-users/beacon-chain-withdrawal-views.md)
+* [Blockscout ENS (BENS) Name Service Integration](for-users/blockscout-ens-bens-name-service-integration.md)
 * [API](for-users/api/README.md)
   * [Requests & Limits](for-users/api/requests-and-limits.md)
   * [REST API Endpoints](for-users/api/rest-api-endpoints.md)
