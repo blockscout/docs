@@ -136,6 +136,8 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.Zkevm.TransactionBatch | zkevm\_transaction\_batches | \[asc: :number\] |
 | Explorer.Chain.Zkevm.BatchTransaction | zkevm\_batch\_l2\_transactions | \[asc: :hash\] |
 | Explorer.Chain.Zkevm.LifecycleTransaction | zkevm\_lifecycle\_l1\_transactions | \[asc: :id\] |
+| Explorer.Chain.Zkevm.Bridge | zkevm\_bridge | \[asc: :type, asc: :index\] |
+| Explorer.Chain.Zkevm.BridgeL1Token | zkevm\_bridge\_l1\_tokens | \[asc: :address\] |
 | Explorer.Chain.ZkSync.TransactionBatch | zksync\_transaction\_batches | \[asc: :number\] |
 | Explorer.Chain.ZkSync.BatchBlock | zksync\_batch\_blocks | \[asc: :hash\] |
 | Explorer.Chain.ZkSync.BatchTransaction | zksync\_batch\_transactions | \[asc: :hash\] |
