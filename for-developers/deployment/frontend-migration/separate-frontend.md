@@ -67,12 +67,12 @@ By default, ENV variables are set to testing settings (ganache) in the `environm
 
 ### 4) Run docker compose with FRONT\_PROXY\_PASS variable.
 
-You will pass in the frontend proxy url when running docker compose. The standard configuration for the frontend is `http//host.docker.internal:3000` but if you've made any changes pass in your url.
+You will pass in the frontend proxy url when running docker compose. The standard configuration for the frontend is `http://host.docker.internal:3000` but if you've made any changes pass in your url.
 
 Run all containers (up) and run processes in the background (-d).
 
 ```
-FRONT_PROXY_PASS=http//host.docker.internal:3000 docker compose -f external-frontend.yml up -d
+FRONT_PROXY_PASS=http://host.docker.internal:3000 docker compose -f external-frontend.yml up -d
 ```
 
 Check progress and view containers:
