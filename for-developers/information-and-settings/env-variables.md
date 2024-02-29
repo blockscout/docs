@@ -232,6 +232,8 @@ This table is horizontally scrollable, version information is located in the las
 | `DENORMALIZATION_MIGRATION_CONCURRENCY`                                             |          | Number of parallel denormalization transaction batches processing.                                                                                                                        | 10                                    | v6.0.0-beta |
 | `TOKEN_TRANSFER_TOKEN_TYPE_MIGRATION_BATCH_SIZE`                                             |          | Number of token transfers to denormalize (add token_type) in the batch.                | 100   | master      |
 | `TOKEN_TRANSFER_TOKEN_TYPE_MIGRATION_CONCURRENCY`                                             |          | Number of parallel denormalization token transfer batches processing.                  | 1     | master      |
+| `SANITIZE_INCORRECT_NFT_BATCH_SIZE`                                             |          | Number of token transfers to sanitize in the batch.                                     | 100     | master      |
+| `SANITIZE_INCORRECT_NFT_CONCURRENCY`                                             |          | Number of parallel sanitizing token transfer batches processing.                        | 1       | master      |
 
 ### Ethereum Management
 
