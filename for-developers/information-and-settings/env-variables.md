@@ -384,6 +384,7 @@ Please note that these zkSync-related variables are only supported in [productio
 | `CACHE_BLOCK_COUNT_PERIOD`                            |          | Time to live of blocks with consensus count cache. [Time format](env-variables.md#time-format). Introduced in [#1876](https://github.com/poanetwork/blockscout/pull/1876).                                            | 2h      | v4.1.3+ |                |
 | `CACHE_TOTAL_GAS_USAGE_COUNTER_ENABLED`               |          | if `true`, enables cache for total gas usage counter.                                                                                                                                                                 | `false` | v5.1.3+ | ✅              |
 | `MARKET_HISTORY_FETCH_INTERVAL`                       |          | Interval to update data for the last day in Market History table. [Time format](env-variables.md#time-format). Introduced in [#9197](https://github.com/blockscout/blockscout/pull/9197).                             | 1h      | v6.1.0+  |                |
+| `CACHE_OPTIMISM_LAST_OUTPUT_ROOT_SIZE_COUNTER_PERIOD` |          | Interval to update data for the last output root size counter. [Time format](env-variables.md#time-format). Introduced in [#9532](https://github.com/blockscout/blockscout/pull/9532).                                | 5m      | master  |                |
 
 ### Gas price oracle management
 
