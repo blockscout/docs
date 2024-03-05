@@ -504,6 +504,8 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | `API_RATE_LIMIT_TIME_INTERVAL`              |          | Time interval of rate limit. [Time format](env-variables.md#time-format). Implemented in [#7148](https://github.com/blockscout/blockscout/pull/7148)                                                                                                   | 1s      | v5.1.3+ |                |
 | `API_RATE_LIMIT_BY_IP_TIME_INTERVAL`        |          | Time interval of rate limit set by `API_RATE_LIMIT_BY_IP`. [Time format](env-variables.md#time-format). Implemented in [#7148](https://github.com/blockscout/blockscout/pull/7148)                                                                     | 5m      | v5.1.3+ |                |
 | `API_RATE_LIMIT_UI_V2_TOKEN_TTL_IN_SECONDS` |          | TTL for token issued after submitting correct CAPTCHA for an API v2 requests from UI. In seconds. Implemented in [#7148](https://github.com/blockscout/blockscout/pull/7148)                                                                           | 18000   | v5.1.3+ |                |
+| `ETH_JSON_RPC_MAX_BATCH_SIZE` |          | Max batch size for Eth JSON RPC requests. Implemented in [#9409](https://github.com/blockscout/blockscout/pull/9409)                                                                           | 5   | master |                |
+
 
 ### Specific smart-contracts
 
