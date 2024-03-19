@@ -309,7 +309,7 @@ This table is horizontally scrollable, version information is located in the las
 
 ### Optimism Rollup Management
 
-Please note that these Optimism-related variables are only supported in [production-optimism](https://github.com/blockscout/blockscout/tree/production-optimism) branch or by Docker image from `blockscout/blockscout-optimism` DockerHub repository.
+Please note that these Optimism-related variables are only supported together with setting `CHAIN_TYPE=optimism`.
 
 | Variable                                       | Required | Description                                                                                                                                                                                                                                                        | Default | Version |
 | ---------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------ |
@@ -331,16 +331,16 @@ Please note that these Optimism-related variables are only supported in [product
 
 ### zkSync Rollup Management
 
-Please note that these zkSync-related variables are only supported in [production-zksync](https://github.com/blockscout/blockscout/tree/production-zksync) branch or by Docker image from `blockscout/blockscout-zksync` DockerHub repository.
+Please note that these zkSync-related variables are only supported together with setting `CHAIN_TYPE=zksync`.
 
 | Variable                                         | Required | Description                                                                                                                                                     | Default | Version           |
 | ------------------------------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ----------------- |
-| `INDEXER_ZKSYNC_BATCHES_ENABLED`                 |          | Enables Polygon zkEVM batches fetcher. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                                              | `false` | production-zksync |
-| `INDEXER_ZKSYNC_BATCHES_CHUNK_SIZE`              |          | The number of RPC calls in one request when reading data from RPC. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                  | 50      | production-zksync |
-| `INDEXER_ZKSYNC_NEW_BATCHES_MAX_RANGE`           |          | Maximum amount of batches requested if Blockscout does not have all batches synced. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080). | 50      | production-zksync |
-| `INDEXER_ZKSYNC_NEW_BATCHES_RECHECK_INTERVAL`    |          | The latest batch rechecking interval, seconds. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                                      | 60      | production-zksync |
-| `INDEXER_ZKSYNC_L1_RPC`                          |          | The RPC endpoint for L1 used to fetch status of batches. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                            | (empty) | production-zksync |
-| `INDEXER_ZKSYNC_BATCHES_STATUS_RECHECK_INTERVAL` |          | The batches status rechecking interval, seconds. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                                    | 60      | production-zksync |
+| `INDEXER_ZKSYNC_BATCHES_ENABLED`                 |          | Enables Polygon zkEVM batches fetcher. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                                              | `false` | v6.3.0+ |
+| `INDEXER_ZKSYNC_BATCHES_CHUNK_SIZE`              |          | The number of RPC calls in one request when reading data from RPC. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                  | 50      | v6.3.0+ |
+| `INDEXER_ZKSYNC_NEW_BATCHES_MAX_RANGE`           |          | Maximum amount of batches requested if Blockscout does not have all batches synced. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080). | 50      | v6.3.0+ |
+| `INDEXER_ZKSYNC_NEW_BATCHES_RECHECK_INTERVAL`    |          | The latest batch rechecking interval, seconds. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                                      | 60      | v6.3.0+ |
+| `INDEXER_ZKSYNC_L1_RPC`                          |          | The RPC endpoint for L1 used to fetch status of batches. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                            | (empty) | v6.3.0+ |
+| `INDEXER_ZKSYNC_BATCHES_STATUS_RECHECK_INTERVAL` |          | The batches status rechecking interval, seconds. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                                    | 60      | v6.3.0+ |
 
 ### Exchange rates management
 
