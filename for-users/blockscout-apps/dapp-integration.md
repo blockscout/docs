@@ -4,7 +4,7 @@ description: Prepare your DApp for submission to the DAppscout marketplace
 
 # DApp Integration
 
-Embedded DApps allow users to connect with a single wallet, providing a seamless user experience that eliminates the need to visit different urls and connect a wallet each time.  See the How to Integrate section below to prepare your DApp.
+Embedded DApps allow users to connect with a single wallet, providing a seamless user experience that eliminates the need to visit different urls and connect a wallet each time.  See the[ How to Integrate ](dapp-integration.md#how-to-integrate)section below to prepare your DApp.
 
 ## Integration Levels
 
