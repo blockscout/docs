@@ -22,15 +22,15 @@
 
 | Client                                      | Method                                                                         |
 | ------------------------------------------- | ------------------------------------------------------------------------------ |
-| <p>OpenEthereum<br>Nethermind<br>Erigon</p> | <ul><li><code>parity_pendingTransactions</code></li></ul>                      |
-| Geth                                        | <ul><li><code>txpool_content</code> (for parity_pendingTransactions)</li></ul> |
+| Erigon<br/>Nethermind<br/>OpenEthereum | <code>parity_pendingTransactions</code>                      |
+| Geth                                        | <code>txpool_content</code> |
 
 ### Enable Tracing to Fetch Internal Transactions
 
 | Client                                      | Method                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <p>OpenEthereum<br>Nethermind<br>Erigon</p> | <ul><li><code>trace_replayBlockTransactions</code></li><li><code>trace_block</code> (fetch block rewards)</li></ul>                                                                                                                                                                                                                                                                                            |
-| Geth                                        | <ul><li><code>debug_traceTransaction</code> (for trace_replayBlockTransactions). Starting from the Blockscout 5.1.0 release, <code>callTracer</code> is used by default.To switch to a custom JS tracer, the Blockscout maintainer should set the <code>export INDEXER_INTERNAL_TRANSACTIONS_TRACER_TYPE=js</code> environment variable. Prior to the 5.1.0 release, js tracer was a default option.</li></ul> |
+| Erigon<br/>Nethermind<br/>OpenEthereum | <ul><li><code>trace_replayBlockTransactions</code> (fetching of internal transactions)</li><li><code>trace_block</code> (fetching of block rewards)</li></ul>                                                                                                                                                                                                                                                                                            |
+| Geth                                        | <ul><li><code>debug_traceBlockByNumber</code></li><li>or <code>debug_traceTransaction</code></li></ul> <code>callTracer</code> is used by default, starting from the Blockscout 5.1.0 release. To switch to a custom JS tracer, the Blockscout maintainer should set the <code>export INDEXER_INTERNAL_TRANSACTIONS_TRACER_TYPE=js</code> environment variable. Prior to the 5.1.0 release, js tracer was a default option. |
 
 ### JSON RPC Performance Benchmarks
 
