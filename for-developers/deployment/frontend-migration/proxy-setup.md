@@ -8,43 +8,52 @@ description: NGINX default tempalte
 
 It is recommended to run a web proxy behind the frontend and backend for optimized installation.
 
-Currently all urls **except the following** should be routed to the backend:
+These endpoints should be routed to frontend:
 
 ```
 = /
+= /envs.js
+
 /_next
-/node-api
-/apps
 /account
 /accounts
-/static
+/address
+/api-docs
+/apps
 /auth/profile
 /auth/unverified-email
-/txs
-/tx
-/blocks
 /block
-/login
-/address
-/stats
-/search-results
-/token
-/tokens
-/visualize
-/api-docs
+/blocks
 /csv-export
-/verified-contracts
+/favicon
 /graphiql
-/withdrawals
+/icons
+/l2-deposits
 /l2-output-roots
 /l2-txn-batches
 /l2-withdrawals
-/l2-deposits
+/login
+/node-api
+/search-results
+/static
+/stats
+/token
+/tokens
+/tx
+/txs
+/verified-contracts
+/withdrawals
 ```
 
 {% hint style="info" %}
 _**NOTE:**_ only exact path to `/` should be followed to the frontend
 {% endhint %}
+
+All other endpoints should be routed to the backend:
+
+```
+/
+```
 
 ## Example Config File
 
@@ -86,7 +95,18 @@ server {
         proxy_set_header      Connection $connection_upgrade;
         proxy_cache_bypass    $http_upgrade;
     }
-    location ~ ^/(_next|node-api|apps|account|accounts|static|auth/profile|auth/unverified-email|txs|tx|blocks|block|login|address|stats|search-results|token|tokens|visualize|api-docs|csv-export|verified-contracts|graphiql|withdrawals) {
+    location = /envs.js {
+        proxy_pass            http://frontend:3000;
+        proxy_http_version    1.1;
+        proxy_set_header      Host "$host";
+        proxy_set_header      X-Real-IP "$remote_addr";
+        proxy_set_header      X-Forwarded-For "$proxy_add_x_forwarded_for";
+        proxy_set_header      X-Forwarded-Proto "$scheme";
+        proxy_set_header      Upgrade "$http_upgrade";
+        proxy_set_header      Connection $connection_upgrade;
+        proxy_cache_bypass    $http_upgrade;
+    }
+    location ~ ^/(_next|account|accounts|address|api-docs|apps|auth/profile|auth/unverified-email|block|blocks|csv-export|favicon|graphiql|icons|l2-deposits|l2-output-roots|l2-txn-batches|l2-withdrawals|login|node-api|search-results|static|stats|token|tokens|tx|txs|verified-contracts|visualize|withdrawals) {
         proxy_pass            http://frontend:3000;
         proxy_http_version    1.1;
         proxy_set_header      Host "$host";
