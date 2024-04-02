@@ -45,29 +45,30 @@ _Note_: Before release 5.1.2, all environment variables of time format supported
 {% hint style="info" %}
 This table is horizontally scrollable, version information is located in the last column. ENVs are listed by category:
 
-- [General](env-variables.md#general)
-- [Indexer](env-variables.md#indexer-management)
-- [Polygon Edge](env-variables.md#polygon-edge-management)
-- [Rootstock](env-variables.md#rootstock-management)
-- [Shibarium](env-variables.md#shibarium-management)
-- [Polygon zkEVM Rollup](env-variables.md#polygon-zkevm-rollup-management)
-- [Optimism Rollup](env-variables.md#optimism-rollup-management)
-- [zkSync Rollup](env-variables.md#zksync-rollup-management)
-- [Exchange Rates](env-variables.md#exchange-rates-management)
-- [Cache](env-variables.md#cache-management)
-- [Gas Price Oracle](env-variables.md#gas-price-oracle-management)
-- [Main Page Dashboard](env-variables.md#main-page-dashboard-management)
-- [Header](env-variables.md#header-management)
-- [Footer](env-variables.md#footer-management)
-- [Contract](env-variables.md#contract-management)
-- [Bridged Tokens](env-variables.md#bridged-tokens)
-- [Miscellaneous UI](env-variables.md#misc-ui-management)
-- [CSV Export](env-variables.md#csv-export)
-- [API Rate Limit](env-variables.md#api-rate-limit-management)
-- [Specific Smart Contracts](env-variables.md#specific-smart-contracts)
-- [My Account](env-variables.md#account-related-env-variables)
-- [Integrations](env-variables.md#integrations)
-  {% endhint %}
+* [General](env-variables.md#general)
+* [Indexer](env-variables.md#indexer-management)
+* [Polygon Edge](env-variables.md#polygon-edge-management)
+* [Rootstock](env-variables.md#rootstock-management)
+* [Shibarium](env-variables.md#shibarium-management)
+* [Polygon zkEVM Rollup](env-variables.md#polygon-zkevm-rollup-management)
+* [Optimism Rollup](env-variables.md#optimism-rollup-management)
+* [zkSync Rollup](env-variables.md#zksync-rollup-management)
+* [Exchange Rates](env-variables.md#exchange-rates-management)
+* [Cache](env-variables.md#cache-management)
+* [Gas Price Oracle](env-variables.md#gas-price-oracle-management)
+* [Main Page Dashboard](env-variables.md#main-page-dashboard-management)
+* [Header](env-variables.md#header-management)
+* [Footer](env-variables.md#footer-management)
+* [Contract](env-variables.md#contract-management)
+* [Bridged Tokens](env-variables.md#bridged-tokens)
+* [Miscellaneous UI](env-variables.md#misc-ui-management)
+* [CSV Export](env-variables.md#csv-export)
+* [API Rate Limit](env-variables.md#api-rate-limit-management)
+* [GraphQL API](env-variables.md#graphql-api-management)
+* [Specific Smart Contracts](env-variables.md#specific-smart-contracts)
+* [My Account](env-variables.md#account-related-env-variables)
+* [Integrations](env-variables.md#integrations)
+{% endhint %}
 
 ### General
 
@@ -111,7 +112,6 @@ This table is horizontally scrollable, version information is located in the las
 | `HEART_BEAT_TIMEOUT`                         |          | Production environment variable to restart the application in the event of a crash.                                                                                                                                                         | 30                                                     | all     |                |
 | `HEART_COMMAND`                              |          | Production environment variable to restart the application in the event of a crash.                                                                                                                                                         | (empty)                                                | all     |                |
 | `ELIXIR_VERSION`                             |          | Elixir version to install on the node before Blockscout deploy. It is used in bash script in Terraform / Ansible deployment script                                                                                                          | (empty)                                                | all     |                |
-| `GRAPHIQL_TRANSACTION`                       |          | Default transaction hash in a sample query to GraphiQL.                                                                                                                                                                                     | (empty)                                                | v1.2.0+ | ✅              |
 | `DISABLE_WEBAPP`                             |          | If `true`, endpoints to webapp are hidden (compile-time). Also, enabling it makes notifications go through `db_notify`                                                                                                                      | `false`                                                | v2.0.3+ | ✅              |
 | `API_V1_READ_METHODS_DISABLED`               |          | If `true`, read-only endpoints to API v1 are hidden (compile-time).                                                                                                                                                                         | `false`                                                | v5.1.5+ | ✅              |
 | `API_V1_WRITE_METHODS_DISABLED`              |          | If `true`, write endpoints to API v1 are hidden (compile-time).                                                                                                                                                                             | `false`                                                | v5.1.5+ | ✅              |
@@ -294,18 +294,22 @@ This table is horizontally scrollable, version information is located in the las
 
 ### Polygon zkEVM Rollup management
 
-| Variable                                          | Required | Description                                                                                                                                                                                                                                                                                                         | Default | Version |
-| ------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
-| `INDEXER_POLYGON_ZKEVM_BATCHES_ENABLED`           |          | Enables Polygon zkEVM batches fetcher. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584).                                                                                                                                                                                                  | `false` | v5.3.1+ |
-| `INDEXER_POLYGON_ZKEVM_BATCHES_CHUNK_SIZE`        |          | The number of Polygon zkEVM batches in one chunk when reading them from RPC. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584).                                                                                                                                                            | 20      | v5.3.1+ |
-| `INDEXER_POLYGON_ZKEVM_BATCHES_RECHECK_INTERVAL`  |          | The latest batch rechecking interval, seconds. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584).                                                                                                                                                                                          | 60      | v5.3.1+ |
-| `INDEXER_POLYGON_ZKEVM_L1_RPC`                    |          | The RPC endpoint for L1 used to fetch Deposit or Withdrawal bridge events. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098).                                                                                                                                                              |         | v6.2.0+ |
-| `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_START_BLOCK`     |          | The number of a start block on L1 to index L1 bridge events. If the table of bridge operations is not empty, the process will continue indexing from the last indexed L1 event. If empty or not defined, the L1 events are not handled. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098). |         | v6.2.0+ |
-| `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_CONTRACT`        |          | The address of PolygonZkEVMBridge contract on L1 used to fetch L1 bridge events. Required for L1 bridge events indexing. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098).                                                                                                                |         | v6.2.0+ |
-| `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_NATIVE_SYMBOL`   |          | The symbol of the native coin on L1 to display it in the table of the bridge Deposits and Withdrawals on UI. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098).                                                                                                                            | ETH     | v6.2.0+ |
-| `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_NATIVE_DECIMALS` |          | The number of decimals to correctly display an amount of native coins for some Deposit or Withdrawal bridge operations on UI. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098).                                                                                                           | 18      | v6.2.0+ |
-| `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_START_BLOCK`     |          | The number of a start block on L2 to index L2 bridge events. If the table of bridge operations is not empty, the process will continue indexing from the last indexed L2 event. If empty or not defined, the L2 events are not handled. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098). |         | v6.2.0+ |
-| `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_CONTRACT`        |          | The address of PolygonZkEVMBridge contract on L2 used to fetch L2 bridge events. Required for L2 bridge events indexing. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098).                                                                                                                |         | v6.2.0+ |
+| Variable                                         | Required | Description                                                                                                                                              | Default | Version |
+| ------------------------------------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
+| `INDEXER_POLYGON_ZKEVM_BATCHES_ENABLED`          |          | Enables Polygon zkEVM batches fetcher. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584).                                       | `false` | v5.3.1+ |
+| `INDEXER_POLYGON_ZKEVM_BATCHES_CHUNK_SIZE`       |          | The number of Polygon zkEVM batches in one chunk when reading them from RPC. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584). | 20      | v5.3.1+ |
+| `INDEXER_POLYGON_ZKEVM_BATCHES_RECHECK_INTERVAL` |          | The latest batch rechecking interval, seconds. Implemented in [#7584](https://github.com/blockscout/blockscout/pull/7584).                               | 60      | v5.3.1+ |
+| `INDEXER_POLYGON_ZKEVM_L1_RPC`                   |          | The RPC endpoint for L1 used to fetch Deposit or Withdrawal bridge events. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098).   |         | v6.2.0+  |
+| `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_START_BLOCK`    |          | The number of a start block on L1 to index L1 bridge events. If the table of bridge operations is not empty, the process will continue indexing from the last indexed L1 event. If empty or not defined, the L1 events are not handled. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098). |         | v6.2.0+  |
+| `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_CONTRACT`       |          | The address of PolygonZkEVMBridgeV2 contract on L1 used to fetch L1 bridge events. Required for L1 bridge events indexing. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098). |         | v6.2.0+  |
+| `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_NETWORK_ID`     |          | L1 Network ID in terms of Polygon zkEVM bridge (0 = Ethereum Mainnet, 1 = Polygon zkEVM, 2 = Astar zkEVM, etc.). Required if `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_START_BLOCK` or `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_START_BLOCK` is defined. Implemented in [#9637](https://github.com/blockscout/blockscout/pull/9637). |         | master   |
+| `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_ROLLUP_INDEX`   |          | L1 Rollup index in terms of Polygon zkEVM bridge (0 = Polygon zkEVM, 1 = Astar zkEVM, etc.). Not defined if L1 is Ethereum Mainnet. Required if L1 is not Ethereum Mainnet and `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_START_BLOCK` or `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_START_BLOCK` is defined. Implemented in [#9637](https://github.com/blockscout/blockscout/pull/9637). |  | master  |
+| `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_NATIVE_SYMBOL`  |          | The symbol of the native coin on L1 to display it in the table of the bridge Deposits and Withdrawals on UI. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098). | ETH | v6.2.0+  |
+| `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_NATIVE_DECIMALS`|          | The number of decimals to correctly display an amount of native coins for some Deposit or Withdrawal bridge operations on UI. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098). | 18 | v6.2.0+  |
+| `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_START_BLOCK`    |          | The number of a start block on L2 to index L2 bridge events. If the table of bridge operations is not empty, the process will continue indexing from the last indexed L2 event. If empty or not defined, the L2 events are not handled. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098). |         | v6.2.0+  |
+| `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_CONTRACT`       |          | The address of PolygonZkEVMBridgeV2 contract on L2 used to fetch L2 bridge events. Required for L2 bridge events indexing. Implemented in [#9098](https://github.com/blockscout/blockscout/pull/9098). |         | v6.2.0+  |
+| `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_NETWORK_ID`     |          | L2 Network ID in terms of Polygon zkEVM bridge (1 = Polygon zkEVM, 2 = Astar zkEVM, etc.). Required if `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_START_BLOCK` or `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_START_BLOCK` is defined. Implemented in [#9637](https://github.com/blockscout/blockscout/pull/9637).                       |         | master   |
+| `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_ROLLUP_INDEX`   |          | L2 Rollup index in terms of Polygon zkEVM bridge (0 = Polygon zkEVM, 1 = Astar zkEVM, etc.). Required if `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_START_BLOCK` or `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_START_BLOCK` is defined. Implemented in [#9637](https://github.com/blockscout/blockscout/pull/9637).                     |         | master   |
 
 ### Optimism Rollup Management
 
@@ -520,6 +524,17 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | `API_RATE_LIMIT_UI_V2_TOKEN_TTL_IN_SECONDS` |          | TTL for token issued after submitting correct CAPTCHA for an API v2 requests from UI. In seconds. Implemented in [#7148](https://github.com/blockscout/blockscout/pull/7148)                                                                           | 18000   | v5.1.3+ |                |
 | `ETH_JSON_RPC_MAX_BATCH_SIZE` |          | Max batch size for Eth JSON RPC requests. Implemented in [#9409](https://github.com/blockscout/blockscout/pull/9409)                                                                           | 5   | v6.3.0+ |                |
 
+=======
+
+### GraphQL API management
+
+| Variable                                    | Required | Description                                                                                                                                                                                                                                            | Default | Version | Need recompile |
+| ------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------- | -------------- |
+| `API_GRAPHQL_ENABLED`                            |          | Enabling/disabling of GraphQL API. Implemented in [#9751](https://github.com/blockscout/blockscout/pull/9751)                                                                                                       | true    | master |                |
+| `API_GRAPHQL_MAX_COMPLEXITY`                            |          | Query/schema [max_complexity](https://hexdocs.pm/absinthe/complexity-analysis.html#complexity-analysis) of GraphQL API. Implemented in [#9751](https://github.com/blockscout/blockscout/pull/9751)                                                                                                       | 215    | master |  ✅              |
+| `API_GRAPHQL_TOKEN_LIMIT`                            |          | Query [token_limit](https://hexdocs.pm/absinthe/complexity-analysis.html#token-limits) of Absinthe. Implemented in [#9751](https://github.com/blockscout/blockscout/pull/9751)                                                                                                       | 1000    | master |   ✅             |
+| `API_GRAPHQL_DEFAULT_TRANSACTION_HASH`                       |          | Default transaction hash in a sample query to GraphiQL. Implemented in [#9751](https://github.com/blockscout/blockscout/pull/9751).                                                                                                                                                                                    | 0x69e3923eef50eada197c3336d546936d0c994211492c9f947a24c02827568f9f                                                | master | ✅              |
+
 ### Specific smart-contracts
 
 | Variable                | Required | Description                                                                                                                                                                                              | Default                                      | Version |
@@ -558,8 +573,8 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 
 | Variable                                                | Required | Description                                                                                                                                                                                                                      | Default           | Version |
 | ------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------- |
-| `MICROSERVICE_SC_VERIFIER_ENABLED`                      |          | If `true`, integration with [Rust smart-contract verifier](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier) is enabled. Implemented in [#5860](https://github.com/blockscout/blockscout/pull/5860) | (empty)           | v5.1.3+ |
-| `MICROSERVICE_SC_VERIFIER_URL`                          |          | URL of Rust smart-contract verifier. Implemented in [#5860](https://github.com/blockscout/blockscout/pull/5860)                                                                                                                  | (empty)           | v5.1.3+ |
+| `MICROSERVICE_SC_VERIFIER_ENABLED`                      |          | If `true`, integration with [Rust smart-contract verifier](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier) is enabled. `true` is the default value starting from version 6.4.0. Implemented in [#5860](https://github.com/blockscout/blockscout/pull/5860) | true           | v5.1.3+ |
+| `MICROSERVICE_SC_VERIFIER_URL`                          |          | URL of Rust smart-contract verifier. Implemented in [#5860](https://github.com/blockscout/blockscout/pull/5860)                                                                                                                  | https://eth-bytecode-db.services.blockscout.com/           | v5.1.3+ |
 | `MICROSERVICE_ETH_BYTECODE_DB_INTERVAL_BETWEEN_LOOKUPS` |          | Minimal time after unsuccessful check of smart contract's sources in Eth Bytecode DB. Implemented in [#7187](https://github.com/blockscout/blockscout/pull/7187). [Time format](env-variables.md#time-format)                    | 10m               | v5.1.3+ |
 | `MICROSERVICE_SC_VERIFIER_TYPE`                         |          | Type of smart contract microservice could be either `eth_bytecode_db` or `sc_verifier`. Implemented in [#7187](https://github.com/blockscout/blockscout/pull/7187)                                                               | `eth_bytecode_db` | v5.1.3+ |
 | `MICROSERVICE_ETH_BYTECODE_DB_MAX_LOOKUPS_CONCURRENCY`  |          | Maximum amount of concurrent requests for fetching smart contract's sources in Eth Bytecode DB. Implemented in [#8472](https://github.com/blockscout/blockscout/pull/8472)                                                       | 10                | v5.3.0+ |

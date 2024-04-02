@@ -26,7 +26,7 @@ To enable direct embedding, DApps need to:
 1. Support iframe embedding on 3rd party domains.
 2. Integrate the [Safe Apps SDK](https://docs.safe.global/apps-sdk-overview).
 
-_Blockscout-specific instructions are in process - follow the Safe Apps SDK instructions for now._
+_See_ [_DApp integration_](dapp-integration.md) _for more details._
 {% endhint %}
 
 ## DApps you can Trust
@@ -44,6 +44,6 @@ There are several ways to submit a DApp. You will fill out a form with basic inf
 * Use this form to [submit directly](https://airtable.com/appiy5yijZpMMSKjT/shr6uMGPKjj1DK7NL).
 * Use the submit app button within the marketplace.
 
-<figure><img src="../../.gitbook/assets/submit-app.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/submit-dapp.png" alt=""><figcaption></figcaption></figure>
 
 &#x20;
