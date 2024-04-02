@@ -50,13 +50,17 @@ To fully integrate your protocol into DAppscout, you will need to do 3 things.
 
 Both fully and partially integrated apps in the marketplace are embedded using iFrames, and it is necessary to enable iFrame support for our domain - \*.blockscout.com.  This can typically be done via the `frame-ancestors` directive of the `Content-Security-Policy` header in your application. For additional examples, please see  [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors).
 
+Also, check your [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings, these may need to be modified for the \*.blockscout domain
+
 ### 2) Integrate the Safe Apps SDK
 
 DAppscout uses the Safe Apps SDK to automatically connect a wallet linked to Blockscout to any of the apps in our marketplace. This allows a visitor to connect a wallet once and then open any app without needing to connect the wallet again
 
 To enable this functionality, Safe Apps SDK needs to be integrated for your protocol, and the \*.blockscout.com domain added as an exception.
 
-The [SAFE SDK documentation page](https://docs.safe.global/apps-sdk-get-started) guides you through the process. It includes a quick start guide to help integrate the SDK into your protocol. For additional integration options, check the list of other Safe packages for Safe Apps at [https://github.com/safe-global/safe-apps-sdk?tab=readme-ov-file#packages](https://github.com/safe-global/safe-apps-sdk?tab=readme-ov-file#packages)
+The [SAFE SDK documentation page](https://docs.safe.global/apps-sdk-get-started) provides resources to help  you through the process.  You will need to pass \*.[blockscout.com](http://blockscout.com/) as an additional option to the SafeAppsSDK function into the code [here](https://github.com/safe-global/safe-apps-sdk/tree/main/packages/safe-apps-sdk#documentation).&#x20;
+
+For additional integration options, check the list of other Safe packages for Safe Apps at [https://github.com/safe-global/safe-apps-sdk?tab=readme-ov-file#packages](https://github.com/safe-global/safe-apps-sdk?tab=readme-ov-file#packages)
 
 If you integrate any of these packages, DAppscout can use them to automatically connect a wallet to your app.
 
