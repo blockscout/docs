@@ -9,6 +9,8 @@ BlockScout can take some time to fully index a chain. Larger chains require more
 
 ### Monitoring indexing processes
 
+#### Monitoring blocks/transactions indexing
+
 1. Block count should be close to the number of the blocks in the chain. Query using  `SELECT COUNT(1) FROM blocks;` ~= num of blocks in the chain.
 2. The number of missing blocks in the chain can be monitored with this query:
 ```
@@ -18,5 +20,8 @@ WHERE NOT EXISTS (
     SELECT 1 FROM blocks b2 WHERE b2.number=b1.number AND b2.consensus
 );
 ```
-3. Internal transaction fetching can be monitored with this query: `SELECT COUNT(1) FROM pending_block_operations;`  It should move towards zero during internal transaction processing.
+
+#### Monitoring internal transactions indexing
+
+Internal transaction fetching can be monitored with this query: `SELECT COUNT(1) FROM pending_block_operations;`  It should move towards zero during internal transaction processing.
 
