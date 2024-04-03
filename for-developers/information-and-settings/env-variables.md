@@ -619,8 +619,16 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 
 | Variable                            | Required | Description                                                                                                                                                                                                        | Default | Version |
 | ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------- |
-| `MICROSERVICE_TRANSACTION_INTERPRETATION_URL`     |          | If `true`, integration with Tx Interpreter Service is enabled. Implemented in [#8957](https://github.com/blockscout/blockscout/pull/8957)                                                                     | (empty) | v5.4.0+  |
-| `MICROSERVICE_TRANSACTION_INTERPRETATION_ENABLED` |          | URL of Tx Interpreter Service. Implemented in [#8957](https://github.com/blockscout/blockscout/pull/8957)                                                                                                     | (empty) | v5.4.0+  |
+| `MICROSERVICE_TRANSACTION_INTERPRETATION_ENABLED`     |          | If `true`, integration with Tx Interpreter Service is enabled. Implemented in [#8957](https://github.com/blockscout/blockscout/pull/8957)                                                                     | (empty) | v5.4.0+  |
+| `MICROSERVICE_TRANSACTION_INTERPRETATION_URL` |          | URL of Tx Interpreter Service. Implemented in [#8957](https://github.com/blockscout/blockscout/pull/8957)                                                                                                     | (empty) | v5.4.0+  |
+
+#### Metadata Service
+
+| Variable                            | Required | Description                                                                                                                                                                                                        | Default | Version |
+| ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------- |
+| `MICROSERVICE_METADATA_ENABLED`     |          | If `true`, integration with Metadata Service is enabled. Implemented in [#9706](https://github.com/blockscout/blockscout/pull/9706)                                                                                | (empty) | master  |
+| `MICROSERVICE_METADATA_URL`         |          | URL of Metadata Service. Implemented in [#9706](https://github.com/blockscout/blockscout/pull/9706)                                                                                                                | (empty) | master  |
+
 
 #### Sourcify
 
