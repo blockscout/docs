@@ -626,8 +626,8 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 
 | Variable                            | Required | Description                                                                                                                                                                                                        | Default | Version |
 | ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------- |
-| `MICROSERVICE_METADATA_ENABLED`     |          | If `true`, integration with Metadata Service is enabled. Implemented in [#9706](https://github.com/blockscout/blockscout/pull/9706)                                                                                | (empty) | v6.4.0  |
-| `MICROSERVICE_METADATA_URL`         |          | URL of Metadata Service. Implemented in [#9706](https://github.com/blockscout/blockscout/pull/9706)                                                                                                                | (empty) | v6.4.0  |
+| `MICROSERVICE_METADATA_ENABLED`     |          | If `true`, integration with Metadata Service is enabled. Implemented in [#9706](https://github.com/blockscout/blockscout/pull/9706)                                                                                | (empty) | v6.4.0+  |
+| `MICROSERVICE_METADATA_URL`         |          | URL of Metadata Service. Implemented in [#9706](https://github.com/blockscout/blockscout/pull/9706)                                                                                                                | (empty) | v6.4.0+  |
 
 
 #### Sourcify
