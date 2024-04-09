@@ -25,16 +25,18 @@ Send us an email with the information below. We ask that you please keep your fi
 7. **Email your report**\
    Email your report to [security@blockscout.com](mailto:%22security%40blockscout.com%22%20%3Csecurity%40blockscout.com%3E)
 
+{% hint style="info" %}
 Information is also available on the [SECURITY page of our Github Repo](https://github.com/blockscout/.github/blob/7a136f9c6091bf8b03195224f8abe56305ebb795/SECURITY.md?plain=1#L3).
+{% endhint %}
 
 ### Rewards &#x20;
 
 If you are the first person to report the issue and we make a code or configuration change based on your findings, we will reward you with a bounty. Issue risk level is determined by our team.
 
-1. Critical Risk: Up to $6000 in crypto equivalent.&#x20;
-2. High Risk: Up to $1000 in crypto equivalent.&#x20;
-3. Moderate Risk: Up to $500 in crypto equivalent.
-4. Low Risk: Up to $100 in crypto equivalent.
+1. **Critical Risk**: Up to $6000 in crypto equivalent.&#x20;
+2. **High Risk**: Up to $1000 in crypto equivalent.&#x20;
+3. **Moderate Risk**: Up to $500 in crypto equivalent.
+4. **Low Risk**: Up to $100 in crypto equivalent.
 
 ### Bounty Considerations
 
