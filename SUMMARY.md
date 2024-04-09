@@ -141,7 +141,8 @@
 * [EVM Version Information](for-developers/evm-version-information.md)
 * [Testing](for-developers/testing.md)
 * [DB schema](for-developers/db-schema.md)
-* [Contributing to Blockscout](for-developers/contributing-to-blockscout.md)
+* [Contributing to Blockscout](for-developers/contributing-to-blockscout/README.md)
+  * [Bug Bounty Program](for-developers/contributing-to-blockscout/bug-bounty-program.md)
 
 ## 👓 For projects
 
