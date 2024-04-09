@@ -38,6 +38,8 @@ If you are the first person to report the issue and we make a code or configurat
 3. **Moderate Risk**: Up to $500 in crypto equivalent.
 4. **Low Risk**: Up to $100 in crypto equivalent.
 
+All bounty researchers will be acknowledged (at your discretion) for your efforts in our documentation.
+
 ### Bounty Considerations
 
 Vulnerabilities in the following areas are eligible for bounty consideration.
@@ -77,3 +79,6 @@ Unless presenting a serious business risk (at our discretion), the following are
 * Weak password policies
 * HTML injection
 
+{% hint style="success" %}
+Thank you for your help keeping vital public infrasctructure like block explorers safe and secure!
+{% endhint %}
