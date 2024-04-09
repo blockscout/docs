@@ -4,7 +4,7 @@ Welcome to the Bug Bounty Program at Blockscout! Ensuring the safety of our plat
 
 ### How to report a security vulnerability
 
-Send us an email with the information below. We ask that you lease keep your findings confidential during the reporting process.  We will get back to you with our findings or additional questions within 1 week.
+Send us an email with the information below. We ask that you please keep your findings confidential during the reporting process.  We will get back to you with our findings or additional questions within 10 days.
 
 1.  **Description of the bug/vulnerability**
 
@@ -25,14 +25,16 @@ Send us an email with the information below. We ask that you lease keep your fin
 7. **Email your report**\
    Email your report to [security@blockscout.com](mailto:%22security%40blockscout.com%22%20%3Csecurity%40blockscout.com%3E)
 
+Information is also available on the [SECURITY page of our Github Repo](https://github.com/blockscout/.github/blob/7a136f9c6091bf8b03195224f8abe56305ebb795/SECURITY.md?plain=1#L3).
+
 ### Rewards &#x20;
 
-If you are the first person to report the issue and we make a code or configuration change based on your findings, we will reward you with a bounty:
+If you are the first person to report the issue and we make a code or configuration change based on your findings, we will reward you with a bounty. Issue risk level is determined by our team.
 
-1. Up to $6000 in crypto equivalent if you identify a vulnerability that presents a critical risk.&#x20;
-2. Up to $1000 in crypto equivalent if you identify a vulnerability that presents a high risk.&#x20;
-3. Up to $500 in crypto equivalent if you identify a vulnerability that presents a moderate risk.&#x20;
-4. Up to $100 in crypto equivalent if you identify a vulnerability that presents a low risk.
+1. Critical Risk: Up to $6000 in crypto equivalent.&#x20;
+2. High Risk: Up to $1000 in crypto equivalent.&#x20;
+3. Moderate Risk: Up to $500 in crypto equivalent.
+4. Low Risk: Up to $100 in crypto equivalent.
 
 ### Bounty Considerations
 
