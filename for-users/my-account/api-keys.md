@@ -1,6 +1,6 @@
 # API keys
 
-API Keys are available to enhance request availability. Keys give users the ability to query the API up to 50 requests/sec.
+API Keys are available to enhance request availability. Keys give users the ability to query the API up to 10 requests/sec.
 
 {% hint style="info" %}
 The value of requests per API key is managed via `API_RATE_LIMIT_BY_KEY`. The default value is _50_.

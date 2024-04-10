@@ -50,7 +50,7 @@ More details on [ETH RPC for Blockscout](eth-rpc.md) are available here.
 
 ## API Keys
 
-If My Account is enabled, users can add up to 3 API keys to ensure 50 request/second limits. When API Keys are not used, the global default is 50 requests/second.
+If My Account is enabled, users can add up to 3 API keys to ensure 10 request/second limits. When API Keys are not used, the global default is 50 requests/second.
 
 * More info on [My Account and adding API Keys](../my-account/api-keys.md)
 * More info on [API Requests and Limits](requests-and-limits.md)
