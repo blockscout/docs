@@ -4,7 +4,7 @@ Welcome to the Bug Bounty Program at Blockscout! Ensuring the safety of our plat
 
 ### How to report a security vulnerability
 
-Send us an email with the information below. We ask that you please keep your findings confidential during the reporting process.  We will get back to you with our findings or additional questions within 10 days.
+Send us an email with the information below. We ask that you please keep your findings confidential during the reporting process.  We will get back to you with our diagnosis or additional comments/questions within 10 days.
 
 1.  **Description of the bug/vulnerability**
 
@@ -31,7 +31,7 @@ Information is also available on the [SECURITY page of our Github Repo](https://
 
 ### Rewards &#x20;
 
-If you are the first person to report the issue and we make a code or configuration change based on your findings, we will reward you with a bounty. Issue risk level is determined by our team.
+If you are the first person to report the issue and we make a code or configuration change based on your findings, we will reward you with a bounty and mention in our [🏛Security Hall of Fame](bug-bounty-program.md#security-hall-of-fame)! Issue risk level is determined by our team.
 
 1. **Critical Risk**: Up to $6000 in crypto equivalent.&#x20;
 2. **High Risk**: Up to $1000 in crypto equivalent.&#x20;
@@ -79,6 +79,10 @@ Unless presenting a serious business risk (at our discretion), the following are
 * Weak password policies
 * HTML injection
 
+## 🏛 Security Hall of Fame
+
 {% hint style="success" %}
-Thank you for your help keeping vital public infrasctructure like block explorers safe and secure!
+Thank you for your help keeping vital public infrastructure like block explorers safe and secure!
 {% endhint %}
+
+* blackgrease: [https://github.com/blackgrease](https://github.com/blackgrease)
