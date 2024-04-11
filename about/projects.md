@@ -7,7 +7,7 @@ description: List of projects and links
 
 
 {% hint style="warning" %}
-We are currently adding chains and projects to our new projects page rather than the docs. The new projects page is located at [https://eaas.blockscout.com/chains-and-projects](https://eaas.blockscout.com/chains-and-projects). \
+We are currently adding chains and projects to our new projects page rather than the docs. The new projects page is located at [https://www.blockscout.com/chains-and-projects](https://www.blockscout.com/chains-and-projects)\
 \
 Please [**SUBMIT THIS FORM**](https://airtable.com/appei1B8KwfA8kfol/pag9lBN2gDqhVSom7/form) to be added.
 {% endhint %}
