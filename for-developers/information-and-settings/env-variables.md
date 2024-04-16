@@ -683,3 +683,10 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | `NOVES_FI_BASE_API_URL`  |          | [Noves.fi API](https://blockscout.noves.fi/swagger/index.html) base URL. Implemented in [#9056](https://github.com/blockscout/blockscout/pull/9056). | https://blockscout.noves.fi | v6.1.0+ |
 | `NOVES_FI_CHAIN_NAME`  |          | [Noves.fi API](https://blockscout.noves.fi/swagger/index.html) chain name. Implemented in [#9056](https://github.com/blockscout/blockscout/pull/9056). | (empty) | v6.1.0+ |
 | `NOVES_FI_API_TOKEN` |          | [Noves.fi API](https://blockscout.noves.fi/swagger/index.html) API token for usage of Noves.fi API. Implemented in [#9056](https://github.com/blockscout/blockscout/pull/9056). API.                                                                                                             | (empty) | v6.1.0+ |
+
+#### Zerion
+
+| Variable                 | Required | Description                                                                                                                                                                                                                                                             | Default | Version |
+| ------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
+| `ZERION_BASE_API_URL`  |          | [Zerion API](https://developers.zerion.io/reference/intro/getting-started) base URL. Implemented in [#9896](https://github.com/blockscout/blockscout/pull/9896). | https://api.zerion.io/v1 | master |
+| `ZERION_API_TOKEN` |          | [Zerion API](https://developers.zerion.io/reference/intro/getting-started) API token for usage of Noves.fi API. Implemented in [#9896](https://github.com/blockscout/blockscout/pull/9896). API.                                                                                                             | (empty) | master |
