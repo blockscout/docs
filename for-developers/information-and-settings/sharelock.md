@@ -120,11 +120,12 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.PolygonEdge.DepositExecute | polygon\_edge\_deposit\_executes | \[asc: :msg\_id\] |
 | Explorer.Chain.PolygonEdge.Withdrawal | polygon\_edge\_withdrawals | \[asc: :msg\_id\] |
 | Explorer.Chain.PolygonEdge.WithdrawalExit | polygon\_edge\_withdrawal\_exits | \[asc: :msg\_id\] |
-| Explorer.Chain.OptimismOutputRoot | op\_output\_roots | \[asc: :l2\_output\_index\] |
-| Explorer.Chain.OptimismTxnBatch | op\_transaction\_batches | \[asc: :l2\_block\_number\] |
-| Explorer.Chain.OptimismDeposit | op\_deposits | \[asc: :l2\_transaction\_hash\] |
-| Explorer.Chain.OptimismWithdrawalEvent | op\_withdrawal\_events | \[asc: :withdrawal\_hash, asc: :l1\_event\_type\] |
-| Explorer.Chain.OptimismWithdrawal | op\_withdrawals | \[asc: :msg\_nonce\] |
+| Explorer.Chain.Optimism.OutputRoot | op\_output\_roots | \[asc: :l2\_output\_index\] |
+| Explorer.Chain.Optimism.TxnBatch | op\_transaction\_batches | \[asc: :l2\_block\_number\] |
+| Explorer.Chain.Optimism.Deposit | op\_deposits | \[asc: :l2\_transaction\_hash\] |
+| Explorer.Chain.Optimism.DisputeGame | op\_dispute\_games | \[asc: :index\] |
+| Explorer.Chain.Optimism.WithdrawalEvent | op\_withdrawal\_events | \[asc: :withdrawal\_hash, asc: :l1\_event\_type\] |
+| Explorer.Chain.Optimism.Withdrawal | op\_withdrawals | \[asc: :msg\_nonce\] |
 | Explorer.Chain.Address.TokenBalance | address\_token\_balances | \[asc: :address\_hash, asc: :token\_contract\_address\_hash, asc: :block\_number\] |
 | Explorer.Chain.Address.CurrentTokenBalance | address\_current\_token\_balances | \[asc: :address\_hash, asc: :token\_contract\_address\_hash\] |
 | Explorer.Chain.Shibarium.Bridge | shibarium\_bridge | \[asc: :operation_hash, asc: l1\_transaction\_hash, asc: l2\_transaction\_hash\] |
