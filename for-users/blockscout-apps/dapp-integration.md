@@ -21,6 +21,8 @@ Our goal is to have as many fully integrated apps as possible!
 3. **Non-Integrated Apps**
    * Apps that are not opened in an iFrame on \*.blockscout.com domains and have not integrated the Safe Apps SDK for various reasons
 
+{% hint style="info" %} Fully integrated DApps list higher within the default view {% endhint %}
+
 ## Integration Benefits
 
 {% hint style="success" %}
