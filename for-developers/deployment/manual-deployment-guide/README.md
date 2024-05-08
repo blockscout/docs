@@ -18,7 +18,7 @@ Please familiarize yourself with the [general requirements](../../information-an
 
 * CPU: 4core / 8core
 * RAM: 8GB / 16GB / 32GB
-* DISK: 120gb or 500GB NVME SSD or Standart SSD
+* DISK: 120gb or 500GB NVME SSD or Standard SSD
 * OS: Linux, MacOS
 
 ### Hosting Environment Hardware Requirements
@@ -45,7 +45,7 @@ For Erlang/Elixir, [asdf](https://asdf-vm.com/) is recommended to install and se
 
 ## B. Manual Deployment
 
-The following guide contains 5 sections that cover a complete Blockcout installation.
+The following guide contains 5 sections that cover a complete Blockscout installation.
 
 1. [Prepare the backend](./#1.-prepare-the-backend)
 2. [Run microservices](./#2.-run-microservices)
@@ -196,7 +196,7 @@ You will use Docker to run 4 Rust microservices: smart-contract verification, sm
 
 A visualizer for smart contracts.
 
-* sc-visualizer will be lcoated at [http://localhost:8081/](http://localhost:8081/)
+* sc-visualizer will be located at [http://localhost:8081/](http://localhost:8081/)
 * Check the visualizer service works by requesting the [http://localhost:8081/health](http://localhost:8081/health) page - it should return `{"status":"SERVING"}`.
 
 ### **Sc-verifier**
@@ -299,5 +299,5 @@ NEXT_PUBLIC_API_WEBSOCKET_PROTOCOL='ws'
 
 **Notes:**
 
-* To configue the **My Account** section, you will add additional env variables on the frontend. See [https://github.com/blockscout/frontend/blob/main/docs/ENVS.md#my-account](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md#my-account)
+* To configure the **My Account** section, you will add additional env variables on the frontend. See [https://github.com/blockscout/frontend/blob/main/docs/ENVS.md#my-account](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md#my-account)
 * More info related to the frontend is available at: [https://github.com/blockscout/frontend/blob/main/docs/CONTRIBUTING.md#local-development](https://github.com/blockscout/frontend/blob/main/docs/CONTRIBUTING.md#local-development)
