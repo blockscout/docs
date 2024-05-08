@@ -185,12 +185,12 @@ You will use Docker to run 4 Rust microservices: smart-contract verification, sm
 ### Stats
 
 * Stats will be served from [http://localhost:8080/](http://localhost:8080/)
-* You can check, that service works by requesting [http://localhost:8080/health](http://localhost:8080/health?service=). It should return `{"status":"SERVING"}`
+* You can check, that service works by requesting [http://localhost:8080/health?service=](http://localhost:8080/health?service=). It should return `{"status":"SERVING"}`
 
 ### sig-provider
 
 * sig-provider will be at [http://localhost:8083/](http://localhost:8083/)
-* You can check, that service works by requesting [http://localhost:8083/health](http://localhost:8083/health?service=). It should return `{"status":"SERVING"}`
+* You can check, that service works by requesting [http://localhost:8083/health?service=](http://localhost:8083/health?service=). It should return `{"status":"SERVING"}`
 
 ### Sc-visualizer
 
