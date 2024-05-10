@@ -695,3 +695,11 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | ------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
 | `ZERION_BASE_API_URL`  |          | [Zerion API](https://developers.zerion.io/reference/intro/getting-started) base URL. Implemented in [#9896](https://github.com/blockscout/blockscout/pull/9896). | https://api.zerion.io/v1 | v6.5.0+ |
 | `ZERION_API_TOKEN` |          | [Zerion API](https://developers.zerion.io/reference/intro/getting-started) token. Implemented in [#9896](https://github.com/blockscout/blockscout/pull/9896). | (empty) | v6.5.0+ |
+
+#### MUD framework
+
+| Variable              | Required | Description                                                                                                                                                                                               | Default                   | Version |
+|-----------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|---------|
+| `MUD_INDEXER_ENABLED` |          | If `true`, integration with [MUD](https://mud.dev/services/indexer#schemaless-indexing-with-postgresql-via-docker) is enabled. Implemented in [#9869](https://github.com/blockscout/blockscout/pull/9869) | (empty)                   | master  |
+| `MUD_DATABASE_URL`    |          | MUD indexer DB connection URL.                                                                                                                                                                            | value from `DATABASE_URL` | master  |
+| `MUD_POOL_SIZE`       |          | MUD indexer DB `pool_size`                                                                                                                                                                                | 50                        | master  |
