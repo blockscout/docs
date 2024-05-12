@@ -2,12 +2,12 @@
 description: API designed for ease of use
 ---
 
-# RPC Endpoints
+# RPC API Endpoints
 
-This API is provided for developers transitioning applications from Etherscan to BlockScout and applications requiring general API and data support. It supports GET and POST requests.
+This API is provided for developers transitioning applications from Etherscan to BlockScout and applications requiring general API and data support. It supports GET and POST requests.&#x20;
 
 {% hint style="info" %}
-URLs vary by instance. With typical installations, access the API by adding `/ap`i to the end of the url. For example with the Goerli instance.
+URLs vary by instance. With typical installations, access the API by adding `/api` to the end of the url. For example with the Goerli instance.
 
 * URL: [https://eth-goerli.blockscout.com](https://eth-goerli.blockscout.com/)
 * API URL: [https://eth-goerli.blockscout.com/api](https://eth-goerli.blockscout.com/api)
