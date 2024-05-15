@@ -5,11 +5,21 @@
 * Install `chromedriver` . It is required to run tests from `./apps/block_scout_web` of the Umbrella application.
 *   This set of environment variables is required for each run of the test (`mix test`) suite:
 
-    ```
+    ```sh
     export MIX_ENV=test
     export POSTGRES_DB=explorer_test
     export POSTGRES_PASSWORD=postgres
     export POSTGRES_USER=postgres
+    export CHAIN_ID=77
+    ```
+    
+    Since v6.6.0, there are more flexible options for configuring the database
+    used in testing. Refer to the `TEST_DATABASE_URL` and
+    `DATABASE_READ_ONLY_API_URL` environment variables for more details.
+
+    ```sh
+    export MIX_ENV=test
+    export TEST_DATABASE_URL=postgresql://postgres:postgres@postgres-host:5432/explorer_test
     export CHAIN_ID=77
     ```
 
