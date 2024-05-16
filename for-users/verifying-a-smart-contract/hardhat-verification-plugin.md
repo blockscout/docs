@@ -1,6 +1,6 @@
 # Hardhat Verification Plugin
 
-[Hardhat ](https://hardhat.org/)is a full-featured development environment for contract compilation, deployment and verification. The [hardhat-verify plugin](https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html) supports contract verification on BlockScout.
+[Hardhat ](https://hardhat.org/)is a full-featured development environment for contract compilation, deployment and verification. The [hardhat-verify plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) supports contract verification on BlockScout.
 
 ## Get Started
 
@@ -28,7 +28,7 @@ Run `npx hardhat` in your project folder and follow the instructions to create (
 
 ### 3) Install plugin
 
-Install the [hardhat-verify plugin](https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html) (requires **v3.0.0+).**
+Install the [hardhat-verify plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) (requires **v3.0.0+).**
 
 **npm**
 
@@ -60,7 +60,7 @@ import "@nomicfoundation/hardhat-verify";
 
 Your basic [Hardhat config file](https://hardhat.org/config/) (`hardhat.config.js` or `hardhat.config.ts`) will be setup to support the network you are working on. In this example we use the Sepolia test network and a `.js` file. &#x20;
 
-Here we add an RPC url without an API key, however some value is still required. You can use any arbitrary string. [More info](https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html#multiple-api-keys-and-alternative-block-explorers).
+Here we add an RPC url without an API key, however some value is still required. You can use any arbitrary string. [More info](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify#multiple-api-keys-and-alternative-block-explorers).
 
 If you prefer, you can migrate to [hardhat-toolbox](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-toolbox) to use a plugin bundle.
 
@@ -92,7 +92,6 @@ const config: HardhatUserConfig = {
       accounts: [PRIVATE_KEY],
     },
   },
-  // npx hardhat verify 0xd69b16ACEF4bd0aCB7E57D4dF0F1AC84D377E96b --network sepolia 123 --force
   etherscan: {
     apiKey: {
       // Is not required by blockscout. Can be any non-empty string
@@ -105,10 +104,6 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://eth-sepolia.blockscout.com/api",
           browserURL: "https://eth-sepolia.blockscout.com/",
-          // apiURL: "https://api-sepolia.etherscan.io/api",
-          // browserURL: "https://sepolia.etherscan.io/",
-          // apiURL: "https://api.etherscan.io/api",
-          // browserURL: "https://etherscan.io/"
         }
       }
     ]
