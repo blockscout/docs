@@ -7,10 +7,10 @@ description: Upcoming enhancements and updates to BlockScout
 {% hint style="info" %}
 The Blockscout roadmap is a high-level strategic plan designed to guide research and development. **Target dates and details are reviewed by the team and subject to move, adjust and change as the project evolves**. Note that only completed items ( :white\_check\_mark: Status: Complete) are considered achieved project milestones.
 
-_Last update: January 03, 2024 |_ [_Changelog_](roadmap.md#change-log)
+_Last update: May 29, 2024 |_ [_Changelog_](roadmap.md#change-log)
 {% endhint %}
 
-## 🟦 Q1 2024
+## 🟦 Q1-2 2024
 
 Items currently in progress. Some are planned for Q1 completion while others will extend to Q2 2024.
 
@@ -32,16 +32,12 @@ In addition to the Admin dashboard, other microservices in development include:
 
 Support for the Ethereum Name Service (ENS) and its popular forks by:
 
-* Resolving ENS names for addresses and listing names for the address
-* Enabling search by ENS name
+* :white\_check\_mark: Resolving ENS names for addresses and listing names for the address
+* :white\_check\_mark:  Enabling search by ENS name
 * Providing advanced name lookup features
 * Resolve ENS name for addresses, list names for the address
-* Search by ENS name
+* :white\_check\_mark: Search by ENS name
 * Advanced Name lookup
-
-### &#x20;🟦  AWS Deployment Template
-
-Pre-configured AWS templates for easy deployment and setup for those who choose Amazon Web Services deployment environments. We will explore template creation for additional environments once this template is completed.
 
 ### 🟦  POS and Rollup Feature Expansion
 
@@ -84,27 +80,11 @@ Explore a dedicated NFT explorer module to include:
 * Latest Trades, Transfers and Mints
 * NFT Marketplace & Platform Integrations
 
-### 🟦  News Feed Integration
-
-Dedicated news feed module that aggregates the latest news, updates, and developments related to the chain, keeping users informed and engaged with the ecosystem.
-
-## &#x20;🟪 Q2 2024
-
-Items currently planned for Q4. We will amend and update this list as development priorities evolve.
-
-### &#x20;🟪 Multisender Native Dapp
-
-Users can send transactions to multiple recipients simultaneously, saving time and reducing gas fees.
-
-### 🟪 Gas Tracker
-
-Users can monitor gas prices and trends to help them make informed decisions about transaction fees and timing.
-
-### 🟪 Ongoing Interface Improvements
+### 🟦   Ongoing Interface Improvements
 
 Add improvements as informed by usage trends. May include "Popular Apps" views for the marketplace module, "Top Statistic" views relevant to most used applications and contracts, and detailed statistics related to node performance.
 
-### 🟪 Ongoing Tooling Improvements
+### 🟦  Ongoing Tooling Improvements
 
 Continue to research and improve tooling for developers including requested tools such as:
 
@@ -115,6 +95,10 @@ Continue to research and improve tooling for developers including requested tool
 * Advanced debugger
 
 ## :white\_check\_mark: Completed
+
+### :white\_check\_mark:  Gas Tracker
+
+Users can monitor gas prices and trends to help them make informed decisions about transaction fees and timing.
 
 ### :white\_check\_mark: Human Readable Transactions v1
 
@@ -276,6 +260,7 @@ BlockScout supports verification for contracts via multiple methods including Ha
 
 | Update       | Items                                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 29.05.2024   | <p>Minor update: Will be adding a major overhaul in June for Q3-Q4 and will reconfigure, add new items and remove others.<br></p><p>Completed:</p><ul><li>Gas Tracker</li><li>Basic ENS support</li></ul><p>Removed <span data-gb-custom-inline data-tag="emoji" data-code="1f389">🎉</span></p><ul><li>AWS template</li><li>Multisender native dapp</li></ul>                                   |
 | _03.01.2024_ | <p>Update milestones for Q1 2024. </p><p>Completed:</p><ul><li>Universal smart contract front-end</li><li>Human readable transactions v1</li></ul>                                                                                                                                                                                                                                               |
 | _07.11.2023_ | Updated milestones to reflect current quarterly work. A more extensive update with many reworked milestones will be added for 2024.                                                                                                                                                                                                                                                              |
 | _10.08.2023_ | <p>Updated Q3 milestones to account for completed items.</p><p></p><p>Completed:</p><ul><li>Improved indexer performance</li><li>Advanced filter and search</li><li>My Account improvements</li><li>Admin Account </li></ul>                                                                                                                                                                     |
