@@ -13,10 +13,11 @@ description: >-
 * [https://eth-holesky.blockscout.com/](https://eth-holesky.blockscout.com/)
 * [https://base.blockscout.com/](https://base.blockscout.com/)
 * [https://optimism.blockscout.com/](https://optimism.blockscout.com/)
-  
 {% endhint %}
 
-Blockscout provides a comprehensive, easy-to-use interface for users to view, confirm, inspect and interact on EVM (Ethereum Virtual Machine) blockchains. Blockscout currently supports a wide range of projects and chains, see our [chains and projects page]([about/projects.md](https://www.blockscout.com/chains-and-projects)) for more details.
+Blockscout provides a comprehensive, easy-to-use interface for users to view, confirm, inspect and interact on EVM (Ethereum Virtual Machine) blockchains.&#x20;
+
+Blockscout currently supports a wide range of projects and chains, see our [chains and projects page](\[about/projects.md]\(https:/www.blockscout.com/chains-and-projects\)/)[ ](https://www.blockscout.com/chains-and-projects)for more details.
 
 <figure><img src=".gitbook/assets/ethereum-explorer.png" alt=""><figcaption><p>Ethereum mainnet explorer (winter style)</p></figcaption></figure>
 
