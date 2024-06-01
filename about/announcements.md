@@ -22,5 +22,5 @@ Head of Product Ulyana Skladchikova presented on the future of block explorers a
 
 ## Base + Blockscout original press release
 
-{% file src="../../.gitbook/assets/Base Open Source Block Explorer.pdf" %}
+{% file src="../.gitbook/assets/Base Open Source Block Explorer.pdf" %}
 

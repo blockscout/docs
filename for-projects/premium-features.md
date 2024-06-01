@@ -2,7 +2,7 @@
 description: Explorer as a Service offerings from Blockscout
 ---
 
-# EaaS: Hosted Features
+# EaaS: Hosting with Blockscout
 
 Hosted instances receive support and updates not available to non-hosted instances. If you have questions about integrating services or current premium integrations please ask in [Discord.](https://discord.gg/XmNatGKbPS)
 

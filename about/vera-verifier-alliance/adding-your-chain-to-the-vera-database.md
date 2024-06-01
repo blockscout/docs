@@ -1,4 +1,4 @@
-# Adding your Chain into Vera with Blockscout
+# Adding your Chain to the Vera database
 
 The Vera application does not send verification requests directly to your instance, rather it stores the contract in the Verifier Alliance DB for your chain, then asks your instance to import contract details from that shared DB. The `eth-bytecode-db` service is responsible for retrieving the contract details and for contract verification.
 

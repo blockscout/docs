@@ -6,5 +6,5 @@ You can also [subscribe to receive the newsletter](https://www.blog.blockscout.c
 
 Past newsletters are available on the [Blockscout Blog](https://www.blog.blockscout.com/). If you have anything you'd like to see featured in our newsletters, please [let us know](https://www.blockscout.com/#contact-us)!
 
-<figure><img src="../../.gitbook/assets/blockscout-blog.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/blockscout-blog.png" alt=""><figcaption></figcaption></figure>
 
