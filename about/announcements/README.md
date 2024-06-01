@@ -1,6 +1,12 @@
-# Announcements & Media
+# News & Media
 
-## EthCC Blockscout Presentation
+## Dappcon 2024 Blockscout Presentation
+
+Head of research Kirill Fedoseev presented on  network resilience and the need for reliable, transparent, and available explorers in a multi-chain world (starts at 7:50:00)
+
+{% embed url="https://youtu.be/xRAG5oIrwH4" %}
+
+## EthCC 2023 Blockscout Presentation
 
 Head of Product Ulyana Skladchikova presented on the future of block explorers at ETHCC 2023 in Paris.
 
@@ -16,5 +22,5 @@ Head of Product Ulyana Skladchikova presented on the future of block explorers a
 
 ## Base + Blockscout original press release
 
-{% file src="../.gitbook/assets/Base Open Source Block Explorer.pdf" %}
+{% file src="../../.gitbook/assets/Base Open Source Block Explorer.pdf" %}
 

@@ -7,11 +7,14 @@
 * [Features](about/features/README.md)
   * [Ethereum Bytecode Database Microservice](about/features/ethereum-bytecode-database-microservice.md)
   * [Blockscout Redesign](about/features/blockscout-2.0.md)
-* [Chains & Projects Using Blockscout](about/projects.md)
 * [Partners & Integrations](about/partners-and-integrations/README.md)
   * [RaaS Providers](about/partners-and-integrations/raas-providers.md)
-* [Announcements & Media](about/announcements.md)
-* [Newsletter & Blog](about/newsletter-and-blog.md)
+  * [Vera: Verifier Alliance](about/partners-and-integrations/vera-verifier-alliance/README.md)
+    * [Adding your Chain into Vera with Blockscout](about/partners-and-integrations/vera-verifier-alliance/adding-your-chain-into-vera-with-blockscout.md)
+* [Chains & Projects Using Blockscout](about/projects.md)
+* [EaaS: Hosting with Blockscout](about/premium-features.md)
+* [News & Media](about/announcements/README.md)
+  * [Newsletter & Blog](about/announcements/newsletter-and-blog.md)
 * [Funding](about/funding/README.md)
   * [L2 Funding Proposal](about/funding/l2-funding-proposal/README.md)
     * [Aux Funding Images](about/funding/l2-funding-proposal/aux-funding-images.md)
@@ -84,6 +87,7 @@
   * [ShareLock](for-developers/information-and-settings/sharelock.md)
   * [haproxy Settings for Blockscout.com](for-developers/information-and-settings/haproxy-settings-for-blockscout.com.md)
   * [Smart Contract Verification](for-developers/information-and-settings/smart-contract-verification.md)
+  * [EVM Version Information](for-developers/information-and-settings/evm-version-information.md)
 * [Deployment](for-developers/deployment/README.md)
   * [⭐ Manual Deployment Guide](for-developers/deployment/manual-deployment-guide/README.md)
     * [Ubuntu Setup](for-developers/deployment/manual-deployment-guide/ubuntu-setup.md)
@@ -138,15 +142,10 @@
 * [Indexing](for-developers/indexing/README.md)
   * [How do I fix indexer timeouts?](for-developers/indexing/how-do-i-fix-indexer-timeouts.md)
   * [How do I update memory consumption to fix indexer memory errors?](for-developers/indexing/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md)
-* [EVM Version Information](for-developers/evm-version-information.md)
 * [Testing](for-developers/testing.md)
 * [DB schema](for-developers/db-schema.md)
 * [Contributing to Blockscout](for-developers/contributing-to-blockscout.md)
 * [Bug Bounty Program](for-developers/bug-bounty-program.md)
-
-## 👓 For projects
-
-* [EaaS: Hosted Features](for-projects/premium-features.md)
 
 ## 🧩 Resources
 

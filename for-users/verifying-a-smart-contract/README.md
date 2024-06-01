@@ -47,7 +47,7 @@ To learn more about the smart contract verification Rust microservice and verifi
 2. **Is Yul contract:** Select if the contract is coded in Yul for efficiency.
 3. **Include Nightly Builds**: Select if you want to show nightly builds.
 4. **Compiler:** derived from the first line in the contract `pragma solidity X.X.X`. Use the corresponding compiler version rather than the nightly build.
-5. **EVM Version:** Select the correct[ EVM version ](../../for-developers/evm-version-information.md)if known, otherwise use default.
+5. **EVM Version:** Select the correct[ EVM version ](../../for-developers/information-and-settings/evm-version-information.md)if known, otherwise use default.
 6. **Optimization Enabled:** If you enabled optimization during compilation, select and enter the run value. 200 is the Solidity Compiler default value. Only change if you changed this value while compiling.
 7. &#x20;**Enter the Solidity Contract Code:** You may need to flatten your solidity code if it utilizes a library or inherits dependencies from another contract. We recommend [hardhat ](https://hardhat.org/hardhat-runner/docs/advanced/flattening)or the [POA solidity flattener](https://github.com/poanetwork/solidity-flattener).
 8. **Add Contract Libraries:** Enter the name and 0x address for any required libraries called in the .sol file. You can add multiple contracts with the "+" button.
@@ -78,7 +78,7 @@ See the above settings. You will upload all of the .sol or .yul files you used f
 
 1. **Contract Name:** Name assigned to the contract.
 2. **Compiler**: Select the compiler version used in the source code.
-3. **EVM Version:** Select the correct[ EVM version ](../../for-developers/evm-version-information.md)if known, otherwise use default.
+3. **EVM Version:** Select the correct[ EVM version ](../../for-developers/information-and-settings/evm-version-information.md)if known, otherwise use default.
 4. **Contract Code:** Copy and paste the contract code
 5. Click the `Verify and Publish` button.
 
