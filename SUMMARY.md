@@ -17,7 +17,8 @@
   * [L2 Funding Proposal](about/funding/l2-funding-proposal/README.md)
     * [Aux Funding Images](about/funding/l2-funding-proposal/aux-funding-images.md)
 * [Vera: Verifier Alliance](about/vera-verifier-alliance/README.md)
-  * [Adding your Chain to the Vera database](about/vera-verifier-alliance/adding-your-chain-to-the-vera-database.md)
+  * [Adding your chain to the Vera database](about/vera-verifier-alliance/adding-your-chain-to-the-vera-database.md)
+  * [Programmatic verification via the API](about/vera-verifier-alliance/programmatic-verification-via-the-api.md)
 * [Roadmap](about/roadmap.md)
 * [FAQs](about/faqs.md)
 
