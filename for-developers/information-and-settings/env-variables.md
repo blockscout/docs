@@ -47,6 +47,7 @@ This table is horizontally scrollable, version information is located in the las
 
 * [General](env-variables.md#general)
 * [Indexer](env-variables.md#indexer-management)
+* [Sanitizer](env-variables.md#sanitizers-management)
 * [Polygon Edge](env-variables.md#polygon-edge-management)
 * [Rootstock](env-variables.md#rootstock-management)
 * [Shibarium](env-variables.md#shibarium-management)
@@ -250,6 +251,13 @@ This table is horizontally scrollable, version information is located in the las
 | `TOKEN_TRANSFER_TOKEN_TYPE_MIGRATION_CONCURRENCY`              |          | Number of parallel denormalization token transfer batches processing.                                             | 1                   | v6.3.0+      | API, Indexer  |
 | `SANITIZE_INCORRECT_NFT_BATCH_SIZE`                            |          | Number of token transfers to sanitize in the batch.                                                               | 100                 | v6.3.0+      | API, Indexer  |
 | `SANITIZE_INCORRECT_NFT_CONCURRENCY`                           |          | Number of parallel sanitizing token transfer batches processing.                                                  | 1                   | v6.3.0+      | API, Indexer  |
+
+### Sanitizers management
+
+| Variable                              | Required | Description                                                                                                                                   | Default | Version | Application  |
+| ------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- | ------------ |
+| `SANITIZE_INCORRECT_WETH_BATCH_SIZE`  |          | Number of token transfers to sanitize in the batch. Implemented in [#10134](https://github.com/blockscout/blockscout/pull/10134)              | 100     | master  | API, Indexer |
+| `SANITIZE_INCORRECT_WETH_CONCURRENCY` |          | Number of parallel sanitizing token transfer batches processing. Implemented in [#10134](https://github.com/blockscout/blockscout/pull/10134) | 1       | master  | API, Indexer |
 
 ### Ethereum Management
 
@@ -483,6 +491,7 @@ Please note that these zkSync-related variables are only supported together with
 | `CONTRACT_AUDIT_REPORTS_AIRTABLE_URL`                   |          | URL of AirTable to store audit reports from users. Implemented in [#9120](https://github.com/blockscout/blockscout/pull/9120)                                                                                                                         | (empty)                                                                                                                        | v6.1.0+ | API         |
 | `CONTRACT_AUDIT_REPORTS_AIRTABLE_API_KEY`               |          | Access token for `CONTRACT_AUDIT_REPORTS_AIRTABLE_URL`. Implemented in [#9120](https://github.com/blockscout/blockscout/pull/9120)                                                                                                                    | (empty)                                                                                                                        | v6.1.0+ | API         |
 | `CONTRACT_CERTIFIED_LIST`                               |          | Comma-separated list of smart-contract addresses hashes, to which "certified" flag should be applied. Implemented in [#9910](https://github.com/blockscout/blockscout/pull/9910)                                                                      | (empty)                                                                                                                        | v6.5.0+ | API         |
+| `WHITELISTED_WETH_CONTRACTS`                            |          | Comma-separated list of smart-contract addresses hashes of WETH-like tokens which deposit and withdrawal events you'd like to index. Implemented in [#10134](https://github.com/blockscout/blockscout/pull/10134)                                     | (empty)                                                                                                                        | master  | API, Indexer|
 
 ### Bridged tokens
 
