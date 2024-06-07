@@ -79,6 +79,7 @@
     * [Client Setting Requirements](for-developers/information-and-settings/client-settings.md)
     * [Node Tracing / JSON RPC Requirements](for-developers/information-and-settings/node-tracing-json-rpc-requirements.md)
   * [☑️ ENV Variables](for-developers/information-and-settings/env-variables.md)
+    * [Backend ENV variables](for-developers/information-and-settings/env-variables/backend-env-variables.md)
     * [Frontend Common ENVs](for-developers/information-and-settings/env-variables/frontend-common-envs.md)
     * [Deprecated ENV Variables](for-developers/information-and-settings/deprecated-env-variables.md)
   * [Separate Indexer, Web App, and API](for-developers/information-and-settings/separate-indexer-web-app-and-api.md)
