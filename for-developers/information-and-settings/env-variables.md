@@ -54,6 +54,7 @@ This table is horizontally scrollable, version information is located in the las
 * [Polygon zkEVM Rollup](env-variables.md#polygon-zkevm-rollup-management)
 * [Optimism Rollup](env-variables.md#optimism-rollup-management)
 * [zkSync Rollup](env-variables.md#zksync-rollup-management)
+* [Arbitrum Rollup](env-variables.md#arbitrum-rollup-management)
 * [Exchange Rates](env-variables.md#exchange-rates-management)
 * [Cache](env-variables.md#cache-management)
 * [Gas Price Oracle](env-variables.md#gas-price-oracle-management)
@@ -368,6 +369,32 @@ Please note that these zkSync-related variables are only supported together with
 | `INDEXER_ZKSYNC_NEW_BATCHES_RECHECK_INTERVAL`     |          | The latest batch rechecking interval, seconds. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                                       | 60       | v6.3.0+ | Indexer     |
 | `INDEXER_ZKSYNC_L1_RPC`                           |          | The RPC endpoint for L1 used to fetch status of batches. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                             | (empty)  | v6.3.0+ | Indexer     |
 | `INDEXER_ZKSYNC_BATCHES_STATUS_RECHECK_INTERVAL`  |          | The batches status rechecking interval, seconds. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                                     | 60       | v6.3.0+ | Indexer     |
+
+### Arbitrum Rollup Management
+
+Please note that these Arbitrum-related variables are only supported together with setting `CHAIN_TYPE=arbitrum`.
+
+| Variable                                                          | Required | Description                                                                                                                                                     | Default | Version           |
+| ----------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ----------------- |
+| `INDEXER_ARBITRUM_ARBSYS_CONTRACT`                                |          | The address of ArbSys contract on the rollup. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | `0x0000000000000000000000000000000000000064` | |
+| `INDEXER_ARBITRUM_L1_RPC`                                         |          | The RPC endpoint for L1 used to fetch transaction batches, block confirmations, and cross-chain messages. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | | |
+| `INDEXER_ARBITRUM_L1_RPC_CHUNK_SIZE`                              |          | The number of RPC calls in one request when reading data from RPC. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | 20 | |
+| `INDEXER_ARBITRUM_L1_RPC_HISTORICAL_BLOCKS_RANGE`                 |          | The block range size for the eth\_getLogs request. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | 1000 | |
+| `INDEXER_ARBITRUM_L1_ROLLUP_CONTRACT`                             |          | The Arbitrum Rollup contract address on L1. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | | |
+| `INDEXER_ARBITRUM_L1_ROLLUP_INIT_BLOCK`                           |          | The block number where the Arbitrum rollup contract has been deployed. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | 1 | |
+| `INDEXER_ARBITRUM_L1_COMMON_START_BLOCK`                          |          | The block number at which synchronization will commence. It will proceed in both directions: discovering new batches up to the chain head, and historical batches until `INDEXER_ARBITRUM_L1_ROLLUP_INIT_BLOCK`. If omitted, the sychronization starts from the latest block. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | latest block | |
+| `INDEXER_ARBITRUM_ROLLUP_CHUNK_SIZE`                              |          | The number of RPC calls in one request when reading data from RPC. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | 20 | |
+| `INDEXER_ARBITRUM_BRIDGE_MESSAGES_TRACKING_ENABLED`               |          | Enables monitoring on L1 of cross-chain messages directed to L2 and catchup on L2 of historical cross-chain messages. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | | |
+| `INDEXER_ARBITRUM_MISSED_MESSAGES_RECHECK_INTERVAL`               |          | Interval to re-check on the rollup historical messages directed to and from the rollup, in seconds. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | 3600 | |
+| `INDEXER_ARBITRUM_MISSED_MESSAGES_TO_L2_BLOCK_DEPTH`              |          | Amount of L2 blocks to revisit to identify historical L1-to-L2 messages in the messages catchup task by handling block transactions. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | 50 | |
+| `INDEXER_ARBITRUM_MISSED_MESSAGES_TO_L1_BLOCK_DEPTH`              |          | Amount of L2 blocks to revisit to identify historical L2-to-L1 messages in the messages catchup task by handling logs in receipts. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | 1000 | |
+| `INDEXER_ARBITRUM_TRACKING_MESSAGES_ON_L1_RECHECK_INTERVAL`       |          | Interval to re-check on L1 new messages directed to the rollup, in seconds. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | 20 | |
+| `INDEXER_ARBITRUM_BATCHES_TRACKING_ENABLED`                       |          | Enables monitoring of transaction batches, block confirmations, and L2-to-L1 messages executions. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | | |
+| `INDEXER_ARBITRUM_BATCHES_TRACKING_RECHECK_INTERVAL`              |          | Interval to re-check on L1 new and historical batches, confirmations, and executions, in seconds. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | 20 | |
+| `INDEXER_ARBITRUM_BATCHES_TRACKING_L1_FINALIZATION_CHECK_ENABLED` |          | Whether L1 transactions related to batches, confirmations, and executions need to be monitored for finalization or not. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | `false` | |
+| `INDEXER_ARBITRUM_BATCHES_TRACKING_MESSAGES_TO_BLOCKS_SHIFT`      |          | Difference between the message count and actual rollup block numbers in the SequencerBatchDelivered event on L1. Applicable for ArbitrumOne only. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | 0 | |
+| `INDEXER_ARBITRUM_CONFIRMATIONS_TRACKING_FINALIZED`               |          | Whether to choose `safe` (true) or `latest` (false) block to discover new confirmations. This setting is required to reduce latency between the actual confirmation transaction and its discovery. Recommended to have true on rollups which use Ethereum Mainnet as L1. Determines how fast new confirmations will be discovered. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | `true` | |
+| `INDEXER_ARBITRUM_NEW_BATCHES_LIMIT`                              |          | The number of batches to be handled and imported at once. This is applicable for cases when dozens of batches are found in one discovery iteration, and it is necessary to import them in chunks to avoid the entire process being aborted if any errors occur. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | 10 | |
 
 ### Exchange rates management
 
