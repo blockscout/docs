@@ -34,12 +34,12 @@ To learn more about the smart contract verification Rust microservice and verifi
 * Solidity ([Flattened source code)](./#via-flattened-source-code)
 * Solidity ([Standard JSON input](./#via-standard-json-input))
 * Solidity ([Sourcify](contracts-verification-via-sourcify.md))
-* Solidity (Multi-part files)
+* Solidity ([Multi-part files](./#solidity-multi-part-files))
 * [Vyper (Contract](./#vyper-contract))
-* Vyper (Multi-part files)
-* Vyper (Standard JSON input)
+* Vyper ([Multi-part files](./#vyper-multi-part-files-and-standard-json-input))
+* Vyper ([Standard JSON input](./#vyper-multi-part-files-and-standard-json-input))
 
-## Solidity (Flattened source code)
+### Solidity (Flattened source code)
 
 <figure><img src="../../.gitbook/assets/flattened-source-code.png" alt=""><figcaption></figcaption></figure>
 
@@ -54,7 +54,7 @@ To learn more about the smart contract verification Rust microservice and verifi
 9. Click the `Verify and Publish` button.
 10. If all goes well, you will see a checkmark :white\_check\_mark: next to Code in the code tab, and an additional tab called `Read Contract`. The contract name will now appear in BlockScout with any transactions related to your contract.
 
-## Solidity (Standard JSON input)
+### Solidity (Standard JSON input)
 
 {% hint style="info" %}
 [More information on JSON input is available here](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description).&#x20;
@@ -66,11 +66,15 @@ To learn more about the smart contract verification Rust microservice and verifi
 
 Click the **Verify & publish** button and wait for the response.
 
-## Via Sourcify: Sources and metadata JSON file
+### Via Sourcify: Sources and metadata JSON file
 
 See the [Contract Verification via Sourcify](contracts-verification-via-sourcify.md) page for details.
 
-## Vyper Contract
+### Solidity (Multi-part files)
+
+See the above settings. You will upload all of the .sol or .yul files you used for your contract. This method requires at least 2 files - if you have a single file use the flattened source code method.
+
+### Vyper Contract
 
 1. **Contract Name:** Name assigned to the contract.
 2. **Compiler**: Select the compiler version used in the source code.
@@ -79,6 +83,10 @@ See the [Contract Verification via Sourcify](contracts-verification-via-sourcify
 5. Click the `Verify and Publish` button.
 
 If all goes well, you will see a checkmark :white\_check\_mark: next to Code in the code tab, and an additional tab called `Read Contract`. The contract name will now appear in BlockScout with any transactions related to your contract.
+
+### Vyper Multi-part files and standard json input
+
+See the information above.
 
 ## Troubleshooting
 
@@ -96,4 +104,4 @@ Check all version digits - for example 0.5.1 is different from 0.5.10
 
 ### Verification in a dev environment
 
-The [Hardhat verification plugin](hardhat-verification-plugin.md) supports BlockScout. You can also choose to use the [Sourcify plugin](sourcify-plugin-for-hardhat.md) to verify with Sourcify from your hardhat environment.
+The [Hardhat verification plugin](hardhat-verification-plugin.md) supports BlockScout. You can also choose to use the [Sourcify plugin](sourcify-plugin-for-hardhat.md) to verify with Sourcify from your hardhat environment. [Foundry supports blockscout verification with Forge](https://book.getfoundry.sh/reference/forge/forge-verify-contract).

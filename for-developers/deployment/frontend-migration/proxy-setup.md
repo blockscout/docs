@@ -1,5 +1,5 @@
 ---
-description: NGINX default tempalte
+description: NGINX default template
 ---
 
 # Proxy Setup
@@ -8,43 +8,17 @@ description: NGINX default tempalte
 
 It is recommended to run a web proxy behind the frontend and backend for optimized installation.
 
-Currently all urls **except the following** should be routed to the backend:
-
+These urls should be routed to the backend:
 ```
-= /
-/_next
-/node-api
-/apps
-/account
-/accounts
-/static
-/auth/profile
-/auth/unverified-email
-/txs
-/tx
-/blocks
-/block
-/login
-/address
-/stats
-/search-results
-/token
-/tokens
-/visualize
-/api-docs
-/csv-export
-/verified-contracts
-/graphiql
-/withdrawals
-/l2-output-roots
-/l2-txn-batches
-/l2-withdrawals
-/l2-deposits
+/api
+/socket
+/sitemap.xml
+/auth/auth0
+/auth/auth0/callback
+/auth/logout
 ```
 
-{% hint style="info" %}
-_**NOTE:**_ only exact path to `/` should be followed to the frontend
-{% endhint %}
+All other urls should be routed to the frontend.
 
 ## Example Config File
 
@@ -64,30 +38,19 @@ server {
     server_name  localhost;
     proxy_http_version 1.1;
 
+    location ~ ^/(api|socket|sitemap.xml|auth/auth0|auth/auth0/callback|auth/logout) {
+        proxy_pass            ${BACK_PROXY_PASS};
+        proxy_http_version    1.1;
+        proxy_set_header      Host "$host";
+        proxy_set_header      X-Real-IP "$remote_addr";
+        proxy_set_header      X-Forwarded-For "$proxy_add_x_forwarded_for";
+        proxy_set_header      X-Forwarded-Proto "$scheme";
+        proxy_set_header      Upgrade "$http_upgrade";
+        proxy_set_header      Connection $connection_upgrade;
+        proxy_cache_bypass    $http_upgrade;
+    }
     location / {
-        proxy_pass            http://backend:4000;
-        proxy_http_version    1.1;
-        proxy_set_header      Host "$host";
-        proxy_set_header      X-Real-IP "$remote_addr";
-        proxy_set_header      X-Forwarded-For "$proxy_add_x_forwarded_for";
-        proxy_set_header      X-Forwarded-Proto "$scheme";
-        proxy_set_header      Upgrade "$http_upgrade";
-        proxy_set_header      Connection $connection_upgrade;
-        proxy_cache_bypass    $http_upgrade;
-    }
-    location = / {
-        proxy_pass            http://frontend:3000;
-        proxy_http_version    1.1;
-        proxy_set_header      Host "$host";
-        proxy_set_header      X-Real-IP "$remote_addr";
-        proxy_set_header      X-Forwarded-For "$proxy_add_x_forwarded_for";
-        proxy_set_header      X-Forwarded-Proto "$scheme";
-        proxy_set_header      Upgrade "$http_upgrade";
-        proxy_set_header      Connection $connection_upgrade;
-        proxy_cache_bypass    $http_upgrade;
-    }
-    location ~ ^/(_next|node-api|apps|account|accounts|static|auth/profile|auth/unverified-email|txs|tx|blocks|block|login|address|stats|search-results|token|tokens|visualize|api-docs|csv-export|verified-contracts|graphiql|withdrawals) {
-        proxy_pass            http://frontend:3000;
+        proxy_pass            ${FRONT_PROXY_PASS};
         proxy_http_version    1.1;
         proxy_set_header      Host "$host";
         proxy_set_header      X-Real-IP "$remote_addr";
@@ -109,7 +72,7 @@ server {
     add_header 'Access-Control-Allow-Methods' 'PUT, GET, POST, OPTIONS, DELETE, PATCH' always;
 
     location / {
-        proxy_pass            http://stats:8050;
+        proxy_pass            http://stats:8050/;
         proxy_http_version    1.1;
         proxy_set_header      Host "$host";
         proxy_set_header      X-Real-IP "$remote_addr";
@@ -118,6 +81,43 @@ server {
         proxy_set_header      Upgrade "$http_upgrade";
         proxy_set_header      Connection $connection_upgrade;
         proxy_cache_bypass    $http_upgrade;
+    }
+}
+server {
+    listen       8081;
+    server_name  localhost;
+    proxy_http_version 1.1;
+    proxy_hide_header Access-Control-Allow-Origin;
+    proxy_hide_header Access-Control-Allow-Methods;
+    add_header 'Access-Control-Allow-Origin' 'http://localhost' always;
+    add_header 'Access-Control-Allow-Credentials' 'true' always;
+    add_header 'Access-Control-Allow-Methods' 'PUT, GET, POST, OPTIONS, DELETE, PATCH' always;
+    add_header 'Access-Control-Allow-Headers' 'DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,x-csrf-token' always;
+
+    location / {
+        proxy_pass            http://visualizer:8050/;
+        proxy_http_version    1.1;
+        proxy_buffering       off;
+        proxy_set_header      Host "$host";
+        proxy_set_header      X-Real-IP "$remote_addr";
+        proxy_connect_timeout 30m;
+        proxy_read_timeout    30m;
+        proxy_send_timeout    30m;
+        proxy_set_header      X-Forwarded-For "$proxy_add_x_forwarded_for";
+        proxy_set_header      X-Forwarded-Proto "$scheme";
+        proxy_set_header      Upgrade "$http_upgrade";
+        proxy_set_header      Connection $connection_upgrade;
+        proxy_cache_bypass    $http_upgrade;
+        if ($request_method = 'OPTIONS') {
+            add_header 'Access-Control-Allow-Origin' 'http://localhost' always;
+            add_header 'Access-Control-Allow-Credentials' 'true' always;
+            add_header 'Access-Control-Allow-Methods' 'PUT, GET, POST, OPTIONS, DELETE, PATCH' always;
+            add_header 'Access-Control-Allow-Headers' 'DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,x-csrf-token' always;
+            add_header 'Access-Control-Max-Age' 1728000;
+            add_header 'Content-Type' 'text/plain charset=UTF-8';
+            add_header 'Content-Length' 0;
+            return 204;
+        }
     }
 }
 ```

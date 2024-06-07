@@ -228,6 +228,17 @@ It implements CoinGecko API key management and alternative CoinMarketCap exchang
 
 <details>
 
+<summary>How do I verify contracts via an API?</summary>
+
+There are several ways:
+
+* Use the [API v2 endpoints](https://docs.blockscout.com/for-users/verifying-a-smart-contract/blockscout-smart-contract-verification-api)
+* Use the [RPC endpoints for verification](https://docs.blockscout.com/for-users/api/rpc-endpoints/contract#verify-a-contract-with-its-source-code-and-contract-creation-information)
+
+</details>
+
+<details>
+
 <summary>How do I disable exchange rates?</summary>
 
 Change the Explorer.ExchangeRates variable from `enabled: true` to `enabled: false`
