@@ -122,6 +122,9 @@ Variable,Required,Description,Default,Version,
 --------------------------------------,--------,-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------,---------,-------,
 `DISABLE_EXCHANGE_RATES`,,Disables or enables fetching of coin price from Coingecko API.,false,v3.1.2+,
 `EXCHANGE_RATES_SOURCE`,,This environment variable is used to calculate the exchange rates. Available value is `token_bridge`. Available values are also `coin_gecko` and `coin_market_cap`.,(empty),v4.1.4+,
+`EXCHANGE_RATES_MOBULA_COIN_ID`,,Mobula coin ID for token exchange rates.
+`EXCHANGE_RATES_MOBULA_API_KEY`,,Mobula API key for token exchange rates.
+`EXCHANGE_RATES_MOBULA_CHAIN_ID`,,Mobula chain id full list in [doc](https://docs.mobula.io/blockchains/intro-blockchains).
 `EXCHANGE_RATES_COINGECKO_COIN_ID`,,Explicitly set CoinGecko coin ID.,(empty),v4.1.4+,
 `EXCHANGE_RATES_COINGECKO_API_KEY`,,CoinGecko API key.,(empty),v4.1.4+,
 `EXCHANGE_RATES_COINMARKETCAP_API_KEY`,,CoinMarketCap API key.,(empty),v4.1.4+,
