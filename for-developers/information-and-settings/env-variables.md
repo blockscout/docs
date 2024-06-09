@@ -129,7 +129,7 @@ This table is horizontally scrollable, version information is located in the las
 | `CHECKSUM_FUNCTION`                                     |          | Defines checksum address function. 2 available values: `rsk`, `eth`                                                                                                                                                                                                                                                                                                                                                                               | eth                                                                                | v2.0.1+ |                | API          |
 | `RESTRICTED_LIST`                                       |          | A comma-separated list of addresses to enable restricted access to them.                                                                                                                                                                                                                                                                                                                                                                          | (empty)                                                                            | v3.3.3+ |                | API          |
 | `RESTRICTED_LIST_KEY`                                   |          | A key to access addresses listed in`RESTRICTED_LIST` variable. Can be passed via query param to the page's URL: `?key=...`                                                                                                                                                                                                                                                                                                                        | (empty)                                                                            | v3.3.3+ |                | API          |
-| `CHAIN_TYPE`                                            |          | Specifies the model of data, enables fetchers, specific to the chain. Available values are `ethereum`, `optimism`, `arbitrum`, `polygon_zkevm`, `polygon_edge`, `rsk`, `shibarium`, `stability`, `suave`, `zetachain`, `filecoin`, `default`.                                                                                                                                                                                                     | `default`                                                                          | v5.3.0+ | ✅              | API, Indexer |
+| `CHAIN_TYPE`                                            |          | Specifies the model of data, enables fetchers, specific to the chain. Available values are `ethereum`, `optimism`, `arbitrum`, `celo`, `polygon_zkevm`, `polygon_edge`, `rsk`, `shibarium`, `stability`, `suave`, `zetachain`, `filecoin`, `default`.                                                                                                                                                                                                     | `default`                                                                          | v5.3.0+ | ✅              | API, Indexer |
 | `CHAIN_ID`                                              |          | Chain ID of the network. For instance, 100 in the case of xDai chain.                                                                                                                                                                                                                                                                                                                                                                             | (empty)                                                                            | v3.7.0+ |                | API, Indexer |
 | `JSON_RPC`                                              |          | JSON RPC endpoint of the chain for the WalletConnect integration. Implemented in [#4931](https://github.com/blockscout/blockscout/pull/4931)                                                                                                                                                                                                                                                                                                      | (empty)                                                                            | v4.1.0+ |                | API, Indexer |
 | `HEALTHY_BLOCKS_PERIOD`                                 |          | New blocks indexed max delay in /health API endpoint. [Time format](env-variables.md#time-format). Implemented in [#2294](https://github.com/blockscout/blockscout/pull/2294/)                                                                                                                                                                                                                                                                    | 5 m                                                                                | v2.0.2+ |                | API, Indexer |
@@ -315,6 +315,41 @@ This table is horizontally scrollable, version information is located in the las
 | `INDEXER_SHIBARIUM_L2_CHILD_CHAIN_CONTRACT`        |          | The address of ChildChain contract on L2 used to fetch BONE token deposits. Required for L2 events indexing. Implemented in [#8929](https://github.com/blockscout/blockscout/pull/8929).                                                                                                                   | (empty)  | v6.1.0+  | Indexer     |
 | `INDEXER_SHIBARIUM_L2_WETH_CONTRACT`               |          | The address of WETH contract on L2 used to fetch ETH deposits and withdrawals. Required for L2 events indexing. Implemented in [#8929](https://github.com/blockscout/blockscout/pull/8929).                                                                                                                | (empty)  | v6.1.0+  | Indexer     |
 | `INDEXER_SHIBARIUM_L2_BONE_WITHDRAW_CONTRACT`      |          | The address of a contract which emits `Withdraw` event on L2. Used to fetch BONE token withdrawals. Required for L2 events indexing. Implemented in [#8929](https://github.com/blockscout/blockscout/pull/8929).                                                                                           | (empty)  | v6.1.0+  | Indexer     |
+
+### Celo management
+
+| Variable              | Required | Description                                                                                                                                                                                                                                                  | Default | Version | Application  |
+| --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------- | ------------ |
+| `CELO_CORE_CONTRACTS` | ✅        | JSON dictionary containing the addresses and metadata of core CELO network contracts. Read detailed description down below. Implemented in [#9713](https://github.com/blockscout/blockscout/pull/9662 "https://github.com/blockscout/blockscout/pull/9713"). | (empty) | master | API, Indexer |
+
+<details>
+
+<summary>Details on `CELO_CORE_CONTRACTS`</summary>
+
+The CELO network includes several core contracts that are central to its operation. These core contracts manage various aspects of the Celo network, including its stablecoins, governance, identity, and more.
+
+All these contracts can be obtained by querying the `Registry` contract, which is deployed at the genesis block with the address `0x000000000000000000000000000000000000ce10`. This contract serves as a repository for the addresses of all core contracts on the Celo network.
+
+Fortunately, core contracts are not updated frequently, so we store information about core contracts statically under the `CELO_CORE_CONTRACTS` variable, which is a JSON object of a specified structure.
+
+In case the contracts are updated, maintaining the Blockscout instance will require updating the `CELO_CORE_CONTRACTS` variable and manually setting blocks for refetch (all blocks produced after the core contracts' update).
+
+The structure of the JSON value for the `CELO_CORE_CONTRACTS` variable is detailed in this [gist](https://gist.github.com/fedor-ivn/c77030d09bd05349710450e0fcf00a1f).
+
+{% hint style="warning" %}
+The JSON structure may change. To assemble the `CELO_CORE_CONTRACTS` environment variable, run `mix fetch_celo_core_contracts` in the root of the Blockscout repository. This task will index the chain from block `0` to the latest block number, providing the most up-to-date values.
+{% endhint %}
+
+The JSON structure in the gist contains two main sections: `addresses` and `events`.
+
+- **addresses**: This section maps contract names to the list of respective addresses and the block number at which they were updated. For example:
+  - `"Accounts"`: `[{ "address": "0xed7f51a34b4e71fbe69b3091fcf879cd14bd73a9", "updated_at_block_number": 574 }]`
+  - `"Election"`: `[{ "address": "0x1c3edf937cfc2f6f51784d20deb1af1f9a8655fa", "updated_at_block_number": 592 }]`
+- **events**: This section maps contract addresses to the events associated with them, including any parameters and the block numbers at which these events were emitted. For example:
+  - `"EpochRewards"`: `{ "0xb10ee11244526b94879e1956745ba2e35ae2ba20": { "CarbonOffsettingFundSet": [{ "address": "0x22579ca45ee22e2e16ddf72d955d6cf4c767b0ef", "updated_at_block_number": 15049265 }] } }`
+  - `"FeeHandler"`: `{ "0x90d94229623a0a38826a4a7557a6d79acde43f76": { "BurnFractionSet": [{ "updated_at_block_number": 19732579, "value": 0.7999999999999999 }] } }`
+
+</details>
 
 ### Polygon zkEVM Rollup management
 
