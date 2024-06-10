@@ -189,3 +189,8 @@ Page In Progress, please see [main ENV Variables](../env-variables.md) page for 
 | `SANITIZE_INCORRECT_WETH_BATCH_SIZE`              | Number of token transfers to sanitize in the batch. Implemented in [#10134](https://github.com/blockscout/blockscout/pull/10134)              | <p>Version: master<br>Default: <code>100</code><br>Applications: API, Indexer</p>       |
 | `SANITIZE_INCORRECT_WETH_CONCURRENCY`             | Number of parallel sanitizing token transfer batches processing. Implemented in [#10134](https://github.com/blockscout/blockscout/pull/10134) | <p>Version: master<br>Default: <code>1</code><br>Applications: API, Indexer</p>         |
 
+##
+
+{% hint style="info" %}
+
+{% endhint %}
