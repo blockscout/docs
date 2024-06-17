@@ -1,4 +1,4 @@
-# Backend ENV variables
+# Backend ENVs: Common
 
 
 
@@ -15,7 +15,7 @@ Page In Progress, please see [main ENV Variables](../env-variables.md) page for 
 Can be set in format `1h` for 1 hour, `1m` for 1 minute, `1s` or `1` for 1 second, `1ms` for 1 millisecond
 
 {% hint style="warning" %}
-_Note_: Before release 5.1.2, all environment variables of time format supported only integers in seconds (without dimensions) as values.
+_**Note**_**: Before release 5.1.2, all environment variables of time format supported only integers in seconds (without dimensions) as values.**
 {% endhint %}
 
 ## <mark style="background-color:orange;">General Management</mark>
