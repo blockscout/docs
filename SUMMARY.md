@@ -81,6 +81,7 @@
   * [☑️ ENV Variables](for-developers/information-and-settings/env-variables.md)
     * [Backend ENV variables](for-developers/information-and-settings/env-variables/backend-env-variables.md)
     * [Backend ENVs: Chain-Specific](for-developers/information-and-settings/env-variables/backend-envs-chain-specific.md)
+    * [Backend ENVs: Integrations](for-developers/information-and-settings/env-variables/backend-envs-integrations.md)
     * [Frontend Common ENVs](for-developers/information-and-settings/env-variables/frontend-common-envs.md)
     * [Deprecated ENV Variables](for-developers/information-and-settings/deprecated-env-variables.md)
   * [Separate Indexer, Web App, and API](for-developers/information-and-settings/separate-indexer-web-app-and-api.md)
