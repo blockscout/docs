@@ -1,11 +1,5 @@
 # Backend ENVs: Common
 
-
-
-{% hint style="warning" %}
-Page In Progress, please see [main ENV Variables](../env-variables.md) page for all current vars.
-{% endhint %}
-
 ### Categories
 
 <table data-view="cards"><thead><tr><th data-type="content-ref"></th><th data-type="content-ref"></th><th data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="backend-env-variables.md#general-management">#general-management</a></td><td><a href="backend-env-variables.md#indexer-management">#indexer-management</a></td><td><a href="backend-env-variables.md#denormalization-and-sanitizer-management">#denormalization-and-sanitizer-management</a></td></tr><tr><td><a href="backend-env-variables.md#exchange-rates">#exchange-rates</a></td><td><a href="backend-env-variables.md#cache-management">#cache-management</a></td><td><a href="backend-env-variables.md#gas-price-oracle">#gas-price-oracle</a></td></tr><tr><td><a href="backend-env-variables.md#main-page-dashboard">#main-page-dashboard</a></td><td><a href="backend-env-variables.md#header-and-footer">#header-and-footer</a></td><td><a href="backend-env-variables.md#contract-management">#contract-management</a></td></tr><tr><td><a href="backend-env-variables.md#bridged-tokens">#bridged-tokens</a></td><td><a href="backend-env-variables.md#miscellaneous-ui">#miscellaneous-ui</a></td><td><a href="backend-env-variables.md#csv-export">#csv-export</a></td></tr><tr><td><a href="backend-env-variables.md#api-rate-limits">#api-rate-limits</a></td><td><a href="backend-env-variables.md#graphql-api">#graphql-api</a></td><td><a href="backend-env-variables.md#account-related">#account-related</a></td></tr><tr><td><a href="backend-env-variables.md#specific-smart-contracts">#specific-smart-contracts</a></td><td><a href="backend-envs-chain-specific.md">backend-envs-chain-specific.md</a></td><td><a href="backend-envs-integrations.md">backend-envs-integrations.md</a></td></tr></tbody></table>
