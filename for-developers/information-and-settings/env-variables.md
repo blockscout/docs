@@ -33,9 +33,7 @@ The following variables are set for the [Gnosis Chain Blockscout Instance](https
 
 ## Backend ENV spreadsheet
 
-Link to a google sheet with active ENVs
-
-{% embed url="https://docs.google.com/spreadsheets/d/17-mbKNyi_lqZOYfjDCZnEbjA9OldVL1BvLoWP8MsTaM/edit?usp=sharing" %}
+[Link to a google sheet with active ENVs](https://docs.google.com/spreadsheets/d/17-mbKNyi\_lqZOYfjDCZnEbjA9OldVL1BvLoWP8MsTaM/edit?usp=sharing)
 
 ## Time format
 
