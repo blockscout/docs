@@ -8,7 +8,7 @@ See below for info on setting ENV variables, time formatting and other info.
 * [Backend ENVs: Common](env-variables/backend-env-variables.md)
 * [Backend ENVs: Chain Specific](env-variables/backend-envs-chain-specific.md)
 * [Backend ENVs: Integrations](env-variables/backend-envs-integrations.md)
-* [Frontend ENVs: Common](env-variables/frontend-common-envs.md)
+* [Frontend ENVs: Common](env-variables/frontend-common-envs/)
 {% endhint %}
 
 {% hint style="info" %}

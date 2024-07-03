@@ -20,7 +20,7 @@ Please see [https://github.com/blockscout/blockscout/tree/master/docker-compose]
 
 ### 1) Install frontend separately
 
-Configure the app by passing the necessary environment variables when starting the Docker container.[ Information about ENVs is available here](../../information-and-settings/env-variables/frontend-common-envs.md).
+Configure the app by passing the necessary environment variables when starting the Docker container.[ Information about ENVs is available here](../../information-and-settings/env-variables/frontend-common-envs/).
 
 ```
 docker run -p 3000:3000 --env-file <path-to-your-env-file> ghcr.io/blockscout/frontend:latest
@@ -104,7 +104,7 @@ It may take several minutes for the frontend to propagate during this process.
 
 There are several required ENVs for the frontend. If required variables are missing or invalid the frontend will show in error message and will not run the app.
 
-* The common list of [frontend ENVs and descriptions](../../information-and-settings/env-variables/frontend-common-envs.md).
+* The common list of [frontend ENVs and descriptions](../../information-and-settings/env-variables/frontend-common-envs/).
 * A detailed list with all available ENVs is in the [frontend repo folder.](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md)
 
 To adjust, stop the frontend container, update the env file (or pass variables directly), and restart the container.
