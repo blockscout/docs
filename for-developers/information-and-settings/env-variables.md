@@ -8,7 +8,7 @@ See below for info on setting ENV variables, time formatting and other info.
 * [Backend ENVs: Common](env-variables/backend-env-variables.md)
 * [Backend ENVs: Chain Specific](env-variables/backend-envs-chain-specific.md)
 * [Backend ENVs: Integrations](env-variables/backend-envs-integrations.md)
-* [Frontend ENVs: Common](env-variables/frontend-common-envs.md)
+* [Frontend ENVs: Common](env-variables/frontend-common-envs/)
 {% endhint %}
 
 {% hint style="info" %}
@@ -33,9 +33,7 @@ The following variables are set for the [Gnosis Chain Blockscout Instance](https
 
 ## Backend ENV spreadsheet
 
-Link to a google sheet with active ENVs
-
-{% embed url="https://docs.google.com/spreadsheets/d/17-mbKNyi_lqZOYfjDCZnEbjA9OldVL1BvLoWP8MsTaM/edit?usp=sharing" %}
+[Link to a google sheet with active ENVs](https://docs.google.com/spreadsheets/d/17-mbKNyi\_lqZOYfjDCZnEbjA9OldVL1BvLoWP8MsTaM/edit?usp=sharing)
 
 ## Time format
 
