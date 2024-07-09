@@ -1,14 +1,27 @@
 # ETH RPC
 
-In addition to the custom [RPC endpoints documented here](rpc-endpoints/), the Blockscout ETH RPC API supports 3 methods in the exact format specified for Ethereum nodes, see the [Ethereum JSON-RPC Specification](https://ethereum.github.io/execution-apis/api-documentation/) for more details.&#x20;
+In addition to the custom [RPC endpoints documented here](rpc-endpoints/), the Blockscout ETH RPC API supports most used methods in the exact format specified for Ethereum nodes, see the [Ethereum JSON-RPC Specification](https://ethereum.github.io/execution-apis/api-documentation/) for more details.&#x20;
 
-These methods are provided for your convenience. In general, custom RPC methods are recommended.&#x20;
+These methods are provided for your convenience and are most suitable as a fallback option in your JSON RPC API providers. For other use cases, REST or custom RPC methods are recommended.&#x20;
 
-The following 3 methods are supported:
+The following methods are supported:
 
 * eth\_blockNumber
 * eth\_getBalance
 * eth\_getLogs
+* eth\_gasPrice
+* eth\_getTransactionByHash
+* eth\_getTransactionReceipt
+* eth\_chainId
+* eth\_maxPriorityFeePerGas
+* eth\_getTransactionCount
+* eth\_getCode
+* eth\_getStorageAt
+* eth\_estimateGas
+* eth\_getBlockByNumber
+* eth\_getBlockByHash
+* eth\_sendRawTransaction
+* eth\_call
 
 In the following examples we use the Ethereum mainnet with the base instance url  `https://eth.blockscout.com`. When sending a request add `/api/eth-rpc` to the end of the base url.
 
@@ -83,3 +96,7 @@ curl -H "content-type: application/json" -X POST --data '{"id":0,"jsonrpc":"2.0"
 {"address":"0xc78be425090dbd437532594d12267c5934cc6c6f","blockHash":"0x574755e06bf0cec6d59a8cc7db183d4545a90242d03d5bc3806681277356cf4b","blockNumber":"0x79D4CF","data":"0x000000000000000000000000000000000000000000000c81c6f8fe7064224e6e","logIndex":"0x42","removed":false,"topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","0x0000000000000000000000000000000000000000000000000000000000000000","0x00000000000000000000000078c04412a6eb2f524ccf50b5f3d863a82e2f8d6f"],"transactionHash":"0xd35fe29c81484258f38b4848a4d44f54f3dc0b9b3d10ad094b8cd5f3a4815e64","transactionIndex":"0x6D","type":"mined"},{"address":"0xc78be425090dbd437532594d12267c5934cc6c6f","blockHash":"0xcb58a082f58bea43dfb6be8addf97c915190175b9f0f0abc1e05bfd02573f010","blockNumber":"0x7BA949","data":"0x000000000000000000000000000000000000000000000c81c6272987dea5867a","logIndex":"0x38","removed":false,"topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","0x0000000000000000000000000000000000000000000000000000000000000000","0x0000000000000000000000001082e1c4a9c9f946ba102667a14f206c0f81e147"],"transactionHash":"0xd12770e7a1dfa759f6a645981e4bd1d75d2ed131b52565e436bce90b5b39f137","transactionIndex":"0x89","type":"mined"}],"id":0}
 ```
 {% endcode %}
+
+## More examples
+
+Refer to the [Ethereum JSON-RPC Specification](https://ethereum.github.io/execution-apis/api-documentation/) for more examples and info on the remaining methods.
