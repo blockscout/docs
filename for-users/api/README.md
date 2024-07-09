@@ -20,7 +20,7 @@ Blockscout supports several methods:
 1. **REST API**: API that serves the UI for **new instances** of Blockscout.   -> [More info](rest-api-endpoints.md)
 2. **RPC API**: provided for developers transitioning their applications from Etherscan to Blockscout. Supports GET and POST requests.\
    \-> [More info](rpc-endpoints/)
-3. **Eth RPC API**: Supports the most popular [JSON RPC methods](https://github.com/ethereum/wiki/wiki/JSON-RPC). \
+3. **Eth RPC API**: Supports the most popular [JSON RPC methods](https://ethereum.github.io/execution-apis/api-documentation/). \
    \-> [More info](eth-rpc.md)
 4. [**Graphiql**](https://github.com/graphql/graphiql): An IDE for exploring GraphQL.
 
@@ -43,6 +43,19 @@ Blockscout supports the following methods. Requests and return data are identica
 * eth\_blockNumber
 * eth\_getBalance
 * eth\_getLogs
+* eth\_gasPrice
+* eth\_getTransactionByHash
+* eth\_getTransactionReceipt
+* eth\_chainId
+* eth\_maxPriorityFeePerGas
+* eth\_getTransactionCount
+* eth\_getCode
+* eth\_getStorageAt
+* eth\_estimateGas
+* eth\_getBlockByNumber
+* eth\_getBlockByHash
+* eth\_sendRawTransaction
+* eth\_call
 
 More details on [ETH RPC for Blockscout](eth-rpc.md) are available here.
 

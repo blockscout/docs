@@ -46,16 +46,16 @@ Forge is a command-line tool that ships with Foundry. Forge tests, builds, and d
 
 #### Tips:
 
-1. Setting the `—verifier=blockscout` flag allows you to not specify any Api key.
-2. While specifying `--verifier-url` flag omit the final slash (e.g., `--verifier-url=`[`https://blockscout.com/poa/sokol/api`](https://blockscout.com/poa/sokol/api)). Otherwise, you will encounter an “_Failed to deserialize response_” error.
-3. You can specify most configuration options (e.g., evm version, disabling optimizations) via the usual Forge configuration (see [https://github.com/foundry-rs/foundry/blob/master/config/README.md](https://github.com/foundry-rs/foundry/blob/master/config/README.md)). Note: You might not need an API key to verify on Blockscout. You can use the following format for the --verifier-url flag: \<blockscout\_homepage\_explorer\_url>/api?
+1. Specify the `—verifier=blockscout` flag to use the Blockscout verification provider. API key for Blockscout verification is optional.
+2. Specify the `--verifier-url=<blockscout_homepage_explorer_url>/api/` flag for connecting to a specific Blockscout instance (e.g., `--verifier-url=https://eth-sepolia.blockscout.com/api/`).
+3. You can specify most configuration options (e.g., evm version, disabling optimizations) via the usual Forge configuration (see [https://github.com/foundry-rs/foundry/blob/master/config/README.md](https://github.com/foundry-rs/foundry/blob/master/config/README.md)).
 
 Example:
 
-Verify a contract with Blockscout right after deployment (make sure you add "/api?" to the end of the Blockscout homepage explorer URL):
+Verify a contract with Blockscout right after deployment (make sure you add "/api/" to the end of the Blockscout homepage explorer URL):
 
 ```sh
-forge create --rpc-url <rpc_https_endpoint> --private-key $devTestnetPrivateKey src/Contract.sol:SimpleStorage --verify --verifier blockscout --verifier-url <blockscout_homepage_explorer_url>/api\? 
+forge create --rpc-url <rpc_https_endpoint> --private-key $devTestnetPrivateKey src/Contract.sol:SimpleStorage --verify --verifier blockscout --verifier-url <blockscout_homepage_explorer_url>/api/ 
 ```
 
 ## Remix
