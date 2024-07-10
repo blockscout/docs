@@ -174,10 +174,11 @@ Supported together with setting `CHAIN_TYPE=celo`
 {% endhint %}
 
 
-| Variable              | Description                                                                                                                                                                                                                                                  | Parameters                                                                |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| `CELO_CORE_CONTRACTS` | JSON dictionary containing the addresses and metadata of core CELO network contracts. Read detailed description down below. Implemented in [#9713](https://github.com/blockscout/blockscout/pull/9662 "https://github.com/blockscout/blockscout/pull/9713"). | <p>Version: master <br>Default: (empty)<br>Applications: API, Indexer</p> |
-
+| Variable                                        | Description                                                                                                                                                                                                                                              | Parameters                                                                      |     |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | --- |
+| `CELO_CORE_CONTRACTS`                           | JSON dictionary containing the addresses and metadata of core CELO network contracts. Read detailed description down below. Implemented in [#9713](https://github.com/blockscout/blockscout/pull/9713).                                                  | <p>Version: master<br>Default: (empty)<br>Applications: API, Indexer</p>        |     |
+| `INDEXER_DISABLE_CELO_EPOCH_FETCHER`            | If set to `true`, the epoch rewards and validator group votes fetchers will not be started. However, epoch blocks pending to fetch will still be imported into the database. Implemented in [#9944](https://github.com/blockscout/blockscout/pull/9944). | <p>Version: master<br>Default: <code>false</code><br>Applications: Indexer</p>  |     |
+| `INDEXER_CELO_VALIDATOR_GROUP_VOTES_BATCH_SIZE` | Specifies the block range size for the `eth_getLogs` request, determining the number of blocks included between `toBlock` and `fromBlock`. Implemented in [#9944](https://github.com/blockscout/blockscout/pull/9944).                                   | <p>Version: master<br>Default: <code>200000</code><br>Applications: Indexer</p> |     |
 
 <details>
 
