@@ -19,7 +19,9 @@ Blockscout provides a comprehensive, easy-to-use interface for users to view, co
 
 Blockscout currently supports a wide range of projects and chains, see our [chains and projects page](https://www.blockscout.com/chains-and-projects)[ ](https://www.blockscout.com/chains-and-projects)for more details.
 
-<figure><img src=".gitbook/assets/ethereum-explorer.png" alt=""><figcaption><p>Ethereum mainnet explorer (winter style)</p></figcaption></figure>
+<figure><img src=".gitbook/assets/optimism-blockscout-explorer.png" alt=""><figcaption></figcaption></figure>
+
+
 
 While there are several explorers available to blockchain projects, most are closed systems (ie Etherscan, Routescan) which are not independently verifiable and do not support all chains in the ecosystem. Blockscout provides a much needed open-source alternative.&#x20;
 
