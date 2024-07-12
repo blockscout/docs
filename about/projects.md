@@ -7,11 +7,11 @@ description: List of projects and links
 
 
 {% hint style="warning" %}
-We are currently adding chains and projects to our new projects page rather than the docs. This page is available for archive purposes only and is not up-to-date.&#x20;
+**We are currently adding chains and projects to our new projects page rather than the docs. This page is available for archive purposes only and is not up-to-date.**&#x20;
 
 **The new projects page is located at** [**https://www.blockscout.com/chains-and-projects**](https://www.blockscout.com/chains-and-projects)\
 \
-Please [**SUBMIT THIS FORM**](https://airtable.com/appei1B8KwfA8kfol/pag9lBN2gDqhVSom7/form) to be added.
+**Please** [**SUBMIT THIS FORM**](https://airtable.com/appei1B8KwfA8kfol/pag9lBN2gDqhVSom7/form) **to be added.**
 {% endhint %}
 
 Blockscout serves execution-layer chains and testnets within the Ethereum ecosystem and beyond. Open-source code gives all types of projects and chains the ability to spin up an instance and provide data exploration capabilities for their users.
