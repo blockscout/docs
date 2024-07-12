@@ -7,7 +7,7 @@ description: >-
 # Blockscout Open-Source Explorer
 
 {% hint style="success" %}
-🔵🎉 See the newly redesigned Blockscout in action on Ethereum, Optimism, BASE and more! Update your instance to the newest frontend now. [Get started here](for-developers/deployment/frontend-migration/)!
+🔵🎉 See the newly redesigned Blockscout in action on Ethereum, Optimism, BASE [and more](https://www.blockscout.com/chains-and-projects)!&#x20;
 
 * [https://eth.blockscout.com/](https://eth.blockscout.com/)
 * [https://eth-holesky.blockscout.com/](https://eth-holesky.blockscout.com/)
@@ -21,6 +21,8 @@ Blockscout currently supports a wide range of projects and chains, see our [chai
 
 <figure><img src=".gitbook/assets/ethereum-explorer.png" alt=""><figcaption><p>Ethereum mainnet explorer (winter style)</p></figcaption></figure>
 
-While there are several explorers available to blockchain projects, most are closed systems (ie Etherscan, Routescan) which are not independently verifiable and do not support all chains in the ecosystem. Blockscout provides a much needed open-source alternative. As the multi-chain paradigm continues to take hold in both private and public settings, transparent tools are needed to analyze and validate transactions and provide an explorer for all networks, including rollups, L2s, L3s and appchains.
+While there are several explorers available to blockchain projects, most are closed systems (ie Etherscan, Routescan) which are not independently verifiable and do not support all chains in the ecosystem. Blockscout provides a much needed open-source alternative.&#x20;
+
+As the multi-chain paradigm continues to take hold in both private and public settings, transparent tools are needed to analyze and validate transactions and provide an explorer for all networks, including rollups, L2s, L3s and appchains.
 
 Information on the latest release and version history is available in the [Github repo](https://github.com/blockscout/blockscout/releases).
