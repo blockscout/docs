@@ -7,13 +7,13 @@ description: API designed for ease of use
 This API is provided for developers transitioning applications from Etherscan to BlockScout and applications requiring general API and data support. It supports GET and POST requests.&#x20;
 
 {% hint style="info" %}
-URLs vary by instance. With typical installations, access the API by adding `/api` to the end of the url. For example with the Goerli instance.
+URLs vary by instance. With typical installations, access the API by adding `/api` to the end of the url. For example with the Sepolia instance.
 
-* URL: [https://eth-goerli.blockscout.com](https://eth-goerli.blockscout.com/)
-* API URL: [https://eth-goerli.blockscout.com/api](https://eth-goerli.blockscout.com/api)
+* URL: [https://eth-sepolia.blockscout.com](https://eth-sepolia.blockscout.com/)
+* API URL: [https://eth-sepolia.blockscout.com/api](https://eth-sepolia.blockscout.com/api)
 
 An example query includes a module and action(s)/parameters. For example: \
-[https://eth-goerli.blockscout.com/api?module=**account**\&action=**listaccounts**\&page=2\&offset=5](https://eth-goerli.blockscout.com/api?module=account\&action=listaccounts\&page=2\&offset=5)
+[https://eth-sepolia.blockscout.com/api?module=**account**\&action=**listaccounts**\&page=2\&offset=5](https://eth-sepolia.blockscout.com/api?module=account\&action=listaccounts\&page=2\&offset=5)
 {% endhint %}
 
 The following modules are supported. Click through to see specific endpoints and parameters.
