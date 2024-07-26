@@ -49,7 +49,6 @@
   * [Blockscout smart-contract verification API](for-users/verifying-a-smart-contract/blockscout-smart-contract-verification-api.md)
   * [Contract Verification via Sourcify](for-users/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
 * [Interacting with Smart Contracts](for-users/interacting-with-smart-contracts.md)
-* [ABI-Encoded Constructor Arguments](for-users/abi-encoded-constructor-arguments.md)
 * [CSV Exports](for-users/export-to-csv.md)
 * [ERC-1155 Support](for-users/erc-1155-support.md)
 * [Beacon Chain Withdrawal Views](for-users/beacon-chain-withdrawal-views.md)

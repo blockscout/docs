@@ -1,6 +1,6 @@
 ---
 description: >-
-  Verifying your deployed contract using flattened source code, JSON input,
+  Verifying your deployed contract using contract source code, JSON input,
   Sourcify and more.
 ---
 
@@ -10,15 +10,15 @@ Once verified, a smart contract or token contract's source code becomes publicly
 
 Verification is available for both Solidity and Vyper contracts. **Currently, there are 7 methods for verification using the Blockscout UI.**
 
-{% hint style="success" %}
-To learn more about the smart contract verification Rust microservice and verification algorithm [see this page for developers](../../for-developers/information-and-settings/smart-contract-verification.md).
-{% endhint %}
-
 {% hint style="info" %}
-👷🏻‍♂️ If preferred you can verify directly from your Hardhat dev environment.&#x20;
+👷🏻‍♂️ If preferred you can verify directly from your Hardhat or Foundry dev environment.&#x20;
 
 * [Hardhat Verification Plugin](hardhat-verification-plugin.md)
-* [Sourcify Plugin for Hardhat](sourcify-plugin-for-hardhat.md)
+* [Foundry Verification](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify)
+{% endhint %}
+
+{% hint style="success" %}
+To learn more about the smart contract verification Rust microservice and verification algorithm [see this page for developers](../../for-developers/information-and-settings/smart-contract-verification.md).
 {% endhint %}
 
 ## Smart Contract Verification with Blockscout
@@ -41,6 +41,8 @@ To learn more about the smart contract verification Rust microservice and verifi
 
 ### Solidity (Flattened source code)
 
+This verification method is recommended only for single-file smart contract without any imports. For verifaction of contracts containing more that 1 file, it's recommended to use different verification method.
+
 <figure><img src="../../.gitbook/assets/flattened-source-code.png" alt=""><figcaption></figcaption></figure>
 
 1. **Contract Address:** The `0x` address supplied on contract creation (added above)
@@ -49,7 +51,7 @@ To learn more about the smart contract verification Rust microservice and verifi
 4. **Compiler:** derived from the first line in the contract `pragma solidity X.X.X`. Use the corresponding compiler version rather than the nightly build.
 5. **EVM Version:** Select the correct[ EVM version ](../../for-developers/evm-version-information.md)if known, otherwise use default.
 6. **Optimization Enabled:** If you enabled optimization during compilation, select and enter the run value. 200 is the Solidity Compiler default value. Only change if you changed this value while compiling.
-7. &#x20;**Enter the Solidity Contract Code:** You may need to flatten your solidity code if it utilizes a library or inherits dependencies from another contract. We recommend [hardhat ](https://hardhat.org/hardhat-runner/docs/advanced/flattening)or the [POA solidity flattener](https://github.com/poanetwork/solidity-flattener).
+7. &#x20;**Enter the Solidity Contract Code:** Copy-paste the source code of your smart contract as is.
 8. **Add Contract Libraries:** Enter the name and 0x address for any required libraries called in the .sol file. You can add multiple contracts with the "+" button.
 9. Click the `Verify and Publish` button.
 10. If all goes well, you will see a checkmark :white\_check\_mark: next to Code in the code tab, and an additional tab called `Read Contract`. The contract name will now appear in BlockScout with any transactions related to your contract.

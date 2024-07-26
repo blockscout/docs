@@ -74,7 +74,7 @@ For more information on parameters to pass, see the [flattened source code infor
 
 For more information on parameters to pass, see the [flattened source code information on the Verifying a smart contract page](./#via-flattened-source-code). `0x` contract in POST example should be replaced with your contract hash.
 
-{% swagger src="../../.gitbook/assets/openapi (2).json" path="/api/v2/smart-contracts/0x9c1c619176b4f8521a0ab166945d785b92aef453/verification/via/standard-input" method="post" %}
+{% swagger src="../../.gitbook/assets/openapi (2).json" path="/api/v2/smart-contracts/0x9c1c619176b4f8521a0ab166945d785b92aef453/verification/via/standard-input" method="post" expanded="false" fullWidth="false" %}
 [openapi (2).json](<../../.gitbook/assets/openapi (2).json>)
 {% endswagger %}
 

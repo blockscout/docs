@@ -2,29 +2,40 @@
 
 Similar to the  [hardhat verification plugin, ](hardhat-verification-plugin.md)this plugin submits the contract source and other info of all deployed contracts to Sourcify.
 
-1\) **Tune Hardhat environment**. For seamless usage, you should setup your environment [following this tutorial ](https://github.com/wighawag/tutorial-hardhat-deploy)(note, it will take an hour or so to run through). In this example we setup to use the Sokol test network.  See the[ Hardhat Verification Tutorial for more information on the config file setup](hardhat-verification-plugin.md#config-file).
+### Verify
 
-2\) **Deploy contract**. [More deployment details here](https://github.com/wighawag/tutorial-hardhat-deploy#7-deploying-to-a-live-network). Note that we run from `node_modules.bin\hardhat` to circumvent package.json warning and use `--network sokol` to specify the network.
+Similar to the verification approach described in the [hardhat verification plugin,](hardhat-verification-plugin.md) you can verify the contract source code in the Sourcify as well by setting the following in the hardhat config file:
 
-```bash
-D:\test>yarn hardhat --network sokol deploy
-yarn run v1.22.17 
-warning package.json: No license field 
-$ D:\test\node_modules.bin\hardhat --network sokol deploy 
-Nothing to compile deploying "Greeter" (tx: 0x32d11b11a547c126a4763be963f6acd0bb4f87ee7d7627e36f7d9009c57c6182)...: deployed at 0xBEA47De7132cF44D6b16617154CAA247b6568eaD with 528275 gas 
-Done in 18.81s.
+```typescript
+// ...
+const config: HardhatUserConfig = {
+  // ...
+  sourcify: {
+    enabled: true
+  },
+  // ...
+};
+
+export default config;
 ```
 
-3\) **Verify contract**.&#x20;
+```
+npx hardhat verify --network <network> DEPLOYED_CONTRACT_ADDRESS "Constructor argument 1"
+```
+
+Optimism Sepolia example:
 
 ```bash
-D:\test>yarn hardhat --network sokol sourcify
-yarn run v1.22.17
-warning package.json: No license field
-$ D:\test\node_modules\.bin\hardhat --network sokol sourcify
-verifying Greeter (0xBEA47De7132cF44D6b16617154CAA247b6568eaD on chain 77) ...
- => contract Greeter is now verified
-Done in 5.74s.
+> npx hardhat verify --network optimism-sepolia 0xCD562a6426b474390A9E7e554b9B4f9f62Ea38Ba 1234
+Successfully submitted source code for contract
+contracts/Lock.sol:Lock at 0xCD562a6426b474390A9E7e554b9B4f9f62Ea38Ba
+for verification on the block explorer. Waiting for verification result...
+
+Successfully verified contract Lock on the block explorer.
+https://optimism-sepolia.blockscout.com/address/0xCD562a6426b474390A9E7e554b9B4f9f62Ea38Ba#code
+
+Successfully verified contract Lock on Sourcify.
+https://repo.sourcify.dev/contracts/full_match/11155420/0xCD562a6426b474390A9E7e554b9B4f9f62Ea38Ba/
 ```
 
 ## Confirm Verification on BlockScout

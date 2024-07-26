@@ -13,30 +13,14 @@ Due to compiler constraints, contracts which include OpenZeppelin-related source
 Below we describe verification information when including these contracts specific to different development environments.
 
 * [Hardhat](openzeppelin-contract-verification.md#hardhat)
-* [Truffle](openzeppelin-contract-verification.md#truffle)
 * [Foundry (forge)](openzeppelin-contract-verification.md#foundry-forge)
 * [Remix](openzeppelin-contract-verification.md#remix)
 
 ## Hardhat
 
-[Hardhat](https://hardhat.org/) is a full-featured development environment for contract compilation, deployment, and verification. The [Hardhat Etherscan plugin](https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html) supports contract verification on Blockscout and includes in-built functionality to address verification with OpenZeppelin-based imports.
+[Hardhat](https://hardhat.org/) is a full-featured development environment for contract compilation, deployment, and verification. The [Hardhat Verification plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) supports contract verification on Blockscout and includes in-built functionality to address verification with OpenZeppelin-based imports.
 
 A separate tutorial about contract verification via Hardhat on Blockscout [is available here](hardhat-verification-plugin.md).
-
-## Truffle
-
-[Truffle](https://trufflesuite.com/) is a world-class development environment, testing framework, and asset pipeline for blockchains using the Ethereum Virtual Machine (EVM). The [truffle-plugin-verify](https://github.com/rkalis/truffle-plugin-verify) supports contract verification on BlockScout.
-
-You can find more details about `truffle-plugin-verify` in their [Readme file](https://github.com/rkalis/truffle-plugin-verify#readme) and [tutorial](https://kalis.me/verify-truffle-smart-contracts-etherscan/).
-
-There are two main differences to keep in mind when verifying contracts on Blockscout vs Etherscan:
-
-1. Blockscout does not require ApiKey to verify smart-contracts. However, truffle-plugin-verify requires one to be provided. **You can use any non-empty string**.
-2.  In search of constructor arguments, the plugin makes a request to the explorer’s `?module=`**`account`**`&action=`**`txlist`**`&address={`**`addressHash`**`} endpoint`. This request can fail if verification is taking too long to answer.\\
-
-    If you encounter this problem, specify the constructor arguments explicitly via the [`--forceConstructorArgs string:`](https://github.com/rkalis/truffle-plugin-verify#constructor-arguments-override-optional) option (e.g., `truffle run verify OpenZeppelinSample@0xf1b1B44B70f4531217c8c4B6C7A9a52D2B052F81 --network sokol --forceConstructorArgs string:`). This way, the _txlist_ request is omitted, and the problem should be resolved.\
-    \
-    _Note: you can always use just an empty string (as in the example) even if there are some arguments in reality. Blockscout obtains them automatically and ignores any provided value._
 
 ## Foundry (forge)
 
@@ -50,12 +34,53 @@ Forge is a command-line tool that ships with Foundry. Forge tests, builds, and d
 2. Specify the `--verifier-url=<blockscout_homepage_explorer_url>/api/` flag for connecting to a specific Blockscout instance (e.g., `--verifier-url=https://eth-sepolia.blockscout.com/api/`).
 3. You can specify most configuration options (e.g., evm version, disabling optimizations) via the usual Forge configuration (see [https://github.com/foundry-rs/foundry/blob/master/config/README.md](https://github.com/foundry-rs/foundry/blob/master/config/README.md)).
 
-Example:
+### Example (Verify and deploy)
 
 Verify a contract with Blockscout right after deployment (make sure you add "/api/" to the end of the Blockscout homepage explorer URL):
 
 ```sh
-forge create --rpc-url <rpc_https_endpoint> --private-key $devTestnetPrivateKey src/Contract.sol:SimpleStorage --verify --verifier blockscout --verifier-url <blockscout_homepage_explorer_url>/api/ 
+forge create \
+  --rpc-url <rpc_https_endpoint> \
+  --private-key $PRIVATE_KEY \
+  <contract_file>:<contract_name> \
+  --verify \
+  --verifier blockscout \
+  --verifier-url <blockscout_homepage_explorer_url>/api/
+```
+
+Or if using foundry scripts:
+
+```
+forge script <script_file> \
+  --rpc-url <rpc_https_endpoint> \
+  --private-key $PRIVATE_KEY \
+  --broadcast \
+  --verify \
+  --verifier blockscout \
+  --verifier-url <blockscout_homepage_explorer_url>/api/
+```
+
+### Example (Verify already deployed contract)
+
+```
+forge verify-contract \
+  --rpc-url <rpc_https_endpoint> \
+  <address> \
+  <contract_file>:<contract_name> \
+  --verifier blockscout \
+  --verifier-url <blockscout_homepage_explorer_url>/api/
+```
+
+Or if using foundry scripts for last executed script run:
+
+```
+forge script <script_file> \
+  --rpc-url <rpc_https_endpoint> \
+  --private-key $PRIVATE_KEY \
+  --resume \
+  --verify \
+  --verifier blockscout \
+  --verifier-url <blockscout_homepage_explorer_url>/api/
 ```
 
 ## Remix
