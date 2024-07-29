@@ -149,7 +149,7 @@ npx hardhat verify --network <network> DEPLOYED_CONTRACT_ADDRESS "Constructor ar
 
 Optimism Sepolia example.
 
-```bash
+```
 > npx hardhat verify --network optimism-sepolia 0xFE826b33e425f99ce962ACB91752DB41F302EFEA 1234
 Successfully submitted source code for contract
 contracts/Lock.sol:Lock at 0xFE826b33e425f99ce962ACB91752DB41F302EFEA
@@ -163,7 +163,7 @@ https://optimism-sepolia.blockscout.com/address/0xFE826b33e425f99ce962ACB91752DB
 
 Sometimes the contract may be automatically verified via [Ethereum Bytecode Database](https://docs.blockscout.com/about/features/ethereum-bytecode-database-microservice#solution-ethereum-bytecode-database-blockscout-ebd) service. In that case you may see the following response:
 
-```bash
+```
 The contract 0xFE826b33e425f99ce962ACB91752DB41F302EFEA has already been verified on Etherscan.
 https://optimism-sepolia.blockscout.com/address/0xFE826b33e425f99ce962ACB91752DB41F302EFEA#code
 ```
@@ -172,7 +172,7 @@ In that case, you may try to enforce using `--force` flag\*.
 
 It prevents Hardhat to check if the contract is already verified, and force it to send verification request anyway. Notice, that it is helpful only if the contract was automatically verified **partially**. That way, a new verification sources would be saved. If the contract was **fully** verified already, that just returns an error.
 
-```bash
+```
 npx hardhat verify --network <network> DEPLOYED_CONTRACT_ADDRESS "Constructor argument 1" --force
 ```
 

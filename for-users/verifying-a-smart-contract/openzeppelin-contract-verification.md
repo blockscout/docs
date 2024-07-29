@@ -38,7 +38,7 @@ Forge is a command-line tool that ships with Foundry. Forge tests, builds, and d
 
 Verify a contract with Blockscout right after deployment (make sure you add "/api/" to the end of the Blockscout homepage explorer URL):
 
-```sh
+```
 forge create \
   --rpc-url <rpc_https_endpoint> \
   --private-key $PRIVATE_KEY \

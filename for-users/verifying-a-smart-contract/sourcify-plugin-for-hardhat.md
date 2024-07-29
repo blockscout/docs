@@ -25,7 +25,7 @@ npx hardhat verify --network <network> DEPLOYED_CONTRACT_ADDRESS "Constructor ar
 
 Optimism Sepolia example:
 
-```bash
+```
 > npx hardhat verify --network optimism-sepolia 0xCD562a6426b474390A9E7e554b9B4f9f62Ea38Ba 1234
 Successfully submitted source code for contract
 contracts/Lock.sol:Lock at 0xCD562a6426b474390A9E7e554b9B4f9f62Ea38Ba
