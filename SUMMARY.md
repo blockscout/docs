@@ -43,6 +43,7 @@
 * [Verifying a Smart Contract](for-users/verifying-a-smart-contract/README.md)
   * [Hardhat Verification Plugin](for-users/verifying-a-smart-contract/hardhat-verification-plugin.md)
   * [Sourcify Plugin for Hardhat](for-users/verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
+  * [Foundry Verification](for-users/verifying-a-smart-contract/foundry-verification.md)
   * [OpenZeppelin Contract Verification](for-users/verifying-a-smart-contract/openzeppelin-contract-verification.md)
   * [Automate verifications with Catapulta](for-users/verifying-a-smart-contract/automate-verifications-catapulta.md)
   * [Verification via thirdweb](for-users/verifying-a-smart-contract/verification-via-thirdweb.md)

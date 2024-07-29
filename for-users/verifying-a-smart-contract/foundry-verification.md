@@ -1,0 +1,64 @@
+# Foundry Verification
+
+[Foundry](https://github.com/foundry-rs/foundry/) is a smart contract development toolchain. Foundry manages your dependencies, compiles your project, runs tests, deploys, and lets you interact with the chain from the command line and via Solidity scripts.
+
+Forge is a command-line tool that ships with Foundry. Forge tests, builds, and deploys your smart contracts. Forge supports contract verification out of the box ([https://book.getfoundry.sh/reference/forge/forge-verify-contract](https://book.getfoundry.sh/reference/forge/forge-verify-contract))
+
+## Verify contract
+
+In forge, contracts can be verified at the time of the deployment (e.g. using `forge script`), or later, if the contracts are already deployed (e.g. using `forge verify-contract`).
+
+#### Tips:
+
+1. Specify the `—verifier=blockscout` flag to use the Blockscout verification provider. API key for Blockscout verification is optional.
+2. Specify the `--verifier-url=<blockscout_homepage_explorer_url>/api/` flag for connecting to a specific Blockscout instance (e.g., `--verifier-url=https://eth-sepolia.blockscout.com/api/`).
+3. You can specify most configuration options (e.g., evm version, disabling optimizations) via the usual Forge configuration (see [https://github.com/foundry-rs/foundry/blob/master/config/README.md](https://github.com/foundry-rs/foundry/blob/master/config/README.md)).
+
+### Example (Deploy and verify)
+
+Verify a contract with Blockscout right after deployment (make sure you add "/api/" to the end of the Blockscout homepage explorer URL):
+
+```
+forge create \
+  --rpc-url <rpc_https_endpoint> \
+  --private-key $PRIVATE_KEY \
+  <contract_file>:<contract_name> \
+  --verify \
+  --verifier blockscout \
+  --verifier-url <blockscout_homepage_explorer_url>/api/
+```
+
+Or if using foundry scripts:
+
+```
+forge script <script_file> \
+  --rpc-url <rpc_https_endpoint> \
+  --private-key $PRIVATE_KEY \
+  --broadcast \
+  --verify \
+  --verifier blockscout \
+  --verifier-url <blockscout_homepage_explorer_url>/api/
+```
+
+### Example (Verify already deployed contract)
+
+```
+forge verify-contract \
+  --rpc-url <rpc_https_endpoint> \
+  <address> \
+  <contract_file>:<contract_name> \
+  --verifier blockscout \
+  --verifier-url <blockscout_homepage_explorer_url>/api/
+```
+
+Or if using foundry scripts for last executed script run:
+
+```
+forge script <script_file> \
+  --rpc-url <rpc_https_endpoint> \
+  --private-key $PRIVATE_KEY \
+  --resume \
+  --verify \
+  --verifier blockscout \
+  --verifier-url <blockscout_homepage_explorer_url>/api/
+```
