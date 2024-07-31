@@ -1,82 +1,60 @@
-# Client Setting Requirements
+# JSON RPC Client Setting Requirements
 
-## Supported Clients
+## Supported JSON RPC Clients
 
-BlockScout currently supports Erigon, Nethermind, Geth, Parity, OpenEthereum, Hyperledger Besu, and Ganache clients. To define the node variant, it's advised to define the `ETHEREUM_JSONRPC_VARIANT` environment variable. Correct values include:
+BlockScout currently supports [Geth](https://github.com/ethereum/go-ethereum), [Erigon](https://github.com/erigontech/erigon), [Nethermind](https://github.com/NethermindEth/nethermind), [Reth](https://github.com/paradigmxyz/reth), [Besu](https://github.com/hyperledger/besu), [RSKj](https://github.com/rsksmart/rskj), [Lotus](https://github.com/filecoin-project/lotus), and [Ganache](https://archive.trufflesuite.com/ganache/) JSON RPC clients. To define the JSON RPC node variant, it's advised to define the `ETHEREUM_JSONRPC_VARIANT` environment variable*. Correct values include:
 
-1. `parity` the same for Parity, OpenEthereum and Nethermind (default)
-2. `erigon`
-3. `geth`
-4. `besu`
-5. `ganache`
+| JSON RPC Client | Value          | Note                                                                              |
+| --------------- | -------------- | --------------------------------------------------------------------------------- |
+| Geth      | \`geth\`       | Default. This value is applicable for both Geth and Reth JSON RPC clients                  |
+| Erigon    | \`erigon\`     |  It is suggested to use `erigon` variant for Reth JSON RPC client.                                                                                 |
+| Nethermind      | \`nethermind\` | This value is applicable for Reth and deprecated OpenEthereum (aka Parity) JSON RPC clients |
+| Besu            | \`besu\`       |                                                                                   |
+| RSKj            | \`rsk\`        |                                                                                   |
+| Lotus           | \`filecoin\`   |                                                                                   |
+| Ganache         | \`ganache\`    |                                                                                   |
+
+*If the variable is not set, JSON RPC variant will be chosen based on `CHAIN_TYPE` variable according to the mapping https://github.com/blockscout/blockscout/blob/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/ethereum_jsonrpc/lib/ethereum_jsonrpc/variant.ex#L114-L120
+
+```
+  defp get_default_variant do
+    case Application.get_env(:explorer, :chain_type) do
+      :rsk -> "rsk"
+      :filecoin -> "filecoin"
+      _ -> "geth"
+    end
+  end
+```
 
 {% hint style="info" %}
 BlockScout currently requires a full archive node in order to import every state change for every address on the target network.
 {% endhint %}
 
-### Development
 
-Explorer: [https://github.com/poanetwork/blockscout/blob/master/apps/explorer/config/dev.exs](https://github.com/poanetwork/blockscout/blob/master/apps/explorer/config/dev.exs)
+## Configs
 
-Indexer: [https://github.com/poanetwork/blockscout/blob/master/apps/indexer/config/dev.exs](https://github.com/poanetwork/blockscout/blob/master/apps/indexer/config/dev.exs)
+| Application | Environment | Config path                                                                                                                                                                                                                          |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Explorer    | Dev         | [https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/explorer/config/dev](https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/explorer/config/dev)   |
+|             | Prod        | [https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/explorer/config/prod](https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/explorer/config/prod) |
+| Indexer     | Dev         | [https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/indexer/config/dev](https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/indexer/config/dev)     |
+|             | Prod        | [https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/indexer/config/prod](https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/indexer/config/prod)   |
 
-```
-variant =
-  if is_nil(System.get_env("ETHEREUM_JSONRPC_VARIANT")) do
-    "ganache"
-  else
-    System.get_env("ETHEREUM_JSONRPC_VARIANT")
-    |> String.split(".")
-    |> List.last()
-    |> String.downcase()
-  end
-```
-
-### Production
-
-Explorer: [https://github.com/poanetwork/blockscout/blob/master/apps/explorer/config/dev.exs](https://github.com/poanetwork/blockscout/blob/master/apps/explorer/config/dev.exs)
-
-Indexer: [https://github.com/poanetwork/blockscout/blob/master/apps/indexer/config/prod.exs](https://github.com/poanetwork/blockscout/blob/master/apps/indexer/config/prod.exs)
-
-```
-variant =
-  if is_nil(System.get_env("ETHEREUM_JSONRPC_VARIANT")) do
-    "parity"
-  else
-    System.get_env("ETHEREUM_JSONRPC_VARIANT")
-    |> String.split(".")
-    |> List.last()
-    |> String.downcase()
-  end
-```
-
-## OpenEthereum Client
-
-```
---jsonrpc-interface all --jsonrpc-apis web3,eth,net,parity,pubsub,traces --ws-interface all --fat-db=on --pruning=archive --ws-apis all --ws-origins all --ws-hosts all
-```
+## Variables to connect to JSON RPC client
 
 | Name                    | Environment Variable         | Default Value                                  | Description                                                                                                                                      |
 | ----------------------- | ---------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **HTTP Endpoint**       | `ETHEREUM_JSONRPC_HTTP_URL`  | [http://localhost:8545](http://localhost:8545) | The HTTP Endpoint is used to fetch `blocks`, `transactions`, `receipts`, `coin/token balances`.                                                  |
-| **Tracing Endpoint**    | `ETHEREUM_JSONRPC_TRACE_URL` | [http://localhost:8545](http://localhost:8545) | The Tracing endpoint is used to fetch `internal transactions` and `block traces`. In most cases this endpoint is identical to the HTTP Endpoint. |
+| **HTTP Endpoint**       | `ETHEREUM_JSONRPC_HTTP_URL`  | http://localhost:8545 | The HTTP Endpoint is used to fetch `blocks`, `transactions`, `receipts`, `coin/token balances`.                                                  |
+| **Fallback HTTP Endpoint** | `ETHEREUM_JSONRPC_FALLBACK_HTTP_URL`                    | (empty) |Fallback JSON RPC HTTP url. |
+| **Tracing Endpoint**    | `ETHEREUM_JSONRPC_TRACE_URL` | http://localhost:8545 | The Tracing endpoint is used to fetch `internal transactions` and `block traces`. In most cases this endpoint is identical to the HTTP Endpoint. |
+| **Fallback Tracing Endpoint** | `ETHEREUM_JSONRPC_FALLBACK_TRACE_URL`                    | (empty) |Fallback JSON RPC tracing url. |
+| **Eth_call Requests Endpoint**    | `ETHEREUM_JSONRPC_ETH_CALL_URL` | (empty) | JSON RPC url for `eth_call` method requests. |
+| **Fallback Eth_call Requests Endpoint**    | `ETHEREUM_JSONRPC_FALLBACK_ETH_CALL_URL` | (empty) | Fallback JSON RPC `eth_call` url. |
 | **WebSockets Endpoint** | `ETHEREUM_JSONRPC_WS_URL`    | ws://localhost:8546                            | The WebSockets endpoint subscribes to `newHeads` which alerts the indexer to fetch the new block from the subscription.                          |
 
-### Development
+## Geth
 
-Explorer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/explorer/config/dev/parity.exs#L8-L22](https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/explorer/config/dev/parity.exs#L8-L22)
-
-Indexer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/indexer/config/dev/parity.exs#L9-L23](https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/indexer/config/dev/parity.exs#L9-L23)
-
-### Production
-
-Explorer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/explorer/config/prod/parity.exs#L8-L22](https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/explorer/config/prod/parity.exs#L8-L22)
-
-Indexer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/indexer/config/prod/parity.exs#L9-L23](https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/indexer/config/prod/parity.exs#L9-L23)
-
-## Geth Client
-
-More information on Geth JSON-RPC [available here](https://geth.ethereum.org/docs/rpc/server).
+More information on Geth JSON-RPC [is available here](https://geth.ethereum.org/docs/interacting-with-geth/rpc).
 
 ```
 sudo /usr/bin/geth --http --http.addr 0.0.0.0 --port 30303 --http.port 8545 --http.api debug,net,eth,shh,web3,txpool --ws.api "eth,net,web3,network,debug,txpool" --ws --ws.addr 0.0.0.0 --ws.port 8546 --ws.origins "*" --sepolia --datadir=/rinkeby --syncmode "full" --gcmode "archive" --http.vhosts "*"
@@ -84,19 +62,32 @@ sudo /usr/bin/geth --http --http.addr 0.0.0.0 --port 30303 --http.port 8545 --ht
 
 _Tracing and pruning: By default, state for the last 128 blocks kept in memory. Most states are garbage collected. If you are running a block explorer or other service relying on transaction tracing without an archive node (--gcmode=archive), you need to trace within this window! Alternatively, specify the "reexec" tracer option to allow regenerating historical state; and ideally switch to chain tracing which amortizes overhead across all traced blocks._
 
-| Name                    | Environment Variable        | Default Value                                  | Description                                                                                                             |
-| ----------------------- | --------------------------- | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| **HTTP Endpoint**       | `ETHEREUM_JSONRPC_HTTP_URL` | [http://localhost:8545](http://localhost:8545) | The HTTP Endpoint is used to fetch `blocks`, `transactions`, `receipts`, `coin/token balances`.                         |
-| **WebSockets Endpoint** | `ETHEREUM_JSONRPC_WS_URL`   | ws://localhost:8546                            | The WebSockets endpoint subscribes to `newHeads` which alerts the indexer to fetch the new block from the subscription. |
+## Erigon
 
-### Development
+More information on Erigon configuration [is available here](https://erigon.gitbook.io/erigon/advanced-usage/configure-erigon).
 
-Explorer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/explorer/config/dev/geth.exs#L8-L17](https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/explorer/config/dev/geth.exs#L8-L17)
+## Nethermind
 
-Indexer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/indexer/config/dev/geth.exs#L9-L18](https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/indexer/config/dev/geth.exs#L9-L18)
+More information on Nethermind configuration [is available here](https://docs.nethermind.io/fundamentals/configuration/).
 
-### Production
+## Reth
 
-Explorer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/explorer/config/prod/geth.exs#L8-L17](https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/explorer/config/prod/geth.exs#L8-L17)
+More information on Reth configuration [is available here](https://reth.rs/run/config.html).
 
-Indexer: [https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/indexer/config/prod/geth.exs#L9-L18](https://github.com/poanetwork/blockscout/blob/59d8423e7ca3f608dbea411d4a0dc9bb4662a891/apps/indexer/config/prod/geth.exs#L9-L18)
+## RSKj
+
+More information on RSKj configuration [is available here](https://dev.rootstock.io/rsk/node/configure/reference/).
+
+## Besu
+
+More information on Besu configuration [is available here](https://besu.hyperledger.org/stable/public-networks/how-to/configuration-file).
+
+## Lotus
+
+More information on Lotus configuration [is available here](https://lotus.filecoin.io/lotus/configure/defaults/).
+
+## OpenEthereum
+
+```
+--jsonrpc-interface all --jsonrpc-apis web3,eth,net,parity,pubsub,traces --ws-interface all --fat-db=on --pruning=archive --ws-apis all --ws-origins all --ws-hosts all
+```
