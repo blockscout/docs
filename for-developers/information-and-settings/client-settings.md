@@ -6,9 +6,9 @@ BlockScout currently supports [Geth](https://github.com/ethereum/go-ethereum), [
 
 | JSON RPC Client | Value          | Note                                                                              |
 | --------------- | -------------- | --------------------------------------------------------------------------------- |
-| Geth\\Reth      | \`geth\`       | Default. This value is applicable for both Geth and Reth JSON RPC clients                  |
-| Erigon          | \`erigon\`     |                                                                                   |
-| Nethermind      | \`nethermind\` | This value is applicable for deprecated OpenEthereum (aka Parity) JSON RPC client |
+| Geth      | \`geth\`       | Default. This value is applicable for both Geth and Reth JSON RPC clients                  |
+| Erigon    | \`erigon\`     |  It is suggested to use `erigon` variant for Reth JSON RPC client.                                                                                 |
+| Nethermind      | \`nethermind\` | This value is applicable for Reth and deprecated OpenEthereum (aka Parity) JSON RPC clients |
 | Besu            | \`besu\`       |                                                                                   |
 | RSKj            | \`rsk\`        |                                                                                   |
 | Lotus           | \`filecoin\`   |                                                                                   |
