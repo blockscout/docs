@@ -145,3 +145,7 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.ZkSync.BatchBlock | zksync\_batch\_blocks | \[asc: :hash\] |
 | Explorer.Chain.ZkSync.BatchTransaction | zksync\_batch\_transactions | \[asc: :hash\] |
 | Explorer.Chain.ZkSync.LifecycleTransaction | zksync\_lifecycle\_transactions | \[asc: :id\] |
+| Explorer.Chain.Celo.EpochReward | celo\_epoch\_rewards | \[asc: :block\_hash\] |
+| Explorer.Chain.Celo.PendingEpochBlockOperation | celo\_pending\_epoch\_block\_operations | \[asc: :block\_hash\] |
+| Explorer.Chain.Celo.ValidatorGroupVote | celo\_epoch\_validator\_group\_votes | \[asc: :transaction\_hash, asc: :account\_address\_hash, asc: :group\_address\_hash\] |
+| Explorer.Chain.Celo.ElectionReward | celo\_election\_rewards | \[asc: :block\_hash, asc: type, asc: :account\_address\_hash, asc: :associated\_account\_address\_hash\] |
