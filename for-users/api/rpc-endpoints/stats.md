@@ -4,11 +4,7 @@ description: '?module=stats'
 
 # Stats
 
-{% hint style="info" %}
-Page is under construction. For a full description of RPC endpoints, visit [https://gnosis.blockscout.com/api-docs](https://gnosis.blockscout.com/api-docs)
-{% endhint %}
-
-### &#x20; `https://instance_base_url/api?module=stats`
+### `https://instance_base_url/api?module=stats`
 
 ## Get [ERC-20](https://github.com/ethereum/EIPs/issues/20) or [ERC-721](https://github.com/ethereum/EIPs/issues/721) token total supply by contract address
 
@@ -53,9 +49,9 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter |  Description |
-| --------- | ------------ |
-| param     | description  |
+| Parameter | Description |
+| --------- | ----------- |
+| param     | description |
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -77,9 +73,9 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter |  Description |
-| --------- | ------------ |
-| param     | description  |
+| Parameter | Description |
+| --------- | ----------- |
+| param     | description |
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -101,9 +97,9 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter |  Description |
-| --------- | ------------ |
-| param     | description  |
+| Parameter | Description |
+| --------- | ----------- |
+| param     | description |
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -125,9 +121,9 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter |  Description |
-| --------- | ------------ |
-| param     | description  |
+| Parameter | Description |
+| --------- | ----------- |
+| param     | description |
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -149,9 +145,9 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter |  Description |
-| --------- | ------------ |
-| param     | description  |
+| Parameter | Description |
+| --------- | ----------- |
+| param     | description |
 {% endtab %}
 
 {% tab title="Example Result" %}
@@ -173,9 +169,9 @@ https://instance_base_url/api
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter |  Description |
-| --------- | ------------ |
-| param     | description  |
+| Parameter | Description |
+| --------- | ----------- |
+| param     | description |
 {% endtab %}
 
 {% tab title="Example Result" %}
