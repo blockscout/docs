@@ -24,11 +24,9 @@ Access API information including the REST API which serves the v2 UI.
 
 <figure><img src="../../.gitbook/assets/optimism-api-menu.png" alt=""><figcaption></figcaption></figure>
 
-
-
 ## V1 UI
 
-Many projects still use the previous Blockscout UI, and info below relates to the previous v1 UI. We encourage projects to [upgrade to the new U](../../for-developers/deployment/frontend-migration/)I.&#x20;
+Many projects still use the previous Blockscout UI, and info below relates to the previous v1 UI. We encourage projects to [upgrade to the new U](../../setup-and-run-blockscout/deployment/frontend-migration/)I.
 
 ## Top Menu
 
@@ -60,7 +58,7 @@ Token menu is often configured differently depending on the instance.
 
 ## APIs
 
-* **GraphQL**: Explore API calls using GraphQL and the in-browser IDE. Learn more about the [GraphQL Blockscout integration here](../api/graphql.md).
+* **GraphQL**: Explore API calls using GraphQL and the in-browser IDE. Learn more about the [GraphQL Blockscout integration here](../../developer-support/api/graphql.md).
 * **RPC**: API supporting GET and POST requests for many different API calls.
 * **Eth RPC**: Supports the most popular [JSON RPC methods.](https://ethereum.github.io/execution-apis/api-documentation/)
 
@@ -86,6 +84,6 @@ The comprehensive search bar allows for search by address, token name, token sym
 
 ## Custom Project Logo
 
-Also included in the top menu is the Project logo. Projects can add and change custom logo using ENV variables during deployment. [More info here](../../for-developers/configuration-options/branding-configs.md).
+Also included in the top menu is the Project logo. Projects can add and change custom logo using ENV variables during deployment. [More info here](../../setup-and-run-blockscout/configuration-options/branding-configs.md).
 
 <figure><img src="../../.gitbook/assets/customizable-logo (1).png" alt=""><figcaption></figcaption></figure>

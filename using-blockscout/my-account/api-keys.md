@@ -21,7 +21,7 @@ A maximum of 3 keys can be created for each account.
 
 <figure><img src="../../.gitbook/assets/blockscout-api-key-2.png" alt=""><figcaption></figcaption></figure>
 
-**3) API key generated.** The API Key is now added to your API dashboard. You can copy the key or edit the name/delete the key at any time. In addition you can add 2  additional keys (up to 3 per account).
+**3) API key generated.** The API Key is now added to your API dashboard. You can copy the key or edit the name/delete the key at any time. In addition you can add 2 additional keys (up to 3 per account).
 
 <figure><img src="../../.gitbook/assets/blockscout-api-key-3.png" alt=""><figcaption></figcaption></figure>
 
@@ -35,5 +35,5 @@ For example, a query to get more info on USDT on Optimism with the API key `fdbf
 `https://optimism.blockscout.com/api?module=token&action=getToken&contractaddress=0x94b008aA00579c1307B0EF2c499aD98a8ce58e58&apikey=fdbfa288-1695-454e-a369-4501253a120`
 
 {% hint style="info" %}
-For more info on RPC calls see the [RPC API Endpoints documentation](../api/rpc-endpoints/).
+For more info on RPC calls see the [RPC API Endpoints documentation](../../developer-support/api/rpc-endpoints/).
 {% endhint %}
