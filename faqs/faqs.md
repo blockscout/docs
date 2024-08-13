@@ -1,4 +1,4 @@
-# FAQs
+# User FAQs
 
 FAQs are divided into 2 sections. [User FAQs](faqs.md#user-faqs) cover questions that may come up when searching for transactions or interacting and verifying smart contracts. Developer FAQs cover questions related to installation, instance customization and hosting. If you have a question that isn't answered here, please contact us in [our Discord](https://discord.gg/blockscout) and the team and community can help troubleshoot your issue.
 
@@ -48,7 +48,7 @@ If you request too much data at the same time you may receive a timeout. Decreas
 
 <summary>How can I access and read/write contract methods?</summary>
 
-Yes! The contract should be verified (or the bytecode matches an existing contract) to enable reading and writing to contracts and proxy contracts. [More info here](../for-users/interacting-with-smart-contracts.md).
+Yes! The contract should be verified (or the bytecode matches an existing contract) to enable reading and writing to contracts and proxy contracts. [More info here](../using-blockscout/interacting-with-smart-contracts.md).
 
 </details>
 
@@ -60,15 +60,15 @@ There are multiple methods including options from the Blockscout UI as well as a
 
 **Blockscout UI:**
 
-* [Via flattened source code (Solidity)](../for-users/verifying-a-smart-contract/#via-flattened-source-code)
+* [Via flattened source code (Solidity)](../using-blockscout/verifying-a-smart-contract/#via-flattened-source-code)
 * [Via standard JSON input](faqs.md#via-standard-json-input)
-* [Via Sourcify: Sources and metadata JSON file](../for-users/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
-* [Vyper contract](../for-users/verifying-a-smart-contract/#vyper-contract)
+* [Via Sourcify: Sources and metadata JSON file](../using-blockscout/verifying-a-smart-contract/contracts-verification-via-sourcify.md)
+* [Vyper contract](../using-blockscout/verifying-a-smart-contract/#vyper-contract)
 
 **Hardhat:**
 
-* [Hardhat Verification Plugin](../for-users/verifying-a-smart-contract/hardhat-verification-plugin.md)
-* [Sourcify Plugin for Hardhat](../for-users/verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
+* [Hardhat Verification Plugin](../using-blockscout/verifying-a-smart-contract/hardhat-verification-plugin.md)
+* [Sourcify Plugin for Hardhat](../using-blockscout/verifying-a-smart-contract/sourcify-plugin-for-hardhat.md)
 
 </details>
 

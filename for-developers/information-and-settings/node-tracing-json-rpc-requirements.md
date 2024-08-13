@@ -20,21 +20,21 @@
 
 ### **Fetching Pending Transactions**
 
-| Client                                      | Method                                                                         |
-| ------------------------------------------- | ------------------------------------------------------------------------------ |
-| Erigon<br/>Nethermind<br/>OpenEthereum | <code>parity_pendingTransactions</code>                      |
-| Geth                                        | <code>txpool_content</code> |
+| Client                                      | Method                       |
+| ------------------------------------------- | ---------------------------- |
+| <p>Erigon<br>Nethermind<br>OpenEthereum</p> | `parity_pendingTransactions` |
+| Geth                                        | `txpool_content`             |
 
 ### Enable Tracing to Fetch Internal Transactions
 
-| Client                                      | Method                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Erigon<br/>Nethermind<br/>OpenEthereum | <ul><li><code>trace_replayBlockTransactions</code> (fetching of internal transactions)</li><li><code>trace_block</code> (fetching of block rewards)</li></ul>                                                                                                                                                                                                                                                                                            |
-| Geth                                        | <ul><li><code>debug_traceBlockByNumber</code></li><li>or <code>debug_traceTransaction</code></li></ul> <code>callTracer</code> is used by default, starting from the Blockscout 5.1.0 release. To switch to a custom JS tracer, the Blockscout maintainer should set the <code>export INDEXER_INTERNAL_TRANSACTIONS_TRACER_TYPE=js</code> environment variable. Prior to the 5.1.0 release, js tracer was a default option. |
+| Client                                      | Method                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <p>Erigon<br>Nethermind<br>OpenEthereum</p> | <ul><li><code>trace_replayBlockTransactions</code> (fetching of internal transactions)</li><li><code>trace_block</code> (fetching of block rewards)</li></ul>                                                                                                                                                                                                                                                                     |
+| Geth                                        | <ul><li><code>debug_traceBlockByNumber</code></li><li>or <code>debug_traceTransaction</code></li></ul><p><code>callTracer</code> is used by default, starting from the Blockscout 5.1.0 release. To switch to a custom JS tracer, the Blockscout maintainer should set the <code>export INDEXER_INTERNAL_TRANSACTIONS_TRACER_TYPE=js</code> environment variable. Prior to the 5.1.0 release, js tracer was a default option.</p> |
 
 ### JSON RPC Performance Benchmarks
 
-Time measures for response time of crucial JSON RPC methods for indexing in Blockscout. [Ways to improve speed](../../about/faqs.md#how-do-i-speed-up-my-self-hosted-instance).
+Time measures for response time of crucial JSON RPC methods for indexing in Blockscout. [Ways to improve speed](../../faqs/faqs.md#how-do-i-speed-up-my-self-hosted-instance).
 
 1. `eth_getBlockByNumber` without transaction receipts for a block with 15 transactions: Desired response time is < 0.5s. For instance, in case of the Gnosis chain archive node, the response time for the block with \~20 transactions is \~0.4s.
 2. `eth_getTransactionReceipt` for random transactions desired response time is < 0.5s. For the Gnosis chain archive node the response time is \~0.3 - 0.4s.

@@ -1,6 +1,6 @@
 # My Account Settings
 
-[My Account](../../for-users/my-account/) is now available for chains that would like to incorporate personalization into their explorer. You will need to configure several 3rd party accounts to fully interact with the My Account feature. These include:
+[My Account](../../using-blockscout/my-account/) is now available for chains that would like to incorporate personalization into their explorer. You will need to configure several 3rd party accounts to fully interact with the My Account feature. These include:
 
 * [Uberauth](https://hexdocs.pm/ueberauth/readme.html): User authentication & login
 * [Sendgrid](https://sendgrid.com/): Watchlist notifications

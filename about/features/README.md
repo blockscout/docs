@@ -6,17 +6,17 @@ description: Blockscout is a full-featured, open-source blockchain explorer
 
 ### **What can I do with Blockscout?**
 
-* **Deep Search**: Find all the information you need on [Blocks](../../for-users/overviews/blocks.md), Transactions, Tags and more through the integrated search box.
-* **Interact with Contracts**: [Read and write to contracts](../../for-users/interacting-with-smart-contracts.md) directly from the Blockscout UI.
-* **Verify Contracts:**  Use [Hardhat](../../for-users/verifying-a-smart-contract/hardhat-verification-plugin.md), [Sourcify](../../for-users/verifying-a-smart-contract/contracts-verification-via-sourcify.md), and other tools to quickly verify  contracts.
-* **Make API Calls**: Make requests to a [robust API](../../for-users/api/) using standard and customized endpoints.
-* **Customize Views**: Use the [My Account](../../for-users/my-account/) features to add tags, watchlists and other features.
-* **Interact with Apps**: Chains with the [Apps Marketplace](../../for-users/blockscout-apps/) enabled include a portal for discovery and interaction with applications deployed on-chain.
+* **Deep Search**: Find all the information you need on [Blocks](../../using-blockscout/overviews/blocks.md), Transactions, Tags and more through the integrated search box.
+* **Interact with Contracts**: [Read and write to contracts](../../using-blockscout/interacting-with-smart-contracts.md) directly from the Blockscout UI.
+* **Verify Contracts:**  Use [Hardhat](../../using-blockscout/verifying-a-smart-contract/hardhat-verification-plugin.md), [Sourcify](../../using-blockscout/verifying-a-smart-contract/contracts-verification-via-sourcify.md), and other tools to quickly verify  contracts.
+* **Make API Calls**: Make requests to a [robust API](../../using-blockscout/api/) using standard and customized endpoints.
+* **Customize Views**: Use the [My Account](../../using-blockscout/my-account/) features to add tags, watchlists and other features.
+* **Interact with Apps**: Chains with the [Apps Marketplace](../../using-blockscout/blockscout-apps/) enabled include a portal for discovery and interaction with applications deployed on-chain.
 
 ### **Key Features**
 
 * **Open source development**: The code is community driven and available for anyone to use, explore, and improve.
-* **Broad multi-chain ecosystem support**: Blockscout supports Ethereum mainnet, EVM forks like Ethereum Classic, Celo, & Gnosis Chain, Polkadot Parachains, Cosmos ecosystem, optimistic rollups, and many additional public and private EVM networks. [See the list](../projects.md)
+* **Broad multi-chain ecosystem support**: Blockscout supports Ethereum mainnet, EVM forks like Ethereum Classic, Celo, & Gnosis Chain, Polkadot Parachains, Cosmos ecosystem, optimistic rollups, and many additional public and private EVM networks. [See the list](../chains.md)
 * **Real time transaction tracking**: Transactions are updated in real time - no page refresh required. Infinite scrolling is also enabled.
 * **Smart contract interaction**: Users can read and verify Solidity & Vyper smart contracts and access pre-existing contracts to fast-track development.&#x20;
 * **Token support**: Support for ERC20 and ERC721 tokens.
