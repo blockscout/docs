@@ -10,11 +10,11 @@ description: List of projects and links
 **Please** [**SUBMIT THIS FORM**](https://airtable.com/appei1B8KwfA8kfol/pag9lBN2gDqhVSom7/form) **to be added.**
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/Chains_using_Blockscout_Sept18.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/chains-using-blockscout.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Instance table
 
-Updated 08/2024
+_Updated 08/2024_
 
 ## Table
 
