@@ -7,104 +7,192 @@ description: Upcoming enhancements and updates to BlockScout
 {% hint style="info" %}
 The Blockscout roadmap is a high-level strategic plan designed to guide research and development. **Target dates and details are reviewed by the team and subject to move, adjust and change as the project evolves**. Note that only completed items ( :white\_check\_mark: Status: Complete) are considered achieved project milestones.
 
-_Last update: May 29, 2024 |_ [_Changelog_](roadmap.md#change-log)
+_Last update: August 19, 2024 |_ [_Changelog_](roadmap.md#change-log)
 {% endhint %}
 
-## 🟦 Q1-2 2024
+## 🟦 Q3-4 2024 / Q1 2024
 
-Items currently in progress. Some are planned for Q1 completion while others will extend to Q2 2024.
+We've updated our roadmap for the remainder of 2024 and early 2025 to include work in several key areas. We will be working in several directions simultaneously and prioritize items as needed/requested.
 
-### 🟦  New Microservices
+<details>
 
-In addition to the Admin dashboard, other microservices in development include:
+<summary> ⭐️ Advanced Features</summary>
 
-* DeFiLlama tags support providing additional information about wallet addresses.
-* Token pricing extension providing real-time market data for various tokens.
-* :white\_check\_mark: Visualizer service offering various visualization schemes, such as Sol2UML and transaction graphs for complex blockchain data analysis.
-* Multi-chain search extension for ecosystems where many chains co-exist within a similar environment (ie Optimism, Astar etc.)
-* EOA analytics service for advanced analytics per address including:
-  * Tx type distributions
-  * Tx frequency and popular contract usage
-  * Average values/fees/types
-  * Governance and voting participation
+#### Multi-chain Search
 
-### 🟦  ENS Support
+* Allows users to search across multiple blockchain networks simultaneously
 
-Support for the Ethereum Name Service (ENS) and its popular forks by:
+Advanced Filters
 
-* :white\_check\_mark: Resolving ENS names for addresses and listing names for the address
-* :white\_check\_mark:  Enabling search by ENS name
-* Providing advanced name lookup features
-* Resolve ENS name for addresses, list names for the address
-* :white\_check\_mark: Search by ENS name
-* Advanced Name lookup
+* Enables more detailed and customizable data filtering options
 
-### 🟦  POS and Rollup Feature Expansion
+Export Filter Results to CSV
 
-* POS consensus support including deposits, withdrawals and other pertinent details such as finalization status, proposed slot and epoch, fee recipient and consensus info. This includes tracking and monitoring of deposits on the Ethereum 2.0 Beacon Chain, providing insights into the progress of Ethereum's transition to Proof of Stake (PoS).
-* L2 support including additional features for popular L2 scaling solutions by providing insights into L2 network performance, transactions, and smart contracts
+* Allows users to download filtered data in CSV format for further analysis
 
-### 🟦  Blockscout Swap Native Dapp
+Validators Page
 
-A native swap application will be integrated into the Dapp marketplace so that users can trade tokens easily and securely from one convenient location.
+* Displays information about validators for any Proof-of-Stake chain
 
-### 🟦  Smart Search
+Simplified Account Creation
 
-Research incorporating AI functionality to introduce smart search capabilities:
+* Integration with WalletConnect for easier account setup
 
-* Natural language queries
-* Boolean search
-* Instant analytics
+</details>
 
-### 🟦 Governance Views & Interactivity
+<details>
 
-Governance platforms and voting mechanism integrations, allowing users to monitor and participate in on-chain governance activities directly from Blockscout.
+<summary> ⭐️ Account Abstraction (AA) </summary>
 
-### 🟦 CEX/DEX Views
+* Blockscout AA wallet: A native wallet supporting account abstraction
+* Support for AA transaction actions: Improved handling of AA-specific transactions
+* Public tags for Bundlers, Paymasters, Factories: Better identification of AA-related accounts
 
-Provide insights into trading activities and liquidity on both centralized and decentralized exchanges, allowing users to compare and analyze exchange data.
+</details>
 
-### 🟦  RPC API Expansion&#x20;
+<details>
 
-Add additional routes and endpoints for users, explore most-requested and most-used endpoints to optimize API.
+<summary> ⭐️ Enhanced Name Service (ENS)</summary>
 
-### 🟦 Personal Asset Management
+* Extend ENS support to Ethereum L2 explorers
+* Support for off-chain names using CCIP (Cross-Chain Interoperability Protocol)
+* Support for DNS-based names (e.g., .com domains)
+* Enable multiple name services on a single chain
+* Display ENS NFTs: Show NFTs associated with ENS names
 
-My Account functionality will be extended to enable portfolio views and management of assets across protocols and chains.
+</details>
 
-### 🟦  NFT Module Exploration
+<details>
 
-Explore a dedicated NFT explorer module to include:
+<summary>⭐️ Data Availability (DA)</summary>
 
-* Top NFTs
-* Latest Trades, Transfers and Mints
-* NFT Marketplace & Platform Integrations
+* Celestia DA for rollups
+* Eigen DA for rollups
+* Avail
 
-### 🟦   Ongoing Interface Improvements
+</details>
 
-Add improvements as informed by usage trends. May include "Popular Apps" views for the marketplace module, "Top Statistic" views relevant to most used applications and contracts, and detailed statistics related to node performance.
+<details>
 
-### 🟦  Ongoing Tooling Improvements
+<summary> ⭐️ Analytics and Statistics</summary>
 
-Continue to research and improve tooling for developers including requested tools such as:
+#### Smart Contract Analytics
 
-* Transaction decoder: decodes raw tx data
-* Balance checker
-* Similar contracts search
-* Unit converter
-* Advanced debugger
+* Provide detailed analytics for smart contract usage and performance
+
+Advanced EOA (Externally Owned Account) Analytics
+
+* Offer in-depth analysis of regular user accounts
+
+Market Data Integration
+
+* Incorporate relevant market data into the explorer
+
+Customizable Time Views
+
+* Add daily, weekly, monthly, and yearly data views
+
+Protocol-specific Stats
+
+* Provide statistics broken down by different protocols
+
+</details>
+
+<details>
+
+<summary> ⭐️ NFT Explorer</summary>
+
+#### NFT-specific Features
+
+* Display top NFTs
+* Show latest trades, transfers, and mints
+* Integrate with NFT marketplaces and platforms
+
+</details>
+
+<details>
+
+<summary> ⭐️ DeFi Integrations</summary>
+
+Research and develop native Blockscout apps for basic DeFi functions:
+
+* Swap: Token exchange functionality
+* Bridge: Cross-chain asset transfer
+* Stake: Token staking options
+* Faucet: Free token distribution for testing
+* Revoke approvals: Manage token approvals
+* Multisender: Send tokens to multiple addresses at once
+
+</details>
+
+<details>
+
+<summary> ⭐️ Token Information Service</summary>
+
+Enhanced Token Data
+
+* Integrate CEX/DEX data: Information from centralized and decentralized exchanges
+* Display liquidity pairs data
+* Capture token prices from multiple sources for accuracy
+
+</details>
+
+<details>
+
+<summary> ⭐️ Cloud Console and Autoscout</summary>
+
+* Deploy customized white-label Blockscout explorers for EVM chains
+* Features include:
+  * Console for easy management
+  * Cloud hosting options
+  * API access
+
+</details>
 
 ## :white\_check\_mark: Completed
 
+### &#x20;✅ Basic ENS Support
+
+**Target Date:** Q2 2024\
+**Status**: :white\_check\_mark: Completed
+
+* :white\_check\_mark: Resolving ENS names for addresses and listing names for the address
+* :white\_check\_mark:  Enabling search by ENS name
+* :white\_check\_mark: Search by ENS name
+
+### &#x20;✅ Visualizer Service
+
+**Target Date:** Q2 2024\
+**Status**: :white\_check\_mark: Completed
+
+Visualizer service offering various visualization schemes, such as Sol2UML and transaction graphs for complex blockchain data analysis.
+
+### ✅ Ongoing L2 support&#x20;
+
+**Target Date:** Q2 2024\
+**Status**: :white\_check\_mark: Completed
+
+* zkSync Era and zkSync Sepolia Testnet
+* Arbitrum
+
 ### :white\_check\_mark:  Gas Tracker
+
+**Target Date:** Q2 2024\
+**Status**: :white\_check\_mark: Completed
 
 Users can monitor gas prices and trends to help them make informed decisions about transaction fees and timing.
 
 ### :white\_check\_mark: Human Readable Transactions v1
 
+**Target Date:** Q1 2024\
+**Status**: :white\_check\_mark: Completed
+
 Display complex transactions in an easily understandable format for non-technical users. This includes the ability to automatically decode transaction data, including tokens, contracts, and events.
 
 ### &#x20;:white\_check\_mark: Universal Smart Contract front-end
+
+**Target Date:** Q3 2023\
+**Status**: :white\_check\_mark: Completed
 
 Improve and simplify the Smart Contract deployment & verification process. Integrate React components to abstract away common on-chain operations.
 
@@ -258,15 +346,4 @@ BlockScout supports verification for contracts via multiple methods including Ha
 
 ## Change Log
 
-| Update       | Items                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 29.05.2024   | <p>Minor update: Will be adding a major overhaul in June for Q3-Q4 and will reconfigure, add new items and remove others.<br></p><p>Completed:</p><ul><li>Gas Tracker</li><li>Basic ENS support</li></ul><p>Removed <span data-gb-custom-inline data-tag="emoji" data-code="1f389">🎉</span></p><ul><li>AWS template</li><li>Multisender native dapp</li></ul>                                   |
-| _03.01.2024_ | <p>Update milestones for Q1 2024. </p><p>Completed:</p><ul><li>Universal smart contract front-end</li><li>Human readable transactions v1</li></ul>                                                                                                                                                                                                                                               |
-| _07.11.2023_ | Updated milestones to reflect current quarterly work. A more extensive update with many reworked milestones will be added for 2024.                                                                                                                                                                                                                                                              |
-| _10.08.2023_ | <p>Updated Q3 milestones to account for completed items.</p><p></p><p>Completed:</p><ul><li>Improved indexer performance</li><li>Advanced filter and search</li><li>My Account improvements</li><li>Admin Account </li></ul>                                                                                                                                                                     |
-| _17.04.2023_ | <ul><li>Revamp roadmap for 2023 milestones by Q.</li><li>Moved all In-research items to appropriate Q.</li><li><p>Added:</p><ul><li>Q2,Q3,Q4 2023 items</li></ul></li><li><p>Completed:</p><ul><li>Landing Page</li><li>React UI v1</li><li>Rust Microservices v1</li><li>DApp Marketplace v1</li><li>My Account v1</li></ul></li></ul>                                                          |
-| 27.07.2022   | <ul><li>Updated marketplace to include Blockscout native DApps</li><li>Added Blockscout Microservices</li><li>Added Multi-chain search</li><li>Added personal asset management features</li><li>Added Blockscout ID</li><li>Combined several elements into UI category</li><li>Deployment improvements (Docker image) moved to completed.</li><li>Update Research Phase items to 2023.</li></ul> |
-| 06.07.2022   | <p>Added:</p><ul><li>Analytics Dashboards</li><li>UI Overhaul</li><li>Modular Plug-and-Play Library</li></ul><p>Completed:</p><ul><li>Ethereum Mainnet Instance<br></li></ul>                                                                                                                                                                                                                    |
-| 11.04.2022   | <ul><li>Rearranged into Completed and Ongoing Categories. </li><li>Updated Ongoing Item dates</li><li>Added UI enhancements</li><li><p>Marked as Completed</p><ul><li>EIP-1559 Support &#x3C;Completed></li><li>Rollup Support &#x3C;Completed></li><li>Multi-file Contract Source Code Verification &#x3C;Completed></li></ul></li></ul>                                                        |
-| _04.08.2021_ | <p></p><ul><li><p>Added multiple new items to Q4 Roadmap including:</p><ul><li>EIP-1559 Support</li><li>Ethereum Mainnet Instance</li><li>My Account Functionality</li><li>Rollup Support</li><li>Deployment Improvements</li><li>Multi-file Contract Source Code Verification</li><li>Block/Address Detail Page Improvements</li><li>Data Sorting/Filtering</li></ul></li></ul>                 |
-|              |                                                                                                                                                                                                                                                                                                                                                                                                  |
+<table><thead><tr><th width="246">Update</th><th>Items</th></tr></thead><tbody><tr><td><em>19.08.2024</em></td><td><p>Major update to restructure roadmap for the rest of 2024. Moved completed items from Q1-2 into completed section and adjusted remaining items to fit into targeted areas for the remainder of 2024.<br><br>Removed from Roadmap:</p><ul><li>New Microservices (folded into existing categories)</li><li>CEX/DEX views (deprioritized)</li><li>Ongoing Improvements (moved to existing categories)</li></ul><p>Moved to Completed:</p><ul><li>L2 Support</li><li>Visualizer Service</li></ul></td></tr><tr><td><em>29.05.2024</em></td><td><p>Minor update: Will be adding a major overhaul in June for Q3-Q4 and will reconfigure, add new items and remove others.<br></p><p>Completed:</p><ul><li>Gas Tracker</li><li>Basic ENS support</li></ul><p>Removed: </p><ul><li>AWS template</li><li>Multisender native dapp</li></ul></td></tr><tr><td><em>03.01.2024</em></td><td><p>Update milestones for Q1 2024. </p><p>Completed:</p><ul><li>Universal smart contract front-end</li><li>Human readable transactions v1</li></ul></td></tr><tr><td><em>07.11.2023</em></td><td>Updated milestones to reflect current quarterly work. A more extensive update with many reworked milestones will be added for 2024.</td></tr><tr><td><em>10.08.2023</em></td><td><p>Updated Q3 milestones to account for completed items.</p><p></p><p>Completed:</p><ul><li>Improved indexer performance</li><li>Advanced filter and search</li><li>My Account improvements</li><li>Admin Account </li></ul></td></tr><tr><td><em>17.04.2023</em></td><td><ul><li>Revamp roadmap for 2023 milestones by Q.</li><li>Moved all In-research items to appropriate Q.</li><li><p>Added:</p><ul><li>Q2,Q3,Q4 2023 items</li></ul></li><li><p>Completed:</p><ul><li>Landing Page</li><li>React UI v1</li><li>Rust Microservices v1</li><li>DApp Marketplace v1</li><li>My Account v1</li></ul></li></ul></td></tr><tr><td>27.07.2022</td><td><ul><li>Updated marketplace to include Blockscout native DApps</li><li>Added Blockscout Microservices</li><li>Added Multi-chain search</li><li>Added personal asset management features</li><li>Added Blockscout ID</li><li>Combined several elements into UI category</li><li>Deployment improvements (Docker image) moved to completed.</li><li>Update Research Phase items to 2023.</li></ul></td></tr><tr><td>06.07.2022</td><td><p>Added:</p><ul><li>Analytics Dashboards</li><li>UI Overhaul</li><li>Modular Plug-and-Play Library</li></ul><p>Completed:</p><ul><li>Ethereum Mainnet Instance<br></li></ul></td></tr><tr><td>11.04.2022</td><td><ul><li>Rearranged into Completed and Ongoing Categories. </li><li>Updated Ongoing Item dates</li><li>Added UI enhancements</li><li><p>Marked as Completed</p><ul><li>EIP-1559 Support &#x3C;Completed></li><li>Rollup Support &#x3C;Completed></li><li>Multi-file Contract Source Code Verification &#x3C;Completed></li></ul></li></ul></td></tr><tr><td><em>04.08.2021</em></td><td><p></p><ul><li><p>Added multiple new items to Q4 Roadmap including:</p><ul><li>EIP-1559 Support</li><li>Ethereum Mainnet Instance</li><li>My Account Functionality</li><li>Rollup Support</li><li>Deployment Improvements</li><li>Multi-file Contract Source Code Verification</li><li>Block/Address Detail Page Improvements</li><li>Data Sorting/Filtering</li></ul></li></ul></td></tr><tr><td></td><td></td></tr></tbody></table>
