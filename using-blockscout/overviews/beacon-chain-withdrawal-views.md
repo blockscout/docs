@@ -164,12 +164,10 @@ The unique `index`, assigned `validatorIndex`, withdrawal receiving `address`, a
 
 ## UI display examples&#x20;
 
-_(Note, Blockscout 1.0 mockups shown, the Blockscout redesign will have a much improved UI)_
-
 ### Block page example
 
-<figure><img src="../../.gitbook/assets/Untitled.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/withdrawals.png" alt=""><figcaption></figcaption></figure>
 
 ### Address page example
 
-<figure><img src="../../.gitbook/assets/Untitled (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/address-withdrawals.png" alt=""><figcaption></figcaption></figure>
