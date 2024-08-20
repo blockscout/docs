@@ -1,5 +1,7 @@
 # Funding
 
+Blockscout [raised their first seed round](https://www.blog.blockscout.com/blockscout-raises-3m-seed-round-led-by-1kx/) in 2024 to help bring open-source exploration to more blockchain users.&#x20;
+
 We would like to thank projects, individuals, and agencies who have helped support Blockscout open-source explorer growth either through direct giving or grants to support instances.&#x20;
 
 We are open to additional grant opportunities and [welcome queries](https://discord.gg/XmNatGKbPS) from projects in need of a new open-source explorer instance or maintenance of their current instances.

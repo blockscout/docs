@@ -1,6 +1,6 @@
 ---
 description: >-
-  The new Blockscout redesign brings new functionality, a reimagined UI and many
+  The Blockscout redesign brings new functionality, a reimagined UI and many
   more optimizations to the #1 open-source block explorer.
 ---
 

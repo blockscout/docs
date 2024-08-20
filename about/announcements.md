@@ -1,8 +1,12 @@
 # News & Media
 
+## Seed Funding Announcement
+
+{% embed url="https://www.blog.blockscout.com/blockscout-raises-3m-seed-round-led-by-1kx/" %}
+
 ## Dappcon 2024 Blockscout Presentation
 
-Head of research Kirill Fedoseev presented on  network resilience and the need for reliable, transparent, and available explorers in a multi-chain world (starts at 7:50:00)
+Head of research Kirill Fedoseev presented on network resilience and the need for reliable, transparent, and available explorers in a multi-chain world (starts at 7:50:00)
 
 {% embed url="https://youtu.be/xRAG5oIrwH4" %}
 

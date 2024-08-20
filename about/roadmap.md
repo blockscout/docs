@@ -1,5 +1,5 @@
 ---
-description: Upcoming enhancements and updates to BlockScout
+description: Upcoming enhancements and updates to Blockscout
 ---
 
 # Roadmap
@@ -12,7 +12,7 @@ _Last update: August 19, 2024 |_ [_Changelog_](roadmap.md#change-log)
 
 ## 🟦 Q3-4 2024 / Q1 2024
 
-We've updated our roadmap for the remainder of 2024 and early 2025 to include work in several key areas. We will be working in several directions simultaneously and prioritize items as needed/requested.
+We've updated our product roadmap for the remainder of 2024 and early 2025 to include several key product areas. We will be working in multiple directions simultaneously and prioritize items as needed/requested.
 
 <details>
 

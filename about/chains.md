@@ -471,8 +471,6 @@ _Updated 08/2024_
 | Shyft Testnet                 | https://www.shyft.network/                | https://bx.testnet.shyft.network/                           |
 | Shyft Veriscope               | https://veriscope.network                 | https://bx.veriscope.network/                               |
 | Siberium                      | https://siberium.net                      | https://explorer.main.siberium.net/                         |
-| Sidra                         | https://sidrabank.com/                    | https://explorer.xsidra.com/                                |
-| Sidra                         | https://sidrabank.com/                    | https://explorer.xsidra.com/                                |
 | Sidra Chain                   | https://sidrachain.com                    | https://ledger.sidrachain.com                               |
 | Siriusnet                     | https://siriusnet.io                      | https://scan.siriusnet.io                                   |
 | Skale                         | https://skale.space/                      | https://elated-tan-skat.explorer.mainnet.skalenodes.com/    |
