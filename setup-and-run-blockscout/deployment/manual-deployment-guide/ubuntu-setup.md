@@ -68,7 +68,7 @@
 2. You will be prompted to create a new profile, just follow the flow.
 3. After Adduser now connect to postgres-14
 
-> &#x20;su - postgres (for Root) or sudo -i -u postgres (for user)
+> su - postgres (for Root) or sudo -i -u postgres (for user)
 
 4. Display when entering postgres user section looks like this in terminal
 
@@ -88,12 +88,12 @@
 
 8. Create Password database in dbusername Note
 
-> ALTER USER dbusername WITH PASSWORD 'dbuserpassword'; \
+> ALTER USER dbusername WITH PASSWORD 'dbuserpassword';\
 > **Note**: Replace dbusername and dbuserpassword that you created
 
 9. Create Privileges on dbusername to database
 
-> GRANT ALL PRIVILEGES ON DATABASE blockscout TO dbusername;&#x20;
+> GRANT ALL PRIVILEGES ON DATABASE blockscout TO dbusername;
 >
 > **Note:** Replace dbusername
 
@@ -116,11 +116,11 @@
 
 13. Run this command
 
-> &#x20;psql -d blockscout
+> psql -d blockscout
 
-14. If everything is correct, you will see this response&#x20;
+14. If everything is correct, you will see this response
 
-> &#x20;blockscout=#
+> blockscout=#
 
 15. Quit psql
 
@@ -130,7 +130,15 @@
 
 > dbusername@ubuntu:\~$ exit
 
-### 5. After installing everything, clone the Blockscout repository and install .tool-version from the repository
+### 5. Install Rustup / Cargo
+
+After Setup Database, You can Install Rust before installing Blockscout
+
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+### 6. After installing everything, clone the Blockscout repository and install .tool-version from the repository
 
 1. Clone Repository Blockscout
 
