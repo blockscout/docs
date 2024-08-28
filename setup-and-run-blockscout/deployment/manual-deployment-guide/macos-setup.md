@@ -47,7 +47,7 @@ Check your elixir version (`elixir -v`) and node version (`node -v`). \
 \
 You should have the following installed:
 
-* `Elixir 1.14.3 (compiled with Erlang/OTP 25)`
+* `Elixir 1.15.x (compiled with Erlang/OTP 26)`
 * `Node v18.17.1`
 
 If there is no response or the proper version is not showing up, you may need to reshim asdf. Please check the [asdf docs](https://asdf-vm.com/) for further info if this doesn't work.
