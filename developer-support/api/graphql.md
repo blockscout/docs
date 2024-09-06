@@ -41,7 +41,7 @@ query {
    }
 ```
 
-1. **Subscription:**  subscribe to real-time data.
+1. **Subscription:** subscribe to real-time data.
 
 ```
 subscription {
@@ -54,11 +54,9 @@ subscription {
 
 ## **Access GraphQL API**
 
-To access Blockscout GraphQL interface you can use GraphiQL - in-browser IDE for exploring GraphQL. It's built in to Blockscout.
+To access Blockscout GraphQL interface you can use GraphiQL - in-browser IDE for exploring GraphQL. It's built in to Blockscout. From the `APIs` dropdown menu choose `GraphQL.`&#x20;
 
-From the `APIs` dropdown menu choose `GraphQL.` Depending on the implementation you may also find the link in the page footer.
-
-![Access GraphQL from the top menu](../../.gitbook/assets/graphql.png)
+<figure><img src="../../.gitbook/assets/graphql.png" alt=""><figcaption></figcaption></figure>
 
 You can also use your favorite http client:
 
@@ -72,14 +70,24 @@ curl 'https://eth-sepolia.blockscout.com/graphiql'
 
 Blockscout's GraphQL API provides queries and a subscription. You can view them in the GraphQL interface in the `Docs` menu. Example Queries:
 
-| Query                                           | Description                 | Example                                                                                                                                   |
-| ----------------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| address(hash: AddressHash!):  Address           | Gets an address by hash     | {address(hash: "0x1fddEc96688e0538A316C64dcFd211c491ECf0d8") {hash, contractCode} }                                                       |
-| addresses (hashes: \[AddressHash!]): \[Address] | Gets addresses by hashes    | {addresses(hashes: \["0x1fddEc96688e0538A316C64dcFd211c491ECf0d8",  "0x3948c17c0f45017064858b8352580267a85a762c"]) {hash, contractCode} } |
-| block(number: Int!): Block                      | Gets a block by number      | {block(number: 1) {parentHash, size, nonce\}}                                                                                             |
-| transaction (hash: FullHash!): Transaction      | Gets a transaction by hash. | {transaction(hash: "0xc391da8f433b3bea0b3eb45da40fdd194c7a0e07d1b5ad656bf98940f80a6cf6") {input, gasUsed\}}                               |
+| Query                                           | Description                 | Example                                                                                                                                  |
+| ----------------------------------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| address(hash: AddressHash!): Address            | Gets an address by hash     | {address(hash: "0x1fddEc96688e0538A316C64dcFd211c491ECf0d8") {hash, contractCode} }                                                      |
+| addresses (hashes: \[AddressHash!]): \[Address] | Gets addresses by hashes    | {addresses(hashes: \["0x1fddEc96688e0538A316C64dcFd211c491ECf0d8", "0x3948c17c0f45017064858b8352580267a85a762c"]) {hash, contractCode} } |
+| block(number: Int!): Block                      | Gets a block by number      | {block(number: 1) {parentHash, size, nonce\}}                                                                                            |
+| transaction (hash: FullHash!): Transaction      | Gets a transaction by hash. | {transaction(hash: "0xc391da8f433b3bea0b3eb45da40fdd194c7a0e07d1b5ad656bf98940f80a6cf6") {input, gasUsed\}}                              |
 
-![Queries schema can be found by clicking on the Docs tab ](../../.gitbook/assets/Graphi.png)
+
+
+<div align="center" data-full-width="true">
+
+<figure><img src="../../.gitbook/assets/documentation-explorer.png" alt=""><figcaption><p>Open Documentation Explorer</p></figcaption></figure>
+
+</div>
+
+###
+
+<figure><img src="../../.gitbook/assets/doc-explorer-open (1).png" alt=""><figcaption><p>Doc explorer open</p></figcaption></figure>
 
 ### Example Query to retrieve transactions for a specific address
 
@@ -106,8 +114,3 @@ Note that transactions can accept the following arguments:
 * first
 * after
 * before
-
-
-
-
-

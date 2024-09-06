@@ -1,19 +1,13 @@
----
-description: >-
-  Verifying your deployed contract using contract source code, JSON input,
-  Sourcify and more.
----
+# Blockscout UI
 
-# Verifying a Smart Contract
 
-Once verified, a smart contract or token contract's source code becomes publicly available and verifiable, creating transparency and trust.&#x20;
 
-Verification is available for both Solidity and Vyper contracts. **Currently, there are 7 methods for verification using the Blockscout UI.**
+Verification is available for both Solidity and Vyper contracts. **Currently, there are 7 different type of inputs you can use for verification using the Blockscout UI.**
 
 {% hint style="info" %}
 👷🏻‍♂️ If preferred you can verify directly from your Hardhat or Foundry dev environment.&#x20;
 
-* [Hardhat Verification Plugin](hardhat-verification-plugin.md)
+* [Hardhat Verification Plugin](hardhat-verification-plugin/)
 * [Foundry Verification](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify)
 {% endhint %}
 
@@ -32,12 +26,12 @@ To learn more about the smart contract verification Rust microservice and verifi
 <figure><img src="../../.gitbook/assets/verify-and-publish-2.png" alt=""><figcaption></figcaption></figure>
 
 * Solidity ([Flattened source code)](./#via-flattened-source-code)
-* Solidity ([Standard JSON input](./#via-standard-json-input))
+* Solidity ([Standard JSON input](blockscout-ui.md#via-standard-json-input))
 * Solidity ([Sourcify](contracts-verification-via-sourcify.md))
-* Solidity ([Multi-part files](./#solidity-multi-part-files))
+* Solidity ([Multi-part files](blockscout-ui.md#solidity-multi-part-files))
 * [Vyper (Contract](./#vyper-contract))
-* Vyper ([Multi-part files](./#vyper-multi-part-files-and-standard-json-input))
-* Vyper ([Standard JSON input](./#vyper-multi-part-files-and-standard-json-input))
+* Vyper ([Multi-part files](blockscout-ui.md#vyper-multi-part-files-and-standard-json-input))
+* Vyper ([Standard JSON input](blockscout-ui.md#vyper-multi-part-files-and-standard-json-input))
 
 ### Solidity (Flattened source code)
 
@@ -106,4 +100,4 @@ Check all version digits - for example 0.5.1 is different from 0.5.10
 
 ### Verification in a dev environment
 
-The [Hardhat verification plugin](hardhat-verification-plugin.md) supports BlockScout. You can also choose to use the [Sourcify plugin](sourcify-plugin-for-hardhat.md) to verify with Sourcify from your hardhat environment. [Foundry supports blockscout verification with Forge](https://book.getfoundry.sh/reference/forge/forge-verify-contract).
+The [Hardhat verification plugin](hardhat-verification-plugin/) supports BlockScout. You can also choose to use the [Sourcify plugin](hardhat-verification-plugin/sourcify-plugin-for-hardhat.md) to verify with Sourcify from your hardhat environment. [Foundry supports blockscout verification with Forge](https://book.getfoundry.sh/reference/forge/forge-verify-contract).

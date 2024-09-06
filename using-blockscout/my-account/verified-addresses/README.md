@@ -1,6 +1,6 @@
 # Verified addresses
 
-Verify ownership of a smart contract address to easily update information in Blockscout. To verify your ownership, a contract must be deployed on the chain and [verified](../../../developer-support/verifying-a-smart-contract/).
+Verify ownership of a smart contract address to easily update information in Blockscout. To verify your ownership, a contract must be deployed on the chain and [verified](../../../developer-support/smart-contract-verification/).
 
 You will sign a single message to verify contract ownership. Once verified, you can update token information, address name tags, and address labels from the Blockscout console.
 

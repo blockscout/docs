@@ -432,7 +432,7 @@ contract Storage {
 
 #### License type
 
-"See [available license types](../../verifying-a-smart-contract/blockscout-smart-contract-verification-api.md)."
+"See [available license types](../../smart-contract-verification/blockscout-smart-contract-verification-api.md)."
 {% endtab %}
 
 {% tab title="Example Result" %}

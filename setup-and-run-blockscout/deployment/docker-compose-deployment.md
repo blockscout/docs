@@ -49,7 +49,7 @@ and 4 containers for microservices (written in Rust):
 
 ### Configs for different Ethereum clients
 
-The repo contains built-in configs for different JSON RPC clients without need to build the image.
+The repo contains built-in configs for different JSON RPC clients without the need to build the image.
 
 | **JSON RPC Client**              | **Docker compose launch command**                   |
 | -------------------------------- | --------------------------------------------------- |
@@ -60,7 +60,7 @@ The repo contains built-in configs for different JSON RPC clients without need t
 | Ganache                          | `docker-compose -f ganache.yml up -d`               |
 | HardHat network                  | `docker-compose -f hardhat-network.yml up -d`       |
 
-* Running only explorer without DB: `docker-compose -f external-db.yml up -d`. In this case, no db container is created. And it assumes that the DB credentials are provided through `DATABASE_URL` environment variable on the backend container.
+* Run only the explorer without DB: `docker-compose -f external-db.yml up -d`. In this case, no db container is created. And it assumes that the DB credentials are provided through `DATABASE_URL` environment variable on the backend container.
 * Running explorer with external backend: `docker-compose -f external-backend.yml up -d`
 * Running explorer with external frontend: `docker-compose -f external-frontend.yml up -d`
 * Running all microservices: `docker-compose -f microservices.yml up -d`
@@ -78,8 +78,8 @@ You can adjust BlockScout environment variables:
 
 Descriptions of the ENVs are available
 
-* for [backend](https://docs.blockscout.com/for-developers/information-and-settings/env-variables)
-* for [frontend](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md).
+* for [backend](../env-variables/backend-env-variables.md)
+* for [frontend](../env-variables/frontend-common-envs/)
 
 ### Running via Makefile
 

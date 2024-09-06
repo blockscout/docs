@@ -1,0 +1,49 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Stats",
+    "description": "Microservice API endpoints",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://eth.blockscout.com"
+    }
+  ],
+  "paths": {
+    "/api/v2/stats": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Daily stats"
+          }
+        }
+      }
+    },
+    "/api/v2/stats/charts/transactions": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "tx stats by date"
+          }
+        }
+      }
+    },
+    "/api/v2/stats/charts/market": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "market stats by date"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {}
+  }
+}

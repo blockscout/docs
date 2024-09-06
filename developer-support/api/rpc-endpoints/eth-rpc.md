@@ -1,8 +1,8 @@
-# ETH RPC
+# ETH RPC API
 
-In addition to the custom [RPC endpoints documented here](rpc-endpoints/), the Blockscout ETH RPC API supports most used methods in the exact format specified for Ethereum nodes, see the [Ethereum JSON-RPC Specification](https://ethereum.github.io/execution-apis/api-documentation/) for more details.&#x20;
+In addition to the custom [RPC endpoints documented here](./), the Blockscout ETH RPC API supports most used methods in the exact format specified for Ethereum nodes, see the [Ethereum JSON-RPC Specification](https://ethereum.github.io/execution-apis/api-documentation/) for more details.
 
-These methods are provided for your convenience and are most suitable as a fallback option in your JSON RPC API providers. For other use cases, REST or custom RPC methods are recommended.&#x20;
+These methods are provided for your convenience and are most suitable as a fallback option in your JSON RPC API providers. For other use cases, REST or custom RPC methods are recommended.
 
 The following methods are supported:
 
@@ -23,7 +23,7 @@ The following methods are supported:
 * eth\_sendRawTransaction
 * eth\_call
 
-In the following examples we use the Ethereum mainnet with the base instance url  `https://eth.blockscout.com`. When sending a request add `/api/eth-rpc` to the end of the base url.
+In the following examples we use the Ethereum mainnet with the base instance url `https://eth.blockscout.com`. When sending a request add `/api/eth-rpc` to the end of the base url.
 
 ## eth\_blockNumber
 
@@ -45,7 +45,7 @@ curl -H "content-type: application/json" -X POST --data '{"id":0,"jsonrpc":"2.0"
 ```
 {% endcode %}
 
-## eth\_getBalance&#x20;
+## eth\_getBalance
 
 Returns the balance of a given address in wei. Note the `earliest` parameter does not work as expected because genesis block balances are not currently imported. Parameters are required.
 
@@ -53,7 +53,7 @@ Returns the balance of a given address in wei. Note the `earliest` parameter doe
 
 <table><thead><tr><th width="130.5"></th><th></th></tr></thead><tbody><tr><td>Type</td><td><mark style="background-color:green;">POST</mark></td></tr><tr><td>Data (string)</td><td>20 Byte address to check balance</td></tr><tr><td>Quantity or Tag (string)</td><td>Integer value of a block number, or a tag "latest" for the most recent block.</td></tr></tbody></table>
 
-**Example**&#x20;
+**Example**
 
 {% code overflow="wrap" %}
 ```json
@@ -71,15 +71,13 @@ curl -H "content-type: application/json" -X POST --data '{"id":0,"jsonrpc":"2.0"
 
 ## eth\_getLogs
 
-Returns an array of logs matching a specified filter object.  Params are optional based on data you want to receive. From more information, see this [post on eth\_getLogs](https://medium.com/alchemy-api/deep-dive-into-eth-getlogs-5faf6a66fd81).
+Returns an array of logs matching a specified filter object. Params are optional based on data you want to receive. From more information, see this [post on eth\_getLogs](https://medium.com/alchemy-api/deep-dive-into-eth-getlogs-5faf6a66fd81).
 
 Note: Never returns more than 1000 log entries. You can use pagination options to request the next page. Pagination options params: {"logIndex": "3D", "blockNumber": "6423AC"} which include parameters from the last log received from the previous request. These three parameters are required for pagination.
 
 **Parameters**
 
-<table><thead><tr><th width="181.5"></th><th></th></tr></thead><tbody><tr><td>Type</td><td><mark style="background-color:green;">POST</mark></td></tr><tr><td><code>address</code><br>(string, array)</td><td>20Byte contract address or list of addresses to collect logs from.</td></tr><tr><td><code>fromBlock</code> <br>(Quantity/Tag)</td><td>Integer block number, <code>"latest"</code> (default) for the last mined block  or <code>"pending"</code>, <code>"earliest"</code> for not yet mined transactions.</td></tr><tr><td><code>toBlock</code><br>(Quantity/Tag)</td><td> Integer block number, <code>"latest"</code> (default) for the last mined block  or <code>"pending"</code>, <code>"earliest"</code> for not yet mined transactions.</td></tr><tr><td><code>topics</code> <br>(string, array)</td><td>Array of 32 Byte <code>DATA</code> topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options</td></tr><tr><td><code>paging_options</code></td><td><code>logIndex</code> and <code>blockNumber</code> explained above.</td></tr></tbody></table>
-
-
+<table><thead><tr><th width="181.5"></th><th></th></tr></thead><tbody><tr><td>Type</td><td><mark style="background-color:green;">POST</mark></td></tr><tr><td><code>address</code><br>(string, array)</td><td>20Byte contract address or list of addresses to collect logs from.</td></tr><tr><td><code>fromBlock</code><br>(Quantity/Tag)</td><td>Integer block number, <code>"latest"</code> (default) for the last mined block or <code>"pending"</code>, <code>"earliest"</code> for not yet mined transactions.</td></tr><tr><td><code>toBlock</code><br>(Quantity/Tag)</td><td>Integer block number, <code>"latest"</code> (default) for the last mined block or <code>"pending"</code>, <code>"earliest"</code> for not yet mined transactions.</td></tr><tr><td><code>topics</code><br>(string, array)</td><td>Array of 32 Byte <code>DATA</code> topics. Topics are order-dependent. Each topic can also be an array of DATA with "or" options</td></tr><tr><td><code>paging_options</code></td><td><code>logIndex</code> and <code>blockNumber</code> explained above.</td></tr></tbody></table>
 
 **Example Query**
 

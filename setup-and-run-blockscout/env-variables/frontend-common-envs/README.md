@@ -9,7 +9,7 @@ The following are common frontend variables **only.**&#x20;
 {% endhint %}
 
 {% hint style="info" %}
-**->** [**Full list of ENVs**](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md) with example values
+**->** [**Full list of frontend ENVs**](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md) with example values
 
 **->** [**ENV File**](https://github.com/blockscout/frontend/blob/main/configs/envs/.env.eth) example
 {% endhint %}

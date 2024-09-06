@@ -20,7 +20,7 @@ Below we describe verification information when including these contracts specif
 
 [Hardhat](https://hardhat.org/) is a full-featured development environment for contract compilation, deployment, and verification. The [Hardhat Verification plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) supports contract verification on Blockscout and includes in-built functionality to address verification with OpenZeppelin-based imports.
 
-A separate tutorial about contract verification via Hardhat on Blockscout [is available here](hardhat-verification-plugin.md).
+A separate tutorial about contract verification via Hardhat on Blockscout [is available here](hardhat-verification-plugin/).
 
 ## Foundry (forge)
 

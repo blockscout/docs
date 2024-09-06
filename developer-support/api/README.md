@@ -1,4 +1,4 @@
-# API Usage
+# Blockscout API
 
 ## Blockscout Internal Documentation
 
@@ -21,7 +21,7 @@ Blockscout supports several methods:
 2. **RPC API**: provided for developers transitioning their applications from Etherscan to Blockscout. Supports GET and POST requests.\
    \-> [More info](rpc-endpoints/)
 3. **Eth RPC API**: Supports the most popular [JSON RPC methods](https://ethereum.github.io/execution-apis/api-documentation/).\
-   \-> [More info](eth-rpc.md)
+   \-> [More info](rpc-endpoints/eth-rpc.md)
 4. [**Graphiql**](https://github.com/graphql/graphiql): An IDE for exploring GraphQL.
 
 <figure><img src="../../.gitbook/assets/API-menu.png" alt=""><figcaption><p>API access in new instance</p></figcaption></figure>
@@ -57,7 +57,7 @@ Blockscout supports the following methods. Requests and return data are identica
 * eth\_sendRawTransaction
 * eth\_call
 
-More details on [ETH RPC for Blockscout](eth-rpc.md) are available here.
+More details on [ETH RPC for Blockscout](rpc-endpoints/eth-rpc.md) are available here.
 
 ## API Keys
 
