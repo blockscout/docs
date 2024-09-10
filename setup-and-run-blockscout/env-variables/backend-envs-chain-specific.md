@@ -20,7 +20,7 @@ Can be set in format `1h` for 1 hour, `1m` for 1 minute, `1s` or `1` for 1 secon
 _**Note**_**: Before release 5.1.2, all environment variables of time format supported only integers in seconds (without dimensions) as values.**
 {% endhint %}
 
-### <mark style="background-color:yellow;">Ethereum Management</mark>
+## <mark style="background-color:yellow;">Ethereum Management</mark>
 
 | Variable                                          | Description                                                                                                                                                                                                                                                                                                  | Parameters                                                                                       |
 | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
@@ -32,7 +32,7 @@ _**Note**_**: Before release 5.1.2, all environment variables of time format sup
 | `INDEXER_BEACON_BLOB_FETCHER_START_BLOCK`         | Beacon Chain blob fetcher start block. On start-up, indexer will only look for missed blobs beyond this block number. It's recommended to set this block to the first block after the Dencun hardfork. Implemented in [#9168](https://github.com/blockscout/blockscout/pull/9168).                           | <p>Version: v6.2.0+<br>Default: <code>19200000</code><br>Applications: Indexer</p>              |
 | `INDEXER_BEACON_BLOB_FETCHER_END_BLOCK`           | Beacon Chain blob fetcher end block. On start-up, indexer will only look for missed blobs before this block number. If set to `0`, then all recent till `latest` will be traversed. Implemented in [#9168](https://github.com/blockscout/blockscout/pull/9168).                                              | <p>Version: v6.2.0+<br>Default: <code>0</code><br>Applications: Indexer</p>                     |
 
-### <mark style="background-color:yellow;">Polygon Edge Management</mark>
+## <mark style="background-color:yellow;">Polygon Edge Management</mark>
 
 {% hint style="info" %}
 Polygon edge is no longer supported by the Polygon team in favor of the Polygon CDK - [more info ](https://polygon.technology/blog/polygon-labs-to-focus-contributions-on-polygon-cdk-discontinues-contributions-for-edge)
@@ -51,7 +51,7 @@ Polygon edge is no longer supported by the Polygon team in favor of the Polygon 
 | `INDEXER_POLYGON_EDGE_L2_DEPOSITS_START_BLOCK`    | The number of start block on L2 (child chain) to index deposit executes. If the table of deposit executes is not empty, the process will fill gaps and then continue indexing from the last indexed message. If empty or not defined, the deposit executes are not indexed. Implemented in [#8180](https://github.com/blockscout/blockscout/pull/8180). | <p>Version: v5.3.0+<br>Default: (empty)<br>Applications: Indexer</p> |
 | `INDEXER_POLYGON_EDGE_ETH_GET_LOGS_RANGE_SIZE`    | Block range size for eth\_getLogs request in Polygon Edge indexer modules. Implemented in [#8180](https://github.com/blockscout/blockscout/pull/8180).                                                                                                                                                                                                  | <p>Version: v5.3.0+<br>Default: (empty)<br>Applications: Indexer</p> |
 
-### <mark style="background-color:yellow;">Rootstock management</mark>
+## <mark style="background-color:yellow;">Rootstock Management</mark>
 
 | Variable                                       | Description                                                                                                                                                                                                                                                            | Parameters                                                            |
 | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
@@ -63,7 +63,7 @@ Polygon edge is no longer supported by the Polygon team in favor of the Polygon 
 | `INDEXER_ROOTSTOCK_DATA_FETCHER_CONCURRENCY`   | The number of simultaneous requests to the JSON-RPC node, used to configure the load or RPS on JOSN-RPC node. Implemented in [#8742](https://github.com/blockscout/blockscout/pull/8742).                                                                              | <p>Version: v5.3.2+<br>Default: (empty)<br>Applications: Indexer</p> |
 | `INDEXER_ROOTSTOCK_DATA_FETCHER_DB_BATCH_SIZE` | The number of blocks fetched from the database in one database query. Implemented in [#8742](https://github.com/blockscout/blockscout/pull/8742).                                                                                                                      | <p>Version: v5.3.2+<br>Default: (empty)<br>Applications: Indexer</p> |
 
-### <mark style="background-color:yellow;">Shibarium Management</mark>
+## <mark style="background-color:yellow;">Shibarium Management</mark>
 
 | Variable                                          | Description                                                                                                                                                                                                                                                                                                | Parameters                                                            |
 | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
@@ -80,7 +80,7 @@ Polygon edge is no longer supported by the Polygon team in favor of the Polygon 
 | `INDEXER_SHIBARIUM_L2_WETH_CONTRACT`              | The address of WETH contract on L2 used to fetch ETH deposits and withdrawals. Required for L2 events indexing. Implemented in [#8929](https://github.com/blockscout/blockscout/pull/8929).                                                                                                                | <p>Version: v6.1.0+<br>Default: (empty)<br>Applications: Indexer</p> |
 | `INDEXER_SHIBARIUM_L2_BONE_WITHDRAW_CONTRACT`     | The address of a contract which emits `Withdraw` event on L2. Used to fetch BONE token withdrawals. Required for L2 events indexing. Implemented in [#8929](https://github.com/blockscout/blockscout/pull/8929).                                                                                           | <p>Version: v6.1.0+<br>Default: (empty)<br>Applications: Indexer</p> |
 
-### <mark style="background-color:yellow;">Polygon zkEVM Rollup management</mark>
+## <mark style="background-color:yellow;">Polygon zkEVM Rollup Management</mark>
 
 | Variable                                          | Description                                                                                                                                                                                                                                                                                                                                                           | Parameters                                                                       |
 | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
@@ -99,7 +99,7 @@ Polygon edge is no longer supported by the Polygon team in favor of the Polygon 
 | `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_NETWORK_ID`      | L2 Network ID in terms of Polygon zkEVM bridge (1 = Polygon zkEVM, 2 = Astar zkEVM, etc.). Required if `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_START_BLOCK` or `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_START_BLOCK` is defined. Implemented in [#9637](https://github.com/blockscout/blockscout/pull/9637).                                                                         | <p>Version: v6.4.0+<br>Default: (empty)<br>Applications: Indexer</p>            |
 | `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_ROLLUP_INDEX`    | L2 Rollup index in terms of Polygon zkEVM bridge (0 = Polygon zkEVM, 1 = Astar zkEVM, etc.). Required if `INDEXER_POLYGON_ZKEVM_L1_BRIDGE_START_BLOCK` or `INDEXER_POLYGON_ZKEVM_L2_BRIDGE_START_BLOCK` is defined. Implemented in [#9637](https://github.com/blockscout/blockscout/pull/9637).                                                                       | <p>Version: v6.4.0+<br>Default: (empty)<br>Applications: Indexer</p>            |
 
-### <mark style="background-color:yellow;">Optimism Rollup Management</mark>
+## <mark style="background-color:yellow;">Optimism Rollup Management</mark>
 
 {% hint style="info" %}
 Supported together with ENV setting `CHAIN_TYPE=optimism`
@@ -118,7 +118,7 @@ Supported together with ENV setting `CHAIN_TYPE=optimism`
 | `INDEXER_OPTIMISM_L2_WITHDRAWALS_START_BLOCK`        | The number of start block on L2 to index withdrawals. If the table of withdrawals is not empty, the process will continue indexing from the last indexed withdrawal. Implemented in [#6980](https://github.com/blockscout/blockscout/pull/6980).                                                                                                                                                                                                                                       | <p>Version: v6.3.0+<br>Default: <code>1</code><br>Applications: Indexer</p>                                          |
 | `INDEXER_OPTIMISM_L2_MESSAGE_PASSER_CONTRACT`        | The address of `L2ToL1MessagePasser` contract on L2 to index withdrawals. Implemented in [#6980](https://github.com/blockscout/blockscout/pull/6980).                                                                                                                                                                                                                                                                                                                                  | <p>Version: v6.3.0+<br>Default: <code>0x4200000000000000000000000000000000000016</code><br>Applications: Indexer</p> |
 
-### <mark style="background-color:yellow;">zkSync Rollup Management</mark>
+## <mark style="background-color:yellow;">zkSync Rollup Management</mark>
 
 {% hint style="info" %}
 Supported together with setting `CHAIN_TYPE=zksync`
@@ -133,7 +133,7 @@ Supported together with setting `CHAIN_TYPE=zksync`
 | `INDEXER_ZKSYNC_L1_RPC`                          | The RPC endpoint for L1 used to fetch status of batches. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                            | <p>Version: v6.3.0+<br>Default: (empty)<br>Applications: Indexer</p>            |
 | `INDEXER_ZKSYNC_BATCHES_STATUS_RECHECK_INTERVAL` | The batches status rechecking interval, seconds. Implemented in [#9080](https://github.com/blockscout/blockscout/pull/9080).                                    | <p>Version: v6.3.0+<br>Default: <code>50</code><br>Applications: Indexer</p>    |
 
-### <mark style="background-color:yellow;">Arbitrum Rollup Management</mark>
+## <mark style="background-color:yellow;">Arbitrum Rollup Management</mark>
 
 {% hint style="info" %}
 Supported together with setting `CHAIN_TYPE=arbitrum`
@@ -163,7 +163,7 @@ Supported together with setting `CHAIN_TYPE=arbitrum`
 | `INDEXER_ARBITRUM_CONFIRMATIONS_TRACKING_FINALIZED`               | Whether to choose `safe` (true) or `latest` (false) block to discover new confirmations. This setting is required to reduce latency between the actual confirmation transaction and its discovery. Recommended to have true on rollups which use Ethereum Mainnet as L1. Determines how fast new confirmations will be discovered. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312). | <p>Version: v6.7.0+<br>Default: <code>true</code><br>Applications: Indexer</p>                                       |
 | `INDEXER_ARBITRUM_NEW_BATCHES_LIMIT`                              | The number of batches to be handled and imported at once. This is applicable for cases when dozens of batches are found in one discovery iteration, and it is necessary to import them in chunks to avoid the entire process being aborted if any errors occur. Implemented in [#9312](https://github.com/blockscout/blockscout/pull/9312).                                                                    | <p>Version: v6.7.0+<br>Default: <code>10</code><br>Applications: Indexer</p>                                         |
 
-### <mark style="background-color:yellow;">Celo Management</mark>
+## <mark style="background-color:yellow;">Celo Management</mark>
 
 {% hint style="info" %}
 Supported together with setting `CHAIN_TYPE=celo`
@@ -205,3 +205,20 @@ The JSON structure in the gist contains two main sections: `addresses` and `even
 
 </details>
 
+## <mark style="background-color:yellow;">Filecoin Management</mark>
+
+
+{% hint style="info" %}
+Supported together with setting `CHAIN_TYPE=filecoin`
+{% endhint %}
+
+
+| Variable                                                    | Description                                                                                                                                                                                                                                                                                                                                   | Parameters                                                                                                 |
+| ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `FILECOIN_NETWORK_PREFIX`                                   | Specifies the expected network prefix for Filecoin addresses. For more details, refer to the [Filecoin Spec](https://spec.filecoin.io/appendix/address/#section-appendix.address.network-prefix). Available values: `f`  (for the mainnet), `t` (for testnets). Implemented in [#10468](https://github.com/blockscout/blockscout/pull/10468). | <p>Version: master<br>Default: <code>f</code><br>Applications: API, Indexer</p>                            |
+| `BERYX_API_TOKEN`                                           | [Beryx API](https://docs.zondax.ch/beryx-api) token, used for retrieving Filecoin native addressing information. Implemented in [#10468](https://github.com/blockscout/blockscout/pull/10468).                                                                                                                                                | <p>Required: ✅<br>Version: master<br>Default: (empty)<br>Applications: Indexer</p>                         |
+| `BERYX_API_BASE_URL`                                        | [Beryx API](https://docs.zondax.ch/beryx-api) base URL. Implemented in [#10468](https://github.com/blockscout/blockscout/pull/10468).                                                                                                                                                                                                         | <p>Version: master<br>Default: <code>https://api.zondax.ch/fil/data/v3</code><br>Applications: Indexer</p> |
+| `INDEXER_DISABLE_FILECOIN_ADDRESS_INFO_FETCHER`             | When set to `true`, Filecoin native addressing information will not be fetched, but addresses pending fetch will still be recorded in the database. Implemented in [#10468](https://github.com/blockscout/blockscout/pull/10468).                                                                                                             | <p>Version: master<br>Default: <code>false</code><br>Applications: Indexer</p>                             |
+| `INDEXER_FILECOIN_ADDRESS_INFO_CONCURRENCY`                 | Sets the maximum number of concurrent requests made to fetch Filecoin native addressing information. Implemented in [#10468](https://github.com/blockscout/blockscout/pull/10468).                                                                                                                                                            | <p>Version: master<br>Default: <code>1</code><br>Applications: Indexer</p>                                 |
+| `FILECOIN_PENDING_ADDRESS_OPERATIONS_MIGRATION_BATCH_SIZE`  | Specifies the number of address records processed per batch during the backfill of pending address fetch operations. Implemented in [#10468](https://github.com/blockscout/blockscout/pull/10468).                                                                                                                                            | <p>Version: master<br>Default: <code>100</code><br>Applications: Indexer</p>                               |
+| `FILECOIN_PENDING_ADDRESS_OPERATIONS_MIGRATION_CONCURRENCY` | Specifies the number of concurrent processes used during the backfill of pending address fetch operations. Implemented in [#10468](https://github.com/blockscout/blockscout/pull/10468).                                                                                                                                                      | <p>Version: master<br>Default: <code>1</code><br>Applications: Indexer</p>                                 |
