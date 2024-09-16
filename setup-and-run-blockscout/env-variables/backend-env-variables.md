@@ -453,6 +453,7 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | `ACCOUNT_PRIVATE_TAGS_LIMIT`                        | Limit for address & transaction tags. Implemented in [#8528](https://github.com/blockscout/blockscout/pull/8528).                                     | <p>Version: v5.3.1+<br>Default: <code>2000</code><br>Applications: API</p>                    |
 | `ACCOUNT_WATCHLIST_ADDRESSES_LIMIT`                 | Limit for watch list addresses. Implemented in [#8528](https://github.com/blockscout/blockscout/pull/8528).                                           | <p>Version: v5.3.1+<br>Default: <code>15</code><br>Applications: API</p>                      |
 | `ACCOUNT_WATCHLIST_NOTIFICATIONS_LIMIT_FOR_30_DAYS` | Per account limit for watch list notifications sent for the last 30 days. Implemented in [#8966](https://github.com/blockscout/blockscout/pull/8966). | <p>Version: v5.3.3+<br>Default: <code>1000</code><br>Applications: API</p>                    |
+| `ACCOUNT_OTP_RESEND_INTERVAL`                       | Time before resending otp email. Implemented in [#10706](https://github.com/blockscout/blockscout/pull/10706).                                        | <p>Version: master<br>Default: <code>1m</code><br>Applications: API</p>                        |
 
 ## <mark style="background-color:orange;">Specific Smart Contracts</mark>
 
