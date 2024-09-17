@@ -103,6 +103,7 @@
     * [MacOS setup](setup-and-run-blockscout/deployment/manual-deployment-guide/macos-setup.md)
   * [⭐ Docker-compose Deployment](setup-and-run-blockscout/deployment/docker-compose-deployment.md)
   * [⭐ Kubernetes Deployment](setup-and-run-blockscout/deployment/kubernetes-deployment.md)
+  * [Rollup Deployment](setup-and-run-blockscout/deployment/rollup-deployment.md)
   * [Frontend Migration](setup-and-run-blockscout/deployment/frontend-migration/README.md)
     * [All-In-One Container](setup-and-run-blockscout/deployment/frontend-migration/all-in-one-container.md)
     * [Separate Frontend](setup-and-run-blockscout/deployment/frontend-migration/separate-frontend.md)
