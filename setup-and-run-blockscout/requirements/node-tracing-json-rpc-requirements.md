@@ -2,21 +2,21 @@
 
 ### Standard JSON RPC Requirements
 
-* Archive node with JSON RPC interface should strictly follow input/output interface described in [https://eth.wiki/json-rpc/API](https://eth.wiki/json-rpc/API).
+* Archive node with JSON RPC interface should strictly follow input/output interface described in [https://ethereum.github.io/execution-apis/api-documentation/](https://ethereum.github.io/execution-apis/api-documentation/)
 * WebSocket interface (optional/highly recommended to enable) is used to subscribe to new block heads. Otherwise, Blockscout will trigger new blocks fetching by periodical polling the JSON RPC `eth_blockNumber` method.
-* Support for the following standard Ethereum JSON RPC methods:
-  * [`eth_blockNumber`](https://eth.wiki/json-rpc/API#eth\_blocknumber)
-  * [`eth_call`](https://eth.wiki/json-rpc/API#eth\_call)
-  * [`eth_getBalance`](https://eth.wiki/json-rpc/API#eth\_getbalance)
-  * [`eth_getCode`](https://eth.wiki/json-rpc/API#eth\_getcode)
-  * [`eth_getBlockByHash`](https://eth.wiki/json-rpc/API#eth\_getblockbyhash)
-  * [`eth_getBlockByNumber`](https://eth.wiki/json-rpc/API#eth\_getblockbynumber)
-  * [`eth_getTransactionByHash`](https://eth.wiki/json-rpc/API#eth\_gettransactionbyhash)
-  * [`eth_getTransactionByBlockHashAndIndex`](https://eth.wiki/json-rpc/API#eth\_gettransactionbyblockhashandindex)
-  * [`eth_getTransactionByBlockNumberAndIndex`](https://eth.wiki/json-rpc/API#eth\_gettransactionbyblocknumberandindex)
-  * [`eth_getTransactionReceipt`](https://eth.wiki/json-rpc/API#eth\_gettransactionreceipt)
-  * [`eth_getUncleByBlockHashAndIndex`](https://eth.wiki/json-rpc/API#eth\_getunclebyblockhashandindex)
-  * [`eth_getLogs`](https://eth.wiki/json-rpc/API#eth\_getlogs)
+* Support for the following standard Ethereum JSON RPC methods (documented at [https://ethereum.github.io/execution-apis/api-documentation/](https://ethereum.github.io/execution-apis/api-documentation/))
+  * `eth_blockNumber`
+  * `eth_call`
+  * `eth_getBalance`
+  * `eth_getCode`
+  * `eth_getBlockByHash`
+  * `eth_getBlockByNumber`
+  * `eth_getTransactionByHash`
+  * `eth_getTransactionByBlockHashAndIndex`
+  * `eth_getTransactionByBlockNumberAndIndex`
+  * `eth_getTransactionReceipt`
+  * `eth_getUncleByBlockHashAndIndex`
+  * `eth_getLogs`
 
 ### **Fetching Pending Transactions**
 
@@ -46,5 +46,5 @@ The desired rate limit for RPC endpoint is 200 req/sec for the indexing phase an
 
 ## EVM Requirements & Clients
 
-* All EVM chains must [define these variables](broken-reference) during configuration.
+* All EVM chains must [define these variables](../env-variables/#all-chains-must-define-the-following-minimum-set-of-env-variables) during configuration.
 * BlockScout currently supports Erigon, Geth, Nethermind, Hyperledger Besu, and Ganache clients. Define the node variant using the `ETHEREUM_JSONRPC_VARIANT` environment variable. [More information](client-settings.md)
