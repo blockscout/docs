@@ -43,6 +43,7 @@
 * [CSV Exports](using-blockscout/export-to-csv.md)
 * [Token Support](using-blockscout/token-support/README.md)
   * [ERC-1155 Support](using-blockscout/token-support/erc-1155-support.md)
+* [Swapscout](using-blockscout/swapscout.md)
 
 ## 👩‍💻 Developer Support
 
