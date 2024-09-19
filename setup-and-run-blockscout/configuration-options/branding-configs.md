@@ -1,7 +1,7 @@
 # Branding Configs
 
 {% hint style="warning" %}
-This page is currently in development. See the [ENV Variables page](../env-variables/) for more info on specific variables mentioned below.
+See the [ENV Variables page](../env-variables/) for more info on specific variables mentioned below.
 {% endhint %}
 
 {% hint style="info" %}
@@ -28,4 +28,4 @@ In order to rebuild new front-end assets run the following. _Note: If preferred,
    1. `FOOTER_CHAT_LINK ​`
    2. `FOOTER_FORUM_LINK`
    3. `FOOTER_GITHUB_LINK`
-10. **Custom Theming**: Custom theming is available from the BlockScout team. [Learn More](broken-reference).
+10. **Custom Theming**: Custom theming is available from the BlockScout team. [Contact us in Discord ](https://discord.com/invite/blockscout)for more information.
