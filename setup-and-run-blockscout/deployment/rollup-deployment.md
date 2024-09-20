@@ -14,7 +14,7 @@ Variables are linked below and supported with `CHAIN_TYPE=arbitrum.`Default valu
 [Arbitrum environment variables](../env-variables/backend-envs-chain-specific.md#arbitrum-rollup-management)
 {% endhint %}
 
-Example Configuration using Ethereum as the settlement layer:
+Example configuration using Ethereum as the settlement layer:
 
 ```
 INDEXER_ARBITRUM_ROLLUP_CHUNK_SIZE=20
@@ -87,13 +87,73 @@ This variable must be configured for chains where the message counters in the ca
 
 ## Optimism
 
-{% hint style="danger" %}
-More info coming soon
-{% endhint %}
-
-Variables are linked below and supported with `CHAIN_TYPE=optimism`
+Variables are linked below and supported with `CHAIN_TYPE=optimism.` Default values are set for many variables and typically do not need adjustment for common setups.
 
 {% hint style="info" %}
 [Optimism environment variables](../env-variables/backend-envs-chain-specific.md#optimism-rollup-management)
 {% endhint %}
+
+Example configuration using Ethereum as the settlement layer (includes defaults)
+
+```
+INDEXER_OPTIMISM_L1_RPC=...
+INDEXER_OPTIMISM_L1_SYSTEM_CONFIG_CONTRACT="..."
+INDEXER_OPTIMISM_L1_BATCH_BLOCKSCOUT_BLOBS_API_URL="https://eth.blockscout.com/api/v2/blobs"
+INDEXER_OPTIMISM_L1_BATCH_CELESTIA_BLOBS_API_URL="..."
+INDEXER_OPTIMISM_L1_BATCH_BLOCKS_CHUNK_SIZE=4
+INDEXER_OPTIMISM_L2_BATCH_GENESIS_BLOCK_NUMBER=0
+INDEXER_OPTIMISM_L1_OUTPUT_ORACLE_CONTRACT="..." //omit if FaultProofs upgrade is on chain
+INDEXER_OPTIMISM_L1_DEPOSITS_BATCH_SIZE=500
+INDEXER_OPTIMISM_L1_DEPOSITS_TRANSACTION_TYPE=126
+INDEXER_OPTIMISM_L2_WITHDRAWALS_START_BLOCK=1
+INDEXER_OPTIMISM_L2_MESSAGE_PASSER_CONTRACT="0x4200000000000000000000000000000000000016"
+
+//required if INDEXER_OPTIMISM_L1_BATCH_BLOCKSCOUT_BLOBS_API_URL is set
+INDEXER_BEACON_RPC_URL=...
+INDEXER_BEACON_BLOB_FETCHER_REFERENCE_SLOT=8500000
+INDEXER_BEACON_BLOB_FETCHER_REFERENCE_TIMESTAMP=1708824023
+INDEXER_BEACON_BLOB_FETCHER_SLOT_DURATION=12
+```
+
+### Optimism ENV Notes
+
+#### `INDEXER_OPTIMISM_L1_SYSTEM_CONFIG_CONTRACT`&#x20;
+
+Address of SystemConfig smart contract that contains most of the configuration parameters used by the OP fetcher modules. The address is usually found in the chain's online docs. If there are no docs available, ask the chain's team for the SystemConfig contract address.
+
+#### `INDEXER_OPTIMISM_L1_BATCH_BLOCKSCOUT_BLOBS_API_URL`
+
+If the OP chain uses EIP-4844 blobs as data storage, this env is required. If this is the case, the following envs must also be defined:&#x20;
+
+* `INDEXER_BEACON_RPC_URL`
+* `INDEXER_BEACON_BLOB_FETCHER_REFERENCE_SLOT`
+* `INDEXER_BEACON_BLOB_FETCHER_REFERENCE_TIMESTAMP`
+* `INDEXER_BEACON_BLOB_FETCHER_SLOT_DURATION`
+
+These envs are used by the batch indexing module as a fallback source of blob data and for retrieving the blob data in realtime from L1.  These values should be used for the following L1s. If clarification is needed please contact the Blockscout team.
+
+```
+// Ethereum Mainnet
+INDEXER_BEACON_BLOB_FETCHER_REFERENCE_SLOT=8500000
+INDEXER_BEACON_BLOB_FETCHER_REFERENCE_TIMESTAMP=1708824023
+INDEXER_BEACON_BLOB_FETCHER_SLOT_DURATION=12
+
+// Sepolia
+INDEXER_BEACON_BLOB_FETCHER_REFERENCE_SLOT=4400000
+INDEXER_BEACON_BLOB_FETCHER_REFERENCE_TIMESTAMP=1708533600
+INDEXER_BEACON_BLOB_FETCHER_SLOT_DURATION=12
+
+// Holesky
+INDEXER_BEACON_BLOB_FETCHER_REFERENCE_SLOT=1000000
+INDEXER_BEACON_BLOB_FETCHER_REFERENCE_TIMESTAMP=1707902400
+INDEXER_BEACON_BLOB_FETCHER_SLOT_DURATION=12
+```
+
+#### `INDEXER_OPTIMISM_L2_BATCH_GENESIS_BLOCK_NUMBER`
+
+Typically found in the [superchain registry](https://github.com/ethereum-optimism/superchain-registry/blob/main/superchain/configs/configs.json) in superchains.chains\[i].genesis.l2.number, e.g. for OP Mainnet it's `105235063`.  For most new OP chains the value will be  `0` as these chains start with the BedRock upgrade activated from scratch.
+
+#### `INDEXER_OPTIMISM_L1_OUTPUT_ORACLE_CONTRACT`
+
+This contract's address can be found in chain's online docs. If there are no docs available, contact the chain for this information. This address is not needed (and can be ommitted) for OP chains that started with the [FaultProofs upgrade](https://docs.optimism.io/stack/protocol/fault-proofs/explainer) activated from the genesis block.
 
