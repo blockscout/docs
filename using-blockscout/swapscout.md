@@ -33,8 +33,13 @@ Swapscout checks up to 32 exchanges and aggregators to find the best routes for 
 
 ### Swap and bridge tokens from 1 chain to another
 
-_Coming Soon_
+In this example we swap xDai on Gnosis for USDC on Base. Depending on the token and chain there may be several routes. Check routes for pricing and timing that best suits your needs.
+
+{% embed url="https://www.youtube.com/watch?v=W1AdHniIves" %}
 
 ### Swap, bridge and send tokens to another wallet
 
-Coming Soon
+The above video shows you how to swap and bridge from one chain to another. To send to a different wallet, click the wallet icon and enter the wallet address where you are sending funds.
+
+<figure><img src="../.gitbook/assets/add-a-different-receiving-wallet-swapscout.png" alt=""><figcaption></figcaption></figure>
+
