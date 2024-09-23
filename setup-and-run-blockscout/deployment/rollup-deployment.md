@@ -4,7 +4,7 @@ icon: circle
 
 # Rollup Deployment
 
-Rollup deployments require different backend setups depending on the rollup type. Below we provide information and examples for [Arbitrum](rollup-deployment.md#arbitrum) and [Optimism](rollup-deployment.md#optimism).
+You will follow the general [docker](docker-compose-deployment.md) or [manual](manual-deployment-guide/) instructions for deployment, but will include additional ENVs (starting with `CHAIN_TYPE`) as rollup deployments require different backend setups depending on the rollup type. Below we provide information and examples for [Arbitrum](rollup-deployment.md#arbitrum) and [Optimism](rollup-deployment.md#optimism).
 
 ## Arbitrum
 
@@ -97,16 +97,16 @@ Example configuration using Ethereum as the settlement layer (includes defaults)
 
 ```
 INDEXER_OPTIMISM_L1_RPC=...
-INDEXER_OPTIMISM_L1_SYSTEM_CONFIG_CONTRACT="..."
-INDEXER_OPTIMISM_L1_BATCH_BLOCKSCOUT_BLOBS_API_URL="https://eth.blockscout.com/api/v2/blobs"
-INDEXER_OPTIMISM_L1_BATCH_CELESTIA_BLOBS_API_URL="..."
+INDEXER_OPTIMISM_L1_SYSTEM_CONFIG_CONTRACT=...
+INDEXER_OPTIMISM_L1_BATCH_BLOCKSCOUT_BLOBS_API_URL=https://eth.blockscout.com/api/v2/blobs
+INDEXER_OPTIMISM_L1_BATCH_CELESTIA_BLOBS_API_URL=...
 INDEXER_OPTIMISM_L1_BATCH_BLOCKS_CHUNK_SIZE=4
 INDEXER_OPTIMISM_L2_BATCH_GENESIS_BLOCK_NUMBER=0
-INDEXER_OPTIMISM_L1_OUTPUT_ORACLE_CONTRACT="..." //omit if FaultProofs upgrade is on chain
+INDEXER_OPTIMISM_L1_OUTPUT_ORACLE_CONTRACT=... //omit if FaultProofs upgrade is on chain
 INDEXER_OPTIMISM_L1_DEPOSITS_BATCH_SIZE=500
 INDEXER_OPTIMISM_L1_DEPOSITS_TRANSACTION_TYPE=126
 INDEXER_OPTIMISM_L2_WITHDRAWALS_START_BLOCK=1
-INDEXER_OPTIMISM_L2_MESSAGE_PASSER_CONTRACT="0x4200000000000000000000000000000000000016"
+INDEXER_OPTIMISM_L2_MESSAGE_PASSER_CONTRACT=0x4200000000000000000000000000000000000016
 
 //required if INDEXER_OPTIMISM_L1_BATCH_BLOCKSCOUT_BLOBS_API_URL is set
 INDEXER_BEACON_RPC_URL=...
