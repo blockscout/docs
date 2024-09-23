@@ -4,7 +4,7 @@ icon: circle
 
 # Rollup Deployment
 
-You will follow the general [docker](docker-compose-deployment.md) or [manual](manual-deployment-guide/) instructions for deployment, but will include additional ENVs (starting with `CHAIN_TYPE`) as rollup deployments require different backend setups depending on the rollup type. Below we provide information and examples for [Arbitrum](rollup-deployment.md#arbitrum) and [Optimism](rollup-deployment.md#optimism).
+Follow the general [docker](docker-compose-deployment.md) or [manual](manual-deployment-guide/) instructions for deployment and include additional ENVs (starting with `CHAIN_TYPE`) as rollup deployments require different backend setups depending on the rollup type. Below we provide information and examples for [Arbitrum](rollup-deployment.md#arbitrum) and [Optimism](rollup-deployment.md#optimism).
 
 ## Arbitrum
 
@@ -37,11 +37,11 @@ INDEXER_ARBITRUM_BATCHES_TRACKING_L1_FINALIZATION_CHECK_ENABLED='true'
 
 #### `INDEXER_ARBITRUM_L1_RPC`&#x20;
 
-Set to the settlement layer RPC node. In the case above it would be set to your choice of Ethereum RPC nodes such as [https://rpc.ankr.com/eth](https://rpc.ankr.com/eth) or another one of your choice [from this list](https://www.alchemy.com/chain-connect/chain/ethereum). If the rollup settles to a testnet, such as Arbitrum Sepolia, then it would be set to [https://arbitrum-sepolia.blockscout.com/](https://arbitrum-sepolia.blockscout.com/) ( [info retrieved here](https://docs.arbitrum.io/build-decentralized-apps/reference/node-providers))
+Set to the settlement layer RPC node. In the case above (Ethereum settlement layer) it would be set to your choice of Ethereum RPC nodes such as [https://rpc.ankr.com/eth](https://rpc.ankr.com/eth) or another one of your choice [from this list](https://www.alchemy.com/chain-connect/chain/ethereum). If the rollup settles to a testnet, for example Arbitrum Sepolia, it would be set to [https://arbitrum-sepolia.blockscout.com/](https://arbitrum-sepolia.blockscout.com/) ( [info retrieved here](https://docs.arbitrum.io/build-decentralized-apps/reference/node-providers))
 
 #### `INDEXER_ARBITRUM_L1_ROLLUP_INIT_BLOCK`&#x20;
 
-Retrieved using the block explorer for the settlement layer chain. Search the rollup contract address and find the transaction and block where the contract was deployed. Use that block number as the value for this env.&#x20;
+Get this value using the block explorer for the settlement layer chain. Search the rollup contract address and find the transaction and block where the contract was deployed. Use that block number as the value for this env.&#x20;
 
 <div>
 
@@ -57,7 +57,7 @@ Retrieved using the block explorer for the settlement layer chain. Search the ro
 
 The RPC historical blocks range depends on the following factors:
 
-* Batch production rate for the rollup. This can be identified by looking at how fast the `SequencerInbox` contract is called using the method `addSequencerL2BatchFromOrigin`. The transactions to the contract can be found on the contract page of of the block explorer.
+* Batch production rate for the rollup. This can be identified by looking at how fast the `SequencerInbox` contract is called using the method `addSequencerL2BatchFromOrigin`. The transactions to the contract can be found on the contract page of the block explorer.
 
 <figure><img src="../../.gitbook/assets/example-arb-contract-calls.png" alt=""><figcaption></figcaption></figure>
 
@@ -66,8 +66,8 @@ The RPC historical blocks range depends on the following factors:
 
 **Recommendations based on these factors:**
 
-1. If the block production rate on the settlement layer is low (like one block per 12 secs for Ethereum Mainnet), choose a block range that will cover 1 or 2 batches.
-2. If the block production rate is high (if another rollup is used as a settlement layer), use the minimum amount of settlement layer blocks produced during the time required to produce 2 rollup batches and the block range limit to get logs from the L1 RPC node. For example, if 5000 settlement layer blocks are produced during the time when two subsequent batches are sent to the settlement layer and the RPC node block range limit is 3000, the smaller 3000 value must be used.
+1. If the block production rate on the settlement layer is low (like one block per 12 secs for Ethereum Mainnet), choose a block range that covers 1 or 2 batches.
+2. If the block production rate is high (if another rollup is used as a settlement layer), look at the minimum amount of settlement layer blocks produced during the time required to produce 2 rollup batches and the block range limit to retrieve logs from the L1 RPC node. For example, if 5000 settlement layer blocks are produced during the time when two subsequent batches are sent to the settlement layer and the RPC node block range limit is 3000, the smaller 3000 value should be used.
 
 #### `INDEXER_ARBITRUM_BATCHES_TRACKING_RECHECK_INTERVAL` `INDEXER_ARBITRUM_TRACKING_MESSAGES_ON_L1_RECHECK_INTERVAL`
 
@@ -151,7 +151,7 @@ INDEXER_BEACON_BLOB_FETCHER_SLOT_DURATION=12
 
 #### `INDEXER_OPTIMISM_L2_BATCH_GENESIS_BLOCK_NUMBER`
 
-Typically found in the [superchain registry](https://github.com/ethereum-optimism/superchain-registry/blob/main/superchain/configs/configs.json) in superchains.chains\[i].genesis.l2.number, e.g. for OP Mainnet it's `105235063`.  For most new OP chains the value will be  `0` as these chains start with the BedRock upgrade activated from scratch.
+Typically found in the [superchain registry](https://github.com/ethereum-optimism/superchain-registry/blob/main/superchain/configs/configs.json) in superchains.chains\[i].genesis.l2.number, e.g. for OP Mainnet it is `105235063`.  For most new OP chains the value will be  `0` as these chains start with the BedRock upgrade activated from scratch.
 
 #### `INDEXER_OPTIMISM_L1_OUTPUT_ORACLE_CONTRACT`
 
