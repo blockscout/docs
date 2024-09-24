@@ -7,9 +7,9 @@ description: Blockscout is a full-featured, open-source blockchain explorer
 ### **What can I do with Blockscout?**
 
 * **Deep Search**: Find all the information you need on [Blocks](../../using-blockscout/overviews/blocks.md), Transactions, Tags and more through the integrated search box.
-* **Interact with Contracts**: [Read and write to contracts](../../developer-support/smart-contract-verification/interacting-with-smart-contracts.md) directly from the Blockscout UI.
-* **Verify Contracts:**  Use [Hardhat](../../developer-support/smart-contract-verification/hardhat-verification-plugin/), [Sourcify](../../developer-support/smart-contract-verification/contracts-verification-via-sourcify.md), and other tools to quickly verify  contracts.
-* **Make API Calls**: Make requests to a [robust API](../../developer-support/api/) using standard and customized endpoints.
+* **Interact with Contracts**: [Read and write to contracts](../../devs/verification/interacting-with-smart-contracts.md) directly from the Blockscout UI.
+* **Verify Contracts:**  Use [Hardhat](../../devs/verification/hardhat-verification-plugin/), [Sourcify](../../devs/verification/contracts-verification-via-sourcify.md), and other tools to quickly verify  contracts.
+* **Make API Calls**: Make requests to a [robust API](../../devs/apis/) using standard and customized endpoints.
 * **Customize Views**: Use the [My Account](../../using-blockscout/my-account/) features to add tags, watchlists and other features.
 * **Interact with Apps**: Chains with the [Apps Marketplace](../../using-blockscout/blockscout-apps/) enabled include a portal for discovery and interaction with applications deployed on-chain.
 

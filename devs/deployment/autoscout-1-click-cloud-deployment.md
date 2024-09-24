@@ -12,12 +12,12 @@ Autoscout is a web-based interface for Blockscout deployment.  Add in some basic
 
 ### Create Instance
 
-<figure><img src="../.gitbook/assets/create-instance.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/create-instance.png" alt=""><figcaption></figcaption></figure>
 
 ### Customize Layout
 
-<figure><img src="../.gitbook/assets/customize-layout.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/customize-layout.png" alt=""><figcaption></figcaption></figure>
 
 ### Add Rollup Parameters
 
-<figure><img src="../.gitbook/assets/rollup-params.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/rollup-params.png" alt=""><figcaption></figcaption></figure>

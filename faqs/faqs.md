@@ -48,7 +48,7 @@ If you request too much data at the same time you may receive a timeout. Decreas
 
 <summary>How can I access and read/write contract methods?</summary>
 
-Yes! The contract should be verified (or the bytecode matches an existing contract) to enable reading and writing to contracts and proxy contracts. [More info here](../developer-support/smart-contract-verification/interacting-with-smart-contracts.md).
+Yes! The contract should be verified (or the bytecode matches an existing contract) to enable reading and writing to contracts and proxy contracts. [More info here](../devs/verification/interacting-with-smart-contracts.md).
 
 </details>
 
@@ -60,14 +60,14 @@ There are multiple methods including options from the Blockscout UI as well as a
 
 **Blockscout UI:**
 
-* [Via flattened source code (Solidity)](../developer-support/smart-contract-verification/#via-flattened-source-code)
+* [Via flattened source code (Solidity)](../devs/verification/#via-flattened-source-code)
 * [Via standard JSON input](faqs.md#via-standard-json-input)
-* [Via Sourcify: Sources and metadata JSON file](../developer-support/smart-contract-verification/contracts-verification-via-sourcify.md)
-* [Vyper contract](../developer-support/smart-contract-verification/#vyper-contract)
+* [Via Sourcify: Sources and metadata JSON file](../devs/verification/contracts-verification-via-sourcify.md)
+* [Vyper contract](../devs/verification/#vyper-contract)
 
 **Hardhat:**
 
-* [Hardhat Verification Plugin](../developer-support/smart-contract-verification/hardhat-verification-plugin/)
-* [Sourcify Plugin for Hardhat](../developer-support/smart-contract-verification/hardhat-verification-plugin/sourcify-plugin-for-hardhat.md)
+* [Hardhat Verification Plugin](../devs/verification/hardhat-verification-plugin/)
+* [Sourcify Plugin for Hardhat](../devs/verification/hardhat-verification-plugin/sourcify-plugin-for-hardhat.md)
 
 </details>

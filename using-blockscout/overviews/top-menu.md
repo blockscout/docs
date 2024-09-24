@@ -58,7 +58,7 @@ Token menu is often configured differently depending on the instance.
 
 ## APIs
 
-* **GraphQL**: Explore API calls using GraphQL and the in-browser IDE. Learn more about the [GraphQL Blockscout integration here](../../developer-support/api/graphql.md).
+* **GraphQL**: Explore API calls using GraphQL and the in-browser IDE. Learn more about the [GraphQL Blockscout integration here](../../devs/apis/graphql.md).
 * **RPC**: API supporting GET and POST requests for many different API calls.
 * **Eth RPC**: Supports the most popular [JSON RPC methods.](https://ethereum.github.io/execution-apis/api-documentation/)
 

@@ -4,7 +4,7 @@ description: Blockscout also offers a contract verification API.
 
 # Blockscout smart-contract verification API
 
-This is the preferred option for contract verification via API. However, you can also use RPC endpoints, [more info is available here](../api/rpc-endpoints/contract.md#verify-a-contract-with-its-source-code-and-contract-creation-information).
+This is the preferred option for contract verification via API. However, you can also use RPC endpoints, [more info is available here](../apis/rpc/contract.md#verify-a-contract-with-its-source-code-and-contract-creation-information).
 
 ### License type
 
