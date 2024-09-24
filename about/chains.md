@@ -101,7 +101,7 @@ _Updated 08/2024_
 | Bloom Genesis Testnet         | https://www.bloomgenesis.com/             | https://testnet.bloomgenesis.com/                           |
 | Bloxberg                      | https://bloxberg.org/                     | https://blockexplorer.bloxberg.org/                         |
 | BOB                           | https://www.gobob.xyz/                    | https://explorer.gobob.xyz/                                 |
-| BOB Testnet                   | https://www.gobob.xyz/                    | https://testnet-explorer.gobob.xyz/                         |
+| BOB Sepolia                   | https://www.gobob.xyz/                    | https://bob-sepolia.explorer.gobob.xyz/                     |
 | BOR                           | http://www.meta-bor.com/                  | https://www.borscan.com                                     |
 | Botanix                       | https://botanixlabs.xyz/                  | https://blockscout.botanixlabs.dev/                         |
 | BPX Chain                     | https://bpxchain.cc                       | https://explorer.mainnet.bpxchain.cc/                       |
