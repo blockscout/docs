@@ -26,7 +26,7 @@ Access API information including the REST API which serves the v2 UI.
 
 ## V1 UI
 
-Many projects still use the previous Blockscout UI, and info below relates to the previous v1 UI. We encourage projects to [upgrade to the new U](../../setup-and-run-blockscout/deployment/frontend-migration/)I.
+Many projects still use the previous Blockscout UI, and info below relates to the previous v1 UI. We encourage projects to [upgrade to the new U](../../setup/deployment/frontend-migration/)I.
 
 ## Top Menu
 
@@ -84,6 +84,6 @@ The comprehensive search bar allows for search by address, token name, token sym
 
 ## Custom Project Logo
 
-Also included in the top menu is the Project logo. Projects can add and change custom logo using ENV variables during deployment. [More info here](../../setup-and-run-blockscout/configuration-options/branding-configs.md).
+Also included in the top menu is the Project logo. Projects can add and change custom logo using ENV variables during deployment. [More info here](../../setup/configuration-options/branding-configs.md).
 
 <figure><img src="../../.gitbook/assets/customizable-logo (1).png" alt=""><figcaption></figcaption></figure>

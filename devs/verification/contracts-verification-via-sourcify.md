@@ -1,6 +1,6 @@
-# Contract Verification via Sourcify
+# Sourcify Verification
 
-Along with contract verification through a flattened source file (the default option in Blockscout), a [Sourcify](https://sourcify.dev/) API verification option is also available. Projects who want to use this feature need to set the following [ENV variables](../../setup-and-run-blockscout/env-variables/#sourcify).
+Along with contract verification through a flattened source file (the default option in Blockscout), a [Sourcify](https://sourcify.dev/) API verification option is also available. Projects who want to use this feature need to set the following [ENV variables](../../setup/env-variables/#sourcify).
 
 ```
 SOURCIFY_INTEGRATION_ENABLED=true
