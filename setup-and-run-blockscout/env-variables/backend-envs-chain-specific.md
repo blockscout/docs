@@ -223,3 +223,15 @@ Supported together with setting `CHAIN_TYPE=filecoin`
 | `INDEXER_FILECOIN_ADDRESS_INFO_CONCURRENCY`                 | Sets the maximum number of concurrent requests made to fetch Filecoin native addressing information. Implemented in [#10468](https://github.com/blockscout/blockscout/pull/10468).                                                                                                                                                            | <p>Version: master<br>Default: <code>1</code><br>Applications: Indexer</p>                                 |
 | `FILECOIN_PENDING_ADDRESS_OPERATIONS_MIGRATION_BATCH_SIZE`  | Specifies the number of address records processed per batch during the backfill of pending address fetch operations. Implemented in [#10468](https://github.com/blockscout/blockscout/pull/10468).                                                                                                                                            | <p>Version: master<br>Default: <code>100</code><br>Applications: Indexer</p>                               |
 | `FILECOIN_PENDING_ADDRESS_OPERATIONS_MIGRATION_CONCURRENCY` | Specifies the number of concurrent processes used during the backfill of pending address fetch operations. Implemented in [#10468](https://github.com/blockscout/blockscout/pull/10468).                                                                                                                                                      | <p>Version: master<br>Default: <code>1</code><br>Applications: Indexer</p>                                 |
+
+## <mark style="background-color:yellow;">Blackfort Management</mark>
+
+
+{% hint style="info" %}
+Supported together with setting `CHAIN_TYPE=blackfort`
+{% endhint %}
+
+
+| Variable                                                    | Description                                                                                                                                                                                                                                                                                                                                   | Parameters                                                                                                 |
+| ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `BLACKFORT_VALIDATOR_API_URL`                               | Variable to define the URL of the Blackfort Validator API. Implemented in [#10744](https://github.com/blockscout/blockscout/pull/10744). | <p>Version: master<br>Default: (empty)<br>Applications: API, Indexer</p>                            |
