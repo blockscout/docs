@@ -7,10 +7,10 @@ In most cases simply replacing the first part of the url is all that is needed t
 For example, replace [https://etherscan.com/](https://etherscan.com/) with [https://eth.blockscout.com/](https://eth.blockscout.com/) in your code and the corresponding links to blocks, transactions, etc will be mapped to Blockscout rather than Etherscan.
 
 {% hint style="success" %}
-😢 Tx before replacement  [**https://etherscan.io**/tx/0x3e8c3aad50b2f8471400e3fe6b812f20c332846064dff8c25fadf783eefa68df](https://etherscan.io/tx/0x3e8c3aad50b2f8471400e3fe6b812f20c332846064dff8c25fadf783eefa68df)\
+😢 Tx before replacement[<mark style="background-color:red;">**https://etherscan.io**</mark>/tx/0x3e8c3aad50b2f8471400e3fe6b812f20c332846064dff8c25fadf783eefa68df](https://etherscan.io/tx/0x3e8c3aad50b2f8471400e3fe6b812f20c332846064dff8c25fadf783eefa68df)\
 \
 😁 Tx after replacement\
-[<mark style="color:green;">**https://eth.blockscout.com**</mark>/tx/0x3e8c3aad50b2f8471400e3fe6b812f20c332846064dff8c25fadf783eefa68df](https://eth.blockscout.com/tx/0x3e8c3aad50b2f8471400e3fe6b812f20c332846064dff8c25fadf783eefa68df)
+[<mark style="color:green;background-color:green;">**https://eth.blockscout.com**</mark>/tx/0x3e8c3aad50b2f8471400e3fe6b812f20c332846064dff8c25fadf783eefa68df](https://eth.blockscout.com/tx/0x3e8c3aad50b2f8471400e3fe6b812f20c332846064dff8c25fadf783eefa68df)
 {% endhint %}
 
 Blockscout linking architecture follows [EIP-3091 ](https://eips.ethereum.org/EIPS/eip-3091)standardization for the following routes:
