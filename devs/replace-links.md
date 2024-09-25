@@ -43,9 +43,18 @@ Some newer operations without standards are still handled differently by differe
 Standard Blockscout RPC calls do not need an API key (Etherscan calls always require one). You can remove the `&apikey=YourApiKeyToken` query string at the end of the url with no problem or keep it as any string value and Blockscout will process. If you want to increase your limits, you can also [sign up for a free Blockscout API key](../using-blockscout/my-account/api-keys.md) and use it to access 10 RPS limits.
 {% endhint %}
 
-Etherscan uses a subdomain link for api access. For example, for the Ethereum explorer the api link is [https://api.etherscan.io/](https://api.etherscan.io/) followed by your query, or for Optimism it is [https://api-optimistic.etherscan.io/api](../using-blockscout/my-account/) followed by your query.&#x20;
+Etherscan uses a subdomain link for api access. For example, the Ethereum explorer the api link is [https://api.etherscan.io/](https://api.etherscan.io/) followed by your query, or for Optimism it is [https://api-optimistic.etherscan.io/](https://api-optimistic.etherscan.io/) followed by your query.&#x20;
 
 **To replace, simply use the regular blockscout url for the instance**, for example [https://eth.blockscout.com/](https://eth.blockscout.com/) for Ethereum or [https://optimism.blockscout.com/](https://optimism.blockscout.com/) for Optimism.
+
+{% hint style="success" %}
+😢 API call before replacement (doesn't work without API key)\
+[<mark style="background-color:red;">https://api.etherscan.io/</mark>api?module=account\&action=balance\&address=0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae\&tag=latest\&apikey=YourApiKeyToken](https://api.etherscan.io/api?module=account\&action=balance\&address=0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae\&tag=latest\&apikey=YourApiKeyToken)
+
+\
+😁 API call after replacement (works without API key)\
+[<mark style="background-color:green;">https://eth.blockscout.com/</mark>api?module=account\&action=balance\&address=0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae\&tag=latest](https://eth.blockscout.com/api?module=account\&action=balance\&address=0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae\&tag=latest)
+{% endhint %}
 
 Standard API routes on Etherscan work for your queries on Blockscout. We've structured our data calls to be consistent with Etherscan whenever possible. You can see supported calls in the [JSON RPC & ETH Compatible RPC endpoints section](apis/rpc/).
 
