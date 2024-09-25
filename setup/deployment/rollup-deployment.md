@@ -61,7 +61,7 @@ Get this value using the block explorer for the settlement layer chain. Search t
 
 #### `INDEXER_ARBITRUM_L1_RPC_HISTORICAL_BLOCKS_RANGE`
 
-The RPC historical blocks range depends on the following factors&#x20;
+The RPC historical blocks range depends on the following factors:&#x20;
 
 1. Block production rate for the settlement layer.
 2. L1 RPC node limits. Specifically, the maximum block range for the `eth_getLogs` operation is needed. This can be identified empirically or by contacting the node admin.
