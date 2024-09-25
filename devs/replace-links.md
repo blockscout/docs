@@ -27,7 +27,7 @@ Replace the Etherscan url in your code with the Blockscout url for a seamless tr
 
 Some newer operations without standards are still handled differently by different explorers. For example:
 
-* Blobs on Blockscout are accessed in different ways depending on the route. For example via the `?tab=blob_txs` query string following a block ([https://eth.blockscout.com/block/20822532?tab=blob\_txs](https://eth.blockscout.com/block/20822532?tab=blob\_txs)) or the ?tab=blobs query string following a transaction. Blobs on Etherscan are accessed via `#blobinfo` query strign following a block (ie [https://etherscan.io/block/20822532#blobinfo](https://etherscan.io/block/20822532#blobinfo)).
+* Blobs on Blockscout are accessed in different ways depending on the route. For example via the `?tab=blob_txs` query string following a block ([https://eth.blockscout.com/block/20822532?tab=blob\_txs](https://eth.blockscout.com/block/20822532?tab=blob\_txs)) or the `?tab=blobs` query string following a transaction. Blobs on Etherscan are accessed via `#blobinfo` query strign following a block (ie [https://etherscan.io/block/20822532#blobinfo](https://etherscan.io/block/20822532#blobinfo)).
 * User Operations (EIP-4337) are displayed on Blockscout via the [https://eth.blockscout.com/ops](https://eth.blockscout.com/ops) url. On Etherscan there is currently no defined route, but User Operations can be viewed with the `Handle Ops` filter applied to the senders address (ie [https://etherscan.io/advanced-filter?fadd=0x20e9695f25413f14e5807b530D0698bd4F155074\&mtd=0x1fad948c\~Handle+Ops\&ps=10\&p=8](https://etherscan.io/advanced-filter?fadd=0x20e9695f25413f14e5807b530D0698bd4F155074\&mtd=0x1fad948c\~Handle+Ops\&ps=10\&p=8))
 
 ## Replace the API link
@@ -36,9 +36,11 @@ Some newer operations without standards are still handled differently by differe
 Standard Blockscout RPC calls do not need an API key (Etherscan calls always require one). You can remove the `&apikey=YourApiKeyToken` query string at the end of the url with no problem or keep it as any string value and Blockscout will process. If you want to increase your limits, you can also [sign up for a free Blockscout API key](../using-blockscout/my-account/api-keys.md) and use it to access 10 RPS limits.
 {% endhint %}
 
-Etherscan uses a subdomain link for api access. For example, for the Ethereum explorer the api link is [https://api.etherscan.io/](https://api.etherscan.io/) followed by your query, or for Optimism it is [https://api-optimistic.etherscan.io/api](../using-blockscout/my-account/) followed by your query. To replace, simply use the regular blockscout url for the instance, for example [https://eth.blockscout.com/](https://eth.blockscout.com/) for Ethereum or [https://optimism.blockscout.com/](https://optimism.blockscout.com/) for Optimism.
+Etherscan uses a subdomain link for api access. For example, for the Ethereum explorer the api link is [https://api.etherscan.io/](https://api.etherscan.io/) followed by your query, or for Optimism it is [https://api-optimistic.etherscan.io/api](../using-blockscout/my-account/) followed by your query.&#x20;
 
-Standard API routes used with Etherscan work for your queries on Blockscout. We've structured our data calls to be consistent with Etherscan whenever possible. You can see supported calls in the [JSON RPC & ETH Compatible RPC endpoints section](apis/rpc/).
+**To replace, simply use the regular blockscout url for the instance**, for example [https://eth.blockscout.com/](https://eth.blockscout.com/) for Ethereum or [https://optimism.blockscout.com/](https://optimism.blockscout.com/) for Optimism.
+
+Standard API routes on Etherscan work for your queries on Blockscout. We've structured our data calls to be consistent with Etherscan whenever possible. You can see supported calls in the [JSON RPC & ETH Compatible RPC endpoints section](apis/rpc/).
 
 {% hint style="success" %}
 If you require more varied or richer datasets consider replacing your JSON RPC calls with the [REST API from Blockscout](apis/rest/). This free API features additional metadata, stats data, human readable transactions and more.&#x20;
@@ -59,8 +61,8 @@ Every wallet handles the explorer link differently, but typically wallets ship w
 
 <figure><img src="../.gitbook/assets/metamask-change-links-1.png" alt=""><figcaption></figcaption></figure>
 
-4. Find the block explorer url (in this case the default setting is [https://optimistic.etherscan.io/](https://optimistic.etherscan.io/)).
-5. Change the url to blockscout (in this case [https://optimism.blockscout.com/](https://optimism.blockscout.com/)) and Save.
+4. Find the block explorer url (ie [https://optimistic.etherscan.io/](https://optimistic.etherscan.io/)).
+5. Change the url to blockscout (ie [https://optimism.blockscout.com/](https://optimism.blockscout.com/)) and Save.
 
 <figure><img src="../.gitbook/assets/change-networks-mm.png" alt=""><figcaption></figcaption></figure>
 
