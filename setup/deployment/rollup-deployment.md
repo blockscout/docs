@@ -11,7 +11,7 @@ Follow the general [docker](docker-compose-deployment.md) or [manual](manual-dep
 Variables are linked below and supported with `CHAIN_TYPE=arbitrum.`Default values are set for many variables and do not need adjustment for common setups.
 
 {% hint style="info" %}
-[Arbitrum environment variables](../env-variables/backend-envs-chain-specific.md#arbitrum-management)
+Arbitrum environment variables are located here: [https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#arbitrum-management](https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#arbitrum-management)
 {% endhint %}
 
 ### Example configuration using Ethereum as the settlement layer
@@ -105,7 +105,7 @@ The default for these variables will not run the corresponding fetchers, so they
 Variables are linked below and supported with `CHAIN_TYPE=optimism.` Default values are set for many variables and typically do not need adjustment for common setups.
 
 {% hint style="info" %}
-[Optimism environment variables](../env-variables/backend-envs-chain-specific.md#optimism-rollup-management)
+Optimism environment variables are located here: [https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#optimism-rollup-management](https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#optimism-rollup-management)
 {% endhint %}
 
 Example configuration using Ethereum as the settlement layer (includes defaults)
