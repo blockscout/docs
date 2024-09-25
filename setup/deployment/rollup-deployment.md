@@ -8,7 +8,7 @@ Follow the general [docker](docker-compose-deployment.md) or [manual](manual-dep
 
 ## Arbitrum
 
-Variables are linked below and supported with `CHAIN_TYPE=arbitrum.`Default values are set for many variables and do not need adjustment for common setups.
+Variables are linked below and supported with `CHAIN_TYPE=arbitrum`. Default values are set for many variables and do not need adjustment for common setups.
 
 {% hint style="info" %}
 Arbitrum environment variables are located here: [https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#arbitrum-management](https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#arbitrum-management)
@@ -21,12 +21,12 @@ INDEXER_ARBITRUM_ROLLUP_CHUNK_SIZE=20
 INDEXER_ARBITRUM_L1_RPC=...
 INDEXER_ARBITRUM_L1_RPC_HISTORICAL_BLOCKS_RANGE=1000
 INDEXER_ARBITRUM_L1_RPC_CHUNK_SIZE=20
-INDEXER_ARBITRUM_L1_ROLLUP_CONTRACT="..."
+INDEXER_ARBITRUM_L1_ROLLUP_CONTRACT="..." 
 INDEXER_ARBITRUM_L1_ROLLUP_INIT_BLOCK=...
-INDEXER_ARBITRUM_BRIDGE_MESSAGES_TRACKING_ENABLED="true"
+INDEXER_ARBITRUM_BRIDGE_MESSAGES_TRACKING_ENABLED="true" //set to true, default will not work
 INDEXER_ARBITRUM_MISSED_MESSAGES_RECHECK_INTERVAL=1h
 INDEXER_ARBITRUM_TRACKING_MESSAGES_ON_L1_RECHECK_INTERVAL=30s
-INDEXER_ARBITRUM_BATCHES_TRACKING_ENABLED="true"
+INDEXER_ARBITRUM_BATCHES_TRACKING_ENABLED="true" //set to true, default will not work
 INDEXER_ARBITRUM_BATCHES_TRACKING_RECHECK_INTERVAL=30s
 INDEXER_ARBITRUM_NEW_BATCHES_LIMIT=1
 INDEXER_ARBITRUM_CONFIRMATIONS_TRACKING_FINALIZED="true"
