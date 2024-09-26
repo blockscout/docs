@@ -2,6 +2,15 @@
 
 REST API methods are used to render the UI for new versions of Blockscout. These can be accessed and used to get many types of information. Methods parameters and schemas are available at _https://instance-name/api-docs_ (ie [https://eth.blockscout.com/api-docs](https://eth.blockscout.com/api-docs))
 
+{% hint style="info" %}
+Additional information:
+
+* [Stats queries](stats-api.md): Access pre-calculated statistics for a chain
+* [Interpreter queries](interpreter-api.md): Transactions populated with contract names, methods, etc for easy interpretation
+
+<img src="../../../.gitbook/assets/interpreted.png" alt="" data-size="original">
+{% endhint %}
+
 <figure><img src="../../../.gitbook/assets/api-docs.png" alt=""><figcaption></figcaption></figure>
 
 ## Pagination
