@@ -196,6 +196,12 @@ Scroll down to see and interact with the contract code.
 
 <figure><img src="../../../.gitbook/assets/verify-contracts-4.png" alt=""><figcaption></figcaption></figure>
 
+## Video example
+
+Community video created by Carlos Rodriguez for the Soneium Minato testnet, but can be applicable to any chain.
+
+{% embed url="https://www.youtube.com/watch?v=eNzGoPkNAkU" %}
+
 ## FAQ
 
 <details>

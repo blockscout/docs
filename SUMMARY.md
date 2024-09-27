@@ -47,6 +47,7 @@
 
 ## 👩‍💻 Developer Support <a href="#devs" id="devs"></a>
 
+* [For Developers](devs/for-developers.md)
 * [Replace Links](devs/replace-links.md)
 * [Blockscout APIs](devs/apis/README.md)
   * [Requests & Limits](devs/apis/requests-and-limits.md)
