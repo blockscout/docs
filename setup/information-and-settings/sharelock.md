@@ -130,6 +130,10 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.Optimism.Withdrawal | op\_withdrawals | \[asc: :msg\_nonce\] |
 | Explorer.Chain.Address.TokenBalance | address\_token\_balances | \[asc: :address\_hash, asc: :token\_contract\_address\_hash, asc: :block\_number\] |
 | Explorer.Chain.Address.CurrentTokenBalance | address\_current\_token\_balances | \[asc: :address\_hash, asc: :token\_contract\_address\_hash\] |
+| Explorer.Chain.Scroll.Batch | scroll\_batches | \[asc: number\] |
+| Explorer.Chain.Scroll.BatchBundle | scroll\_batch\_bundles | \[asc: final\_batch\_number\] |
+| Explorer.Chain.Scroll.Bridge | scroll\_bridge | \[asc: :type, asc: message\_hash\] |
+| Explorer.Chain.Scroll.L1FeeParam | scroll\_l1\_fee\_params | \[asc: :block\_number, asc: tx\_index, asc: name\] |
 | Explorer.Chain.Shibarium.Bridge | shibarium\_bridge | \[asc: :operation_hash, asc: l1\_transaction\_hash, asc: l2\_transaction\_hash\] |
 | Explorer.Chain.StakingPool | staking\_pools | :staking\_address\_hash |
 | Explorer.Chain.StakingPoolsDelegator | staking\_pools\_delegators | \[asc: :delegator\_address\_hash, asc: :pool\_address\_hash\] |
