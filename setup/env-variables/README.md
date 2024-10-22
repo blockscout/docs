@@ -2,8 +2,6 @@
 
 Blockscout uses ENVs for setting hundreds of different parameters. Please see the various sections for ENV names, descriptions, default values and versioning.
 
-See below for info on setting ENV variables, time formatting and other info.
-
 {% hint style="success" %}
 * [Backend ENVs: Common](backend-env-variables.md)
 * [Backend ENVs: Chain Specific](backend-envs-chain-specific.md)
@@ -25,15 +23,15 @@ $ export COIN=POA
 $ export NETWORK=POA
 ```
 
+## Required ENV variables
+
+Please see the [Backend ENVs page](backend-env-variables.md) for details. Required variables are marked with a ✅
+
 ## Example ENV Variables Set
 
 The following variables are set for the [Gnosis Chain Blockscout Instance](https://gnosis.blockscout.com/). _Note that some variables are not included as they contain private information which should not be exposed._
 
 {% file src="../../.gitbook/assets/Gnosis-Chain-Variables.txt" %}
-
-## Backend ENV spreadsheet
-
-[Link to a google sheet with active ENVs](https://docs.google.com/spreadsheets/d/17-mbKNyi\_lqZOYfjDCZnEbjA9OldVL1BvLoWP8MsTaM/edit?usp=sharing)
 
 ## Time format
 
@@ -42,28 +40,6 @@ Can be set in format `1h` for 1 hour, `1m` for 1 minute, `1s` or `1` for 1 secon
 {% hint style="warning" %}
 _Note_: **Before release 5.1.2, all environment variables of time format supported only integers in seconds (without dimensions) as values.**
 {% endhint %}
-
-## All chains must define the following minimum set of ENV variables:
-
-| Environment Variable          | Default                                   |
-| ----------------------------- | ----------------------------------------- |
-| BLOCKSCOUT\_VERSION           | `unknown`                                 |
-| COIN                          | `POA`                                     |
-| DB\_HOST                      | -                                         |
-| DB\_PASSWORD                  | -                                         |
-| DB\_PORT                      | -                                         |
-| DB\_USERNAME                  | -                                         |
-| ETHEREUM\_JSONRPC\_HTTP\_URL  | `http://localhost:8545`                   |
-| ETHEREUM\_JSONRPC\_TRACE\_URL | `http://localhost:8545`                   |
-| ETHEREUM\_JSONRPC\_WS\_URL    | `ws://localhost:8546`                     |
-| ETHEREUM\_JSONRPC\_VARIANT    | `nethermind`                              |
-| HEART\_BEAT\_TIMEOUT          | `30`                                      |
-| HEART\_COMMAND                | `sudo systemctl restart explorer.service` |
-| LOGO                          | `/images/blockscout_logo.svg`             |
-| NETWORK                       | `POA Network`                             |
-| SUBNETWORK                    | `Sokol Testnet`                           |
-| NETWORK\_ICON                 | `_test_network_icon.html`                 |
-| LINK\_TO\_OTHER\_EXPLORERS    | `true`                                    |
 
 ## Changes not configurable with ENV variables:
 
