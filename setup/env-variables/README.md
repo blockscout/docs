@@ -25,7 +25,7 @@ $ export NETWORK=POA
 
 ## Required ENV variables
 
-Please see the [Backend ENVs page](backend-env-variables.md) for details. Required variables are marked with a ✅
+Please see the [Backend ENVs page](backend-env-variables.md) for details. Required variables are located in the General Management section and marked with a ✅
 
 ## Example ENV Variables Set
 
