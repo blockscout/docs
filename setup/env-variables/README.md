@@ -41,14 +41,3 @@ Can be set in format `1h` for 1 hour, `1m` for 1 minute, `1s` or `1` for 1 secon
 _Note_: **Before release 5.1.2, all environment variables of time format supported only integers in seconds (without dimensions) as values.**
 {% endhint %}
 
-## Changes not configurable with ENV variables:
-
-\*\*Update `Validated/Validator` to `Mined/Miner` or `Signed/Signer` \*\* [https://github.com/poanetwork/blockscout/blob/12aa15671142af00b35ff05aeac107c2c686c4c8/apps/block\_scout\_web/priv/gettext/default.pot](https://github.com/poanetwork/blockscout/blob/12aa15671142af00b35ff05aeac107c2c686c4c8/apps/block\_scout\_web/priv/gettext/default.pot)
-
-**Update Memory Usage:** [https://github.com/poanetwork/blockscout/blob/12aa15671142af00b35ff05aeac107c2c686c4c8/apps/indexer/config/config.exs#L36](https://github.com/poanetwork/blockscout/blob/12aa15671142af00b35ff05aeac107c2c686c4c8/apps/indexer/config/config.exs#L36)
-
-**Update Theme:** [https://github.com/poanetwork/blockscout/blob/12aa15671142af00b35ff05aeac107c2c686c4c8/apps/block\_scout\_web/assets/css/theme/\_variables.scss#L1](https://github.com/poanetwork/blockscout/blob/12aa15671142af00b35ff05aeac107c2c686c4c8/apps/block\_scout\_web/assets/css/theme/\_variables.scss#L1)
-
-**Update Coin Name:** [https://github.com/poanetwork/blockscout/blob/5b5a0b3cfe47fcbb3631b82e58aeb2c7c9c48504/apps/block\_scout\_web/priv/gettext/en/LC\_MESSAGES/default.po#L398](https://github.com/poanetwork/blockscout/blob/5b5a0b3cfe47fcbb3631b82e58aeb2c7c9c48504/apps/block\_scout\_web/priv/gettext/en/LC\_MESSAGES/default.po#L398)
-
-**Update other explorers (if-applicable)** [https://github.com/poanetwork/blockscout/blob/12aa15671142af00b35ff05aeac107c2c686c4c8/apps/block\_scout\_web/config/config.exs#L22-L26](https://github.com/poanetwork/blockscout/blob/12aa15671142af00b35ff05aeac107c2c686c4c8/apps/block\_scout\_web/config/config.exs#L22-L26)

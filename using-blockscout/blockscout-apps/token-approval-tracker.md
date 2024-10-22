@@ -4,6 +4,11 @@ description: Check, manage and revoke token approvals
 
 # Token Approval Tracker
 
+{% hint style="warning" %}
+Coming soon\
+This feature is under development and will be available in future Blockscout iterations.
+{% endhint %}
+
 <figure><img src="../../.gitbook/assets/TAT1.png" alt=""><figcaption></figcaption></figure>
 
 Many applications require you to grant approvals so that contracts can interact with tokens in your wallet. This can be a security issue if you have granted unlimited or high allowances, or have granted approvals and forgotten about them. If an application is hacked or misused in some way, this can result in all funds being drained from your wallet address.&#x20;
