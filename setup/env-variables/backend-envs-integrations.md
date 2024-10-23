@@ -206,3 +206,14 @@ Enables Zerion integration, which includes multichain net worth view.
 | `MUD_DATABASE_URL`    | MUD indexer DB connection URL.                                                                                                                                                                            | <p>Version: v6.6.0+<br>Default: value from <code>DATABASE_URL</code><br>Applications: API</p> |
 | `MUD_POOL_SIZE`       | MUD indexer DB `pool_size`                                                                                                                                                                                | <p>Version: v6.6.0+<br>Default: <code>50</code><br>Applications: API</p>                      |
 
+## <mark style="background-color:orange;">Xname app</mark>
+
+{% hint style="info" %}
+Enables Xname app integration, which includes humanity score displayment.
+{% endhint %}
+
+
+| Variable              | Description                                                                                                                                                      | Parameters                                                                                      |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `XNAME_BASE_API_URL` | [Xname API](https://xname.app/) base URL. Implemented in [#11010](https://github.com/blockscout/blockscout/pull/11010). | <p>Version: master<br>Default: <code>https://gateway.xname.app</code><br>Applications: API</p> |
+| `XNAME_API_TOKEN`    | [Xname API](https://xname.app/) token. Implemented in [#11010](https://github.com/blockscout/blockscout/pull/11010).    | <p>Version: master<br>Default: (empty)<br>Applications: API</p>        
