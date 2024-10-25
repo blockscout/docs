@@ -29,6 +29,7 @@
   * [Transaction Types](using-blockscout/overviews/transaction-types.md)
   * [Beacon Chain Withdrawal Views](using-blockscout/overviews/beacon-chain-withdrawal-views.md)
 * [My Account](using-blockscout/my-account/README.md)
+  * [Merits](using-blockscout/my-account/merits.md)
   * [Watch list](using-blockscout/my-account/watchlist.md)
   * [Private tags](using-blockscout/my-account/private-tags.md)
   * [Public tags](using-blockscout/my-account/public-tags.md)
