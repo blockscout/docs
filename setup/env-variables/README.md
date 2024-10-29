@@ -6,7 +6,7 @@ Blockscout uses ENVs for setting hundreds of different parameters. Please see th
 * [Backend ENVs: Common](backend-env-variables.md)
 * [Backend ENVs: Chain Specific](backend-envs-chain-specific.md)
 * [Backend ENVs: Integrations](backend-envs-integrations.md)
-* [Frontend ENVs: Common](frontend-common-envs/)
+* [Frontend ENVs: Common](frontend-common-envs.md)
 {% endhint %}
 
 {% hint style="info" %}

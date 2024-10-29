@@ -79,7 +79,7 @@ You can adjust BlockScout environment variables:
 Descriptions of the ENVs are available
 
 * for [backend](../env-variables/backend-env-variables.md)
-* for [frontend](../env-variables/frontend-common-envs/)
+* for [frontend](../env-variables/frontend-common-envs.md)
 
 ### Running via Makefile
 

@@ -13,7 +13,7 @@ This page is kept for archival purposes. Please See [EVN variables](../) and ass
 {% hint style="warning" %}
 The following are **backend variables only.**
 
-[Frontend ENVs are available here](../frontend-common-envs/).
+[Frontend ENVs are available here](../frontend-common-envs.md).
 {% endhint %}
 
 {% hint style="info" %}
