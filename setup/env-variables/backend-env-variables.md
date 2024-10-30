@@ -211,6 +211,11 @@ _**Note**_**: Before release 5.1.2, all environment variables of time format sup
 | `MIGRATION_RESTORE_OMITTED_WETH_TOKEN_TRANSFERS_BATCH_SIZE`  | Number of logs to process in the batch. Implemented in [#10466](https://github.com/blockscout/blockscout/pull/10466)                                                                                           | <p>Version: v6.8.0+<br>Default: <code>50</code><br>Applications: API, Indexer</p>      |
 | `MIGRATION_RESTORE_OMITTED_WETH_TOKEN_TRANSFERS_CONCURRENCY` | Number of parallel logs batches processing. Implemented in [#10466](https://github.com/blockscout/blockscout/pull/10466)                                                                                       | <p>Version: v6.8.0+<br>Default: <code>5</code><br>Applications: API, Indexer</p>       |
 | `MIGRATION_RESTORE_OMITTED_WETH_TOKEN_TRANSFERS_TIMEOUT`     | Time interval between checks if queue are not empty. The same timeout multiplied by 2 used between checks if qeueue are not full. Implemented in [#10466](https://github.com/blockscout/blockscout/pull/10466) | <p>Version: v6.8.0+<br>Default: <code>250ms</code><br>Applications: API, Indexer</p>   |
+| `MIGRATION_SANITIZE_DUPLICATED_LOG_INDEX_LOGS_BATCH_SIZE`    | Number of logs to process in the batch. Implemented in [#11055](https://github.com/blockscout/blockscout/pull/11055) | <p>Version: v6.9.0+<br>Default: <code>500</code><br>Applications: API, Indexer</p>   |
+| `MIGRATION_SANITIZE_DUPLICATED_LOG_INDEX_LOGS_CONCURRENCY`   | Number of parallel logs batches processing. Implemented in [#11055](https://github.com/blockscout/blockscout/pull/11055) | <p>Version: v6.9.0+<br>Default: <code>10</code><br>Applications: API, Indexer</p>   |
+| `MIGRATION_REFETCH_CONTRACT_CODES_BATCH_SIZE`                | Number of addresses to process in the batch. Implemented in [#11055](https://github.com/blockscout/blockscout/pull/11055) | <p>Version: v6.9.0+<br>Default: <code>100</code><br>Applications: API, Indexer</p>   |
+| `MIGRATION_REFETCH_CONTRACT_CODES_CONCURRENCY`               | Number of parallel addresses batches processing. Implemented in [#11055](https://github.com/blockscout/blockscout/pull/11055) | <p>Version: v6.9.0+<br>Default: <code>5</code><br>Applications: API, Indexer</p>   |
+
 
 ## <mark style="background-color:orange;">Exchange Rates</mark>
 
