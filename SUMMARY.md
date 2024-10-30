@@ -97,6 +97,7 @@
   * [Backend ENVs: Chain-Specific](setup/env-variables/backend-envs-chain-specific.md)
   * [Backend ENVs: Integrations](setup/env-variables/backend-envs-integrations.md)
   * [Frontend ENVs: Common](setup/env-variables/frontend-common-envs/README.md)
+    * [ENVs](setup/env-variables/frontend-common-envs/envs.md)
     * [Deprecated ENVs](setup/env-variables/frontend-common-envs/deprecated-envs.md)
   * [Deprecated Backend ENVs](setup/env-variables/deprecated-env-variables/README.md)
     * [Previous ENV Variable Home Page](setup/env-variables/deprecated-env-variables/env-variables.md)
