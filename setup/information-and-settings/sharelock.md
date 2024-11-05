@@ -149,3 +149,6 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.Celo.PendingEpochBlockOperation | celo\_pending\_epoch\_block\_operations | \[asc: :block\_hash\] |
 | Explorer.Chain.Celo.ValidatorGroupVote | celo\_epoch\_validator\_group\_votes | \[asc: :transaction\_hash, asc: :account\_address\_hash, asc: :group\_address\_hash\] |
 | Explorer.Chain.Celo.ElectionReward | celo\_election\_rewards | \[asc: :block\_hash, asc: type, asc: :account\_address\_hash, asc: :associated\_account\_address\_hash\] |
+| Explorer.Chain.Zilliqa.QuorumCertificate | zilliqa\_quorum\_certificates | \[asc: :block\_hash] |
+| Explorer.Chain.Zilliqa.AggregateQuorumCertificate | zilliqa\_aggregate\_quorum\_certificates | \[asc: :block\_hash] |
+| Explorer.Chain.Zilliqa.NestedQuorumCertificate | zilliqa\_nested\_quorum\_certificates | \[asc: :block\_hash, asc: proposed\_by\_validator\_index] |
