@@ -44,6 +44,7 @@
 * [Token Support](using-blockscout/token-support/README.md)
   * [ERC-1155 Support](using-blockscout/token-support/erc-1155-support.md)
 * [Swapscout](using-blockscout/swapscout.md)
+* [Merits](using-blockscout/merits.md)
 
 ## 👩‍💻 Developer Support <a href="#devs" id="devs"></a>
 
@@ -96,8 +97,9 @@
   * [Backend ENVs: Chain-Specific](setup/env-variables/backend-envs-chain-specific.md)
   * [Backend ENVs: Integrations](setup/env-variables/backend-envs-integrations.md)
   * [Frontend ENVs: Common](setup/env-variables/frontend-common-envs/README.md)
-    * [WalletConnect Project ID for contract Read/Write](setup/env-variables/frontend-common-envs/walletconnect-project-id-for-contract-read-write.md)
-  * [Deprecated ENV Variables](setup/env-variables/deprecated-env-variables/README.md)
+    * [ENVs](setup/env-variables/frontend-common-envs/envs.md)
+    * [Deprecated ENVs](setup/env-variables/frontend-common-envs/deprecated-envs.md)
+  * [Deprecated Backend ENVs](setup/env-variables/deprecated-env-variables/README.md)
     * [Previous ENV Variable Home Page](setup/env-variables/deprecated-env-variables/env-variables.md)
 * [Deployment](setup/deployment/README.md)
   * [⭐ Manual Deployment Guide](setup/deployment/manual-deployment-guide/README.md)
@@ -155,6 +157,7 @@
   * [My Account Settings](setup/configuration-options/my-account-settings.md)
   * [Sorting and Pagination](setup/configuration-options/sorting-and-pagination.md)
   * [Tracing](setup/configuration-options/tracing.md)
+  * [WalletConnect Project ID for contract Read/Write](setup/configuration-options/walletconnect-project-id-for-contract-read-write.md)
 * [Indexing](setup/indexing/README.md)
   * [How do I fix indexer timeouts?](setup/indexing/how-do-i-fix-indexer-timeouts.md)
   * [How do I update memory consumption to fix indexer memory errors?](setup/indexing/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md)

@@ -4,7 +4,11 @@ description: Swapscout swap and bridge multi-chain application for Blockscout us
 
 # Swapscout
 
-Simple swaps and cross-chain bridging transactions are now available via the dedicated Swapscout swap app. **Find it at** [**https://swap.blockscout.com/**](https://swap.blockscout.com/)
+Simple swaps and cross-chain bridging transactions are now available via the dedicated Swapscout swap app, powered by [LI.FI](http://li.fi/). All swapping and bridging operations are handled by [LI.FI](http://li.fi/)’s smart contracts, and their widget provides a flexible and lightweight interface. Blockscout has integrated the [LI.FI](http://li.fi/) widget to create a convenient and user-friendly tool specifically for Blockscout users.
+
+{% hint style="success" %}
+**Find Swapscout now at** [**https://swap.blockscout.com/**](https://swap.blockscout.com/)
+{% endhint %}
 
 <figure><img src="../.gitbook/assets/swapscout.png" alt=""><figcaption></figcaption></figure>
 
