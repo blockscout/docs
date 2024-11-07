@@ -41,17 +41,17 @@ We recommend using a referral code to signup as you will receive an additional 1
 
 The link will be the instance name followed by `/?ref=XXXXXX` for example [https://eth.blockscout.com/](https://eth.blockscout.com/)[?ref=9V4NUJ](https://eth.blockscout.com/?ref=9V4NUJ)\
 \
-_Note: if you only have a code and not a link you will enter it during step 5 of the sign in flow._ &#x20;
+_Note: if you only have a code and not a link you will enter the code during step 5 of the sign in flow._ &#x20;
 
-If using a referral link you will be forwarded to this page.
+If starting with a referral link you will be forwarded to this page.
 
 <figure><img src="../../.gitbook/assets/connect-wallet.jpg" alt=""><figcaption><p>Click Connect wallet</p></figcaption></figure>
 
-If using a six digit referral code, you will click on the Merits button to get started.
+If using a six digit referral code, you will go to the Blockscout instance and click on the Merits button to get started.
 
 <figure><img src="../../.gitbook/assets/merits-1.jpg" alt=""><figcaption><p>Desktop</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/merits-mobile.jpg" alt="" width="375"><figcaption><p>Mobile</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/merits-mobile.jpg" alt="" width="375"><figcaption><p>Mobile Blockscout Merits button</p></figcaption></figure>
 
 #### **2) Connect your wallet (EOA)**&#x20;
 
@@ -61,7 +61,7 @@ Note that this wallet can be used to collect Merits across chains.
 
 <figure><img src="../../.gitbook/assets/choose-method.jpg" alt="" width="375"><figcaption><p>Choose your preferred method</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/grant-permission.jpg" alt="" width="355"><figcaption><p>Grant permission to connect</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/grant-permission.jpg" alt="" width="355"><figcaption><p>Grant permission to connect in your web3 wallet</p></figcaption></figure>
 
 #### 3) **Login to account**
 
@@ -105,7 +105,7 @@ We recommend using a referral code to receive additional Merits, however you can
 
 ### Existing Account Signup
 
-If you already have a Blockscout account, you can still use a referral code to sign up for the Merits program. Login to your Blockscout account, then paste in the referral link or press the Merits button and use the referral following the process above, starting with step 5.
+If you already have a Blockscout account, you can still use a referral code to sign up for the Merits program. Login to your Blockscout account and paste in the referral link or press the Merits button to start.  Follow the process above starting with step 5.&#x20;
 
 <figure><img src="../../.gitbook/assets/already-account.jpg" alt=""><figcaption><p>Press the Merits button once you are logged in if you have a six digit referral code</p></figcaption></figure>
 
