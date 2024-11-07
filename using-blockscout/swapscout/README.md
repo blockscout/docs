@@ -10,7 +10,7 @@ Simple swaps and cross-chain bridging transactions are now available via the ded
 **Find Swapscout now at** [**https://swap.blockscout.com/**](https://swap.blockscout.com/)
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/swapscout.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/swapscout.png" alt=""><figcaption></figcaption></figure>
 
 ## Swapscout Features
 
@@ -19,6 +19,7 @@ Simple swaps and cross-chain bridging transactions are now available via the ded
 * **Low integrator fees**. Swapscout offers extremely low fees (.075%) on swaps. For example, a $1,000 swap incurs a $0.75 fee.
 * **Aggregator fetches the best prices**: The application checks across 32 exchanges and 19 bridges to find the best swap and bridge prices, along with options for different routes if you want faster bridging or prefer to use a specific app or bridge.
 * **Li.Fi for consistency and security:** Swapscout uses Li.Fi under the hood to provide swap and bridging functionality. This audited codebase is used throughout the ecosystem and trusted by many projects to provide safe and secure transfers.&#x20;
+* Earn Merits when using Swapscout. [See this page](earn-merits-when-using-swapscout.md) to learn more about earning Merits for using your favorite swap and bridge application.
 
 ## Swapscout Operations
 
@@ -45,5 +46,5 @@ In this example we swap xDai on Gnosis for USDC on Base. Depending on the token 
 
 The above video shows you how to swap and bridge from one chain to another. To send to a different wallet, click the wallet icon and enter the wallet address where you are sending funds.
 
-<figure><img src="../.gitbook/assets/add-a-different-receiving-wallet-swapscout.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/add-a-different-receiving-wallet-swapscout.png" alt=""><figcaption></figcaption></figure>
 
