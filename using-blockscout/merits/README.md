@@ -51,17 +51,17 @@ If using a six digit referral code, you will click on the Merits button to get s
 
 <figure><img src="../../.gitbook/assets/merits-1.jpg" alt=""><figcaption><p>Desktop</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/merits-mobile.jpg" alt=""><figcaption><p>Mobile</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/merits-mobile.jpg" alt="" width="375"><figcaption><p>Mobile</p></figcaption></figure>
 
 #### **2) Connect your wallet (EOA)**&#x20;
 
 Note that this wallet can be used to collect Merits across chains.
 
-<figure><img src="../../.gitbook/assets/connect-wallet.jpg" alt=""><figcaption><p>Click Connect wallet</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/connect-wallet.jpg" alt="" width="375"><figcaption><p>Click Connect wallet</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/choose-method.jpg" alt=""><figcaption><p>Choose your preferred method</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/choose-method.jpg" alt="" width="375"><figcaption><p>Choose your preferred method</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/grant-permission.jpg" alt=""><figcaption><p>Grant permission to connect</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/grant-permission.jpg" alt="" width="355"><figcaption><p>Grant permission to connect</p></figcaption></figure>
 
 #### 3) **Login to account**
 
@@ -69,7 +69,7 @@ Once you have granted permission to connect your wallet, you can login to your a
 
 <figure><img src="../../.gitbook/assets/login-to-account.jpg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/confirm-signin.jpg" alt=""><figcaption><p>Confirm sign in with your wallet</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/confirm-signin.jpg" alt="" width="348"><figcaption><p>Confirm sign in with your wallet</p></figcaption></figure>
 
 #### 4) **Add email (optional)**
 
@@ -89,7 +89,7 @@ Your code should pre-populate. Click Get started and confirm sign-in via your we
 
 <figure><img src="../../.gitbook/assets/Get-started.jpg" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/confirm-sign-in.jpg" alt=""><figcaption><p>Check details according to your instance and wallet info</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/confirm-sign-in.jpg" alt="" width="346"><figcaption><p>Confirm in your wallet </p></figcaption></figure>
 
 #### 6) Congratulations!
 
