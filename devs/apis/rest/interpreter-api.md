@@ -1,5 +1,7 @@
 # Interpreter API
 
+### https://eth.blockscout.com/api/v2/transactions/transaction_hash/summary
+
 {% hint style="info" %}
 The Interpreter API is currently in development. This REST API service will provide human-readable information regarding transactions, addresses and more.&#x20;
 {% endhint %}
@@ -108,15 +110,15 @@ The response from the Transactions Interpreter Service is structured as follows 
 
 The response from the service can contain the following types of data:
 
-* `number`: Numerical values.
-* `string`: Textual data.
-* `array`: An array of items.
-* `currency`: Represents a monetary value.
-* `token`: Information related to a cryptocurrency or token.
-* `address`: Blockchain address information.
-* `timestamp`: A date and time representation.
-* `domain`: Domain name data.
-* `code`: Code snippets or encoded data.
+- `number`: Numerical values.
+- `string`: Textual data.
+- `array`: An array of items.
+- `currency`: Represents a monetary value.
+- `token`: Information related to a cryptocurrency or token.
+- `address`: Blockchain address information.
+- `timestamp`: A date and time representation.
+- `domain`: Domain name data.
+- `code`: Code snippets or encoded data.
 
 These types are used to ensure that the data returned in the summary is consistent and properly structured.
 
@@ -124,7 +126,7 @@ These types are used to ensure that the data returned in the summary is consiste
 
 If the service encounters an error, it returns a structured error response:
 
-* **Error Response**:
+- **Error Response**:
 
 ```jsx
 {
@@ -146,7 +148,7 @@ If the service encounters an error, it returns a structured error response:
 
 ### **Attributes of the Error Object**&#x20;
 
-* `id`: A unique identifier for the error, used for debugging purposes.
-* `code`: A code representing the type of error.
-* `message`: A user-friendly message that can be displayed on the front end.
-* `error_data`: An array containing details about the invalid parameters.
+- `id`: A unique identifier for the error, used for debugging purposes.
+- `code`: A code representing the type of error.
+- `message`: A user-friendly message that can be displayed on the front end.
+- `error_data`: An array containing details about the invalid parameters.
