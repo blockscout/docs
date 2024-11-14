@@ -1,4 +1,8 @@
-# Replace Links
+---
+description: Easily replace your current explorer links with Blockscout explorer links
+---
+
+# Link to Blockscout
 
 ## Replace the primary explorer link
 

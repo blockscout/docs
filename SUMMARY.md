@@ -51,7 +51,7 @@
 ## 👩‍💻 Developer Support <a href="#devs" id="devs"></a>
 
 * [For Web3 Developers](devs/for-web3-developers.md)
-* [Replace Links](devs/replace-links.md)
+* [Link to Blockscout](devs/replace-links.md)
 * [Blockscout APIs](devs/apis/README.md)
   * [Requests & Limits](devs/apis/requests-and-limits.md)
   * [REST API Endpoints](devs/apis/rest/README.md)
