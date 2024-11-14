@@ -79,6 +79,7 @@
   * [Verification via thirdweb](devs/verification/verification-via-thirdweb.md)
   * [Interacting with Smart Contracts](devs/verification/interacting-with-smart-contracts.md)
 * [Autoscout cloud deployment](devs/autoscout.md)
+* [Chainscout chains list](devs/chainscout-chains-list.md)
 
 ## 🏃‍♂️ Setup and Run Blockscout <a href="#setup" id="setup"></a>
 
