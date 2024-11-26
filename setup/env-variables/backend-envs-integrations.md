@@ -204,10 +204,10 @@ Enables Zerion integration, which includes multichain net worth view.
 Enables Xname app integration, which includes humanity score displayment.
 {% endhint %}
 
-| Variable             | Description                                                                                                             | Parameters                                                                                     |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `XNAME_BASE_API_URL` | [Xname API](https://xname.app/) base URL. Implemented in [#11010](https://github.com/blockscout/blockscout/pull/11010). | <p>Version: master<br>Default: <code>https://gateway.xname.app</code><br>Applications: API</p> |
-| `XNAME_API_TOKEN`    | [Xname API](https://xname.app/) token. Implemented in [#11010](https://github.com/blockscout/blockscout/pull/11010).    | <p>Version: master<br>Default: (empty)<br>Applications: API</p>                                |
+| Variable             | Description                                                                                                             | Parameters                                                                                      |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `XNAME_BASE_API_URL` | [Xname API](https://xname.app/) base URL. Implemented in [#11010](https://github.com/blockscout/blockscout/pull/11010). | <p>Version: v6.9.2+<br>Default: <code>https://gateway.xname.app</code><br>Applications: API</p> |
+| `XNAME_API_TOKEN`    | [Xname API](https://xname.app/) token. Implemented in [#11010](https://github.com/blockscout/blockscout/pull/11010).    | <p>Version: v6.9.2+<br>Default: (empty)<br>Applications: API</p>                                |
 
 ## <mark style="background-color:orange;">Stylus contract verifier</mark>
 
