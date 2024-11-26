@@ -32,7 +32,7 @@ Any chain requires an amount of storage capable of storing all archive data. For
 
 5. Connect and Sync an archive node using the config file. `parity --config node.toml`\
 
-6.  Find your EC2 url to connect with BlockScout: Go to **EC2 Dashboard -> Instances -> **_**corresponding archive node instance**_ and record the ip address. When configuring BlockScout you will use this address along with port 8545 to connect via the EthereumJsonRPCHttpURL parameter.
+6.  Find your EC2 url to connect with BlockScout: Go to **EC2 Dashboard -> Instances ->&#x20;**_**corresponding archive node instance**_ and record the ip address. When configuring BlockScout you will use this address along with port 8545 to connect via the EthereumJsonRPCHttpURL parameter.
 
     For example: `192.0.2.1:8545`
 

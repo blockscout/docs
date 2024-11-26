@@ -41,7 +41,7 @@ We recommend using a referral code to signup as you will receive an additional 1
 
 The link will be the instance name followed by `/?ref=XXXXXX` for example [https://eth.blockscout.com/](https://eth.blockscout.com/)[?ref=9V4NUJ](https://eth.blockscout.com/?ref=9V4NUJ)\
 \
-_Note: if you only have a code and not a link you will enter the code during step 5 of the sign in flow._ &#x20;
+&#xNAN;_&#x4E;ote: if you only have a code and not a link you will enter the code during step 5 of the sign in flow._ &#x20;
 
 If starting with a referral link you will be forwarded to this page.
 
@@ -115,8 +115,8 @@ If you already have a Blockscout account, you can still use a referral code to s
 
 1. **Merits balance and claim**: Displays your current balance and claim eligibility. You can claim 10 Merits 1 time per day. This amount resets the following day.  The claim button will also send any available referral Merits to your account. Referral Merits are added when someone you refer completes an activity. Referrals are not available for signing up or daily claims.
 2. **Referral data**: Shows how many individuals you have referred to the Merits program.&#x20;
-3. **Streak data **_**\<coming soon>**_: Shows how many days in a row you have claimed your daily Merits.
+3. **Streak data&#x20;**_**\<coming soon>**_: Shows how many days in a row you have claimed your daily Merits.
 4. **Referral code and link**: Your referral link and code. Share this code with friends and they will receive additional Merits on signup. You will receive a 10% bonus for rewards earned by your referrals for Blockscout activity. More about referrals is in the [FAQ](faqs.md).&#x20;
-5. **Activity tracking **_**\<coming soon>**_: Tracks your activities and earned Merits for these activities.
-6. **Contract verification tracking **_**\<coming soon>**_: Tracks your contract verification activity and related Merits rewards.
-7. **Badges **_**\<coming soon>**_: Collection of the Blockscout badges you have earned for completing various Blockscout-based campaigns. For more information, see the [Blockscout Badges site](https://badges.blockscout.com/home).
+5. **Activity tracking&#x20;**_**\<coming soon>**_: Tracks your activities and earned Merits for these activities.
+6. **Contract verification tracking&#x20;**_**\<coming soon>**_: Tracks your contract verification activity and related Merits rewards.
+7. **Badges&#x20;**_**\<coming soon>**_: Collection of the Blockscout badges you have earned for completing various Blockscout-based campaigns. For more information, see the [Blockscout Badges site](https://badges.blockscout.com/home).

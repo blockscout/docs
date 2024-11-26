@@ -67,7 +67,7 @@ The following guide contains 5 sections that cover a complete Blockscout install
 * **Linux:** Update the database username and password configuration
 * **Mac:** Use logged-in user name and empty password (`export DATABASE_URL=postgresql://username:@localhost:5432/blockscout` )
 * **Optional:** Change credentials in `apps/explorer/config/test.exs` for test env\
-  _Example usage:_ Changing the default Postgres port from localhost:5432 if [Boxen](https://github.com/boxen/boxen) is installed.
+  &#xNAN;_&#x45;xample usage:_ Changing the default Postgres port from localhost:5432 if [Boxen](https://github.com/boxen/boxen) is installed.
 
 {% hint style="info" %}
 You can check the regex pattern for the db url via [https://regex101.com/](https://regex101.com/) with the following regular expression:

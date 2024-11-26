@@ -25,7 +25,7 @@ The stats service will try to use cache values for efficient chart recalculation
 ## How to run
 
 Options including docker, docker-compose or building from source.  \
-\-> [https://github.com/blockscout/blockscout-rs/tree/main/stats#build](https://github.com/blockscout/blockscout-rs/tree/main/stats#build)
+-> [https://github.com/blockscout/blockscout-rs/tree/main/stats#build](https://github.com/blockscout/blockscout-rs/tree/main/stats#build)
 
 ## Configs
 
@@ -34,7 +34,7 @@ Options including docker, docker-compose or building from source.  \
 
 ## Chart Types
 
-Two types of charts are available for the Charts and Stats Section, **`Line`**charts and **`Counter`** charts.
+Two types of charts are available for the Charts and Stats Section, **`Line`**&#x63;harts and **`Counter`** charts.
 
 ### Line Charts
 

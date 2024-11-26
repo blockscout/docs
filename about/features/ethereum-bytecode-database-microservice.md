@@ -62,7 +62,7 @@ Removing the notion of chains and contract addresses is powerful in and of itsel
 Extractors can be implemented as separate extensions which can index different explorers and different chains, then automatically submit newly verified bytecodes into the Ethereum Bytecode Database. It can also import contracts verified long ago.&#x20;
 
 This has the potential rapidly increase the dataset, **allowing the service to collect sources for almost all bytecodes that have been publicly verified**. Every time a new contract is verified on a monitored explorer, the extractor can upload the source code to the Ethereum Bytecode Database\*. \
-_\*This is in the research phase._&#x20;
+&#xNAN;_\*This is in the research phase._&#x20;
 
 In addition, anyone can start the service from scratch and eventually obtain their own repository of verified contracts by running extractors they are interested in. Those who would like to host their own instance can obtain a populated database which can also be updated from other chains in the ecosystem.
 
