@@ -102,18 +102,18 @@ Note that this should always be enforced because as long as there is one DB tran
 
 | schema module | table name | ordered by |
 | :--- | :--- | :--- |
-| Explorer.Chain.Address | addresses | asc: :hash |
+| Explorer.Chain.Address | addresses | \[asc: :hash\] |
 | Explorer.Chain.Address.Name | address\_names | \[asc: :address\_hash, asc: :name\] |
 | Explorer.Chain.Address.CoinBalance | address\_coin\_balances | \[asc: :address\_hash, asc: :block\_number\] |
-| Explorer.Chain.Block | blocks | asc: :hash |
+| Explorer.Chain.Block | blocks | \[asc: :hash\] |
 | Explorer.Chain.Block.SecondDegreeRelation | block\_second\_degree\_relations | \[asc: :nephew\_hash, asc: :uncle\_hash\] |
 | Explorer.Chain.Block.Reward | block\_rewards | \[asc: :address\_hash, asc: :address\_type, asc: :block\_hash\] |
-| Explorer.Chain.Block.EmissionReward | emission\_rewards | asc: :block\_range |
-| Explorer.Chain.Transaction | transactions | asc: :hash |
+| Explorer.Chain.Block.EmissionReward | emission\_rewards | \[asc: :block\_range\] |
+| Explorer.Chain.Transaction | transactions | \[asc: :hash\] |
 | Explorer.Chain.Transaction.Fork | transaction\_forks | \[asc: :uncle\_hash, asc: :index\] |
 | Explorer.Chain.Log | logs | \[asc: :transaction\_hash, asc: :index\] |
 | Explorer.Chain.InternalTransaction | internal\_transactions | \[asc: :transaction\_hash, asc: :index\] |
-| Explorer.Chain.Token | tokens | asc: :contract\_address\_hash |
+| Explorer.Chain.Token | tokens | \[asc: :contract\_address\_hash\] |
 | Explorer.Chain.TokenTransfer | token\_transfers | \[asc: :transaction\_hash, asc: :log\_index\] |
 | Explorer.Chain.TransactionAction | transaction\_actions | \[asc: :hash, asc: :log\_index\] |
 | Explorer.Chain.PolygonEdge.Deposit | polygon\_edge\_deposits | \[asc: :msg\_id\] |
@@ -135,11 +135,11 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.Scroll.Bridge | scroll\_bridge | \[asc: :type, asc: message\_hash\] |
 | Explorer.Chain.Scroll.L1FeeParam | scroll\_l1\_fee\_params | \[asc: :block\_number, asc: tx\_index, asc: name\] |
 | Explorer.Chain.Shibarium.Bridge | shibarium\_bridge | \[asc: :operation_hash, asc: l1\_transaction\_hash, asc: l2\_transaction\_hash\] |
-| Explorer.Chain.StakingPool | staking\_pools | :staking\_address\_hash |
+| Explorer.Chain.StakingPool | staking\_pools | \[asc: :staking\_address\_hash\] |
 | Explorer.Chain.StakingPoolsDelegator | staking\_pools\_delegators | \[asc: :delegator\_address\_hash, asc: :pool\_address\_hash\] |
 | Explorer.Chain.ContractMethod | contract\_methods | \[asc: :identified, asc: :abi\] |
-| Explorer.Market.MarketHistory | market\_history | asc: :date |
-| Explorer.Chain.Withdrawal | withdrawals | asc: :index |
+| Explorer.Market.MarketHistory | market\_history | \[asc: :date\] |
+| Explorer.Chain.Withdrawal | withdrawals | \[asc: :index\] |
 | Explorer.Chain.Zkevm.TransactionBatch | zkevm\_transaction\_batches | \[asc: :number\] |
 | Explorer.Chain.Zkevm.BatchTransaction | zkevm\_batch\_l2\_transactions | \[asc: :hash\] |
 | Explorer.Chain.Zkevm.LifecycleTransaction | zkevm\_lifecycle\_l1\_transactions | \[asc: :id\] |
@@ -153,3 +153,6 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.Celo.PendingEpochBlockOperation | celo\_pending\_epoch\_block\_operations | \[asc: :block\_hash\] |
 | Explorer.Chain.Celo.ValidatorGroupVote | celo\_epoch\_validator\_group\_votes | \[asc: :transaction\_hash, asc: :account\_address\_hash, asc: :group\_address\_hash\] |
 | Explorer.Chain.Celo.ElectionReward | celo\_election\_rewards | \[asc: :block\_hash, asc: type, asc: :account\_address\_hash, asc: :associated\_account\_address\_hash\] |
+| Explorer.Chain.Zilliqa.QuorumCertificate | zilliqa\_quorum\_certificates | \[asc: :block\_hash\] |
+| Explorer.Chain.Zilliqa.AggregateQuorumCertificate | zilliqa\_aggregate\_quorum\_certificates | \[asc: :block\_hash\] |
+| Explorer.Chain.Zilliqa.NestedQuorumCertificate | zilliqa\_nested\_quorum\_certificates | \[asc: :block\_hash, asc: proposed\_by\_validator\_index] |

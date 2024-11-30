@@ -4,6 +4,12 @@
 
 {% embed url="https://www.blog.blockscout.com/blockscout-raises-3m-seed-round-led-by-1kx/" %}
 
+## OurNetwork Blockscout Feature
+
+OurNetwork is a leading crypto publication providing data-driven insights on blockchain industry trends. This deep dive on Blockscout features coverage about Blockscout Network Health, User Trends, Explorer-as-a-Service, and the DAppscout Marketplace.
+
+{% embed url="https://www.ournetwork.xyz/p/on-286-zoomed-in-on-blockscout" %}
+
 ## Dappcon 2024 Blockscout Presentation
 
 Head of research Kirill Fedoseev presented on network resilience and the need for reliable, transparent, and available explorers in a multi-chain world (starts at 7:50:00)
