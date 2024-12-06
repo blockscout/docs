@@ -41,7 +41,7 @@ The following parameters are in the Info section. \* parameters are required.
 * **RPC URL\***: The archive node url (https://your-rpc-url)
 * **WS URL**: The websocket url (wss://ws.your-websocket-url)
 * **Custom Domain**: You can use a custom domain for your instance but must configure your DNS and add a DNS `CNAME` record pointing to `autoscout.cname.blockscout.com`
-* **Public RPC URL**: Enables 'add to Metamask button'. Can be the same as the RPC URL if this is a public node.
+* **Public RPC URL**: Enables 'add to MetaMask button'. Can be the same as the RPC URL if this is a public node.
 * **WalletConnect project ID:** Enables the ability for Read and Write functionality with smart contracts. [Learn more about setting one up here](../setup/configuration-options/walletconnect-project-id-for-contract-read-write.md).
 
 ### Branding
@@ -50,7 +50,7 @@ The following parameters are in the Info section. \* parameters are required.
 
 * **Default color theme**: Choose between a light theme and 3 variations of a darker theme.
 * **Default address identicon:** Select from 4 different options for default identicons in your instance.
-* **Vertical or Horizontal menu**: Select vertica for a side menu or horizontal for a top menu.
+* **Vertical or Horizontal menu**: Select vertical for a side menu or horizontal for a top menu.
 * **Full logo URL**:  Add a url link to your full logo image in horizontal format. Supported formats: image/jpeg, image/gif, image/png. Add one for light mode and one for dark mode if desired (users can switch modes manually).
 * **Logo sign (square) URL**: Add a url link to your square logo image in horizontal format. Supported formats: image/jpeg, image/gif, image/png. Add one for light mode and one for dark mode if desired (users can switch modes manually).
 * **Header background gradient and text color**: Choose your desired background color gradients with the selector and choose your preferred text color. You will see a preview in the interface.&#x20;
