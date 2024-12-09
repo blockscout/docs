@@ -39,7 +39,7 @@ Replace the Etherscan url in your code with the Blockscout url for a seamless tr
 
 Some newer operations without standards are still handled differently by different explorers. For example:
 
-* Blobs on Blockscout are accessed in different ways depending on the route. For example via the `?tab=blob_txs` query string following a block ([https://eth.blockscout.com/block/20822532?tab=blob\_txs](https://eth.blockscout.com/block/20822532?tab=blob\_txs)) or the `?tab=blobs` query string following a transaction. Blobs on Etherscan are accessed via `#blobinfo` query strign following a block (ie [https://etherscan.io/block/20822532#blobinfo](https://etherscan.io/block/20822532#blobinfo)).
+* Blobs on Blockscout are accessed in different ways depending on the route. For example via the `?tab=blob_txs` query string following a block ([https://eth.blockscout.com/block/20822532?tab=blob\_txs](https://eth.blockscout.com/block/20822532?tab=blob\_txs)) or the `?tab=blobs` query string following a transaction. Blobs on Etherscan are accessed via `#blobinfo` query string following a block (ie [https://etherscan.io/block/20822532#blobinfo](https://etherscan.io/block/20822532#blobinfo)).
 * User Operations (EIP-4337) are displayed on Blockscout via the [https://eth.blockscout.com/ops](https://eth.blockscout.com/ops) url. On Etherscan there is currently no defined route, but User Operations can be viewed with the `Handle Ops` filter applied to the senders address (ie [https://etherscan.io/advanced-filter?fadd=0x20e9695f25413f14e5807b530D0698bd4F155074\&mtd=0x1fad948c\~Handle+Ops\&ps=10\&p=8](https://etherscan.io/advanced-filter?fadd=0x20e9695f25413f14e5807b530D0698bd4F155074\&mtd=0x1fad948c\~Handle+Ops\&ps=10\&p=8))
 
 ## Replace the API link
