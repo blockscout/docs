@@ -23,5 +23,5 @@ _See the table below for more details on streak rewards._
 
 ### Streak rewards for daily claims
 
-<table><thead><tr><th width="91">Streak</th><th width="84">Daily Claim</th><th width="87">Reward</th><th>Total Merits Claim</th></tr></thead><tbody><tr><td>1-6</td><td>10</td><td>0</td><td>10</td></tr><tr><td>7</td><td>10</td><td>10</td><td>20</td></tr><tr><td>8-13</td><td>10</td><td>0</td><td>10</td></tr><tr><td>14</td><td>10</td><td>20</td><td>30</td></tr><tr><td>15-20</td><td>10</td><td>0</td><td>10</td></tr><tr><td>21</td><td>10</td><td>20</td><td>30</td></tr><tr><td>22-27</td><td>10</td><td>0</td><td>10</td></tr><tr><td>28</td><td>10</td><td>20</td><td>30</td></tr></tbody></table>
+<table><thead><tr><th width="106">Streak</th><th width="123">Daily Claim</th><th width="112">Reward</th><th>Total Merits Claim</th></tr></thead><tbody><tr><td>1-6</td><td>10</td><td>0</td><td>10</td></tr><tr><td>7</td><td>10</td><td>10</td><td>20</td></tr><tr><td>8-13</td><td>10</td><td>0</td><td>10</td></tr><tr><td>14</td><td>10</td><td>20</td><td>30</td></tr><tr><td>15-20</td><td>10</td><td>0</td><td>10</td></tr><tr><td>21</td><td>10</td><td>20</td><td>30</td></tr><tr><td>22-27</td><td>10</td><td>0</td><td>10</td></tr><tr><td>28</td><td>10</td><td>20</td><td>30</td></tr></tbody></table>
 
