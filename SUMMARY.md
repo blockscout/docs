@@ -46,6 +46,7 @@
 * [Swapscout](using-blockscout/swapscout/README.md)
   * [Earn Merits when using Swapscout](using-blockscout/swapscout/earn-merits-when-using-swapscout.md)
 * [Merits](using-blockscout/merits/README.md)
+  * [Streak rewards](using-blockscout/merits/streak-rewards.md)
   * [FAQs](using-blockscout/merits/faqs.md)
 
 ## 👩‍💻 Developer Support <a href="#devs" id="devs"></a>
