@@ -7,15 +7,17 @@ description: >-
 # Streak rewards
 
 {% hint style="info" %}
-Available soon
+Available soon in the Merits hub and Blockscout Merits dashboard.
 {% endhint %}
+
+<figure><img src="../../.gitbook/assets/merits-hub.png" alt=""><figcaption><p>Streaks view in the Merits hub. To maintain your streak, visit the Blockscout explorer dashboard and make a daily claim.</p></figcaption></figure>
 
 Streaks provide an opportunity to earn additional Merits by visiting and claiming each day.&#x20;
 
-* Every day in a row (0:00 UTC to 23:59 UTC)  you make a Merits claim, your streak increases by 1.&#x20;
-* If you fail to make a claim within that window, your streak resets to 0.&#x20;
+* Merits must be claimed once each day to maintain a streak (0:00 UTC to 23:59 UTC) . Every day you make a Merits claim, your streak increases by 1.&#x20;
+* If you fail to make a claim within the daily window, your streak resets to 0.&#x20;
 * Every 7 days of a streak results in an increased Merit reward. This is a single day award which can is claimed each 7th day of your streak (7,14,21,28 etc).&#x20;
-* Currently, the highest reward is 20 Merits, for a total of 30 Merits (10 daily claim Merits + 20 streak reward Merits) claimed on streak reward days.
+* Currently, the highest reward is 20 Merits, for a total of 30 Merits (10 daily claim Merits + 20 streak reward Merits) available to claim on streak reward days.
 
 {% hint style="info" %}
 _See the table below for more details on streak rewards._

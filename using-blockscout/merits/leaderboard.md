@@ -5,7 +5,7 @@ description: View accounts by Merits
 # Leaderboard
 
 {% hint style="info" %}
-The Merits leaderboard is a part of the standalone Merits website launching soon.
+The Merits leaderboard is a part of the standalone Merits hub website launching soon.
 {% endhint %}
 
 The Merits leaderboard displays accounts ordered by the number of Merits each account has earned.&#x20;
