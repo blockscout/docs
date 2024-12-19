@@ -128,6 +128,7 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.Optimism.FrameSequenceBlob | op\_frame\_sequence\_blobs | \[asc: :id\] |
 | Explorer.Chain.Optimism.WithdrawalEvent | op\_withdrawal\_events | \[asc: :withdrawal\_hash, asc: :l1\_event\_type\] |
 | Explorer.Chain.Optimism.Withdrawal | op\_withdrawals | \[asc: :msg\_nonce\] |
+| Explorer.Chain.Optimism.EIP1559ConfigUpdate | op\_eip1559\_config\_updates | \[asc: :l2\_block\_number\] |
 | Explorer.Chain.Address.TokenBalance | address\_token\_balances | \[asc: :address\_hash, asc: :token\_contract\_address\_hash, asc: :block\_number\] |
 | Explorer.Chain.Address.CurrentTokenBalance | address\_current\_token\_balances | \[asc: :address\_hash, asc: :token\_contract\_address\_hash\] |
 | Explorer.Chain.Scroll.Batch | scroll\_batches | \[asc: number\] |
