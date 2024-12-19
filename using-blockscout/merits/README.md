@@ -12,6 +12,7 @@ To learn details about the program please see our dedicated [Merits announcement
 * Merits are designed to make block exploration more fun and engaging, rewarding learning and regular usage.
 * Merits do not have any material value, but in the future may unlock access to new features, merchandise, discounts, and other exclusive opportunities and benefits.
 * You must login to Merits on Blockscout to see your balance and claim additional Merits.
+* You can view more information about your Merits, the leaderboard and badges in the dedicated Merits hub at [https://merits.blockscout.com/](https://merits.blockscout.com/)
 
 The following information relates to using the Blockscout Merits interface. See our [FAQs](faqs.md) for common questions.
 

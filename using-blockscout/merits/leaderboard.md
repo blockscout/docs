@@ -5,7 +5,7 @@ description: View accounts by Merits
 # Leaderboard
 
 {% hint style="info" %}
-The Merits leaderboard is a part of the standalone Merits hub website launching soon.
+The Merits leaderboard is a part of the standalone Merits hub website available at  [https://merits.blockscout.com/](https://merits.blockscout.com/)
 {% endhint %}
 
 The Merits leaderboard displays accounts ordered by the number of Merits each account has earned.&#x20;

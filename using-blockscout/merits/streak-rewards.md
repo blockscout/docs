@@ -7,7 +7,7 @@ description: >-
 # Streak rewards
 
 {% hint style="info" %}
-Available soon in the Merits hub and Blockscout Merits dashboard.
+Available at [https://merits.blockscout.com/](https://merits.blockscout.com/) and coming soon to the Blockscout Merits dashboard.
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/merits-hub.png" alt=""><figcaption><p>Streaks view in the Merits hub. To maintain your streak, visit the Blockscout explorer dashboard and make a daily claim.</p></figcaption></figure>
