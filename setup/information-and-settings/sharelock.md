@@ -156,3 +156,4 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.Zilliqa.QuorumCertificate | zilliqa\_quorum\_certificates | \[asc: :block\_hash\] |
 | Explorer.Chain.Zilliqa.AggregateQuorumCertificate | zilliqa\_aggregate\_quorum\_certificates | \[asc: :block\_hash\] |
 | Explorer.Chain.Zilliqa.NestedQuorumCertificate | zilliqa\_nested\_quorum\_certificates | \[asc: :block\_hash, asc: proposed\_by\_validator\_index] |
+| Explorer.Chain.Filecoin.PendingAddressOperation | filecoin\_pending\_address\_operations | \[asc: :address\_hash] |
