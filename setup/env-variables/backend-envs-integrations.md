@@ -91,6 +91,18 @@ Enables the [User Ops Indexer](https://github.com/blockscout/blockscout-rs/tree/
 | `MICROSERVICE_METADATA_ENABLED` | If `true`, integration with Metadata Service is enabled. Implemented in [#9706](https://github.com/blockscout/blockscout/pull/9706) | <p>Version: v6.4.0+<br>Default: (empty)<br>Applications: API</p> |
 | `MICROSERVICE_METADATA_URL`     | URL of Metadata Service. Implemented in [#9706](https://github.com/blockscout/blockscout/pull/9706)                                 | <p>Version: v6.4.0+<br>Default: (empty)<br>Applications: API</p> |
 
+## <mark style="background-color:orange;">Multichain Search Service</mark>
+
+{% hint style="info" %}
+Multichain Search is the single point of search of the data in the all blockchains.
+{% endhint %}
+
+| Variable                                 | Description                                                                                                                                                                                                    | Parameters                                                        |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `MICROSERVICE_MULTICHAIN_SEARCH_URL`     | Multichain Search Service API URL. Integration is enabled, if this variable value contains valid URL. Implemented in [#11139](https://github.com/blockscout/blockscout/pull/11139)                                                                                                             | <p>Version: master<br>Default: (empty)<br>Applications: API, Indexer</p> |
+| `MICROSERVICE_MULTICHAIN_SEARCH_API_KEY`     | Multichain Search Service API key. Implemented in [#11139](https://github.com/blockscout/blockscout/pull/11139)                                                                                                             | <p>Version: master<br>Default: (empty)<br>Applications: API, Indexer</p> |
+| `MIGRATION_BACKFILL_MULTICHAIN_SEARCH_BATCH_SIZE`     | Batch size of backfilling Multichain Search Service DB. Implemented in [#11139](https://github.com/blockscout/blockscout/pull/11139)                                                                                                             | <p>Version: master<br>Default: (empty)<br>Applications: Indexer</p> |
+
 ## <mark style="background-color:orange;">Sourcify</mark>
 
 {% hint style="info" %}
