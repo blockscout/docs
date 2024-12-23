@@ -6,12 +6,11 @@ The configuration variable `db_storage` can be used to define the amount of stor
 
 | Chain                | Storage (GiB) |
 | -------------------- | ------------- |
-| POA Core             | 790           |
-| POA Sokol            | 320           |
-| Ethereum Classic     | 250           |
-| Ethereum Mainnet     | 11000         |
-| Kovan Testnet        | 250           |
-| Ropsten Testnet      | 6000          |
-| Gnosis Chain         | 1900          |
-| Gnosis Chain Testnet | 10            |
+| Ethereum Mainnet     | 21000         |
+| Ethereum Sepolia     | 5200          |
+| Gnosis Chain         | 21000         |
+| Gnosis Chiado        | 470           |
+| Ethereum Classic     | 555           |
+
+_Note_: as of 23.12.2024
 
