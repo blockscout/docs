@@ -109,7 +109,7 @@
 
 > sudo systemctl restart postgresql
 
-12. Check new profile that you created at start of adduser replaceing dbusername with your username.
+12. Check new profile that you created at start of adduser replacing dbusername with your username.
 
 > su - dbusername (for Root) or sudo su - dbusername (for user)\
 > **Note**: Replace your dbusername
