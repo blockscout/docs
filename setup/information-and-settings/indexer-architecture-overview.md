@@ -8,7 +8,7 @@ description: Learn how the indexing architecture works in Blockscout
 
 ## Presentation Highlights
 
-The following presentation describes the past, present and future iterations of Blockscout along with details about how block imports work both synchonously and asynchronously, and a description of the regular and on-demand fetchers.
+The following presentation describes the past, present and future iterations of Blockscout along with details about how block imports work both synchronously and asynchronously, and a description of the regular and on-demand fetchers.
 
 {% file src="../../.gitbook/assets/Blockscout Indexer Architecture Overview.pdf" %}
 
