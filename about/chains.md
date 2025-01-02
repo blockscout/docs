@@ -431,7 +431,7 @@ _Updated 08/2024_
 | Qitmeer                       | https://www.qitmeer.io/                   | https://evm.meerscan.io/                                    |
 | Qitmeer Testnet               | https://www.qitmeer.io/                   | https://testnet-qng.qitmeer.io/                             |
 | Quadrans                      | https://quadrans.io/                      | https://explorer.quadrans.io/                               |
-| Quai Newtork                  | https://qu.ai/                            | https://cyprus1.colosseum.quaiscan.io/                      |
+| Quai Network                  | https://qu.ai/                            | https://cyprus1.colosseum.quaiscan.io/                      |
 | Rails Network                 | https://steamexchange.io/                 | https://explore.steamexchange.io/                           |
 | Ramestta                      | https://www.ramestta.com/                 | https://v2.ramascan.com                                     |
 | Rapid Chain                   | https://www.rapidchain.net/               | https://rapidscan.io                                        |
