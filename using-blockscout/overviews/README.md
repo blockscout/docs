@@ -6,7 +6,7 @@ Blockscout is a full-featured explorer with many uses. A block explorer provides
 Views Under Construction
 {% endhint %}
 
-Blockscout offeres different informational displays depending on the page, section and instance you are viewing. Learn more about different views and data displays in Blockscout:
+Blockscout offers different informational displays depending on the page, section and instance you are viewing. Learn more about different views and data displays in Blockscout:
 
 * [Top Menu](top-menu.md)
 * [Blocks](blocks.md)

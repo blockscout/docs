@@ -35,7 +35,7 @@ To learn more about the smart contract verification Rust microservice and verifi
 
 ### Solidity (Flattened source code)
 
-This verification method is recommended only for single-file smart contract without any imports. For verifaction of contracts containing more that 1 file, it's recommended to use different verification method.
+This verification method is recommended only for single-file smart contract without any imports. For verification of contracts containing more that 1 file, it's recommended to use different verification method.
 
 <figure><img src="../../.gitbook/assets/flattened-source-code.png" alt=""><figcaption></figcaption></figure>
 

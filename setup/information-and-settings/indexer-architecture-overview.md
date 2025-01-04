@@ -18,7 +18,7 @@ See the pdf ⬆️ for more details about the Blockscout indexer. The indexing a
 
 ### Primary Indexers
 
-Both indexers utilize synchonous and asynchronous operations.
+Both indexers utilize synchronous and asynchronous operations.
 
 * Realtime: Imports new block data from the head of the chain.
 * Catchup: Imports data down the chain (starting from the head and moving backwards towards the genesis block)

@@ -170,5 +170,5 @@ Typically found in the [superchain registry](https://github.com/ethereum-optimis
 
 #### `INDEXER_OPTIMISM_L1_OUTPUT_ORACLE_CONTRACT`
 
-This contract's address can be found in chain's online docs. If there are no docs available, contact the chain for this information. This address is not needed (and can be ommitted) for OP chains that started with the [FaultProofs upgrade](https://docs.optimism.io/stack/protocol/fault-proofs/explainer) activated from the genesis block.
+This contract's address can be found in chain's online docs. If there are no docs available, contact the chain for this information. This address is not needed (and can be omitted) for OP chains that started with the [FaultProofs upgrade](https://docs.optimism.io/stack/protocol/fault-proofs/explainer) activated from the genesis block.
 

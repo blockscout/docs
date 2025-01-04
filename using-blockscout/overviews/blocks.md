@@ -51,7 +51,7 @@ Click on the tooltip (i) next to each item to view relevant info.
 13. **Base Fee per Gas**: Minimum multiplier required for a transaction to be included in a block.&#x20;
 14. **Burnt Fees**: Amount of ETH burned in the block.
 15. **Priority Fee/Tip**: Total tips for transactions included in the block
-16. **Miner Reward**: Amount received by fee recipientin PoS. Matches (15).
+16. **Miner Reward**: Amount received by fee recipient in PoS. Matches (15).
 
 Scroll below the block details to view transactions contained within the block.
 

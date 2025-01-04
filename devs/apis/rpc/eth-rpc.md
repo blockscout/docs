@@ -27,7 +27,7 @@ In the following examples we use the Ethereum mainnet with the base instance url
 
 ## eth\_blockNumber
 
-Returns the latest block number in the chain in hexidecimal format. No params are needed.\
+Returns the latest block number in the chain in hexadecimal format. No params are needed.\
 Type: <mark style="background-color:green;">POST</mark>
 
 **Example**

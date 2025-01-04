@@ -2,7 +2,7 @@
 
 Blockscout microservices are individual components written in Rust designed to provide full functionality to the explorer. This architecture allows for better scalability, easier maintenance, and more flexible deployment options.
 
-Information about Blocscout microservices and how to run them is available here:
+Information about Blockscout microservices and how to run them is available here:
 
 {% embed url="https://github.com/blockscout/blockscout-rs" %}
 

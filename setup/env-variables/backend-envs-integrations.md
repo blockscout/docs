@@ -125,7 +125,7 @@ Allows for contract verification via [Sourcify](https://sourcify.dev/)
 ## <mark style="background-color:orange;">Datadog</mark>
 
 {% hint style="info" %}
-Integratio with the Datadog monitoring and analytics tools
+Integration with the Datadog monitoring and analytics tools
 {% endhint %}
 
 | Variable       | Description                                                                                     | Parameters                                                   |
