@@ -30,7 +30,7 @@ General System Overview
 
 Blockscout is currently planning a major UI upgrade. New features will include a My Account section with custom tagging and custom ABIs, an apps integration, and an interface overhaul. Users are requesting a more modern interface with more features in-line with the Etherscan experience. This upgrade should help Blockscout attract new users and keep current users by providing a vastly improved explorer experience.&#x20;
 
-The work is ongoing and can be greatly expedited with additional resources. We feel this will remove a major blocker to more adoption of an open-source explorer. You can see some of the improvements on our [Gorli testnet implementation](https://eth-goerli.blockscout.com/) by logging in and creating an account.&#x20;
+The work is ongoing and can be greatly expedited with additional resources. We feel this will remove a major blocker to more adoption of an open-source explorer. You can see some of the improvements on our [Goerli testnet implementation](https://eth-goerli.blockscout.com/) by logging in and creating an account.&#x20;
 
 <figure><img src="../../../.gitbook/assets/img-1.png" alt=""><figcaption><p>Sign in to access UI in development</p></figcaption></figure>
 

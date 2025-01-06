@@ -70,7 +70,7 @@ To learn more about the smart contract verification Rust microservice and verifi
    3. Enter path to the contract and it's name: `path/to/file.sol:MyContract` (path should match what is written in your JSON file).
 2. **Include nightly builds**. You can choose **Yes** or **No** depending on your compiler.
 3. **Compiler.** Choose the compiler version used to compile your smart contract.
-4. **Standard Input JSON.** Attach your Standard Input JSON file. File should follows solidity [format](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description) and all the sources must be in Liternal Content format, not an URL.
+4. **Standard Input JSON.** Attach your Standard Input JSON file. File should follows solidity [format](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description) and all the sources must be in Literal Content format, not an URL.
 5. **Try to fetch constructor arguments automatically.** Select No if you want to provide ABI-encoded Constructor Arguments or the contract does not have any.
 6. **ABI-encoded Constructor Arguments.** Fill it with ABI-encoded Constructor Arguments or leave blank.
 

@@ -78,7 +78,7 @@ Also available through a GraphQL `address` query.
 {% endhint %}
 
 {% hint style="info" %}
-If the balance hasn't been updated recently, the node is double-checked to fetch the absolute latest balance. This will not be reflected in the current request, but once it is updated, subsequent requests will show the updated balance. If you want to know if there is a check for another balance, use the `balancemult`i action. That contains a property called `stale` that will let you know to recheck that balance in the near future.
+If the balance hasn't been updated recently, the node is double-checked to fetch the absolute latest balance. This will not be reflected in the current request, but once it is updated, subsequent requests will show the updated balance. If you want to know if there is a check for another balance, use the `balancemulti` action. That contains a property called `stale` that will let you know to recheck that balance in the near future.
 {% endhint %}
 
 ## Get balance for multiple addresses
