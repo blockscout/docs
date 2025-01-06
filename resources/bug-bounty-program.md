@@ -4,7 +4,7 @@ Welcome to the Bug Bounty Program at Blockscout! Ensuring the safety of our plat
 
 ### How to report a security vulnerability
 
-Send us an email with the information below. We ask that you please keep your findings confidential during the reporting process.  We will get back to you with our diagnosis or additional comments/questions within 10 days.
+Send us an email with the information below. We ask that you please keep your findings confidential during the reporting process.  We will get back to you with our diagnosis or additional comments/questions as required.
 
 1.  **Description of the bug/vulnerability**
 
@@ -31,14 +31,18 @@ Information is also available on the [SECURITY page of our Github Repo](https://
 
 ### Rewards &#x20;
 
-If you are the first person to report the issue and we make a code or configuration change based on your findings, we will reward you with a bounty and mention in our [🏛Security Hall of Fame](bug-bounty-program.md#security-hall-of-fame)! Issue risk level is determined by our team.
+If you are the first person to report the issue and we make a code or configuration change based on your findings, we will reward you with a bounty and mention (at your discretion) in our [🏛 Security Hall of Fame](bug-bounty-program.md#security-hall-of-fame)!&#x20;
 
-1. **Critical Risk**: Up to $6000 in crypto equivalent.&#x20;
-2. **High Risk**: Up to $1000 in crypto equivalent.&#x20;
-3. **Moderate Risk**: Up to $500 in crypto equivalent.
+### Risk Levels
+
+1. **Critical Risk**: $1000 to $4000 in crypto equivalent based on severity.&#x20;
+2. **High Risk**: Up to $500 in crypto equivalent.&#x20;
+3. **Moderate Risk**: Up to $250 in crypto equivalent.
 4. **Low Risk**: Up to $100 in crypto equivalent.
 
-All bounty researchers will be acknowledged (at your discretion) for your efforts in our documentation.
+{% hint style="warning" %}
+Security issue submission does not automatically qualify you for a bounty reward. Final determinations regarding risk severity, reward amounts, and payment schedules are made exclusively by the Blockscout team. For vulnerabilities found across multiple explorers, rewards are only issued for the first reported instanc&#x65;_._ Please review the general guidelines below for more information about our evaluation process.
+{% endhint %}
 
 ### Bounty Considerations
 
