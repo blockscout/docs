@@ -1,11 +1,9 @@
 # Blockscout UI
 
-
-
 Verification is available for both Solidity and Vyper contracts. **Currently, there are 7 different type of inputs you can use for verification using the Blockscout UI.**
 
 {% hint style="info" %}
-👷🏻‍♂️ If preferred you can verify directly from your Hardhat or Foundry dev environment.&#x20;
+👷🏻‍♂️ If preferred you can verify directly from your Hardhat or Foundry dev environment.
 
 * [Hardhat Verification Plugin](hardhat-verification-plugin/)
 * [Foundry Verification](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify)
@@ -35,7 +33,7 @@ To learn more about the smart contract verification Rust microservice and verifi
 
 ### Solidity (Flattened source code)
 
-This verification method is recommended only for single-file smart contract without any imports. For verification of contracts containing more that 1 file, it's recommended to use different verification method.
+This verification method is recommended only for a single-file smart contract without any imports. For verification of contracts containing more that 1 file, a different verification method is recommended.
 
 <figure><img src="../../.gitbook/assets/flattened-source-code.png" alt=""><figcaption></figcaption></figure>
 
@@ -45,7 +43,7 @@ This verification method is recommended only for single-file smart contract with
 4. **Compiler:** derived from the first line in the contract `pragma solidity X.X.X`. Use the corresponding compiler version rather than the nightly build.
 5. **EVM Version:** Select the correct[ EVM version ](../../setup/information-and-settings/evm-version-information.md)if known, otherwise use default.
 6. **Optimization Enabled:** If you enabled optimization during compilation, select and enter the run value. 200 is the Solidity Compiler default value. Only change if you changed this value while compiling.
-7. &#x20;**Enter the Solidity Contract Code:** Copy-paste the source code of your smart contract as is.
+7. **Enter the Solidity Contract Code:** Copy-paste the source code of your smart contract as is.
 8. **Add Contract Libraries:** Enter the name and 0x address for any required libraries called in the .sol file. You can add multiple contracts with the "+" button.
 9. Click the `Verify and Publish` button.
 10. If all goes well, you will see a checkmark :white\_check\_mark: next to Code in the code tab, and an additional tab called `Read Contract`. The contract name will now appear in BlockScout with any transactions related to your contract.
@@ -53,10 +51,10 @@ This verification method is recommended only for single-file smart contract with
 ### Solidity (Standard JSON input)
 
 {% hint style="info" %}
-[More information on JSON input is available here](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description).&#x20;
+[More information on JSON input is available here](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description).
 {% endhint %}
 
-1. **Include nightly builds**. You can choose **Yes** or **No** depending on your compiler.&#x20;
+1. **Include nightly builds**. You can choose **Yes** or **No** depending on your compiler.
 2. **Compiler.** Choose the compiler version used to compile your smart contract. If you selected yes for nightly builds, use the compiler version rather than the build.
 3. **Standard Input JSON.** Upload your Standard Input JSON file. File should follows solidity [format](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description) and all the sources must be in Literal Content format, not a URL.
 
