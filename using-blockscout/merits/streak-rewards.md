@@ -12,7 +12,7 @@ Available at [https://merits.blockscout.com/](https://merits.blockscout.com/) an
 
 <figure><img src="../../.gitbook/assets/merits-hub.png" alt=""><figcaption><p>Streaks view in the Merits hub. To maintain your streak, visit the Blockscout explorer dashboard and make a daily claim.</p></figcaption></figure>
 
-Streaks provide an opportunity to earn additional Merits by visiting and claiming each day.&#x20;
+Earn additional Merits by visiting and claiming every 24 hours.&#x20;
 
 {% hint style="info" %}
 To maintain a streak, you must make a claim within **24 hours of your previous daily claim.** For example, if you make a claim on day 1 at 15:00 UTC, you must make a claim on day 2 by 15:00 UTC to maintain your streak. If you wait until 15:01 UTC, your streak will reset to 0.
