@@ -4,7 +4,7 @@ Welcome to the Bug Bounty Program at Blockscout! Ensuring the safety of our plat
 
 ### How to report a security vulnerability
 
-Send us an email with the information below. We ask that you please keep your findings confidential during the reporting process.  We will get back to you with our diagnosis or additional comments/questions as required.
+Send us an email with the information below. We ask that you please keep your findings confidential during the reporting process.  We will get back to you with our diagnosis or additional comments/questions as required. We may patch the vulnerability prior to our response to you, and will determine the risk level and possible payout on a case-by-case basis.
 
 1.  **Description of the bug/vulnerability**
 
