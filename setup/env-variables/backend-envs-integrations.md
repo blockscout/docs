@@ -86,10 +86,11 @@ Enables the [User Ops Indexer](https://github.com/blockscout/blockscout-rs/tree/
 
 ## <mark style="background-color:orange;">Metadata Service</mark>
 
-| Variable                        | Description                                                                                                                         | Parameters                                                       |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `MICROSERVICE_METADATA_ENABLED` | If `true`, integration with Metadata Service is enabled. Implemented in [#9706](https://github.com/blockscout/blockscout/pull/9706) | <p>Version: v6.4.0+<br>Default: (empty)<br>Applications: API</p> |
-| `MICROSERVICE_METADATA_URL`     | URL of Metadata Service. Implemented in [#9706](https://github.com/blockscout/blockscout/pull/9706)                                 | <p>Version: v6.4.0+<br>Default: (empty)<br>Applications: API</p> |
+| Variable                                       | Description                                                                                                                                 | Parameters                                                               |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `MICROSERVICE_METADATA_ENABLED`                | If `true`, integration with Metadata Service is enabled. Implemented in [#9706](https://github.com/blockscout/blockscout/pull/9706)         | <p>Version: v6.4.0+<br>Default: (empty)<br>Applications: API</p>         |
+| `MICROSERVICE_METADATA_URL`                    | URL of Metadata Service. Implemented in [#9706](https://github.com/blockscout/blockscout/pull/9706)                                         | <p>Version: v6.4.0+<br>Default: (empty)<br>Applications: API</p>         |
+| `MICROSERVICE_METADATA_PROXY_REQUESTS_TIMEOUT` | Timeout for request forwarding from `/api/v2/proxy/metadata/`. Implemented in [#11656](https://github.com/blockscout/blockscout/pull/11656) | <p>Version: master<br>Default: <code>30s</code><br>Applications: API</p> |
 
 ## <mark style="background-color:orange;">Multichain Search Service</mark>
 
@@ -97,11 +98,11 @@ Enables the [User Ops Indexer](https://github.com/blockscout/blockscout-rs/tree/
 Multichain Search is the single point of search of the data in the all blockchains.
 {% endhint %}
 
-| Variable                                 | Description                                                                                                                                                                                                    | Parameters                                                        |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `MICROSERVICE_MULTICHAIN_SEARCH_URL`     | Multichain Search Service API URL. Integration is enabled, if this variable value contains valid URL. Implemented in [#11139](https://github.com/blockscout/blockscout/pull/11139)                                                                                                             | <p>Version: v6.10.0+<br>Default: (empty)<br>Applications: API, Indexer</p> |
-| `MICROSERVICE_MULTICHAIN_SEARCH_API_KEY`     | Multichain Search Service API key. Implemented in [#11139](https://github.com/blockscout/blockscout/pull/11139)                                                                                                             | <p>Version: v6.10.0+<br>Default: (empty)<br>Applications: API, Indexer</p> |
-| `MIGRATION_BACKFILL_MULTICHAIN_SEARCH_BATCH_SIZE`     | Batch size of backfilling Multichain Search Service DB. Implemented in [#11139](https://github.com/blockscout/blockscout/pull/11139)                                                                                                             | <p>Version: v6.10.0+<br>Default: (empty)<br>Applications: Indexer</p> |
+| Variable                                          | Description                                                                                                                                                                        | Parameters                                                                 |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `MICROSERVICE_MULTICHAIN_SEARCH_URL`              | Multichain Search Service API URL. Integration is enabled, if this variable value contains valid URL. Implemented in [#11139](https://github.com/blockscout/blockscout/pull/11139) | <p>Version: v6.10.0+<br>Default: (empty)<br>Applications: API, Indexer</p> |
+| `MICROSERVICE_MULTICHAIN_SEARCH_API_KEY`          | Multichain Search Service API key. Implemented in [#11139](https://github.com/blockscout/blockscout/pull/11139)                                                                    | <p>Version: v6.10.0+<br>Default: (empty)<br>Applications: API, Indexer</p> |
+| `MIGRATION_BACKFILL_MULTICHAIN_SEARCH_BATCH_SIZE` | Batch size of backfilling Multichain Search Service DB. Implemented in [#11139](https://github.com/blockscout/blockscout/pull/11139)                                               | <p>Version: v6.10.0+<br>Default: (empty)<br>Applications: Indexer</p>      |
 
 ## <mark style="background-color:orange;">Sourcify</mark>
 
@@ -227,6 +228,6 @@ Enables Xname app integration, which includes humanity score displayment.
 Connecting to the Stylus smart contract verification service
 {% endhint %}
 
-| Variable                           | Description                                                                                                                                                                                                                                                            | Parameters                                                      |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| Variable                           | Description                                                                                                                                                                                                                                                            | Parameters                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | `MICROSERVICE_STYLUS_VERIFIER_URL` | URL of Stylus verifier. If set valid url and `CHAIN_TYPE=arbitrum`, integration with [Stylus verifier](https://github.com/blockscout/blockscout-rs/tree/main/stylus-verifier) is enabled. Implemented in [#11183](https://github.com/blockscout/blockscout/pull/11183) | <p>Version: v6.10.0+<br>Default: (empty)<br>Applications: API</p> |
