@@ -115,6 +115,7 @@
   * [⭐ Docker-compose Deployment](setup/deployment/docker-compose-deployment.md)
   * [⭐ Kubernetes Deployment](setup/deployment/kubernetes-deployment.md)
   * [Rollup Deployment](setup/deployment/rollup-deployment.md)
+  * [🌟 Cosmos-based chains](setup/deployment/cosmos-based-chains.md)
   * [Frontend Migration](setup/deployment/frontend-migration/README.md)
     * [All-In-One Container](setup/deployment/frontend-migration/all-in-one-container.md)
     * [Separate Frontend](setup/deployment/frontend-migration/separate-frontend.md)
