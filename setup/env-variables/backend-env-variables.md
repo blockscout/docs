@@ -417,6 +417,7 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | `RE_CAPTCHA_CHECK_HOSTNAME`  | Disable reCAPTCHA hostname check. More details on [reCaptcha docs](https://developers.google.com/recaptcha/docs/domain_validation). Implemented in [#10706](https://github.com/blockscout/blockscout/pull/10706) | <p>Version: v6.9.0+<br>Default: <code>false</code><br>Applications: API</p> |
 | `CSV_EXPORT_LIMIT`           | Changes max number of rows in CSV export. Implemented in [#10497](https://github.com/blockscout/blockscout/pull/10497)                                                                                           | <p>Version: v6.8.0+<br>Default: <code>10000</code><br>Applications: API</p> |
 | `RE_CAPTCHA_SCORE_THRESHOLD` | Changes reCAPTCHA score threshold. Implemented in [#11182](https://github.com/blockscout/blockscout/pull/11182)                                                                                                  | <p>Version: v6.9.1+<br>Default: <code>0.5</code><br>Applications: API</p>   |
+| `RE_CAPTCHA_BYPASS_TOKEN`    | Bypass token that allows to skip reCAPTCHA check. Implemented in [#11682](https://github.com/blockscout/blockscout/pull/11682)                                                                                   | <p>Version: master<br>Default: (empty)<br>Applications: API</p>             |
 
 ## <mark style="background-color:orange;">API Rate Limits</mark>
 
