@@ -252,7 +252,7 @@ https://instance_base_url/api
 {% endtab %}
 {% endtabs %}
 
-## Get internal transactions by transaction or address hash
+## Get internal transactions
 
 `txlistinternal`
 
@@ -264,7 +264,6 @@ Up to a maximum of 10,000 internal transactions. Also available through a GraphQ
 https://instance_base_url/api
    ?module=account
    &action=txlistinternal
-   &txhash={transactionHash}
    &startblock=555555
    &endblock=666666
    &page=1
@@ -276,7 +275,7 @@ https://instance_base_url/api
 {% tab title="Request Params" %}
 | Parameter  | Description                                                                                                                                                                                        |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **txhash** | `string` representing the transaction hash to check for internal transactions                                                                                                                      |
+| txhash | <mark style="background-color:yellow;">optional</mark> `string` representing the transaction hash to check for internal transactions                                                                                                                      |
 | address    | <mark style="background-color:yellow;">optional</mark> `string` containing the address hash.                                                                                                       |
 | sort       | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default. **Only available if 'address' is provided.**      |
 | startblock | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search. **Only available if 'address' is provided.**                                            |
