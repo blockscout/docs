@@ -44,7 +44,7 @@ cd docker-compose
 
 ### 4) Adjust backend envs for your instance
 
-Replace the example environment variables in the `docker-compose.yml` file.
+Replace the example environment variables in the `external-frontend.yml` file.
 
 <pre><code><strong>cat docker-compose.yml
 </strong></code></pre>
