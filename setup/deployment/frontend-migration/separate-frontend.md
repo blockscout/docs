@@ -46,7 +46,7 @@ cd docker-compose
 
 Replace the example environment variables in the `external-frontend.yml` file.
 
-<pre><code><strong>cat docker-compose.yml
+<pre><code><strong>cat external-frontend.yml
 </strong></code></pre>
 
 By default, ENV variables are set to testing settings (ganache) in the `environment:` list. Replace with env vars from your existing backend. The only one you **NEED to keep** is **`API_V2_ENABLED='true'`** . Any values added here will override existing variables in your instance when you start the container.
