@@ -751,13 +751,6 @@ reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only o
 | `NOVES_FI_CHAIN_NAME`   |          | [Noves.fi API](https://blockscout.noves.fi/swagger/index.html) chain name. Implemented in [#9056](https://github.com/blockscout/blockscout/pull/9056). | (empty)                     | v6.1.0+ | API         |
 | `NOVES_FI_API_TOKEN`    |          | [Noves.fi API](https://blockscout.noves.fi/swagger/index.html) token. Implemented in [#9056](https://github.com/blockscout/blockscout/pull/9056).      | (empty)                     | v6.1.0+ | API         |
 
-#### Zerion
-
-| Variable              | Required | Description                                                                                                                                                      | Default                  | Version | Application |
-| --------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------- | ----------- |
-| `ZERION_BASE_API_URL` |          | [Zerion API](https://developers.zerion.io/reference/intro/getting-started) base URL. Implemented in [#9896](https://github.com/blockscout/blockscout/pull/9896). | https://api.zerion.io/v1 | v6.5.0+ | API         |
-| `ZERION_API_TOKEN`    |          | [Zerion API](https://developers.zerion.io/reference/intro/getting-started) token. Implemented in [#9896](https://github.com/blockscout/blockscout/pull/9896).    | (empty)                  | v6.5.0+ | API         |
-
 #### MUD framework
 
 | Variable              | Required | Description                                                                                                                                                                                               | Default                   | Version | Application |
