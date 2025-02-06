@@ -184,21 +184,6 @@ Adds additional transaction details such as summaries and asset flows. [More inf
 | `NOVES_FI_CHAIN_NAME`   | [Noves.fi API](https://blockscout.noves.fi/swagger/index.html) chain name. Implemented in [#9056](https://github.com/blockscout/blockscout/pull/9056). | <p>Version: v6.1.0+<br>Default: (empty)<br>Applications: API</p>                                  |
 | `NOVES_FI_API_TOKEN`    | [Noves.fi API](https://blockscout.noves.fi/swagger/index.html) token. Implemented in [#9056](https://github.com/blockscout/blockscout/pull/9056).      | <p>Version: v6.1.0+<br>Default: (empty)<br>Applications: API</p>                                  |
 
-## <mark style="background-color:orange;">Zerion</mark>
-
-{% hint style="info" %}
-Enables Zerion integration, which includes multichain net worth view.
-{% endhint %}
-
-<figure><img src="../../../.gitbook/assets/zerion-1.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../../../.gitbook/assets/zerion-2.png" alt=""><figcaption></figcaption></figure>
-
-| Variable              | Description                                                                                                                                                      | Parameters                                                                                     |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ZERION_BASE_API_URL` | [Zerion API](https://developers.zerion.io/reference/intro/getting-started) base URL. Implemented in [#9896](https://github.com/blockscout/blockscout/pull/9896). | <p>Version: v6.5.0+<br>Default: <code>https://api.zerion.io/v1</code><br>Applications: API</p> |
-| `ZERION_API_TOKEN`    | [Zerion API](https://developers.zerion.io/reference/intro/getting-started) token. Implemented in [#9896](https://github.com/blockscout/blockscout/pull/9896).    | <p>Version: v6.5.0+<br>Default: (empty)<br>Applications: API</p>                               |
-
 ## <mark style="background-color:orange;">MUD framework</mark>
 
 {% hint style="info" %}
