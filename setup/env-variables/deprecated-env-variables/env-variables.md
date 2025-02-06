@@ -255,8 +255,8 @@ This table is horizontally scrollable, version information is located in the las
 
 | Variable                                          | Required | Description                                                                             | Default | Version     | Application  |
 | ------------------------------------------------- | -------- | --------------------------------------------------------------------------------------- | ------- | ----------- | ------------ |
-| `DENORMALIZATION_MIGRATION_BATCH_SIZE`            |          | Number of transactions to denormalize (add block timestamp and consensus) in the batch. | 500     | v6.0.0-beta | API, Indexer |
-| `DENORMALIZATION_MIGRATION_CONCURRENCY`           |          | Number of parallel denormalization transaction batches processing.                      | 10      | v6.0.0-beta | API, Indexer |
+| `DENORMALIZATION_MIGRATION_BATCH_SIZE`            |          | Number of transactions to denormalize (add block timestamp and consensus) in the batch. | 500     | v6.0.0+ | API, Indexer |
+| `DENORMALIZATION_MIGRATION_CONCURRENCY`           |          | Number of parallel denormalization transaction batches processing.                      | 10      | v6.0.0+ | API, Indexer |
 | `TOKEN_TRANSFER_TOKEN_TYPE_MIGRATION_BATCH_SIZE`  |          | Number of token transfers to denormalize (add token\_type) in the batch.                | 100     | v6.3.0+     | API, Indexer |
 | `TOKEN_TRANSFER_TOKEN_TYPE_MIGRATION_CONCURRENCY` |          | Number of parallel denormalization token transfer batches processing.                   | 1       | v6.3.0+     | API, Indexer |
 | `SANITIZE_INCORRECT_NFT_BATCH_SIZE`               |          | Number of token transfers to sanitize in the batch.                                     | 100     | v6.3.0+     | API, Indexer |
