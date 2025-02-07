@@ -90,7 +90,7 @@ Enables the [User Ops Indexer](https://github.com/blockscout/blockscout-rs/tree/
 | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
 | `MICROSERVICE_METADATA_ENABLED`                | If `true`, integration with Metadata Service is enabled. Implemented in [#9706](https://github.com/blockscout/blockscout/pull/9706)         | <p>Version: v6.4.0+<br>Default: (empty)<br>Applications: API</p>         |
 | `MICROSERVICE_METADATA_URL`                    | URL of Metadata Service. Implemented in [#9706](https://github.com/blockscout/blockscout/pull/9706)                                         | <p>Version: v6.4.0+<br>Default: (empty)<br>Applications: API</p>         |
-| `MICROSERVICE_METADATA_PROXY_REQUESTS_TIMEOUT` | Timeout for request forwarding from `/api/v2/proxy/metadata/`. Implemented in [#11656](https://github.com/blockscout/blockscout/pull/11656) | <p>Version: master<br>Default: <code>30s</code><br>Applications: API</p> |
+| `MICROSERVICE_METADATA_PROXY_REQUESTS_TIMEOUT` | Timeout for request forwarding from `/api/v2/proxy/metadata/`. Implemented in [#11656](https://github.com/blockscout/blockscout/pull/11656) | <p>Version: v7.0.0+<br>Default: <code>30s</code><br>Applications: API</p> |
 
 ## <mark style="background-color:orange;">Multichain Search Service</mark>
 
