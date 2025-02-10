@@ -32,7 +32,7 @@ Connecting to the smart contract verification service
 ## <mark style="background-color:orange;">Sol2Uml</mark>
 
 {% hint style="info" %}
-Sol2Uml is a visualisation tool for Solidity contracts.
+Sol2Uml is a visualization tool for Solidity contracts.
 {% endhint %}
 
 <figure><img src="../../../.gitbook/assets/view-UML.png" alt=""><figcaption><p>Scroll down on the contract page to find the View UML diagram link</p></figcaption></figure>
