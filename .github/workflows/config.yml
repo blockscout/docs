@@ -3,11 +3,11 @@ name: Blockscout Docs
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     types: [opened, synchronize, reopened, labeled]
     branches:
-      - main
+      - master
 
 jobs:
   cspell:
