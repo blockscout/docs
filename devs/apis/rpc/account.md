@@ -441,6 +441,12 @@ https://instance_base_url/api
 {% endtab %}
 {% endtabs %}
 
+Usage:
+
+* To fetch ERC-721 token transfers by address, specify `address` parameter
+* To fetch ERC-721 token transfers by token, specify `contractaddress` parameter
+* To fetch ERC-721 token transfers by address filtered by token, specify both `address` and `contractaddress` parameters
+
 ## Get ERC-1155 token transfer events by address
 
 `token1155tx`
