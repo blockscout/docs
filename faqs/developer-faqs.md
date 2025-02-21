@@ -23,13 +23,13 @@ Instructions for accessing and upgrading CPUs/memory will differ based on your s
 
 <summary>How do I customize the coin symbol / name?</summary>
 
-#### Exchange Rates Coin Name
+**Exchange Rates Coin Name**
 
 * Specify coin name for exchange rates fetcher with the `COIN` [ENV variables](../setup/env-variables/)
 
 BlockScout utilizes the `COIN` environment variable which pulls the associated market data from the Coinmarketcap.com API or CoinGecko API to provide pricing data throughout the application.
 
-#### Displayed Coin Symbol
+**Displayed Coin Symbol**
 
 In order to set displayed coin symbol, instance maintainer should set `COIN_NAME` runtime environment variable:
 
@@ -77,14 +77,14 @@ We are currently working on deployment through Kubernetes (K8s) and other method
 
 <summary>How do I replace missing assets/version numbers?</summary>
 
-### Missing Assets
+#### Missing Assets
 
 1. Find the public ip of corresponding Blockscout instance in the EC2 -> Instances of AWS Dashboard.
 2. Connect to the host via SSH `ssh -i <host.pem> ec2-user@<public_ip>`, where `<host.pem>` is host’s private key file, `<public_ip>` is the public ip of the host, that can be found in the AWS dashboard.
 3. Go to assets folder `cd /opt/app/apps/block_scout_web/priv/static`
 4. Add missing assets there or to `./images` folder depending on what is missing. Refresh Blockscout instance page. For example, if `favicon.ico` is missing in `./images` folder, just copy it from the root assets folder \`cp favicon.ico ./images/. You should see now the missing assets.
 
-### Missing Version in Footer
+#### Missing Version in Footer
 
 The app version number should be in the footer of BlockScout instance
 
@@ -231,7 +231,7 @@ In a self-hosted or locally deployed instance, when attempting to do a **write t
 
 "No "from" address specified in neither the give options, nor the default options."
 
-#### To **T**roubleshoot:
+**To Troubleshoot:**
 
 * Check that you set the correct `CHAIN_ID` env variable
 * Check correct variable for `NETWORK_ID`
