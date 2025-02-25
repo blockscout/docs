@@ -4,7 +4,9 @@ description: Blockscout featured integrations
 
 # Partners & Integrations
 
-<figure><img src="../../.gitbook/assets/partners-using-blockscout.jpg" alt=""><figcaption></figcaption></figure>
+
+
+<figure><img src="../../.gitbook/assets/3Blockscout Partners and Integrations.jpg" alt=""><figcaption></figcaption></figure>
 
 Blockscout features many 3rd party integrations. Additional services are also integrating Blockscout, including many [Rollup-as-a-Service (RaaS) providers](raas-providers.md).
 
