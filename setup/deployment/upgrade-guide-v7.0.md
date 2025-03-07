@@ -5,18 +5,22 @@ We continue to add new features and functionality to Blockscout and recommend up
 {% endhint %}
 
 {% hint style="warning" %}
-If it has been a while since your last upgrade, we recommend performing incremental upgrades to ensure proper performance. For example if you are running backend v6.8.0, first upgrade to v6.10.0 prior to upgrading to the [latest 7.0 version](https://github.com/blockscout/blockscout/releases).
+If it has been a while since your last upgrade, we recommend performing incremental upgrades to ensure proper performance. For example if you are running backend v6.9.0, first upgrade to v6.10.0 prior to upgrading to the [latest 7.0 version](https://github.com/blockscout/blockscout/releases). This reduces downtime and ensures all breaking changes are handled.
 {% endhint %}
 
 ## Getting Started
 
 {% hint style="success" %}
-This guide walks through the process of updating Blockscout to backend v7.0.2 and frontend v1.38.0 (March, 2025). If you have questions about a different upgrade, [contact us in Discord](https://discord.gg/blockscout).\
+This guide walks through the process of updating Blockscout to backend v7.0.2 and frontend v1.38.0 (March, 2025) from v6.10.X. If you have questions about a different upgrade, [contact us in Discord](https://discord.gg/blockscout).\
 \
-Breaking changes from this version follow the instructions.
+Breaking changes follow the instructions.
 {% endhint %}
 
-### 1) Update backend ENV variables.&#x20;
+### 1) Update backend ENV variables
+
+{% hint style="warning" %}
+Backend variable renaming only applies to the 6.10.X -> 7.0.X update. If you are performing a more extensive update, please check renaming & deprecations from the release notes of every minor release (6.8.0, 6.9.0 etc) within your update range.&#x20;
+{% endhint %}
 
 Newly renamed variables include the `MIGRATION`prefix.  If a variable contained `MIGRATION` in the name previously, it has been moved to the beginning of the variable. Expand below to see all variables you need to rename.
 
