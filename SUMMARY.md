@@ -157,6 +157,7 @@
   * [Circle CI Updates](setup/configuration-options/circle-ci-updates.md)
   * [Charts and Stats](setup/configuration-options/charts-and-stats.md)
   * [CSS Configuration & Presets](setup/configuration-options/css-configuration-and-presets.md)
+  * [Exchange Rates](setup/configuration-options/exchange-rates.md)
   * [Front-end Config Files](setup/configuration-options/front-end-config-files.md)
   * [haproxy Settings for Blockscout.com](setup/configuration-options/haproxy-settings-for-blockscout.com.md)
   * [Internationalization](setup/configuration-options/internationalization.md)

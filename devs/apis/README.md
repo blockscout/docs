@@ -15,7 +15,7 @@ Blockscout supports several methods:
 
 ## API Keys
 
-API Keys are not needed by default. Blockscout instances have a standard global request setting of 50/requests per second. However, My Account users can add up to 3 API keys to ensure 10 request/second limits.&#x20;
+API Keys are not needed by default. Blockscout instances have a standard global request setting of 10/requests per second. However, My Account users can add up to 3 API keys to ensure 10 request/second limits per account.
 
 * More info on [My Account and adding API Keys](../../using-blockscout/my-account/api-keys.md)
 * More info on [API Requests and Limits](requests-and-limits.md)
@@ -30,3 +30,4 @@ To view Modules and API Reference documentation:
 2.  View the generated docs.
 
     `open doc/index.html`
+
