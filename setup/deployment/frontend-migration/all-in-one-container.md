@@ -39,10 +39,10 @@ Replace the example environment variables in the `environment:` list of the `doc
 <pre><code><strong>cat docker-compose.yml
 </strong></code></pre>
 
-By default, standard test setup ENV variables (ganache) are set in the `environment:` list. Replace these with env vars from your existing backend. The only one you **NEED to keep** is **`API_V2_ENABLED='true'`** . Any values added here will override existing variables when starting the docker container.
+By default, standard test setup ENV variables (anvil) are set in the `environment:` list. Replace these with env vars from your existing backend. The only one you **NEED to keep** is **`API_V2_ENABLED='true'`** . Any values added here will override existing variables when starting the docker container.
 
 <pre data-full-width="true"><code><strong>environment:
-</strong>        ETHEREUM_JSONRPC_VARIANT: 'ganache'
+</strong>        ETHEREUM_JSONRPC_VARIANT: 'anvil'
         ETHEREUM_JSONRPC_HTTP_URL: http://host.docker.internal:8545/
         ETHEREUM_JSONRPC_WS_URL: ws://host.docker.internal:8545/
         INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER: 'true'

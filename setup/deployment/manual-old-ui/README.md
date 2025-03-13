@@ -15,7 +15,7 @@ Check your environment is prepared with [General Requirements](../../requirement
 BlockScout requires a **full archive node** in order to import every state change for every address on the target network. For client specific settings related to a node running Erigon/Geth/Nethermind, please see [Client Settings](../../requirements/client-settings.md).
 
 {% hint style="info" %}
-For testing purposes, instead of an archive node, a test Ethereum client can be used. For instance, [ganache-cli](https://github.com/trufflesuite/ganache-cli)
+For testing purposes, instead of an archive node, a test Ethereum client can be used. For instance, [Anvil](https://book.getfoundry.sh/anvil/)
 {% endhint %}
 
 ## Deployment Steps

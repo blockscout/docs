@@ -47,4 +47,4 @@ The desired rate limit for RPC endpoint is 200 req/sec for the indexing phase an
 ## EVM Requirements & Clients
 
 * All EVM chains must [define these variables](../env-variables/#all-chains-must-define-the-following-minimum-set-of-env-variables) during configuration.
-* BlockScout currently supports Erigon, Geth, Nethermind, Hyperledger Besu, and Ganache clients. Define the node variant using the `ETHEREUM_JSONRPC_VARIANT` environment variable. [More information](client-settings.md)
+* BlockScout currently supports Erigon, Geth, Nethermind, Hyperledger Besu, and Anvil clients. Define the node variant using the `ETHEREUM_JSONRPC_VARIANT` environment variable. [More information](client-settings.md)

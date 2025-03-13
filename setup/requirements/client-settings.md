@@ -2,7 +2,7 @@
 
 ## Supported JSON RPC Clients
 
-BlockScout currently supports [Geth](https://github.com/ethereum/go-ethereum), [Erigon](https://github.com/erigontech/erigon), [Nethermind](https://github.com/NethermindEth/nethermind), [Reth](https://github.com/paradigmxyz/reth), [Besu](https://github.com/hyperledger/besu), [RSKj](https://github.com/rsksmart/rskj), [Lotus](https://github.com/filecoin-project/lotus), and [Ganache](https://archive.trufflesuite.com/ganache/) JSON RPC clients. To define the JSON RPC node variant, it's advised to define the `ETHEREUM_JSONRPC_VARIANT` environment variable*. Correct values include:
+BlockScout currently supports [Geth](https://github.com/ethereum/go-ethereum), [Erigon](https://github.com/erigontech/erigon), [Nethermind](https://github.com/NethermindEth/nethermind), [Reth](https://github.com/paradigmxyz/reth), [Besu](https://github.com/hyperledger/besu), [RSKj](https://github.com/rsksmart/rskj), [Lotus](https://github.com/filecoin-project/lotus), and [Anvil](https://book.getfoundry.sh/anvil/) JSON RPC clients. To define the JSON RPC node variant, it's advised to define the `ETHEREUM_JSONRPC_VARIANT` environment variable*. Correct values include:
 
 | JSON RPC Client | Value          | Note                                                                              |
 | --------------- | -------------- | --------------------------------------------------------------------------------- |
@@ -12,7 +12,7 @@ BlockScout currently supports [Geth](https://github.com/ethereum/go-ethereum), [
 | Besu            | \`besu\`       |                                                                                   |
 | RSKj            | \`rsk\`        |                                                                                   |
 | Lotus           | \`filecoin\`   |                                                                                   |
-| Ganache         | \`ganache\`    |                                                                                   |
+| Anvil           | \`anvil\`    |                                                                                   |
 
 *If the variable is not set, JSON RPC variant will be chosen based on `CHAIN_TYPE` variable according to the mapping https://github.com/blockscout/blockscout/blob/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/ethereum_jsonrpc/lib/ethereum_jsonrpc/variant.ex#L114-L120
 

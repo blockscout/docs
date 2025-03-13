@@ -34,7 +34,7 @@ The following parameters are in the Info section. \* parameters are required.
 * **Instance name\***:  A label for your instance, it is reflected in the url of the instance ie https://instance-name.cloud.blockscout.com/
 * **Chain ID**: If you don't know the chain ID you can get with the `eth_chainId` JSON-RPC method.
 * **Node type:** Choose from the list of clients for the archive node:
-  * Besu, Erigon, Ganache, Geth, Parity
+  * Besu, Erigon, Anvil, Geth, Parity
 * **Gas token symbol**: Will show in the interface, for example ETH if your chain uses Ether for gas.
 * **Mainnet or Testnet**: Select the type of chain, if Testnet a label will be added to the instance.
 * **This chain is a Rollup**: If selected, another field will appear to select **Arbitrum** or **Optimism**. These are the 2 currently supported rollup types. You will then fill out additional information in the Rollup Config tab.

@@ -49,10 +49,10 @@ Replace the example environment variables in the `external-frontend.yml` file.
 <pre><code><strong>cat external-frontend.yml
 </strong></code></pre>
 
-By default, ENV variables are set to testing settings (ganache) in the `environment:` list. Replace with env vars from your existing backend. The only one you **NEED to keep** is **`API_V2_ENABLED='true'`** . Any values added here will override existing variables in your instance when you start the container.
+By default, ENV variables are set to testing settings (anvil) in the `environment:` list. Replace with env vars from your existing backend. The only one you **NEED to keep** is **`API_V2_ENABLED='true'`** . Any values added here will override existing variables in your instance when you start the container.
 
 <pre data-full-width="true"><code><strong>environment:
-</strong>        ETHEREUM_JSONRPC_VARIANT: 'ganache'
+</strong>        ETHEREUM_JSONRPC_VARIANT: 'anvil'
         ETHEREUM_JSONRPC_HTTP_URL: http://host.docker.internal:8545/
         ETHEREUM_JSONRPC_WS_URL: ws://host.docker.internal:8545/
         INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER: 'true'
