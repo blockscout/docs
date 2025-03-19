@@ -12,10 +12,8 @@
     export POSTGRES_USER=postgres
     export CHAIN_ID=77
     ```
-    
-    Since v6.6.0, there are more flexible options for configuring the database
-    used in testing. Refer to the `TEST_DATABASE_URL` and
-    `DATABASE_READ_ONLY_API_URL` environment variables for more details.
+
+    Since v6.6.0, there are more flexible options for configuring the database used in testing. Refer to the `TEST_DATABASE_URL` and `DATABASE_READ_ONLY_API_URL` environment variables for more details.
 
     ```sh
     export MIX_ENV=test
@@ -34,15 +32,15 @@
 7. Test JavaScript code. `cd apps/block_scout_web/assets && npm run test; cd -`
 8. Run separate test suites for the Umbrella application\
    \- `indexer`\
-   `mix do ecto.create --quiet, ecto.migrate && cd apps/indexer && mix do compile, test --no-start && cd -` \
+   `mix do ecto.create --quiet, ecto.migrate && cd apps/indexer && mix do compile, test --no-start && cd -`\
    \
    \- `explorer`\
-   `mix do ecto.create --quiet, ecto.migrate && cd apps/explorer && mix do compile, test --no-start && cd -`  \
+   `mix do ecto.create --quiet, ecto.migrate && cd apps/explorer && mix do compile, test --no-start && cd -`\
    \
    \- `block_scout_web`\
    `mix do ecto.create --quiet, ecto.migrate && cd apps/block_scout_web && mix do compile, test --no-start && cd -`\
    \
-   &#x20;\- `ethereum_jsonrpc`\
+   \- `ethereum_jsonrpc`\
    `mix do ecto.create --quiet, ecto.migrate && cd apps/ethereum_jsonrpc && mix do compile, test --no-start && cd -`
 
 ### **Nethermind**
