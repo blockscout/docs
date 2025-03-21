@@ -1,20 +1,20 @@
-# JSON RPC Client Setting Requirements
+# Client Setting Requirements
 
 ## Supported JSON RPC Clients
 
-BlockScout currently supports [Geth](https://github.com/ethereum/go-ethereum), [Erigon](https://github.com/erigontech/erigon), [Nethermind](https://github.com/NethermindEth/nethermind), [Reth](https://github.com/paradigmxyz/reth), [Besu](https://github.com/hyperledger/besu), [RSKj](https://github.com/rsksmart/rskj), [Lotus](https://github.com/filecoin-project/lotus), and [Anvil](https://book.getfoundry.sh/anvil/) JSON RPC clients. To define the JSON RPC node variant, it's advised to define the `ETHEREUM_JSONRPC_VARIANT` environment variable*. Correct values include:
+BlockScout currently supports [Geth](https://github.com/ethereum/go-ethereum), [Erigon](https://github.com/erigontech/erigon), [Nethermind](https://github.com/NethermindEth/nethermind), [Reth](https://github.com/paradigmxyz/reth), [Besu](https://github.com/hyperledger/besu), [RSKj](https://github.com/rsksmart/rskj), [Lotus](https://github.com/filecoin-project/lotus), and [Anvil](https://book.getfoundry.sh/anvil/) JSON RPC clients. To define the JSON RPC node variant, it's advised to define the `ETHEREUM_JSONRPC_VARIANT` environment variable\*. Correct values include:
 
-| JSON RPC Client | Value          | Note                                                                              |
-| --------------- | -------------- | --------------------------------------------------------------------------------- |
-| Geth      | \`geth\`       | Default. This value is applicable for both Geth and Reth JSON RPC clients                  |
-| Erigon    | \`erigon\`     |  It is suggested to use `erigon` variant for Reth JSON RPC client.                                                                                 |
+| JSON RPC Client | Value          | Note                                                                                        |
+| --------------- | -------------- | ------------------------------------------------------------------------------------------- |
+| Geth            | \`geth\`       | Default. This value is applicable for both Geth and Reth JSON RPC clients                   |
+| Erigon          | \`erigon\`     | It is suggested to use `erigon` variant for Reth JSON RPC client.                           |
 | Nethermind      | \`nethermind\` | This value is applicable for Reth and deprecated OpenEthereum (aka Parity) JSON RPC clients |
-| Besu            | \`besu\`       |                                                                                   |
-| RSKj            | \`rsk\`        |                                                                                   |
-| Lotus           | \`filecoin\`   |                                                                                   |
-| Anvil           | \`anvil\`    |                                                                                   |
+| Besu            | \`besu\`       |                                                                                             |
+| RSKj            | \`rsk\`        |                                                                                             |
+| Lotus           | \`filecoin\`   |                                                                                             |
+| Anvil           | \`anvil\`      |                                                                                             |
 
-*If the variable is not set, JSON RPC variant will be chosen based on `CHAIN_TYPE` variable according to the mapping https://github.com/blockscout/blockscout/blob/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/ethereum_jsonrpc/lib/ethereum_jsonrpc/variant.ex#L114-L120
+\*If the variable is not set, JSON RPC variant will be chosen based on `CHAIN_TYPE` variable according to the mapping https://github.com/blockscout/blockscout/blob/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/ethereum\_jsonrpc/lib/ethereum\_jsonrpc/variant.ex#L114-L120
 
 ```
   defp get_default_variant do
@@ -30,27 +30,26 @@ BlockScout currently supports [Geth](https://github.com/ethereum/go-ethereum), [
 BlockScout currently requires a full archive node in order to import every state change for every address on the target network.
 {% endhint %}
 
-
 ## Configs
 
-| Application | Environment | Config path                                                                                                                                                                                                                          |
-| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Explorer    | Dev         | [https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/explorer/config/dev](https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/explorer/config/dev)   |
-|             | Prod        | [https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/explorer/config/prod](https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/explorer/config/prod) |
-| Indexer     | Dev         | [https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/indexer/config/dev](https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/indexer/config/dev)     |
-|             | Prod        | [https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/indexer/config/prod](https://github.com/blockscout/blockscout/tree/a2625803c831fb86e38ffe0e28d94bfd697914ce/apps/indexer/config/prod)   |
+| Application | Environment | Config path                                                                                                                                                      |
+| ----------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Explorer    | Dev         | [https://github.com/blockscout/blockscout/tree/master/apps/explorer/config/dev](https://github.com/blockscout/blockscout/tree/master/apps/explorer/config/dev)   |
+|             | Prod        | [https://github.com/blockscout/blockscout/tree/master/apps/explorer/config/prod](https://github.com/blockscout/blockscout/tree/master/apps/explorer/config/prod) |
+| Indexer     | Dev         | [https://github.com/blockscout/blockscout/tree/master/apps/indexer/config/dev](https://github.com/blockscout/blockscout/tree/master/apps/indexer/config/dev)     |
+|             | Prod        | [https://github.com/blockscout/blockscout/tree/master/apps/indexer/config/prod](https://github.com/blockscout/blockscout/tree/master/apps/indexer/config/prod)   |
 
 ## Variables to connect to JSON RPC client
 
-| Name                    | Environment Variable         | Default Value                                  | Description                                                                                                                                      |
-| ----------------------- | ---------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **HTTP Endpoint**       | `ETHEREUM_JSONRPC_HTTP_URL`  | http://localhost:8545 | The HTTP Endpoint is used to fetch `blocks`, `transactions`, `receipts`, `coin/token balances`.                                                  |
-| **Fallback HTTP Endpoint** | `ETHEREUM_JSONRPC_FALLBACK_HTTP_URL`                    | (empty) |Fallback JSON RPC HTTP url. |
-| **Tracing Endpoint**    | `ETHEREUM_JSONRPC_TRACE_URL` | http://localhost:8545 | The Tracing endpoint is used to fetch `internal transactions` and `block traces`. In most cases this endpoint is identical to the HTTP Endpoint. |
-| **Fallback Tracing Endpoint** | `ETHEREUM_JSONRPC_FALLBACK_TRACE_URL`                    | (empty) |Fallback JSON RPC tracing url. |
-| **Eth_call Requests Endpoint**    | `ETHEREUM_JSONRPC_ETH_CALL_URL` | (empty) | JSON RPC url for `eth_call` method requests. |
-| **Fallback Eth_call Requests Endpoint**    | `ETHEREUM_JSONRPC_FALLBACK_ETH_CALL_URL` | (empty) | Fallback JSON RPC `eth_call` url. |
-| **WebSockets Endpoint** | `ETHEREUM_JSONRPC_WS_URL`    | ws://localhost:8546                            | The WebSockets endpoint subscribes to `newHeads` which alerts the indexer to fetch the new block from the subscription.                          |
+| Name                                     | Environment Variable                     | Default Value         | Description                                                                                                                                      |
+| ---------------------------------------- | ---------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **HTTP Endpoint**                        | `ETHEREUM_JSONRPC_HTTP_URL`              | http://localhost:8545 | The HTTP Endpoint is used to fetch `blocks`, `transactions`, `receipts`, `coin/token balances`.                                                  |
+| **Fallback HTTP Endpoint**               | `ETHEREUM_JSONRPC_FALLBACK_HTTP_URL`     | (empty)               | Fallback JSON RPC HTTP url.                                                                                                                      |
+| **Tracing Endpoint**                     | `ETHEREUM_JSONRPC_TRACE_URL`             | http://localhost:8545 | The Tracing endpoint is used to fetch `internal transactions` and `block traces`. In most cases this endpoint is identical to the HTTP Endpoint. |
+| **Fallback Tracing Endpoint**            | `ETHEREUM_JSONRPC_FALLBACK_TRACE_URL`    | (empty)               | Fallback JSON RPC tracing url.                                                                                                                   |
+| **Eth\_call Requests Endpoint**          | `ETHEREUM_JSONRPC_ETH_CALL_URL`          | (empty)               | JSON RPC url for `eth_call` method requests.                                                                                                     |
+| **Fallback Eth\_call Requests Endpoint** | `ETHEREUM_JSONRPC_FALLBACK_ETH_CALL_URL` | (empty)               | Fallback JSON RPC `eth_call` url.                                                                                                                |
+| **WebSockets Endpoint**                  | `ETHEREUM_JSONRPC_WS_URL`                | ws://localhost:8546   | The WebSockets endpoint subscribes to `newHeads` which alerts the indexer to fetch the new block from the subscription.                          |
 
 ## Geth
 
