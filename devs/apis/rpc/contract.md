@@ -26,7 +26,7 @@ https://instance_base_url/api
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | page                           | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the page number used for pagination. 'offset' must also be provided.                                                         |
 | offset                         | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the max number of records to return when paginating. 'page' must also be provided.                                           |
-| filter                         | <mark style="background-color:yellow;">optional</mark> string `verified`\|`unverified`\|`empty`, or `1`\|`2`\|`3`\|`4`\|`5` respectively. Returns contracts with the requested status. |
+| filter                         | <mark style="background-color:yellow;">optional</mark> string `verified`\|`unverified`\|`empty`, or `1`\|`2`\|`3` respectively. Returns contracts with the requested status. |
 | verified\_at\_start\_timestamp | <mark style="background-color:yellow;">optional</mark> `unix timestamp` Represents the starting timestamp for verified contracts. Only used with `verified` filter.                                                    |
 | verified\_at\_end\_timestamp   | <mark style="background-color:yellow;">optional</mark> `unix timestamp` Represents the ending timestamp for verified contracts. Only used with `verified` filter.                                                      |
 {% endtab %}
