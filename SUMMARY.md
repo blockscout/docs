@@ -47,6 +47,7 @@
   * [ERC-1155 Support](using-blockscout/token-support/erc-1155-support.md)
 * [Merits](using-blockscout/merits/README.md)
   * [Streak rewards](using-blockscout/merits/streak-rewards.md)
+  * [Activity Pass](using-blockscout/merits/activity-pass.md)
   * [Leaderboard](using-blockscout/merits/leaderboard.md)
   * [Badges](using-blockscout/merits/badges.md)
   * [FAQs](using-blockscout/merits/faqs.md)
