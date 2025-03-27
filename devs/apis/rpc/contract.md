@@ -10,7 +10,7 @@ description: '?module=contract'
 
 `listcontracts`
 
-List sorted in ascending order based on the time a contact was first indexed by the explorer. With filters \`not\_decompiled\`(\`4\`) or \`not\_verified(4)\` the results will not be sorted for performance reasons.
+List sorted in ascending order based on the time a contact was first indexed by the explorer. With filters \`unverified(2)\` the results will not be sorted for performance reasons.
 
 **Example:**
 
@@ -26,8 +26,7 @@ https://instance_base_url/api
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | page                           | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the page number used for pagination. 'offset' must also be provided.                                                         |
 | offset                         | <mark style="background-color:yellow;">optional</mark> nonnegative `integer` representing the max number of records to return when paginating. 'page' must also be provided.                                           |
-| filter                         | <mark style="background-color:yellow;">optional</mark> string `verified`\|`decompiled`\|`unverified`\|`not_decompiled`\|`empty`, or `1`\|`2`\|`3`\|`4`\|`5` respectively. Returns contracts with the requested status. |
-| not\_decompiled\_with\_version | <mark style="background-color:yellow;">optional</mark> `string` ensures none of the returned contracts were decompiled with the provided version. Ignored unless filtering for `decompiled` contracts.                 |
+| filter                         | <mark style="background-color:yellow;">optional</mark> string `verified`\|`unverified`\|`empty`, or `1`\|`2`\|`3` respectively. Returns contracts with the requested status. |
 | verified\_at\_start\_timestamp | <mark style="background-color:yellow;">optional</mark> `unix timestamp` Represents the starting timestamp for verified contracts. Only used with `verified` filter.                                                    |
 | verified\_at\_end\_timestamp   | <mark style="background-color:yellow;">optional</mark> `unix timestamp` Represents the ending timestamp for verified contracts. Only used with `verified` filter.                                                      |
 {% endtab %}
