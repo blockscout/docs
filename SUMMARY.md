@@ -117,6 +117,7 @@
   * [⭐ Kubernetes Deployment](setup/deployment/kubernetes-deployment.md)
   * [Rollup Deployment](setup/deployment/rollup-deployment.md)
   * [🌟 Cosmos-based chains](setup/deployment/cosmos-based-chains.md)
+  * [🚗 Autoscout Deployment](setup/deployment/autoscout-deployment.md)
   * [🍀 Upgrade Guide (v7.0)](setup/deployment/upgrade-guide-v7.0.md)
   * [Frontend Migration](setup/deployment/frontend-migration/README.md)
     * [All-In-One Container](setup/deployment/frontend-migration/all-in-one-container.md)
