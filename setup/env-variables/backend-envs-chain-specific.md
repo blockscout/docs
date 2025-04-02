@@ -6,11 +6,69 @@ description: ENVS for specific chains and rollups
 
 ## <mark style="background-color:orange;">Chain Specific ENVs</mark>
 
-The following ENVs are specific to different types of chains and rollups. To use these specific variables you will also need to set the CHAIN\_TYPE variable to the appropriate chain.
+The following ENVs are specific to different types of chains and rollups. To use
+these specific variables you will also need to set the `CHAIN_TYPE` variable to
+the appropriate value.
 
-| Variable    | Description                                                                                                                                                                                                                                     | Parameters                                                                                                              |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| CHAIN\_TYPE | Specifies the model of data and enables fetchers specific to the chain. Available values are `ethereum`, `optimism`, `arbitrum`, `polygon_zkevm`, `polygon_edge`, `rsk`, `scroll`, `shibarium`, `stability`, `suave`, `zetachain`, `filecoin`, `default`. | <p>Needs Recompile: ☑️<br>Version: v5.3.0+<br>Default: <code>default</code><br>Applications: API, Indexer</p> |
+
+| Variable    | Description                                                                                                | Parameters                                                                                                              |
+| ----------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| CHAIN\_TYPE | Specifies the model of data and enables fetchers specific to the chain. | <p>Version: v5.3.0+<br>Default: <code>default</code><br>Applications: API, Indexer</p> |
+
+### Runtime vs Compile-time Chain Types
+
+{% hint style="warning" %}
+
+Prior to v8.0.0, updating `CHAIN_TYPE` variable required recompilation. Starting
+with v8.0.0, many chain types can be configured at runtime.
+
+{% endhint %}
+
+#### Runtime-Configurable Chain Types
+
+These chain types can be configured by simply setting an environment variable
+with the standard image:
+
+- `default` (standard EVM chain)
+- `neon`
+- `stability`
+- `blackfort`
+- `shibarium`
+- `polygon_edge`
+
+**Example:**
+
+```bash
+docker run -e CHAIN_TYPE=shibarium ghcr.io/blockscout/blockscout:latest
+```
+
+#### Compile-time Chain Types
+
+These specialized chain types still require recompilation and dedicated images:
+
+- `ethereum`
+- `optimism`
+- `arbitrum`
+- `polygon_zkevm`
+- `rsk`
+- `scroll`
+- `suave`
+- `zetachain`
+- `filecoin`
+
+**Example:**
+
+```bash
+docker run -e CHAIN_TYPE=optimism ghcr.io/blockscout/blockscout-optimism:latest
+```
+
+{% hint style="info" %}
+
+You can browse all available image variants in the [Blockscout GitHub Packages
+repository](https://github.com/orgs/blockscout/packages). Each image variant
+includes specific tags and documentation for deployment options.
+
+{% endhint %}
 
 ## Time format
 
