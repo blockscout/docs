@@ -93,6 +93,7 @@
   * [Indexer Architecture Overview](setup/information-and-settings/indexer-architecture-overview.md)
   * [ShareLock](setup/information-and-settings/sharelock.md)
   * [EVM Version Information](setup/information-and-settings/evm-version-information.md)
+  * [L2 -> L1 JSON-RPC Method Requests](setup/information-and-settings/l2-greater-than-l1-json-rpc-method-requests.md)
 * [Requirements](setup/requirements/README.md)
   * [General Backend Requirements / Blockscout Backend Prerequisites](setup/requirements/requirements.md)
   * [Backend/Frontend Compatibility Matrix](setup/requirements/back-front-compatibility-matrix.md)
