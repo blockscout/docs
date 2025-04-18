@@ -23,6 +23,8 @@ Autoscout is now available at [https://deploy.blockscout.com/](https://deploy.bl
 
 Autoscout is a pay-as-you-go service. If your account runs out of credits your instance will be stopped until you top your account back up. If this happens, you will need to relaunch (and reindex) your instance once you add additional credits. Instances will scale based on daily transactions, so be sure to monitor and top up accordingly.
 
+<figure><img src="../.gitbook/assets/top-up.png" alt=""><figcaption></figcaption></figure>
+
 | Size                                   | Hourly | Daily | Weekly | Monthly |
 | -------------------------------------- | ------ | ----- | ------ | ------- |
 | <p>xSmall<br>brand new chain</p>       | .35    | 8.50  | 60     | 252     |
