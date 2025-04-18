@@ -42,6 +42,7 @@
 * [Swapscout](using-blockscout/swapscout/README.md)
   * [Earn Merits when using Swapscout](using-blockscout/swapscout/earn-merits-when-using-swapscout.md)
 * [Revokescout](using-blockscout/revokescout.md)
+* [Autoscout Explorer Launchpad](using-blockscout/autoscout.md)
 * [CSV Exports](using-blockscout/export-to-csv.md)
 * [Token Support](using-blockscout/token-support/README.md)
   * [ERC-1155 Support](using-blockscout/token-support/erc-1155-support.md)
@@ -71,6 +72,7 @@
     * [Transaction](devs/apis/rpc/transaction.md)
     * [ETH RPC API](devs/apis/rpc/eth-rpc.md)
   * [GraphQL in Blockscout](devs/apis/graphql.md)
+* [Autoscout Cloud Deployment](devs/autoscout-cloud-deployment.md)
 * [Smart Contract Verification](devs/verification/README.md)
   * [Blockscout UI](devs/verification/blockscout-ui.md)
   * [Blockscout smart-contract verification API](devs/verification/blockscout-smart-contract-verification-api.md)
@@ -82,7 +84,6 @@
   * [Automate verifications with Catapulta](devs/verification/automate-verifications-catapulta.md)
   * [Verification via thirdweb](devs/verification/verification-via-thirdweb.md)
   * [Interacting with Smart Contracts](devs/verification/interacting-with-smart-contracts.md)
-* [Autoscout cloud deployment](devs/autoscout.md)
 * [Chainscout chains list](devs/chainscout-chains-list.md)
 
 ## 🏃‍♂️ Setup and Run Blockscout <a href="#setup" id="setup"></a>
