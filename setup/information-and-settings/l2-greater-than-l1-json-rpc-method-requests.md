@@ -2,9 +2,12 @@
 
 Layer 2 (L2) chains interact with their Layer 1 (L1) counterparts in different ways depending on the rollup type and information required.
 
-* [zkSync Rollups](l2-greater-than-l1-json-rpc-method-requests.md#zksync-rollups)
-* [Arbitrum Rollups](l2-greater-than-l1-json-rpc-method-requests.md#arbitrum-rollups)
-* Optimism Rollups (in process)
+* [zkSync](l2-greater-than-l1-json-rpc-method-requests.md#zksync-rollups)
+* [Arbitrum](l2-greater-than-l1-json-rpc-method-requests.md#arbitrum-rollups)
+* [Optimism](l2-greater-than-l1-json-rpc-method-requests.md#optimism-rollups)
+* [Polygon zkEVM](l2-greater-than-l1-json-rpc-method-requests.md#polygon-zkevm-l1-fetchers)
+* [Scroll](l2-greater-than-l1-json-rpc-method-requests.md#scroll-l1-fetchers)
+* [Shibarium](l2-greater-than-l1-json-rpc-method-requests.md#shibarium-l1-fetchers)
 
 ***
 
@@ -112,4 +115,74 @@ Used less frequently than the other calls.
 
 ## Optimism Rollups
 
-_in process_
+### Optimism L1 fetchers
+
+#### Indexer.Fetcher.Optimism.Deposit
+
+* `eth_getLogs` (driven by `INDEXER_OPTIMISM_L1_ETH_GET_LOGS_RANGE_SIZE` for catchup mode) - one request per block in realtime mode
+* `eth_getBlockByNumber` for each block within `eth_getLogs` response to get block timestamp. Batch request is used, so one batch request per one `eth_getLogs` call
+
+#### Indexer.Fetcher.Optimism.DisputeGame
+
+* call to `OptimismPortal`'s `respectedGameType()` public getter (every 60 seconds)
+* call to `DisputeGameFactory`'s `gameCount` public getter (every 60 seconds)
+* call to `DisputeGameFactory`'s `gameAtIndex` public getter (max 50 items per batch request) and the corresponding batch calls to `extraData`, `resolvedAt`, `status` public getters for each dispute game
+* call to `DisputeGameFactory`'s `resolvedAt` public getter (max 50 items per batch request) for max 1000 last unresolved games
+* call to `DisputeGameFactory`'s `status` public getter (max 50 items per batch request) for max 1000 last resolved games
+
+#### Indexer.Fetcher.Optimism.OutputRoot
+
+* `eth_getLogs` (driven by `INDEXER_OPTIMISM_L1_ETH_GET_LOGS_RANGE_SIZE` for catchup mode) - one request per block in realtime mode
+
+#### Indexer.Fetcher.Optimism.TransactionBatch
+
+* `eth_getBlockByNumber` (batch RPC calls containing up to `INDEXER_OPTIMISM_L1_BATCH_BLOCKS_CHUNK_SIZE` requests per batch in catchup mode starting from the start block defined in `SystemConfig` contract) - one request per block in realtime mode
+
+#### Indexer.Fetcher.Optimism.WithdrawalEvent
+
+* `eth_getLogs` (driven by `INDEXER_OPTIMISM_L1_ETH_GET_LOGS_RANGE_SIZE` for catchup mode) - one request per block in realtime mode
+* `eth_getBlockByNumber` for each block within `eth_getLogs` response to get block timestamp. Batch request is used, so one batch request per one `eth_getLogs` call
+
+## Polygon zkEVM L1 fetchers
+
+#### Indexer.Fetcher.PolygonZkevm.BridgeL1
+
+* `eth_getLogs` (max 1000 blocks in a range per request for catchup mode) - one request per block in realtime mode
+* `eth_getBlockByNumber` for each block within `eth_getLogs` response to get block timestamp (batch request is used with max 50 items per request)
+* `eth_getBlockByNumber` to get latest block (every block time in seconds, divided by 2)
+* one batch request (with calls to `symbol()` and `decimals()` getters of token contracts) per one `eth_getLogs` call
+
+#### Indexer.Fetcher.PolygonZkevm.BridgeL1Tokens
+
+* one batch request (with calls to `symbol()` and `decimals()` getters of token contracts) per one set of logs taken in realtime mode from L2 block
+
+#### Indexer.Fetcher.PolygonZkevm.TransactionBatch
+
+* a batch call of `zkevm_batchNumber`, `zkevm_virtualBatchNumber`, `zkevm_verifiedBatchNumber` requests per `INDEXER_POLYGON_ZKEVM_BATCHES_RECHECK_INTERVAL` seconds
+* a batch call of `zkevm_getBatchByNumber` requests per `INDEXER_POLYGON_ZKEVM_BATCHES_CHUNK_SIZE` zkEVM batches
+
+## Scroll L1 fetchers
+
+#### Indexer.Fetcher.Scroll.Batch
+
+* `eth_getLogs` (driven by `INDEXER_SCROLL_L1_ETH_GET_LOGS_RANGE_SIZE` for catchup mode) - one request per block in realtime mode
+* `eth_getBlockByNumber` for each block within `eth_getLogs` response to get block timestamp (batch request is used with max 50 items per request)
+* `eth_getBlockByNumber` to get latest block (every block time in seconds, divided by 2)
+
+#### Indexer.Fetcher.Scroll.BridgeL1
+
+* `eth_getLogs` (driven by `INDEXER_SCROLL_L1_ETH_GET_LOGS_RANGE_SIZE` for catchup mode) - one request per block in realtime mode
+* `eth_getBlockByNumber` for each block within `eth_getLogs` response (taking into account `SentMessage` events only) to get block timestamp (batch request is used with max 50 items per request)
+* `eth_getBlockByNumber` to get latest block (every block time in seconds, divided by 2)
+
+## Shibarium L1 fetchers
+
+#### Indexer.Fetcher.Shibarium.L1
+
+* three `eth_getLogs` requests per chunk for catchup mode (max 1000 blocks in a chunk) - three requests per block in realtime mode
+* `eth_getBlockByNumber` for each block within `eth_getLogs` responses (taking into account deposit events only) to get block timestamp (batch request is used with max 50 items per request)
+* `eth_getBlockByNumber` to get latest block (every block time in seconds, divided by 2)
+
+### Indexer.Fetcher.RollupL1ReorgMonitor
+
+* `eth_getBlockByNumber` to get latest block (every block time in seconds, divided by 2)
