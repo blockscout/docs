@@ -1,5 +1,9 @@
 # L2 -> L1 JSON-RPC Method Requests
 
+{% hint style="info" %}
+This page documents the requirements for various rollup types when requesting data from the L1 node. &#x20;
+{% endhint %}
+
 Layer 2 (L2) chains interact with their Layer 1 (L1) counterparts in different ways depending on the rollup type and information required. Blockscout's chain-specific fetchers interact with the L1 node to gather information crucial for tracking the rollup's state, batches, confirmations, and cross-chain messages.&#x20;
 
 * [Arbitrum](l2-greater-than-l1-json-rpc-method-requests.md#arbitrum-rollups)

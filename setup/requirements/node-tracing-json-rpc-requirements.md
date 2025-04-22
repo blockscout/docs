@@ -51,4 +51,4 @@ The desired rate limit for RPC endpoint is 200 req/sec for the indexing phase an
 
 ### L2 -> L1 JSON RPC Methods
 
-* Find information on JSON RPC method use with [different L2 types.](../configuration-options/l2-greater-than-l1-json-rpc-method-requests.md)
+* Find information on JSON RPC method use with [different L2 types.](l2-greater-than-l1-json-rpc-method-requests.md)
