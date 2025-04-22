@@ -1,11 +1,13 @@
-# 🍀 Upgrade Guide (v7.0)
+# 🍀 Upgrade Guide (v7.0 & v8.0)
 
 {% hint style="info" %}
 We continue to add new features and functionality to Blockscout and recommend updating your instance with each new release. You can check compatibility between your current backend and frontend versions in the [Compatibility Matrix](../requirements/back-front-compatibility-matrix.md).
 {% endhint %}
 
 {% hint style="warning" %}
-If it has been a while since your last upgrade, we recommend performing incremental upgrades to ensure proper performance. For example if you are running backend v6.9.0, first upgrade to v6.10.0 prior to upgrading to the [latest 7.0 version](https://github.com/blockscout/blockscout/releases). This reduces downtime and ensures all breaking changes are handled.
+If it has been a while since your last upgrade, we recommend performing incremental upgrades to ensure proper performance. For example if you are running backend v6.9.0, first upgrade to v6.10.0 prior to upgrading to the [latest 7.0 version](https://github.com/blockscout/blockscout/releases). This reduces downtime and ensures all breaking changes are handled.\
+\
+Please update to v7.0 before updating to v8.0. Follow the same process below replacing v7 with the latest front and backend repositories.
 {% endhint %}
 
 ## Getting Started

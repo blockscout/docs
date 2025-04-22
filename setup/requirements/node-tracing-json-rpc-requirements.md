@@ -44,7 +44,11 @@ Time measures for response time of crucial JSON RPC methods for indexing in Bloc
 
 The desired rate limit for RPC endpoint is 200 req/sec for the indexing phase and 100 req/sec for the indexed chain.
 
-## EVM Requirements & Clients
+### EVM Requirements & Clients
 
 * All EVM chains must [define these variables](../env-variables/#all-chains-must-define-the-following-minimum-set-of-env-variables) during configuration.
 * BlockScout currently supports Erigon, Geth, Nethermind, Hyperledger Besu, and Anvil clients. Define the node variant using the `ETHEREUM_JSONRPC_VARIANT` environment variable. [More information](client-settings.md)
+
+### L2 -> L1 JSON RPC Methods
+
+* Find information on JSON RPC method use with [different L2 types.](../configuration-options/l2-greater-than-l1-json-rpc-method-requests.md)

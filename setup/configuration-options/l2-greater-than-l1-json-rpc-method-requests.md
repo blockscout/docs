@@ -1,72 +1,26 @@
 # L2 -> L1 JSON-RPC Method Requests
 
-Layer 2 (L2) chains interact with their Layer 1 (L1) counterparts in different ways depending on the rollup type and information required.
+Layer 2 (L2) chains interact with their Layer 1 (L1) counterparts in different ways depending on the rollup type and information required. Blockscout's chain-specific fetchers interact with the L1 node to gather information crucial for tracking the rollup's state, batches, confirmations, and cross-chain messages.&#x20;
 
-* [zkSync](l2-greater-than-l1-json-rpc-method-requests.md#zksync-rollups)
 * [Arbitrum](l2-greater-than-l1-json-rpc-method-requests.md#arbitrum-rollups)
 * [Optimism](l2-greater-than-l1-json-rpc-method-requests.md#optimism-rollups)
-* [Polygon zkEVM](l2-greater-than-l1-json-rpc-method-requests.md#polygon-zkevm-l1-fetchers)
 * [Scroll](l2-greater-than-l1-json-rpc-method-requests.md#scroll-l1-fetchers)
 * [Shibarium](l2-greater-than-l1-json-rpc-method-requests.md#shibarium-l1-fetchers)
+* [zkSync](l2-greater-than-l1-json-rpc-method-requests.md#zksync-rollups)
+* [Polygon zkEVM](l2-greater-than-l1-json-rpc-method-requests.md#polygon-zkevm-l1-fetchers)
 
-***
+The following standard L1 JSON-RPC methods are utilized. Frequency and triggers for these calls are described for each chain below.
 
-## zkSync Rollups
-
-### **L1 interaction process**
-
-Blockscout's zkSync-specific fetchers verify zkSync batch status and transitions (Committed, Proven, Executed) recorded on the L1.
-
-### **L1 interaction summary**
-
-L1 calls are infrequent and only triggered to confirm L1 state transitions suggested by the L2 node.
-
-* L1 interaction is driven by the `BatchesStatusTracker`. This tracker performs periodic checks based on the `INDEXER_ZKSYNC_BATCHES_STATUS_RECHECK_INTERVAL` ENV variable setting.
-* Each check phase (`:check_committed`, `:check_proven`, `:check_executed`) _first_ queries the L2 node via RPC (`zks_getL1BatchDetails`).
-* If (_and only if)_ the L2 query indicates a new L1 transaction hash associated with a batch's status change (commit, prove, or execute), the corresponding L1 RPC method (`eth_getTransactionReceipt` or `eth_getTransactionByHash`) is called for that _specific_ transaction hash.&#x20;
-
-### L1 JSON-RPC method details
-
-#### Method: `eth_getTransactionReceipt`
-
-**Purpose**: Retrieves the receipt of an L1 transaction suspected of changing a batch's status (commit or execute). The fetcher specifically looks for event logs within the receipt (`BlockCommit` or `BlockExecution` events) to confirm which batches were affected by that single L1 transaction.
-
-**Frequency:**
-
-* Called conditionally by the `BatchesStatusTracker` process.&#x20;
-* This tracker runs in a loop with a configurable `INDEXER_ZKSYNC_BATCHES_STATUS_RECHECK_INTERVAL`.&#x20;
-* Within this loop, it first checks the L2 RPC (`zks_getL1BatchDetails`) for the oldest uncommitted/unexecuted batch.&#x20;
-* If the L2 RPC response indicates a new commit or execute L1 transaction hash associated with that batch, _then_ `eth_getTransactionReceipt` is called on the L1 node for that specific transaction hash.&#x20;
-* It does _not_ poll L1 constantly; the call is triggered only when a potential status change is detected via L2 RPC data during the periodic check.
-
-***
-
-#### Method: `eth_getTransactionByHash`
-
-**Purpose:** Retrieves the details of an L1 transaction suspected of proving one or more zkSync batches. The fetcher needs the transaction's `input` (calldata) to decode the list of batches proven in that single L1 transaction.
-
-**Frequency**:&#x20;
-
-* Called conditionally by the `BatchesStatusTracker` process, similar to `eth_getTransactionReceipt`. It also runs within the tracker's periodic `INDEXER_ZKSYNC_BATCHES_STATUS_RECHECK_INTERVAL`.&#x20;
-* The tracker checks the L2 RPC (`zks_getL1BatchDetails`) for the oldest unproven batch. If the L2 RPC response indicates a new prove L1 transaction hash, _then_ `eth_getTransactionByHash` is called on the L1 node for that specific transaction hash to retrieve its calldata.&#x20;
-* Like the receipt fetch, this is triggered by potential changes detected via L2 RPC during the periodic check, not through constant L1 polling.
+| L1 JSON-RPC Method         | Purpose                                                                                               |
+| -------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `eth_getLogs`              | Discover L1 events (Batches, Confirmations, Executions, Messages, Keysets)                            |
+| `eth_getBlockByNumber`     | Get L1 Block Timestamps, Chain Head/Safe Block info                                                   |
+| `eth_getTransactionByHash` | Get L1 Tx Calldata (Batches), Get L1 Tx Originator (L1->L2 Messages)                                  |
+| `eth_call`                 | Get Keyset Creation Block from `SequencerInbox` contract (Used infrequently for Arbitrum chains only) |
 
 ***
 
 ## Arbitrum Rollups
-
-### **L1 interaction process**
-
-Blockscout's Arbitrum-specific fetchers interact with the Layer 1 (L1) node to gather information crucial for tracking the rollup's state, batches, confirmations, and cross-chain messages.&#x20;
-
-### **L1 interaction summary**
-
-| L1 JSON-RPC Method         | Trigger / Frequency                                                                  | Purpose                                                                    |
-| -------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
-| `eth_getLogs`              | Periodic Polling (configurable interval) & On-Demand (AnyTrust Keyset)               | Discover L1 events (Batches, Confirmations, Executions, Messages, Keysets) |
-| `eth_getBlockByNumber`     | Event-Triggered (Batched), Periodic Polling (`latest`/`safe`), Initialization (Once) | Get L1 Block Timestamps, Chain Head/Safe Block info                        |
-| `eth_getTransactionByHash` | Event-Triggered (Batched)                                                            | Get L1 Tx Calldata (Batches), Get L1 Tx Originator (L1->L2 Messages)       |
-| `eth_call`                 | On-Demand (AnyTrust Keyset processing)                                               | Get Keyset Creation Block from `SequencerInbox` contract                   |
 
 ### L1 JSON-RPC method details
 
@@ -117,6 +71,8 @@ Used less frequently than the other calls.
 
 ### Optimism L1 fetchers
 
+Method calls are described for each of the Optimism-based fetchers including Deposit, DisputeGame, OutputRoot, TransactionBatch and WithdrawalEvent.
+
 #### Indexer.Fetcher.Optimism.Deposit
 
 * `eth_getLogs` (driven by `INDEXER_OPTIMISM_L1_ETH_GET_LOGS_RANGE_SIZE` for catchup mode) - one request per block in realtime mode
@@ -143,7 +99,53 @@ Used less frequently than the other calls.
 * `eth_getLogs` (driven by `INDEXER_OPTIMISM_L1_ETH_GET_LOGS_RANGE_SIZE` for catchup mode) - one request per block in realtime mode
 * `eth_getBlockByNumber` for each block within `eth_getLogs` response to get block timestamp. Batch request is used, so one batch request per one `eth_getLogs` call
 
+***
+
+## zkSync Rollups
+
+### **L1 interaction process**
+
+Blockscout's zkSync-specific fetchers verify zkSync batch status and transitions (Committed, Proven, Executed) recorded on the L1.
+
+### **L1 interaction summary**
+
+L1 calls are infrequent and only triggered to confirm L1 state transitions suggested by the L2 node.
+
+* L1 interaction is driven by the `BatchesStatusTracker`. This tracker performs periodic checks based on the `INDEXER_ZKSYNC_BATCHES_STATUS_RECHECK_INTERVAL` ENV variable setting.
+* Each check phase (`:check_committed`, `:check_proven`, `:check_executed`) _first_ queries the L2 node via RPC (`zks_getL1BatchDetails`).
+* If (_and only if)_ the L2 query indicates a new L1 transaction hash associated with a batch's status change (commit, prove, or execute), the corresponding L1 RPC method (`eth_getTransactionReceipt` or `eth_getTransactionByHash`) is called for that _specific_ transaction hash.&#x20;
+
+### L1 JSON-RPC method details
+
+#### Method: `eth_getTransactionReceipt`
+
+**Purpose**: Retrieves the receipt of an L1 transaction suspected of changing a batch's status (commit or execute). The fetcher specifically looks for event logs within the receipt (`BlockCommit` or `BlockExecution` events) to confirm which batches were affected by that single L1 transaction.
+
+**Frequency:**
+
+* Called conditionally by the `BatchesStatusTracker` process.&#x20;
+* This tracker runs in a loop with a configurable `INDEXER_ZKSYNC_BATCHES_STATUS_RECHECK_INTERVAL`.&#x20;
+* Within this loop, it first checks the L2 RPC (`zks_getL1BatchDetails`) for the oldest uncommitted/unexecuted batch.&#x20;
+* If the L2 RPC response indicates a new commit or execute L1 transaction hash associated with that batch, _then_ `eth_getTransactionReceipt` is called on the L1 node for that specific transaction hash.&#x20;
+* It does _not_ poll L1 constantly; the call is triggered only when a potential status change is detected via L2 RPC data during the periodic check.
+
+***
+
+#### Method: `eth_getTransactionByHash`
+
+**Purpose:** Retrieves the details of an L1 transaction suspected of proving one or more zkSync batches. The fetcher needs the transaction's `input` (calldata) to decode the list of batches proven in that single L1 transaction.
+
+**Frequency**:&#x20;
+
+* Called conditionally by the `BatchesStatusTracker` process, similar to `eth_getTransactionReceipt`. It also runs within the tracker's periodic `INDEXER_ZKSYNC_BATCHES_STATUS_RECHECK_INTERVAL`.&#x20;
+* The tracker checks the L2 RPC (`zks_getL1BatchDetails`) for the oldest unproven batch. If the L2 RPC response indicates a new prove L1 transaction hash, _then_ `eth_getTransactionByHash` is called on the L1 node for that specific transaction hash to retrieve its calldata.&#x20;
+* Like the receipt fetch, this is triggered by potential changes detected via L2 RPC during the periodic check, not through constant L1 polling.
+
+***
+
 ## Polygon zkEVM L1 fetchers
+
+Method calls are described for each of the zkEVM-based fetchers including BridgeL1, BridgeL1Tokens, and TransactionBatch.
 
 #### Indexer.Fetcher.PolygonZkevm.BridgeL1
 
@@ -154,14 +156,18 @@ Used less frequently than the other calls.
 
 #### Indexer.Fetcher.PolygonZkevm.BridgeL1Tokens
 
-* one batch request (with calls to `symbol()` and `decimals()` getters of token contracts) per one set of logs taken in realtime mode from L2 block
+* one batch request (with calls to `symbol()` and `decimals()` getters of token contracts) per one set of logs taken in realtime mode from the L2 block
 
 #### Indexer.Fetcher.PolygonZkevm.TransactionBatch
 
 * a batch call of `zkevm_batchNumber`, `zkevm_virtualBatchNumber`, `zkevm_verifiedBatchNumber` requests per `INDEXER_POLYGON_ZKEVM_BATCHES_RECHECK_INTERVAL` seconds
 * a batch call of `zkevm_getBatchByNumber` requests per `INDEXER_POLYGON_ZKEVM_BATCHES_CHUNK_SIZE` zkEVM batches
 
+***
+
 ## Scroll L1 fetchers
+
+Method calls are described for each of the Scroll-based fetchers including Batch and BridgeL1.
 
 #### Indexer.Fetcher.Scroll.Batch
 
@@ -177,12 +183,14 @@ Used less frequently than the other calls.
 
 ## Shibarium L1 fetchers
 
+Method calls are described for each of the Scroll-based fetchers including L1 and RollupL1ReorgMonitor.
+
 #### Indexer.Fetcher.Shibarium.L1
 
 * three `eth_getLogs` requests per chunk for catchup mode (max 1000 blocks in a chunk) - three requests per block in realtime mode
 * `eth_getBlockByNumber` for each block within `eth_getLogs` responses (taking into account deposit events only) to get block timestamp (batch request is used with max 50 items per request)
 * `eth_getBlockByNumber` to get latest block (every block time in seconds, divided by 2)
 
-### Indexer.Fetcher.RollupL1ReorgMonitor
+#### Indexer.Fetcher.RollupL1ReorgMonitor
 
 * `eth_getBlockByNumber` to get latest block (every block time in seconds, divided by 2)
