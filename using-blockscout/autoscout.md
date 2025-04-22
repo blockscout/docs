@@ -54,9 +54,9 @@ The following parameters are in the Info section. \* parameters are required.
 * **Mainnet or Testnet**: Select the type of chain, if Testnet a label will be added to the instance.
 * **This chain is a Rollup**: If selected, another field will appear to select **Arbitrum, Optimism, Polygon zkEVM or zkSync**. You will then fill out additional information in the Rollup Config tab.
 * **HTTP RPC URL\***: The **archive node** url (https://your-rpc-url)\
-  &#xNAN;_&#x4E;ote: archive node is required for internal transactions and token/coin historical balances._&#x20;
+  &#xNAN;_&#x4E;ote: archive node is required for internal transactions and token/coin historical balances._ [_Tracing should be enabled_](../setup/requirements/node-tracing-json-rpc-requirements.md) _for internal transactions._
 * **WS URL**: The websocket url (wss://ws.your-websocket-url)
-* **Chain spec URL**: URL to chain specification path json (Sepolia example: [chainspec.json](https://github.com/ethpandaops/ethereum-genesis-generator/blob/master/apps/el-gen/sepolia/chainspec.json) or [genesis.json](https://github.com/ethpandaops/ethereum-genesis-generator/blob/master/apps/el-gen/sepolia/genesis.json))
+* **Chain spec URL**: URL to chain specification path json (Sepolia example: [chainspec.json](https://github.com/ethpandaops/ethereum-genesis-generator/blob/master/apps/el-gen/sepolia/chainspec.json) or [genesis.json](https://github.com/ethpandaops/ethereum-genesis-generator/blob/master/apps/el-gen/sepolia/genesis.json)). You will use the raw JSON file; in the Sepolia example this url is [https://raw.githubusercontent.com/ethpandaops/ethereum-genesis-generator/master/apps/el-gen/sepolia/chainspec.json](https://raw.githubusercontent.com/ethpandaops/ethereum-genesis-generator/master/apps/el-gen/sepolia/chainspec.json)&#x20;
 * **Custom Domain**: You can use a custom domain for your instance but must configure your DNS and add a DNS `CNAME` record pointing to `autoscout.cname.blockscout.com`
 * **Public RPC URL**: Enables 'add to MetaMask button'. Can be the same as the RPC URL if this is a public node.
 * **WalletConnect project ID:** Enables the ability for Read and Write functionality with smart contracts. [Learn more about setting one up here](../setup/configuration-options/walletconnect-project-id-for-contract-read-write.md).
@@ -94,3 +94,25 @@ If your chain is a rollup you will select this in the info screen and then fillo
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/autoscout-rollup-config.png" alt=""><figcaption></figcaption></figure>
+
+## FAQ
+
+<details>
+
+<summary>Why can't I see internal transactions?</summary>
+
+There could be several reasons for this. Your RPC may not be an archive node and [tracing](../setup/requirements/node-tracing-json-rpc-requirements.md) may not be turned on for that node. Once you switch to an RPC with tracing enabled internal transactions will still not be indexed until you spin up a new instance. In this case you will need to shut down your instance and create a new one.
+
+</details>
+
+<details>
+
+<summary>Is there an Autoscout API?</summary>
+
+Yes, there is but it requires an API key to use. It can be useful if you are spinning up many instances or need to check on many instances at the same time. Contact us in Discord #autoscout channel to request an API key. \
+\
+See the API Swagger Docs for more info:\
+\
+[https://blockscout.github.io/swaggers/services/autoscout/main/index.html](https://blockscout.github.io/swaggers/services/autoscout/main/index.html)
+
+</details>
