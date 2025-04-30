@@ -41,7 +41,7 @@ You can retrieve basic data without an API key, but for interactivity purposes y
 ### Partner distribution information
 
 Balances can be added for entities (partners) who can then distribute Merits to their users. \
-&#xNAN;_\* Requires API Key_
+&#xNAN;_\* Requires API Key - Add the assigned API KEY in the Authorization header to see your information._
 
 {% openapi-operation spec="poa-api" path="/partner/api/v1/balance" method="get" %}
 [Broken link](broken-reference)
@@ -49,15 +49,22 @@ Balances can be added for entities (partners) who can then distribute Merits to 
 
 ### Distribute Merits
 
+_\* Requires API Key - Add the assigned API KEY in the Authorization header to add your distribution information._
+
+_Notes:_
+
+* `id` must be unique per each API KEY, so it’s recommended to include date or time period describing the distribution period.
+* `distributions`
+  * Max `1000` wallets per distribution.
+  * Amounts less than `0.01` per address are not allowed.
+  * Amounts can be in decimals, max 2 decimal digits precision is recommended.
+* create\_missing\_accounts
+  * `true`: allows distributions to not yet registered Merits accounts.&#x20;
+  * `false`: only allow distributions to users that are already registered.
+
 {% openapi-operation spec="poa-api" path="/partner/api/v1/distribute" method="post" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
-
-
-
-
-
-
 
 ### Login and Registration Flow - Get User Token
 
@@ -96,6 +103,8 @@ Expiration Time: 2026-03-18T12:23:51.549Z
 {% endopenapi-operation %}
 
 ### Calls Requiring a User Token
+
+_\*Requires User Token: put the user token in the Authorization header_
 
 {% openapi-operation spec="poa-api" path="/api/v1/user/balances" method="get" %}
 [Broken link](broken-reference)
