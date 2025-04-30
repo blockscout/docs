@@ -1,5 +1,17 @@
 # Integrate Merits
 
+###
+
+{% hint style="info" %}
+Attention EthGlobal Hackathon Participants. \
+\
+We have a $1000 Bounty available for best integration of Merits.  The basic requirement is to incorporate Merits into your application in some way. Users can earn Merits through different activities in your app and you can distribute them via the API \
+\
+Below you will find more info on the program and the API for checking user Merits, distribution, and login processes.&#x20;
+{% endhint %}
+
+***
+
 ### What are Blockscout Merits?
 
 Merits are digital rewards collected by interacting with Blockscout and Blockscout-related apps and by participating in various activities (like contests, X participation, telegram participation, app participation and more).  Merits are chain agnostic and can be incorporated into any application. For more details see the [Merits section of the docs](../using-blockscout/merits/).
@@ -8,39 +20,46 @@ Merits are digital rewards collected by interacting with Blockscout and Blocksco
 
 Merits are used to incentivize different activities within the Blockscout universe. For example:
 
-* **Blockscout explorer basics:** You earn Merits by signing up for the program. Once you are signed up, you can earn additional Merits by completing a daily claim. You can also share your referral code and earn Merits when new users sign up with that code.&#x20;
+* **Blockscout explorer basics:** Earn Merits by signing up for the program. Once you are signed up, you can earn additional Merits by completing a daily claim. You can also share your referral code and earn Merits when new users sign up with that code.&#x20;
 * **Blockscout activity pass:** The activity pass allows you to earn Merits for additional Blockscout activities like verifying and interacting with contracts.
 * **Telegram mini app.** The telegram Blockscout Merits Bot allows for direct communication with subscribers. Users who download the bot receive extra Merits -> [https://t.me/blockscout\_merits\_bot](https://t.me/blockscout_merits_bot)
-* **Swapscout swapping app**. Merits are incorporated in the app so that users can view their balance and earn Merits for their swaps. [https://swap.blockscout.com/](https://swap.blockscout.com/)
-* **Blockscout campaigns**. Participants in time-gated campaigns such as rating Dapps or Twitter(X) contests receive additional Merits.
-* **Partner campaigns**. Merits are allocated to users of other protocols as an additional incentive for use.
+* **Swapscout swapping app**. Merits are incorporated in the app so that users can view their balance and earn Merits for their swaps. [https://swap.blockscout.com/](https://swap.blockscout.com/). **This is a good example of an external app that incorporates Merits.**
+* **Revokescout app.** Merits are used to incentivize users but there is no sign in or interface. We simply check addresses that use the application and distribute Merits to those addresses.
+* **Blockscout campaigns**. Participants in time-gated campaigns such as rating Dapps or Twitter(X) contests receive additional Merits. We collect the Ethereum addresses of winners and distribute Merits manually.
+* **Partner campaigns**. Merits are allocated to users of other protocols as an additional incentive for use. Partners provide us with a list of addresses and tasks they completed and we distribute accordingly.
 
-### Integrating Merits into your application
+### Integrating Test Merits into your application
 
 Merits can be integrated in different ways into your application.  Ideas may be to include Merits as a reward for user interactions with your app or a general reward for any activity.  Merits can be distributed to users via the API.
 
-Users can have the ability to sign up for Merits through your app and/or login to their Merits account. You can also display individual Merits balances and leaderboard balances within your application.&#x20;
+Users can have the ability to sign up for Merits through your app and/or login to their Merits account. You can also display individual Merits balances and leaderboard balances within your application. However, these are optional integrations.
 
-You can retrieve basic data without an API key, but for interactivity purposes you will need to request one via our Discord channel.&#x20;
+To qualify for the bounty, you simply need to provide Merit incentives for certain activities, and then distribute those merits appropriately. As long as you have the participant's Ethereum address you can distribute Merits.
+
+{% hint style="info" %}
+Note: You can retrieve basic data without an API key, but for interactivity purposes you will need to request one via our Discord channel. See below.
+{% endhint %}
 
 ### Getting Started
 
 1. Request your API key at:&#x20;
 2. API hostname (and test merits dashboard): [https://merits-staging.blockscout.com](https://merits-staging.blockscout.com)
 
-### Get Basic Merit Info for Users
+### Get Basic Merit Info for a User
 
 {% openapi-operation spec="poa-api" path="/api/v1/auth/user/{address}" method="get" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
+### Get Leaderboard ranking for a user
+
 {% openapi-operation spec="poa-api" path="/api/v1/leaderboard/users/{address}" method="get" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-### Partner distribution information
+### Partner balance and distribution information
 
-Balances can be added for entities (partners) who can then distribute Merits to their users. \
+When you request an API key you become a partner! You will receive a balance of test Merits which can then be distributed to your users. \
 &#xNAN;_\* Requires API Key - Add the assigned API KEY in the Authorization header to see your information._
 
 {% openapi-operation spec="poa-api" path="/partner/api/v1/balance" method="get" %}
@@ -102,7 +121,7 @@ Expiration Time: 2026-03-18T12:23:51.549Z
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-### Calls Requiring a User Token
+### API Calls Requiring a User Token
 
 _\*Requires User Token: put the user token in the Authorization header_
 
