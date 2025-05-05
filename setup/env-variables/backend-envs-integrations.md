@@ -104,6 +104,13 @@ Multichain Search is the single point of search of the data in the all blockchai
 | `MICROSERVICE_MULTICHAIN_SEARCH_API_KEY`          | Multichain Search Service API key. Implemented in [#11139](https://github.com/blockscout/blockscout/pull/11139)                                                                    | <p>Version: v6.10.0+<br>Default: (empty)<br>Applications: API, Indexer</p> |
 | `MIGRATION_BACKFILL_MULTICHAIN_SEARCH_BATCH_SIZE` | Batch size of backfilling Multichain Search Service DB. Implemented in [#11139](https://github.com/blockscout/blockscout/pull/11139)                                               | <p>Version: v6.10.0+<br>Default: (empty)<br>Applications: Indexer</p>      |
 
+## <mark style="background-color:orange;">TAC Operation Lifecycle Service</mark>
+
+| Variable                                          | Description                                                                                                                                                                                            | Parameters                                                                 |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| `MICROSERVICE_TAC_OPERATION_LIFECYCLE_URL`        | TAC Operation Lifecycle Service API URL. Integration is enabled, if this variable value contains valid URL. Implemented in [#12367](https://github.com/blockscout/blockscout/pull/12367)               | <p>Version: master<br>Default: (empty)<br>Applications: API</p>            |
+| `MICROSERVICE_TAC_OPERATION_LIFECYCLE_ENABLED`    | If `false`, TAC Operation Lifecycle Service integration is disabled despite `MICROSERVICE_TAC_OPERATION_LIFECYCLE_URL`. Implemented in [#12367](https://github.com/blockscout/blockscout/pull/12367)   | <p>Version: master<br>Default: <code>true</code><br>Applications: API</p>  |
+
 ## <mark style="background-color:orange;">Sourcify</mark>
 
 {% hint style="info" %}
