@@ -172,7 +172,7 @@
   * [My Account Settings](setup/configuration-options/my-account-settings.md)
   * [Sorting and Pagination](setup/configuration-options/sorting-and-pagination.md)
   * [Tracing](setup/configuration-options/tracing.md)
-  * [WalletConnect Project ID for contract Read/Write](setup/configuration-options/walletconnect-project-id-for-contract-read-write.md)
+  * [Reown Project ID for contract Read/Write](setup/configuration-options/walletconnect-project-id-for-contract-read-write.md)
 * [Indexing](setup/indexing/README.md)
   * [How do I fix indexer timeouts?](setup/indexing/how-do-i-fix-indexer-timeouts.md)
   * [How do I update memory consumption to fix indexer memory errors?](setup/indexing/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md)
