@@ -90,7 +90,7 @@
 
 * [General Overview](setup/information-and-settings/README.md)
   * [Separate Indexer, Web App, and API](setup/information-and-settings/separate-indexer-web-app-and-api.md)
-  * [Umbrella Project Organization](setup/information-and-settings/untitled.md)
+  * [Umbrella Project Organization](setup/information-and-settings/umbrella-project.md)
   * [Indexer Architecture Overview](setup/information-and-settings/indexer-architecture-overview.md)
   * [ShareLock](setup/information-and-settings/sharelock.md)
   * [EVM Version Information](setup/information-and-settings/evm-version-information.md)

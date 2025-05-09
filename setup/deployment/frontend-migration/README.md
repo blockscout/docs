@@ -1,5 +1,9 @@
 # Frontend Migration
 
+{% hint style="success" %}
+🚗  [Autoscout is now available](../../../using-blockscout/autoscout.md), providing a simple one-click explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [**Get Started Now**](../../../using-blockscout/autoscout.md) **and have your explorer up-and-running in minutes.**
+{% endhint %}
+
 The new frontend includes generalized support for L2s including views for attributes such as Index, L1 Timestamp, Size, L1 tx hash, L1 block number, and Batch root, new UI features and enhancements like the DApp marketplace and advanced statistics, and a new micro services infrastructure.
 
 There are several options when deploying the new frontend and migrating your instance. You can either deploy in an all-in-one container, or deploy the frontend separately and connect it to the backend for more flexibility. If you have a custom backend (have made significant changes to the indexer etc) please use option 3.

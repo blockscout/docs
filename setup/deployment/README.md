@@ -4,6 +4,10 @@ description: Blockscout deployment options
 
 # Deployment
 
+{% hint style="success" %}
+🚗  [Autoscout is now available](../../using-blockscout/autoscout.md), providing a simple one-click explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [**Get Started Now**](../../using-blockscout/autoscout.md) **and have your explorer up-and-running in minutes**
+{% endhint %}
+
 There are several methods available for deploying Blockscout and associated services (stats, admin etc).
 
 * [Autoscout Deployment](../../using-blockscout/autoscout.md): Use the Blockscout launchpad to deploy an instance in 5 minutes using Blockscout's infrastructure

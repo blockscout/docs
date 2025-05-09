@@ -1,15 +1,19 @@
 # ☑️ ENV Variables
 
+{% hint style="success" %}
+🚗  [Autoscout is now available](../../using-blockscout/autoscout.md), providing a simple one-click explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [**Get Started Now**](../../using-blockscout/autoscout.md) **and have your explorer up-and-running in minutes.**
+{% endhint %}
+
 Blockscout uses ENVs for setting hundreds of different parameters. Please see the various sections for ENV names, descriptions, default values and versioning.
 
-{% hint style="success" %}
+{% hint style="info" %}
 * [Backend ENVs: Common](backend-env-variables.md)
 * [Backend ENVs: Chain Specific](backend-envs-chain-specific.md)
 * [Backend ENVs: Integrations](backend-envs-integrations.md)
 * [Frontend ENVs: Common](frontend-common-envs/)
 {% endhint %}
 
-{% hint style="info" %}
+{% hint style="warning" %}
 You will find deprecated ENV vars on the [Deprecated ENV Variables](https://docs.blockscout.com/for-developers/information-and-settings/deprecated-env-variables) page.
 {% endhint %}
 

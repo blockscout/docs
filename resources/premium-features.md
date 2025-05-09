@@ -4,6 +4,10 @@ description: Explorer as a Service offerings from Blockscout
 
 # EaaS: Hosting with Blockscout
 
+{% hint style="success" %}
+🚗  [Autoscout is now available](../using-blockscout/autoscout.md), providing a simple one-click explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [**Get Started Now**](../using-blockscout/autoscout.md) **and have your explorer up-and-running in minutes.**
+{% endhint %}
+
 Hosted instances receive support and updates not available to non-hosted instances. If you have questions about integrating services or current premium integrations please ask in [Discord.](https://discord.gg/XmNatGKbPS)
 
 :bullettrain\_side: **Hosting on blockscout.com**: Self-hosting can be difficult, often requiring a dev-ops team to make critical in-house updates and/or customizations. A Blockscout-hosted chain not only gives projects access to expert, dedicated technical support, it also greatly increases project visibility and provides access to the premium feature set.

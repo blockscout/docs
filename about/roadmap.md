@@ -10,7 +10,7 @@ The Blockscout roadmap is a high-level strategic plan designed to guide research
 _Last update: Jan 2025 |_ [_Changelog_](roadmap.md#change-log)
 {% endhint %}
 
-## 🟦 Q1 2025
+## 🟦 Q1-2 2025
 
 We've updated our product roadmap for early 2025 to include several key product areas. We will be working in multiple directions simultaneously and prioritize items as needed/requested.
 

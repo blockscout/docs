@@ -4,8 +4,10 @@ description: Deploy Blockscout with a user-friendly UI and all microservices
 
 # ⭐ Manual Deployment Guide
 
+
+
 {% hint style="success" %}
-&#x20;🚗  [Autoscout is now available](../../../using-blockscout/autoscout.md), providing a simple one-click explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [Get Started Now](../../../using-blockscout/autoscout.md) and have **your explorer up-and-running in minutes.**
+&#x20;🚗  [Autoscout is now available](../../../using-blockscout/autoscout.md), providing a simple one-click explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [**Get Started Now**](../../../using-blockscout/autoscout.md) **and have your explorer up-and-running in minutes.**
 {% endhint %}
 
 {% hint style="info" %}
