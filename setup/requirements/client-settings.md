@@ -1,5 +1,9 @@
 # Client Setting Requirements
 
+{% hint style="success" %}
+🚗  [Autoscout is now available](../../using-blockscout/autoscout.md), providing a simple one-click explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [**Get Started Now**](../../using-blockscout/autoscout.md) **and have your explorer up-and-running in minutes.**
+{% endhint %}
+
 ## Supported JSON RPC Clients
 
 BlockScout currently supports [Geth](https://github.com/ethereum/go-ethereum), [Erigon](https://github.com/erigontech/erigon), [Nethermind](https://github.com/NethermindEth/nethermind), [Reth](https://github.com/paradigmxyz/reth), [Besu](https://github.com/hyperledger/besu), [RSKj](https://github.com/rsksmart/rskj), [Lotus](https://github.com/filecoin-project/lotus), and [Anvil](https://book.getfoundry.sh/anvil/) JSON RPC clients. To define the JSON RPC node variant, it's advised to define the `ETHEREUM_JSONRPC_VARIANT` environment variable\*. Correct values include:

@@ -1,5 +1,9 @@
 # MacOS setup
 
+{% hint style="success" %}
+🚗  [Autoscout is now available](../../../using-blockscout/autoscout.md), providing a simple one-click explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [**Get Started Now**](../../../using-blockscout/autoscout.md) **and have your explorer up-and-running in minutes.**
+{% endhint %}
+
 {% hint style="info" %}
 These instructions use homebrew for setup. [Install homebrew](https://docs.brew.sh/Installation) if you don't already have it installed.
 {% endhint %}
@@ -43,7 +47,7 @@ cd blockscout-backend
 asdf install
 ```
 
-Check your elixir version (`elixir -v`) and node version (`node -v`). \
+Check your elixir version (`elixir -v`) and node version (`node -v`).\
 \
 You should have the following installed:
 
@@ -60,5 +64,5 @@ export PATH=~/.asdf/shims:$PATH
 Once complete, recheck your versions and proceed with deployment.
 
 {% hint style="success" %}
-#### 🎉 You are ready for manual deployment! [Proceed to step 3 in the "Prepare the Backend section](./#1.-prepare-the-backend)"
+**🎉 You are ready for manual deployment!** [**Proceed to step 3 in the "Prepare the Backend section**](./#1.-prepare-the-backend)**"**
 {% endhint %}
