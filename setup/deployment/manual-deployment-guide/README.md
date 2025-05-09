@@ -5,7 +5,13 @@ description: Deploy Blockscout with a user-friendly UI and all microservices
 # ⭐ Manual Deployment Guide
 
 {% hint style="success" %}
-📗 This guide walks you through a new Blockscout deployment including the user-friendly UI frontend and installation of all microservices. If you'd prefer a more automated approach see the [docker-compose deployment page](../docker-compose-deployment.md).
+&#x20;🚗  [Autoscout is now available](../../../using-blockscout/autoscout.md), providing a simple one-click explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [Get Started Now](../../../using-blockscout/autoscout.md) and have **your explorer up-and-running in minutes.**
+{% endhint %}
+
+{% hint style="info" %}
+📗 This guide walks you through a new Blockscout deployment including the user-friendly UI frontend and installation of all microservices. \
+\
+If you'd prefer a more automated approach see the [docker-compose deployment page](../docker-compose-deployment.md).
 {% endhint %}
 
 ## A. Prerequisites

@@ -4,6 +4,10 @@ icon: circle
 
 # Rollup Deployment
 
+{% hint style="success" %}
+&#x20;🚗  [Autoscout is now available](../../using-blockscout/autoscout.md), providing a simple one-click rollup explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [Get Started Now](../../using-blockscout/autoscout.md) and have **your rollup explorer up-and-running in minutes.**
+{% endhint %}
+
 Follow the general [docker](docker-compose-deployment.md) or [manual](manual-deployment-guide/) instructions for deployment and include additional ENVs (starting with `CHAIN_TYPE`) as rollup deployments require different backend setups depending on the rollup type. Below we provide information and examples for [Arbitrum](rollup-deployment.md#arbitrum) and [Optimism](rollup-deployment.md#optimism).
 
 ## Arbitrum
@@ -35,7 +39,7 @@ INDEXER_ARBITRUM_BATCHES_TRACKING_L1_FINALIZATION_CHECK_ENABLED="true"
 
 ### Arbitrum ENV Notes
 
-#### `INDEXER_ARBITRUM_L1_RPC`&#x20;
+#### `INDEXER_ARBITRUM_L1_RPC`
 
 Set to the settlement layer RPC node. In the case above (Ethereum settlement layer) it would be set to your choice of Ethereum RPC nodes such as [https://rpc.ankr.com/eth](https://rpc.ankr.com/eth) or another one of your choice [from this list](https://www.alchemy.com/chain-connect/chain/ethereum). If the rollup settles to a testnet, for example Arbitrum Sepolia, it would be set to [https://arbitrum-sepolia.blockscout.com/](https://arbitrum-sepolia.blockscout.com/) ( [info retrieved here](https://docs.arbitrum.io/build-decentralized-apps/reference/node-providers))
 
@@ -45,23 +49,15 @@ The rollup contract address is output during the contract deployment process (ch
 
 <figure><img src="../../.gitbook/assets/contract-addresses.png" alt=""><figcaption></figcaption></figure>
 
-#### `INDEXER_ARBITRUM_L1_ROLLUP_INIT_BLOCK`&#x20;
+#### `INDEXER_ARBITRUM_L1_ROLLUP_INIT_BLOCK`
 
-Get this value using the block explorer for the settlement layer chain. Search the rollup contract address and find the transaction and block where the contract was deployed. Use that block number as the value for this env.&#x20;
+Get this value using the block explorer for the settlement layer chain. Search the rollup contract address and find the transaction and block where the contract was deployed. Use that block number as the value for this env.
 
-<div>
-
-<figure><img src="../../.gitbook/assets/arb-get-tx.png" alt=""><figcaption></figcaption></figure>
-
- 
-
-<figure><img src="../../.gitbook/assets/2-arb-get-block.png" alt=""><figcaption></figcaption></figure>
-
-</div>
+<div><figure><img src="../../.gitbook/assets/arb-get-tx.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/2-arb-get-block.png" alt=""><figcaption></figcaption></figure></div>
 
 #### `INDEXER_ARBITRUM_L1_RPC_HISTORICAL_BLOCKS_RANGE`
 
-The RPC historical blocks range depends on the following factors:&#x20;
+The RPC historical blocks range depends on the following factors:
 
 1. Block production rate for the settlement layer.
 2. L1 RPC node limits. Specifically, the maximum block range for the `eth_getLogs` operation is needed. This can be identified empirically or by contacting the node admin.
@@ -94,11 +90,11 @@ Chunk sizes depend on the RPC nodes' rate limits. Larger chunks may cause rate l
 The only chain identified so far where this variable is required is the **Arbitrum One** chain.
 {% endhint %}
 
-This variable must be configured for chains where the message counters in the call `addSequencerL2BatchFromOrigin` of the `SequencerInbox` contract do not correspond directly to the rollup block numbers.&#x20;
+This variable must be configured for chains where the message counters in the call `addSequencerL2BatchFromOrigin` of the `SequencerInbox` contract do not correspond directly to the rollup block numbers.
 
-#### `INDEXER_ARBITRUM_BATCHES_TRACKING_ENABLED` & `INDEXER_ARBITRUM_BRIDGE_MESSAGES_TRACKING_ENABLED`&#x20;
+#### `INDEXER_ARBITRUM_BATCHES_TRACKING_ENABLED` & `INDEXER_ARBITRUM_BRIDGE_MESSAGES_TRACKING_ENABLED`
 
-The default for these variables will not run the corresponding fetchers, so they need to be set to “true”.&#x20;
+The default for these variables will not run the corresponding fetchers, so they need to be set to “true”.
 
 ## Optimism
 
@@ -132,20 +128,20 @@ INDEXER_BEACON_BLOB_FETCHER_SLOT_DURATION=12
 
 ### Optimism ENV Notes
 
-#### `INDEXER_OPTIMISM_L1_SYSTEM_CONFIG_CONTRACT`&#x20;
+#### `INDEXER_OPTIMISM_L1_SYSTEM_CONFIG_CONTRACT`
 
 Address of SystemConfig smart contract that contains most of the configuration parameters used by the OP fetcher modules. The address is usually found in the chain's online docs. If there are no docs available, ask the chain's team for the SystemConfig contract address.
 
 #### `INDEXER_OPTIMISM_L1_BATCH_BLOCKSCOUT_BLOBS_API_URL`
 
-If the OP chain uses EIP-4844 blobs as data storage, this env is required. If this is the case, the following envs must also be defined:&#x20;
+If the OP chain uses EIP-4844 blobs as data storage, this env is required. If this is the case, the following envs must also be defined:
 
 * `INDEXER_BEACON_RPC_URL`
 * `INDEXER_BEACON_BLOB_FETCHER_REFERENCE_SLOT`
 * `INDEXER_BEACON_BLOB_FETCHER_REFERENCE_TIMESTAMP`
 * `INDEXER_BEACON_BLOB_FETCHER_SLOT_DURATION`
 
-These envs are used by the batch indexing module as a fallback source of blob data and for retrieving the blob data in realtime from L1.  These values should be used for the following L1s. If clarification is needed please contact the Blockscout team.
+These envs are used by the batch indexing module as a fallback source of blob data and for retrieving the blob data in realtime from L1. These values should be used for the following L1s. If clarification is needed please contact the Blockscout team.
 
 ```
 // Ethereum Mainnet
@@ -166,9 +162,8 @@ INDEXER_BEACON_BLOB_FETCHER_SLOT_DURATION=12
 
 #### `INDEXER_OPTIMISM_L2_BATCH_GENESIS_BLOCK_NUMBER`
 
-Typically found in the [superchain registry](https://github.com/ethereum-optimism/superchain-registry/blob/main/superchain/configs/configs.json) in superchains.chains\[i].genesis.l2.number, e.g. for OP Mainnet it is `105235063`.  For most new OP chains the value will be  `0` as these chains start with the BedRock upgrade activated from scratch.
+Typically found in the [superchain registry](https://github.com/ethereum-optimism/superchain-registry/blob/main/superchain/configs/configs.json) in superchains.chains\[i].genesis.l2.number, e.g. for OP Mainnet it is `105235063`. For most new OP chains the value will be `0` as these chains start with the BedRock upgrade activated from scratch.
 
 #### `INDEXER_OPTIMISM_L1_OUTPUT_ORACLE_CONTRACT`
 
 This contract's address can be found in chain's online docs. If there are no docs available, contact the chain for this information. This address is not needed (and can be omitted) for OP chains that started with the [FaultProofs upgrade](https://docs.optimism.io/stack/protocol/fault-proofs/explainer) activated from the genesis block.
-

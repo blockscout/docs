@@ -13,15 +13,19 @@ Autoscout is now available at [https://deploy.blockscout.com/](https://deploy.bl
 ### Get Started with Autoscout
 
 1. **Create an account:** To get started, go to [https://deploy.blockscout.com/](https://deploy.blockscout.com/), create an account, and login to get started.
-2. **Purchase credits:** You will need credits to launch your explorer. Purchase via Stripe with a credit card; a crypto option is coming soon. Credits are deducted in real time, see the pricing table below for costs.
-   1. &#x20;If you are testing the service, you can request test credits in the [Blockscout Discord](https://discord.gg/blockscout) `#autoscout` channel. Share your email and request and we will top off your account for testing.&#x20;
+2. **Purchase credits:** You will need credits to launch your explorer. Each credit costs $1.00. Purchase via Stripe with a credit card; a crypto option is coming soon. Credits are deducted in real time, see the pricing table below for costs.\
+   \
+   **You can start with any amount of credits to test your instance. Instances cost between 0.35 - 1.35 credits per hour, depending on the size.**
+   1. &#x20;If you are testing the service, request test credits in the [Blockscout Discord](https://discord.gg/blockscout) `#autoscout` channel. Share your email and request and we will top off your account for testing.&#x20;
 3. **Add a new instance:** Click the Add instance button to get started.
 4. **Add your network info**: See below for info on configuration and parameters.
 5. **Deploy your explorer:** Click save and deploy to start the deployment process. In 5-10 minutes your explorer will be live and indexing your chain. Once deployed you can access your explorer link.
 
 ## Autoscout Pricing
 
-Autoscout is a pay-as-you-go service. If your account runs out of credits your instance will be stopped until you top your account back up. If this happens, you will need to relaunch (and reindex) your instance once you add additional credits. Instances will scale based on daily transactions, so be sure to monitor and top up accordingly.
+Autoscout is a pay-as-you-go service. **Start with any amount of credits** and **increase the balance at any time**.&#x20;
+
+If your account runs out of credits your instance will be stopped until you top your account back up. If this happens, you will need to relaunch (and reindex) your instance once you add additional credits. Instances will scale based on daily transactions, so be sure to monitor and top up accordingly.
 
 <figure><img src="../.gitbook/assets/top-up.png" alt=""><figcaption></figcaption></figure>
 
@@ -94,6 +98,8 @@ If your chain is a rollup you will select this in the info screen and then fillo
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/autoscout-rollup-config.png" alt=""><figcaption></figcaption></figure>
+
+
 
 ## FAQ
 

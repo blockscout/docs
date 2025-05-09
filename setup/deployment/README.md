@@ -6,6 +6,7 @@ description: Blockscout deployment options
 
 There are several methods available for deploying Blockscout and associated services (stats, admin etc).
 
+* [Autoscout Deployment](../../using-blockscout/autoscout.md): Use the Blockscout launchpad to deploy an instance in 5 minutes using Blockscout's infrastructure
 * [Manual Deployment](manual-deployment-guide/): Includes instructions for deploying Blockscout with the current frontend and all microservices.
 * [Docker-compose Deployment](docker-compose-deployment.md): Includes current frontend and all microservices
 * [Kubernetes Deployment](kubernetes-deployment.md): Includes current frontend and all microservices
