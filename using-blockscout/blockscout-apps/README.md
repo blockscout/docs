@@ -58,5 +58,5 @@ A full rundown on the process is available in this blog post:
 {% embed url="https://www.blog.blockscout.com/star-ratings-come-to-dappscout/" %}
 
 {% hint style="info" %}
-Please note: The star rating system is currently experimental and operates through a publicly-accessible API. This feature was released in beta testing to assess user interest in ratings and reviews. Current results may be affected by rating biases, including automated or mass submissions. We're actively improving the system based on user feedback.
+Please note: The star rating system is currently experimental. This feature was released in beta testing to assess user interest in ratings and reviews. Current results may be affected by rating biases, including automated or mass submissions. We're actively improving the system based on user feedback.
 {% endhint %}
