@@ -33,8 +33,6 @@ _See_ [_Dapp integration_](dapp-integration.md) _for more details._
 
 Dappscout marketplace provides additional security and peace of mind when interacting with various Dapps on a chain. Rather than accessing potentially fake links, scam sites or compromised interfaces, all Dapps in Blockscout are vetted and added by the curation team. Dappscout Dapps are safe and secure for users.
 
-
-
 ## Dappscout Submissions
 
 There are several ways to submit a DApp. You will fill out a form with basic information to get started.
@@ -50,3 +48,15 @@ In addition to 3rd party apps, Blockscout is developing native apps for the Mark
 
 * [Swapscout](../swapscout/):  Swapping and bridging application.&#x20;
 * Revokescout:  Manage and revoke contract approvals.&#x20;
+
+## Dapp Star Ratings
+
+Users can rate dapps on a 1-5 star basis. A user must connect their wallet to the explorer, and that wallet must have atleast 5 transactions on the chain in order to rate a dapp. Dapps can be sorted by rating score and the number of ratings. &#x20;
+
+A full rundown on the process is available in this blog post:
+
+{% embed url="https://www.blog.blockscout.com/star-ratings-come-to-dappscout/" %}
+
+{% hint style="info" %}
+Note that star ratings are experimental and run on a publicly-accessible API. This feature was released in beta to assess demand for ratings and reviews, and current results may be influenced by bulk rating biases.
+{% endhint %}
