@@ -155,6 +155,7 @@
   * [Blockscout ENS (BENS) Name Service Integration](setup/microservices/blockscout-ens-bens-name-service-integration.md)
   * [Smart Contract Verification](setup/microservices/smart-contract-verification.md)
 * [Configuration Options](setup/configuration-options/README.md)
+  * [Admin Panel Usage](setup/configuration-options/admin-panel-usage.md)
   * [Automating Restarts](setup/configuration-options/automating-restarts.md)
   * [Branding Configs](setup/configuration-options/branding-configs.md)
   * [Circle CI Updates](setup/configuration-options/circle-ci-updates.md)
