@@ -1,11 +1,9 @@
 # Integrate Merits
 
-###
-
 {% hint style="info" %}
 Attention EthGlobal Hackathon Participants. \
 \
-We have a $1000 Bounty available for best integration of Merits.  The basic requirement is to incorporate Merits into your application in some way. Users can earn Merits through different activities in your app and you can distribute them via the API \
+We have a $1000 Bounty available for best integration of Merits.  The basic requirement is to incorporate Merits (Blockscout Points) into your application in some way. Users can earn Merits through different activities in your app and you can distribute them via the API. \
 \
 Below you will find more info on the program and the API for checking user Merits, distribution, and login processes.&#x20;
 {% endhint %}
@@ -21,7 +19,6 @@ Merits are digital rewards collected by interacting with Blockscout and Blocksco
 Merits are used to incentivize different activities within the Blockscout universe. For example:
 
 * **Blockscout explorer basics:** Earn Merits by signing up for the program. Once you are signed up, you can earn additional Merits by completing a daily claim. You can also share your referral code and earn Merits when new users sign up with that code.&#x20;
-* **Blockscout activity pass:** The activity pass allows you to earn Merits for additional Blockscout activities like verifying and interacting with contracts.
 * **Telegram mini app.** The telegram Blockscout Merits Bot allows for direct communication with subscribers. Users who download the bot receive extra Merits -> [https://t.me/blockscout\_merits\_bot](https://t.me/blockscout_merits_bot)
 * **Swapscout swapping app**. Merits are incorporated in the app so that users can view their balance and earn Merits for their swaps. [https://swap.blockscout.com/](https://swap.blockscout.com/). **This is a good example of an external app that incorporates Merits.**
 * **Revokescout app.** Merits are used to incentivize users but there is no sign in or interface. We simply check addresses that use the application and distribute Merits to those addresses.
@@ -36,22 +33,22 @@ Users can have the ability to sign up for Merits through your app and/or login t
 
 To qualify for the bounty, you simply need to provide Merit incentives for certain activities, and then distribute those merits appropriately. As long as you have the participant's Ethereum address you can distribute Merits.
 
-{% hint style="info" %}
-Note: You can retrieve basic data without an API key, but for interactivity purposes you will need to request one via our Discord channel. See below.
+{% hint style="warning" %}
+Note: You can retrieve basic data without an API key, but **for interactivity purposes you will need to request one via our Discord channe**l. See below.
 {% endhint %}
 
-### Getting Started
+### Getting started
 
-1. Request your API key at:&#x20;
+1. Request your API key at: [https://ethglobal.com/discord](https://ethglobal.com/discord) in the #partner-blockscout channel
 2. API hostname (and test merits dashboard): [https://merits-staging.blockscout.com](https://merits-staging.blockscout.com)
 
-### Get Basic Merit Info for a User
+### Get basic Merit info for a user
 
 {% openapi-operation spec="poa-api" path="/api/v1/auth/user/{address}" method="get" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-### Get Leaderboard ranking for a user
+### Get leaderboard ranking for a user
 
 {% openapi-operation spec="poa-api" path="/api/v1/leaderboard/users/{address}" method="get" %}
 [Broken link](broken-reference)

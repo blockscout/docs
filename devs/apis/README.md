@@ -2,12 +2,12 @@
 
 ## Blockscout API Usage
 
-API calls can be accessed from the Blockscout main menu, footer or header depending on the instance.
+API information can be accessed from the Blockscout main menu, footer or header depending on the instance.
 
 Blockscout supports several methods:
 
-1. [**REST API**](rest/): API that serves the UI for new instances of Blockscout.
-2. [**RPC API**](rpc/): provided for developers transitioning their applications from Etherscan to Blockscout. Supports GET and POST requests.
+1. [**REST API**](rest/): API that serves the UI for Blockscout.
+2. [**RPC API**](rpc/): provided for developers transitioning applications from Etherscan to Blockscout. Supports GET and POST requests, simply replace Etherscan url with Blockscout url to use the RPC.
 3. [**Eth RPC API**](rpc/eth-rpc.md): Supports the most popular [JSON RPC methods](https://ethereum.github.io/execution-apis/api-documentation/).
 4. [**Graphiql**](https://github.com/graphql/graphiql): An IDE for exploring GraphQL.
 
