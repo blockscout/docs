@@ -251,7 +251,3 @@ function App() {
 export default App;
 ```
 
-### Contributing
-
-This project is currently in beta closed for external contributions.
-
