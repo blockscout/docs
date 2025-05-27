@@ -1,7 +1,7 @@
 # For Web3 Developers
 
 {% hint style="info" %}
-Attention EthGlbobal hacker: We have 20,000 in bounties available for Blockscout including \
+Attention ETHGlobal hacker: We have 20,000 in bounties available for Blockscout including \
 &#x20;  \
 &#x20;1\. Best Use of Blockscout: $6K - See the categories below for how to integrate Blockscout into your application using our APIs or modify Blockscout itself by adding new frontend features or stats to the interface.\
 \

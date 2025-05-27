@@ -1,7 +1,7 @@
 # Integrate Merits
 
 {% hint style="info" %}
-Attention EthGlobal Hackathon Participants. \
+Attention ETHGlobal Hackathon Participants. \
 \
 We have a $1000 Bounty available for best integration of Merits.  The basic requirement is to incorporate Merits (Blockscout Points) into your application in some way. Users can earn Merits through different activities in your app and you can distribute them via the API. \
 \

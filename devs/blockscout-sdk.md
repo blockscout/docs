@@ -1,7 +1,7 @@
 # Blockscout SDK
 
 {% hint style="info" %}
-Attention EthGlobal Hackathon Participants. \
+Attention ETHGlobal Hackathon Participants. \
 \
 We have a $3000 Bounty available for best SDK Usage (1 $2000 prize and 1 $1000 prize).  Add the Blockscout SDK into your app to provide interactivity and instant explorer feedback to your users.
 
