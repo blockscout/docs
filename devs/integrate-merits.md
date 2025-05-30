@@ -42,6 +42,10 @@ Note: You can retrieve basic data without an API key, but **for interactivity pu
 1. Request your API key at: [https://ethglobal.com/discord](https://ethglobal.com/discord) in the #partner-blockscout channel
 2. API hostname (and test merits dashboard): [https://merits-staging.blockscout.com](https://merits-staging.blockscout.com)
 
+{% hint style="info" %}
+A full list of endpoints is available on our swagger page here: [https://blockscout.github.io/swaggers/services/merits/main/index.html](https://blockscout.github.io/swaggers/services/merits/main/index.html)
+{% endhint %}
+
 ### Get basic Merit info for a user
 
 {% openapi-operation spec="poa-api" path="/api/v1/auth/user/{address}" method="get" %}
