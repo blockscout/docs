@@ -8,7 +8,7 @@ reCAPTCHA from Google is a free service designed to protect your site from spam 
 
 ### Obtain your keys
 
-To use reCAPTCHA you will need a `CLIENT_KEY` (SITE KEY) and `SECRET_KEY`&#x20;
+1\) To use reCAPTCHA you will need a `CLIENT_KEY` (SITE KEY) and `SECRET_KEY`&#x20;
 
 1. Go to [https://www.google.com/recaptcha/admin/create](https://www.google.com/recaptcha/admin/create), login to Google with an existing account, and fill in the following info:
    1. **Label**: Private label to identify the instance in your reCAPTCHA admin dashboard.
@@ -18,20 +18,27 @@ To use reCAPTCHA you will need a `CLIENT_KEY` (SITE KEY) and `SECRET_KEY`&#x20;
 
 <figure><img src="../../.gitbook/assets/recaptcha-1.png" alt=""><figcaption></figcaption></figure>
 
-Copy your keys and use them with the following ENV variables to enable reCAPTCHA.
+2\) Copy your keys and use them with the following ENV variables to enable reCAPTCHA.
 
-| ENV Variable            | reCAPTCHA key |
-| ----------------------- | ------------- |
-| `RE_CAPTCHA_CLIENT_KEY` | SITE KEY      |
-| `RE_CAPTCHA_SECRET_KEY` | SECRET KEY    |
+| Blockscout ENV Variable | Google reCAPTCHA key |
+| ----------------------- | -------------------- |
+| `RE_CAPTCHA_CLIENT_KEY` | SITE KEY             |
+| `RE_CAPTCHA_SECRET_KEY` | SECRET KEY           |
 
 <figure><img src="../../.gitbook/assets/recaptcha-2.png" alt=""><figcaption></figcaption></figure>
 
+3\) Add the keys to your ENV variables.
+
+```
+$ export RE_CAPTCHA_CLIENT_KEY=6L...IU
+$ export RE_CAPTCHA_SECRET_KEY=6Le...Qdo
+```
+
 {% hint style="info" %}
-Once setup, you can view and update your settings on the reCAPTCHA admin dashboard at [https://www.google.com/recaptcha/admin](https://www.google.com/recaptcha/admin)
+Once setup, you can view and update your reCAPTCHA settings on the  Google admin dashboard at [https://www.google.com/recaptcha/admin](https://www.google.com/recaptcha/admin)
 {% endhint %}
 
-### Additional reCAPTCHA variables info
+### Additional reCAPTCHA ENV info
 
 * Backend reCAPTCHA ENVs are located in the  Backend ENVs: Common page in the [CSV exports section](../env-variables/backend-env-variables.md#csv-export).
 * Frontend  reCAPTCHA ENVs are located on the Frontend ENVs: Common -> ENVs page in the [External Services section](../env-variables/frontend-common-envs/envs.md#external-services-configuration).
