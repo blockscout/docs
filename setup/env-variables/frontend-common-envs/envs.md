@@ -497,9 +497,9 @@ This feature is **enabled by default** with the `coinzilla` ads provider. To swi
 
 ### Export data to CSV file
 
-| Variable                                  | Type     | Description                           | Compulsoriness | Default value | Example value   | Version |
-| ----------------------------------------- | -------- | ------------------------------------- | -------------- | ------------- | --------------- | ------- |
-| NEXT\_PUBLIC\_RE\_CAPTCHA\_APP\_SITE\_KEY | `string` | See [below](ENVS.md#google-recaptcha) | true           | -             | `<your-secret>` | v1.0.x+ |
+| Variable                                  | Type     | Description                                                                          | Compulsoriness | Default value | Example value   | Version |
+| ----------------------------------------- | -------- | ------------------------------------------------------------------------------------ | -------------- | ------------- | --------------- | ------- |
+| NEXT\_PUBLIC\_RE\_CAPTCHA\_APP\_SITE\_KEY | `string` | See [External Service configuration below ](envs.md#external-services-configuration) | true           | -             | `<your-secret>` | v1.0.x+ |
 
 &#x20;
 

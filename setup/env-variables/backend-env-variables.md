@@ -437,7 +437,7 @@ See the [Time format](backend-env-variables.md#time-format) section for more inf
 ## <mark style="background-color:orange;">CSV Export</mark>
 
 {% hint style="info" %}
-reCAPTCHA v2 and v3 keys for CSV export page. Do not use both v2/v3 keys. Only one version of reCAPTCHA should be used. Use Invisible reCAPTCHA v2 for the latest versions. reCAPTCHA v3 support may be discontinued in future updates.
+Use Invisible reCAPTCHA v2 for the latest versions. If using a previous version only choose v2 or v3, do not use both (we recommend v2). reCAPTCHA v3 support may be discontinued in future updates.
 {% endhint %}
 
 | Variable                                                         | Description                                                                                                                                                                                                                                | Parameters                                                                  |
