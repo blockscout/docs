@@ -13,7 +13,7 @@ reCAPTCHA from Google is a free service designed to protect your site from spam 
 1. Go to [https://www.google.com/recaptcha/admin/create](https://www.google.com/recaptcha/admin/create), login to Google with an existing account, and fill in the following info:
    1. **Label**: Private label to identify the instance in your reCAPTCHA admin dashboard.
    2. **reCAPTCHA type**: Select Challenge (v2) and Invisible reCAPTCHA badge
-   3. **Domains**: Enter your Blockscout domain. You can bypass this check later using an ENV, but enter here for setup.
+   3. **Domains**: Enter your primary Blockscout domain, all associated subdomains will be covered. You can enter multiple domains, and also localhost for testing if needed.
    4. **Submit**
 
 <figure><img src="../../.gitbook/assets/recaptcha-1.png" alt=""><figcaption></figcaption></figure>
@@ -43,4 +43,4 @@ Once setup, you can view and update your reCAPTCHA settings on the  Google admin
 * Backend reCAPTCHA ENVs are located in the  Backend ENVs: Common page in the [CSV exports section](../env-variables/backend-env-variables.md#csv-export).
 * Frontend  reCAPTCHA ENVs are located on the Frontend ENVs: Common -> ENVs page in the [External Services section](../env-variables/frontend-common-envs/envs.md#external-services-configuration).
 * Disable reCAPTCHA by setting `RE_CAPTCHA_DISABLED` to true
-* Disable checking reCAPTCHA domain names by setting `RE_CAPTCHA_CHECK_HOSTNAME` to true. **You must also turn off domain checking in the reCAPTCHA settings to enable this feature.** [More info](https://developers.google.com/recaptcha/docs/domain_validation)&#x20;
+* Disable checking reCAPTCHA domain names by setting `RE_CAPTCHA_CHECK_HOSTNAME` to false. This will bypass checking the hostname info added during reCAPTCHA setup in Google.  [More info on domains.](https://developers.google.com/recaptcha/docs/domain_validation)
