@@ -30,15 +30,15 @@ reCAPTCHA from Google is a free service (with certain [usage limits](https://clo
 
 <figure><img src="../../.gitbook/assets/recaptcha-2.png" alt=""><figcaption></figcaption></figure>
 
-3\) Add the keys to your ENV variables.\
+3\) Add the keys to ENV variables to your .env file or at runtime for the backend and frontend containers.\
 \
-Backend Container:
+Backend container:
 
 ```
 $ export RE_CAPTCHA_SECRET_KEY=6Le...Qdo
 ```
 
-Frontend Container:&#x20;
+Frontend container:&#x20;
 
 ```
 $ export NEXT_PUBLIC_RE_CAPTCHA_APP_SITE_KEY=6L...IU
