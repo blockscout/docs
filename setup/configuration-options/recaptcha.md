@@ -4,11 +4,11 @@
 Blockscout currently supports **reCAPTCHA v2 in invisible mode.** Previous frontend versions (**v1.36.x)** support v3, but moving forward we will only support v2.&#x20;
 {% endhint %}
 
-reCAPTCHA from Google is a free service designed to protect your site from spam and bots.  It can be used in Blockscout to prevent bot activity related to CSV downloads and account validation.  reCAPTCHA is turned on by default, but can be disabled by setting `RE_CAPTCHA_DISABLED` to true.
+reCAPTCHA from Google is a free service (with certain [usage limits](https://cloud.google.com/recaptcha/quotas)) designed to protect your site from spam and bots.  It can be used in Blockscout to prevent bot activity related to CSV downloads and account validation.  reCAPTCHA is turned on by default, but can be disabled by setting `RE_CAPTCHA_DISABLED` to true.
 
 ### Obtain your keys
 
-1\) To use reCAPTCHA you will need a `CLIENT_KEY` (SITE KEY) and `SECRET_KEY`&#x20;
+1\) To use reCAPTCHA you will need a SITE KEY and SECRET KEY&#x20;
 
 1. Go to [https://www.google.com/recaptcha/admin/create](https://www.google.com/recaptcha/admin/create), login to Google with an existing account, and fill in the following info:
    1. **Label**: Private label to identify the instance in your reCAPTCHA admin dashboard.
@@ -20,18 +20,28 @@ reCAPTCHA from Google is a free service designed to protect your site from spam 
 
 2\) Copy your keys and use them with the following ENV variables to enable reCAPTCHA.
 
-| Blockscout ENV Variable | Google reCAPTCHA key |
+| Backend ENV Variable    | Google reCAPTCHA key |
 | ----------------------- | -------------------- |
-| `RE_CAPTCHA_CLIENT_KEY` | SITE KEY             |
 | `RE_CAPTCHA_SECRET_KEY` | SECRET KEY           |
+
+| Frontend ENV Variable                 | Google reCAPTCHA key |
+| ------------------------------------- | -------------------- |
+| `NEXT_PUBLIC_RE_CAPTCHA_APP_SITE_KEY` | SITE KEY             |
 
 <figure><img src="../../.gitbook/assets/recaptcha-2.png" alt=""><figcaption></figcaption></figure>
 
-3\) Add the keys to your ENV variables.
+3\) Add the keys to your ENV variables.\
+\
+Backend Container:
 
 ```
-$ export RE_CAPTCHA_CLIENT_KEY=6L...IU
 $ export RE_CAPTCHA_SECRET_KEY=6Le...Qdo
+```
+
+Frontend Container:&#x20;
+
+```
+$ export NEXT_PUBLIC_RE_CAPTCHA_APP_SITE_KEY=6L...IU
 ```
 
 {% hint style="info" %}
