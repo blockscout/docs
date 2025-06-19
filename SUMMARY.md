@@ -93,6 +93,7 @@
   * [Separate Indexer, Web App, and API](setup/information-and-settings/separate-indexer-web-app-and-api.md)
   * [Umbrella Project Organization](setup/information-and-settings/umbrella-project.md)
   * [Indexer Architecture Overview](setup/information-and-settings/indexer-architecture-overview.md)
+  * [DB schema](setup/information-and-settings/db-schema.md)
   * [ShareLock](setup/information-and-settings/sharelock.md)
   * [EVM Version Information](setup/information-and-settings/evm-version-information.md)
 * [Requirements](setup/requirements/README.md)
@@ -178,7 +179,7 @@
   * [How do I fix indexer timeouts?](setup/indexing/how-do-i-fix-indexer-timeouts.md)
   * [How do I update memory consumption to fix indexer memory errors?](setup/indexing/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors.md)
 * [Testing](setup/testing.md)
-* [DB schema](setup/db-schema.md)
+* [Celestia Node / Indexer](setup/celestia-node-indexer.md)
 
 ## FAQs
 
