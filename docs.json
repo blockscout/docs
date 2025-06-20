@@ -425,10 +425,8 @@
             ]
           },
           {
-            "group": "Merits APIs",
-            "pages": [
-              "devs/integrate-merits"
-            ]
+            "group": "Test Merits APIs",
+            "openapi": "merits-admin-service.yaml"
           }
         ]
       }
