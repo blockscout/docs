@@ -426,7 +426,13 @@
           },
           {
             "group": "Test Merits APIs",
-            "openapi": "merits-admin-service.yaml"
+            "pages": [
+                  "devs/integrate-merits",
+                  {
+                    "group": "Endpoints",
+                    "openapi": "merits-admin-service.yaml"
+                  }
+                ]
           }
         ]
       }
