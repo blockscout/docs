@@ -3,19 +3,20 @@ tags:
   - name: default
   - name: CelestiaService
 servers:
-  - url: http://{server}/api/v2/
-    variables:
-      server:
-        default: blockscout.com/poa/core
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/NIKITOSING4/CoreBlockScoutAPI/1.0.0
-
+  - url: https://eth.blockscout.com/api/v2/
+    description: Ethereum mainnet
+  - url: https://optimism.blockscout.com/api/v2/
+    description: Optimism mainnet
+  - url: https://base.blockscout.com/api/v2/
+    description: Base mainnet
+  - url: https://eth-sepolia.blockscout.com/api/v2/
+    description: Ethereum testnet  
 info:
   description: API for BlockScout web app
   version: "1.0.0"
   title: BlockScout API
   contact:
-    email: you@your-company.com
+    email: support@blockscout.com
   license:
     name: Apache 2.0
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
