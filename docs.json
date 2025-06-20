@@ -82,7 +82,7 @@
             ]
           },
           {
-            "group": "🙎Using Blockscout",
+            "group": "🙎 Using Blockscout",
             "pages": [
               {
                 "group": "Getting Started",
@@ -152,7 +152,7 @@
             ]
           },
           {
-            "group": "👩‍💻Developer Support",
+            "group": "👩‍💻 Developer Support",
             "pages": [
               "devs/for-web3-developers",
               "devs/replace-links",
@@ -182,7 +182,7 @@
             ]
           },
           {
-            "group": "🏃‍♂️Setup and Run Blockscout",
+            "group": "🏃‍♂️ Setup and Run Blockscout",
             "pages": [
               {
                 "group": "General Overview",
@@ -209,7 +209,7 @@
                 ]
               },
               {
-                "group": "☑️ENV Variables",
+                "group": "☑️ ENV Variables",
                 "pages": [
                   "setup/env-variables",
                   "setup/env-variables/backend-env-variables",
