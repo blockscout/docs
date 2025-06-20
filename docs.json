@@ -1,0 +1,481 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Blockscout",
+  "colors": {
+    "primary": "#5351db",
+    "light": "#5351db",
+    "dark": "#5351db"
+  },
+  "favicon": "./logo/Color_BS_symbol.svg",
+  "background": {
+    "colors": {
+      "light": "#fdfffe"
+    },
+    "decoration": "gradient"
+  },
+  "appearance": {
+    "default": "light"
+  },
+  "fonts": {
+    "heading": {
+      "family": "Poppins"
+    },
+    "body": {
+      "family": "Inter"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "pages": [
+          "index",
+          {
+            "group": "💡About BlockScout",
+            "pages": [
+              {
+                "group": "Features",
+                "pages": [
+                  "about/features",
+                  "about/features/ethereum-bytecode-database-microservice",
+                  "about/features/blockscout-2-0"
+                ]
+              },
+              "about/chains",
+              {
+                "group": "Partners & Integrations",
+                "pages": [
+                  "about/partners-and-integrations",
+                  "about/partners-and-integrations/raas-providers",
+                  {
+                    "group": "Vera: Verifier Alliance",
+                    "pages": [
+                      "about/partners-and-integrations/vera-verifier-alliance",
+                      "about/partners-and-integrations/vera-verifier-alliance/adding-your-chain-to-the-vera-database",
+                      "about/partners-and-integrations/vera-verifier-alliance/programmatic-verification-via-the-api"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "News & Media",
+                "pages": [
+                  "about/announcements",
+                  "about/announcements/newsletter-and-blog"
+                ]
+              },
+              {
+                "group": "Funding",
+                "pages": [
+                  "about/funding",
+                  {
+                    "group": "L2 Funding Proposal",
+                    "pages": [
+                      "about/funding/l2-funding-proposal",
+                      "about/funding/l2-funding-proposal/aux-funding-images"
+                    ]
+                  }
+                ]
+              },
+              "about/roadmap"
+            ]
+          },
+          {
+            "group": "🙎Using Blockscout",
+            "pages": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "using-blockscout/overviews",
+                  "using-blockscout/overviews/glossary-of-terms",
+                  "using-blockscout/overviews/top-menu",
+                  "using-blockscout/overviews/blocks",
+                  "using-blockscout/overviews/transaction-types",
+                  "using-blockscout/overviews/beacon-chain-withdrawal-views"
+                ]
+              },
+              {
+                "group": "My Account",
+                "pages": [
+                  "using-blockscout/my-account",
+                  "using-blockscout/my-account/watchlist",
+                  "using-blockscout/my-account/private-tags",
+                  "using-blockscout/my-account/public-tags",
+                  "using-blockscout/my-account/api-keys",
+                  "using-blockscout/my-account/custom-abi",
+                  {
+                    "group": "Verified addresses",
+                    "pages": [
+                      "using-blockscout/my-account/verified-addresses",
+                      "using-blockscout/my-account/verified-addresses/copy-and-sign-message"
+                    ]
+                  },
+                  "using-blockscout/my-account/for-developers"
+                ]
+              },
+              {
+                "group": "Dappscout Apps Marketplace",
+                "pages": [
+                  "using-blockscout/blockscout-apps",
+                  "using-blockscout/blockscout-apps/dapp-integration"
+                ]
+              },
+              {
+                "group": "Swapscout",
+                "pages": [
+                  "using-blockscout/swapscout",
+                  "using-blockscout/swapscout/earn-merits-when-using-swapscout"
+                ]
+              },
+              "using-blockscout/revokescout",
+              "using-blockscout/autoscout",
+              "using-blockscout/export-to-csv",
+              {
+                "group": "Token Support",
+                "pages": [
+                  "using-blockscout/token-support",
+                  "using-blockscout/token-support/erc-1155-support"
+                ]
+              },
+              {
+                "group": "Merits",
+                "pages": [
+                  "using-blockscout/merits",
+                  "using-blockscout/merits/streak-rewards",
+                  "using-blockscout/merits/activity-pass",
+                  "using-blockscout/merits/leaderboard",
+                  "using-blockscout/merits/badges",
+                  "using-blockscout/merits/faqs"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "👩‍💻Developer Support",
+            "pages": [
+              "devs/for-web3-developers",
+              "devs/replace-links",
+              "devs/apis-redirect",
+              {
+                "group": "Smart Contract Verification",
+                "pages": [
+                  "devs/verification",
+                  "devs/verification/blockscout-ui",
+                  {
+                    "group": "Hardhat Verification Plugin",
+                    "pages": [
+                      "devs/verification/hardhat-verification-plugin",
+                      "devs/verification/hardhat-verification-plugin/sourcify-plugin-for-hardhat"
+                    ]
+                  },
+                  "devs/verification/foundry-verification",
+                  "devs/verification/contracts-verification-via-sourcify",
+                  "devs/verification/openzeppelin-contract-verification",
+                  "devs/verification/automate-verifications-catapulta",
+                  "devs/verification/verification-via-thirdweb",
+                  "devs/verification/interacting-with-smart-contracts"
+                ]
+              },
+              "devs/blockscout-sdk",
+              "devs/chainscout-chains-list"
+            ]
+          },
+          {
+            "group": "🏃‍♂️Setup and Run Blockscout",
+            "pages": [
+              {
+                "group": "General Overview",
+                "pages": [
+                  "setup/information-and-settings",
+                  "setup/information-and-settings/separate-indexer-web-app-and-api",
+                  "setup/information-and-settings/umbrella-project",
+                  "setup/information-and-settings/indexer-architecture-overview",
+                  "setup/information-and-settings/sharelock",
+                  "setup/information-and-settings/evm-version-information"
+                ]
+              },
+              {
+                "group": "Requirements",
+                "pages": [
+                  "setup/requirements",
+                  "setup/requirements/requirements",
+                  "setup/requirements/back-front-compatibility-matrix",
+                  "setup/requirements/resource-requirements",
+                  "setup/requirements/database-storage-requirements",
+                  "setup/requirements/client-settings",
+                  "setup/requirements/node-tracing-json-rpc-requirements",
+                  "setup/requirements/l2-greater-than-l1-json-rpc-method-requests"
+                ]
+              },
+              {
+                "group": "☑️ENV Variables",
+                "pages": [
+                  "setup/env-variables",
+                  "setup/env-variables/backend-env-variables",
+                  "setup/env-variables/backend-envs-chain-specific",
+                  "setup/env-variables/backend-envs-integrations",
+                  {
+                    "group": "Frontend ENVs: Common",
+                    "pages": [
+                      "setup/env-variables/frontend-common-envs",
+                      "setup/env-variables/frontend-common-envs/envs",
+                      "setup/env-variables/frontend-common-envs/deprecated-envs"
+                    ]
+                  },
+                  {
+                    "group": "Deprecated Backend ENVs",
+                    "pages": [
+                      "setup/env-variables/deprecated-env-variables",
+                      "setup/env-variables/deprecated-env-variables/env-variables"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Deployment",
+                "pages": [
+                  "setup/deployment",
+                  {
+                    "group": "Manual Deployment Guide",
+                    "pages": [
+                      "setup/deployment/manual-deployment-guide",
+                      "setup/deployment/manual-deployment-guide/ubuntu-setup",
+                      "setup/deployment/manual-deployment-guide/macos-setup"
+                    ]
+                  },
+                  "setup/deployment/docker-compose-deployment",
+                  "setup/deployment/kubernetes-deployment",
+                  "setup/deployment/rollup-deployment",
+                  "setup/deployment/cosmos-based-chains",
+                  "setup/deployment/upgrade-guide-v7-0",
+                  {
+                    "group": "Frontend Migration",
+                    "pages": [
+                      "setup/deployment/frontend-migration",
+                      "setup/deployment/frontend-migration/all-in-one-container",
+                      "setup/deployment/frontend-migration/separate-frontend",
+                      "setup/deployment/frontend-migration/customized-backend",
+                      "setup/deployment/frontend-migration/proxy-setup",
+                      "setup/deployment/frontend-migration/faqs"
+                    ]
+                  },
+                  {
+                    "group": "Manual Deployment (backend + old UI)",
+                    "pages": [
+                      "setup/deployment/manual-old-ui",
+                      "setup/deployment/manual-old-ui/check-your-manual-deployment-instance"
+                    ]
+                  },
+                  "setup/deployment/terraform-deployment",
+                  {
+                    "group": "Ansible Deployment (AWS Cloud)",
+                    "pages": [
+                      "setup/deployment/ansible-deployment/overview",
+                      "setup/deployment/ansible-deployment/prerequisites",
+                      {
+                        "group": "AWS Permissions & Settings",
+                        "pages": [
+                          "setup/deployment/ansible-deployment/aws-permissions",
+                          "setup/deployment/ansible-deployment/aws-permissions/creating-a-secret-key-pair",
+                          "setup/deployment/ansible-deployment/aws-permissions/login-with-aws-cli",
+                          "setup/deployment/ansible-deployment/aws-permissions/creating-an-aws-certificate-for-ssl",
+                          "setup/deployment/ansible-deployment/aws-permissions/manually-cleaning-terraform-related-instances"
+                        ]
+                      },
+                      "setup/deployment/ansible-deployment/variables",
+                      "setup/deployment/ansible-deployment/deploying-the-blockscout-infrastructure",
+                      "setup/deployment/ansible-deployment/deploying-blockscout",
+                      "setup/deployment/ansible-deployment/destroying-provisioned-infrastructure",
+                      "setup/deployment/ansible-deployment/common-additional-tasks",
+                      "setup/deployment/ansible-deployment/common-errors-and-questions",
+                      {
+                        "group": "AWS Marketplace (deprecated)",
+                        "pages": [
+                          "setup/deployment/ansible-deployment/aws-marketplace",
+                          "setup/deployment/ansible-deployment/aws-marketplace/overview",
+                          "setup/deployment/ansible-deployment/aws-marketplace/cloudformation-template",
+                          "setup/deployment/ansible-deployment/aws-marketplace/aws-marketplace-installation",
+                          "setup/deployment/ansible-deployment/aws-marketplace/install-from-aws-marketplace",
+                          "setup/deployment/ansible-deployment/aws-marketplace/aws-ec2-archive-node-setup",
+                          "setup/deployment/ansible-deployment/aws-marketplace/updating-and-redeploying-in-aws",
+                          "setup/deployment/ansible-deployment/aws-marketplace/customizing-css"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Microservices",
+                "pages": [
+                  "setup/microservices",
+                  "setup/microservices/blockscout-ens-bens-name-service-integration",
+                  "setup/microservices/smart-contract-verification"
+                ]
+              },
+              {
+                "group": "Configuration Options",
+                "pages": [
+                  "setup/configuration-options",
+                  "setup/configuration-options/admin-panel-usage",
+                  "setup/configuration-options/automating-restarts",
+                  "setup/configuration-options/branding-configs",
+                  "setup/configuration-options/circle-ci-updates",
+                  "setup/configuration-options/charts-and-stats",
+                  "setup/configuration-options/css-configuration-and-presets",
+                  "setup/configuration-options/exchange-rates",
+                  "setup/configuration-options/front-end-config-files",
+                  "setup/configuration-options/haproxy-settings-for-blockscout-com",
+                  "setup/configuration-options/internationalization",
+                  "setup/configuration-options/logger-configs",
+                  "setup/configuration-options/memory-usage",
+                  "setup/configuration-options/untitled-2",
+                  "setup/configuration-options/my-account-settings",
+                  "setup/configuration-options/recaptcha",
+                  "setup/configuration-options/walletconnect-project-id-for-contract-read-write",
+                  "setup/configuration-options/sorting-and-pagination",
+                  "setup/configuration-options/tracing"
+                ]
+              },
+              {
+                "group": "Indexing",
+                "pages": [
+                  "setup/indexing",
+                  "setup/indexing/how-do-i-fix-indexer-timeouts",
+                  "setup/indexing/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors"
+                ]
+              },
+              "setup/testing",
+              "setup/db-schema"
+            ]
+          },
+          {
+            "group": "FAQs",
+            "pages": [
+              "faqs/faqs",
+              "faqs/developer-faqs"
+            ]
+          },
+          {
+            "group": "🧩Resources",
+            "pages": [
+              "resources/premium-features",
+              "resources/contributing-to-blockscout",
+              "resources/bug-bounty-program",
+              "resources/media-kit",
+              {
+                "group": "Release Notes",
+                "pages": [
+                  "resources/release-notes",
+                  "resources/release-notes/v5-3-0-10-23-23",
+                  "resources/release-notes/v5-2-0-6-20-23",
+                  "resources/release-notes/v5-1-0-2-13-23",
+                  "resources/release-notes/v5-0-0-1-11-23"
+                ]
+              },
+              "discord-channel",
+              "discussion",
+              "github-repo"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Blockscout APIs",
+            "pages": [
+              "devs/apis",
+              "devs/apis/requests-and-limits",
+              {
+                "group": "REST API Endpoints",
+                "pages": [
+                  "devs/apis/rest",
+                  {
+                    "group": "Endpoints",
+                    "openapi": "openapi.yaml"
+                  },
+                  "devs/apis/rest/stats-api",
+                  "devs/apis/rest/interpreter-api"
+                ]
+              },
+              {
+                "group": "JSON RPC & ETH Compatible RPC Endpoints",
+                "pages": [
+                  "devs/apis/rpc",
+                  "devs/apis/rpc/account",
+                  "devs/apis/rpc/block",
+                  "devs/apis/rpc/contract",
+                  "devs/apis/rpc/logs",
+                  "devs/apis/rpc/stats",
+                  "devs/apis/rpc/token",
+                  "devs/apis/rpc/transaction",
+                  "devs/apis/rpc/eth-rpc"
+                ]
+              },
+              "devs/apis/graphql"
+            ]
+          },
+          {
+            "group": "Verification APIs",
+            "pages": [
+              "devs/verification/blockscout-smart-contract-verification-api"
+            ]
+          },
+          {
+            "group": "Merits APIs",
+            "pages": [
+              "devs/integrate-merits"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Careers",
+          "href": "https://blockscout.bamboohr.com/careers",
+          "icon": "graduation-cap"
+        },
+        {
+          "anchor": "Community",
+          "href": "https://discord.gg/blockscout",
+          "icon": "discord"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://www.blog.blockscout.com/",
+          "icon": "newspaper"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/Color_BS_logo_hor.svg",
+    "dark": "/logo/White_BS_logo_hor.svg",
+    "href": "https://www.blockscout.com/"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "https://github.com/sponsors/blockscout"
+      }
+    ],
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/blockscout/blockscout"
+    }
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/blockscout/blockscout",
+      "telegram": "https://t.me/blockscoutcommunity",
+      "discord": "https://discord.gg/blockscout",
+      "x": "https://x.com/blockscout"
+    }
+  }
+}

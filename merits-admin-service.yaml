@@ -1,0 +1,931 @@
+openapi: 3.0.1
+info:
+  title: Merits Admin service
+  contact:
+    name: Blockscout
+    url: https://blockscout.com
+    email: support@blockscout.com
+  version: 0.1.1
+externalDocs:
+  description: More about merits microservice
+  url: https://github.com/blockscout/points
+servers:
+- url: https://merits.blockscout.com/
+security:
+- AdminApiKey: []
+tags:
+- name: PointsAdminService
+paths:
+  /admin/api/v1/codes:
+    get:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminGetCustomReferralCodes
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminGetCustomReferralCodesResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+    post:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminAddCustomReferralCode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1AdminAddCustomReferralCodeRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminAddCustomReferralCodeResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      x-codegen-request-body-name: body
+    patch:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminUpdateCustomReferralCode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1AdminUpdateCustomReferralCodeRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminUpdateCustomReferralCodeResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      x-codegen-request-body-name: body
+  /admin/api/v1/distribute:
+    post:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminDistribute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1AdminDistributeRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminDistributeResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      x-codegen-request-body-name: body
+  /admin/api/v1/distributions/{distribution_id}:
+    get:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminGetDistribution
+      parameters:
+      - name: distribution_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminGetDistributionResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+  /admin/api/v1/networks:
+    get:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminGetNetworks
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminGetNetworksResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+  /admin/api/v1/networks/{chain_id}:
+    get:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminGetNetwork
+      parameters:
+      - name: chain_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminNetwork'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+    post:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminAddNetwork
+      parameters:
+      - name: chain_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PointsAdminServiceAdminAddNetworkBody'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminAddNetworkResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      x-codegen-request-body-name: body
+    patch:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminUpdateNetwork
+      parameters:
+      - name: chain_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PointsAdminServiceAdminUpdateNetworkBody'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminUpdateNetworkResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      x-codegen-request-body-name: body
+  /admin/api/v1/offers/{offer_id}:
+    post:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminAddOffer
+      parameters:
+      - name: offer_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PointsAdminServiceAdminAddOfferBody'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminAddOfferResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      x-codegen-request-body-name: body
+    patch:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminUpdateOffer
+      parameters:
+      - name: offer_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PointsAdminServiceAdminUpdateOfferBody'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminUpdateOfferResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      x-codegen-request-body-name: body
+  /admin/api/v1/offers/{offer_id}/redemptions:
+    get:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminGetOfferRedemptions
+      parameters:
+      - name: offer_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page_size
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: page_token
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminGetOfferRedemptionsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+  /admin/api/v1/offers/{offer_id}/secrets:
+    get:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminGetOfferSecrets
+      parameters:
+      - name: offer_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: is_redeemed
+        in: query
+        schema:
+          type: boolean
+      - name: page_size
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: page_token
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminGetOfferSecretsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+    post:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminAddOfferSecrets
+      parameters:
+      - name: offer_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PointsAdminServiceAdminAddOfferSecretsBody'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminAddOfferSecretsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      x-codegen-request-body-name: body
+  /admin/api/v1/offers/{offer_id}/secrets/{secret_id}:
+    delete:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminDeleteOfferSecret
+      parameters:
+      - name: offer_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: secret_id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminDeleteOfferSecretResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+  /admin/api/v1/users:
+    get:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminGetUsersBasicInfo
+      parameters:
+      - name: address
+        in: query
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminGetUsersBasicInfoResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+  /admin/api/v1/users/{address_or_code}:
+    get:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminGetUserInfo
+      parameters:
+      - name: address_or_code
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminGetUserInfoResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+  /admin/api/v1/users/{address}/code:
+    post:
+      tags:
+      - PointsAdminService
+      operationId: PointsAdminService_AdminUpdateReferralCode
+      parameters:
+      - name: address
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PointsAdminServiceAdminUpdateReferralCodeBody'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AdminUpdateReferralCodeResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    PointsAdminServiceAdminAddNetworkBody:
+      type: object
+      properties:
+        name:
+          type: string
+        domain:
+          type: string
+        active:
+          type: boolean
+        rpc_url:
+          type: string
+        blockscout_api_key:
+          type: string
+        block_timestamp_skew:
+          type: integer
+          format: int32
+        sent_transactions_activity_enabled:
+          type: boolean
+        verified_contracts_activity_enabled:
+          type: boolean
+        blockscout_usage_activity_enabled:
+          type: boolean
+    PointsAdminServiceAdminAddOfferBody:
+      type: object
+      properties:
+        details:
+          type: object
+          properties: {}
+        price:
+          type: string
+        weight:
+          type: integer
+          format: int32
+        valid_since:
+          type: string
+        valid_until:
+          type: string
+        redemptions_limit:
+          type: integer
+          format: int32
+        min_passport_score:
+          type: string
+        is_hidden:
+          type: boolean
+        is_unique_per_address:
+          type: boolean
+        is_auto_filled:
+          type: boolean
+    PointsAdminServiceAdminAddOfferSecretsBody:
+      type: object
+      properties:
+        details:
+          type: array
+          items:
+            type: string
+    PointsAdminServiceAdminUpdateNetworkBody:
+      type: object
+      properties:
+        name:
+          type: string
+        domain:
+          type: string
+        active:
+          type: boolean
+        rpc_url:
+          type: string
+        blockscout_api_key:
+          type: string
+        block_timestamp_skew:
+          type: integer
+          format: int32
+        sent_transactions_activity_enabled:
+          type: boolean
+        verified_contracts_activity_enabled:
+          type: boolean
+        blockscout_usage_activity_enabled:
+          type: boolean
+    PointsAdminServiceAdminUpdateOfferBody:
+      type: object
+      properties:
+        details:
+          type: object
+          properties: {}
+        price:
+          type: string
+        weight:
+          type: integer
+          format: int32
+        valid_since:
+          type: string
+        valid_until:
+          type: string
+        redemptions_limit:
+          type: integer
+          format: int32
+        min_passport_score:
+          type: string
+        is_hidden:
+          type: boolean
+        is_unique_per_address:
+          type: boolean
+        is_auto_filled:
+          type: boolean
+    PointsAdminServiceAdminUpdateReferralCodeBody:
+      type: object
+      properties:
+        old_code:
+          type: string
+        new_code:
+          type: string
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties:
+        type: object
+    protobufNullValue:
+      type: string
+      description: |-
+        `NullValue` is a singleton enumeration to represent the null value for the
+        `Value` type union.
+
+        The JSON representation for `NullValue` is JSON `null`.
+
+         - NULL_VALUE: Null value.
+      default: NULL_VALUE
+      enum:
+      - NULL_VALUE
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            $ref: '#/components/schemas/protobufAny'
+    v1AdminAddCustomReferralCodeRequest:
+      type: object
+      properties:
+        code:
+          type: string
+        bonus:
+          type: string
+        limit:
+          type: integer
+          format: int32
+    v1AdminAddCustomReferralCodeResponse:
+      type: object
+      properties:
+        code:
+          type: string
+    v1AdminAddNetworkResponse:
+      type: object
+    v1AdminAddOfferResponse:
+      type: object
+    v1AdminAddOfferSecretsResponse:
+      type: object
+    v1AdminDeleteOfferSecretResponse:
+      type: object
+    v1AdminDistributeRequest:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        distributions:
+          type: array
+          items:
+            $ref: '#/components/schemas/v1Distribution'
+        create_missing_accounts:
+          type: boolean
+        expected_total:
+          type: string
+    v1AdminDistributeResponse:
+      type: object
+      properties:
+        accounts_distributed:
+          type: string
+          format: uint64
+        accounts_created:
+          type: string
+          format: uint64
+    v1AdminGetCustomReferralCodesResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/v1CustomReferralCode'
+    v1AdminGetDistributionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        total_receivers:
+          type: string
+          format: uint64
+        total_accounts_created:
+          type: string
+          format: uint64
+        total_distributed:
+          type: string
+        distributions:
+          type: array
+          items:
+            $ref: '#/components/schemas/v1Distribution'
+        distributed_at:
+          type: string
+    v1AdminGetNetworksResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/v1AdminNetwork'
+    v1AdminGetOfferRedemptionsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/v1OfferRedemption'
+        next_page_params:
+          $ref: '#/components/schemas/v1Pagination'
+    v1AdminGetOfferSecretsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/v1OfferSecret'
+        next_page_params:
+          $ref: '#/components/schemas/v1Pagination'
+    v1AdminGetUserInfoResponse:
+      type: object
+      properties:
+        address:
+          type: string
+        balances:
+          $ref: '#/components/schemas/v1GetUserBalancesResponse'
+        logs:
+          type: array
+          items:
+            $ref: '#/components/schemas/v1UserLog'
+        code:
+          type: string
+        invited_users:
+          type: array
+          items:
+            type: string
+        passport_score:
+          $ref: '#/components/schemas/v1PassportScore'
+    v1AdminGetUsersBasicInfoResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/v1UserBasicInfo'
+    v1AdminNetwork:
+      type: object
+      properties:
+        chain_id:
+          type: string
+        name:
+          type: string
+        domain:
+          type: string
+        active:
+          type: boolean
+        rpc_url:
+          type: string
+        blockscout_api_key:
+          type: string
+        block_timestamp_skew:
+          type: integer
+          format: int32
+        sent_transactions_activity_enabled:
+          type: boolean
+        verified_contracts_activity_enabled:
+          type: boolean
+        blockscout_usage_activity_enabled:
+          type: boolean
+    v1AdminUpdateCustomReferralCodeRequest:
+      type: object
+      properties:
+        code:
+          type: string
+        bonus:
+          type: string
+        limit:
+          type: integer
+          format: int32
+    v1AdminUpdateCustomReferralCodeResponse:
+      type: object
+    v1AdminUpdateNetworkResponse:
+      type: object
+    v1AdminUpdateOfferResponse:
+      type: object
+    v1AdminUpdateReferralCodeResponse:
+      type: object
+    v1CustomReferralCode:
+      type: object
+      properties:
+        code:
+          type: string
+        bonus:
+          type: string
+        limit:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
+    v1Distribution:
+      type: object
+      properties:
+        address:
+          type: string
+        amount:
+          type: string
+    v1GetUserBalancesResponse:
+      type: object
+      properties:
+        total:
+          type: string
+        staked:
+          type: string
+        unstaked:
+          type: string
+        total_staking_rewards:
+          type: string
+        total_referral_rewards:
+          type: string
+        pending_referral_rewards:
+          type: string
+    v1OfferRedemption:
+      type: object
+      properties:
+        offer_id:
+          type: string
+        address:
+          type: string
+        redemption:
+          type: string
+          format: uint64
+        price:
+          type: string
+        note:
+          type: string
+        redeemed_at:
+          type: string
+        secret:
+          type: string
+    v1OfferSecret:
+      type: object
+      properties:
+        secret_id:
+          type: integer
+          format: int32
+        offer_id:
+          type: string
+        details:
+          type: string
+        is_redeemed:
+          type: boolean
+    v1Pagination:
+      type: object
+      properties:
+        page_token:
+          type: string
+        page_size:
+          type: integer
+          format: int64
+    v1PassportScore:
+      type: object
+      properties:
+        score:
+          type: string
+        expiry_at:
+          type: string
+        details:
+          type: object
+          properties: {}
+    v1UserBasicInfo:
+      type: object
+      properties:
+        address:
+          type: string
+        is_active:
+          type: boolean
+        balances:
+          $ref: '#/components/schemas/v1GetUserBalancesResponse'
+    v1UserLog:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uint64
+        action:
+          type: string
+        details:
+          type: object
+          properties: {}
+        timestamp:
+          type: string
+  securitySchemes:
+    AdminApiKey:
+      type: apiKey
+      description: "Authentication token, prefixed by Bearer: Bearer <token>"
+      name: Authorization
+      in: header
+x-original-swagger-version: "2.0"

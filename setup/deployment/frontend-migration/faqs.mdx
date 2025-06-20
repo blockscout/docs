@@ -1,0 +1,46 @@
+---
+title: "FAQs"
+---
+
+<Warning>
+🚧 Under Construction
+
+</Warning>
+
+If you have an issue that isn't addressed, please [contact us in Discord](https://discord.gg/blockscout) for troubleshooting.
+
+<AccordionGroup>
+
+<Accordion title="Are there any additional tutorials for Blockscout deployment?">
+We are currently working on more tutorials from the team. There are some user and community generated videos available here: [https://drive.google.com/drive/folders/1dH-ZxV1ShQ-cb7gObTXs3MtwSqVNJOqW](<https://drive.google.com/drive/folders/1dH-ZxV1ShQ-cb7gObTXs3MtwSqVNJOqW >)
+</Accordion>
+
+<Accordion title="Where are the environmental variable (ENV) settings located?">
+* Frontend envs: [https://github.com/blockscout/frontend/blob/main/docs/ENVS.md](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md)
+* Backend envs: [https://github.com/blockscout/blockscout/blob/master/docker-compose/envs/common-blockscout.env](https://github.com/blockscout/blockscout/blob/master/docker-compose/envs/common-blockscout.env)
+</Accordion>
+
+<Accordion title="How do I connect the frontend to the backend?">
+This is done through the [proxy setup](/setup/deployment/frontend-migration/proxy-setup). Ensure you've added the `API_V2_ENABLED='true'` in your blockscout instance.
+</Accordion>
+
+<Accordion title="Do the frontend and backend need to be under the same domain?">
+Yes. Be sure to proxy all /api, /socket requests to the backend application and all other requests to the frontend. More info on the [proxy setup](/setup/deployment/frontend-migration/proxy-setup) page.
+</Accordion>
+
+<Accordion title="What are the variable settings for a Polygon Edge client?">
+Be sure to set the following envs when setting up a Polygon Edge instance:
+
+* `ETHEREUM_JSONRPC_VARIANT=geth`
+* `INDEXER_INTERNAL_TRANSACTIONS_TRACER_TYPE=polygon_edge`
+</Accordion>
+
+<Accordion title="Blockscout API/indexer is using 100% CPU, what should I do?">
+You should allocate more computing resources/cores to the instance.
+</Accordion>
+
+<Accordion title="What should I set the proxy\_pass variable to?">
+Typically you should set to [http://youripaddress:your\_port\_number](http://youripaddress:8153/;). Blockscout may not work if you set to [http://0.0.0.0:](http://0.0.0.0:8153/;)your\_port\_number
+</Accordion>
+
+</AccordionGroup>

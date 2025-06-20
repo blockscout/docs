@@ -1,0 +1,44 @@
+---
+title: "V5.2.0: 6/20/23"
+---
+
+<Info>
+All backend release notes are now available on github at [https://github.com/blockscout/blockscout/releases](https://github.com/blockscout/blockscout/releases)
+
+</Info>
+
+## Highlights
+
+This update focused on optimizations related to search speed and overall explorer performance. Transactions are now populating much faster on the page and the UX is improved to provide relevant search details quickly.
+
+There was also a focus on supporting zkEVM and Polygon Edge networks, providing needed support for Polygon associated chains.
+
+CSV exports were also improved with filters, making export data more usable for a variety of applications.
+
+## New Features List
+
+* [#7502](https://github.com/blockscout/blockscout/pull/7502) - Improve performance of some methods, endpoints and SQL queries
+
+* [#7665](https://github.com/blockscout/blockscout/pull/7665) - Add standard-json vyper verification
+
+* [#7685](https://github.com/blockscout/blockscout/pull/7685) - Add yul filter and "language" field for smart contracts
+
+* [#7653](https://github.com/blockscout/blockscout/pull/7653) - Add support for DEPOSIT and WITHDRAW token transfer event in older contracts
+
+* [#7628](https://github.com/blockscout/blockscout/pull/7628) - Support partially verified property from verifier MS; Add property to track contracts automatically verified via eth-bytecode-db
+
+* [#7603](https://github.com/blockscout/blockscout/pull/7603) - Add Polygon Edge and optimism genesis files support
+
+* [#7585](https://github.com/blockscout/blockscout/pull/7585) - Store and display native coin market cap from the DB
+
+* [#7513](https://github.com/blockscout/blockscout/pull/7513) - Add Polygon Edge support
+
+* [#7532](https://github.com/blockscout/blockscout/pull/7532) - Handle empty id in json rpc responses
+
+* [#7544](https://github.com/blockscout/blockscout/pull/7544) - Add ERC-1155 signatures to uncataloged\_token\_transfer\_block\_numbers
+
+* [#7363](https://github.com/blockscout/blockscout/pull/7363) - CSV export filters
+
+* [#7697](https://github.com/blockscout/blockscout/pull/7697) - Limit fetchers init tasks
+
+

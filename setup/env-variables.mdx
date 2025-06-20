@@ -1,0 +1,60 @@
+---
+title: "☑️ENV Variables"
+sidebarTitle: "Overview"
+---
+
+<Tip>
+🚗 [Autoscout is now available](/using-blockscout/autoscout), providing a simple one-click explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [**Get Started Now**](/using-blockscout/autoscout) **and have your explorer up-and-running in minutes.**
+
+</Tip>
+
+Blockscout uses ENVs for setting hundreds of different parameters. Please see the various sections for ENV names, descriptions, default values and versioning.
+
+<Info>
+* [Backend ENVs: Common](/setup/env-variables/backend-env-variables)
+
+* [Backend ENVs: Chain Specific](/setup/env-variables/backend-envs-chain-specific)
+
+* [Backend ENVs: Integrations](/setup/env-variables/backend-envs-integrations)
+
+* [Frontend ENVs: Common](/setup/env-variables/frontend-common-envs)
+
+</Info>
+
+<Warning>
+You will find deprecated ENV vars on the [Deprecated ENV Variables](https://docs.blockscout.com/for-developers/information-and-settings/deprecated-env-variables) page.
+
+</Warning>
+
+## Set ENV Variables with CLI
+
+Use the export command to set variables. For example:
+
+```javascript
+$ export ETHEREUM_JSONRPC_VARIANT=nethermind
+$ export COIN=POA
+$ export NETWORK=POA
+```
+
+## Required ENV variables
+
+Please see the [Backend ENVs page](/setup/env-variables/backend-env-variables) for details. Required variables are located in the General Management section and marked with a ✅
+
+## Example ENV Variables Set
+
+The following variables are set for the [Gnosis Chain Blockscout Instance](https://gnosis.blockscout.com/). *Note that some variables are not included as they contain private information which should not be exposed.*
+
+<Card horizontal title="Gnosis-Chain-Variables.txt" icon="file-arrow-down" href="https://1077666658-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-Lq1XoWGmy8zggj_u2fM%2Fuploads%2Fgit-blob-6ca29409491d82049d08c1b49886487cc8960e65%2FGnosis-Chain-Variables.txt?alt=media" >
+  6KB
+</Card>
+
+## Time format
+
+Can be set in format `1h` for 1 hour, `1m` for 1 minute, `1s` or `1` for 1 second, `1ms` for 1 millisecond
+
+<Warning>
+*Note*: **Before release 5.1.2, all environment variables of time format supported only integers in seconds (without dimensions) as values.**
+
+</Warning>
+
+

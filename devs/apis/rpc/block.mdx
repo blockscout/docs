@@ -1,0 +1,167 @@
+---
+title: "Block"
+description: ?module=block
+---
+
+### `https://instance_base_url/api?module=block`
+
+## Get block reward by block number
+
+`getblockreward`
+
+Returns the block reward and 'uncle' block rewards when applicable.
+
+**Example:**
+
+```javascript
+https://instance_base_url/api
+   ?module=block
+   &action=getblockreward
+   &blockno={blockNumber}
+```
+
+<Tabs>
+<Tab title="Request Param">
+
+| Parameter | Description                                                     |
+| --------- | --------------------------------------------------------------- |
+| blockno   | `integer` block number to check block rewards for eg. `2165403` |
+
+</Tab>
+<Tab title="Example Result">
+
+```json
+{
+  "message": "OK",
+  "result": {
+    "blockMiner": "0x13a06d3dfe21e0db5c016c03ea7d2509f7f8d1e3",
+    "blockNumber": "2165403",
+    "blockReward": "5314181600000000000",
+    "timeStamp": "1472533979",
+    "uncleInclusionReward": null,
+    "uncles": null
+  },
+  "status": "1"
+}
+```
+</Tab>
+</Tabs>
+
+## Get estimated block countdown time by block number
+
+`getblockcountdown`
+
+Returns the estimated time remaining, in seconds, until a certain block is included in blockchain.
+
+**Example:**
+
+```javascript
+https://instance_base_url/api
+   ?module=block
+   &action=getblockcountdown
+   &blockno={blockNumber}
+```
+
+
+<Tabs>
+<Tab title="Request Params">
+
+| Parameter | Description                                                     |
+| --------- | --------------------------------------------------------------- |
+| blockno   | `integer` block number to check block rewards for eg. `2165403` |
+
+</Tab>
+<Tab title="Example Result">
+
+```json
+{
+  "message": "OK",
+  "result": {
+    "CurrentBlock": "115334213",
+    "CountdownBlock": "116015880",
+    "RemainingBlock": "681667",
+    "EstimateTimeInSec": "1363349.0"
+  },
+  "status": "1"
+}
+```
+</Tab>
+</Tabs>
+
+
+## Get block number by time stamp
+
+`getblocknobytime`
+
+Returns the block number created closest to a provided timestamp.
+
+**Example:**
+
+```javascript
+https://instance_base_url/api
+   ?module=block
+   &action=getblocknobytime
+   ×tamp={blockTimestamp}
+   &closest={before/after}
+```
+
+<Tabs>
+<Tab title="Request Param">
+
+| Parameter | Description                                                          |
+| --------- | -------------------------------------------------------------------- |
+| timestamp | `integer` representing the Unix timestamp in seconds.                |
+| closest   | closest block to the provided timestamp, either `before` or `after`. |
+
+Note: [How to convert date/time to a Unix timestamp](https://www.unixtimestamp.com/).
+
+</Tab>
+<Tab title="Example Result">
+
+```json
+{
+  "message": "OK",
+  "result": {
+    "blockNumber": "2165403"
+  },
+  "status": "1"
+}
+```
+</Tab>
+</Tabs>
+
+## Get the latest block number
+
+`eth_block_number`
+
+Mimics Ethereum JSON RPC's eth\_blockNumber.
+
+**Example:**
+
+```javascript
+https://instance_base_url/api
+   ?module=block
+   &action=eth_block_number
+```
+
+<Tabs>
+<Tab title="Request Params">
+
+| Parameter | Description                                                           |
+| --------- | --------------------------------------------------------------------- |
+| id        | optional nonnegative integer that represents the json rpc request id. |
+
+More on [json rpc request id](https://www.jsonrpc.org/specification).
+
+</Tab>
+<Tab title="Example Result">
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": "0x103538a",
+  "id": 1
+}
+```
+</Tab>
+</Tabs>

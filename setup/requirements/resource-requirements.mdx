@@ -1,0 +1,47 @@
+---
+title: "Hardware & Hosting Requirements"
+---
+
+Resource requirements may vary based on chain size and other parameters. This mainly impacts [database storage](/setup/requirements/database-storage-requirements) requirements. Basic [prerequisites](/setup/requirements/requirements) and settings can be found throughout the [Information and Settings](/setup/information-and-settings) section for developers.
+
+BlockScout requires a full archive node to import every state change for every address on the target network.
+
+## Recommended Base Hardware
+
+EVM chains can differ in size and requirements, these are the recommendations for optimal performance.
+
+| CPU | 16 core, 32 thread |
+| --- | ------------------ |
+| RAM | 128GB              |
+
+## Hosting Requirements
+
+Minimums are listed for an AWS Cloud instance and can be inferred to other hosting providers.
+
+|                               |                                                                                                                                                                                                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Application                   | • 1x EC2 m5a.xlarge instance running Linux<br/><br/>• 8GB of EBS General Purpose SSD (NVMe)                                                                                                                                                              |
+| Database                      | • 1x RDS Database running on db.t3.large using PostgreSQL v12+<br/><br/>• 500GB of General Purpose SSD (depending on chain size)<br/><br/>• See [Database Storage Requirements](/setup/requirements/database-storage-requirements) for chain-relevant baselines. |
+| Amazon Elastic Load Balancing | • Average 100 new connections/sec per Elastic Load Balancer                                                                                                                                                                                      |
+
+<Info>
+Requirements will vary based on chain. For example, these are the recommended requirements for a Harmony Explorer Node:
+
+**Setup**: AWS i3en.12xlarge or equivalent, with local disk storage **Storage**: \~24TB (4x NVMe SSD) is recommended for Archival Explorer Nodes on Shard 0 **OS**: Latest Ubuntu Linux (LTS Version) **Network**: 100M+ bandwidth
+
+</Info>
+
+<Tip>
+For additional information, see:
+
+* [General Requirements:](/setup/requirements/requirements) Software required for deployment
+
+* [Database Storage Requirements](/setup/requirements/database-storage-requirements): Storage required for common chains to give a sense of needed storage
+
+* [Node Tracing Requirements](/setup/requirements/node-tracing-json-rpc-requirements): JSON RPC methods
+
+* [Client Setting Requirements](/setup/requirements/client-settings): Settings related to client implementations (ie Geth, OpenEthereum, etc)
+
+</Tip>
+
+

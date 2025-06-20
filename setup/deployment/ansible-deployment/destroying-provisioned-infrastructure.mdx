@@ -1,0 +1,24 @@
+---
+title: "Destroying Provisioned Infrastructure"
+---
+
+<Warning>
+Deployment with Terraform 12 is unstable due to these bugs: [#144](https://github.com/poanetwork/blockscout-terraform/issues/144), [#147](https://github.com/poanetwork/blockscout-terraform/issues/147), [#148](https://github.com/poanetwork/blockscout-terraform/issues/148), [#149](https://github.com/poanetwork/blockscout-terraform/issues/149). Please use TF 11.11 - 11.14 and following branch for deployment [https://github.com/poanetwork/blockscout-terraform/tree/before-t12](https://github.com/poanetwork/blockscout-terraform/tree/before-t12)
+
+</Warning>
+
+First, remove autoscaling groups (ASG) deployed via CodeDeploy manually since Terraform doesn't track them and will miss them during the automatic destroy process. Once ASG is deleted you can use the `ansible-playbook destroy.yml` playbook to remove the rest of the generated infrastructure.
+
+Make sure to check the playbook output since in some cases it may not delete everything. Check the error description for details.
+
+<Warning>
+While Terraform is stateful, Ansible is stateless, so if you modify `bucket` or `dynamodb_table` variables and run `destroy.yml` or `deploy_infra.yml` playbooks, it will not alter the current S3/Dynamo resources names, but create new resources. Moreover, altering the `bucket` variable will make Terraform forget about existing infrastructure and, as a consequence, redeploy it. If it is absolutely necessary for you to alter the S3 or DynamoDB names, perform this operation manually and then change the appropriate variable accordingly.
+
+</Warning>
+
+<Info>
+Changing the `backend` variable will force Terraform to forget about created infrastructure, since it will start searching the current state files locally instead of remotely.
+
+</Info>
+
+

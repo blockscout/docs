@@ -1,0 +1,70 @@
+---
+title: "Reown (Previously WalletConnect) Project ID For Contract Read/Write"
+---
+
+<Info>
+The latest versions of Blockscout use Reown (previously WalletConnect) for Read and Write functionality with smart contracts. The frontend variable `NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID` must be enabled with your project ID for this feature to work.
+
+</Info>
+
+## Setting up a Reown Project ID
+
+1\) Go to [https://cloud.reown.com/sign-in](https://cloud.reown.com/sign-in) and sign in or create an account.
+
+2\) Create a new Project
+
+<Frame caption="">
+  <img src="/images/ef662cf6-image.jpeg" />
+</Frame>
+
+3\) Add your project information (name and project homepage) and click continue.
+
+<Frame caption="">
+  <img src="/images/5aacc1da-image.jpeg" />
+</Frame>
+
+4\) Select **WalletKit** as the SDK.
+
+<Frame caption="">
+  <img src="/images/f1454996-image.jpeg" />
+</Frame>
+
+5\) Select **Javascript** as the platform and create your project.
+
+<Frame caption="">
+  <img src="/images/44eaa7e8-image.jpeg" />
+</Frame>
+
+6\) Scroll down to see your basic information, including your Project ID. Before using, however, **setup Project Domains**. Please include any urls which host your explorer(s) here.
+
+<Warning>
+This step is important because the Project ID will be exposed in the browser. Setting allowed domains prevents unauthorized usage of your ID.
+
+</Warning>
+
+<Frame caption="">
+  <img src="/images/d46a2c33-image.jpeg" />
+</Frame>
+
+You can also verify your domain domains. This is not required but is recommended for security. Instructions are included in the interface.
+
+<Frame caption="">
+  <img src="/images/7caa93d0-image.jpeg" />
+</Frame>
+
+7\) Copy your project ID and add in the ENV.
+
+<Frame caption="">
+  <img src="/images/e49e1dc3-image.jpeg" />
+</Frame>
+
+```javascript
+$ export NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=54b4....8dd05
+```
+
+<Tip>
+You Blockscout instance will now support the Reown Project ID for Contract Read and Write functionality. [-> See more front-end ENVs related to Blockchain and contract interaction](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md#blockchain-interaction-writing-to-contract-etc).
+
+</Tip>
+
+

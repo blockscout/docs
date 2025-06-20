@@ -1,0 +1,32 @@
+---
+title: "JSON RPC & ETH Compatible RPC Endpoints"
+sidebarTitle: "Overview"
+description: API designed for ease of use
+---
+
+This API is provided for developers transitioning applications from Etherscan to BlockScout and applications requiring general API and data support. It supports GET and POST requests.
+
+<Info>
+URLs vary by instance. With typical installations, access the API by adding `/api` to the end of the url. For example with the Sepolia instance.
+
+* URL: [https://eth-sepolia.blockscout.com](https://eth-sepolia.blockscout.com/)
+
+* API URL: [https://eth-sepolia.blockscout.com/api](https://eth-sepolia.blockscout.com/api)
+
+An example query includes a module and action(s)/parameters. For example: [https://eth-sepolia.blockscout.com/api?module=**account**\&action=**listaccounts**\&page=2\&offset=5](https://eth-sepolia.blockscout.com/api?module=account\&action=listaccounts\&page=2\&offset=5)
+
+</Info>
+
+The following modules are supported. Click through to see specific endpoints and parameters.
+
+|                                           |                       |
+| ----------------------------------------- | --------------------- |
+| [Account](/devs/apis/rpc/account)         | `?module=account`     |
+| [Logs](/devs/apis/rpc/logs)               | `?module=logs`        |
+| [Token](/devs/apis/rpc/token)             | `?module=token`       |
+| [Stats](/devs/apis/rpc/stats)             | `?module=stats`       |
+| [Block](/devs/apis/rpc/block)             | `?module=block`       |
+| [Contract](/devs/apis/rpc/contract)       | `?module=contract`    |
+| [Transaction](/devs/apis/rpc/transaction) | `?module=transaction` |
+
+

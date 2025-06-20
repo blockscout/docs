@@ -1,0 +1,954 @@
+---
+title: "Integrate Merits"
+---
+
+<Info>
+Attention ETHGlobal Hackathon Participants. We have a $1000 Bounty available for best integration of Merits. The basic requirement is to incorporate Merits (Blockscout Points) into your application in some way. Users can earn Merits through different activities in your app and you can distribute them via the API. Below you will find more info on the program and the API for checking user Merits, distribution, and login processes.
+
+</Info>
+
+***
+
+### What are Blockscout Merits?
+
+Merits are digital rewards collected by interacting with Blockscout and Blockscout-related apps and by participating in various activities (like contests, X participation, telegram participation, app participation and more). Merits are chain agnostic and can be incorporated into any application. For more details see the [Merits section of the docs](/using-blockscout/merits).
+
+### Using Merits as an activity incentive
+
+Merits are used to incentivize different activities within the Blockscout universe. For example:
+
+* **Blockscout explorer basics:** Earn Merits by signing up for the program. Once you are signed up, you can earn additional Merits by completing a daily claim. You can also share your referral code and earn Merits when new users sign up with that code.
+
+* **Telegram mini app.** The telegram Blockscout Merits Bot allows for direct communication with subscribers. Users who download the bot receive extra Merits -> [https://t.me/blockscout\_merits\_bot](https://t.me/blockscout_merits_bot)
+
+* **Swapscout swapping app**. Merits are incorporated in the app so that users can view their balance and earn Merits for their swaps. [https://swap.blockscout.com/](https://swap.blockscout.com/). **This is a good example of an external app that incorporates Merits.**
+
+* **Revokescout app.** Merits are used to incentivize users but there is no sign in or interface. We simply check addresses that use the application and distribute Merits to those addresses.
+
+* **Blockscout campaigns**. Participants in time-gated campaigns such as rating Dapps or Twitter(X) contests receive additional Merits. We collect the Ethereum addresses of winners and distribute Merits manually.
+
+* **Partner campaigns**. Merits are allocated to users of other protocols as an additional incentive for use. Partners provide us with a list of addresses and tasks they completed and we distribute accordingly.
+
+### Integrating Test Merits into your application
+
+Merits can be integrated in different ways into your application. Ideas may be to include Merits as a reward for user interactions with your app or a general reward for any activity. Merits can be distributed to users via the API.
+
+Users can have the ability to sign up for Merits through your app and/or login to their Merits account. You can also display individual Merits balances and leaderboard balances within your application. However, these are optional integrations.
+
+To qualify for the bounty, you simply need to provide Merit incentives for certain activities, and then distribute those merits appropriately. As long as you have the participant's Ethereum address you can distribute Merits.
+
+<Warning>
+Note: You can retrieve basic data without an API key, but **for interactivity purposes you will need to request one via our Discord channe**l. See below.
+
+</Warning>
+
+### Getting started
+
+1. Request your API key at: [https://ethglobal.com/discord](https://ethglobal.com/discord) in the #partner-blockscout channel
+
+2. API hostname (and test merits dashboard): [https://merits-staging.blockscout.com](<https://merits-staging.blockscout.com >)
+
+<Info>
+A full list of endpoints is available on our swagger page here: [https://blockscout.github.io/swaggers/services/merits/main/index.html](https://blockscout.github.io/swaggers/services/merits/main/index.html)
+
+</Info>
+
+### Get basic Merit info for a user
+
+`GET` `https://merits-staging.blockscout.com/api/v1/auth/user/\{address}`
+
+Returns user information by address
+
+**Path parameters**
+
+<ParamField body="address" type="string" required>
+  The blockchain address of the user
+</ParamField>
+
+**Responses**
+
+<Accordion title="200 User Information">
+<ResponseField name="Response" type="object">
+  <Expandable title="properties">
+    <ResponseField name="exists" type="boolean" required>
+      Indicates if the user exists
+
+      Example: `true`
+    </ResponseField>
+    <ResponseField name="user" type="object">
+      <Expandable title="properties">
+        <ResponseField name="address" type="string" required>
+          The blockchain address of the user
+
+          Example: `0x813399e5b08Bb50b038AA7dF6347b6AF2D161338`
+        </ResponseField>
+        <ResponseField name="total_balance" type="string" required>
+          Merits balance
+
+          Example: `981`
+        </ResponseField>
+        <ResponseField name="referrals" type="string" required>
+          Number of invited users
+
+          Example: `5`
+        </ResponseField>
+        <ResponseField name="registered_at" type="string . date-time" required>
+          Registration timestamp
+
+          Example: `2024-10-21T13:21:20.529Z`
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+</Accordion>
+
+<CodeGroup>
+~~~http HTTP
+GET /api/v1/auth/user/{address} HTTP/1.1
+Host: merits-staging.blockscout.com
+Accept: */*
+~~~
+
+~~~sh cURL
+curl -L \
+  --url 'https://merits-staging.blockscout.com/api/v1/auth/user/{address}' \
+  --header 'Accept: */*'
+~~~
+
+~~~js JavaScript
+const response = await fetch('https://merits-staging.blockscout.com/api/v1/auth/user/{address}', {
+    method: 'GET',
+    headers: {
+      "Accept": "*/*"
+    },
+});
+
+const data = await response.json();
+~~~
+
+~~~py Python
+import requests
+
+response = requests.get(
+    "https://merits-staging.blockscout.com/api/v1/auth/user/{address}",
+    headers={"Accept":"*/*"},
+)
+
+data = response.json()
+~~~
+</CodeGroup>
+
+```json 200 User Information
+{
+  "exists": true,
+  "user": {
+    "address": "0x813399e5b08Bb50b038AA7dF6347b6AF2D161338",
+    "total_balance": "981",
+    "referrals": "5",
+    "registered_at": "2024-10-21T13:21:20.529Z"
+  }
+}
+```
+
+### Get leaderboard ranking for a user
+
+`GET` `https://merits-staging.blockscout.com/api/v1/leaderboard/users/\{address}`
+
+Returns the leaderboard information for a specific user
+
+**Path parameters**
+
+<ParamField body="address" type="string" required>
+  The blockchain address of the user
+</ParamField>
+
+**Responses**
+
+<Accordion title="200 User leaderboard information">
+<ResponseField name="Response" type="object">
+  <Expandable title="properties">
+    <ResponseField name="address" type="string" required>
+      The blockchain address of the user
+
+      Example: `0x813399e5b08Bb50b038AA7dF6347b6AF2D161338`
+    </ResponseField>
+    <ResponseField name="total_balance" type="string" required>
+      The current user's balance
+
+      Example: `981`
+    </ResponseField>
+    <ResponseField name="referrals" type="string" required>
+      Number of invited users
+
+      Example: `5`
+    </ResponseField>
+    <ResponseField name="registered_at" type="string . date-time" required>
+      The date and time when the user registered
+
+      Example: `2024-10-21T13:21:20.529Z`
+    </ResponseField>
+    <ResponseField name="rank" type="string" required>
+      The rank of the user on the leaderboard
+
+      Example: `1`
+    </ResponseField>
+    <ResponseField name="users_below" type="string" required>
+      Number of users below the current user
+
+      Example: `71569`
+    </ResponseField>
+    <ResponseField name="top_percent" type="number . double" required>
+      In what percentage of users the current one is in
+
+      Example: `0.01`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+</Accordion>
+
+<CodeGroup>
+~~~http HTTP
+GET /api/v1/leaderboard/users/{address} HTTP/1.1
+Host: merits-staging.blockscout.com
+Accept: */*
+
+~~~
+
+~~~sh cURL
+curl -L \
+  --url 'https://merits-staging.blockscout.com/api/v1/leaderboard/users/{address}' \
+  --header 'Accept: */*'
+~~~
+
+~~~js JavaScript
+const response = await fetch('https://merits-staging.blockscout.com/api/v1/leaderboard/users/{address}', {
+    method: 'GET',
+    headers: {
+      "Accept": "*/*"
+    },
+});
+
+const data = await response.json();
+~~~
+
+~~~py Python
+import requests
+
+response = requests.get(
+    "https://merits-staging.blockscout.com/api/v1/leaderboard/users/{address}",
+    headers={"Accept":"*/*"},
+)
+
+data = response.json()
+~~~
+</CodeGroup>
+
+~~~json 200 User leaderboard information
+{
+  "address": "0x813399e5b1102950b038AA7dF6347b6AF21102828",
+  "total_balance": "981",
+  "referrals": "5",
+  "registered_at": "2024-10-21T13:21:20.529Z",
+  "rank": "1",
+  "users_below": "71569",
+  "top_percent": 0.01
+}
+~~~
+
+### Partner balance and distribution information
+
+When you request an API key you become a partner! You will receive a balance of test Merits which can then be distributed to your users. 
+
+*\* Requires API Key - Add the assigned API KEY in the Authorization header to see your information.*
+
+`GET` `https://merits-staging.blockscout.com/partner/api/v1/balance`
+
+Returns the balance and distribution information for a partner
+
+**Responses**
+
+<Accordion title="200 Partner balance information">
+<ResponseField name="Response" type="object">
+  <Expandable title="properties">
+    <ResponseField name="name" type="string" required>
+      Partner name
+
+      Example: `partner-1`
+    </ResponseField>
+    <ResponseField name="api_key" type="string" required>
+      API key for the partner
+
+      Example: `4VF6LDF7RC64CNGWXOECF8J1LJ62W5HS`
+    </ResponseField>
+    <ResponseField name="valid_since" type="string . date-time" required>
+      Merits accrual start date
+
+      Example: `2025-05-01T00:00:00.000Z`
+    </ResponseField>
+    <ResponseField name="valid_until" type="string . date-time" required>
+      Merits accrual end date
+
+      Example: `2025-06-01T00:00:00.000Z`
+    </ResponseField>
+    <ResponseField name="rate" type="string" required>
+      Amount of accruing merits per second
+
+      Example: `0.1`
+    </ResponseField>
+    <ResponseField name="balance" type="string" required>
+      Current amount available for distribution
+
+      Example: `1234.5`
+    </ResponseField>
+    <ResponseField name="total_distributed" type="string" required>
+      Total amount distributed in the past
+
+      Example: `100`
+    </ResponseField>
+    <ResponseField name="updated_at" type="string . date-time" required>
+      Last update timestamp
+
+      Example: `2025-04-16T11:26:31.757Z`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+</Accordion>
+
+<CodeGroup>
+~~~http HTTP
+GET /partner/api/v1/balance HTTP/1.1
+Host: merits-staging.blockscout.com
+Accept: */*
+~~~
+
+~~~sh cURL
+curl -L \
+  --url 'https://merits-staging.blockscout.com/partner/api/v1/balance' \
+  --header 'Accept: */*'
+~~~
+
+~~~js JavaScript
+const response = await fetch('https://merits-staging.blockscout.com/partner/api/v1/balance', {
+    method: 'GET',
+    headers: {
+      "Accept": "*/*"
+    },
+});
+
+const data = await response.json();
+~~~
+
+~~~py Python
+import requests
+
+response = requests.get(
+    "https://merits-staging.blockscout.com/partner/api/v1/balance",
+    headers={"Accept":"*/*"},
+)
+
+data = response.json()
+~~~
+</CodeGroup>
+
+~~~json 200 Partner balance information
+{
+  "name": "partner-1",
+  "api_key": "4VF6LDF7RC64CNGWXOECF8J1LJ62W5HS",
+  "valid_since": "2025-05-01T00:00:00.000Z",
+  "valid_until": "2025-06-01T00:00:00.000Z",
+  "rate": "0.1",
+  "balance": "1234.5",
+  "total_distributed": "100",
+  "updated_at": "2025-04-16T11:26:31.757Z"
+}
+~~~
+
+### Distribute Merits
+
+*\* Requires API Key - Add the assigned API KEY in the Authorization header to add your distribution information.*
+
+*Notes:*
+
+* `id` must be unique per each API KEY, so it’s recommended to include date or time period describing the distribution period.
+
+* `distributions`
+
+  * Max `1000` wallets per distribution.
+
+  * Amounts less than `0.01` per address are not allowed.
+
+  * Amounts can be in decimals, max 2 decimal digits precision is recommended.
+
+* create\_missing\_accounts
+
+  * `true`: allows distributions to not yet registered Merits accounts.
+
+  * `false`: only allow distributions to users that are already registered.
+
+`POST` `https://merits-staging.blockscout.com/partner/api/v1/distribute`
+
+Distributes merits to specified addresses
+
+**Body**
+
+<ParamField body="id" type="string" required>
+  Unique ID for the distribution
+
+  Example: `ethglobal_rewards-2025/05/01`
+</ParamField>
+<ParamField body="description" type="string" required>
+  Human readable description of the distribution
+
+  Example: `Extra rewards from ProjectX for using Blockscout during ETH Global`
+</ParamField>
+<ParamField body="distributions" type="object[]" required>
+  List of wallet addresses and amounts (max 1000 wallets)
+  <Expandable title="properties">
+    <ParamField body="address" type="string" required>
+      Blockchain address to receive the distribution
+
+      Example: `0x813399e5b08Bb50b038AA7dF6347b6AF2D161338`
+    </ParamField>
+    <ParamField body="amount" type="string" required>
+      Amount to distribute
+
+      Example: `10.50`
+    </ParamField>
+  </Expandable>
+</ParamField>
+<ParamField body="create_missing_accounts" type="boolean" required>
+  Allow distribution for non-registered accounts if true
+
+  Example: `false`
+</ParamField>
+<ParamField body="expected_total" type="string" required>
+  Total distribution amount (must equal sum of all amounts)
+
+  Example: `100.00`
+</ParamField>
+
+**Responses**
+
+<Accordion title="200 Distribution results">
+<ResponseField name="Response" type="object">
+  <Expandable title="properties">
+    <ResponseField name="accounts_distributed" type="string" required>
+      Number of accounts that received distributions
+
+      Example: `1`
+    </ResponseField>
+    <ResponseField name="accounts_created" type="string" required>
+      Number of new accounts created during distribution
+
+      Example: `0`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+</Accordion>
+
+<CodeGroup>
+~~~http HTTP
+POST /partner/api/v1/distribute HTTP/1.1
+Host: merits-staging.blockscout.com
+Content-Type: application/json
+Accept: */*
+Content-Length: 270
+
+{
+  "id": "ethglobal_rewards-2025/05/01",
+  "description": "Extra rewards from ProjectX for using Blockscout during ETH Global",
+  "distributions": [
+    {
+      "address": "0x813399e5b08Bb50b038AA7dF6347b6AF2D161338",
+      "amount": "10.50"
+    }
+  ],
+  "create_missing_accounts": false,
+  "expected_total": "100.00"
+}
+~~~
+
+~~~sh cURL
+curl -L \
+  --request POST \
+  --url 'https://merits-staging.blockscout.com/partner/api/v1/distribute' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "id": "ethglobal_rewards-2025/05/01",
+    "description": "Extra rewards from ProjectX for using Blockscout during ETH Global",
+    "distributions": [
+      {
+        "address": "0x813399e5b08Bb50b038AA7dF6347b6AF2D161338",
+        "amount": "10.50"
+      }
+    ],
+    "create_missing_accounts": false,
+    "expected_total": "100.00"
+  }'
+~~~
+
+~~~js JavaScript
+const response = await fetch('https://merits-staging.blockscout.com/partner/api/v1/distribute', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      "id": "ethglobal_rewards-2025/05/01",
+      "description": "Extra rewards from ProjectX for using Blockscout during ETH Global",
+      "distributions": [
+        {
+          "address": "0x813399e5b08Bb50b038AA7dF6347b6AF2D161338",
+          "amount": "10.50"
+        }
+      ],
+      "create_missing_accounts": false,
+      "expected_total": "100.00"
+    })
+});
+
+const data = await response.json();
+~~~
+
+~~~py Python
+import requests
+
+response = requests.post(
+    "https://merits-staging.blockscout.com/partner/api/v1/distribute",
+    headers={"Content-Type":"application/json"},
+    data=json.dumps({
+      "id": "ethglobal_rewards-2025/05/01",
+      "description": "Extra rewards from ProjectX for using Blockscout during ETH Global",
+      "distributions": [
+        {
+          "address": "0x813399e5b08Bb50b038AA7dF6347b6AF2D161338",
+          "amount": "10.50"
+        }
+      ],
+      "create_missing_accounts": False,
+      "expected_total": "100.00"
+    })
+)
+
+data = response.json()
+~~~
+</CodeGroup>
+
+~~~json 200 Distribution results
+{
+  "accounts_distributed": "1",
+  "accounts_created": "0"
+}
+~~~
+
+### Login and Registration Flow - Get User Token
+
+*Use the following flow to get a User Token*
+
+1. Get Nonce from Backend
+
+`GET` `https://merits-staging.blockscout.com/api/v1/auth/nonce`
+
+Returns a nonce for authentication
+
+**Responses**
+
+<Accordion title="200 Authentication nonce">
+<ResponseField name="Response" type="object">
+  <Expandable title="properties">
+    <ResponseField name="nonce" type="string" required>
+      Authentication nonce
+
+      Example: `4MCWIDlddqsmJAAAZ`
+    </ResponseField>
+    <ResponseField name="merits_login_nonce" type="string | nullable">
+      Optional merits-specific login nonce
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+</Accordion>
+
+<CodeGroup>
+~~~http HTTP
+GET /api/v1/auth/nonce HTTP/1.1
+Host: merits-staging.blockscout.com
+Accept: */*
+
+~~~
+
+~~~sh cURL
+curl -L \
+  --url 'https://merits-staging.blockscout.com/api/v1/auth/nonce' \
+  --header 'Accept: */*'
+~~~
+
+~~~js JavaScript
+const response = await fetch('https://merits-staging.blockscout.com/api/v1/auth/nonce', {
+    method: 'GET',
+    headers: {
+      "Accept": "*/*"
+    },
+});
+
+const data = await response.json();
+~~~
+
+~~~py Python
+import requests
+
+response = requests.get(
+    "https://merits-staging.blockscout.com/api/v1/auth/nonce",
+    headers={"Accept":"*/*"},
+)
+
+data = response.json()
+~~~
+</CodeGroup>
+
+~~~json 200 Authentication nonce
+{
+  "exists": true,
+  "user": {
+    "address": "0x813399e5b08Bb50b038AA7dF6347b6AF2D161338",
+    "total_balance": "981",
+    "referrals": "5",
+    "registered_at": "2024-10-21T13:21:20.529Z"
+  }
+}
+~~~
+
+2. Ask for a signature from a user with a predefined message
+
+```text
+// Formatted message example
+
+
+merits.blockscout.com wants you to sign in with your Ethereum account:
+0x813399e5b08Bb50b038AA7dF6347b6AF2D163328
+
+Sign-In for the Blockscout Merits program.
+
+URI: 
+https://merits-staging.blockscout.com
+Version: 1
+Chain ID: 1
+Nonce: 4MCWIDlddqsmJAZOZ
+Issued At: 2025-03-18T12:23:51.549Z
+Expiration Time: 2026-03-18T12:23:51.549Z
+```
+
+3. Send data to get a user token
+
+`POST` `https://merits-staging.blockscout.com/api/v1/auth/login`
+
+Authenticates a user with a signed message
+
+**Body**
+
+<ParamField body="nonce" type="string" required>
+  Authentication nonce received from the server
+
+  Example: `4MCWIDlddqsmJAAAZ`
+</ParamField>
+<ParamField body="message" type="string" required>
+  The message that was signed
+
+  Example: `merits.blockscout.com wants you to sign in with your Ethereum account: 0x813399e5b08Bb50b038AA7dF6347b6AF2D161338 Sign-In for the Blockscout Merits program. URI: https://merits.blockscout.com Version: 1 Chain ID: 1 Nonce: 4MCWIDlddqsmJAAAZ Issued At: 2025-03-18T12:23:51.549Z Expiration Time: 2026-03-18T12:23:51.549Z`
+</ParamField>
+<ParamField body="signature" type="string" required>
+  The signature of the message
+
+  Example: `0xb11b582a6ef196a3f20fa9c84443a92c9f456c9da2ce8ceea2bcf4ce2b936e35767ac2ff56a1de635b7a5f4bcb5da89c4297efb2b4ce559123891202731752661c`  
+</ParamField>
+
+**Responses**
+
+<Accordion title="200 Authentication result">
+<ResponseField name="Response" type="object">
+  <Expandable title="properties">
+    <ResponseField name="created" type="boolean" required>
+      Indicates if an account was created during this login
+
+      Example: `false`
+    </ResponseField>
+    <ResponseField name="token" type="string" required>
+      JWT authentication token
+
+      Example: `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NzM4MzY2MzEsImlhdCI6MTc0MjMwMDYzMSwibmJmIjoxNzQyMzAwNjMxLCJzdWIiOiIweDgxMzM5OWU1YjA4QmI1MGIwMzhBQTdkRjYzNDdiNkFGMkQxNsadasdasdasdsajE4MjgiLCJqdGkiOiI0TUNXSURsZGRxc21KQVpPWiIsImNoYWluX2lkIjoxLCJkb21haW4iOiJtZXJpdHMuYmxvY2tzY291dC5jb20ifQ.QQj-dn3ZmHhusq7cvtohF72yxF-605lP7WxVuVZ7BfQ`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+</Accordion>
+
+<CodeGroup>
+~~~http HTTP
+POST /api/v1/auth/login HTTP/1.1
+Host: merits-staging.blockscout.com
+Content-Type: application/json
+Accept: */*
+Content-Length: 518
+
+{
+  "nonce": "4MCWIDlddqsmJAAAZ",
+  "message": "merits.blockscout.com wants you to sign in with your Ethereum account:\n0x813399e5b08Bb50b038AA7dF6347b6AF2D161338\n\nSign-In for the Blockscout Merits program.\n\nURI: https://merits.blockscout.com\nVersion: 1\nChain ID: 1\nNonce: 4MCWIDlddqsmJAAAZ\nIssued At: 2025-03-18T12:23:51.549Z\nExpiration Time: 2026-03-18T12:23:51.549Z",
+  "signature": "0xb11b582a6ef196a3f20fa9c84443a92c9f456c9da2ce8ceea2bcf4ce2b936e35767ac2ff56a1de635b7a5f4bcb5da89c4297efb2b4ce559123891202731752661c"
+}
+~~~
+
+~~~sh cURL
+curl -L \
+  --request POST \
+  --url 'https://merits-staging.blockscout.com/api/v1/auth/login' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "nonce": "4MCWIDlddqsmJAAAZ",
+    "message": "merits.blockscout.com wants you to sign in with your Ethereum account:
+  0x813399e5b08Bb50b038AA7dF6347b6AF2D161338
+
+  Sign-In for the Blockscout Merits program.
+
+  URI: https://merits.blockscout.com
+  Version: 1
+  Chain ID: 1
+  Nonce: 4MCWIDlddqsmJAAAZ
+  Issued At: 2025-03-18T12:23:51.549Z
+  Expiration Time: 2026-03-18T12:23:51.549Z",
+    "signature": "0xb11b582a6ef196a3f20fa9c84443a92c9f456c9da2ce8ceea2bcf4ce2b936e35767ac2ff56a1de635b7a5f4bcb5da89c4297efb2b4ce559123891202731752661c"
+  }'
+~~~
+
+~~~js JavaScript
+const response = await fetch('https://merits-staging.blockscout.com/api/v1/auth/login', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      "nonce": "4MCWIDlddqsmJAAAZ",
+      "message": "merits.blockscout.com wants you to sign in with your Ethereum account:\n0x813399e5b08Bb50b038AA7dF6347b6AF2D161338\n\nSign-In for the Blockscout Merits program.\n\nURI: https://merits.blockscout.com\nVersion: 1\nChain ID: 1\nNonce: 4MCWIDlddqsmJAAAZ\nIssued At: 2025-03-18T12:23:51.549Z\nExpiration Time: 2026-03-18T12:23:51.549Z",
+      "signature": "0xb11b582a6ef196a3f20fa9c84443a92c9f456c9da2ce8ceea2bcf4ce2b936e35767ac2ff56a1de635b7a5f4bcb5da89c4297efb2b4ce559123891202731752661c"
+    })
+});
+
+const data = await response.json();
+~~~
+
+~~~py Python
+import requests
+
+response = requests.post(
+    "https://merits-staging.blockscout.com/api/v1/auth/login",
+    headers={"Content-Type":"application/json"},
+    data=json.dumps({
+      "nonce": "4MCWIDlddqsmJAAAZ",
+      "message": "merits.blockscout.com wants you to sign in with your Ethereum account:\n0x813399e5b08Bb50b038AA7dF6347b6AF2D161338\n\nSign-In for the Blockscout Merits program.\n\nURI: https://merits.blockscout.com\nVersion: 1\nChain ID: 1\nNonce: 4MCWIDlddqsmJAAAZ\nIssued At: 2025-03-18T12:23:51.549Z\nExpiration Time: 2026-03-18T12:23:51.549Z",
+      "signature": "0xb11b582a6ef196a3f20fa9c84443a92c9f456c9da2ce8ceea2bcf4ce2b936e35767ac2ff56a1de635b7a5f4bcb5da89c4297efb2b4ce559123891202731752661c"
+    })
+)
+
+data = response.json()
+~~~
+</CodeGroup>
+
+### API Calls Requiring a User Token
+
+*\*Requires User Token: put the user token in the Authorization header*
+
+`GET` `https://merits-staging.blockscout.com/api/v1/user/balances`
+
+Returns the detailed balance information for the authenticated user
+
+**Responses**
+
+<Accordion title="200 User balance details">
+<ResponseField name="Response" type="object">
+  <Expandable title="properties">
+    <ResponseField name="total" type="string" required>
+      The total balance of the user
+
+      Example: `2426.61`
+    </ResponseField>
+    <ResponseField name="staked" type="string" required>
+      The amount of tokens staked by the user
+
+      Example: `0`
+    </ResponseField>
+    <ResponseField name="unstaked" type="string" required>
+      The amount of tokens not staked by the user
+
+      Example: `2426.61`
+    </ResponseField>
+    <ResponseField name="total_staking_rewards" type="string" required>
+      The total staking rewards earned by the user
+
+      Example: `0`
+    </ResponseField>
+    <ResponseField name="total_referral_rewards" type="string" required>
+      The total referral rewards earned by the user
+
+      Example: `20`
+    </ResponseField>
+    <ResponseField name="pending_referral_rewards" type="string" required>
+      The pending referral rewards for the user
+
+      Example: `0`
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+</Accordion>
+
+<CodeGroup>
+~~~http HTTP
+GET /api/v1/user/balances HTTP/1.1
+Host: merits-staging.blockscout.com
+Accept: */*
+
+~~~
+
+~~~sh cURL
+curl -L \
+  --url 'https://merits-staging.blockscout.com/api/v1/user/balances' \
+  --header 'Accept: */*'
+~~~
+
+~~~js JavaScript
+const response = await fetch('https://merits-staging.blockscout.com/api/v1/user/balances', {
+    method: 'GET',
+    headers: {
+      "Accept": "*/*"
+    },
+});
+
+const data = await response.json();
+~~~
+
+~~~py Python
+import requests
+
+response = requests.get(
+    "https://merits-staging.blockscout.com/api/v1/user/balances",
+    headers={"Accept":"*/*"},
+)
+
+data = response.json()
+~~~
+</CodeGroup>
+
+~~~json 200 User balance details
+{
+  "total": "2426.61",
+  "staked": "0",
+  "unstaked": "2426.61",
+  "total_staking_rewards": "0",
+  "total_referral_rewards": "20",
+  "pending_referral_rewards": "0"
+}
+~~~
+
+`GET` `https://merits-staging.blockscout.com/api/v1/user/logs`
+
+Returns activity logs for the authenticated user
+
+**Query parameters**
+
+<ParamField body="page_size" type="integer . int32">
+  Number of items to return per page
+</ParamField>
+<ParamField body="page_token" type="string">
+  Token for pagination
+</ParamField>
+
+**Responses**
+
+<Accordion title="200 User activity logs">
+<ResponseField name="Response" type="object">
+  <Expandable title="properties">
+    <ResponseField name="items" type="object[]" required>
+      list of activity logs
+      <Expandable title="properties">
+        <ResponseField name="action" type="string" required>
+          Type of activity
+
+          Example: `daily_reward`
+        </ResponseField>
+        <ResponseField name="details" type="object" required>
+          <Expandable title="properties">
+            <ResponseField name="streak" type="number . float">
+              Streak count for daily rewards
+
+              Example: `1`
+            </ResponseField>
+            <ResponseField name="amount" type="string">
+                Amount of merits received
+
+                Example: 10
+            </ResponseField>
+            <ResponseField name="date" type="string . date">
+              Date of the activity
+
+              Example: 2025-03-18
+            </ResponseField>
+          </Expandable>
+        </ResponseField>
+        <ResponseField name="timestamp" type="string . date-time" required>
+          Timestamp of the activity
+
+          Example: `2025-03-18T12:13:20.110Z`
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="next_page_params" type="object">
+      <Expandable title="properties">
+        <ResponseField body="page_token" type="string" required>
+          Token for the next page
+
+          Example: `1732067538792818,984727`
+        </ResponseField>
+        <ResponseField body="page_size" type="integer . int32" required>
+          Size of the page
+
+          Example: `50`
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+</Accordion>
+
+<CodeGroup>
+~~~http HTTP
+GET /api/v1/user/logs HTTP/1.1
+Host: merits-staging.blockscout.com
+Accept: */*
+
+~~~
+
+~~~sh cURL
+curl -L \
+  --url 'https://merits-staging.blockscout.com/api/v1/user/logs' \
+  --header 'Accept: */*'
+~~~
+
+~~~js JavaScript
+const response = await fetch('https://merits-staging.blockscout.com/api/v1/user/logs', {
+    method: 'GET',
+    headers: {
+      "Accept": "*/*"
+    },
+});
+
+const data = await response.json();
+~~~
+
+~~~py Python
+import requests
+
+response = requests.get(
+    "https://merits-staging.blockscout.com/api/v1/user/logs",
+    headers={"Accept":"*/*"},
+)
+
+data = response.json()
+~~~
+</CodeGroup>

@@ -1,0 +1,198 @@
+---
+title: "Stats"
+description: ?module=stats
+---
+
+### `https://instance_base_url/api?module=stats`
+
+## Get [ERC-20](https://github.com/ethereum/EIPs/issues/20) or [ERC-721](https://github.com/ethereum/EIPs/issues/721) token total supply by contract address
+
+`tokensupply`
+
+**Example**
+
+```javascript
+https://instance_base_url/api
+   ?module=stats
+   &action=tokensupply
+   &contractaddress={contractAddressHash}
+```
+
+<Tabs>
+<Tab title="Request Param">
+| Parameter       | Description                                                                                    |
+| --------------- | ---------------------------------------------------------------------------------------------- |
+| contractaddress | `string` containing the contract address hash - a 160-bit code used for identifying contracts. |
+
+</Tab>
+<Tab title="Example Result">
+
+```json
+{
+  "message": "OK",
+  "result": "21265524714464",
+  "status": "1"
+}
+```
+
+</Tab>
+</Tabs>
+
+## Get total supply in Wei from exchange
+
+`ethsupplyexchange`
+
+**Example:**
+
+```javascript
+// Some code
+```
+
+<Tabs>
+<Tab title="Request Param">
+
+| Parameter | Description |
+| --------- | ----------- |
+| param     | description |
+
+</Tab>
+<Tab title="Example Result">
+
+```javascript
+// Some code
+```
+</Tab>
+</Tabs>
+
+## Get total supply in Wei from DB
+
+`ethsupply`
+
+**Example:**
+
+```javascript
+// Some code
+```
+
+<Tabs>
+<Tab title="Request Params">
+
+| Parameter | Description |
+| --------- | ----------- |
+| param     | description |
+
+</Tab>
+<Tab title="Example Result">
+
+```javascript
+// Some code
+```
+</Tab>
+</Tabs>
+
+## Get total coin supply from DB minus burnt number
+
+`coinsupply`
+
+**Example:**
+
+```javascript
+// Some code
+```
+
+<Tabs>
+<Tab title="Request Params">
+
+| Parameter | Description |
+| --------- | ----------- |
+| param     | description |
+
+</Tab>
+<Tab title="Example Result">
+
+```javascript
+// Some code
+```
+</Tab>
+</Tabs>
+
+## Get latest price of native coin in USD and BTC
+
+`ethprice`
+
+**Example:**
+
+```javascript
+// Some code
+```
+
+<Tabs>
+<Tab title="Request Params">
+
+| Parameter | Description |
+| --------- | ----------- |
+| param     | description |
+
+</Tab>
+<Tab title="Example Result">
+
+```javascript
+// Some code
+```
+
+</Tab>
+</Tabs>
+
+## Get latest price of native coin in USD and BTC in more general format
+
+`coinprice`
+
+**Example:**
+
+```javascript
+// Some code
+```
+
+<Tabs>
+<Tab title="Request Params">
+
+| Parameter | Description |
+| --------- | ----------- |
+| param     | description |
+
+</Tab>
+<Tab title="Example Result">
+
+```javascript
+// Some code
+```
+</Tab>
+</Tabs>
+
+## Get total transaction fees in Wei paid by users to validators per day
+
+`totalfees`
+
+**Example:**
+
+```javascript
+// Some code
+```
+
+<Tabs>
+<Tab title="Request Params">
+
+| Parameter | Description |
+| --------- | ----------- |
+| param     | description |
+
+</Tab>
+<Tab title="Example Result">
+
+```javascript
+// Some code
+```
+</Tab>
+</Tabs>
+
+
