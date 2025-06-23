@@ -155,7 +155,7 @@
                         ]
                     },
                     {
-                        "group": "👩‍💻 Developer Support",
+                        "group": "Developer Support",
                         "pages": [
                             "devs/for-web3-developers",
                             "devs/replace-links",
@@ -185,7 +185,7 @@
                         ]
                     },
                     {
-                        "group": "🏃‍♂️ Setup and Run Blockscout",
+                        "group": "Setup and Run Blockscout",
                         "pages": [
                             {
                                 "group": "General Overview",
@@ -495,18 +495,14 @@
             "dropdown": "Documentation",
             "icon": "book-open",
             "pages": [
-                "quickstart",
-                "development",
-                "navigation"
+                "index"
             ]
         },
         {
             "dropdown": "API References",
             "icon": "square-terminal",
             "pages": [
-                "api-reference/get",
-                "api-reference/post",
-                "api-reference/delete"
+                "devs/apis"
             ]
         },
         {
@@ -523,7 +519,7 @@
         "links": [
             {
                 "label": "Support",
-                "href": "https://github.com/sponsors/blockscout"
+                "href": "https://discord.gg/blockscout"
             }
         ],
         "primary": {
