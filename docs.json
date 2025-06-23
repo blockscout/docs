@@ -32,17 +32,16 @@
                 "pages": [
                     {
                         "group": "Get Started",
-                        "icon": "book",  
+                        "icon": "book",
                         "pages": [
-                          "about/roadmap",
-                          "about/funding",
-                          {
+                            "about/roadmap",
+                            "about/funding",
+                            {
                                 "group": "Features",
                                 "pages": [
-                                  "index",  
-                                  "about/features",
-                                    "about/features/ethereum-bytecode-database-microservice",
-                                    "about/features/blockscout-2-0"
+                                    "index",
+                                    "about/features",
+                                    "about/features/ethereum-bytecode-database-microservice"
                                 ]
                             },
                             "about/chains",
@@ -362,7 +361,7 @@
                         ]
                     },
                     {
-                        "group": "🧩Resources",
+                        "group": "Resources",
                         "pages": [
                             "resources/premium-features",
                             "resources/contributing-to-blockscout",
@@ -439,6 +438,41 @@
                         ]
                     }
                 ]
+            },
+            {
+                "tab": "About Blockscout",
+                "groups": [
+                    {
+                        "group": "General",
+                        "pages": [
+                            "about/funding",
+                            "about/announcements/newsletter-and-blog"
+                        ]
+                    },
+                    {
+                        "group": "Explorer as a Service",
+                        "pages": [
+                            "resources/premium-features"
+                        ]
+                    },
+                    {
+                        "group": "Partners",
+                        "pages": [
+                            "about/partners-and-integrations",
+                            "about/partners-and-integrations/raas-providers",
+                            "about/partners-and-integrations/vera-verifier-alliance",
+                            "about/announcements",
+                            "about/announcements/newsletter-and-blog"
+                        ]
+                    },
+                    {
+                        "group": "News",
+                        "pages": [
+                            "about/announcements",
+                            "about/announcements/newsletter-and-blog"
+                        ]
+                    }
+                ]
             }
         ],
         "global": {
@@ -456,30 +490,30 @@
             ]
         }
     },
-  "dropdowns": [
-            {
-                "dropdown": "Documentation",
-                "icon": "book-open",
-                "pages": [
-                    "quickstart",
-                    "development",
-                    "navigation"
-                ]
-            },
-            {
-                "dropdown": "API References",
-                "icon": "square-terminal",
-                "pages": [
-                    "api-reference/get",
-                    "api-reference/post",
-                    "api-reference/delete"
-                ]
-            },
-            {
-                "dropdown": "Blog",
-                "href": "https://external-link.com/blog"
-            }
-        ],
+    "dropdowns": [
+        {
+            "dropdown": "Documentation",
+            "icon": "book-open",
+            "pages": [
+                "quickstart",
+                "development",
+                "navigation"
+            ]
+        },
+        {
+            "dropdown": "API References",
+            "icon": "square-terminal",
+            "pages": [
+                "api-reference/get",
+                "api-reference/post",
+                "api-reference/delete"
+            ]
+        },
+        {
+            "dropdown": "Blog",
+            "href": "https://external-link.com/blog"
+        }
+    ],
     "logo": {
         "light": "/logo/Color_BS_logo_hor.svg",
         "dark": "/logo/White_BS_logo_hor.svg",
