@@ -34,53 +34,10 @@
                         "group": "Get Started",
                         "icon": "book",
                         "pages": [
-                            "about/roadmap",
-                            "about/funding",
-                            {
-                                "group": "Features",
-                                "pages": [
-                                    "index",
-                                    "about/features",
-                                    "about/features/ethereum-bytecode-database-microservice"
-                                ]
-                            },
-                            "about/chains",
-                            {
-                                "group": "Partners & Integrations",
-                                "pages": [
-                                    "about/partners-and-integrations",
-                                    "about/partners-and-integrations/raas-providers",
-                                    {
-                                        "group": "Vera: Verifier Alliance",
-                                        "pages": [
-                                            "about/partners-and-integrations/vera-verifier-alliance",
-                                            "about/partners-and-integrations/vera-verifier-alliance/adding-your-chain-to-the-vera-database",
-                                            "about/partners-and-integrations/vera-verifier-alliance/programmatic-verification-via-the-api"
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "group": "News & Media",
-                                "pages": [
-                                    "about/announcements",
-                                    "about/announcements/newsletter-and-blog"
-                                ]
-                            },
-                            {
-                                "group": "Funding",
-                                "pages": [
-                                    "about/funding",
-                                    {
-                                        "group": "L2 Funding Proposal",
-                                        "pages": [
-                                            "about/funding/l2-funding-proposal",
-                                            "about/funding/l2-funding-proposal/aux-funding-images"
-                                        ]
-                                    }
-                                ]
-                            },
-                            "about/roadmap"
+                            "get-started/new-to-blockscout",
+                            "get-started/using-an-explorer",
+                            "get-started/integrating-data",
+                            "get-started/running-blockscout"
                         ]
                     },
                     {
@@ -441,7 +398,7 @@
             },
             {
                 "tab": "About Blockscout",
-                "groups": [
+                "pages": [
                     {
                         "group": "General",
                         "pages": [
