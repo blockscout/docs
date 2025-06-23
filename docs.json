@@ -82,7 +82,8 @@
             ]
           },
           {
-            "group": "🙎 Using Blockscout",
+            "group": "Using Blockscout",
+            "icon": "code",
             "pages": [
               {
                 "group": "Getting Started",
