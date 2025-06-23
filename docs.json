@@ -26,42 +26,21 @@
         }
     },
     "navigation": {
-        "dropdowns": [
-            {
-                "dropdown": "Documentation",
-                "icon": "book-open",
-                "pages": [
-                    "quickstart",
-                    "development",
-                    "navigation"
-                ]
-            },
-            {
-                "dropdown": "API References",
-                "icon": "square-terminal",
-                "pages": [
-                    "api-reference/get",
-                    "api-reference/post",
-                    "api-reference/delete"
-                ]
-            },
-            {
-                "dropdown": "Blog",
-                "href": "https://external-link.com/blog"
-            }
-        ],
         "tabs": [
             {
                 "tab": "Guides",
                 "pages": [
-                    "index",
                     {
-                        "group": "💡About BlockScout",
+                        "group": "Get Started",
+                        "icon": "book",  
                         "pages": [
-                            {
+                          "about/roadmap",
+                          "about/funding",
+                          {
                                 "group": "Features",
                                 "pages": [
-                                    "about/features",
+                                  "index",  
+                                  "about/features",
                                     "about/features/ethereum-bytecode-database-microservice",
                                     "about/features/blockscout-2-0"
                                 ]
@@ -477,6 +456,30 @@
             ]
         }
     },
+  "dropdowns": [
+            {
+                "dropdown": "Documentation",
+                "icon": "book-open",
+                "pages": [
+                    "quickstart",
+                    "development",
+                    "navigation"
+                ]
+            },
+            {
+                "dropdown": "API References",
+                "icon": "square-terminal",
+                "pages": [
+                    "api-reference/get",
+                    "api-reference/post",
+                    "api-reference/delete"
+                ]
+            },
+            {
+                "dropdown": "Blog",
+                "href": "https://external-link.com/blog"
+            }
+        ],
     "logo": {
         "light": "/logo/Color_BS_logo_hor.svg",
         "dark": "/logo/White_BS_logo_hor.svg",
