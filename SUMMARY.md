@@ -2,7 +2,7 @@
 
 * [Blockscout Open-Source Explorer](README.md)
 
-## 💡 About BlockScout <a href="#about" id="about"></a>
+## About BlockScout <a href="#about" id="about"></a>
 
 * [Features](about/features/README.md)
   * [Ethereum Bytecode Database Microservice](about/features/ethereum-bytecode-database-microservice.md)
@@ -20,7 +20,7 @@
     * [Aux Funding Images](about/funding/l2-funding-proposal/aux-funding-images.md)
 * [Roadmap](about/roadmap.md)
 
-## 🙎 Using Blockscout
+## Using Blockscout
 
 * [Getting Started](using-blockscout/overviews/README.md)
   * [Glossary of Terms](using-blockscout/overviews/glossary-of-terms.md)
@@ -53,7 +53,7 @@
   * [Badges](using-blockscout/merits/badges.md)
   * [FAQs](using-blockscout/merits/faqs.md)
 
-## 👩‍💻 Developer Support <a href="#devs" id="devs"></a>
+## Developer Support <a href="#devs" id="devs"></a>
 
 * [For Web3 Developers](devs/for-web3-developers.md)
 * [Link to Blockscout](devs/replace-links.md)
@@ -87,7 +87,7 @@
 * [Integrate Merits](devs/integrate-merits.md)
 * [Chainscout chains list](devs/chainscout-chains-list.md)
 
-## 🏃‍♂️ Setup and Run Blockscout <a href="#setup" id="setup"></a>
+## Setup and Run Blockscout <a href="#setup" id="setup"></a>
 
 * [General Overview](setup/information-and-settings/README.md)
   * [Separate Indexer, Web App, and API](setup/information-and-settings/separate-indexer-web-app-and-api.md)
@@ -104,7 +104,7 @@
   * [Client Setting Requirements](setup/requirements/client-settings.md)
   * [Node Tracing / JSON RPC Requirements](setup/requirements/node-tracing-json-rpc-requirements.md)
   * [L2 -> L1 JSON-RPC Method Requests](setup/requirements/l2-greater-than-l1-json-rpc-method-requests.md)
-* [☑️ ENV Variables](setup/env-variables/README.md)
+* [ENV Variables](setup/env-variables/README.md)
   * [Backend ENVs: Common](setup/env-variables/backend-env-variables.md)
   * [Backend ENVs: Chain-Specific](setup/env-variables/backend-envs-chain-specific.md)
   * [Backend ENVs: Integrations](setup/env-variables/backend-envs-integrations.md)
@@ -114,14 +114,14 @@
   * [Deprecated Backend ENVs](setup/env-variables/deprecated-env-variables/README.md)
     * [Previous ENV Variable Home Page](setup/env-variables/deprecated-env-variables/env-variables.md)
 * [Deployment](setup/deployment/README.md)
-  * [⭐ Manual Deployment Guide](setup/deployment/manual-deployment-guide/README.md)
+  * [Manual Deployment Guide](setup/deployment/manual-deployment-guide/README.md)
     * [Ubuntu Setup](setup/deployment/manual-deployment-guide/ubuntu-setup.md)
     * [MacOS setup](setup/deployment/manual-deployment-guide/macos-setup.md)
-  * [⭐ Docker-compose Deployment](setup/deployment/docker-compose-deployment.md)
-  * [⭐ Kubernetes Deployment](setup/deployment/kubernetes-deployment.md)
+  * [Docker-compose Deployment](setup/deployment/docker-compose-deployment.md)
+  * [Kubernetes Deployment](setup/deployment/kubernetes-deployment.md)
   * [Rollup Deployment](setup/deployment/rollup-deployment.md)
-  * [🌟 Cosmos-based chains](setup/deployment/cosmos-based-chains.md)
-  * [🍀 Upgrade Guide (v7.0 & v8.0)](setup/deployment/upgrade-guide-v7.0.md)
+  * [Cosmos-based chains](setup/deployment/cosmos-based-chains.md)
+  * [Upgrade Guide (v7.0 & v8.0)](setup/deployment/upgrade-guide-v7.0.md)
   * [Frontend Migration](setup/deployment/frontend-migration/README.md)
     * [All-In-One Container](setup/deployment/frontend-migration/all-in-one-container.md)
     * [Separate Frontend](setup/deployment/frontend-migration/separate-frontend.md)
@@ -186,7 +186,7 @@
 * [User FAQs](faqs/faqs.md)
 * [Developer FAQs](faqs/developer-faqs.md)
 
-## 🧩 Resources
+## Resources
 
 * [EaaS: Hosting with Blockscout](resources/premium-features.md)
 * [Contributing to Blockscout](resources/contributing-to-blockscout.md)

@@ -53,11 +53,11 @@ services:
       - indexer.env
 ```
 
-Make sure to replace `our_password` for th DB with your password.
+Make sure to replace `our_password` for the DB with your password.
 
 This yml requires having two env files in the same directory:
 
-1\) `node.env` for configuring the light node:
+**1)** `node.env` for configuring the light node:
 
 ```
 P2P_NETWORK=mocha
@@ -66,9 +66,14 @@ RPC_URL=celestia-mocha-archive-rpc.mzonder.com
 # RPC_URL=celestia-rpc.brightlystake.com
 ```
 
-Uncomment and use the last two lines when you need Celestia Mainnet instead of Celestia Mocha. The lists of Celestia RPC nodes can be found at [https://docs.celestia.org/how-to-guides/mocha-testnet#production-rpc-endpoints](https://docs.celestia.org/how-to-guides/mocha-testnet#production-rpc-endpoints) and https://docs.celestia.org/how-to-guides/mainnet#production-rpc-endpoints
+Uncomment and use the last two lines when you need Celestia Mainnet instead of Celestia Mocha. \
+\
+The lists of Celestia RPC nodes can be found at:
 
-2\) `indexer.env` for configuring the blobs indexer:
+* &#x20;[https://docs.celestia.org/how-to-guides/mocha-testnet#production-rpc-endpoints](https://docs.celestia.org/how-to-guides/mocha-testnet#production-rpc-endpoints)
+* &#x20;[https://docs.celestia.org/how-to-guides/mainnet#production-rpc-endpoints](https://docs.celestia.org/how-to-guides/mainnet#production-rpc-endpoints)
+
+**2)** `indexer.env` for configuring the blobs indexer:
 
 ```
 DA_INDEXER__INDEXER__DA__CELESTIA__RPC__URL="http://celestia-light-node:26658"
