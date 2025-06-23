@@ -34,7 +34,7 @@
                         "group": "Get Started",
                         "icon": "book",
                         "pages": [
-                            "get-started/new-to-blockscout",
+                            "index",
                             "get-started/using-an-explorer",
                             "get-started/integrating-data",
                             "get-started/running-blockscout"
