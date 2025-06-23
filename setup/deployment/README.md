@@ -12,6 +12,7 @@ There are several methods available for deploying Blockscout and associated serv
 
 * [Autoscout Deployment](../../using-blockscout/autoscout.md): Use the Blockscout launchpad to deploy an instance in 5 minutes using Blockscout's infrastructure
 * [Manual Deployment](manual-deployment-guide/): Includes instructions for deploying Blockscout with the current frontend and all microservices.
+* [Kurtosis Deployment](https://github.com/LZeroAnalytics/blockscout-package): Plug-and-play explorer bundle by Bloctopus.io to deploy Blockscout services within any Kurtosis environment, supporting EVM, OP, oe standalone stacks
 * [Docker-compose Deployment](docker-compose-deployment.md): Includes current frontend and all microservices
 * [Kubernetes Deployment](kubernetes-deployment.md): Includes current frontend and all microservices
 * [Manual Deployment](manual-old-ui/) with backend and **old Blockscout UI (no longer supported)**
