@@ -85,7 +85,7 @@
                             },
                             {
                                 "group": "Swapscout",
-                                "icon": "exchange-alt",
+                                "icon": "shuffle",
                                 "pages": [
                                     "using-blockscout/swapscout",
                                     "using-blockscout/swapscout/earn-merits-when-using-swapscout"
