@@ -1,5 +1,7 @@
 ---
 title: "⭐Kubernetes Deployment"
+description: Deploy Blockscout using Kubernetes and Helm charts.
+icon: "server"
 ---
 
 <Tip>
@@ -16,12 +18,12 @@ Baseline instructions are available at [https://github.com/blockscout/helm-chart
 1. Check your values are correct, for example if you don't have Prometheus installed [disable it here](https://github.com/blockscout/helm-charts/blob/7fe62850a9d0ab220041598722569ab13fa54540/charts/blockscout-stack/values.yaml#L33)
 2. Ingress is disabled by default as is common practice, you will likely want to enable ingress and configure hostnames accordingly.
 3. Check your .yaml files for any unneeded whitespaces, this can impact functionality.
-4. Make sure env variables are declared correctly ie DATABASE\_URL: “X”
+4. Make sure env variables are declared correctly ie DATABASE\_URL: "X"
 5. Frontend values should exist in their own root section, at the same level as blockscout values (and not nested within the blockscout root).
 
 For example:
 
-````bash
+```bash
 ```yaml
 blockscout:
   env:
@@ -38,4 +40,3 @@ frontend:
   ingress:
     enabled: true
 ```
-````
