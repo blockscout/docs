@@ -32,7 +32,6 @@
                 "pages": [
                     {
                         "group": "Get Started",
-                        "icon": "book",
                         "pages": [
                             "index",
                             "get-started/using-an-explorer",
@@ -42,7 +41,6 @@
                     },
                     {
                         "group": "Using Blockscout",
-                        "icon": "code",
                         "pages": [
                             {
                                 "group": "Getting Started",
@@ -120,7 +118,6 @@
                     },
                     {
                         "group": "Developer Support",
-                        "icon": "laptop-code",
                         "pages": [
                             "devs/for-web3-developers",
                             "devs/replace-links",
@@ -133,7 +130,6 @@
                                     "devs/verification/blockscout-ui",
                                     {
                                         "group": "Hardhat Verification Plugin",
-                                        "icon": "plug",
                                         "pages": [
                                             "devs/verification/hardhat-verification-plugin",
                                             "devs/verification/hardhat-verification-plugin/sourcify-plugin-for-hardhat"
@@ -153,7 +149,6 @@
                     },
                     {
                         "group": "Setup and Run Blockscout",
-                        "icon": "server",
                         "pages": [
                             {
                                 "group": "General Overview",
@@ -182,7 +177,7 @@
                                 ]
                             },
                             {
-                                "group": "☑️ ENV Variables",
+                                "group": "ENV Variables",
                                 "icon": "sliders-h",
                                 "pages": [
                                     "setup/env-variables",
@@ -215,7 +210,6 @@
                                     "setup/deployment",
                                     {
                                         "group": "Manual Deployment Guide",
-                                        "icon": "book",
                                         "pages": [
                                             "setup/deployment/manual-deployment-guide",
                                             "setup/deployment/manual-deployment-guide/ubuntu-setup",
@@ -338,7 +332,6 @@
                     },
                     {
                         "group": "FAQs",
-                        "icon": "question-circle",
                         "pages": [
                             "faqs/faqs",
                             "faqs/developer-faqs"
