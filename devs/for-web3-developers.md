@@ -1,19 +1,5 @@
 # For Web3 Developers
 
-{% hint style="info" %}
-Attention ETHGlobal hacker: We have 20,000 in bounties available for Blockscout including \
-&#x20;  \
-&#x20;1\. Best Use of Blockscout: $6K - See the categories below for how to integrate Blockscout into your application using our APIs or modify Blockscout itself by adding new frontend features or stats to the interface.\
-\
-&#x20;2\. Best Use of Blockscout SDK: $3K - [See the SDK page](blockscout-sdk.md)\
-\
-&#x20;3\. Best Merits (Points) Integration: $1K [See the Integrate Merits Page](integrate-merits.md)\
-\
-&#x20;4\. Blockscout Pool Prize: $10K - Use Blockscout in any capacity (change links to Blockscout, verify your contracts, ANYTHING BLOCKSCOUT - the show in your presentation -  and you will share in the pool prize. Entrants in other Best bounties are also entered into the pool prize) \
-\
-Questions or Issues - contact us on the hackathon discord  [https://ethglobal.com/discord](https://ethglobal.com/discord) in the #partner-blockscout channel
-{% endhint %}
-
 👋 Welcome Web3 Developers and hackathon participants! Blockscout is built for you and optimized for use in web3 applications.
 
 &#x20;See the categories below for more information.&#x20;

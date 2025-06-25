@@ -1,15 +1,5 @@
 # Blockscout SDK
 
-{% hint style="info" %}
-Attention ETHGlobal Hackathon Participants. \
-\
-We have a $3000 Bounty available for best SDK Usage (1 $2000 prize and 1 $1000 prize).  Add the Blockscout SDK into your app to provide interactivity and instant explorer feedback to your users.
-
-
-
-Note: The Blockscout SDK is currently in beta release. Please report any issues on the [Blockscout Discord](https://discord.gg/blockscout).
-{% endhint %}
-
 ## Overview
 
 The Blockscout App SDK is a React toolkit designed to integrate Blockscout transaction notifications and transaction history into your decentralized applications (dApps). It provides an easy-to-use interface for displaying transaction status updates and viewing transaction history with real-time updates and mobile-responsive design.

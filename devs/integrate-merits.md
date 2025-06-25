@@ -1,14 +1,14 @@
+---
+description: Merits for incentives testing
+---
+
 # Integrate Merits
 
-{% hint style="info" %}
-Attention ETHGlobal Hackathon Participants. \
-\
-We have a $1000 Bounty available for best integration of Merits.  The basic requirement is to incorporate Merits (Blockscout Points) into your application in some way. Users can earn Merits through different activities in your app and you can distribute them via the API. \
-\
-Below you will find more info on the program and the API for checking user Merits, distribution, and login processes.&#x20;
-{% endhint %}
-
 ***
+
+{% hint style="warning" %}
+This guide features APIs for integrating test Merits into your application.&#x20;
+{% endhint %}
 
 ### What are Blockscout Merits?
 
@@ -49,13 +49,13 @@ A full list of endpoints is available on our swagger page here: [https://blocksc
 ### Get basic Merit info for a user
 
 {% openapi-operation spec="poa-api" path="/api/v1/auth/user/{address}" method="get" %}
-[Broken link](broken-reference)
+[OpenAPI poa-api](https://gitbook-x-prod-openapi.4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/raw/7b4077d6c925bfd621e560fb5cea9377bb825408c6b6bdac5d281dfac0b98a5d.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20250625%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250625T154753Z&X-Amz-Expires=172800&X-Amz-Signature=f399ab6024a24686b773d9f0f8f193b8a8d134797a59f12af9b25c58c86da660&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
 
 ### Get leaderboard ranking for a user
 
 {% openapi-operation spec="poa-api" path="/api/v1/leaderboard/users/{address}" method="get" %}
-[Broken link](broken-reference)
+[OpenAPI poa-api](https://gitbook-x-prod-openapi.4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/raw/7b4077d6c925bfd621e560fb5cea9377bb825408c6b6bdac5d281dfac0b98a5d.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20250625%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250625T154753Z&X-Amz-Expires=172800&X-Amz-Signature=f399ab6024a24686b773d9f0f8f193b8a8d134797a59f12af9b25c58c86da660&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
 
 ### Partner balance and distribution information
@@ -64,7 +64,7 @@ When you request an API key you become a partner! You will receive a balance of 
 &#xNAN;_\* Requires API Key - Add the assigned API KEY in the Authorization header to see your information._
 
 {% openapi-operation spec="poa-api" path="/partner/api/v1/balance" method="get" %}
-[Broken link](broken-reference)
+[OpenAPI poa-api](https://gitbook-x-prod-openapi.4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/raw/7b4077d6c925bfd621e560fb5cea9377bb825408c6b6bdac5d281dfac0b98a5d.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20250625%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250625T154753Z&X-Amz-Expires=172800&X-Amz-Signature=f399ab6024a24686b773d9f0f8f193b8a8d134797a59f12af9b25c58c86da660&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
 
 ### Distribute Merits
@@ -83,7 +83,7 @@ _Notes:_
   * `false`: only allow distributions to users that are already registered.
 
 {% openapi-operation spec="poa-api" path="/partner/api/v1/distribute" method="post" %}
-[Broken link](broken-reference)
+[OpenAPI poa-api](https://gitbook-x-prod-openapi.4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/raw/7b4077d6c925bfd621e560fb5cea9377bb825408c6b6bdac5d281dfac0b98a5d.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20250625%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250625T154753Z&X-Amz-Expires=172800&X-Amz-Signature=f399ab6024a24686b773d9f0f8f193b8a8d134797a59f12af9b25c58c86da660&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
 
 ### Login and Registration Flow - Get User Token
@@ -93,7 +93,7 @@ _Use the following flow to get a User Token_
 1. Get Nonce from Backend
 
 {% openapi-operation spec="poa-api" path="/api/v1/auth/nonce" method="get" %}
-[Broken link](broken-reference)
+[OpenAPI poa-api](https://gitbook-x-prod-openapi.4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/raw/7b4077d6c925bfd621e560fb5cea9377bb825408c6b6bdac5d281dfac0b98a5d.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20250625%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250625T154753Z&X-Amz-Expires=172800&X-Amz-Signature=f399ab6024a24686b773d9f0f8f193b8a8d134797a59f12af9b25c58c86da660&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
 
 2. Ask for a signature from a user with a predefined message
@@ -119,7 +119,7 @@ Expiration Time: 2026-03-18T12:23:51.549Z
 3. Send data to get a user token
 
 {% openapi-operation spec="poa-api" path="/api/v1/auth/login" method="post" %}
-[Broken link](broken-reference)
+[OpenAPI poa-api](https://gitbook-x-prod-openapi.4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/raw/7b4077d6c925bfd621e560fb5cea9377bb825408c6b6bdac5d281dfac0b98a5d.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20250625%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250625T154753Z&X-Amz-Expires=172800&X-Amz-Signature=f399ab6024a24686b773d9f0f8f193b8a8d134797a59f12af9b25c58c86da660&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
 
 ### API Calls Requiring a User Token
@@ -127,11 +127,11 @@ Expiration Time: 2026-03-18T12:23:51.549Z
 _\*Requires User Token: put the user token in the Authorization header_
 
 {% openapi-operation spec="poa-api" path="/api/v1/user/balances" method="get" %}
-[Broken link](broken-reference)
+[OpenAPI poa-api](https://gitbook-x-prod-openapi.4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/raw/7b4077d6c925bfd621e560fb5cea9377bb825408c6b6bdac5d281dfac0b98a5d.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20250625%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250625T154753Z&X-Amz-Expires=172800&X-Amz-Signature=f399ab6024a24686b773d9f0f8f193b8a8d134797a59f12af9b25c58c86da660&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
 
 {% openapi-operation spec="poa-api" path="/api/v1/user/logs" method="get" %}
-[Broken link](broken-reference)
+[OpenAPI poa-api](https://gitbook-x-prod-openapi.4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/raw/7b4077d6c925bfd621e560fb5cea9377bb825408c6b6bdac5d281dfac0b98a5d.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20250625%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250625T154753Z&X-Amz-Expires=172800&X-Amz-Signature=f399ab6024a24686b773d9f0f8f193b8a8d134797a59f12af9b25c58c86da660&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
 
 
