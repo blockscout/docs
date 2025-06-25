@@ -124,7 +124,7 @@
                             "devs/apis-redirect",
                             {
                                 "group": "Smart Contract Verification",
-                                "icon": "shield-alt",
+                                "icon": "shield-halved",
                                 "pages": [
                                     "devs/verification",
                                     "devs/verification/blockscout-ui",
@@ -152,7 +152,7 @@
                         "pages": [
                             {
                                 "group": "General Overview",
-                                "icon": "info-circle",
+                                "icon": "gears",
                                 "pages": [
                                     "setup/information-and-settings",
                                     "setup/information-and-settings/separate-indexer-web-app-and-api",
