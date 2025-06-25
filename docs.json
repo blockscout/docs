@@ -1,6 +1,6 @@
 {
     "$schema": "https://mintlify.com/docs.json",
-    "theme": "mint",
+    "theme": "maple",
     "name": "Blockscout",
     "colors": {
         "primary": "#5351db",
@@ -25,6 +25,14 @@
             "family": "Inter"
         }
     },
+        "contextual": {
+          "options": [
+            "copy",
+            "view",
+            "chatgpt",
+            "claude"
+          ]
+        },
     "navigation": {
         "tabs": [
             {
@@ -91,8 +99,8 @@
                                     "using-blockscout/swapscout/earn-merits-when-using-swapscout"
                                 ]
                             },
-                            "using-blockscout/revokescout",
                             "using-blockscout/autoscout",
+                            "using-blockscout/revokescout",
                             "using-blockscout/export-to-csv",
                             {
                                 "group": "Token Support",
