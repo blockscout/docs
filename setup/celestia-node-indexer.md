@@ -8,6 +8,10 @@ More info on the Blockscout + Celestia integration is available in this blog pos
 
 We'll use Docker Compose to run everything we need: Celestia Light node, Blobs indexer, and Postgres DB for it.
 
+{% hint style="info" %}
+Please note that the Celestia node requires linux/amd64 or linux/arm64 OS
+{% endhint %}
+
 ### Setup
 
 The `docker-compose.yml` contains the following:
@@ -19,7 +23,7 @@ services:
     container_name: celestia-light-node
     restart: always
     env_file:
-      - node.env
+      - .env
     command: ["celestia", "light", "start", "--core.ip", "${RPC_URL}", "--core.port", "9090", "--p2p.network", "${P2P_NETWORK}", "--rpc.addr", "0.0.0.0", "--rpc.skip-auth", "--gateway", "--gateway.addr", "0.0.0.0"]
     ports:
       - 26658:26658
@@ -57,7 +61,7 @@ Make sure to replace `our_password` for the DB with your password.
 
 This yml requires having two env files in the same directory:
 
-**1)** `node.env` for configuring the light node:
+**1)** `.env` for configuring the light node:
 
 ```
 P2P_NETWORK=mocha
