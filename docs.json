@@ -52,7 +52,7 @@
                         "pages": [
                             {
                                 "group": "Getting Started",
-                                "icon": "compass",
+                                "icon": "flag-checkered",
                                 "pages": [
                                     "using-blockscout/overviews",
                                     "using-blockscout/overviews/glossary-of-terms",
@@ -186,7 +186,6 @@
                             },
                             {
                                 "group": "ENV Variables",
-                                "icon": "sliders-h",
                                 "pages": [
                                     "setup/env-variables",
                                     "setup/env-variables/backend-env-variables",
