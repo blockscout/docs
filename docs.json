@@ -342,8 +342,6 @@
                         "group": "FAQs",
                         "pages": [
                             "faqs/faqs",
-                            "faqs/developer-faqs",
-                            "faqs/faqs",
                             "faqs/developer-faqs"
                         ]
                     },
