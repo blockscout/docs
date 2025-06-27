@@ -292,7 +292,7 @@
                             },
                             {
                                 "group": "Microservices",
-                                "icon": "cogs",
+                                "icon": "gears",
                                 "pages": [
                                     "setup/microservices",
                                     "setup/microservices/blockscout-ens-bens-name-service-integration",
@@ -326,7 +326,7 @@
                             },
                             {
                                 "group": "Indexing",
-                                "icon": "stream",
+                                "icon": "bars-staggered",
                                 "pages": [
                                     "setup/indexing",
                                     "setup/indexing/how-do-i-fix-indexer-timeouts",
@@ -346,7 +346,6 @@
                     },
                     {
                         "group": "Resources",
-                        "icon": "folder-open",
                         "pages": [
                             "resources/premium-features",
                             "resources/contributing-to-blockscout",
