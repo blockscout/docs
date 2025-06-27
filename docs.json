@@ -186,6 +186,7 @@
                             },
                             {
                                 "group": "ENV Variables",
+                                "icon": "sliders",
                                 "pages": [
                                     "setup/env-variables",
                                     "setup/env-variables/backend-env-variables",
