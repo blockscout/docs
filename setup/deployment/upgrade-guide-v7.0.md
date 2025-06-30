@@ -1,4 +1,4 @@
-# 🍀 Upgrade Guide (v7.0 & v8.0)
+# Upgrade Guide (v7.0 & v8.0)
 
 {% hint style="success" %}
 &#x20;🚗  [Autoscout is now available](../../using-blockscout/autoscout.md), providing a simple one-click explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [Get Started Now](../../using-blockscout/autoscout.md) and have **your explorer up-and-running in minutes.**

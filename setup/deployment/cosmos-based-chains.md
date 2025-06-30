@@ -1,4 +1,4 @@
-# 🌟 Cosmos-based chains
+# Cosmos-based chains
 
 With the [SHUTTLE proxy server developed by Fair Math](https://github.com/fairmath/shuttle/), Blockscout can be used as an out-of-the-box explorer for Cosmos-based chains. [Visit the open-source Fair Math repo for instructions on running SHUTTLE](https://github.com/fairmath/shuttle/).
 

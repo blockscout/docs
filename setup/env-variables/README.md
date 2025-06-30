@@ -1,4 +1,4 @@
-# ☑️ ENV Variables
+# ENV Variables
 
 {% hint style="success" %}
 🚗  [Autoscout is now available](../../using-blockscout/autoscout.md), providing a simple one-click explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [**Get Started Now**](../../using-blockscout/autoscout.md) **and have your explorer up-and-running in minutes.**
