@@ -269,19 +269,21 @@ https://instance_base_url/api
    &page=1
    &offset=5
    &sort=asc
+   &include_zero_value=true
 ```
 
 {% tabs %}
 {% tab title="Request Params" %}
-| Parameter  | Description                                                                                                                                                                                        |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| txhash | <mark style="background-color:yellow;">optional</mark> `string` representing the transaction hash to check for internal transactions                                                                                                                      |
-| address    | <mark style="background-color:yellow;">optional</mark> `string` containing the address hash.                                                                                                       |
-| sort       | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default. **Only available if 'address' is provided.**      |
-| startblock | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search. **Only available if 'address' is provided.**                                            |
-| endblock   | <mark style="background-color:yellow;">optional</mark>`integer` block number to stop transaction search. **Only available if 'address' is provided.**                                              |
-| page       | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided. **Only available if 'address' is provided.**    |
-| offset     | <mark style="background-color:yellow;">optional</mark> `integer` representing number of transactions returned per page. `page` must also be provided. **Only available if 'address' is provided.** |
+| Parameter          | Description                                                                                                                                                                                        |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| txhash             | <mark style="background-color:yellow;">optional</mark> `string` representing the transaction hash to check for internal transactions                                                               |
+| address            | <mark style="background-color:yellow;">optional</mark> `string` containing the address hash.                                                                                                       |
+| sort               | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default. **Only available if 'address' is provided.**      |
+| startblock         | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search. **Only available if 'address' is provided.**                                            |
+| endblock           | <mark style="background-color:yellow;">optional</mark>`integer` block number to stop transaction search. **Only available if 'address' is provided.**                                              |
+| page               | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided. **Only available if 'address' is provided.**    |
+| offset             | <mark style="background-color:yellow;">optional</mark> `integer` representing number of transactions returned per page. `page` must also be provided. **Only available if 'address' is provided.** |
+| include_zero_value | <mark style="background-color:yellow;">optional</mark> `boolean` representing whether to include zero-value transactions.                                                                          |
 {% endtab %}
 
 {% tab title="Example Result" %}
