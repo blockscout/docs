@@ -382,12 +382,10 @@
                             "devs/apis/requests-and-limits",
                             {
                                 "group": "REST API Endpoints",
-                                "icon": "cloud",
                                 "pages": [
                                     "devs/apis/rest",
                                     {
                                         "group": "Endpoints",
-                                        "icon": "code",
                                         "openapi": "openapi.yaml"
                                     },
                                     "devs/apis/rest/stats-api",
@@ -414,7 +412,7 @@
                     },
                     {
                         "group": "Verification APIs",
-                        "icon": "shield-alt",
+                        "icon": "shapes",
                         "pages": [
                             "devs/verification/blockscout-smart-contract-verification-api"
                         ]
@@ -426,7 +424,6 @@
                             "devs/integrate-merits",
                             {
                                 "group": "Endpoints",
-                                "icon": "code",
                                 "openapi": "merits-admin-service.yaml"
                             }
                         ]
@@ -440,15 +437,11 @@
                         "group": "General",
                         "icon": "info-circle",
                         "pages": [
+                            "about/features",
+                            "about/announcements",
+                            "about/announcements/newsletter-and-blog",
                             "about/funding",
-                            "about/announcements/newsletter-and-blog"
-                        ]
-                    },
-                    {
-                        "group": "Explorer as a Service",
-                        "icon": "star",
-                        "pages": [
-                            "resources/premium-features"
+                            "about/roadmap"
                         ]
                     },
                     {
@@ -457,17 +450,14 @@
                         "pages": [
                             "about/partners-and-integrations",
                             "about/partners-and-integrations/raas-providers",
-                            "about/partners-and-integrations/vera-verifier-alliance",
-                            "about/announcements",
-                            "about/announcements/newsletter-and-blog"
+                            "about/partners-and-integrations/vera-verifier-alliance"
                         ]
                     },
-                    {
-                        "group": "News",
-                        "icon": "newspaper",
+                   {
+                        "group": "Explorer as a Service",
+                        "icon": "star",
                         "pages": [
-                            "about/announcements",
-                            "about/announcements/newsletter-and-blog"
+                            "resources/premium-features"
                         ]
                     }
                 ]

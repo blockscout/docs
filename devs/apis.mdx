@@ -2,7 +2,6 @@
 title: "Blockscout APIs"
 sidebarTitle: "Overview"
 description: "How to use Blockscout APIs"
-icon: "shapes"
 ---
 
 ## Blockscout API Usage
@@ -12,24 +11,24 @@ API information can be accessed from the Blockscout main menu, footer or header 
 Blockscout supports several methods:
 
 1. [**REST API**](/devs/apis/rest): API that serves the UI for Blockscout.
-
 2. [**RPC API**](/devs/apis/rpc): provided for developers transitioning applications from Etherscan to Blockscout. Supports GET and POST requests, simply replace Etherscan url with Blockscout url to use the RPC.
-
 3. [**Eth RPC API**](/devs/apis/rpc/eth-rpc): Supports the most popular [JSON RPC methods](https://ethereum.github.io/execution-apis/api-documentation/).
-
 4. [**Graphiql**](https://github.com/graphql/graphiql): An IDE for exploring GraphQL.
 
+<Info>
+  Blockscout provides swagger documentation for various API services here: https://blockscout.github.io/swaggers/
+</Info>
+
 <Frame caption="API access in new instance">
-  <img src="/images/f076d763-image.jpeg" />
+  ![](/images/f076d763-image.jpeg)
 </Frame>
 
 ## API Keys
 
 API Keys are not needed by default. Blockscout instances have a standard global request setting of 10/requests per second. However, My Account users can add up to 3 API keys to ensure 10 request/second limits per account.
 
-* More info on [My Account and adding API Keys](/using-blockscout/my-account/api-keys)
-
-* More info on [API Requests and Limits](/devs/apis/requests-and-limits)
+- More info on [My Account and adding API Keys](/using-blockscout/my-account/api-keys)
+- More info on [API Requests and Limits](/devs/apis/requests-and-limits)
 
 ## Blockscout Internal Documentation
 
@@ -38,9 +37,6 @@ To view Modules and API Reference documentation:
 1. Generate documentation.
 
    `mix docs`
-
 2. View the generated docs.
 
    `open doc/index.html`
-
-
