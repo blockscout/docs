@@ -101,15 +101,6 @@
                             },
                             "using-blockscout/autoscout",
                             "using-blockscout/revokescout",
-                            "using-blockscout/export-to-csv",
-                            {
-                                "group": "Token Support",
-                                "icon": "coins",
-                                "pages": [
-                                    "using-blockscout/token-support",
-                                    "using-blockscout/token-support/erc-1155-support"
-                                ]
-                            },
                             {
                                 "group": "Merits",
                                 "icon": "award",
@@ -120,6 +111,15 @@
                                     "using-blockscout/merits/leaderboard",
                                     "using-blockscout/merits/badges",
                                     "using-blockscout/merits/faqs"
+                                ]
+                            },
+                            "using-blockscout/export-to-csv",
+                            {
+                                "group": "Token Support",
+                                "icon": "coins",
+                                "pages": [
+                                    "using-blockscout/token-support",
+                                    "using-blockscout/token-support/erc-1155-support"
                                 ]
                             }
                         ]
@@ -151,6 +151,7 @@
                                     "devs/verification/interacting-with-smart-contracts"
                                 ]
                             },
+                            "devs/mcp-server",
                             "devs/blockscout-sdk",
                             "devs/chainscout-chains-list"
                         ]
@@ -394,7 +395,6 @@
                             },
                             {
                                 "group": "JSON RPC & ETH Compatible RPC Endpoints",
-                                "icon": "exchange-alt",
                                 "pages": [
                                     "devs/apis/rpc",
                                     "devs/apis/rpc/account",
@@ -438,6 +438,7 @@
                         "icon": "info-circle",
                         "pages": [
                             "about/features",
+                            "about/chains",
                             "about/announcements",
                             "about/announcements/newsletter-and-blog",
                             "about/funding",
