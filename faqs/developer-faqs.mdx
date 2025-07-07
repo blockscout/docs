@@ -1,7 +1,7 @@
 ---
 title: "Developer FAQs"
 description: "FAQs for developers"
-icon: "clipboard-question"
+icon: "-question"
 ---
 
 ## Developer FAQs
@@ -10,15 +10,15 @@ icon: "clipboard-question"
 <Accordion title="How do I speed up my self-hosted instance?">
 BlockScout can be resource intensive. If your instance is running slowly:
 
-* Clear the cache - the application cache is cleared on restart by running: `sudo systemctl restart explorer.service`
+* clear the cache - the application cache is cleared on restart by running: `sudo systemctl restart explorer.service`
 
-* Increase the memory limit for indexers if indexing is slow. See the [indexer configuration](https://github.com/poanetwork/blockscout/blob/b48305ece284e00084e2bb47ff1ad501bf24f115/apps/indexer/config/config.exs#L36) for details.
+* increase the memory limit for indexers [https://github.com/poanetwork/blockscout/blob/b48305ece284e00084e2bb47ff1ad501bf24f115/apps/indexer/config/config.exs#L36 8](https://github.com/poanetwork/blockscout/blob/b48305ece284e00084e2bb47ff1ad501bf24f115/apps/indexer/config/config.exs#L36) if indexing is slow.
 
-* Increase the number of CPUs if CPU is running at 100% on the web app server
+* increase the number of CPUs if CPU is running at 100% on the web app server
 
-* Increase the memory if memory consumption is high on the web app server
+* increase the memory if memory consumption is high on the web app server
 
-* Increase the number of CPUs or/and increase the memory on the database server if consumption is high.
+* increase the number of CPUs or/and increase the memory on the database server if consumption is high.
 
 Instructions for accessing and upgrading CPUs/memory will differ based on your setup. If you are running BlockScout on AWS, these settings can be accessed through your AWS services portal.
 
@@ -35,46 +35,46 @@ BlockScout utilizes the `COIN` environment variable which pulls the associated m
 
 In order to set displayed coin symbol, instance maintainer should set `COIN_NAME` runtime environment variable:
 
-```bash
+```
 export COIN_NAME=
 ```
 
 For instance, in case of POA instance of Blockscout:
 
-```bash
+```
 export COIN_NAME=POA
 ```
 
 </Accordion>
 
 <Accordion title="How do I manage deployment with AWS CodeDeploy?">
-1. Visit CodeDeploy in AWS. You will see a list of your deployments. Select the deployment id to view details at [https://console.aws.amazon.com/codesuite/codedeploy/deployments?region=us-east-1](https://console.aws.amazon.com/codesuite/codedeploy/deployments?region=us-east-1)
+1\) Visit CodeDeploy in AWS. You will see a list of your deployments. Select the deployment id to view details `https://console.aws.amazon.com/codesuite/codedeploy/deployments?region=us-east-1`
 
-2. Deployment status consists of several steps. Once step 2 is complete (application is installed on replacement instances), you manually reroute traffic. Click the `Reroute traffic` button to initiate.
+2\) Deployment status consists of several steps. Once step 2 is complete (application is installed on replacement instances), you manually reroute traffic. Click the `Reroute traffic` button to initiate.
 
 <Frame>
 ![](/images/d72b77e2-image.jpeg)
 </Frame>
 
-3. Once traffic is rerouted, you'll be asked to terminate the original instance. Click the **Terminate** button to initiate.
+3\) Once traffic is rerouted, you'll be asked to terminate the original instance. Click the **Terminate** button to initiate.
 
 <Frame>
 ![](/images/1d238ee9-image.jpeg)
 </Frame>
 
-4. Once complete, use the public DNS address of the Amazon EC2 instance to view in a web browser. (To get the public DNS value, choose your Amazon EC2 instance in the Amazon EC2 console, and look for the value in **Public DNS** in the **Description** tab).
+4\) Once complete, use the public DNS address of the Amazon EC2 instance to view in a web browser. (To get the public DNS value, choose your Amazon EC2 instance in the Amazon EC2 console, and look for the value in **Public DNS i**n the **Description** tab).
 
 </Accordion>
 
 <Accordion title="What's the best way to deploy to AWS?">
-Currently the best existing way is through [docker compose](https://github.com/blockscout/blockscout/tree/master/docker-compose).
+Currently the best existing way is through docker compose [https://github.com/blockscout/blockscout/tree/master/docker-compose](https://github.com/blockscout/blockscout/tree/master/docker-compose).
 
 We are currently working on deployment through Kubernetes (K8s) and other methods for easily spinning up an instance on AWS.
 
 </Accordion>
 
 <Accordion title="How do I replace missing assets/version numbers?">
-### Missing Assets
+#### Missing Assets
 
 1. Find the public ip of corresponding Blockscout instance in the EC2 -> Instances of AWS Dashboard.
 
@@ -82,9 +82,9 @@ We are currently working on deployment through Kubernetes (K8s) and other method
 
 3. Go to assets folder `cd /opt/app/apps/block_scout_web/priv/static`
 
-4. Add missing assets there or to `./images` folder depending on what is missing. Refresh Blockscout instance page. For example, if `favicon.ico` is missing in `./images` folder, just copy it from the root assets folder `cp favicon.ico ./images/`. You should see now the missing assets.
+4. Add missing assets there or to `./images` folder depending on what is missing. Refresh Blockscout instance page. For example, if `favicon.ico` is missing in `./images` folder, just copy it from the root assets folder \`cp favicon.ico ./images/. You should see now the missing assets.
 
-### Missing Version in Footer
+#### Missing Version in Footer
 
 The app version number should be in the footer of BlockScout instance
 
@@ -111,9 +111,9 @@ You may receive this error after making changes to a specific BlockScout applica
 
 To update gettext, run the following command **in the app's folder where the changes were made**.
 
-1. Go to the `./apps/{name_of_app}` folder where the changes were made.
+1. Go to the ./apps/\{name_of_app} folder where the changes were made.
 
-2. Run `mix gettext.extract --merge`
+2. Run `mix gettext.extract —merge`
 
 3. Repeat for other app folders as required.
 
@@ -131,9 +131,10 @@ For updates like adding elements/links etc you will need to change .eex template
 <Accordion title="How can I view smart contracts using RPC?">
 Use the JSON RPC `listcontracts` endpoint. For example, to view verified contracts, use the following query. Pagination is available
 
-```bash
-curl -X GET "https://gnosis.blockscout.com/api?module=contract&action=listcontracts&page=1&offset=50&filter=verified" \
-  -H "accept: application/json"
+```sh
+curl -X GET "
+https://gnosis.blockscout.com/api?module=contract&action=listcontracts&page=1&offset=50&filter=verified
+" -H "accept: application/json"
 ```
 
 </Accordion>
@@ -161,11 +162,9 @@ There are several ways:
 <Accordion title="How do I disable exchange rates?">
 Change the Explorer.ExchangeRates variable from `enabled: true` to `enabled: false`
 
-```elixir
-config :explorer, Explorer.ExchangeRates, enabled: false, store: :ets
-```
+* config :explorer, Explorer.ExchangeRates, `enabled: false`, store: :ets
 
-See the [configuration file](https://github.com/poanetwork/blockscout/blob/7aeecb2a04838cda0289a7fe432db74481cf575a/apps/explorer/config/config.exs#L32) for more details.
+[https://github.com/poanetwork/blockscout/blob/7aeecb2a04838cda0289a7fe432db74481cf575a/apps/explorer/config/config.exs#L32](https://github.com/poanetwork/blockscout/blob/7aeecb2a04838cda0289a7fe432db74481cf575a/apps/explorer/config/config.exs#L32)
 
 </Accordion>
 
@@ -212,5 +211,3 @@ In a self-hosted or locally deployed instance, when attempting to do a **write t
 * Check that you set the correct `CHAIN_ID` env variable
 
 * Check correct variable for `NETWORK_ID`
-</Accordion>
-</AccordionGroup>

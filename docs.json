@@ -231,7 +231,7 @@
                                     "setup/deployment/upgrade-guide-v7-0",
                                     {
                                         "group": "Frontend Migration",
-                                        "icon": "arrows-alt-h",
+                                        "icon": "box-open",
                                         "pages": [
                                             "setup/deployment/frontend-migration",
                                             "setup/deployment/frontend-migration/all-in-one-container",
@@ -243,7 +243,7 @@
                                     },
                                     {
                                         "group": "Manual Deployment (backend + old UI)",
-                                        "icon": "history",
+                                        "icon": "hands",
                                         "pages": [
                                             "setup/deployment/manual-old-ui",
                                             "setup/deployment/manual-old-ui/check-your-manual-deployment-instance"
@@ -258,7 +258,6 @@
                                             "setup/deployment/ansible-deployment/prerequisites",
                                             {
                                                 "group": "AWS Permissions & Settings",
-                                                "icon": "key",
                                                 "pages": [
                                                     "setup/deployment/ansible-deployment/aws-permissions",
                                                     "setup/deployment/ansible-deployment/aws-permissions/creating-a-secret-key-pair",
@@ -341,6 +340,8 @@
                     {
                         "group": "FAQs",
                         "pages": [
+                            "faqs/faqs",
+                            "faqs/developer-faqs",
                             "faqs/faqs",
                             "faqs/developer-faqs"
                         ]
