@@ -51,7 +51,7 @@
                         "group": "Using Blockscout",
                         "pages": [
                             {
-                                "group": "Getting Started",
+                                "group": "Overview",
                                 "icon": "flag-checkered",
                                 "pages": [
                                     "using-blockscout/overviews",
