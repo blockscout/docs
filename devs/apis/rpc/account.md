@@ -315,11 +315,11 @@ https://instance_base_url/api
 {% endtab %}
 {% endtabs %}
 
-## Get token transfer events by address
+## Get ERC-20 token transfer events by address
 
 `tokentx`
 
-Up to a maximum of 10,000 token transfer events. Also available through the GraphQL `token_transfers` query.
+Up to a maximum of 10,000 ERC-20 token transfer events. Also available through the GraphQL `token_transfers` query.
 
 **Example:**
 
@@ -337,8 +337,8 @@ https://instance_base_url/api
 {% tab title="Request Params" %}
 | Parameter        | Description                                                                                                                                           |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **address**      | `string` containing the address hash.                                                                                                                 |
-| contract address | <mark style="background-color:yellow;">optional</mark> `string` with the token contract address to identify a contract.                               |
+| address          | required if no `contractaddress` parameter is provided, `string` containing the address hash.                                                         |
+| contractaddress  | required if no `address` parameter is provided, `string` with the token contract address to identify a contract.                                      |
 | sort             | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default.      |
 | startblock       | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search                                             |
 | endblock         | <mark style="background-color:yellow;">optional</mark>`integer` block number to stop transaction search.                                              |
@@ -358,12 +358,13 @@ https://instance_base_url/api
       "contractAddress": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
       "cumulativeGasUsed": "1043649",
       "from": "0x4e83362442b8d1bec281594cea3050c8eb01311c",
+      "functionName": "transfer(address _to, uint256 _value)",
       "gas": "44758",
       "gasPrice": "7000000000",
       "gasUsed": "37298",
       "hash": "0xd65b788c610949704a5f9aac2228c7c777434dfe11c863a12306f57fcbd8cdbb",
       "input": "0xa9059cbb00000000000000000000000021e21ba085289f81a86921de890eed30f1ad23750000000000000000000000000000000000000000000000008ac7230489e80000",
-      "logIndex": "0",
+      "methodId": "0xa9059cbb",
       "nonce": "765",
       "timeStamp": "1532086946",
       "to": "0x21e21ba085289f81a86921de890eed30f1ad2375",
@@ -379,6 +380,12 @@ https://instance_base_url/api
 ```
 {% endtab %}
 {% endtabs %}
+
+Usage:
+
+* To fetch ERC-20 token transfers by address, specify `address` parameter
+* To fetch ERC-20 token transfers by token, specify `contractaddress` parameter
+* To fetch ERC-20 token transfers by address filtered by token, specify both `address` and `contractaddress` parameters
 
 ## Get ERC-721 token transfer events by address
 
@@ -400,8 +407,8 @@ https://instance_base_url/api
 {% tab title="Request Params" %}
 | Parameter       | Description                                                                                                                                           |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **address**     | `string` containing the address hash.                                                                                                                 |
-| contractaddress | <mark style="background-color:yellow;">optional</mark> `string` with the token contract address to identify a contract.                               |
+| address         | required if no `contractaddress` parameter is provided, `string` containing the address hash.                                                         |
+| contractaddress | required if no `address` parameter is provided, `string` with the token contract address to identify a contract.                                      |
 | sort            | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default.      |
 | startblock      | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search                                             |
 | endblock        | <mark style="background-color:yellow;">optional</mark> `integer` block number to stop transaction search.                                             |
@@ -415,26 +422,27 @@ https://instance_base_url/api
   "message": "OK",
   "result": [
     {
-      "blockHash": "0x3b8e5e9ecb0ad53e58cd99182de99a1166946dc758b85a5529710bd47e35a49d",
-      "blockNumber": "8879951",
-      "confirmations": "1295191",
-      "contractAddress": "0xe0617cd5b8271070b68bfc275220ef5dd32b8f58",
-      "cumulativeGasUsed": "15289706",
-      "from": "0x0000000000000000000000000000000000000000",
-      "gas": "59636",
-      "gasPrice": "1503183880",
-      "gasUsed": "59636",
-      "hash": "0x844ddc178dbeed48c9caef9a71a86b2d017529c1074a0390d2a61d29baa94c94",
-      "input": "deprecated",
-      "logIndex": "83",
-      "nonce": "301",
-      "timeStamp": "1682283420",
-      "to": "0x34aa3f359a9d614239015126635ce7732c18fdf3",
+      "blockHash": "0xd033832ffd0480a3e3b16362320d4ea247e6905117eaa8741a845ac51bd51b1f",
+      "blockNumber": "22895463",
+      "confirmations": "13",
+      "contractAddress": "0xb6bcaa0c71c90b26f4190418d77ad0b95f656f2c",
+      "cumulativeGasUsed": "23511347",
+      "from": "0xc8fb7aca6b31dc905647d31ac0383f5b30d9be31",
+      "functionName": "transferFrom(address from, address to, uint256 id)",
+      "gas": "108139",
+      "gasPrice": "5596263013",
+      "gasUsed": "71227",
+      "hash": "0x76be4925c1a5f268c12a3ae7b60486293a96ebd28dc289064ca687708de46397",
+      "input": "0x23b872dd000000000000000000000000c8fb7aca6b31dc905647d31ac0383f5b30d9be31000000000000000000000000d2a999bc8e4ea85131c1800e2a5c606d127533330000000000000000000000000000000000000000000000000000000000000445",
+      "methodId": "0x23b872dd",
+      "nonce": "376",
+      "timeStamp": "1752231191",
+      "to": "0xd2a999bc8e4ea85131c1800e2a5c606d12753333",
       "tokenDecimal": "0",
-      "tokenID": "2",
-      "tokenName": "YourMintableSoulboundCollectible",
-      "tokenSymbol": "YMSC",
-      "transactionIndex": "42"
+      "tokenID": "1093",
+      "tokenName": "SpaceRush Bounty Hunters",
+      "tokenSymbol": "SRB",
+      "transactionIndex": "360"
     }
   ],
   "status": "1"
@@ -448,6 +456,173 @@ Usage:
 * To fetch ERC-721 token transfers by address, specify `address` parameter
 * To fetch ERC-721 token transfers by token, specify `contractaddress` parameter
 * To fetch ERC-721 token transfers by address filtered by token, specify both `address` and `contractaddress` parameters
+
+## Get ERC-1155 token transfer events by address
+
+`token1155tx`
+
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=account
+   &action=token1155tx
+   &address={addressHash}
+   &page=1
+   &offset=10
+   &sort=asc
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+| Parameter       | Description                                                                                                                                           |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address         | required if no `contractaddress` parameter is provided, `string` containing the address hash.                                                         |
+| contractaddress | required if no `address` parameter is provided, `string` with the token contract address to identify a contract.                                      |
+| sort            | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default.      |
+| startblock      | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search                                             |
+| endblock        | <mark style="background-color:yellow;">optional</mark> `integer` block number to stop transaction search.                                             |
+| page            | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided.    |
+| offset          | <mark style="background-color:yellow;">optional</mark> `integer` representing number of transactions returned per page. `page` must also be provided. |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+{
+  "message": "OK",
+  "result": [
+    {
+      "blockNumber": "22767293",
+      "timeStamp": "1750683671",
+      "hash": "0xe63f23bc2882dc083cf77c3a9a32efe62a2f045334232c92ed63716368eb56c9",
+      "nonce": "332",
+      "blockHash": "0x5960ef1fb1a3f424a90723238cf5d91a996cb7344f9ff613f00942ea4f7bcf31",
+      "transactionIndex": "52",
+      "gas": "198549",
+      "gasPrice": "3662960410",
+      "gasUsed": "150369",
+      "cumulativeGasUsed": "8276535",
+      "input": "deprecated",
+      "methodId": "0xa64dfa75",
+      "functionName": "multiConfigure(address token,tuple config)",
+      "contractAddress": "0x81d5cedef14934957232e6673e1b37375e6ec5cd",
+      "from": "0x0000000000000000000000000000000000000000",
+      "to": "0xa6718ebedb87b85acfb39d8a02759f1be7cb01ed",
+      "tokenID": "43",
+      "tokenValue": "1",
+      "tokenName": "Colored rombs",
+      "tokenSymbol": "CR",
+      "confirmations": "128226"
+    }
+  ],
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+Usage:
+
+* To fetch ERC-1155 token transfers by address, specify `address` parameter
+* To fetch ERC-1155 token transfers by token, specify `contractaddress` parameter
+* To fetch ERC-1155 token transfers by address filtered by token, specify both `address` and `contractaddress` parameters
+
+## Get ERC-404 token transfer events by address
+
+`token404tx`
+
+**Example:**
+
+```
+https://instance_base_url/api
+   ?module=account
+   &action=token404tx
+   &address={addressHash}
+   &page=1
+   &offset=10
+   &sort=asc
+```
+
+{% tabs %}
+{% tab title="Request Params" %}
+| Parameter       | Description                                                                                                                                           |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address         | required if no `contractaddress` parameter is provided, `string` containing the address hash.                                                         |
+| contractaddress | required if no `address` parameter is provided, `string` with the token contract address to identify a contract.                                      |
+| sort            | <mark style="background-color:yellow;">optional</mark> sorting preference, `asc` for ascending and `desc` for descending. Descending is default.      |
+| startblock      | <mark style="background-color:yellow;">optional</mark> `integer` block number to start transaction search                                             |
+| endblock        | <mark style="background-color:yellow;">optional</mark> `integer` block number to stop transaction search.                                             |
+| page            | <mark style="background-color:yellow;">optional</mark> `integer` representing the page number used for pagination. `offset` must also be provided.    |
+| offset          | <mark style="background-color:yellow;">optional</mark> `integer` representing number of transactions returned per page. `page` must also be provided. |
+{% endtab %}
+
+{% tab title="Example Result" %}
+```
+{
+  "message": "OK",
+  "result": [
+    // ERC-20 like case
+    {
+      "blockHash": "0x600684206fd92aa22bf0d24e376fa0433bd7247178919e31d6c8c02a8a704e78",
+      "blockNumber": "22895119",
+      "confirmations": "532",
+      "contractAddress": "0x9e9fbde7c7a83c43913bddc8779158f1368f0413",
+      "cumulativeGasUsed": "2148253",
+      "from": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
+      "functionName": "transfer(address to, uint256 amount)",
+      "gas": "3000000",
+      "gasPrice": "4992772042",
+      "gasUsed": "202651",
+      "hash": "0x85eba6287c25630b0f2764954e15294937ef5a423727c2236223bfb6864d2c6f",
+      "input": "0xa9059cbb00000000000000000000000028e0e453997430fa2168c7efc1899a2c110e53b500000000000000000000000000000000000000000000000028536338c182e000",
+      "methodId": "0xa9059cbb",
+      "nonce": "8218148",
+      "timeStamp": "1752227039",
+      "to": "0x28e0e453997430fa2168c7efc1899a2c110e53b5",
+      "tokenDecimal": "0",
+      "tokenID": "",
+      "tokenName": "Pandora",
+      "tokenSymbol": "PANDORA",
+      "transactionIndex": "44",
+      "value": "2905775280000000000"
+    },
+    // ERC-721 like case
+    {
+      "blockHash": "0x600684206fd92aa22bf0d24e376fa0433bd7247178919e31d6c8c02a8a704e78",
+      "blockNumber": "22895119",
+      "confirmations": "532",
+      "contractAddress": "0x9e9fbde7c7a83c43913bddc8779158f1368f0413",
+      "cumulativeGasUsed": "2148253",
+      "from": "0x0000000000000000000000000000000000000000",
+      "functionName": "transfer(address to, uint256 amount)",
+      "gas": "3000000",
+      "gasPrice": "4992772042",
+      "gasUsed": "202651",
+      "hash": "0x85eba6287c25630b0f2764954e15294937ef5a423727c2236223bfb6864d2c6f",
+      "input": "0xa9059cbb00000000000000000000000028e0e453997430fa2168c7efc1899a2c110e53b500000000000000000000000000000000000000000000000028536338c182e000",
+      "methodId": "0xa9059cbb",
+      "nonce": "8218148",
+      "timeStamp": "1752227039",
+      "to": "0x28e0e453997430fa2168c7efc1899a2c110e53b5",
+      "tokenDecimal": "0",
+      "tokenID": "97956",
+      "tokenName": "Pandora",
+      "tokenSymbol": "PANDORA",
+      "transactionIndex": "44",
+      "value": ""
+    }
+  ],
+  "status": "1"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+Usage:
+
+* To fetch ERC-404 token transfers by address, specify `address` parameter
+* To fetch ERC-404 token transfers by token, specify `contractaddress` parameter
+* To fetch ERC-404 token transfers by address filtered by token, specify both `address` and `contractaddress` parameters
 
 ## Get token account balance for token contract address
 
