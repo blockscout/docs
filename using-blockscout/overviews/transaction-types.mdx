@@ -4,28 +4,20 @@ title: "Transaction Types"
 
 Different types of transactions are categorized in the Blockscout UI to allow for quick identification. Types include:
 
-* **Coin transfer**: value transfer, value >= 0, no tx input
-
-* **Contract call**: tx input is present (any value including 0)
-
-* **Contract creation**: creation of a smart-contract
-
-* **Token burning**: recognized token transfer of any of ERC-20, 721, 1155 token instance (single or bulk) to 0x0000... address
-
-* **Token creation**: creation of token instance in ERC-1155
-
-* **Token minting**: token transfer of any of ERC-20, 721, 1155 token instance (single or bulk) from 0x0000... address
-
-* **Token transfer**: token transfer of any of ERC-20, 721, 1155 token instance (single or bulk)
-
-* **Transaction**: A contract call where the contract has not yet been identified by Blockscout.
+- **Blob txn:** 4844-type transactions which include large amounts of data
+- **Coin transfer**: value transfer, value \>= 0, no tx input
+- **Contract call**: tx input is present (any value including 0)
+- **Contract creation**: creation of a smart-contract
+- **Token burning**: recognized token transfer of any of ERC-20, 721, 1155 token instance (single or bulk) to 0x0000... address
+- **Token creation**: creation of token instance in ERC-1155
+- **Token minting**: token transfer of any of ERC-20, 721, 1155 token instance (single or bulk) from 0x0000... address
+- **Token transfer**: token transfer of any of ERC-20, 721, 1155 token instance (single or bulk)
+- **Transaction**: A contract call where the contract has not yet been identified by Blockscout.
 
 <Frame caption="Transaction types in UI v2">
-  <img src="/images/10a1708b-image.jpeg" />
+  ![](/images/10a1708b-image.jpeg)
 </Frame>
 
 <Frame caption="Transaction types in UI v1">
-  <img src="/images/11e455a3-image.jpeg" />
+  ![](/images/11e455a3-image.jpeg)
 </Frame>
-
-
