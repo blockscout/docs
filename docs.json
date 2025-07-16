@@ -1,6 +1,6 @@
 {
     "$schema": "https://mintlify.com/docs.json",
-    "theme": "mint",
+    "theme": "maple",
     "name": "Blockscout",
     "colors": {
         "primary": "#5351db",
@@ -25,6 +25,14 @@
             "family": "Inter"
         }
     },
+        "contextual": {
+          "options": [
+            "copy",
+            "view",
+            "chatgpt",
+            "claude"
+          ]
+        },
     "navigation": {
         "tabs": [
             {
@@ -32,7 +40,6 @@
                 "pages": [
                     {
                         "group": "Get Started",
-                        "icon": "book",
                         "pages": [
                             "index",
                             "get-started/using-an-explorer",
@@ -42,10 +49,10 @@
                     },
                     {
                         "group": "Using Blockscout",
-                        "icon": "code",
                         "pages": [
                             {
-                                "group": "Getting Started",
+                                "group": "Overview",
+                                "icon": "flag-checkered",
                                 "pages": [
                                     "using-blockscout/overviews",
                                     "using-blockscout/overviews/glossary-of-terms",
@@ -57,6 +64,7 @@
                             },
                             {
                                 "group": "My Account",
+                                "icon": "user",
                                 "pages": [
                                     "using-blockscout/my-account",
                                     "using-blockscout/my-account/watchlist",
@@ -66,6 +74,7 @@
                                     "using-blockscout/my-account/custom-abi",
                                     {
                                         "group": "Verified addresses",
+                                        "icon": "check-circle",
                                         "pages": [
                                             "using-blockscout/my-account/verified-addresses",
                                             "using-blockscout/my-account/verified-addresses/copy-and-sign-message"
@@ -76,6 +85,7 @@
                             },
                             {
                                 "group": "Dappscout Apps Marketplace",
+                                "icon": "store",
                                 "pages": [
                                     "using-blockscout/blockscout-apps",
                                     "using-blockscout/blockscout-apps/dapp-integration"
@@ -83,23 +93,17 @@
                             },
                             {
                                 "group": "Swapscout",
+                                "icon": "shuffle",
                                 "pages": [
                                     "using-blockscout/swapscout",
                                     "using-blockscout/swapscout/earn-merits-when-using-swapscout"
                                 ]
                             },
-                            "using-blockscout/revokescout",
                             "using-blockscout/autoscout",
-                            "using-blockscout/export-to-csv",
-                            {
-                                "group": "Token Support",
-                                "pages": [
-                                    "using-blockscout/token-support",
-                                    "using-blockscout/token-support/erc-1155-support"
-                                ]
-                            },
+                            "using-blockscout/revokescout",
                             {
                                 "group": "Merits",
+                                "icon": "award",
                                 "pages": [
                                     "using-blockscout/merits",
                                     "using-blockscout/merits/streak-rewards",
@@ -107,6 +111,15 @@
                                     "using-blockscout/merits/leaderboard",
                                     "using-blockscout/merits/badges",
                                     "using-blockscout/merits/faqs"
+                                ]
+                            },
+                            "using-blockscout/export-to-csv",
+                            {
+                                "group": "Token Support",
+                                "icon": "coins",
+                                "pages": [
+                                    "using-blockscout/token-support",
+                                    "using-blockscout/token-support/erc-1155-support"
                                 ]
                             }
                         ]
@@ -119,6 +132,7 @@
                             "devs/apis-redirect",
                             {
                                 "group": "Smart Contract Verification",
+                                "icon": "shield-halved",
                                 "pages": [
                                     "devs/verification",
                                     "devs/verification/blockscout-ui",
@@ -137,6 +151,7 @@
                                     "devs/verification/interacting-with-smart-contracts"
                                 ]
                             },
+                            "devs/mcp-server",
                             "devs/blockscout-sdk",
                             "devs/chainscout-chains-list"
                         ]
@@ -146,6 +161,7 @@
                         "pages": [
                             {
                                 "group": "General Overview",
+                                "icon": "gears",
                                 "pages": [
                                     "setup/information-and-settings",
                                     "setup/information-and-settings/separate-indexer-web-app-and-api",
@@ -157,6 +173,7 @@
                             },
                             {
                                 "group": "Requirements",
+                                "icon": "list-check",
                                 "pages": [
                                     "setup/requirements",
                                     "setup/requirements/requirements",
@@ -169,7 +186,8 @@
                                 ]
                             },
                             {
-                                "group": "☑️ ENV Variables",
+                                "group": "ENV Variables",
+                                "icon": "sliders",
                                 "pages": [
                                     "setup/env-variables",
                                     "setup/env-variables/backend-env-variables",
@@ -177,6 +195,7 @@
                                     "setup/env-variables/backend-envs-integrations",
                                     {
                                         "group": "Frontend ENVs: Common",
+                                        "icon": "paint-brush",
                                         "pages": [
                                             "setup/env-variables/frontend-common-envs",
                                             "setup/env-variables/frontend-common-envs/envs",
@@ -185,6 +204,7 @@
                                     },
                                     {
                                         "group": "Deprecated Backend ENVs",
+                                        "icon": "exclamation-triangle",
                                         "pages": [
                                             "setup/env-variables/deprecated-env-variables",
                                             "setup/env-variables/deprecated-env-variables/env-variables"
@@ -194,6 +214,7 @@
                             },
                             {
                                 "group": "Deployment",
+                                "icon": "rocket",
                                 "pages": [
                                     "setup/deployment",
                                     {
@@ -211,6 +232,7 @@
                                     "setup/deployment/upgrade-guide-v7-0",
                                     {
                                         "group": "Frontend Migration",
+                                        "icon": "box-open",
                                         "pages": [
                                             "setup/deployment/frontend-migration",
                                             "setup/deployment/frontend-migration/all-in-one-container",
@@ -222,6 +244,7 @@
                                     },
                                     {
                                         "group": "Manual Deployment (backend + old UI)",
+                                        "icon": "hands",
                                         "pages": [
                                             "setup/deployment/manual-old-ui",
                                             "setup/deployment/manual-old-ui/check-your-manual-deployment-instance"
@@ -230,6 +253,7 @@
                                     "setup/deployment/terraform-deployment",
                                     {
                                         "group": "Ansible Deployment (AWS Cloud)",
+                                        "icon": "cloud",
                                         "pages": [
                                             "setup/deployment/ansible-deployment/overview",
                                             "setup/deployment/ansible-deployment/prerequisites",
@@ -251,6 +275,7 @@
                                             "setup/deployment/ansible-deployment/common-errors-and-questions",
                                             {
                                                 "group": "AWS Marketplace (deprecated)",
+                                                "icon": "store-alt",
                                                 "pages": [
                                                     "setup/deployment/ansible-deployment/aws-marketplace",
                                                     "setup/deployment/ansible-deployment/aws-marketplace/overview",
@@ -268,6 +293,7 @@
                             },
                             {
                                 "group": "Microservices",
+                                "icon": "gears",
                                 "pages": [
                                     "setup/microservices",
                                     "setup/microservices/blockscout-ens-bens-name-service-integration",
@@ -276,6 +302,7 @@
                             },
                             {
                                 "group": "Configuration Options",
+                                "icon": "wrench",
                                 "pages": [
                                     "setup/configuration-options",
                                     "setup/configuration-options/admin-panel-usage",
@@ -300,6 +327,7 @@
                             },
                             {
                                 "group": "Indexing",
+                                "icon": "bars-staggered",
                                 "pages": [
                                     "setup/indexing",
                                     "setup/indexing/how-do-i-fix-indexer-timeouts",
@@ -314,6 +342,8 @@
                         "group": "FAQs",
                         "pages": [
                             "faqs/faqs",
+                            "faqs/developer-faqs",
+                            "faqs/faqs",
                             "faqs/developer-faqs"
                         ]
                     },
@@ -326,6 +356,7 @@
                             "resources/media-kit",
                             {
                                 "group": "Release Notes",
+                                "icon": "clipboard-list",
                                 "pages": [
                                     "resources/release-notes",
                                     "resources/release-notes/v5-3-0-10-23-23",
@@ -346,6 +377,7 @@
                 "groups": [
                     {
                         "group": "Blockscout APIs",
+                        "icon": "cloud",
                         "pages": [
                             "devs/apis",
                             "devs/apis/requests-and-limits",
@@ -380,12 +412,14 @@
                     },
                     {
                         "group": "Verification APIs",
+                        "icon": "shapes",
                         "pages": [
                             "devs/verification/blockscout-smart-contract-verification-api"
                         ]
                     },
                     {
                         "group": "Test Merits APIs",
+                        "icon": "award",
                         "pages": [
                             "devs/integrate-merits",
                             {
@@ -401,32 +435,30 @@
                 "pages": [
                     {
                         "group": "General",
+                        "icon": "info-circle",
                         "pages": [
+                            "about/features",
+                            "about/chains",
+                            "about/announcements",
+                            "about/announcements/newsletter-and-blog",
                             "about/funding",
-                            "about/announcements/newsletter-and-blog"
-                        ]
-                    },
-                    {
-                        "group": "Explorer as a Service",
-                        "pages": [
-                            "resources/premium-features"
+                            "about/roadmap"
                         ]
                     },
                     {
                         "group": "Partners",
+                        "icon": "handshake",
                         "pages": [
                             "about/partners-and-integrations",
                             "about/partners-and-integrations/raas-providers",
-                            "about/partners-and-integrations/vera-verifier-alliance",
-                            "about/announcements",
-                            "about/announcements/newsletter-and-blog"
+                            "about/partners-and-integrations/vera-verifier-alliance"
                         ]
                     },
-                    {
-                        "group": "News",
+                   {
+                        "group": "Explorer as a Service",
+                        "icon": "star",
                         "pages": [
-                            "about/announcements",
-                            "about/announcements/newsletter-and-blog"
+                            "resources/premium-features"
                         ]
                     }
                 ]

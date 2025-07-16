@@ -1,0 +1,67 @@
+---
+title: "MCP Server"
+description: "Wraps Blockscout APIs to expose blockchain data such as balances, tokens, NFTs, and contract metadata via MCP"
+icon: "code-fork"
+---
+
+<Tip>
+  Github with technical specs and run information located at https://github.com/blockscout/mcp-server
+</Tip>
+
+The Model Context Protocol (MCP) is an open protocol designed to allow AI agents, IDEs, and automation tools to consume, query, and analyze structured data through context-aware APIs.
+
+This server wraps Blockscout APIs and exposes blockchain data—balances, tokens, NFTs, contract metadata—via MCP so that AI agents and tools (like Claude, Cursor, or IDEs) can access and analyze it contextually.
+
+#### **Key Features:**
+
+- Contextual blockchain data access for AI tools
+- Multi-chain support via getting Blockscout instance URLs from Chainscout
+- Custom instructions for MCP host to use the server
+- Supports MCP progress notifications for multi-step tool operations, allowing clients to track execution status
+- Enhanced User Experience: Provides periodic progress updates for long-running API queries (e.g., fetching extensive transaction histories) when requested by the client, improving responsiveness
+
+#### Use Cases
+
+- Enabling AI agents to analyze blockchain transactions and account balances.
+- Automating blockchain data analysis workflows with context-aware APIs.
+- Allowing IDEs to fetch contract ABIs and other relevant smart contract information.
+- Additional info available at https://mcpmarket.com/server/blockscout
+
+#### **Architecture and Data Flow**
+
+```mermaid
+sequenceDiagram
+    participant AI as MCP Host
+    participant MCP as MCP Server
+    participant BENS as ENS Service
+    participant CS as Chainscout
+    participant BS as Blockscout Instance
+    participant Metadata as Metadata Service
+
+    AI->>MCP: __get_instructions__
+    MCP-->>AI: Custom instructions
+
+    AI->>MCP: get_address_by_ens_name
+    MCP->>BENS: Forward ENS name resolution request
+    BENS-->>MCP: Address response
+    MCP-->>AI: Formatted address
+
+    AI->>MCP: get_chains_list
+    MCP->>CS: Request available chains
+    CS-->>MCP: List of chains
+    MCP-->>AI: Formatted chains list
+
+    Note over AI: Host selects chain_id as per the user's initial prompt
+
+    AI->>MCP: Tool request with chain_id
+    MCP->>CS: GET /api/chains/:id
+    CS-->>MCP: Chain metadata (includes Blockscout URL)
+    par Concurrent API Calls (when applicable)
+        MCP->>BS: Request to Blockscout API
+        BS-->>MCP: Primary data response
+    and
+        MCP->>Metadata: Request to Metadata API (for enriched data)
+        Metadata-->>MCP: Secondary data response
+    end
+    MCP-->>AI: Formatted & combined information
+```
