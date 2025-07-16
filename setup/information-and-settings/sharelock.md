@@ -131,7 +131,7 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.Optimism.EIP1559ConfigUpdate | op\_eip1559\_config\_updates | \[asc: :l2\_block\_number\] |
 | Explorer.Chain.Optimism.InteropMessage | op\_interop\_messages | \[asc: :nonce, asc: :init\_chain\_id\] |
 | Explorer.Chain.Address.TokenBalance | address\_token\_balances | \[asc: :address\_hash, asc: :token\_contract\_address\_hash, asc: :block\_number\] |
-| Explorer.Chain.Address.CurrentTokenBalance | address\_current\_token\_balances | \[asc: :address\_hash, asc: :token\_contract\_address\_hash\] |
+| Explorer.Chain.Address.CurrentTokenBalance | address\_current\_token\_balances | \[asc: :token\_contract\_address\_hash, asc: :token\_id, asc: :address\_hash\] |
 | Explorer.Chain.Scroll.Batch | scroll\_batches | \[asc: number\] |
 | Explorer.Chain.Scroll.BatchBundle | scroll\_batch\_bundles | \[asc: final\_batch\_number\] |
 | Explorer.Chain.Scroll.Bridge | scroll\_bridge | \[asc: :type, asc: message\_hash\] |
