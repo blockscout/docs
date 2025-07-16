@@ -1,0 +1,183 @@
+---
+title: "Transaction Fields"
+description: "Description of your new file."
+---
+
+# Blockscout Transaction Fields Reference Guide
+
+Example transaction on Ethereum
+
+![\<img src="blocksBlockscout Ethereum transaction details page showing 0.0019 ETH transfer from Huobi Deposit Funder 7 to wallet address, with transaction hash, block confirmations, timestamp, and navigation tabs for token transfers, logs, and state changes](/images/example-transaction.jpg)
+
+## Transaction Summary (Header)
+
+| Field                   | Description                            | Format/Example                         | Purpose                                |
+| :---------------------- | :------------------------------------- | :------------------------------------- | :------------------------------------- |
+| **Transaction Summary** | Quick overview of transaction action   | "⚡ Transfer 0.0019 ETH to 0x1e...2988" | Instant understanding of what happened |
+| **Transaction Icon**    | Visual indicator of transaction type   | Lightning bolt (⚡) for transfers       | Quick visual identification            |
+| **Amount Display**      | Primary value being transferred        | "0.0019 ETH"                           | Main transaction amount                |
+| **Recipient Address**   | Shortened destination address          | "0x1e...2988" with copy button         | Quick recipient identification         |
+| **View Counter**        | Number of times transaction was viewed | "👁 8"                                 | Shows transaction popularity/interest  |
+
+## Transaction Overview Fields
+
+| Field                 | Description                                       | Format/Example                                                | Purpose                                                   |
+| :-------------------- | :------------------------------------------------ | :------------------------------------------------------------ | :-------------------------------------------------------- |
+| **Transaction Hash**  | Unique identifier for this specific transaction   | 66-character hex string starting with "0x"                    | Transaction's "receipt number" for tracking and reference |
+| **Status and Method** | Current state and transaction type                | ✅ Success                                                     | Shows whether transaction completed successfully          |
+| **Block**             | Block number and confirmations                    | 22933572                                                      | Show BlockNumber                                          |
+| **Timestamp**         | When transaction was mined with confirmation time | 🕐 8m ago                                                     | Reflects timestamp: Jul 16 2025 12:33:59 PM (-06:00 UTC)  |
+| **Sponsored**         | Advertisement or sponsored content section        | Ad banner with "Advertise to" message                         | Supports open source block explorer                       |
+| **From**              | Sender address with label                         | "🔴 Huobi: Deposit Funder 7" with copy button                 | Identified sender (exchange, contract, etc.)              |
+| **To**                | Recipient address                                 | 🟡 0x1ec7cB3FE99bD07E6faBa7D296857bCC102988" with copy button | Destination address                                       |
+
+## Blockscout-UI Features
+
+| Feature                      | Description                              | Location                 | Purpose                              |
+| :--------------------------- | :--------------------------------------- | :----------------------- | :----------------------------------- |
+| **Transaction Summary Line** | Quick overview with icon and key details | Top of page              | Instant understanding of transaction |
+| **View Counter**             | Shows transaction popularity             | Next to summary          | Community interest indicator         |
+| **Address Labels**           | Known entity identification              | From/To fields           | Better context than raw addresses    |
+| **Sponsored Content**        | Advertisement section                    | Middle of details        | Revenue for block explorer           |
+| **Copy Buttons**             | Quick copy functionality                 | Next to addresses/hashes | User convenience                     |
+| **Tabbed Navigation**        | Organized information sections           | Below summary            | Easy access to different data types  |
+| **Color-Coded Status**       | Visual status indicators                 | Status field             | Quick success/failure identification |
+| **Confirmation Speed**       | Time to confirmation                     | Timestamp field          | Network performance insight          |
+
+## Navigation Tabs
+
+| Tab                 | Description                    | Contents                                   | Purpose                                 |
+| :------------------ | :----------------------------- | :----------------------------------------- | :-------------------------------------- |
+| **Details**         | Main transaction information   | Hash, status, block, addresses, gas, value | Primary transaction data                |
+| **Token transfers** | ERC token movements            | Token name, amount, from/to addresses      | Track token transfers separate from ETH |
+| **User operations** | Account abstraction operations | User operation details for AA wallets      | Advanced wallet interactions            |
+| **Internal txns**   | Internal transactions          | Contract-to-contract calls                 | See all sub-transactions                |
+| **Logs**            | Event logs from contracts      | Contract events and their data             | Smart contract activity                 |
+| **State**           | State changes                  | Storage and balance modifications          | What changed on the blockchain          |
+| **Raw trace**       | Complete execution trace       | Step-by-step execution details             | Debug and analysis                      |
+
+## Visual Elements and Icons
+
+| Element               | Description                | Meaning                            | Context                     |
+| :-------------------- | :------------------------- | :--------------------------------- | :-------------------------- |
+| **⚡ Lightning Icon**  | Transaction type indicator | Fast/standard transaction          | Used in transaction summary |
+| **🔴 Red Circle**     | Address label indicator    | Exchange or known entity           | Huobi exchange identifier   |
+| **🟡 Yellow Circle**  | Address label indicator    | Contract or user wallet            | Regular address marker      |
+| **✅ Green Checkmark** | Success status             | Transaction completed successfully | Status indicator            |
+| **👁 Eye Icon**       | View counter               | Number of page views               | Popularity metric           |
+| **📋 Copy Button**    | Copy to clipboard          | Click to copy address/hash         | User convenience            |
+| **🕐 Clock Icon**     | Timestamp indicator        | Time-related information           | Timing reference            |
+
+## Transaction Details Fields
+
+| Field               | Description                                              | Format/Example                   | Purpose                                                   |
+| :------------------ | :------------------------------------------------------- | :------------------------------- | :-------------------------------------------------------- |
+| **From Address**    | Wallet address that initiated the transaction            | Labeled address with copy button | Identifies the sender with context                        |
+| **To Address**      | Destination address for the transaction                  | Labeled address with copy button | Identifies recipient with context                         |
+| **Value**           | Amount of native currency (ETH) transferred              | ETH amount with USD equivalent   | Shows direct ETH transfer (separate from token transfers) |
+| **Transaction Fee** | Total cost paid to miners/validators                     | ETH amount with USD equivalent   | Total processing cost                                     |
+| **Nonce**           | Sequential counter for transactions from sending address | Number (e.g., 1,247)             | Prevents replay attacks and ensures ordering              |
+
+## Gas Information Fields
+
+| Field                | Description                                      | Format/Example                               | Purpose                                            |
+| :------------------- | :----------------------------------------------- | :------------------------------------------- | :------------------------------------------------- |
+| **Gas Limit**        | Maximum gas the sender was willing to pay        | Number (e.g., 21,000)                        | Upper bound on computational work                  |
+| **Gas Used**         | Actual gas consumed by the transaction           | Number with percentage (e.g., 21,000 (100%)) | Actual computational work performed                |
+| **Gas Price**        | Price per unit of gas                            | Gwei amount (e.g., 20.5 Gwei)                | Cost per unit of computation                       |
+| **Max Fee Per Gas**  | Maximum fee willing to pay per gas unit (Type 2) | Gwei amount (e.g., 25 Gwei)                  | EIP-1559 fee mechanism for predictable fees        |
+| **Max Priority Fee** | Maximum tip willing to pay to miners (Type 2)    | Gwei amount (e.g., 2 Gwei)                   | Incentivizes miners to include transaction quickly |
+| **Base Fee Per Gas** | Network's base fee at transaction time (Type 2)  | Gwei amount (e.g., 18.5 Gwei)                | Burned portion of fee (not given to miners)        |
+
+## Transaction Type Fields
+
+| Field                | Description                            | Format/Example                 | Purpose                                    |
+| :------------------- | :------------------------------------- | :----------------------------- | :----------------------------------------- |
+| **Transaction Type** | EIP standard used for this transaction | Type 0, Type 1, Type 2         | Indicates fee mechanism and features       |
+| **Type 0**           | Legacy transactions                    | Standard format                | Original transaction format                |
+| **Type 1**           | EIP-2930 (Access List)                 | With access list               | Gas optimization for contract interactions |
+| **Type 2**           | EIP-1559 (Dynamic Fee)                 | With base fee and priority fee | More predictable fee mechanism             |
+| Type 3               | EIP-4844<br />(Blobs)                  | Blob carrying transaction      | Accomodate batched data                    |
+
+## Input Data Fields
+
+| Field                    | Description                                 | Format/Example                | Purpose                                       |
+| :----------------------- | :------------------------------------------ | :---------------------------- | :-------------------------------------------- |
+| **Input Data**           | Data payload sent with transaction          | Hexadecimal string            | Contains function calls and parameters        |
+| **Method ID**            | First 4 bytes identifying contract function | 4-byte hex (e.g., 0xa9059cbb) | Identifies which contract function was called |
+| **Input Data (Hex)**     | Raw hexadecimal data                        | 0x followed by hex characters | Raw transaction data                          |
+| **Input Data (UTF-8)**   | Human-readable text format                  | Plain text (when applicable)  | Readable version of data                      |
+| **Input Data (Decoded)** | Function calls with parameter names         | Function name and parameters  | User-friendly view of contract interactions   |
+
+## Token Transfer Fields
+
+| Field              | Description                           | Format/Example            | Purpose                                |
+| :----------------- | :------------------------------------ | :------------------------ | :------------------------------------- |
+| **Token Name**     | Name of the transferred token         | Text (e.g., "USD Coin")   | Identifies the token being transferred |
+| **Token Symbol**   | Token's ticker symbol                 | Text (e.g., "USDC")       | Short identifier for the token         |
+| **Token Amount**   | Quantity of tokens transferred        | Number with decimals      | Amount being moved                     |
+| **Token Type**     | Standard used for the token           | ERC-20, ERC-721, ERC-1155 | Indicates token functionality          |
+| **From Address**   | Token sender address                  | 42-character hex string   | Who sent the tokens                    |
+| **To Address**     | Token recipient address               | 42-character hex string   | Who received the tokens                |
+| **Token Contract** | Address of the token's smart contract | 42-character hex string   | Contract managing this token           |
+
+## Event Logs Fields
+
+| Field                | Description                      | Format/Example          | Purpose                            |
+| :------------------- | :------------------------------- | :---------------------- | :--------------------------------- |
+| **Log Index**        | Sequential numbering of events   | Number (e.g., 0, 1, 2)  | Order of events within transaction |
+| **Contract Address** | Address that emitted the event   | 42-character hex string | Source of the event                |
+| **Event Name**       | Name of the emitted event        | Text (e.g., "Transfer") | Type of event that occurred        |
+| **Topics**           | Indexed event parameters         | Array of hex strings    | Searchable event data              |
+| **Data**             | Non-indexed event data           | Hex string              | Additional event information       |
+| **Decoded Logs**     | Human-readable event information | Structured data         | User-friendly view of events       |
+
+## State Changes Fields
+
+| Field               | Description               | Format/Example          | Purpose                      |
+| :------------------ | :------------------------ | :---------------------- | :--------------------------- |
+| **Address**         | Account that changed      | 42-character hex string | Which account was modified   |
+| **Storage Changes** | Before and after values   | Hex values              | What data changed in storage |
+| **Balance Changes** | ETH balance modifications | ETH amounts             | How balances changed         |
+| **Nonce Changes**   | Account nonce updates     | Number changes          | Transaction counter updates  |
+
+## Status Indicators
+
+| Status      | Visual Indicator | Meaning                             | Next Steps                            |
+| :---------- | :--------------- | :---------------------------------- | :------------------------------------ |
+| **Success** | Green checkmark  | Transaction completed successfully  | Transaction is final                  |
+| **Failed**  | Red X            | Transaction failed during execution | Check revert reason, retry if needed  |
+| **Pending** | Orange clock     | Transaction waiting to be mined     | Wait for confirmation or increase gas |
+| **Dropped** | Gray indicator   | Transaction removed from mempool    | Resubmit with higher gas price        |
+
+## Additional Information Fields
+
+| Field                   | Description                           | Format/Example          | Purpose                          |
+| :---------------------- | :------------------------------------ | :---------------------- | :------------------------------- |
+| **Block Hash**          | Unique identifier for the block       | 66-character hex string | Reference to containing block    |
+| **Block Timestamp**     | When the block was mined              | UTC timestamp           | Block creation time              |
+| **Transaction Receipt** | Proof of transaction processing       | JSON data               | Technical execution details      |
+| **Raw Transaction**     | Complete transaction data             | JSON format             | Developer-level transaction info |
+| **Revert Reason**       | Error message for failed transactions | Text description        | Explains why transaction failed  |
+
+## Common Transaction Patterns
+
+| Pattern                  | From Address | To Address     | Value    | Input Data        | Tokens Transferred |
+| :----------------------- | :----------- | :------------- | :------- | :---------------- | :----------------- |
+| **Simple ETH Transfer**  | User wallet  | User wallet    | \> 0 ETH | Empty/minimal     | None               |
+| **Token Transfer**       | User wallet  | Token contract | 0 ETH    | Function call     | Token amount       |
+| **Contract Interaction** | User wallet  | Contract       | 0 ETH    | Function data     | Possibly tokens    |
+| **Contract Creation**    | User wallet  | null           | 0 ETH    | Contract bytecode | None               |
+| **Multi-token Transfer** | User wallet  | Contract       | 0 ETH    | Function call     | Multiple tokens    |
+
+## Troubleshooting Guide
+
+| Issue                     | Possible Causes                       | What to Check                                              |
+| :------------------------ | :------------------------------------ | :--------------------------------------------------------- |
+| **Transaction Not Found** | Wrong hash, wrong network, too recent | Verify hash, check network, wait for indexing              |
+| **Failed Transaction**    | Out of gas, revert, invalid input     | Check gas limit, read revert reason, verify input          |
+| **High Gas Fees**         | Network congestion, complex operation | Check gas price, simplify transaction, wait for lower fees |
+| **Pending Too Long**      | Low gas price, network issues         | Increase gas price, check network status                   |
+| **Wrong Token Amount**    | Decimal confusion, display issue      | Check token decimals, verify actual amount                 |
+
+**Quick Reference:** Use Ctrl\+F to search for specific field names in this guide. All fields are organized by the section they appear in on the Blockscout transaction page.

@@ -44,7 +44,8 @@
                             "index",
                             "get-started/using-an-explorer",
                             "get-started/integrating-data",
-                            "get-started/running-blockscout"
+                            "get-started/running-blockscout",
+                            "get-started/migration-guide"
                         ]
                     },
                     {
@@ -58,6 +59,7 @@
                                     "using-blockscout/overviews/glossary-of-terms",
                                     "using-blockscout/overviews/top-menu",
                                     "using-blockscout/overviews/blocks",
+                                  "using-blockscout/overviews/transaction-fields",
                                     "using-blockscout/overviews/transaction-types",
                                     "using-blockscout/overviews/beacon-chain-withdrawal-views"
                                 ]
