@@ -1,32 +1,265 @@
 ---
 title: "Migration Guide"
-description: "Learn how to migrate from other explorers to Blockscout"
+description: "Whether you are a developer, project, or blockchain user, learn how to migrate from other explorers to Blockscout"
 ---
 
-<Warning>
-  Under Construction
-</Warning>
+<Accordion title="Why Switch to Blockscout?" icon="sparkles">
+  - Blockscout is transparent, open-source software. Supported by the community for the community good.
+  - Blockscout  adds new features regularly and offers support quickly.
+  - Blockscout provides fast and reliable chain information, and robust APIs for developers.
+  - Blockscout is a proven explorer with a long track record, ecosystem-wide support, high data availability, and a rich feature set
+  - 
+  -  other explorer do not offer. 
+</Accordion>
+
+<Accordion title="Blockscout Features" icon="sparkles">
+  - Deep Search
+  - Advanced Contract Interaction
+  - JSON RPC & REST APIs
+  - User Operations
+  - Dapp Marketplace
+  - Enhanced Metadata
+  - DEX tracker
+  - Interop explorer in progress
+</Accordion>
 
 ## Switching Links
 
-## Blockscout vs Etherscan Views
+Change links in your application to point to Blockscout
 
-Blockscout provides views for the same information as Etherscan in slightly different ways. The table below shows these differences.
+- **Update primary links**. Update all code within an application by replacing the front part of the url. [ <Icon icon="flag" /> Link Switch Guide](/devs/replace-links)
+- **Update wallet links**: Many wallets can be updated manually to switch the primary explorer link to Blockscout. [ <Icon icon="wallet" /> Wallet Update Guide](https://www.blog.blockscout.com/changing-wallet-block-explorer-urls-to-blockscout/)
+- **Link conversions**: Some Blockscout links are not 1-to-1 with Etherscan, mostly for newer features such as blobs and user ops. Expand to see the full link conversion table, and scroll horizontally to view all link information. [ <Icon icon="link" /> URL Comparison Guide](https://blockscout.notion.site/2173d73641f8808db0a2c184ff2a6194?v=2173d73641f8801085d4000c046abd78&pvs=143)
 
-<Accordion title="Find Etherscan info in Blockscout" icon="sparkles">
-  Section 1
+## API updates
 
-  | Etherscan | Blockscout | |
-  | --------- | ---------- | --- |
-  |           |            | |
-  |           |            | |
+No API key is required for Blockscout, but you can use our [free API key](/using-blockscout/my-account/api-keys) to access higher limits if needed. If you have higher or custom needs, [contact us to discuss individual situations.](https://discord.gg/blockscout)
 
-  New Section
+- **JSON RPC**
 
-  | Etherscan | Blockscout | |
-  | --------- | ---------- | --- |
-  |           |            | |
-  |           |            | |
+  JSON RPC calls follow the same query structure as Etherscan. Blockscout supports most of the same calls. Replace the front part of the url from [https://api.etherscan.io/v2/api?chainid=](https://api.etherscan.io/v2/api?chainid=10)X to **https://your-explorer-instance/api**
+  - [Docs](/devs/apis/rpc)
+  - [JSON RPC Postman collection example ](https://www.postman.com/blockscout/optimistic-etherscan-api)
 
-  New Section
+<Accordion title="API Differences" icon="computer">
+  ### **1. Account/Address Endpoints**\
+  `module=account`
+
+  |                              | Blockscout | Etherscan | Purpose                                                 |
+  | :--------------------------- | :--------- | :-------- | :------------------------------------------------------ |
+  | `action=eth_get_balance`     | ✅          | ❌         | Mimics Ethereum JSON RPC's eth_getBalance               |
+  | `action=balance`             | ✅          | ✅         | Get Ether Balance for Single Address                    |
+  | `action=balancemulti`        | ✅          | ✅         | Get Ether Balance for Multiple Addresses                |
+  | `action=pendingtxlist`       | ✅          | ❌         | Get Pending Transactions by Address                     |
+  | `action=txlist`              | ✅          | ✅         | Get Normal Transactions by Address                      |
+  | `action=txlistinternal`      | ✅          | ✅         | Get Internal Transactions by Address                    |
+  | `action=tokentx`             | ✅          | ✅         | Get ERC20 Token Transfers                               |
+  | `action=tokennfttx`          | ✅          | ✅         | Get ERC721 Token Transfers                              |
+  | `action=token1155tx`         | ✅          | ✅         | Get ERC1155 Token Transfers                             |
+  | `action=token404tx`          | ✅          | ❌         | Get ERC-404 token transfer events by address            |
+  | `action=tokenbalance`        | ✅          | ❌         | Get Token Balance for Address                           |
+  | `action=tokenlist`           | ✅          | ❌         | Get list of tokens owned by address                     |
+  | `action=getminedblocks`      | ✅          | ✅         | Get list of blocks mined by address                     |
+  | `action=listaccounts`        | ✅          | ❌         | Get a list of accounts and their balances               |
+  | `action=txsBeaconWithdrawal` | ❌          | ✅         | Get Beacon Chain Withdrawals by Address and Block Range |
+  | `action=balancehistory`      | ❌          | ✅ (PRO)   | Get Historical Ether Balance for an Address By BlockNo  |
+
+  ### **2. Contract Endpoints**
+
+  ### `module=contract`
+
+  |                                 | Blockscout | Etherscan | Purpose                                                         |
+  | :------------------------------ | :--------- | :-------- | :-------------------------------------------------------------- |
+  | `action=listcontracts`          | ✅          | ❌         | Get list of any deployed contract                               |
+  | `action=getabi`                 | ✅          | ✅         | Get Contract ABI for verified contracts                         |
+  | `action=getsourcecode`          | ✅          | ✅         | Get contract source code for a verified contract                |
+  | `action=getcontractcreation`    | ✅          | ❌         | Get contract creator address hash and creation transaction hash |
+  | `action=verify`                 | ✅          | ❌         | Verify Contract with Source Code                                |
+  | `action=verifysourcecode`       | ✅          | ✅         | Verify Contract with JSON file                                  |
+  | `action=checkverifystatus`      | ✅          | ✅         | Check Verification Status                                       |
+  | `action=verifyproxycontract`    | ✅          | ✅         | Get Internal Transactions by Address                            |
+  | `action=checkproxyverification` | ✅          | ✅         | Get ERC20 Token Transfers                                       |
+  | `action=verify_via_scourcify`   | ✅          | ❌         | Verify a contract through                                       |
+  | Sourcify                        |            |           |                                                                 |
+  | `action=verify_vyper_contract`  | ✅          | ❌         | Verify a Vyper contract                                         |
+
+  ### **3. Transaction Endpoints**
+
+  ### `module=transaction`
+
+  |                             | Blockscout | Etherscan | Purpose                                                          |
+  | :-------------------------- | :--------- | :-------- | :--------------------------------------------------------------- |
+  | `action=gettxinfo`          | ✅          | ❌         | Get Transaction info including block number, sender, gas, \+\+\+ |
+  | `action=gettxreceiptstatus` | ✅          | ✅         | Get Transaction Receipt Status                                   |
+  | `action=getstatus`          | ✅          | ✅         | Get Transaction Execution Status                                 |
+
+  ### **4. Block Endpoints**
+
+  **module=block**
+
+  |                                              | Blockscout | Etherscan | Purpose                                                        |
+  | :------------------------------------------- | :--------- | :-------- | :------------------------------------------------------------- |
+  | `action=getblockreward`                      | ✅          | ✅         | Get Block Rewards                                              |
+  | `action=getblockcountdown`                   | ✅          | ✅         | Get Block Countdown                                            |
+  | `action=getblocknobytime`                    | ✅          | ✅         | Get Block Number by Time                                       |
+  | `action=eth_block_number`                    | ✅          | ❌         | Mimics Ethereum JSON RPC's eth_blockNumber.                    |
+  | <br /><br /><br />`action=dailyavgblocksize` | ❌          | ✅ (PRO)   | Get Daily Average Block Size                                   |
+  | `action=dailyblkcount`                       | ❌          | ✅ (PRO)   | Get Daily Block Count and Rewards                              |
+  | `action=dailyblockrewards`                   | ❌          | ✅ (PRO)   | Get Daily Block Rewards                                        |
+  | `action=dailyavgblocktime`                   | ❌          | ✅ (PRO)   | Get Daily Average Time for A Block to be Included in the chain |
+  | `action=dailyuncleblkcount`                  | ❌          | ✅ (PRO)   | Get Daily Uncle Block Count and Rewards                        |
+
+  ### **5. Token Endpoints**
+
+  ### `module=token`
+
+  Note other endpoints contain token specific information including `module=stats` and `module=account`.
+
+  |                         | Blockscout | Etherscan | Purpose                       |
+  | :---------------------- | :--------- | :-------- | :---------------------------- |
+  | action=getToken         | ✅          | ❌         | Get Token Information         |
+  | action=getTokenHolders  | ✅          | ❌         | Get Token Holders             |
+  | action=bridgedtokenlist | ✅          | ❌         | Get Bridged Tokens            |
+  | action=tokenholderlist  | ❌          | ✅ (PRO)   | Get Token Holders             |
+  | action=tokenholdercount | ❌          | ✅ (PRO)   | Number of ERC20 token holders |
+  | action=tokeninfo        | ❌          | ✅ (PRO)   | Token project info            |
+
+  ### **6. Logs/Events Endpoints**
+
+  ### `module=logs`
+
+  Both Etherscan and Blockscout use the getLogs endpoint which includes enhanced filtering capabilities
+
+  - ✅ `action=getLogs` - Get Event Logs by Address/Topics/Block Range
+
+  ### **7. Proxy/ETH RPC Endpoints**
+
+  Etherscan uses the Proxy module `module=proxy` to retrieve standard Ethereum JSON-RPC methods.
+
+  For Blockscout, send requests to `https://explorer.optimism.io/api/eth-rpc`
+
+  The following methods are supported:
+
+  - eth_blockNumber
+  - eth_getBalance
+  - eth_getLogs
+  - eth_gasPrice
+  - eth_getTransactionByHash
+  - eth_getTransactionReceipt
+  - eth_chainId
+  - eth_maxPriorityFeePerGas
+  - eth_getTransactionCount
+  - eth_getCode
+  - eth_getStorageAt
+  - eth_estimateGas
+  - eth_getBlockByNumber
+  - eth_getBlockByHash
+  - eth_sendRawTransaction
+  - eth_call
+
+  ### **8. Stats/Network Information**
+
+  ### `module=stats`
+
+  In addition to these stats, Blockscout provides general chain stats via the [REST API](/devs/apis/rest).
+
+  |                       | Blockscout | Etherscan | Purpose                                                                                                                     |
+  | :-------------------- | :--------- | :-------- | :-------------------------------------------------------------------------------------------------------------------------- |
+  | tokensupply           | ✅          | ✅         | Get Token Information                                                                                                       |
+  | ethsupplyexchange     | ✅          | ❌         | total supply in Wei from exchange                                                                                           |
+  | ethsupply             | ✅          | ✅         | Get total supply in Wei from DB                                                                                             |
+  | ethsupply2            | ❌          | ✅         | Get amount of Ether in circulation, ETH2 Staking rewards, EIP1559 burnt fees, and total withdrawn ETH from the beacon chain |
+  | coinsupply            | ✅          | ❌         | Get total coin supply from DB minus burnt number                                                                            |
+  | ethprice              | ✅          | ✅         | Get latest price of native coin in USD and BTC                                                                              |
+  | coinprice             | ✅          | ❌         | Get latest price of native coin in USD and BTC in more general format                                                       |
+  | totalfees             | ✅          | ❌         | Get total transaction fees in Wei paid by users to validators per day                                                       |
+  | chainsize             | ❌          | ✅         | Get the size of the Ethereum blockchain, in bytes, over a date range.                                                       |
+  | nodecount             | ❌          | ✅ (PRO)   | Get total number of discoverable Ethereum nodes                                                                             |
+  | dailytxnfee           | ❌          | ✅ (PRO)   | Get Daily Network Transaction Fee                                                                                           |
+  | dailynewaddress       | ❌          | ✅ (PRO)   | Get Daily New Address Count                                                                                                 |
+  | dailynetutilization   | ❌          | ✅ (PRO)   | Get Daily Network Utilization                                                                                               |
+  | dailyavghashrate      | ❌          | ✅ (PRO)   | Get Daily Average Network Hash Rate                                                                                         |
+  | dailytx               | ❌          | ✅ (PRO)   | Get Daily Transaction Count                                                                                                 |
+  | dailyavgnetdifficulty | ❌          | ✅ (PRO)   | Get Daily Average Network Difficulty                                                                                        |
+  | ethdailyprice         | ❌          | ✅ (PRO)   | Get Ether Historical Price                                                                                                  |
+
+  ### **9. Gas Tracking**
+
+  **Etherscan Gas Tracker** (`module=gastracker`)
+
+  - ✅ `action=gasoracle` - Get Gas Oracle
+  - ✅ `action=gasestimate` - Get Gas Estimate
+
+  **Blockscout**
+
+  - ✅ Gas information integrated into transaction and block data
 </Accordion>
+
+- **REST API** availability/swagger
+
+  Blockscout also provides a RESTful API which serves it’s frontend and is available for developers to use.
+  - [Documentation and playground](/devs/apis/rest)
+  - [Microservice and related swagger definitions](https://blockscout.github.io/swaggers/)
+- A **GraphQL** playground is built into the explorer. Explore queries and schemas from the interface by visiting [**https://your-instance-here/graphiql**](https://your-instance-here/graphiql)
+
+## Contract verification process
+
+Blockscout offers advanced contract verification and interaction possibilities. Pre-existing contracts in various contexts are verified automatically (partial verification - which exposes the contract and methods) via the [Ethereum bytecode DB.](/about/features/ethereum-bytecode-database-microservice) New contracts (Solidity, Vyper, Yul) can be verified via dev tools or directly in the Blockscout UI. <Icon icon="paper-plane-top" /> [Contract verification guide](/devs/verification/blockscout-smart-contract-verification-api)
+
+<Check>
+  Dev tools widely support the Blockscout explorer. For example:
+
+  - Ethers.js: https://docs.ethers.org/v6/api/providers/thirdparty/#providers-blockscout
+  - Hardhat: https://www.npmjs.com/package/@ericxstone/hardhat-blockscout-verify
+  - Foundry: https://docs.blockscout.com/devs/verification/foundry-verification
+  - Remix: https://www.blog.blockscout.com/deploy-and-verify-your-contract-using-remix-and-blockscout/ 
+</Check>
+
+## My Account
+
+Blockscout My Account lets you create watchlists, customize your explorer with private tags, create free API keys for extended use and more. [ <Icon icon="people-pants" /> My Account Guide](/using-blockscout/my-account)
+
+# Making the most of your explorer experience
+
+## Switching from Etherscan
+
+If you are used to using Etherscan, it is easy to switch to Blockscout. Most information is presented in a similar manner and in similar places in the UI with parity in data presentation. 
+
+<Accordion title="Blockscout / Etherscan Feature Differences" icon="magnifying-glass-arrows-rotate">
+  ## **Additional Blockscout feature set**
+
+  **An itemized list of over 60 features and views available on Blockscout that are not available on Optimistic Etherscan is **[**available here**](https://docs.google.com/spreadsheets/d/1HGw9bh5Iq3xBZlrnrwVOzD_0844zt7PPakkuxVsiS1g/edit?usp=sharing)**.**
+
+  - **DAppscout** DApp marketplace providing dapp discovery and interaction features.
+  - **BENS in addition to ENS support, protocols can submit their subgraphs to be supported. Blockscout allows multiple protocols to co-exist within a single network.**
+  - **Ads and banner control** - Ability to add and curate own ads/banners
+  - **Public tagging - a central microservice allows tags enabled on mainnet to be shown on other chains. This is especially useful for malicious address display.**
+  - **Vera and BytecodeDB Bytecode match works for verification info on multiple chains**
+  - **Roadmap, research and rollup-specific features**
+    - Rollup-specific feature support (e.g. Fault proofs)
+    - DA support (e.g. [Celestia](https://github.com/blockscout/blockscout/pull/10199))
+
+  ## **Additional Etherscan feature set (features not yet available on Blockscout)**
+
+  - Page views not included in the Blockscout UI
+    - [NFT Latest Transfers](https://optimistic.etherscan.io/nft-transfers)
+    - [NFT Latest Mints](https://optimistic.etherscan.io/nft-latest-mints)
+
+    Developer tools not included in Blockscout
+    - [EVM bytecode decompiler (experimental)](https://optimistic.etherscan.io/bytecode-decompiler)
+    - [Contract \> Similar contracts](https://optimistic.etherscan.io/find-similar-contracts)
+    - [Contract \> Diff checker](https://optimistic.etherscan.io/contractdiffchecker)
+    - [Contract \> Bytecode to Opcode Disassembler](https://optimistic.etherscan.io/opcode-tool)
+    - [Vyper Online Compiler](https://optimistic.etherscan.io/vyper)
+    - [AI Code reader](https://optimistic.etherscan.io/code-reader)
+
+    Tools and services not included in Blockscout
+
+    Blockscout does not include some add-on tooling such as the
+
+    [input data converter](https://etherscan.io/inputdatadecoder), [unit converter](https://etherscan.io/unitconverter), [token approvals](https://etherscan.io/tokenapprovalchecker) and [verified signatures](https://etherscan.io/verifiedSignatures). These are readily available through 3rd party applications and/or currently not considered as high-priority features.
+</Accordion>
+
+## Using Dappscout
+
+Dappscout is a decentralized application marketplace built into Blockscout. It features a list of dapps available on Optimism.  [ <Icon icon="store" /> Dappscout Guide](/using-blockscout/blockscout-apps)
