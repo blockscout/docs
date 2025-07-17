@@ -10,7 +10,7 @@ icon: "bird"
   - Blockscout provides fast and reliable chain information, and robust APIs for developers.
   - Blockscout is a proven explorer with a long track record, ecosystem-wide support, high data availability, and a rich feature set
   - 
-  -  other explorer do not offer. 
+  - other explorer do not offer.
 </Accordion>
 
 <Accordion title="Blockscout Features" icon="sparkles">
@@ -28,9 +28,9 @@ icon: "bird"
 
 Change links in your application to point to Blockscout
 
-- **Update primary links**. Update all code within an application by replacing the front part of the url. [ <Icon icon="flag" /> Link Switch Guide](/devs/replace-links)
-- **Update wallet links**: Many wallets can be updated manually to switch the primary explorer link to Blockscout. [ <Icon icon="wallet" /> Wallet Update Guide](https://www.blog.blockscout.com/changing-wallet-block-explorer-urls-to-blockscout/)
-- **Link conversions**: Some Blockscout links are not 1-to-1 with Etherscan, mostly for newer features such as blobs and user ops. Expand to see the full link conversion table, and scroll horizontally to view all link information. [ <Icon icon="link" /> URL Comparison Guide](https://blockscout.notion.site/2173d73641f8808db0a2c184ff2a6194?v=2173d73641f8801085d4000c046abd78&pvs=143)
+- **Update primary links**. Update all code within an application by replacing the front part of the url. <Icon icon="flag" /> [Link Switch Guide](/devs/replace-links)
+- **Update wallet links**: Many wallets can be updated manually to switch the primary explorer link to Blockscout. <Icon icon="wallet" /> [Wallet Update Guide](https://www.blog.blockscout.com/changing-wallet-block-explorer-urls-to-blockscout/)
+- **Link conversions**: Some Blockscout links are not 1-to-1 with Etherscan, mostly for newer features such as blobs and user ops. Expand to see the full link conversion table, and scroll horizontally to view all link information. <Icon icon="link" /> [URL Comparison Guide](https://blockscout.notion.site/2173d73641f8808db0a2c184ff2a6194?v=2173d73641f8801085d4000c046abd78&pvs=143)
 
 ## API updates
 
@@ -38,12 +38,13 @@ No API key is required for Blockscout, but you can use our [free API key](/using
 
 - **JSON RPC**
 
-  JSON RPC calls follow the same query structure as Etherscan. Blockscout supports most of the same calls. Replace the front part of the url from [https://api.etherscan.io/v2/api?chainid=](https://api.etherscan.io/v2/api?chainid=10)X to **https://your-explorer-instance/api**
+  JSON RPC calls follow the same query structure as Etherscan. Blockscout supports most of the same calls. Replace the front part of the url from [https://api.etherscan.io/v2/api?chainid=](https://api.etherscan.io/v2/api?chainid=10)X to [**https://your-explorer-instance/api**](https://your-explorer-instance/api)
   - [Docs](/devs/apis/rpc)
   - [JSON RPC Postman collection example ](https://www.postman.com/blockscout/optimistic-etherscan-api)
 
 <Accordion title="API Differences" icon="computer">
-  ### **1. Account/Address Endpoints**\
+  ### **1. Account/Address Endpoints**\\
+
   `module=account`
 
   |                              | Blockscout | Etherscan | Purpose                                                 |
@@ -205,7 +206,10 @@ No API key is required for Blockscout, but you can use our [free API key](/using
 
 ## Contract verification process
 
-Blockscout offers advanced contract verification and interaction possibilities. Pre-existing contracts in various contexts are verified automatically (partial verification - which exposes the contract and methods) via the [Ethereum bytecode DB.](/about/features/ethereum-bytecode-database-microservice) New contracts (Solidity, Vyper, Yul) can be verified via dev tools or directly in the Blockscout UI. <Icon icon="paper-plane-top" /> [Contract verification guide](/devs/verification/blockscout-smart-contract-verification-api)
+Blockscout offers advanced contract verification and interaction possibilities. Pre-existing contracts in various contexts are verified automatically (partial verification - which exposes the contract and methods) via the [Ethereum bytecode DB.](/about/features/ethereum-bytecode-database-microservice) 
+
+New contracts (Solidity, Vyper, Yul) can be verified via dev tools or directly in the Blockscout UI. \
+<Icon icon="paper-plane-top" /> [Contract verification guide](/devs/verification/blockscout-smart-contract-verification-api)
 
 <Check>
   Dev tools widely support the Blockscout explorer. For example:
@@ -213,23 +217,23 @@ Blockscout offers advanced contract verification and interaction possibilities. 
   - Ethers.js: https://docs.ethers.org/v6/api/providers/thirdparty/#providers-blockscout
   - Hardhat: https://www.npmjs.com/package/@ericxstone/hardhat-blockscout-verify
   - Foundry: https://docs.blockscout.com/devs/verification/foundry-verification
-  - Remix: https://www.blog.blockscout.com/deploy-and-verify-your-contract-using-remix-and-blockscout/ 
+  - Remix: https://www.blog.blockscout.com/deploy-and-verify-your-contract-using-remix-and-blockscout/
 </Check>
 
 ## My Account
 
-Blockscout My Account lets you create watchlists, customize your explorer with private tags, create free API keys for extended use and more. [ <Icon icon="people-pants" /> My Account Guide](/using-blockscout/my-account)
+Blockscout My Account lets you create watchlists, customize your explorer with private tags, create free API keys for extended use and more. <Icon icon="person" /> [My Account Guide](/using-blockscout/my-account)
 
 # Making the most of your explorer experience
 
 ## Switching from Etherscan
 
-If you are used to using Etherscan, it is easy to switch to Blockscout. Most information is presented in a similar manner and in similar places in the UI with parity in data presentation. 
+If you are used to using Etherscan, it is easy to switch to Blockscout. Most information is presented in a similar manner and in similar places in the UI with parity in data presentation.
 
 <Accordion title="Blockscout / Etherscan Feature Differences" icon="magnifying-glass-arrows-rotate">
   ## **Additional Blockscout feature set**
 
-  **An itemized list of over 60 features and views available on Blockscout that are not available on Optimistic Etherscan is **[**available here**](https://docs.google.com/spreadsheets/d/1HGw9bh5Iq3xBZlrnrwVOzD_0844zt7PPakkuxVsiS1g/edit?usp=sharing)**.**
+  [******An itemized list of over 60 features and views available on Blockscout that are not available on Optimistic Etherscan is available here.******](https://docs.google.com/spreadsheets/d/1HGw9bh5Iq3xBZlrnrwVOzD_0844zt7PPakkuxVsiS1g/edit?usp=sharing)
 
   - **DAppscout** DApp marketplace providing dapp discovery and interaction features.
   - **BENS in addition to ENS support, protocols can submit their subgraphs to be supported. Blockscout allows multiple protocols to co-exist within a single network.**
@@ -263,4 +267,4 @@ If you are used to using Etherscan, it is easy to switch to Blockscout. Most inf
 
 ## Using Dappscout
 
-Dappscout is a decentralized application marketplace built into Blockscout. It features a list of dapps available on Optimism.  [ <Icon icon="store" /> Dappscout Guide](/using-blockscout/blockscout-apps)
+Dappscout is a decentralized application marketplace built into Blockscout. It features a list of dapps available on Optimism.  <Icon icon="store" /> [Dappscout Guide](/using-blockscout/blockscout-apps)

@@ -1,10 +1,36 @@
 ---
-title: 'Running Blockscout'
-description: 'Hosting, ENVs and other info'
+title: "Running Blockscout"
+description: "Hosting, ENVs and other info"
 icon: "person-running"
 sidebarTitle: "Setup & Configuration"
 ---
 
-- Deployment Options
-- Configs
-- Architecture
+<Tip>
+  Blockscout also provides several hosting options for projects who do not want to run their own explorers.
+
+  - [Autoscout](/using-blockscout/autoscout) allows you to setup an explorer in minutes. Hosted on Blockscout's cloud infra.
+  - [Explorer as a Service](https://eaas.blockscout.com/) provides an SLA, optimized on prem hosting, and explorer customization.
+</Tip>
+
+Blockscout open-source software can be forked and used by any project to quickly setup an full-featured explorer environment. Be sure to [check the requirements](/setup/requirements) and tune your environment before deploying an explorer.
+
+## **Deployment Options**
+
+Common deployment methods below, there are additional deployment methods as well described in the [deployment ](/setup/deployment)section.
+
+- [Docker Deployment](/setup/deployment/docker-compose-deployment)
+- [Kubernetes Deployment](/setup/deployment/kubernetes-deployment)
+- [Manual Deployment](/setup/deployment/manual-deployment-guide)
+
+## **Configuration**
+
+- [ENV Variables](/setup/env-variables)
+  - [Backend](/setup/env-variables/backend-env-variables)
+  - [Frontend](/setup/env-variables/frontend-common-envs)
+  - [L2s and chain specific variables](/setup/env-variables/backend-envs-chain-specific)
+- [Microservices](/setup/microservices)
+  - Includes many plugin services written in Rust and available via the [Microservices RS repository](https://github.com/blockscout/blockscout-rs).
+- [Configs](/setup/configuration-options)
+  - Additional available configurations beyond ENV updates.
+- [Architecture](/setup/information-and-settings)
+  - Describes the Blockscout architecture including an [indexer architecture overview.](/setup/information-and-settings/indexer-architecture-overview)
