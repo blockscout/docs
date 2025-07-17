@@ -58,8 +58,9 @@
                                     "using-blockscout/overviews",
                                     "using-blockscout/overviews/glossary-of-terms",
                                     "using-blockscout/overviews/top-menu",
+                                    "using-blockscout/overviews/address-page",
                                     "using-blockscout/overviews/blocks",
-                                  "using-blockscout/overviews/transaction-fields",
+                                    "using-blockscout/overviews/transaction-fields",
                                     "using-blockscout/overviews/transaction-types",
                                     "using-blockscout/overviews/beacon-chain-withdrawal-views"
                                 ]
@@ -197,7 +198,6 @@
                                     "setup/env-variables/backend-envs-integrations",
                                     {
                                         "group": "Frontend ENVs: Common",
-                                        "icon": "paint-brush",
                                         "pages": [
                                             "setup/env-variables/frontend-common-envs",
                                             "setup/env-variables/frontend-common-envs/envs",
@@ -206,7 +206,6 @@
                                     },
                                     {
                                         "group": "Deprecated Backend ENVs",
-                                        "icon": "exclamation-triangle",
                                         "pages": [
                                             "setup/env-variables/deprecated-env-variables",
                                             "setup/env-variables/deprecated-env-variables/env-variables"
@@ -343,8 +342,6 @@
                     {
                         "group": "FAQs",
                         "pages": [
-                            "faqs/faqs",
-                            "faqs/developer-faqs",
                             "faqs/faqs",
                             "faqs/developer-faqs"
                         ]
