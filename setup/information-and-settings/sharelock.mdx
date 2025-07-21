@@ -1,13 +1,13 @@
 ---
 title: "ShareLock"
-description: ShareLock is the row-level locking mechanism used internally by PostgreSQL.
+description: "ShareLock is the row-level locking mechanism used internally by PostgreSQL."
 ---
 
 ### Deadlocks and prevention
 
-When several DB transactions are acting on multiple rows of the same table, it's possible to incur in a deadlock and so into an error. This can be prevented by enforcing the same consistent order of lock acquisition on *all* the transactions performing `INSERT`, `UPDATE` or `DELETE` on a given table.
+When several DB transactions are acting on multiple rows of the same table, it's possible to incur in a deadlock and so into an error. This can be prevented by enforcing the same consistent order of lock acquisition on _all_ the transactions performing `INSERT`, `UPDATE` or `DELETE` on a given table.
 
-On top of this, if multiple DB transactions act on multiple tables a deadlock will occur, even if they follow the order on each table described above, if they acquire locks on said tables in a different order. This can also be prevented by using a consistent order of lock acquisition *between* different tables.
+On top of this, if multiple DB transactions act on multiple tables a deadlock will occur, even if they follow the order on each table described above, if they acquire locks on said tables in a different order. This can also be prevented by using a consistent order of lock acquisition _between_ different tables.
 
 ### Imposing the lock acquisition order on a table with Ecto
 
@@ -99,64 +99,62 @@ This is a complete list of the ordering currently in use on each table. It also 
 
 Note that this should always be enforced because as long as there is one DB transaction performing in a different order there is the possibility of a deadlock.
 
-| schema module                                     | table name                               | ordered by                                                                                              |
-| ------------------------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Explorer.Chain.Address                            | addresses                                | \[asc: :hash]                                                                                           |
-| Explorer.Chain.Address.Name                       | address\_names                           | \[asc: :address\_hash, asc: :name]                                                                      |
-| Explorer.Chain.Address.CoinBalance                | address\_coin\_balances                  | \[asc: :address\_hash, asc: :block\_number]                                                             |
-| Explorer.Chain.Block                              | blocks                                   | \[asc: :hash]                                                                                           |
-| Explorer.Chain.Block.SecondDegreeRelation         | block\_second\_degree\_relations         | \[asc: :nephew\_hash, asc: :uncle\_hash]                                                                |
-| Explorer.Chain.Block.Reward                       | block\_rewards                           | \[asc: :address\_hash, asc: :address\_type, asc: :block\_hash]                                          |
-| Explorer.Chain.Block.EmissionReward               | emission\_rewards                        | \[asc: :block\_range]                                                                                   |
-| Explorer.Chain.Transaction                        | transactions                             | \[asc: :hash]                                                                                           |
-| Explorer.Chain.Transaction.Fork                   | transaction\_forks                       | \[asc: :uncle\_hash, asc: :index]                                                                       |
-| Explorer.Chain.Log                                | logs                                     | \[asc: :transaction\_hash, asc: :index]                                                                 |
-| Explorer.Chain.InternalTransaction                | internal\_transactions                   | \[asc: :transaction\_hash, asc: :index]                                                                 |
-| Explorer.Chain.Token                              | tokens                                   | \[asc: :contract\_address\_hash]                                                                        |
-| Explorer.Chain.TokenTransfer                      | token\_transfers                         | \[asc: :transaction\_hash, asc: :log\_index]                                                            |
-| Explorer.Chain.TransactionAction                  | transaction\_actions                     | \[asc: :hash, asc: :log\_index]                                                                         |
-| Explorer.Chain.PolygonEdge.Deposit                | polygon\_edge\_deposits                  | \[asc: :msg\_id]                                                                                        |
-| Explorer.Chain.PolygonEdge.DepositExecute         | polygon\_edge\_deposit\_executes         | \[asc: :msg\_id]                                                                                        |
-| Explorer.Chain.PolygonEdge.Withdrawal             | polygon\_edge\_withdrawals               | \[asc: :msg\_id]                                                                                        |
-| Explorer.Chain.PolygonEdge.WithdrawalExit         | polygon\_edge\_withdrawal\_exits         | \[asc: :msg\_id]                                                                                        |
-| Explorer.Chain.Optimism.OutputRoot                | op\_output\_roots                        | \[asc: :l2\_output\_index]                                                                              |
-| Explorer.Chain.Optimism.TxnBatch                  | op\_transaction\_batches                 | \[asc: :l2\_block\_number]                                                                              |
-| Explorer.Chain.Optimism.Deposit                   | op\_deposits                             | \[asc: :l2\_transaction\_hash]                                                                          |
-| Explorer.Chain.Optimism.DisputeGame               | op\_dispute\_games                       | \[asc: :index]                                                                                          |
-| Explorer.Chain.Optimism.FrameSequence             | op\_frame\_sequences                     | \[asc: :id]                                                                                             |
-| Explorer.Chain.Optimism.FrameSequenceBlob         | op\_frame\_sequence\_blobs               | \[asc: :id]                                                                                             |
-| Explorer.Chain.Optimism.WithdrawalEvent           | op\_withdrawal\_events                   | \[asc: :withdrawal\_hash, asc: :l1\_event\_type]                                                        |
-| Explorer.Chain.Optimism.Withdrawal                | op\_withdrawals                          | \[asc: :msg\_nonce]                                                                                     |
-| Explorer.Chain.Optimism.EIP1559ConfigUpdate       | op\_eip1559\_config\_updates             | \[asc: :l2\_block\_number]                                                                              |
-| Explorer.Chain.Optimism.InteropMessage            | op\_interop\_messages                    | \[asc: :nonce, asc: :init\_chain\_id]                                                                   |
-| Explorer.Chain.Address.TokenBalance               | address\_token\_balances                 | \[asc: :address\_hash, asc: :token\_contract\_address\_hash, asc: :block\_number]                       |
-| Explorer.Chain.Address.CurrentTokenBalance        | address\_current\_token\_balances        | \[asc: :address\_hash, asc: :token\_contract\_address\_hash]                                            |
-| Explorer.Chain.Scroll.Batch                       | scroll\_batches                          | \[asc: number]                                                                                          |
-| Explorer.Chain.Scroll.BatchBundle                 | scroll\_batch\_bundles                   | \[asc: final\_batch\_number]                                                                            |
-| Explorer.Chain.Scroll.Bridge                      | scroll\_bridge                           | \[asc: :type, asc: message\_hash]                                                                       |
-| Explorer.Chain.Scroll.L1FeeParam                  | scroll\_l1\_fee\_params                  | \[asc: :block\_number, asc: tx\_index, asc: name]                                                       |
-| Explorer.Chain.Shibarium.Bridge                   | shibarium\_bridge                        | \[asc: :operation\_hash, asc: l1\_transaction\_hash, asc: l2\_transaction\_hash]                        |
-| Explorer.Chain.StakingPool                        | staking\_pools                           | \[asc: :staking\_address\_hash]                                                                         |
-| Explorer.Chain.StakingPoolsDelegator              | staking\_pools\_delegators               | \[asc: :delegator\_address\_hash, asc: :pool\_address\_hash]                                            |
-| Explorer.Chain.ContractMethod                     | contract\_methods                        | \[asc: :identified, asc: :abi]                                                                          |
-| Explorer.Market.MarketHistory                     | market\_history                          | \[asc: :date]                                                                                           |
-| Explorer.Chain.Withdrawal                         | withdrawals                              | \[asc: :index]                                                                                          |
-| Explorer.Chain.Zkevm.TransactionBatch             | zkevm\_transaction\_batches              | \[asc: :number]                                                                                         |
-| Explorer.Chain.Zkevm.BatchTransaction             | zkevm\_batch\_l2\_transactions           | \[asc: :hash]                                                                                           |
-| Explorer.Chain.Zkevm.LifecycleTransaction         | zkevm\_lifecycle\_l1\_transactions       | \[asc: :id]                                                                                             |
-| Explorer.Chain.Zkevm.Bridge                       | zkevm\_bridge                            | \[asc: :type, asc: :index]                                                                              |
-| Explorer.Chain.Zkevm.BridgeL1Token                | zkevm\_bridge\_l1\_tokens                | \[asc: :address]                                                                                        |
-| Explorer.Chain.ZkSync.TransactionBatch            | zksync\_transaction\_batches             | \[asc: :number]                                                                                         |
-| Explorer.Chain.ZkSync.BatchBlock                  | zksync\_batch\_blocks                    | \[asc: :hash]                                                                                           |
-| Explorer.Chain.ZkSync.BatchTransaction            | zksync\_batch\_transactions              | \[asc: :hash]                                                                                           |
-| Explorer.Chain.ZkSync.LifecycleTransaction        | zksync\_lifecycle\_transactions          | \[asc: :id]                                                                                             |
-| Explorer.Chain.Celo.EpochReward                   | celo\_epoch\_rewards                     | \[asc: :block\_hash]                                                                                    |
-| Explorer.Chain.Celo.PendingEpochBlockOperation    | celo\_pending\_epoch\_block\_operations  | \[asc: :block\_hash]                                                                                    |
-| Explorer.Chain.Celo.ValidatorGroupVote            | celo\_epoch\_validator\_group\_votes     | \[asc: :transaction\_hash, asc: :account\_address\_hash, asc: :group\_address\_hash]                    |
-| Explorer.Chain.Celo.ElectionReward                | celo\_election\_rewards                  | \[asc: :block\_hash, asc: type, asc: :account\_address\_hash, asc: :associated\_account\_address\_hash] |
-| Explorer.Chain.Zilliqa.QuorumCertificate          | zilliqa\_quorum\_certificates            | \[asc: :block\_hash]                                                                                    |
-| Explorer.Chain.Zilliqa.AggregateQuorumCertificate | zilliqa\_aggregate\_quorum\_certificates | \[asc: :block\_hash]                                                                                    |
-| Explorer.Chain.Zilliqa.NestedQuorumCertificate    | zilliqa\_nested\_quorum\_certificates    | \[asc: :block\_hash, asc: proposed\_by\_validator\_index]                                               |
-| Explorer.Chain.Filecoin.PendingAddressOperation   | filecoin\_pending\_address\_operations   | \[asc: :address\_hash]                                                                                  |
-
-
+| schema module                                     | table name                            | ordered by                                                                                       |
+| ------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Explorer.Chain.Address                            | addresses                             | [asc: :hash]                                                                                     |
+| Explorer.Chain.Address.Name                       | address_names                         | [asc: :address_hash, asc: :name]                                                                 |
+| Explorer.Chain.Address.CoinBalance                | address_coin_balances                 | [asc: :address_hash, asc: :block_number]                                                         |
+| Explorer.Chain.Block                              | blocks                                | [asc: :hash]                                                                                     |
+| Explorer.Chain.Block.SecondDegreeRelation         | block_second_degree_relations         | [asc: :nephew_hash, asc: :uncle_hash]                                                            |
+| Explorer.Chain.Block.Reward                       | block_rewards                         | [asc: :address_hash, asc: :address_type, asc: :block_hash]                                       |
+| Explorer.Chain.Block.EmissionReward               | emission_rewards                      | [asc: :block_range]                                                                              |
+| Explorer.Chain.Transaction                        | transactions                          | [asc: :hash]                                                                                     |
+| Explorer.Chain.Transaction.Fork                   | transaction_forks                     | [asc: :uncle_hash, asc: :index]                                                                  |
+| Explorer.Chain.Log                                | logs                                  | [asc: :transaction_hash, asc: :index]                                                            |
+| Explorer.Chain.InternalTransaction                | internal_transactions                 | [asc: :transaction_hash, asc: :index]                                                            |
+| Explorer.Chain.Token                              | tokens                                | [asc: :contract_address_hash]                                                                    |
+| Explorer.Chain.TokenTransfer                      | token_transfers                       | [asc: :transaction_hash, asc: :log_index]                                                        |
+| Explorer.Chain.TransactionAction                  | transaction_actions                   | [asc: :hash, asc: :log_index]                                                                    |
+| Explorer.Chain.PolygonEdge.Deposit                | polygon_edge_deposits                 | [asc: :msg_id]                                                                                   |
+| Explorer.Chain.PolygonEdge.DepositExecute         | polygon_edge_deposit_executes         | [asc: :msg_id]                                                                                   |
+| Explorer.Chain.PolygonEdge.Withdrawal             | polygon_edge_withdrawals              | [asc: :msg_id]                                                                                   |
+| Explorer.Chain.PolygonEdge.WithdrawalExit         | polygon_edge_withdrawal_exits         | [asc: :msg_id]                                                                                   |
+| Explorer.Chain.Optimism.OutputRoot                | op_output_roots                       | [asc: :l2_output_index]                                                                          |
+| Explorer.Chain.Optimism.TxnBatch                  | op_transaction_batches                | [asc: :l2_block_number]                                                                          |
+| Explorer.Chain.Optimism.Deposit                   | op_deposits                           | [asc: :l2_transaction_hash]                                                                      |
+| Explorer.Chain.Optimism.DisputeGame               | op_dispute_games                      | [asc: :index]                                                                                    |
+| Explorer.Chain.Optimism.FrameSequence             | op_frame_sequences                    | [asc: :id]                                                                                       |
+| Explorer.Chain.Optimism.FrameSequenceBlob         | op_frame_sequence_blobs               | [asc: :id]                                                                                       |
+| Explorer.Chain.Optimism.WithdrawalEvent           | op_withdrawal_events                  | [asc: :withdrawal_hash, asc: :l1_event_type]                                                     |
+| Explorer.Chain.Optimism.Withdrawal                | op_withdrawals                        | [asc: :msg_nonce]                                                                                |
+| Explorer.Chain.Optimism.EIP1559ConfigUpdate       | op_eip1559_config_updates             | [asc: :l2_block_number]                                                                          |
+| Explorer.Chain.Optimism.InteropMessage            | op_interop_messages                   | [asc: :nonce, asc: :init_chain_id]                                                               |
+| Explorer.Chain.Address.TokenBalance               | address_token_balances                | [asc: :address_hash, asc: :token_contract_address_hash, asc: :block_number]                      |
+| Explorer.Chain.Address.CurrentTokenBalance        | address_current_token_balances        | [asc: :token_contract_address_hash, asc: :token_id, asc: :address_hash]                          |
+| Explorer.Chain.Scroll.Batch                       | scroll_batches                        | [asc: number]                                                                                    |
+| Explorer.Chain.Scroll.BatchBundle                 | scroll_batch_bundles                  | [asc: final_batch_number]                                                                        |
+| Explorer.Chain.Scroll.Bridge                      | scroll_bridge                         | [asc: :type, asc: message_hash]                                                                  |
+| Explorer.Chain.Scroll.L1FeeParam                  | scroll_l1_fee_params                  | [asc: :block_number, asc: tx_index, asc: name]                                                   |
+| Explorer.Chain.Shibarium.Bridge                   | shibarium_bridge                      | [asc: :operation_hash, asc: l1_transaction_hash, asc: l2_transaction_hash]                       |
+| Explorer.Chain.StakingPool                        | staking_pools                         | [asc: :staking_address_hash]                                                                     |
+| Explorer.Chain.StakingPoolsDelegator              | staking_pools_delegators              | [asc: :delegator_address_hash, asc: :pool_address_hash]                                          |
+| Explorer.Chain.ContractMethod                     | contract_methods                      | [asc: :identified, asc: :abi]                                                                    |
+| Explorer.Market.MarketHistory                     | market_history                        | [asc: :date]                                                                                     |
+| Explorer.Chain.Withdrawal                         | withdrawals                           | [asc: :index]                                                                                    |
+| Explorer.Chain.Zkevm.TransactionBatch             | zkevm_transaction_batches             | [asc: :number]                                                                                   |
+| Explorer.Chain.Zkevm.BatchTransaction             | zkevm_batch_l2_transactions           | [asc: :hash]                                                                                     |
+| Explorer.Chain.Zkevm.LifecycleTransaction         | zkevm_lifecycle_l1_transactions       | [asc: :id]                                                                                       |
+| Explorer.Chain.Zkevm.Bridge                       | zkevm_bridge                          | [asc: :type, asc: :index]                                                                        |
+| Explorer.Chain.Zkevm.BridgeL1Token                | zkevm_bridge_l1_tokens                | [asc: :address]                                                                                  |
+| Explorer.Chain.ZkSync.TransactionBatch            | zksync_transaction_batches            | [asc: :number]                                                                                   |
+| Explorer.Chain.ZkSync.BatchBlock                  | zksync_batch_blocks                   | [asc: :hash]                                                                                     |
+| Explorer.Chain.ZkSync.BatchTransaction            | zksync_batch_transactions             | [asc: :hash]                                                                                     |
+| Explorer.Chain.ZkSync.LifecycleTransaction        | zksync_lifecycle_transactions         | [asc: :id]                                                                                       |
+| Explorer.Chain.Celo.EpochReward                   | celo_epoch_rewards                    | [asc: :block_hash]                                                                               |
+| Explorer.Chain.Celo.PendingEpochBlockOperation    | celo_pending_epoch_block_operations   | [asc: :block_hash]                                                                               |
+| Explorer.Chain.Celo.ValidatorGroupVote            | celo_epoch_validator_group_votes      | [asc: :transaction_hash, asc: :account_address_hash, asc: :group_address_hash]                   |
+| Explorer.Chain.Celo.ElectionReward                | celo_election_rewards                 | [asc: :block_hash, asc: type, asc: :account_address_hash, asc: :associated_account_address_hash] |
+| Explorer.Chain.Zilliqa.QuorumCertificate          | zilliqa_quorum_certificates           | [asc: :block_hash]                                                                               |
+| Explorer.Chain.Zilliqa.AggregateQuorumCertificate | zilliqa_aggregate_quorum_certificates | [asc: :block_hash]                                                                               |
+| Explorer.Chain.Zilliqa.NestedQuorumCertificate    | zilliqa_nested_quorum_certificates    | [asc: :block_hash, asc: proposed_by_validator_index]                                             |
+| Explorer.Chain.Filecoin.PendingAddressOperation   | filecoin_pending_address_operations   | [asc: :address_hash]                                                                             |
