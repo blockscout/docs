@@ -335,6 +335,7 @@
                                     "setup/indexing/how-do-i-update-memory-consumption-to-fix-indexer-memory-errors"
                                 ]
                             },
+                            "setup/celestia-node-indexer",
                             "setup/testing",
                             "setup/db-schema"
                         ]
@@ -478,26 +479,6 @@
             ]
         }
     },
-    "dropdowns": [
-        {
-            "dropdown": "Documentation",
-            "icon": "book-open",
-            "pages": [
-                "index"
-            ]
-        },
-        {
-            "dropdown": "API References",
-            "icon": "square-terminal",
-            "pages": [
-                "devs/apis"
-            ]
-        },
-        {
-            "dropdown": "Blog",
-            "href": "https://external-link.com/blog"
-        }
-    ],
     "logo": {
         "light": "/logo/Color_BS_logo_hor.svg",
         "dark": "/logo/White_BS_logo_hor.svg",
