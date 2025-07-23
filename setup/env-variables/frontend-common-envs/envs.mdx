@@ -1,6 +1,14 @@
+---
+title: "Frontend ENVs"
+---
+
 # Run-time environment variables
 
-The app instance can be customized by passing the following variables to the Node.js environment at runtime. Some of these variables have been deprecated, and their full list can be found in the [file](./DEPRECATED_ENVS.md).
+The app instance can be customized by passing the following variables to the Node.js environment at runtime. Some of these variables have been deprecated, and their full list can be [found here](/setup/env-variables/frontend-common-envs/deprecated-envs).
+
+<Tip>
+  The frontend docs repo also contain an updated list of ENVs, it is [available here](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md).
+</Tip>
 
 ## Read before you run the app
 
@@ -17,7 +25,7 @@ Please be aware that all environment variables prefixed with `NEXT_PUBLIC_` will
 All json-like values should be single-quoted. If it contains a hash (`#`) or a dollar-sign (`$`) the whole value should be wrapped in single quotes as well (see `dotenv` [readme](https://github.com/bkeepers/dotenv#variable-substitution) for the reference)
 
 <Note>
-  Table scrolls horizontally for all information
+  Scroll horizontally on the ENV table to see all values.
 </Note>
 
 ## Table of contents
@@ -35,6 +43,7 @@ All json-like values should be single-quoted. If it contains a hash (`#`) or a d
     - [Block](#block-views)
     - [Address](#address-views)
     - [Transaction](#transaction-views)
+    - [Token](#token-views)
     - [NFT](#nft-views)
   - [Misc](#misc)
 - [App features](#app-features)
@@ -52,13 +61,13 @@ All json-like values should be single-quoted. If it contains a hash (`#`) or a d
   - [Google analytics](#google-analytics)
   - [Mixpanel analytics](#mixpanel-analytics)
   - [GrowthBook feature flagging and A/B testing](#growthbook-feature-flagging-and-ab-testing)
-  - [GraphQL API documentation](#graphql-api-documentation)
   - [API documentation](#api-documentation)
   - [Marketplace](#marketplace)
   - [Solidity to UML diagrams](#solidity-to-uml-diagrams)
   - [Blockchain statistics](#blockchain-statistics)
   - [Web3 wallet integration](#web3-wallet-integration-add-token-or-network-to-the-wallet) (add token or network to the wallet)
   - [Transaction interpretation](#transaction-interpretation)
+  - [External transactions](#external-transactions)
   - [Verified tokens info](#verified-tokens-info)
   - [Name service integration](#name-service-integration)
   - [Metadata service integration](#metadata-service-integration)
@@ -83,9 +92,11 @@ All json-like values should be single-quoted. If it contains a hash (`#`) or a d
   - [Rewards service API](#rewards-service-api)
   - [DEX pools](#dex-pools)
   - [Address 3rd party widgets](#address-3rd-party-widgets)
-- [3rd party services configuration](#external-services-configuration)
+  - [Badge claim link](#badge-claim-link)
+  - [Puzzle game badge claim link](#puzzle-game-badge-claim-link)
+- [External services configuration](#external-services-configuration)
 
- 
+---
 
 ## App configuration
 
@@ -98,7 +109,7 @@ All json-like values should be single-quoted. If it contains a hash (`#`) or a d
 | NEXT_PUBLIC_APP_INSTANCE      | `string`       | Name of app instance. Used for app monitoring purposes. If not provided, it will be constructed from `NEXT_PUBLIC_APP_HOST`                                                                      | -              | -             | `wonderful_kepler` | v1.0.x\+ |
 | NEXT_PUBLIC_USE_NEXT_JS_PROXY | `boolean`      | Tells the app to proxy all APIs request through the NextJS app. **We strongly advise not to use it in the production environment**, since it can lead to performance issues of the NodeJS server | -              | `false`       | `true`             | v1.8.0\+ |
 
- 
+---
 
 ## Blockchain parameters
 
@@ -116,11 +127,11 @@ _Note\!_ The `NEXT_PUBLIC_NETWORK_CURRENCY` variables represent the blockchain's
 | NEXT_PUBLIC_NETWORK_CURRENCY_DECIMALS       | `string`                 | Network currency decimals                                                                                                                                  | -              | `18`          | `6`                        | v1.0.x\+  |
 | NEXT_PUBLIC_NETWORK_SECONDARY_COIN_SYMBOL   | `string`                 | Network secondary coin symbol.                                                                                                                             | -              | -             | `GNO`                      | v1.29.0\+ |
 | NEXT_PUBLIC_NETWORK_MULTIPLE_GAS_CURRENCIES | `boolean`                | Set to `true` for networks where users can pay transaction fees in either the native coin or ERC-20 tokens.                                                | -              | `false`       | `true`                     | v1.33.0\+ |
-| NEXT_PUBLIC_NETWORK_VERIFICATION_TYPE       | `validation` \| `mining` | Verification type in the network. Irrelevant for Arbitrum (verification type is always `posting`) and ZkEvm (verification type is always `sequencing`) L2s | -              | `mining`      | `validation`               | v1.0.x\+  |
+| NEXT_PUBLIC_NETWORK_VERIFICATION_TYPE       | `validation | mining`    | Verification type in the network. Irrelevant for Arbitrum (verification type is always `posting`) and ZkEvm (verification type is always `sequencing`) L2s | -              | `mining`      | `validation`               | v1.0.x\+  |
 | NEXT_PUBLIC_NETWORK_TOKEN_STANDARD_NAME     | `string`                 | Name of the standard for creating tokens                                                                                                                   | -              | `ERC`         | `BEP`                      | v1.31.0\+ |
 | NEXT_PUBLIC_IS_TESTNET                      | `boolean`                | Set to true if network is testnet                                                                                                                          | -              | `false`       | `true`                     | v1.0.x\+  |
 
- 
+---
 
 ## API configuration
 
@@ -132,32 +143,30 @@ _Note\!_ The `NEXT_PUBLIC_NETWORK_CURRENCY` variables represent the blockchain's
 | NEXT_PUBLIC_API_BASE_PATH          | `string`       | Base path for Main API endpoint url   | -              | -             | `/poa/core`      | v1.0.x\+ |
 | NEXT_PUBLIC_API_WEBSOCKET_PROTOCOL | `ws | wss`     | Main API websocket protocol           | -              | `wss`         | `ws`             | v1.0.x\+ |
 
- 
+---
 
 ## UI configuration
 
 ### Homepage
 
-| Variable                                | Type                                                                                                                                                                                                     | Description                                                                                                                                                                                          | Compulsoriness | Default value                                                                                                                                                                                                                       | Example value                                                                                                                                      | Version   |
-| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| NEXT_PUBLIC_HOMEPAGE_CHARTS             | `Array<'daily_txs' | 'daily_operational_txs' | 'coin_price'  | 'secondary_coin_price' | 'market_cap' | 'tvl'>`                                                                                           | List of charts displayed on the home page                                                                                                                                                            | -              | -                                                                                                                                                                                                                                   | `['daily_txs','coin_price','market_cap']`                                                                                                          | v1.0.x\+  |
-| NEXT_PUBLIC_HOMEPAGE_STATS              | `Array<'latest_batch' | 'total_blocks'  | 'average_block_time' | 'total_txs' | 'total_operational_txs' | 'latest_l1_state_batch' | 'wallet_addresses' | 'gas_tracker' | 'btc_locked' | 'current_epoch'>` | List of stats widgets displayed on the home page                                                                                                                                                     | -              | For zkSync, zkEvm and Arbitrum rollups: `['latest_batch','average_block_time','total_txs','wallet_addresses','gas_tracker']`, for other cases: `['total_blocks','average_block_time','total_txs','wallet_addresses','gas_tracker']` | `['total_blocks','total_txs','wallet_addresses']`                                                                                                  | v1.35.x\+ |
-| NEXT_PUBLIC_HOMEPAGE_PLATE_TEXT_COLOR   | `string`                                                                                                                                                                                                 | Text color of the hero plate on the homepage (escape "#" symbol if you use HEX color codes or use rgba-value instead). **DEPRECATED** _`Use NEXT_PUBLIC_HOMEPAGE_HERO_BANNER_CONFIG instead`_        | -              | `white`                                                                                                                                                                                                                             | `\#DCFE76`                                                                                                                                         | v1.0.x\+  |
-| NEXT_PUBLIC_HOMEPAGE_PLATE_BACKGROUND   | `string`                                                                                                                                                                                                 | Background css value for hero plate on the homepage (escape "#" symbol if you use HEX color codes or use rgba-value instead). **DEPRECATED** _`Use NEXT_PUBLIC_HOMEPAGE_HERO_BANNER_CONFIG instead`_ | -              | `radial-gradient(103.03% 103.03% at 0% 0%, rgba(183, 148, 244, 0.8) 0%, rgba(0, 163, 196, 0.8) 100%), var(--chakra-colors-blue-400)`                                                                                                | `radial-gradient(at 15% 86%, hsla(350,65%,70%,1) 0px, transparent 50%)` \| `no-repeat bottom 20% right 0px/100% url(https://placekitten/1400/200)` | v1.1.0\+  |
-| NEXT_PUBLIC_HOMEPAGE_HERO_BANNER_CONFIG | `HeroBannerConfig`, see details [below](#hero-banner-configuration-properties)                                                                                                                           | Configuration of hero banner appearance.                                                                                                                                                             | -              | -                                                                                                                                                                                                                                   | See [below](#hero-banner-configuration-properties)                                                                                                 | v1.35.0\+ |
+| Variable                                | Type                                                                                                                                                                                                    | Description                                                                                                                                                                                          | Compulsoriness | Default value                                                                                                                                                                                                                       | Example value                                                                                                                                      | Version   |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| NEXT_PUBLIC_HOMEPAGE_CHARTS             | `Array<'daily_txs' | 'daily_operational_txs' | 'coin_price' | 'secondary_coin_price' | 'market_cap' | 'tvl'>`                                                                                           | List of charts displayed on the home page                                                                                                                                                            | -              | -                                                                                                                                                                                                                                   | `['daily_txs','coin_price','market_cap']`                                                                                                          | v1.0.x\+  |
+| NEXT_PUBLIC_HOMEPAGE_STATS              | `Array<'latest_batch' | 'total_blocks' | 'average_block_time' | 'total_txs' | 'total_operational_txs' | 'latest_l1_state_batch' | 'wallet_addresses' | 'gas_tracker' | 'btc_locked' | 'current_epoch'>` | List of stats widgets displayed on the home page                                                                                                                                                     | -              | For zkSync, zkEvm and Arbitrum rollups: `['latest_batch','average_block_time','total_txs','wallet_addresses','gas_tracker']`, for other cases: `['total_blocks','average_block_time','total_txs','wallet_addresses','gas_tracker']` | `['total_blocks','total_txs','wallet_addresses']`                                                                                                  | v1.35.x\+ |
+| NEXT_PUBLIC_HOMEPAGE_PLATE_TEXT_COLOR   | `string`                                                                                                                                                                                                | Text color of the hero plate on the homepage (escape "#" symbol if you use HEX color codes or use rgba-value instead). **DEPRECATED** _`Use NEXT_PUBLIC_HOMEPAGE_HERO_BANNER_CONFIG instead`_        | -              | `white`                                                                                                                                                                                                                             | `\#DCFE76`                                                                                                                                         | v1.0.x\+  |
+| NEXT_PUBLIC_HOMEPAGE_PLATE_BACKGROUND   | `string`                                                                                                                                                                                                | Background css value for hero plate on the homepage (escape "#" symbol if you use HEX color codes or use rgba-value instead). **DEPRECATED** _`Use NEXT_PUBLIC_HOMEPAGE_HERO_BANNER_CONFIG instead`_ | -              | `radial-gradient(103.03% 103.03% at 0% 0%, rgba(183, 148, 244, 0.8) 0%, rgba(0, 163, 196, 0.8) 100%), var(--chakra-colors-blue-400)`                                                                                                | `radial-gradient(at 15% 86%, hsla(350,65%,70%,1) 0px, transparent 50%)` \| `no-repeat bottom 20% right 0px/100% url(https://placekitten/1400/200)` | v1.1.0\+  |
+| NEXT_PUBLIC_HOMEPAGE_HERO_BANNER_CONFIG | `HeroBannerConfig`, see details [below](#hero-banner-configuration-properties)                                                                                                                          | Configuration of hero banner appearance.                                                                                                                                                             | -              | -                                                                                                                                                                                                                                   | See [below](#hero-banner-configuration-properties)                                                                                                 | v1.35.0\+ |
 
 #### Hero banner configuration properties
 
 _Note_ Here, all values are arrays of up to two strings. The first string represents the value for the light color mode, and the second string represents the value for the dark color mode. If the array contains only one string, it will be used for both color modes.
 
-| Variable   | Type                                                                                                                      | Description                                                                                                                                                                                       | Compulsoriness | Default value                                                                                                                            | Example value                                                                           |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| background | `[string, string]`                                                                                                        | Banner background (could be a solid color, gradient or picture). The string should be a valid `background` CSS property value.                                                                    | -              | `['radial-gradient(103.03% 103.03% at 0% 0%, rgba(183, 148, 244, 0.8) 0%, rgba(0, 163, 196, 0.8) 100%), var(--chakra-colors-blue-400)']` | `['lightpink','no-repeat bottom 20% right 0px/100% url(https://placekitten/1400/200)']` |
-| text_color | `[string, string]`                                                                                                        | Banner text background. The string should be a valid `color` CSS property value.                                                                                                                  | -              | `['white']`                                                                                                                              | `['lightpink','#DCFE76']`                                                               |
-| border     | `[string, string]`                                                                                                        | Banner border. The string should be a valid `border` CSS property value.                                                                                                                          | -              | -                                                                                                                                        | `['1px solid yellow','4px dashed #DCFE76']`                                             |
-| button     | `Partial<Record<'_default' | '_hover' | '_selected', {'background'?: [string, string]; 'text_color?:[string, string]'}>>` | The button on the banner. It has three possible states: `_default`, `_hover`, and `_selected`. The `_selected` state reflects when the user is logged in or their wallet is connected to the app. | -              | -                                                                                                                                        | `{'_default':{'background':['deeppink'],'text_color':['white']}}`                       |
-
- 
+| Variable   | Type                                                                                                                       | Description                                                                                                                                                                                       | Compulsoriness | Default value                                                                                                                            | Example value                                                                           |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| background | `[string, string]`                                                                                                         | Banner background (could be a solid color, gradient or picture). The string should be a valid `background` CSS property value.                                                                    | -              | `['radial-gradient(103.03% 103.03% at 0% 0%, rgba(183, 148, 244, 0.8) 0%, rgba(0, 163, 196, 0.8) 100%), var(--chakra-colors-blue-400)']` | `['lightpink','no-repeat bottom 20% right 0px/100% url(https://placekitten/1400/200)']` |
+| text_color | `[string, string]`                                                                                                         | Banner text background. The string should be a valid `color` CSS property value.                                                                                                                  | -              | `['white']`                                                                                                                              | `['lightpink','#DCFE76']`                                                               |
+| border     | `[string, string]`                                                                                                         | Banner border. The string should be a valid `border` CSS property value.                                                                                                                          | -              | -                                                                                                                                        | `['1px solid yellow','4px dashed #DCFE76']`                                             |
+| button     | `Partial<Record<'_default' | '_hover' | '_selected', {'background'?: [string, string]; 'text_color'?: [string, string]}>>` | The button on the banner. It has three possible states: `_default`, `_hover`, and `_selected`. The `_selected` state reflects when the user is logged in or their wallet is connected to the app. | -              | -                                                                                                                                        | `{'_default':{'background':['deeppink'],'text_color':['white']}}`                       |
 
 ### Navigation
 
@@ -183,8 +192,6 @@ _Note_ Here, all values are arrays of up to two strings. The first string repres
 | isActive             | `boolean`                     | Pass `true` if item should be shown as active in the menu                                                                  | -              | -             | `true`                                |
 | invertIconInDarkMode | `boolean`                     | Pass `true` if icon colors should be inverted in dark mode                                                                 | -              | -             | `true`                                |
 
- 
-
 ### Footer
 
 | Variable                 | Type     | Description                                                                                                                                                                                                                                                 | Compulsoriness | Default value | Example value                                                                                                                                                                                    | Version  |
@@ -200,8 +207,6 @@ The app version shown in the footer is derived from build-time ENV variables `NE
 | title    | `string`                                                         | Title of link group                                                                                                                                                                                                                                                                                                                                                  | Required       | -             | `Company`                                                  |
 | links    | `Array<{'text':string;'url':string;'iconUrl'?:[string,string]}>` | An array contains a list of links in the column. Each link can optionally have an `iconUrl` property, which should include an array of two external image URLs for light and dark themes, respectively. If only one URL is provided, it will be used for both color schemes. We expect the icons to be square, with a minimum size of 40px by 40px or in SVG format. | Required       | -             | `[{'text':'Homepage','url':'https://www.blockscout.com'}]` |
 
- 
-
 ### Favicon
 
 By default, the app has generic favicon. You can override this behavior by providing the following variable. Hence, the favicon assets bundle will be generated at the container start time and will be used instead of default one.
@@ -209,8 +214,6 @@ By default, the app has generic favicon. You can override this behavior by provi
 | Variable           | Type     | Description | Compulsoriness | Default value              | Example value                     | Version   |
 | ------------------ | -------- | ----------- | -------------- | -------------------------- | --------------------------------- | --------- |
 | FAVICON_MASTER_URL | `string` | -           | -              | `NEXT_PUBLIC_NETWORK_ICON` | `https://placekitten.com/180/180` | v1.11.0\+ |
-
- 
 
 ### Meta
 
@@ -223,8 +226,6 @@ Settings for meta tags, OG tags and SEO
 | NEXT_PUBLIC_OG_IMAGE_URL                | `string`  | OG image url. Minimum image size is 200 x 20 pixels (recommended: 1200 x 600); maximum supported file size is 8 MB; 2:1 aspect ratio; supported formats: image/jpeg, image/gif, image/png | -              | `static/og_placeholder.png` | `https://placekitten.com/1200/600`                                                                                                                                                                         | v1.12.0\+ |
 | NEXT_PUBLIC_OG_ENHANCED_DATA_ENABLED    | `boolean` | Set to `true` to populate OG tags (title, description) with API data for social preview robot requests                                                                                    | -              | `false`                     | `true`                                                                                                                                                                                                     | v1.29.0\+ |
 | NEXT_PUBLIC_SEO_ENHANCED_DATA_ENABLED   | `boolean` | Set to `true` to pre-render page titles (e.g Token page) on the server side and inject page h1-tag to the markup before it is sent to the browser.                                        | -              | `false`                     | `true`                                                                                                                                                                                                     | v1.30.0\+ |
-
- 
 
 ### Views
 
@@ -246,8 +247,6 @@ Settings for meta tags, OG tags and SEO
 | `L1_status`    | Short interpretation of the batch lifecycle (applicable for Rollup chains) |
 | `batch`        | Batch index (applicable for Rollup chains)                                 |
 
- 
-
 #### Address views
 
 | Variable                                              | Type                                                              | Description                                                                                                                                                                                                                                                                                                                                             | Compulsoriness                                                          | Default value                | Example value                         | Version   |
@@ -265,8 +264,6 @@ Settings for meta tags, OG tags and SEO
 | Id             | Description  |
 | -------------- | ------------ |
 | `top_accounts` | Top accounts |
-
- 
 
 #### Transaction views
 
@@ -294,15 +291,11 @@ Settings for meta tags, OG tags and SEO
 | ------------- | ---------------------------------------------------------------------- |
 | `fee_per_gas` | Amount of total fee divided by total amount of gas used by transaction |
 
- 
-
 #### Token views
 
 | Variable                                    | Type      | Description                                                                                                                                                   | Compulsoriness | Default value | Example value | Version   |
 | ------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------- | --------- |
 | NEXT_PUBLIC_VIEWS_TOKEN_SCAM_TOGGLE_ENABLED | `boolean` | Show the "Hide scam tokens" toggle in the site settings dropdown. This option controls the visibility of tokens with a poor reputation in the search results. | -              | `false`       | `true`        | v1.38.0\+ |
-
- 
 
 #### NFT views
 
@@ -321,8 +314,6 @@ Settings for meta tags, OG tags and SEO
 | logo_url       | `string` | URL of marketplace logo           | Required       | -             | `https://opensea.io/static/images/logos/opensea-logo.svg` |
 
 _Note_ URL templates should contain placeholders of NFT hash (`{hash}`) and NFT id (`{id}`). This placeholders will be substituted with particular values for every collection or instance.
-
- 
 
 ### Misc
 
@@ -369,7 +360,7 @@ _Note_ If a path template contains `:id` or `:id_lowercase`, it will be replaced
 | name     | `string` | Font family name; used to define the `font-family` CSS property.                               | Required       | -             | `Montserrat`                                                                            |
 | url      | `string` | URL for external font. Ensure the font supports the following weights: 400, 500, 600, and 700. | Required       | -             | `https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap` |
 
- 
+---
 
 ## App features
 
@@ -380,23 +371,19 @@ _Note_ The variables which are marked as required should be passed as described 
 | Variable                            | Type      | Description                                                                                                                                                                                                                             | Compulsoriness | Default value | Example value                                  | Version  |
 | ----------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------- | ---------------------------------------------- | -------- |
 | NEXT_PUBLIC_IS_ACCOUNT_SUPPORTED    | `boolean` | Set to true if network has account feature                                                                                                                                                                                              | Required       | -             | `true`                                         | v1.0.x\+ |
-| NEXT_PUBLIC_RE_CAPTCHA_APP_SITE_KEY | `boolean` | See [below](#google-recaptcha)                                                                                                                                                                                                          | Required       | -             | `<your-secret>`                                | v1.0.x\+ |
+| NEXT_PUBLIC_RE_CAPTCHA_APP_SITE_KEY | `string`  | See [below](#google-recaptcha)                                                                                                                                                                                                          | Required       | -             | `<your-secret>`                                | v1.0.x\+ |
 | NEXT_PUBLIC_AUTH0_CLIENT_ID         | `string`  | **DEPRECATED** Client id for [Auth0](https://auth0.com/) provider                                                                                                                                                                       | -              | -             | `<your-secret>`                                | v1.0.x\+ |
 | NEXT_PUBLIC_AUTH_URL                | `string`  | **DEPRECATED** Account auth base url; it is used for building login URL (`${ NEXT_PUBLIC_AUTH_URL }/auth/auth0`) and logout return URL (`${ NEXT_PUBLIC_AUTH_URL }/auth/logout`); if not provided the base app URL will be used instead | -              | -             | `https://blockscout.com`                       | v1.0.x\+ |
 | NEXT_PUBLIC_LOGOUT_URL              | `string`  | **DEPRECATED** Account logout url. Required if account is supported for the app instance.                                                                                                                                               | -              | -             | `https://blockscoutcom.us.auth0.com/v2/logout` | v1.0.x\+ |
-
- 
 
 ### Gas tracker
 
 This feature is **enabled by default**. To switch it off pass `NEXT_PUBLIC_GAS_TRACKER_ENABLED=false`.
 
-| Variable                        | Type                      | Description                                                                                                                                                                                                                                                                                             | Compulsoriness | Default value                                                 | Example value | Version   |
-| ------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------------------------- | ------------- | --------- |
-| NEXT_PUBLIC_GAS_TRACKER_ENABLED | `boolean`                 | Set to true to enable "Gas tracker" in the app                                                                                                                                                                                                                                                          | Required       | `true`                                                        | `false`       | v1.25.0\+ |
-| NEXT_PUBLIC_GAS_TRACKER_UNITS   | Array\< `usd` \| `gwei`\> | Array of units for displaying gas prices on the Gas Tracker page, in the stats snippet on the Home page, and in the top bar. The first value in the array will take priority over the second one in all mentioned views. If only one value is provided, gas prices will be displayed only in that unit. | -              | For testnets: `[ 'gwei' ]`, for mainnets: `[ 'usd', 'gwei' ]` | `[ 'gwei' ]`  | v1.25.0\+ |
-
- 
+| Variable                        | Type                | Description                                                                                                                                                                                                                                                                                             | Compulsoriness | Default value                                                 | Example value | Version   |
+| ------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------------------------- | ------------- | --------- |
+| NEXT_PUBLIC_GAS_TRACKER_ENABLED | `boolean`           | Set to true to enable "Gas tracker" in the app                                                                                                                                                                                                                                                          | Required       | `true`                                                        | `false`       | v1.25.0\+ |
+| NEXT_PUBLIC_GAS_TRACKER_UNITS   | `Array<usd | gwei>` | Array of units for displaying gas prices on the Gas Tracker page, in the stats snippet on the Home page, and in the top bar. The first value in the array will take priority over the second one in all mentioned views. If only one value is provided, gas prices will be displayed only in that unit. | -              | For testnets: `[ 'gwei' ]`, for mainnets: `[ 'usd', 'gwei' ]` | `[ 'gwei' ]`  | v1.25.0\+ |
 
 ### Advanced filter
 
@@ -406,8 +393,6 @@ This feature is **enabled by default**. To switch it off pass `NEXT_PUBLIC_ADVAN
 | ----------------------------------- | --------- | ------------------------------------------------------- | -------------- | ------------- | ------------- | --------- |
 | NEXT_PUBLIC_ADVANCED_FILTER_ENABLED | `boolean` | Set to true to enable "Advanced filter" page in the app | Required       | `true`        | `false`       | v1.37.0\+ |
 
- 
-
 ### Address verification in "My account"
 
 _Note_ all ENV variables required for [My account](#my-account) feature should be passed alongside the following ones:
@@ -416,8 +401,6 @@ _Note_ all ENV variables required for [My account](#my-account) feature should b
 | ---------------------------------- | -------- | ------------------------------ | -------------- | ------------- | ------------------------------------------------ | -------- |
 | NEXT_PUBLIC_CONTRACT_INFO_API_HOST | `string` | Contract Info API endpoint url | Required       | -             | `https://contracts-info.services.blockscout.com` | v1.1.0\+ |
 | NEXT_PUBLIC_ADMIN_SERVICE_API_HOST | `string` | Admin Service API endpoint url | Required       | -             | `https://admin-rs.services.blockscout.com`       | v1.1.0\+ |
-
- 
 
 ### Blockchain interaction (writing to contract, etc.)
 
@@ -431,30 +414,24 @@ _Note_ all ENV variables required for [My account](#my-account) feature should b
 | NEXT_PUBLIC_NETWORK_CURRENCY_SYMBOL   | `string` | See in [Blockchain parameters](#blockchain-parameters) section               | Required       | -             | `ETH`                      | v1.0.x\+ |
 | NEXT_PUBLIC_NETWORK_CURRENCY_DECIMALS | `string` | See in [Blockchain parameters](#blockchain-parameters) section               | -              | `18`          | `6`                        | v1.0.x\+ |
 
- 
-
 ### Banner ads
 
 This feature is **enabled by default** with the `slise` ads provider. To switch it off pass `NEXT_PUBLIC_AD_BANNER_PROVIDER=none`.
 
-| Variable                                  | Type                                                      | Description                                      | Compulsoriness | Default value | Example value                                  | Version   |
-| ----------------------------------------- | --------------------------------------------------------- | ------------------------------------------------ | -------------- | ------------- | ---------------------------------------------- | --------- |
-| NEXT_PUBLIC_AD_BANNER_PROVIDER            | `slise` \| `adbutler` \| `coinzilla` \|  `hype` \| `none` | Ads provider                                     | -              | `slise`       | `coinzilla`                                    | v1.0.x\+  |
-| NEXT_PUBLIC_AD_BANNER_ADDITIONAL_PROVIDER | `adbutler`                                                | Additional ads provider to mix with the main one | -              | -             | `adbutler`                                     | v1.28.0\+ |
-| NEXT_PUBLIC_AD_ADBUTLER_CONFIG_DESKTOP    | `{ id: string; width: string; height: string }`           | Placement config for desktop Adbutler banner     | -              | -             | `{'id':'123456','width':'728','height':'90'}`  | v1.3.0\+  |
-| NEXT_PUBLIC_AD_ADBUTLER_CONFIG_MOBILE     | `{ id: string; width: number; height: number }`           | Placement config for mobile Adbutler banner      | -              | -             | `{'id':'654321','width':'300','height':'100'}` | v1.3.0\+  |
-
- 
+| Variable                                  | Type                                            | Description                                      | Compulsoriness | Default value | Example value                                  | Version   |
+| ----------------------------------------- | ----------------------------------------------- | ------------------------------------------------ | -------------- | ------------- | ---------------------------------------------- | --------- |
+| NEXT_PUBLIC_AD_BANNER_PROVIDER            | `slise | adbutler | coinzilla | hype | none`    | Ads provider                                     | -              | `slise`       | `coinzilla`                                    | v1.0.x\+  |
+| NEXT_PUBLIC_AD_BANNER_ADDITIONAL_PROVIDER | `adbutler`                                      | Additional ads provider to mix with the main one | -              | -             | `adbutler`                                     | v1.28.0\+ |
+| NEXT_PUBLIC_AD_ADBUTLER_CONFIG_DESKTOP    | `{ id: string; width: string; height: string }` | Placement config for desktop Adbutler banner     | -              | -             | `{'id':'123456','width':'728','height':'90'}`  | v1.3.0\+  |
+| NEXT_PUBLIC_AD_ADBUTLER_CONFIG_MOBILE     | `{ id: string; width: number; height: number }` | Placement config for mobile Adbutler banner      | -              | -             | `{'id':'654321','width':'300','height':'100'}` | v1.3.0\+  |
 
 ### Text ads
 
 This feature is **enabled by default** with the `coinzilla` ads provider. To switch it off pass `NEXT_PUBLIC_AD_TEXT_PROVIDER=none`.
 
-| Variable                     | Type                  | Description  | Compulsoriness | Default value | Example value | Version  |
-| ---------------------------- | --------------------- | ------------ | -------------- | ------------- | ------------- | -------- |
-| NEXT_PUBLIC_AD_TEXT_PROVIDER | `coinzilla` \| `none` | Ads provider | -              | `coinzilla`   | `none`        | v1.0.x\+ |
-
- 
+| Variable                     | Type               | Description  | Compulsoriness | Default value | Example value | Version  |
+| ---------------------------- | ------------------ | ------------ | -------------- | ------------- | ------------- | -------- |
+| NEXT_PUBLIC_AD_TEXT_PROVIDER | `coinzilla | none` | Ads provider | -              | `coinzilla`   | `none`        | v1.0.x\+ |
 
 ### Beacon chain
 
@@ -463,16 +440,12 @@ This feature is **enabled by default** with the `coinzilla` ads provider. To swi
 | NEXT_PUBLIC_HAS_BEACON_CHAIN             | `boolean` | Set to true for networks with the beacon chain | Required       | -                                     | `true`        | v1.0.x\+ |
 | NEXT_PUBLIC_BEACON_CHAIN_CURRENCY_SYMBOL | `string`  | Beacon network currency symbol                 | -              | `NEXT_PUBLIC_NETWORK_CURRENCY_SYMBOL` | `ETH`         | v1.0.x\+ |
 
- 
-
 ### User operations (ERC-4337)
 
-| Variable                              | Type      | Description                                                                          | Compulsoriness | Default value | Example value | Version   |
-| ------------------------------------- | --------- | ------------------------------------------------------------------------------------ | -------------- | ------------- | ------------- | --------- |
-| NEXT_PUBLIC_HAS_USER_OPS              | `boolean` | Set to true to show user operations related data and pages                           | -              | -             | `true`        | v1.23.0\+ |
-| NEXT_PUBLIC_USER_OPS_INDEXER_API_HOST | `boolean` | The user operations indexer API host; pass to show API documentation for the service | -              | -             | `true`        | v2.3.0\+  |
-
- 
+| Variable                              | Type      | Description                                                                          | Compulsoriness | Default value | Example value                             | Version   |
+| ------------------------------------- | --------- | ------------------------------------------------------------------------------------ | -------------- | ------------- | ----------------------------------------- | --------- |
+| NEXT_PUBLIC_HAS_USER_OPS              | `boolean` | Set to true to show user operations related data and pages                           | -              | -             | `true`                                    | v1.23.0\+ |
+| NEXT_PUBLIC_USER_OPS_INDEXER_API_HOST | `string`  | The user operations indexer API host; pass to show API documentation for the service | -              | -             | `https://userops.services.blockscout.com` | v2.3.0\+  |
 
 ### Rollup chain
 
@@ -494,48 +467,38 @@ This feature is **enabled by default** with the `coinzilla` ads provider. To swi
 
 #### Parent chain configuration properties
 
-| Variable  | Type                                                  | Description                                                                                                                                                                                | Compulsoriness | Default value | Example value                                |
-| --------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ------------- | -------------------------------------------- |
-| id        | `number`                                              | Chain id, see https://chainlist.org for the reference.                                                                                                                                     | -              | -             | `42`                                         |
-| name      | `string`                                              | Displayed name of the chain. Set to customize L1 transaction status labels in the UI (e.g., "Sent to `chain-name`"). Currently, this setting is applicable only for Arbitrum-based chains. | -              | -             | `DuckChain`                                  |
-| baseUrl   | `string`                                              | Base url of the chain explorer.                                                                                                                                                            | Required       | -             | `https://explorer.duckchain.io`              |
-| rpcUrls   | `Array<string>`                                       | Chain public RPC server urls, see https://chainlist.org for the reference.                                                                                                                 | -              | -             | `['https://rpc.duckchain.io']`               |
-| currency  | `{ name: string; symbol: string; decimals: number; }` | Chain currency config.                                                                                                                                                                     | -              | -             | `{ name: Quack, symbol: QUA, decimals: 18 }` |
-| isTestnet | `boolean`                                             | Set to true if network is testnet.                                                                                                                                                         | -              | -             | `true`                                       |
-
- 
+| Variable  | Type                                                  | Description                                                                                                                                                                                | Compulsoriness | Default value | Example value                                    |
+| --------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ------------- | ------------------------------------------------ |
+| id        | `number`                                              | Chain id, see https://chainlist.org for the reference.                                                                                                                                     | -              | -             | `42`                                             |
+| name      | `string`                                              | Displayed name of the chain. Set to customize L1 transaction status labels in the UI (e.g., "Sent to `chain-name`"). Currently, this setting is applicable only for Arbitrum-based chains. | -              | -             | `DuckChain`                                      |
+| baseUrl   | `string`                                              | Base url of the chain explorer.                                                                                                                                                            | Required       | -             | `https://explorer.duckchain.io`                  |
+| rpcUrls   | `Array<string>`                                       | Chain public RPC server urls, see https://chainlist.org for the reference.                                                                                                                 | -              | -             | `['https://rpc.duckchain.io']`                   |
+| currency  | `{ name: string; symbol: string; decimals: number; }` | Chain currency config.                                                                                                                                                                     | -              | -             | `{ name: 'Quack', symbol: 'QUA', decimals: 18 }` |
+| isTestnet | `boolean`                                             | Set to true if network is testnet.                                                                                                                                                         | -              | -             | `true`                                           |
 
 ### Export data to CSV file
 
 | Variable                            | Type     | Description                    | Compulsoriness | Default value | Example value   | Version  |
 | ----------------------------------- | -------- | ------------------------------ | -------------- | ------------- | --------------- | -------- |
-| NEXT_PUBLIC_RE_CAPTCHA_APP_SITE_KEY | `string` | See [below](#google-recaptcha) | true           | -             | `<your-secret>` | v1.0.x\+ |
-
- 
+| NEXT_PUBLIC_RE_CAPTCHA_APP_SITE_KEY | `string` | See [below](#google-recaptcha) | Required       | -             | `<your-secret>` | v1.0.x\+ |
 
 ### Google analytics
 
 | Variable                                 | Type     | Description                                                               | Compulsoriness | Default value | Example value | Version  |
 | ---------------------------------------- | -------- | ------------------------------------------------------------------------- | -------------- | ------------- | ------------- | -------- |
-| NEXT_PUBLIC_GOOGLE_ANALYTICS_PROPERTY_ID | `string` | Property ID for [Google Analytics](https://analytics.google.com/) service | true           | -             | `UA-XXXXXX-X` | v1.0.x\+ |
-
- 
+| NEXT_PUBLIC_GOOGLE_ANALYTICS_PROPERTY_ID | `string` | Property ID for [Google Analytics](https://analytics.google.com/) service | Required       | -             | `UA-XXXXXX-X` | v1.0.x\+ |
 
 ### Mixpanel analytics
 
 | Variable                           | Type     | Description                                                           | Compulsoriness | Default value | Example value   | Version  |
 | ---------------------------------- | -------- | --------------------------------------------------------------------- | -------------- | ------------- | --------------- | -------- |
-| NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN | `string` | Project token for [Mixpanel](https://mixpanel.com/) analytics service | true           | -             | `<your-secret>` | v1.1.0\+ |
-
- 
+| NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN | `string` | Project token for [Mixpanel](https://mixpanel.com/) analytics service | Required       | -             | `<your-secret>` | v1.1.0\+ |
 
 ### GrowthBook feature flagging and A/B testing
 
 | Variable                           | Type     | Description                                                         | Compulsoriness | Default value | Example value   | Version   |
 | ---------------------------------- | -------- | ------------------------------------------------------------------- | -------------- | ------------- | --------------- | --------- |
-| NEXT_PUBLIC_GROWTH_BOOK_CLIENT_KEY | `string` | Client SDK key for [GrowthBook](https://www.growthbook.io/) service | true           | -             | `<your-secret>` | v1.22.0\+ |
-
- 
+| NEXT_PUBLIC_GROWTH_BOOK_CLIENT_KEY | `string` | Client SDK key for [GrowthBook](https://www.growthbook.io/) service | Required       | -             | `<your-secret>` | v1.22.0\+ |
 
 ### API documentation
 
@@ -544,8 +507,6 @@ This feature is **enabled by default** with the `coinzilla` ads provider. To swi
 | NEXT_PUBLIC_API_DOCS_TABS        | `Array<TabId>` | Controls which tabs appear on the API documentation page. Possible values for `TabId` are `rest_api`, `eth_rpc_api`, `rpc_api`, and `graphql_api`. **Note** that this variable has a default value, so the feature is enabled by default. Pass an empty array to disable it. | -              | `['rest_api','eth_rpc_api','rpc_api','graphql_api']`                                       | `[]`                                                                                       | v2.3.x\+ |
 | NEXT_PUBLIC_API_SPEC_URL         | `string`       | Spec of Blockscout core API to be displayed on the page.                                                                                                                                                                                                                     | -              | `https://raw.githubusercontent.com/blockscout/blockscout-api-v2-swagger/main/swagger.yaml` | `https://raw.githubusercontent.com/blockscout/blockscout-api-v2-swagger/main/swagger.yaml` | v1.0.x\+ |
 | NEXT_PUBLIC_GRAPHIQL_TRANSACTION | `string`       | Txn hash for default query at GraphQl API.                                                                                                                                                                                                                                   | -              | -                                                                                          | `0x4a0ed8ddf751a7cb5297f827699117b0f6d21a0b2907594d300dc9fed75c7e62`                       | v1.0.x\+ |
-
- 
 
 ### Marketplace
 
@@ -586,16 +547,12 @@ This feature is **enabled by default** with the `coinzilla` ads provider. To swi
 | internalWallet   | `boolean`       | `true` means that the application can automatically connect to the Blockscout wallet.        | -              | `true`                                |
 | priority         | `number`        | The higher the priority, the higher the app will appear in the list on the Marketplace page. | -              | `7`                                   |
 
- 
-
 ### Solidity to UML diagrams
 
 | Variable                            | Type     | Description                              | Compulsoriness | Default value | Example value                                | Version   |
 | ----------------------------------- | -------- | ---------------------------------------- | -------------- | ------------- | -------------------------------------------- | --------- |
 | NEXT_PUBLIC_VISUALIZE_API_HOST      | `string` | Visualize API endpoint url               | Required       | -             | `https://visualizer.services.blockscout.com` | v1.0.x\+  |
 | NEXT_PUBLIC_VISUALIZE_API_BASE_PATH | `string` | Base path for Visualize API endpoint url | -              | -             | `/poa/core`                                  | v1.29.0\+ |
-
- 
 
 ### Blockchain statistics
 
@@ -604,26 +561,20 @@ This feature is **enabled by default** with the `coinzilla` ads provider. To swi
 | NEXT_PUBLIC_STATS_API_HOST      | `string` | Stats API endpoint url               | Required       | -             | `https://stats.services.blockscout.com` | v1.0.x\+  |
 | NEXT_PUBLIC_STATS_API_BASE_PATH | `string` | Base path for Stats API endpoint url | -              | -             | `/poa/core`                             | v1.29.0\+ |
 
- 
-
 ### Web3 wallet integration (add token or network to the wallet)
 
 This feature is **enabled by default** with the `['metamask']` value. To switch it off pass `NEXT_PUBLIC_WEB3_WALLETS=none`.
 
-| Variable                                     | Type                                              | Description                                                                                                                             | Compulsoriness | Default value    | Example value    | Version   |
-| -------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------- | ---------------- | --------- |
-| NEXT_PUBLIC_WEB3_WALLETS                     | `Array<'metamask' | 'coinbase' | 'token_pocket'>` | Array of Web3 wallets which will be used  to add tokens or chain to. The first wallet which is enabled in user's browser will be shown. | -              | `[ 'metamask' ]` | `[ 'coinbase' ]` | v1.10.0\+ |
-| NEXT_PUBLIC_WEB3_DISABLE_ADD_TOKEN_TO_WALLET | `boolean`                                         | Set to `true` to hide icon "Add to your wallet" next to token addresses                                                                 | -              | -                | `true`           | v1.0.x\+  |
-
- 
+| Variable                                     | Type                                              | Description                                                                                                                            | Compulsoriness | Default value    | Example value    | Version   |
+| -------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------- | ---------------- | --------- |
+| NEXT_PUBLIC_WEB3_WALLETS                     | `Array<'metamask' | 'coinbase' | 'token_pocket'>` | Array of Web3 wallets which will be used to add tokens or chain to. The first wallet which is enabled in user's browser will be shown. | -              | `[ 'metamask' ]` | `[ 'coinbase' ]` | v1.10.0\+ |
+| NEXT_PUBLIC_WEB3_DISABLE_ADD_TOKEN_TO_WALLET | `boolean`                                         | Set to `true` to hide icon "Add to your wallet" next to token addresses                                                                | -              | -                | `true`           | v1.0.x\+  |
 
 ### Transaction interpretation
 
-| Variable                                        | Type                              | Description                                                                              | Compulsoriness | Default value | Example value | Version   |
-| ----------------------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------- | -------------- | ------------- | ------------- | --------- |
-| NEXT_PUBLIC_TRANSACTION_INTERPRETATION_PROVIDER | `blockscout` \| `noves` \| `none` | Transaction interpretation provider that displays human readable transaction description | -              | `none`        | `blockscout`  | v1.21.0\+ |
-
- 
+| Variable                                        | Type                        | Description                                                                              | Compulsoriness | Default value | Example value | Version   |
+| ----------------------------------------------- | --------------------------- | ---------------------------------------------------------------------------------------- | -------------- | ------------- | ------------- | --------- |
+| NEXT_PUBLIC_TRANSACTION_INTERPRETATION_PROVIDER | `blockscout | noves | none` | Transaction interpretation provider that displays human readable transaction description | -              | `none`        | `blockscout`  | v1.21.0\+ |
 
 ### External transactions
 
@@ -631,15 +582,11 @@ This feature is **enabled by default** with the `['metamask']` value. To switch 
 | ------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | NEXT_PUBLIC_TX_EXTERNAL_TRANSACTIONS_CONFIG | `{ chain_name: string; chain_logo_url: string; explorer_url_template: string; }` | Configuration of the external transactions links that should be added to the transaction details. | -              | -             | `{ chain_name: 'ethereum', chain_logo_url: 'https://example.com/logo.png', explorer_url_template: 'https://explorer.com/tx/{hash}' }` | v1.38.0\+ |
 
- 
-
 ### Verified tokens info
 
 | Variable                           | Type     | Description                    | Compulsoriness | Default value | Example value                                    | Version  |
 | ---------------------------------- | -------- | ------------------------------ | -------------- | ------------- | ------------------------------------------------ | -------- |
 | NEXT_PUBLIC_CONTRACT_INFO_API_HOST | `string` | Contract Info API endpoint url | Required       | -             | `https://contracts-info.services.blockscout.com` | v1.0.x\+ |
-
- 
 
 ### Name service integration
 
@@ -648,8 +595,6 @@ This feature allows resolving blockchain addresses using human-readable domain n
 | Variable                          | Type     | Description                   | Compulsoriness | Default value | Example value                          | Version   |
 | --------------------------------- | -------- | ----------------------------- | -------------- | ------------- | -------------------------------------- | --------- |
 | NEXT_PUBLIC_NAME_SERVICE_API_HOST | `string` | Name Service API endpoint url | Required       | -             | `https://bens.services.blockscout.com` | v1.22.0\+ |
-
- 
 
 ### Metadata service integration
 
@@ -660,8 +605,6 @@ This feature allows name tags and other public tags for addresses.
 | NEXT_PUBLIC_METADATA_SERVICE_API_HOST            | `string`  | Metadata Service API endpoint url                                                                                                  | Required       | -             | `https://metadata.services.blockscout.com` | v1.30.0\+ |
 | NEXT_PUBLIC_METADATA_ADDRESS_TAGS_UPDATE_ENABLED | `boolean` | Enables requests to the Metadata Service to schedule an update for address tags after the user visits the address page in the app. | -              | `true`        | `false`                                    | v2.2.0\+  |
 
- 
-
 ### Public tag submission
 
 This feature allows you to submit an application with a public address tag.
@@ -670,9 +613,7 @@ This feature allows you to submit an application with a public address tag.
 | ------------------------------------- | -------- | --------------------------------- | -------------- | ------------- | ------------------------------------------ | --------- |
 | NEXT_PUBLIC_METADATA_SERVICE_API_HOST | `string` | Metadata Service API endpoint url | Required       | -             | `https://metadata.services.blockscout.com` | v1.30.0\+ |
 | NEXT_PUBLIC_ADMIN_SERVICE_API_HOST    | `string` | Admin Service API endpoint url    | Required       | -             | `https://admin-rs.services.blockscout.com` | v1.1.0\+  |
-| NEXT_PUBLIC_RE_CAPTCHA_APP_SITE_KEY   | `string` | See [below](#google-recaptcha)    | true           | -             | `<your-secret>`                            | v1.0.x\+  |
-
- 
+| NEXT_PUBLIC_RE_CAPTCHA_APP_SITE_KEY   | `string` | See [below](#google-recaptcha)    | Required       | -             | `<your-secret>`                            | v1.0.x\+  |
 
 ### Data Availability
 
@@ -681,8 +622,6 @@ This feature enables views related to blob transactions (EIP-4844), such as the 
 | Variable                              | Type      | Description                                    | Compulsoriness | Default value | Example value | Version   |
 | ------------------------------------- | --------- | ---------------------------------------------- | -------------- | ------------- | ------------- | --------- |
 | NEXT_PUBLIC_DATA_AVAILABILITY_ENABLED | `boolean` | Set to true to enable blob transactions views. | Required       | -             | `true`        | v1.28.0\+ |
-
- 
 
 ### Bridged tokens
 
@@ -712,39 +651,31 @@ _Note_ The url to original token will be constructed as `<base_url>/<token_hash>
 | title       | `string` | Bridge title                                                          | Required       | -             | `OmniBridge`  |
 | short_title | `string` | Bridge short title for displaying in the tags                         | Required       | -             | `OMNI`        |
 
- 
-
 ### SafeCore address tags
 
 For the smart contract addresses which are [Safe accounts](https://safe.global/) public tag "Multisig: Safe" will be displayed in the address page header alongside to Safe logo.
 
-| Variable                        | Type     | Description                                                                                                                    | Compulsoriness | Default value | Example value | Version   |
-| ------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------- | ------------- | ------------- | --------- |
-| NEXT_PUBLIC_SAFE_TX_SERVICE_URL | `string` | The Safe transaction service URL. See full list of supported networks [here](https://docs.safe.global/api-supported-networks). | -              | -             | `uniswap`     | v1.26.0\+ |
-
- 
+| Variable                        | Type     | Description                                                                                                                    | Compulsoriness | Default value | Example value                                  | Version   |
+| ------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------- | ------------- | ---------------------------------------------- | --------- |
+| NEXT_PUBLIC_SAFE_TX_SERVICE_URL | `string` | The Safe transaction service URL. See full list of supported networks [here](https://docs.safe.global/api-supported-networks). | -              | -             | `https://safe-transaction-mainnet.safe.global` | v1.26.0\+ |
 
 ### Address profile API
 
 This feature allows the integration of an external API to fetch user info for addresses or contracts. When configured, if the API returns a username, a public tag with a custom link will be displayed in the address page header.
 
-| Variable                         | Type                                                                                                           | Description                                                                                                | Compulsoriness | Default value | Example value | Version   |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------- | --------- |
-| NEXT_PUBLIC_ADDRESS_USERNAME_TAG | `{api_url: string; tag_link_template: string; tag_icon: string; tag_bg_color: string; tag_text_color: string}` | Address profile API tag configuration properties. See [below](#user-profile-api-configuration-properties). | -              | -             | `uniswap`     | v1.35.0\+ |
-
- 
+| Variable                         | Type                                                                                                                    | Description                                                                                                   | Compulsoriness | Default value | Example value                                              | Version   |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | -------------- | ------------- | ---------------------------------------------------------- | --------- |
+| NEXT_PUBLIC_ADDRESS_USERNAME_TAG | `{api_url_template: string; tag_link_template: string; tag_icon: string; tag_bg_color: string; tag_text_color: string}` | Address profile API tag configuration properties. See [below](#address-profile-api-configuration-properties). | -              | -             | See [below](#address-profile-api-configuration-properties) | v1.35.0\+ |
 
 #### Address profile API configuration properties
 
 | Variable          | Type     | Description                                                                                          | Compulsoriness | Default value | Example value                       |
 | ----------------- | -------- | ---------------------------------------------------------------------------------------------------- | -------------- | ------------- | ----------------------------------- |
 | api_url_template  | `string` | User profile API URL. Should be a template with `{address}` variable                                 | Required       | -             | `https://example-api.com/{address}` |
-| tag_link_template | `string` | External link to the profile. Should be a template with `{username}` variable                        | -              | -             | `https://example.com/{address}`     |
+| tag_link_template | `string` | External link to the profile. Should be a template with `{username}` variable                        | -              | -             | `https://example.com/{username}`    |
 | tag_icon          | `string` | Public tag icon (.svg) url                                                                           | -              | -             | `https://example.com/icon.svg`      |
 | tag_bg_color      | `string` | Public tag background color (escape "#" symbol if you use HEX color codes or use rgba-value instead) | -              | -             | `\#000000`                          |
 | tag_text_color    | `string` | Public tag text color (escape "#" symbol if you use HEX color codes or use rgba-value instead)       | -              | -             | `\#FFFFFF`                          |
-
- 
 
 ### Address XStar XHS score
 
@@ -754,8 +685,6 @@ This feature allows the integration of an XStar API to fetch XHS score for addre
 | --------------------------- | -------- | --------------------------------------------------------------------------------------- | -------------- | ------------- | ---------------------------------------------------------------------------------------------------- | --------- |
 | NEXT_PUBLIC_XSTAR_SCORE_URL | `string` | XStar XHS score documentation URL for the address tag. Enables the XStar score feature. | -              | -             | `https://docs.xname.app/the-solution-adaptive-proof-of-humanity-on-blockchain/xhs-scoring-algorithm` | v1.36.0\+ |
 
- 
-
 ### SUAVE chain
 
 For blockchains that implement SUAVE architecture additional fields will be shown on the transaction page ("Allowed peekers", "Kettle"). Users also will be able to see the list of all transactions for a particular Kettle in the separate view.
@@ -764,8 +693,6 @@ For blockchains that implement SUAVE architecture additional fields will be show
 | -------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------- | --------- |
 | NEXT_PUBLIC_IS_SUAVE_CHAIN | `boolean` | Set to true for blockchains with [SUAVE architecture](https://writings.flashbots.net/mevm-suave-centauri-and-beyond) | Required       | -             | `true`        | v1.14.0\+ |
 
- 
-
 ### Celo chain
 
 For blockchains that use the Celo platform. _Note_, that once the Celo mainnet becomes an L2 chain, these variables will be migrated to the Rollup configuration section.
@@ -773,8 +700,6 @@ For blockchains that use the Celo platform. _Note_, that once the Celo mainnet b
 | Variable                 | Type      | Description                              | Compulsoriness | Default value | Example value | Version   |
 | ------------------------ | --------- | ---------------------------------------- | -------------- | ------------- | ------------- | --------- |
 | NEXT_PUBLIC_CELO_ENABLED | `boolean` | Indicates that it is a Celo-based chain. | -              | -             | `true`        | v1.37.0\+ |
-
- 
 
 ### Ton Application Chain (TAC)
 
@@ -785,8 +710,6 @@ For Ton Application Chains, this feature enables additional views, such as a lis
 | NEXT_PUBLIC_TAC_OPERATION_LIFECYCLE_API_HOST | `string` | URL for the TAC Operation Lifecycle service.                                                               | Required       | -             | `https://tac-operation-lifecycle.blockscout.com` | v2.1.0\+ |
 | NEXT_PUBLIC_TAC_TON_EXPLORER_URL             | `string` | URL of the Ton chain explorer. This is used to build links to transactions and addresses on the Ton chain. | Required       | -             | `https://tonscan.org`                            | v2.1.0\+ |
 
- 
-
 ### MetaSuites extension
 
 Enables [MetaSuites browser extension](https://github.com/blocksecteam/metasuites) to integrate with the app views.
@@ -795,8 +718,6 @@ Enables [MetaSuites browser extension](https://github.com/blocksecteam/metasuite
 | ------------------------------ | --------- | --------------------------------- | -------------- | ------------- | ------------- | --------- |
 | NEXT_PUBLIC_METASUITES_ENABLED | `boolean` | Set to true to enable integration | Required       | -             | `true`        | v1.26.0\+ |
 
- 
-
 ### Validators list
 
 The feature enables the Validators page which provides detailed information about the validators of the PoS chains.
@@ -804,8 +725,6 @@ The feature enables the Validators page which provides detailed information abou
 | Variable                          | Type                                    | Description | Compulsoriness | Default value | Example value | Version   |
 | --------------------------------- | --------------------------------------- | ----------- | -------------- | ------------- | ------------- | --------- |
 | NEXT_PUBLIC_VALIDATORS_CHAIN_TYPE | `'stability' | 'blackfort' | 'zilliqa'` | Chain type  | Required       | -             | `'stability'` | v1.25.0\+ |
-
- 
 
 ### Sentry error monitoring
 
@@ -817,15 +736,11 @@ _Note_ This feature is **deprecated**. All ENV variables will be removed in the 
 | SENTRY_CSP_REPORT_URI             | `string`  | URL for sending CSP-reports to your Sentry.io app       | -              | -             | `<your-secret>` | v1.0.x\+  |
 | NEXT_PUBLIC_SENTRY_ENABLE_TRACING | `boolean` | Enables tracing and performance monitoring in Sentry.io | -              | `false`       | `true`          | v1.17.0\+ |
 
- 
-
 ### Rollbar error monitoring
 
 | Variable                         | Type     | Description                           | Compulsoriness | Default value | Example value   | Version   |
 | -------------------------------- | -------- | ------------------------------------- | -------------- | ------------- | --------------- | --------- |
 | NEXT_PUBLIC_ROLLBAR_CLIENT_TOKEN | `string` | Client token for your Rollbar project | Required       | -             | `<your-secret>` | v1.37.x\+ |
-
- 
 
 ### OpenTelemetry
 
@@ -835,27 +750,21 @@ OpenTelemetry SDK for Node.js app could be enabled by passing `OTEL_SDK_ENABLED=
 | ---------------- | --------- | ----------------------------------- | -------------- | ------------- | ------------- | --------- |
 | OTEL_SDK_ENABLED | `boolean` | Run-time flag to enable the feature | Required       | `false`       | `true`        | v1.18.0\+ |
 
- 
-
 ### DeFi dropdown
 
 If the feature is enabled, a single button or a dropdown (if more than 1 item is provided) will be displayed at the top of the explorer page, which will take a user to the specified application in the marketplace or to an external site.
 
-| Variable                        | Type                                                              | Description                                                                                                 | Compulsoriness | Default value | Example value                                                                                                                 | Version   |
-| ------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | -------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------- |
-| NEXT_PUBLIC_DEFI_DROPDOWN_ITEMS | `[{ text: string; icon: string; dappId?: string, url?: string }]` | An array of dropdown items containing the button text, icon name and dappId in DAppscout or an external url | -              | -             | `[{'text':'Swap','icon':'swap','dappId':'uniswap'},{'text':'Payment link','icon':'payment_link','dappId':'peanut-protocol'}]` | v1.31.0\+ |
-
- 
+| Variable                        | Type                                                                   | Description                                                                                                 | Compulsoriness | Default value | Example value                                                                                                                 | Version   |
+| ------------------------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | -------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------- |
+| NEXT_PUBLIC_DEFI_DROPDOWN_ITEMS | `Array<{ text: string; icon: string; dappId?: string; url?: string }>` | An array of dropdown items containing the button text, icon name and dappId in DAppscout or an external url | -              | -             | `[{'text':'Swap','icon':'swap','dappId':'uniswap'},{'text':'Payment link','icon':'payment_link','dappId':'peanut-protocol'}]` | v1.31.0\+ |
 
 ### Multichain balance button
 
 If the feature is enabled, a Multichain balance button will be displayed on the address page, which will take you to the portfolio application in the marketplace or to an external site.
 
-| Variable                                       | Type                                                                       | Description                                                                                      | Compulsoriness | Default value | Example value                                                                                                         | Version   |
-| ---------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------- | ------------- | --------------------------------------------------------------------------------------------------------------------- | --------- |
-| NEXT_PUBLIC_MULTICHAIN_BALANCE_PROVIDER_CONFIG | `[{ name: string; url_template: string; dapp_id?: string; logo: string }]` | Multichain portfolio application config See [below](#multichain-button-configuration-properties) | -              | -             | `[{ name: 'zerion', url_template: 'https://app.zerion.io/{address}/overview', logo: 'https://example.com/icon.svg'}]` | v1.31.0\+ |
-
- 
+| Variable                                       | Type                                                                            | Description                                                                                      | Compulsoriness | Default value | Example value                                                                                                         | Version   |
+| ---------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | -------------- | ------------- | --------------------------------------------------------------------------------------------------------------------- | --------- |
+| NEXT_PUBLIC_MULTICHAIN_BALANCE_PROVIDER_CONFIG | `Array<{ name: string; url_template: string; dapp_id?: string; logo: string }>` | Multichain portfolio application config See [below](#multichain-button-configuration-properties) | -              | -             | `[{ name: 'zerion', url_template: 'https://app.zerion.io/{address}/overview', logo: 'https://example.com/icon.svg'}]` | v1.31.0\+ |
 
 #### Multichain button configuration properties
 
@@ -866,8 +775,6 @@ If the feature is enabled, a Multichain balance button will be displayed on the 
 | dapp_id      | `string` | Set for open a Blockscout dapp page with the portfolio instead of opening external app page | -              | -             | `zerion`                                   |
 | logo         | `string` | Multichain portfolio application logo (.svg) url                                            | -              | -             | `https://example.com/icon.svg`             |
 
- 
-
 ### Get gas button
 
 If the feature is enabled, a Get gas button will be displayed in the top bar, which will take you to the gas refuel application in the marketplace or to an external site.
@@ -875,8 +782,6 @@ If the feature is enabled, a Get gas button will be displayed in the top bar, wh
 | Variable                               | Type                                                                      | Description                                                                  | Compulsoriness | Default value | Example value                                                                                                                                          | Version   |
 | -------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
 | NEXT_PUBLIC_GAS_REFUEL_PROVIDER_CONFIG | `{ name: string; url_template: string; dapp_id?: string; logo?: string }` | Get gas button config. See [below](#get-gas-button-configuration-properties) | -              | -             | `{ name: 'Need gas?', dapp_id: 'smol-refuel', url_template: 'https://smolrefuel.com/?outboundChain={chainId}', logo: 'https://example.com/icon.png' }` | v1.33.0\+ |
-
- 
 
 #### Get gas button configuration properties
 
@@ -887,8 +792,6 @@ If the feature is enabled, a Get gas button will be displayed in the top bar, wh
 | dapp_id      | `string` | Set for open a Blockscout dapp page instead of opening external app page | -              | -             | `smol-refuel`                                     |
 | logo         | `string` | Gas refuel application logo url                                          | -              | -             | `https://example.com/icon.png`                    |
 
- 
-
 ### Save on gas with GasHawk
 
 The feature enables a "Save with GasHawk" button next to the "Gas used" value on the address page.
@@ -896,8 +799,6 @@ The feature enables a "Save with GasHawk" button next to the "Gas used" value on
 | Variable                        | Type      | Description                         | Compulsoriness | Default value | Example value | Version   |
 | ------------------------------- | --------- | ----------------------------------- | -------------- | ------------- | ------------- | --------- |
 | NEXT_PUBLIC_SAVE_ON_GAS_ENABLED | `boolean` | Set to "true" to enable the feature | -              | -             | `true`        | v1.35.0\+ |
-
- 
 
 ### Rewards service API
 
@@ -907,16 +808,12 @@ This feature enables Blockscout Merits program. It requires that the [My account
 | ------------------------------------ | -------- | ----------- | -------------- | ------------- | --------------------- | --------- |
 | NEXT_PUBLIC_REWARDS_SERVICE_API_HOST | `string` | API URL     | -              | -             | `https://example.com` | v1.36.0\+ |
 
- 
-
 ### DEX pools
 
 | Variable                           | Type      | Description                       | Compulsoriness | Default value | Example value                                    | Version   |
 | ---------------------------------- | --------- | --------------------------------- | -------------- | ------------- | ------------------------------------------------ | --------- |
 | NEXT_PUBLIC_DEX_POOLS_ENABLED      | `boolean` | Set to true to enable the feature | Required       | -             | `true`                                           | v1.37.0\+ |
 | NEXT_PUBLIC_CONTRACT_INFO_API_HOST | `string`  | Contract Info API endpoint url    | Required       | -             | `https://contracts-info.services.blockscout.com` | v1.0.x\+  |
-
- 
 
 ### Address 3rd party widgets
 
@@ -929,18 +826,16 @@ This feature allows to display widgets on the address page with data from 3rd pa
 
 #### Address 3rd party widget configuration properties
 
-|           | Property                              | Type                                                                                              | Description | Compulsoriness | Example value                                              |
-| --------- | ------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------- | -------------- | ---------------------------------------------------------- |
-| name      | `string`                              | Displayed name of the widget                                                                      | Required    | -              | `'Widget'`                                                 |
-| url       | `string`                              | Link URL for widget card. Can contain `{address}`, `{addressLowercase}` and `{chainId}` variables | Required    | -              | `'https://example.com/widget/{address}?chainId={chainId}'` |
-| icon      | `string`                              | Widget icon URL                                                                                   | Required    | -              | `'https://example.com/icon.svg'`                           |
-| title     | `string`                              | Title of displayed data                                                                           | Required    | -              | `'Multichain balance'`                                     |
-| hint      | `string`                              | Hint for displayed data                                                                           | -           | -              | `'Widget hint'`                                            |
-| valuePath | `string`                              | Path to the field in the API response that contains the value to be displayed                     | Required    | -              | `'result.balance'`                                         |
-| pages     | `Array<'eoa' | 'contract' | 'token'>` | List of pages where the widget should be displayed                                                | Required    | -              | `['eoa']`                                                  |
-| chainIds  | `Record<string, string>`              | Mapping of chain IDs to custom values that will be used in `url` template                         | -           | -              | `{'1': 'eth', '10': 'op'}`                                 |
-
- 
+| Property  | Type                                  | Description                                                                                       | Compulsoriness | Example value                                              |
+| --------- | ------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------- | ---------------------------------------------------------- |
+| name      | `string`                              | Displayed name of the widget                                                                      | Required       | `'Widget'`                                                 |
+| url       | `string`                              | Link URL for widget card. Can contain `{address}`, `{addressLowercase}` and `{chainId}` variables | Required       | `'https://example.com/widget/{address}?chainId={chainId}'` |
+| icon      | `string`                              | Widget icon URL                                                                                   | Required       | `'https://example.com/icon.svg'`                           |
+| title     | `string`                              | Title of displayed data                                                                           | Required       | `'Multichain balance'`                                     |
+| hint      | `string`                              | Hint for displayed data                                                                           | -              | `'Widget hint'`                                            |
+| valuePath | `string`                              | Path to the field in the API response that contains the value to be displayed                     | Required       | `'result.balance'`                                         |
+| pages     | `Array<'eoa' | 'contract' | 'token'>` | List of pages where the widget should be displayed                                                | Required       | `['eoa']`                                                  |
+| chainIds  | `Record<string, string>`              | Mapping of chain IDs to custom values that will be used in `url` template                         | -              | `{'1': 'eth', '10': 'op'}`                                 |
 
 ### Badge claim link
 
@@ -954,7 +849,7 @@ This feature allows to display widgets on the address page with data from 3rd pa
 | ---------------------------------------- | -------- | ----------------------------------------------------- | -------------- | ------------- | --------------------- | -------- |
 | NEXT_PUBLIC_PUZZLE_GAME_BADGE_CLAIM_LINK | `string` | Provide to enable the easter egg puzzle badge feature | -              | -             | `https://example.com` | v2.2.0\+ |
 
- 
+---
 
 ## External services configuration
 
