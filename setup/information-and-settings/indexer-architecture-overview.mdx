@@ -1,17 +1,17 @@
 ---
 title: "Indexer Architecture Overview"
-description: Learn how the indexing architecture works in Blockscout
+description: "Learn how the indexing architecture works in Blockscout"
 ---
 
-<Frame caption="">
-  <img src="/images/aa24fd73-image.jpeg" />
+<Frame caption>
+  ![](/images/aa24fd73-image.jpeg)
 </Frame>
 
 ## Presentation Highlights
 
 The following presentation describes the past, present and future iterations of Blockscout along with details about how block imports work both synchronously and asynchronously, and a description of the regular and on-demand fetchers.
 
-<Card horizontal title="Blockscout Indexer Architecture Overview.pdf" icon="file-pdf" href="https://1077666658-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F-Lq1XoWGmy8zggj_u2fM%2Fuploads%2FEgtBmrGlOyS8YcX34nXM%2FBlockscout%20Indexer%20Architecture%20Overview.pdf?alt=media\&token=9ef21577-95c7-4a8b-b11e-93aab7bea012" >
+<Card title="Blockscout Indexer Architecture Overview.pdf" icon="file-pdf" horizontal={false} href="https://blockscout-icons.s3.us-east-1.amazonaws.com/Blockscout+Indexer+Architecture+Overview.pdf">
   1MB pdf
 </Card>
 
@@ -23,43 +23,42 @@ See the pdf ⬆️ for more details about the Blockscout indexer. The indexing a
 
 Both indexers utilize synchronous and asynchronous operations.
 
-* Realtime: Imports new block data from the head of the chain.
-
-* Catchup: Imports data down the chain (starting from the head and moving backwards towards the genesis block)
+- Realtime: Imports new block data from the head of the chain.
+- Catchup: Imports data down the chain (starting from the head and moving backwards towards the genesis block)
 
 ### Secondary fetchers
 
 ### Regular
 
-* Internal transactions
-* Pending transactions
-* Dropped/Replaced transactions
-* Contract bytecodes
-* Block rewards
-* Token catalog
-* Token/coin balances
-* NFT instances
-* Uncles
+- Internal transactions
+- Pending transactions
+- Dropped/Replaced transactions
+- Contract bytecodes
+- Block rewards
+- Token catalog
+- Token/coin balances
+- NFT instances
+- Uncles
 
 ### On Demand
 
-* Coin/token balances update
-* Contract bytecodes fetch/re-check
-* Contract source codes lookup
-* NFT instance metadata re-fetch
-* Token total supply
+- Coin/token balances update
+- Contract bytecodes fetch/re-check
+- Contract source codes lookup
+- NFT instance metadata re-fetch
+- Token total supply
 
 ### Off-chain integrations
 
-* Coin / token price, market cap, tvl sources: CMC, Coingecko, Cryptorank, Defillama
-* Smart contract verification: ETH bytecode DB, Sourcify
-* Data enrichment: ENS names, public tags, AI interpreters (own, Noves Fi), sc security scanners (Solidityscan), assets portfolio (Zerion)
-* Chain initialization data import: pre-mined coins, precompiled smart-contracts
+- Coin / token price, market cap, tvl sources: CMC, Coingecko, Cryptorank, Defillama
+- Smart contract verification: ETH bytecode DB, Sourcify
+- Data enrichment: ENS names, public tags, AI interpreters (own, Noves Fi), sc security scanners (Solidityscan), assets portfolio (Zerion)
+- Chain initialization data import: pre-mined coins, precompiled smart-contracts
 
 ### Chain-specific fetchers
 
-* There are more than a dozen of chain-specific data fetchers to account for chain differences including arbitrum, optimism, polygon edge, polygon zkevm, zksync etc.
+- There are more than a dozen of chain-specific data fetchers to account for chain differences including arbitrum, optimism, polygon edge, polygon zkevm, zksync etc.
 
 ### Temporary fetchers
 
-* Used once to resolve possible data inconsistencies.
+- Used once to resolve possible data inconsistencies.
