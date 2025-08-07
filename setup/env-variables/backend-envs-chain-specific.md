@@ -280,6 +280,9 @@ Supported together with setting `CHAIN_TYPE=celo`
 | `CELO_UNRELEASED_TREASURY_CONTRACT` | The address[^1] of the `CeloUnreleasedTreasury` core contract. Implemented in [#12373](https://github.com/blockscout/blockscout/pull/12373). | <p>Version: v9.0.0+<br>Default: (empty)<br>Applications: Indexer</p> |
 | `CELO_VALIDATORS_CONTRACT`          | The address[^1] of the `Validators` core contract. Implemented in [#12373](https://github.com/blockscout/blockscout/pull/12373).             | <p>Version: v9.0.0+<br>Default: (empty)<br>Applications: Indexer</p> |
 | `CELO_EPOCH_MANAGER_CONTRACT`       | The address[^1] of the `EpochManager` core contract. Implemented in [#12373](https://github.com/blockscout/blockscout/pull/12373).           | <p>Version: v9.0.0+<br>Default: (empty)<br>Applications: Indexer</p> |
+| `CELO_LOCKED_GOLD_CONTRACT`         | The address[^1] of the `LockedGold` core contract. Implemented in [#12893](https://github.com/blockscout/blockscout/pull/12893).             | <p>Version: v9.0.0+<br>Default: (empty)<br>Applications: Indexer</p> |
+| `CELO_ACCOUNTS_CONTRACT`            | The address[^1] of the `Accounts` core contract. Implemented in [#12893](https://github.com/blockscout/blockscout/pull/12893).               | <p>Version: v9.0.0+<br>Default: (empty)<br>Applications: Indexer</p> |
+
 
 [^1]: See the [Core Contracts](https://docs.celo.org/contracts/core-contracts) section of Celo docs to find relevant deployed contract address.
 
