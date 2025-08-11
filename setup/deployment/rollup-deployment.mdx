@@ -1,12 +1,11 @@
 ---
 title: "Rollup Deployment"
-description: Instructions and environment variables for deploying Blockscout on rollup chains.
+description: "Instructions and environment variables for deploying Blockscout on rollup chains."
 icon: "layer-group"
 ---
 
 <Tip>
-🚗 [Autoscout is now available](/using-blockscout/autoscout), providing a simple one-click rollup explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [Get Started Now](/using-blockscout/autoscout) and have **your rollup explorer up-and-running in minutes.**
-
+  🚗 [Autoscout is now available](/using-blockscout/autoscout), providing a simple one-click rollup explorer deployment with Blockscout's optimized hosting infrastructure. Use it for early testing, modifications, and launching a full production-grade explorer. [Get Started Now](/using-blockscout/autoscout) and have **your rollup explorer up-and-running in minutes.**
 </Tip>
 
 Follow the general [docker](/setup/deployment/docker-compose-deployment) or [manual](/setup/deployment/manual-deployment-guide) instructions for deployment and include additional ENVs (starting with `CHAIN_TYPE`) as rollup deployments require different backend setups depending on the rollup type. Below we provide information and examples for [Arbitrum](/setup/deployment/rollup-deployment#arbitrum) and [Optimism](/setup/deployment/rollup-deployment#optimism).
@@ -16,8 +15,7 @@ Follow the general [docker](/setup/deployment/docker-compose-deployment) or [man
 Variables are linked below and supported with `CHAIN_TYPE=arbitrum`. Default values are set for many variables and do not need adjustment for common setups.
 
 <Info>
-Arbitrum environment variables are located here: [https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#arbitrum-management](https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#arbitrum-management)
-
+  Arbitrum environment variables are located here: https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#arbitrum-management
 </Info>
 
 ### Example configuration using Ethereum as the settlement layer
@@ -43,26 +41,30 @@ INDEXER_ARBITRUM_BATCHES_TRACKING_L1_FINALIZATION_CHECK_ENABLED="true"
 
 #### `INDEXER_ARBITRUM_L1_RPC`
 
-Set to the settlement layer RPC node. In the case above (Ethereum settlement layer) it would be set to your choice of Ethereum RPC nodes such as [https://rpc.ankr.com/eth](https://rpc.ankr.com/eth) or another one of your choice [from this list](https://www.alchemy.com/chain-connect/chain/ethereum). If the rollup settles to a testnet, for example Arbitrum Sepolia, it would be set to [https://arbitrum-sepolia.blockscout.com/](https://arbitrum-sepolia.blockscout.com/) ( [info retrieved here](https://docs.arbitrum.io/build-decentralized-apps/reference/node-providers))
+Set to the settlement layer RPC node. In the case above (Ethereum settlement layer) it would be set to your choice of Ethereum RPC nodes such as https://rpc.ankr.com/eth or another one of your choice [from this list](https://www.alchemy.com/chain-connect/chain/ethereum). If the rollup settles to a testnet, for example Arbitrum Sepolia, it would be set to https://arbitrum-sepolia.blockscout.com/ ( [info retrieved here](https://docs.arbitrum.io/build-decentralized-apps/reference/node-providers))
 
 #### `INDEXER_ARBITRUM_L1_ROLLUP_CONTRACT`
 
 The rollup contract address is output during the contract deployment process (check the `OutputInfo.json` file in the main directory of your script folder). **The rollup contract address must be added** as there is no default value for this variable. If using a RaaS for deployment the service may provide this output. For example, Gelato provides a list of contracts on deployment, and you can copy the value from their dashboard.
 
-<Frame caption="">
-  <img src="/images/f5b77e66-image.jpeg" />
+<Frame caption>
+  ![](/images/f5b77e66-image.jpeg)
 </Frame>
 
 #### `INDEXER_ARBITRUM_L1_ROLLUP_INIT_BLOCK`
 
+<Tip>
+  You can also use the [Blockscout MCP](/devs/mcp-server) to find values for the `ROLLUP_INIT_BLOCK and RPC_HISTORICAL_BLOCKS_RANGE. `[See this example.](/devs/mcp-examples/rollup-deployment-variables)
+</Tip>
+
 Get this value using the block explorer for the settlement layer chain. Search the rollup contract address and find the transaction and block where the contract was deployed. Use that block number as the value for this env.
 
-<Frame caption="">
-  <img src="/images/3cb03a01-image.jpeg" />
+<Frame caption>
+  ![](/images/3cb03a01-image.jpeg)
 </Frame>
 
-<Frame caption="">
-  <img src="/images/c2970836-image.jpeg" />
+<Frame caption>
+  ![](/images/c2970836-image.jpeg)
 </Frame>
 
 #### `INDEXER_ARBITRUM_L1_RPC_HISTORICAL_BLOCKS_RANGE`
@@ -74,17 +76,17 @@ The RPC historical blocks range depends on the following factors:
 3. Batch production rate for the rollup. To check this you will look at the `SequencerInbox` contract. To find the contract address, go the `Rollup` contract in the block explorer, go to read methods (or read proxy), and find the `SequencerInbox` method. This will display the address of the contract.
 
 <Frame caption="Click contract and Read Contract (or read proxy depending on the contract type)">
-  <img src="/images/777f1bae-image.jpeg" />
+  ![](/images/777f1bae-image.jpeg)
 </Frame>
 
 <Frame caption="Scroll to the sequencerInbox method and copy the contract address">
-  <img src="/images/5126072e-image.jpeg" />
+  ![](/images/5126072e-image.jpeg)
 </Frame>
 
-* Batch production rate can be identified by looking at how fast the `SequencerInbox` contract is called with the method `addSequencerL2BatchFromOrigin`. Transactions to the contract can be found on the contract page of the block explorer.
+- Batch production rate can be identified by looking at how fast the `SequencerInbox` contract is called with the method `addSequencerL2BatchFromOrigin`. Transactions to the contract can be found on the contract page of the block explorer.
 
-<Frame caption="">
-  <img src="/images/9ea266f9-image.jpeg" />
+<Frame caption>
+  ![](/images/9ea266f9-image.jpeg)
 </Frame>
 
 **Recommendations based on these factors:**
@@ -103,8 +105,7 @@ Chunk sizes depend on the RPC nodes' rate limits. Larger chunks may cause rate l
 #### `INDEXER_ARBITRUM_BATCHES_TRACKING_MESSAGES_TO_BLOCKS_SHIFT`
 
 <Warning>
-The only chain identified so far where this variable is required is the **Arbitrum One** chain.
-
+  The only chain identified so far where this variable is required is the **Arbitrum One** chain.
 </Warning>
 
 This variable must be configured for chains where the message counters in the call `addSequencerL2BatchFromOrigin` of the `SequencerInbox` contract do not correspond directly to the rollup block numbers.
@@ -118,8 +119,7 @@ The default for these variables will not run the corresponding fetchers, so they
 Variables are linked below and supported with `CHAIN_TYPE=optimism.` Default values are set for many variables and typically do not need adjustment for common setups.
 
 <Info>
-Optimism environment variables are located here: [https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#optimism-rollup-management](https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#optimism-rollup-management)
-
+  Optimism environment variables are located here: https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#optimism-rollup-management
 </Info>
 
 Example configuration using Ethereum as the settlement layer (includes defaults)
@@ -154,10 +154,10 @@ Address of SystemConfig smart contract that contains most of the configuration p
 
 If the OP chain uses EIP-4844 blobs as data storage, this env is required. If this is the case, the following envs must also be defined:
 
-* `INDEXER_BEACON_RPC_URL`
-* `INDEXER_BEACON_BLOB_FETCHER_REFERENCE_SLOT`
-* `INDEXER_BEACON_BLOB_FETCHER_REFERENCE_TIMESTAMP`
-* `INDEXER_BEACON_BLOB_FETCHER_SLOT_DURATION`
+- `INDEXER_BEACON_RPC_URL`
+- `INDEXER_BEACON_BLOB_FETCHER_REFERENCE_SLOT`
+- `INDEXER_BEACON_BLOB_FETCHER_REFERENCE_TIMESTAMP`
+- `INDEXER_BEACON_BLOB_FETCHER_SLOT_DURATION`
 
 These envs are used by the batch indexing module as a fallback source of blob data and for retrieving the blob data in realtime from L1. These values should be used for the following L1s. If clarification is needed please contact the Blockscout team.
 
@@ -180,10 +180,8 @@ INDEXER_BEACON_BLOB_FETCHER_SLOT_DURATION=12
 
 #### `INDEXER_OPTIMISM_L2_BATCH_GENESIS_BLOCK_NUMBER`
 
-Typically found in the [superchain registry](https://github.com/ethereum-optimism/superchain-registry/blob/main/superchain/configs/configs.json) in superchains.chains\[i].genesis.l2.number, e.g. for OP Mainnet it is `105235063`. For most new OP chains the value will be `0` as these chains start with the BedRock upgrade activated from scratch.
+Typically found in the [superchain registry](https://github.com/ethereum-optimism/superchain-registry/blob/main/superchain/configs/configs.json) in superchains.chains[i].genesis.l2.number, e.g. for OP Mainnet it is `105235063`. For most new OP chains the value will be `0` as these chains start with the BedRock upgrade activated from scratch.
 
 #### `INDEXER_OPTIMISM_L1_OUTPUT_ORACLE_CONTRACT`
 
 This contract's address can be found in chain's online docs. If there are no docs available, contact the chain for this information. This address is not needed (and can be omitted) for OP chains that started with the [FaultProofs upgrade](https://docs.optimism.io/stack/protocol/fault-proofs/explainer) activated from the genesis block.
-
-

@@ -1,0 +1,56 @@
+---
+title: "Rollup Variables with MCP"
+description: "Using prompts to locate required rollup variables"
+---
+
+Unique variables are required for deploying different types of chains. The process for located these ENVs for Arbitrum and Optimism chains is [detailed in this post](/setup/deployment/rollup-deployment). 
+
+You can also use the [Blockscout MCP](/devs/mcp-server) to quickly find some of these variables. In the example below we use several prompts to find the values for `INDEXER_ARBITRUM_L1_ROLLUP_INIT_BLOCK `and `INDEXER_ARBITRUM_L1_RPC_HISTORICAL_BLOCKS_RANGE`
+
+<Steps>
+  <Step title="Find the rollup init block">
+    Find the block containing the transaction where the rollup contract was deployed. You will need the rollup contract address for this prompt (check the `OutputInfo.json` file in the main directory of your script folder). In this example we use the Holesky chain.
+
+    **prompt example:** \
+    "What is the deployment transaction hash for contract `0x798CA465048fa8ec711FFc8cE0F03409f6985a04` on Holesky, and which block was it deployed in?"
+
+    > **answer: **\
+    > Based on the blockchain analysis shown in your prompt, the **deployment transaction** for the contract `0x798CA465048fa8ec711FFc8cE0F03409f6985a04` on Holesky is:
+    >
+    > **0x4bd7b36d779cd66a968810cef5926a5fb246d5291ec4e6551d46a1cd639e287e**
+    >
+    > This transaction was included in **Block Number: 3,325,914** on the Holesky blockchain. 
+  </Step>
+  <Step title="Get initial value for historical blocks range">
+    **prompt examples:**
+
+    1. "How often blocks are produced on Holesky?"
+    2. "Research the deployment transaction and discover the address of the contract emitting `SequencerBatchDelivered` event. Then look at the latest logs emitted by the contract to identify how often new `SequencerBatchDelivered` events appear in the chain."
+    3. Take a look at https://docs.blockscout.com/setup/deployment/rollup-deployment and then advise based on the received data what could be a value of `INDEXER_ARBITRUM_L1_RPC_HISTORICAL_BLOCKS_RANGE`.
+
+    > **answer:**
+    >
+    > **Specific Recommendation:**
+    >
+    > `INDEXER_ARBITRUM_L1_RPC_HISTORICAL_BLOCKS_RANGE=1000`
+    >
+    > **Rationale:**
+    >
+    > 1. **Conservative Approach**: The documentation recommends choosing a block range that covers 1 or 2 batches when the block production rate is low (like 12 seconds for Ethereum/Holesky)
+    > 2. **Time Coverage**: 1000 blocks × 12 seconds = ~3.3 hours of Holesky history, which should easily cover multiple batch cycles
+    > 3. **RPC Compatibility**: 1000 blocks is a safe range that most RPC providers support without hitting rate limits
+    > 4. **Batch Frequency Match**: Given the observed frequent batch delivery pattern, 1000 blocks provides sufficient coverage for reliable indexing
+    >
+    > **Alternative Considerations:**
+    >
+    > - **If batches are very frequent (every few minutes)**: Consider increasing to **1500-2000 blocks**
+    > - **If RPC node has higher limits**: Could potentially use **2000-5000 blocks** for better efficiency
+    > - **If experiencing timeouts**: Reduce to **500-750 blocks**
+    >
+    > **Monitoring Recommendation:**
+    >
+    > Start with 1000 blocks and monitor the indexer logs. If you see rate limit errors, reduce the chunk size. If you experience latency in batch identification, you may need to adjust the tracking intervals or block range.
+    >
+    > The 1000 block range should provide a good balance between comprehensive coverage and RPC node compatibility for your Holesky Arbitrum rollup deployment.
+  </Step>
+</Steps>
