@@ -542,6 +542,34 @@
             "source": "/about/features/blockscout-2.0",
             "destination": "/about/features"
         },
+                {
+            "source": "/for-users/api/rpc-endpoints",
+            "destination": "/devs/apis/rpc"
+        },
+        {
+            "source": "/for-users/api/eth-rpc",
+            "destination": "/devs/apis/rpc/eth-rpc"
+        },
+        {
+            "source": "/for-developers/frontend-migration",
+            "destination": "/setup/deployment/frontend-migration"
+        },
+        {
+            "source": "/for-developers/deployment/manual-deployment-guide",
+            "destination": "/setup/deployment/manual-deployment-guide"
+        },
+        {
+            "source": "/for-users/verifying-a-smart-contract",
+            "destination": "/devs/verification"
+        },
+        {
+            "source": "/for-users/verifying-a-smart-contract/foundry-verification",
+            "destination": "/devs/verification/foundry-verification"
+        },
+        {
+            "source": "/for-users/verifying-a-smart-contract/hardhat-verification-plugin",
+            "destination": "/devs/verification/hardhat-verification-plugin"
+        },
         {
             "source": "/about/funding/l2-funding-proposal/aux-funding-images",
             "destination": "/about/funding"
