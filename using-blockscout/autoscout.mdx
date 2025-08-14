@@ -62,7 +62,7 @@ The following parameters are in the Info section. \* parameters are required.
 - **Gas token symbol**: Will show in the interface, for example ETH if your chain uses Ether for gas.
 - **Mainnet or Testnet**: Select the type of chain, if Testnet a label will be added to the instance.
 - **This chain is a Rollup**: If selected, another field will appear to select **Arbitrum, Optimism, Polygon zkEVM or zkSync**. You will then fill out additional information in the Rollup Config tab.
-- **HTTP RPC URL\***: The **archive node** url (https://your-rpc-url) [___Note: archive node is required for internal transactions and token/coin historical balances. Tracing should be enabled for internal transactions.___](/setup/requirements/node-tracing-json-rpc-requirements)
+- **HTTP RPC URL\***: The **archive node** url (https://your-rpc-url) [**_Note: archive node is required for internal transactions and token/coin historical balances. Tracing should be enabled for internal transactions._**](/setup/requirements/node-tracing-json-rpc-requirements)
 - **WS URL**: The websocket url (wss://ws.your-websocket-url)
 - **Chain spec URL**: URL to chain specification path json (Sepolia example: [chainspec.json](https://github.com/ethpandaops/ethereum-genesis-generator/blob/master/apps/el-gen/sepolia/chainspec.json) or [genesis.json](https://github.com/ethpandaops/ethereum-genesis-generator/blob/master/apps/el-gen/sepolia/genesis.json)). You will use the raw JSON file; in the Sepolia example this url is https://raw.githubusercontent.com/ethpandaops/ethereum-genesis-generator/master/apps/el-gen/sepolia/chainspec.json
 - **Custom Domain**: You can use a custom domain for your instance but must configure your DNS and add a DNS `CNAME` record pointing to `autoscout.cname.blockscout.com`
@@ -123,12 +123,21 @@ If your chain is a rollup you will select this in the info screen and then fillo
     - **Name:** your-explorer-name (instance name)
     - **Content:** autoscout.cname.blockscout.com
     - **Proxy status:** DNS only
-    - **TTL: **Auto
+    - \*\*TTL: \*\*Auto
 
     ![Cloudflare Jp](/images/cloudflare.jpg)
 
     Make sure to set your Custom domain in the Autoscout interface.
 
     ![My Custom Domain Jp](/images/my-custom-domain.jpg)
+  </Accordion>
+  <Accordion title="When do I receive automated emails informing me my credits are running out?">
+    You will receive several automated emails when your Autoscout credits/funds are running out. They are sent according to the following schedule:
+
+    | **Days before running out of funds** | **Automated email** |
+    | ------------------------------------ | ------------------- |
+    | 5 days                               | Initial email       |
+    | 3 days                               | Reminder email      |
+    | 1 day                                | Final reminder      |
   </Accordion>
 </AccordionGroup>
