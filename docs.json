@@ -148,7 +148,7 @@
                                     },
                                     "devs/verification/foundry-verification",
                                     "devs/verification/contracts-verification-via-sourcify",
-                                    "devs/verification/openzeppelin-contract-verification",
+                                    "devs/verification/remix-verification",
                                     "devs/verification/automate-verifications-catapulta",
                                     "devs/verification/verification-via-thirdweb",
                                     "devs/verification/stylus-verification",
