@@ -115,10 +115,6 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.Token                              | tokens                                | [asc: :contract_address_hash]                                                                      |
 | Explorer.Chain.TokenTransfer                      | token_transfers                       | [asc: :transaction_hash, asc: :log_index]                                                          |
 | Explorer.Chain.TransactionAction                  | transaction_actions                   | [asc: :hash, asc: :log_index]                                                                      |
-| Explorer.Chain.PolygonEdge.Deposit                | polygon_edge_deposits                 | [asc: :msg_id]                                                                                     |
-| Explorer.Chain.PolygonEdge.DepositExecute         | polygon_edge_deposit_executes         | [asc: :msg_id]                                                                                     |
-| Explorer.Chain.PolygonEdge.Withdrawal             | polygon_edge_withdrawals              | [asc: :msg_id]                                                                                     |
-| Explorer.Chain.PolygonEdge.WithdrawalExit         | polygon_edge_withdrawal_exits         | [asc: :msg_id]                                                                                     |
 | Explorer.Chain.Optimism.OutputRoot                | op_output_roots                       | [asc: :l2_output_index]                                                                            |
 | Explorer.Chain.Optimism.TxnBatch                  | op_transaction_batches                | [asc: :l2_block_number]                                                                            |
 | Explorer.Chain.Optimism.Deposit                   | op_deposits                           | [asc: :l2_transaction_hash]                                                                        |
