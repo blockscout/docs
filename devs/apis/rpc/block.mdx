@@ -99,6 +99,8 @@ https://instance_base_url/api
 
 <Tabs>
   <Tab title="Request Param">
+    
+
     | Parameter | Description                                                          |
     | --------- | -------------------------------------------------------------------- |
     | timestamp | `integer` representing the Unix timestamp in seconds.                |
@@ -107,7 +109,15 @@ https://instance_base_url/api
     Note: [How to convert date/time to a Unix timestamp](https://www.unixtimestamp.com/).
   </Tab>
   <Tab title="Example Result">
-    
+    ```json
+    {
+       "message":"OK",
+       "result":{
+          "blockNumber":"23592675"
+       },
+       "status":"1"
+    }
+    ```
   </Tab>
 </Tabs>
 
