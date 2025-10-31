@@ -96,12 +96,11 @@
                             },
                             {
                                 "group": "Essential Dapps",
-                                "icon": "shuffle",
+                                "icon": "star",
                                 "pages": [
                                     "using-blockscout/essential-dapps/swap",
                                     "using-blockscout/essential-dapps/revoke",
-                                    "using-blockscout/essential-dapps/multisend",
-                                    "using-blockscout/essential-dapps/earn-merits-when-using-swap"
+                                    "using-blockscout/essential-dapps/multisend"
                                 ]
                             },
                             "using-blockscout/autoscout",
@@ -114,7 +113,7 @@
                                     "using-blockscout/merits/activity-pass",
                                     "using-blockscout/merits/leaderboard",
                                     "using-blockscout/merits/badges",
-                                    "using-blockscout/essential-dapps/earn-merits-when-using-swap",
+                                    "using-blockscout/merits/earn-merits-when-using-swap",
                                     "using-blockscout/merits/faqs"
                                 ]
                             },
