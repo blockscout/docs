@@ -350,7 +350,7 @@
                         "pages": [
                             "resources/premium-features",
                             "resources/contributing-to-blockscout",
-                            "resources/bug-bounty-program",
+                            "resources/security-program",
                             "resources/media-kit",
                             {
                                 "group": "Release Notes",
@@ -550,6 +550,10 @@
         {
             "source": "/for-developers/frontend-migration",
             "destination": "/setup/deployment/frontend-migration"
+        },
+        {
+            "source": "/resources/bug-bounty-program",
+            "destination": "/resources/security-program"
         },
         {
             "source": "/for-developers/deployment/manual-deployment-guide",
