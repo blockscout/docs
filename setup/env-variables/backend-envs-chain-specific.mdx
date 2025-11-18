@@ -40,6 +40,7 @@ These specialized chain types still require recompilation and dedicated images:
 
 * `ethereum`
 * `optimism`
+* `optimism-celo` (Celo on OP Stack)
 * `arbitrum`
 * `polygon_zkevm`
 * `rsk`
@@ -260,9 +261,25 @@ Supported together with setting `CHAIN_TYPE=arbitrum`
 ## Celo Management
 
 <Info>
-Supported together with setting `CHAIN_TYPE=celo`
+Supported together with setting `CHAIN_TYPE=optimism-celo`
+
+Starting from v9.2.0, Celo runs on the OP Stack infrastructure while maintaining Celo-specific features including:
+- Epochs
+- Election rewards
+- Token duality
+- All standard Optimism features (deposits, withdrawals, batches, etc.)
 
 </Info>
+
+<Warning>
+**Migration Notice**: Prior to v9.2.0, Celo used `CHAIN_TYPE=celo`. This has been changed to `CHAIN_TYPE=optimism-celo` to reflect Celo's migration to the OP Stack while preserving Celo-specific functionality.
+
+For instances deployed before v9.2.0, you must:
+1. Update `CHAIN_TYPE` from `celo` to `optimism-celo`
+2. Use the `optimism-celo` Docker image
+3. Configure both Optimism and Celo-specific environment variables
+4. Expect heavy migrations!
+</Warning>
 
 | Variable                                             | Description                                                                                                                                                                                                                                               | Parameters                                                               |
 | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
@@ -278,6 +295,14 @@ Supported together with setting `CHAIN_TYPE=celo`
 | `CELO_ACCOUNTS_CONTRACT`                             | The address of the `Accounts` core contract. Implemented in [#12893](https://github.com/blockscout/blockscout/pull/12893).                                                                                                                                | Version: v9.2.0+ <br />Default: (empty)<br />Applications: Indexer        |
 | `INDEXER_CELO_ACCOUNTS_CONCURRENCY`                  | Sets the maximum number of concurrent requests for fetching Celo accounts.                                                                                                                                                                                | Version: v9.2.0+ <br />Default: `1`<br />Applications: Indexer            |
 | `INDEXER_CELO_ACCOUNTS_BATCH_SIZE`                   | Specifies the number of account addresses processed per batch during fetching.                                                                                                                                                                            | Version: v9.2.0+ <br />Default: `100`<br />Applications: Indexer          |
+
+### Required Optimism ENVs for Celo
+
+Since Celo runs on the OP Stack, you must also configure all applicable Optimism environment variables from the [Optimism Rollup Management](#optimism-rollup-management) section above.
+
+<Info>
+For Celo network configurations, contract addresses, and deployment assets, refer to the official [Celo Network Config & Assets documentation](https://docs.celo.org/infra-partners/operators/run-node#network-config-&-assets).
+</Info>
 
 <Accordion title="Details on `CELO_CORE_CONTRACTS`">
 The CELO network includes several core contracts that are central to its operation. These core contracts manage various aspects of the Celo network, including its stablecoins, governance, identity, and more.
