@@ -356,3 +356,16 @@ Supported together with setting `CHAIN_TYPE=blackfort`
 | Variable                      | Description                                                                                                                              | Parameters                                                   |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | `BLACKFORT_VALIDATOR_API_URL` | Variable to define the URL of the Blackfort Validator API. Implemented in [#10744](https://github.com/blockscout/blockscout/pull/10744). | Version: v6.9.0+ <br />Default: (empty) <br />Applications: API, Indexer |
+
+## Arc Management
+
+<Info>
+Supported together with setting `CHAIN_TYPE=arc`
+
+</Info>
+
+| Variable                                   | Description                                                                                                                                             | Parameters                                                                                              |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `INDEXER_ARC_NATIVE_TOKEN_DECIMALS`        | Defines the number of decimals for Arc chain native token (e.g. USDC). Implemented in [#13452](https://github.com/blockscout/blockscout/pull/13452).    | Version: master <br />Default: `6` <br />Applications: Indexer                                          |
+| `INDEXER_ARC_NATIVE_TOKEN_CONTRACT`        | Arc chain native token contract address. Implemented in [#13452](https://github.com/blockscout/blockscout/pull/13452).                                  | Version: master <br />Default: `0x3600000000000000000000000000000000000000` <br />Applications: Indexer |
+| `INDEXER_ARC_NATIVE_TOKEN_SYSTEM_CONTRACT` | Arc chain system contract address emitting `NativeCoinTransferred` event. Implemented in [#13452](https://github.com/blockscout/blockscout/pull/13452). | Version: master <br />Default: `0x1800000000000000000000000000000000000000` <br />Applications: Indexer |
