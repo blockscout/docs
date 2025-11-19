@@ -95,15 +95,15 @@
                                 ]
                             },
                             {
-                                "group": "Swapscout",
-                                "icon": "shuffle",
+                                "group": "Essential Dapps",
+                                "icon": "star",
                                 "pages": [
-                                    "using-blockscout/swapscout",
-                                    "using-blockscout/swapscout/earn-merits-when-using-swapscout"
+                                    "using-blockscout/essential-dapps/swap",
+                                    "using-blockscout/essential-dapps/revoke",
+                                    "using-blockscout/essential-dapps/multisend"
                                 ]
                             },
                             "using-blockscout/autoscout",
-                            "using-blockscout/revokescout",
                             {
                                 "group": "Merits",
                                 "icon": "award",
@@ -113,6 +113,7 @@
                                     "using-blockscout/merits/activity-pass",
                                     "using-blockscout/merits/leaderboard",
                                     "using-blockscout/merits/badges",
+                                    "using-blockscout/merits/earn-merits-when-using-swap",
                                     "using-blockscout/merits/faqs"
                                 ]
                             },
@@ -349,7 +350,7 @@
                         "pages": [
                             "resources/premium-features",
                             "resources/contributing-to-blockscout",
-                            "resources/bug-bounty-program",
+                            "resources/security-program",
                             "resources/media-kit",
                             {
                                 "group": "Release Notes",
@@ -549,6 +550,10 @@
         {
             "source": "/for-developers/frontend-migration",
             "destination": "/setup/deployment/frontend-migration"
+        },
+        {
+            "source": "/resources/bug-bounty-program",
+            "destination": "/resources/security-program"
         },
         {
             "source": "/for-developers/deployment/manual-deployment-guide",

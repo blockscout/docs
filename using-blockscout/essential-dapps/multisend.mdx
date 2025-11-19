@@ -1,0 +1,63 @@
+---
+title: "Multisend"
+description: "Multisend Essential Dapp"
+icon: "manat-sign"
+---
+
+Multisend lets you send ERC20 tokens to multiple addresses at once rather than sending transactions one by one. With just a few clicks, you can create and send bulk transactions automatically, saving significant time and automating the process. Private keys and account information stay secure.
+
+Multisend is useful when distributing tokens to many addresses, for example in an airdrop to a lot of recipients or payroll where you are sending many of the same ERC20 tokens to different addresses.
+
+## Get Started
+
+1. **Connect your wallet** to Blockscout (if needed)
+
+![DAppscout blockchain explorer interface showing login button and essential dApps including token swap and multisend features](/images/login-1.jpg)
+
+2. **Find the Multisend app** in the Essential Dapps Menu
+
+![DAppscout tutorial showing how to access Multisend dApp: step 1 click DApps menu, step 2 select Multisend to send tokens to multiple addresses](/images/mutlsend-dapp-2.jpg)
+
+3. Click on the token field and **select the token** you want to send.
+
+![Multisend dApp tutorial step 1: select token address to send tokens to multiple wallet addresses via CSV upload](/images/token-field-1.jpg)
+
+![Token search modal in Multisend dApp showing CV token selection on Optimism network for bulk token transfers](/images/token-field-3.jpg)
+
+4. **Specify a list of addresses and amounts in CSV format** (for example `0x5c36bd76a6c138187c43da92f66f37e23b4017fa,12`) with 1 address and amount per line. You can upload a .csv file and the box with auto-populate. _Click the 'Show Sample CSV' button to see the formatted example._
+
+<Warning>
+  .eth names are not currently supported, please use full 0x addresses.
+</Warning>
+
+![Multisend dApp CSV upload field for entering multiple recipient wallet addresses to batch send CV tokens](/images/address-field-1.jpg)
+
+![Multisend dApp with CSV recipient list populated showing wallet addresses and token amounts for batch CV token distribution](/images/address-2.jpg)
+
+5. **Click Proceed** to go to the next step, Validation.
+
+![Multisend dApp with recipient CSV populated and arrow pointing to Proceed button to validate batch token transfer](/images/token-and-addresses-populated-4.jpg)
+
+6. In the **Validation** step you will see the amount approved (0 at the moment), the total tokens to be sent, the total number of tokens in the wallet, and the total amount of ETH in the wallet. You will also see the list of recipients and allocations for each address.
+
+![Multisend validation screen showing transaction summary: 15.4991 CV tokens to be sent to 4 recipients with wallet balances displayed](/images/validation-1.jpg)
+
+Scroll down to see the approval options. You can either approve the exact token amount for this multisend (recommended) or click unlimited approval. With unlimited you will not need to approve sending for future transactions _(this grants unlimited priviledges to the app, which can be a security risk)._
+
+Click **Approve** and confirm in your wallet.
+
+![Multisend validation showing recipient list with arrow pointing to Approve button to authorize batch token transfer](/images/approve-1.jpg)
+
+7. Once you have approved the app to send tokens, you will see the approval transaction in the app. Click **Continue** to go to the third step where you will complete the transaction(s).
+
+![Multisend validation complete with arrow pointing to Continue button after approving 15.4991 CV token batch transfer to 4 recipients](/images/continue.jpg)
+
+8. **View the total estimate**. You will see an overview along with the cost estimate. You can change the value of gas price with the gear icon, but this can cause issues and is not generally recommended. If everything looks good, click Proceed and sign the transaction(s) in your wallet. There may be multiple transactions to sign depending on the number of recipients.
+
+![Multisend final step showing transaction summary: 15.4991 CV tokens to 4 recipients with gas cost 0.00134026 ETH and arrow pointing to Proceed button](/images/multisend.jpg)
+
+That's it! If you'd like to learn more about Multisender, see the video walkthrough below which goes into more details on the standalone application.
+
+### Multisender video walkthrough
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rSJedr32XA4?si=4qyFLJ0F7bmFmfxp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
