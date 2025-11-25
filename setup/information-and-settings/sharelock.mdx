@@ -155,4 +155,6 @@ Note that this should always be enforced because as long as there is one DB tran
 | Explorer.Chain.Zilliqa.QuorumCertificate          | zilliqa_quorum_certificates           | [asc: :block_hash]                                                                                 |
 | Explorer.Chain.Zilliqa.AggregateQuorumCertificate | zilliqa_aggregate_quorum_certificates | [asc: :block_hash]                                                                                 |
 | Explorer.Chain.Zilliqa.NestedQuorumCertificate    | zilliqa_nested_quorum_certificates    | [asc: :block_hash, asc: proposed_by_validator_index]                                               |
+| Explorer.Chain.Zilliqa.Zrc2.TokenAdapter          | zilliqa_zrc2_token_adapters           | [asc: :adapter_address_hash]                                                                       |
+| Explorer.Chain.Zilliqa.Zrc2.TokenTransfer         | zilliqa_zrc2_token_transfers          | [asc: :transaction_hash, asc: :block_hash, asc: :log_index]                                        |
 | Explorer.Chain.Filecoin.PendingAddressOperation   | filecoin_pending_address_operations   | [asc: :address_hash]                                                                               |
