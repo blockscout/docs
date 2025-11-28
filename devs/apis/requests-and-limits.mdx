@@ -2,12 +2,12 @@
 title: "Requests & Limits"
 ---
 
-The default rate limit for requests is 10 requests/second set via the `API_RATE_LIMIT` variable. This applies to global requests which do not originate from a whitelisted address or do not use an API key.
+The default rate limit for requests is 5 requests/second set via the `API_RATE_LIMIT_UI_V2_WITH_TOKEN` variable. This applies to global requests which do not originate from a whitelisted address or do not use an API key.
 
-* **Individual API key**: An API key can be [created by the user in the My Account section](/using-blockscout/my-account/api-keys) (currently available on select instances). Requests made using an individual API key are limited to 10 req/sec but are not shared by other users.
+* **Individual API key**: An API key can be [created by the user in the My Account section](/using-blockscout/my-account/api-keys) (currently available on select instances). Requests made using an individual API key are limited to 10 req/sec but are not shared by other users. It is managed via `API_RATE_LIMIT_BY_KEY`.
 
-* **Static API key**: A per instance API key (*note this functionality was created prior to individual API keys and may have limited utility*) can be managed via the `API_RATE_LIMIT_STATIC_API_KEY` variable.
+* **Static API key**: A per instance API key (*note this functionality was created prior to individual API keys and may have limited utility*) can be managed via the `API_RATE_LIMIT_STATIC_API_KEY` variable. Requests made using per instance API key are limited to 10 req/sec and not shared by other users.
 
 * **IP Whitelist**: A default limit can be applied to whitelisted IPs via the `API_RATE_LIMIT_WHITELISTED_IP` variable. This can be used to assign custom limits to prioritized applications.
 
-
+API key type 
