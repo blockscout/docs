@@ -572,6 +572,10 @@
             "destination": "/devs/verification/hardhat-verification-plugin"
         },
         {
+          "source": "/developer-support/api/rest-api-endpoints",
+          "destination": "/devs/apis/rest"
+        },
+        {
             "source": "/about/funding/l2-funding-proposal/aux-funding-images",
             "destination": "/about/funding"
         }
