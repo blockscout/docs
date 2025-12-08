@@ -2,32 +2,34 @@
 title: "Requests & Limits"
 ---
 
-| Type of API key                  | Rate limit<br/>value, req/sec    | Shared with<br/>other users?    | API key is defined by <br/>env variable      | Rate limit for the API key managed by<br/>env variable    | Description                                                                                                                                                                                                                  |
-| -------------------------------- | -------------------------------- | ------------------------------- | -------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| No API key                       | 5                                | Yes                             |                                              | `API_RATE_LIMIT_UI_V2_WITH_TOKEN`                         | The default rate limit for requests is 5 requests/second set via the `API_RATE_LIMIT_UI_V2_WITH_TOKEN` variable. This applies to global requests which do not originate from a whitelisted address or do not use an API key. |
-| Individual API key               | 10                               | No                              |                                              |                                                           | An API key can be [created by the user in the My Account section](/using-blockscout/my-account/api-keys)                                                                                                                     |
-| Rate limit, if IP is whitelisted | 25                               | No                              | `API_RATE_LIMIT_WHITELISTED_IPS`             | `API_RATE_LIMIT_BY_WHITELISTED_IP`                        | Rate limit of requests from whitelisted IPs                                                                                                                                                                                  |
-| Per explorer instance API key    | 10                               | No                              | `API_RATE_LIMIT_STATIC_API_KEY`              | `API_RATE_LIMIT_BY_KEY`                                   | A per instance API key (*note this functionality was created prior to individual API keys and may have limited utility*)                                                                                                     |
-| No rate limit API key            | Infinity                         | No                              | `API_NO_RATE_LIMIT_API_KEY`                  |                                                           | Admin API key                                                                                                                                                                                                                |
+| Type of API key                  | Rate limit<br />value, req/sec | Shared with<br />other users? | API key is defined by <br />env variable | Rate limit for the API key managed by<br />env variable | Description                                                                                                                                                                                                               |
+| -------------------------------- | ------------------------------ | ----------------------------- | ---------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| No API key                       | 5                              | Yes                           |                                          | `API_RATE_LIMIT_UI_V2_WITH_TOKEN`                       | The default rate limit is 5 requests per second, configured through the `API_RATE_LIMIT_UI_V2_WITH_TOKEN` variable. This limit applies to all requests that are not from whitelisted addresses and do not use an API key. |
+| Individual API key               | 10                             | No                            |                                          |                                                         | An API key can be [created by the user in the My Account section](/using-blockscout/my-account/api-keys)                                                                                                                  |
+| Rate limit, if IP is whitelisted | 25                             | No                            | `API_RATE_LIMIT_WHITELISTED_IPS`         | `API_RATE_LIMIT_BY_WHITELISTED_IP`                      | Rate limit for requests from whitelisted IPs                                                                                                                                                                              |
+| Per explorer instance API key    | 10                             | No                            | `API_RATE_LIMIT_STATIC_API_KEY`          | `API_RATE_LIMIT_BY_KEY`                                 | A per-instance API key (_this feature was created before individual API keys existed and may have limited utility_)                                                                                                       |
+| No rate limit API key            | ♾️                             | No                            | `API_NO_RATE_LIMIT_API_KEY`              |                                                         | Administrator API key                                                                                                                                                                                                     |
 
-The default rate limit config of each API endpoint is described here https://github.com/blockscout/blockscout/blob/master/apps/block_scout_web/priv/rate_limit_config.json and can be re-defined via `API_RATE_LIMIT_CONFIG_URL` env variable.
+<Check>
+  The default rate limit config of each API endpoint is described [in the codebase](https://github.com/blockscout/blockscout/blob/master/apps/block_scout_web/priv/rate_limit_config.json) and can be re-defined via `API_RATE_LIMIT_CONFIG_URL` env variable.
+</Check>
 
 Some of the API endpoints have their own rate limit before showing captcha to the user:
 
-| API endpoint                                             | Number of requests per period     | Period     |
-| -------------------------------------------------------- | --------------------------------- | ---------- |
-| `api/v2/key`                                             | Unlimited                         |            |
-| `api/v2/import/token-info`                               | Unlimited                         |            |
-| `api/v2/import/smart-contracts/:param`                   | Unlimited                         |            |
-| `api/account/v2/authenticate_via_wallet`                 | 1                                 | 1 hour     |
-| `api/account/v2/send_otp`                                | 1                                 | 1 hour     |
-| `api/v2/tokens/:param/instances/:param/refetch-metadata` | 50                                | 1 hour     |
-| `api/v2/advanced-filters/csv`                            | 50                                | 1 hour     |
-| `api/v2/tokens/:param/holders/csv`                       | 50                                | 1 hour     |
-| `api/v2/addresses/:param/transactions/csv`               | 50                                | 1 hour     |
-| `api/v2/addresses/:param/token-transfers/csv`            | 50                                | 1 hour     |
-| `api/v2/addresses/:param/internal-transactions/csv`      | 50                                | 1 hour     |
-| `api/v2/addresses/:param/logs/csv`                       | 50                                | 1 hour     |
-| `api/v2/addresses/:param/election-rewards/csv`           | 50                                | 1 hour     |
-| `api/v2/smart-contracts/:param/audit-reports`            | 50                                | 1 hour     |
-| `api/health/*`                                           | 5                                 | 1 second   |
+| API endpoint                                             | Number of requests per period | Period   |
+| -------------------------------------------------------- | ----------------------------- | -------- |
+| `api/v2/key`                                             | Unlimited                     |          |
+| `api/v2/import/token-info`                               | Unlimited                     |          |
+| `api/v2/import/smart-contracts/:param`                   | Unlimited                     |          |
+| `api/account/v2/authenticate_via_wallet`                 | 1                             | 1 hour   |
+| `api/account/v2/send_otp`                                | 1                             | 1 hour   |
+| `api/v2/tokens/:param/instances/:param/refetch-metadata` | 50                            | 1 hour   |
+| `api/v2/advanced-filters/csv`                            | 50                            | 1 hour   |
+| `api/v2/tokens/:param/holders/csv`                       | 50                            | 1 hour   |
+| `api/v2/addresses/:param/transactions/csv`               | 50                            | 1 hour   |
+| `api/v2/addresses/:param/token-transfers/csv`            | 50                            | 1 hour   |
+| `api/v2/addresses/:param/internal-transactions/csv`      | 50                            | 1 hour   |
+| `api/v2/addresses/:param/logs/csv`                       | 50                            | 1 hour   |
+| `api/v2/addresses/:param/election-rewards/csv`           | 50                            | 1 hour   |
+| `api/v2/smart-contracts/:param/audit-reports`            | 50                            | 1 hour   |
+| `api/health/*`                                           | 5                             | 1 second |
