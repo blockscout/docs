@@ -62,12 +62,14 @@ The following parameters are in the Info section. \* parameters are required.
 - **Gas token symbol**: Will show in the interface, for example ETH if your chain uses Ether for gas.
 - **Mainnet or Testnet**: Select the type of chain, if Testnet a label will be added to the instance.
 - **This chain is a Rollup**: If selected, another field will appear to select **Arbitrum, Optimism, Polygon zkEVM or zkSync**. You will then fill out additional information in the Rollup Config tab.
-- **HTTP RPC URL\***: The **archive node** url (https://your-rpc-url) [**_Note: archive node is required for internal transactions and token/coin historical balances. Tracing should be enabled for internal transactions._**](/setup/requirements/node-tracing-json-rpc-requirements)
+- **HTTP RPC URL\***: The **archive node** url (https://your-rpc-url) [**_Note: archive node is required for internal transactions and token/coin historical balances. Tracing should be enabled for internal transactions._**](/setup/requirements/node-tracing-json-rpc-requirements)**\_ \_**
 - **WS URL**: The websocket url (wss://ws.your-websocket-url)
 - **Chain spec URL**: URL to chain specification path json (Sepolia example: [chainspec.json](https://github.com/ethpandaops/ethereum-genesis-generator/blob/master/apps/el-gen/sepolia/chainspec.json) or [genesis.json](https://github.com/ethpandaops/ethereum-genesis-generator/blob/master/apps/el-gen/sepolia/genesis.json)). You will use the raw JSON file; in the Sepolia example this url is https://raw.githubusercontent.com/ethpandaops/ethereum-genesis-generator/master/apps/el-gen/sepolia/chainspec.json
 - **Custom Domain**: You can use a custom domain for your instance but must configure your DNS and add a DNS `CNAME` record pointing to `autoscout.cname.blockscout.com`
+- **Domain redirect(s):** Any additional domain names to redirect to the instance, comma separated.
 - **Public RPC URL**: Enables 'add to MetaMask button'. Can be the same as the RPC URL if this is a public node.
 - **WalletConnect project ID:** Enables the ability for Read and Write functionality with smart contracts. [Learn more about setting one up here](/setup/configuration-options/walletconnect-project-id-for-contract-read-write).
+- **Google Analytics property ID**: Add the ID for your GA account if desired.
 
 ### Branding
 
@@ -75,7 +77,7 @@ The following parameters are in the Info section. \* parameters are required.
   ![](/images/ca1b7afb-image.jpeg)
 </Frame>
 
-- \*\*Announcement banner: \*\*Add an optional banner to the top of your instance, can include HTML code.
+- **Announcement banner:** Add an optional banner to the top of your instance, can include HTML code.
 - **Default color theme**: Choose between a light theme and 3 variations of a darker theme.
 - **Default address identicon:** Select from 4 different options for default identicons in your instance.
 - **Vertical or Horizontal menu**: Select vertical for a side menu or horizontal for a top menu.
@@ -86,10 +88,39 @@ The following parameters are in the Info section. \* parameters are required.
 - **OG description**: Add a description for Open Graph Previews
 - **Enable enhanced OG tags**: Toggle if you want to render OG tags for API data pages
 - **Enable enhanced SEO**: Toggle if you want to rerender page titles for Stats and Tokens pages to enhance SEO
-- **API Navigation links**: Toggle to show/hide different API links in the navigation menu
+- **API documentation links**: Toggle to show/hide different API links in the navigation menu
 - **Other Navigation links**: Add custom navigation links to the other section of the primary navigation menu
 - **Footer links**: Add up to 3 columns along with titles and urls for the links you want added to each column.
 - **Ads**: Select providers for Ads on your instance
+
+### Indexer
+
+Indexer information uses the following variables under the hood. If no information is fiileed in , default variables are used.
+
+| Variable                                    | Default |
+| ------------------------------------------- | ------- |
+| `INDEXER_RECEIPTS_BATCH_SIZE`               | 250     |
+| `INDEXER_RECEIPTS_CONCURRENCY`              | 10      |
+| `INDEXER_INTERNAL_TRANSACTIONS_BATCH_SIZE`  | 10      |
+| `INDEXER_INTERNAL_TRANSACTIONS_CONCURRENCY` | 4       |
+| `INDEXER_CATCHUP_BLOCKS_BATCH_SIZE`         | 10      |
+| `INDEXER_CATCHUP_BLOCKS_CONCURRENCY`        | 10      |
+| `INDEXER_COIN_BALANCES_BATCH_SIZE`          | 100     |
+| `INDEXER_COIN_BALANCES_CONCURRENCY`         | 4       |
+| `INDEXER_TOKEN_BALANCES_BATCH_SIZE`         | 100     |
+| `INDEXER_TOKEN_BALANCES_CONCURRENCY`        | 10      |
+
+### Disable pending transactions fetcher
+
+Leave this setting alone if your RPC supports pending transactions. However, **If your RPC node does not support pending transactions, please toggle this switch to disable.**
+
+<Info>
+  **Check pending TX support **by sending a request for one of the common methods (`eth_getBlockByNumber` with `"pending"` or `txpool_content`) and observe the response. A successful, valid response confirms support. 
+</Info>
+
+**Block transformer:** Leave as base unless you are using clique.
+
+[Find additional info variables relevant to indexer setup here](https://docs.blockscout.com/setup/env-variables/backend-env-variables#indexer-management)
 
 ### Rollup Config
 
@@ -141,6 +172,6 @@ If your chain is a rollup you will select this in the info screen and then fillo
     | 1 day                                | Final reminder      |
   </Accordion>
   <Accordion title="How do I upgrade to the latest version of Blockscout with Autoscout?">
-    Updating is easy\! Simply **stop** and then **restart** your instance and it is automatically updated to the latest version. 
+    Updating is easy! Simply **stop** and then **restart** your instance and it is automatically updated to the latest version.
   </Accordion>
 </AccordionGroup>
