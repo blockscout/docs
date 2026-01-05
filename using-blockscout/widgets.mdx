@@ -1,0 +1,273 @@
+---
+title: "Widgets"
+description: "Quick access to essential 3rd party address and contract info"
+icon: "gear"
+---
+
+# Blockscout Widgets
+
+<Tip>
+  If your project would like to incorporate a widget into the explorer, please [contact us in Discord](https://discord.gg/blockscout). Learn more -\> [Widgets Deck](/images/widgets-deck.pdf)
+</Tip>
+
+## Overview
+
+Blockscout Widgets deliver contextual data from third-party protocols directly on address and contract pages. Essential information about onchain identity, activity, security amd ecosystem participation provides a broad overview of relevant information.
+
+![Example blockscout Address Widget](/images/address-widget.png)
+
+## Viewing Widgets
+
+1. Navigate to any externally owned account (EOA) address, ENS name (like [vitalik.eth](https://eth.blockscout.com/address/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045)) or contract (i.e. the  [UniV2 factory contract](https://eth.blockscout.com/address/0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f)) in your Blockscout explorer.
+2. Scroll down to the Widgets section below the address/contract details to view widgets.
+4. You can also view via the **Widgets tab** for any address or contract, which will show all available widgets.
+
+![Address Details](/images/address-details.jpg)
+
+## Key Features
+
+### Enhanced Address Insights
+
+Widgets display engagement and activity across the Web3 ecosystem, providing a holistic view beyond basic balances and transactions.
+
+### Security & Risk Assessment
+
+For contracts and tokens, widgets surface risk scores, audit information, complexity metrics, and other security analytics.
+
+### Ecosystem Integration
+
+Blockscout integrates with multiple protocols. Additional details are provided in the Available Widgets section.
+
+**Address Pages**
+
+- **Talent Protocol:** Onchain creator score
+- **Drops**: Airdrop checker
+- **GitPOAP**: Contributor reward badges
+- **Blockscout Badges**: Minted Blockscout badges
+- **Ethereum Follow Protocol (EFP)**: Onchain social graph
+- **EtherScore**:  Onchain reputation badges
+- **Webacy**: Risk analysis
+- **Human Passport**: Humanity verificaiton
+- **Humanode**: Onchain biomapper
+
+**Contract Pages**
+
+- **Webacy**: Risk score
+- **Trustblock**: Audit info
+- **SmartMUV**: Contract Complexity
+
+## Supported Networks
+
+Widgets are available on select Blockscout hosted chains:
+
+- Ethereum Mainnet
+- Optimism
+- Base
+- Celo
+- Gnosis
+
+## Benefits
+
+### For Users
+
+- Comprehensive onchain identity view
+- Quick access to ecosystem participation data
+- Security assessment at a glance
+- Airdrop eligibility tracking
+
+### For Developers
+
+- Contract complexity analysis
+- Audit verification
+- Risk assessment tools
+- Integration opportunities
+
+### For the Ecosystem
+
+- Enhanced transparency
+- Improved security awareness
+- Stronger protocol integrations
+- Better user experience
+
+## Currently Available Widgets
+
+Widgets show an overview score. Each widget can be clicked on to reveal additional details.
+
+### Address Page Widgets
+
+#### Creator Score
+
+**Source:** Talent Protocol
+
+Measures a content creator's reputation by analyzing data from various platforms. The Creator Score evaluates both quantity and quality of work using verifiable data points, providing comprehensive assessment of a creator's influence and trustworthiness.
+
+**Additional available details:**
+
+- Overall creator score
+- Platform-specific scores (Farcaster, Lens, etc.)
+- Total earnings
+- Content quality metrics
+
+#### Drops
+
+**Source:** Drops (Airdrop Checker)
+
+Automatically identifies unclaimed crypto airdrops by monitoring wallet addresses across multiple networks. Shows eligibility for recent and verified airdrops.
+
+**Additional available details:**
+
+- Eligible airdrops
+- Claimable amounts
+- Claimed rewards history
+- Airdrop status
+
+**Features:**
+
+- Multi-network monitoring
+- Telegram alerts for new airdrops
+- Real-time eligibility checking
+
+#### GitPOAP
+
+**Source:** GitPOAP
+
+Rewards and permanently records contributions to open-source projects via GitHub using the POAP (Proof of Attendance Protocol) model. Provides public, permissionless, onchain verification of open-source contributions.
+
+**Additional available details:**
+
+- Total GitPOAPs earned
+- Project contributions
+- Contribution history
+- GitHub integration status
+
+#### Blockscout Badges
+
+**Source:** Blockscout Merits
+
+Limited-edition NFT badges celebrating community involvement in Blockscout campaigns and contributions.
+
+**Additional available details:**
+
+- Earned merits
+- Referral count
+- Activity streaks
+- Collectible NFT badges
+
+#### EFP Followers
+
+**Source:** Ethereum Follow Protocol (EFP)
+
+Onchain social graph protocol for Ethereum accounts that complements ENS. Enables users to follow or tag other addresses through NFT lists, creating a decentralized social network.
+
+**Additional available details:**
+
+- Follower count
+- Following list
+- Recent transactions
+- Social connections
+
+#### Onchain Achievement Badges
+
+**Source:** EtherScore
+
+Represents onchain achievements completed across DeFi protocols, NFT platforms, and DAOs. Each badge signifies a specific milestone or activity in Web3.
+
+**Additional available details:**
+
+- Total badge count
+- Badge categories
+- Achievement progress
+- Protocol integrations
+
+#### Address/Contract Risk Score (available for both)
+
+**Source:** Webacy
+
+Numerical assessment evaluating potential security threats, compliance issues, or suspicious activities associated with a wallet address.
+
+**Additional available details:**
+
+- Overall risk rating (Low/Medium/High)
+- Suspicious activity flags
+- Security warnings
+- Risk analysis details
+
+**Purpose:**
+
+- Assess wallet security status
+- Identify potential threats
+- Provide security insights
+
+#### Humanity Score
+
+**Source:** Gitcoin Passport
+
+Proof-of-personhood system using verifiable credentials ("stamps") from trusted web2 and web3 sources to verify humanity without compromising privacy. Helps distinguish real humans from bots and Sybil attacks.
+
+**Additional available details:**
+
+- Unique Humanity Points
+- HUMN Points
+- Collected stamps
+- Verification status
+
+**Stamp Sources:**
+
+- Government ID
+- Biometrics
+- ENS domains
+- Social profiles
+- Other verified credentials
+
+#### Biomapper Score
+
+**Source:** Humanode
+
+Biomapper is an on-chain, private facial recognition tool that provides Sybil resistance by ensuring each verified person can link only one EVM-compatible address to a dApp
+
+**Additional available details:**
+
+- Humanode biomapper verification status
+
+**Purpose:**
+
+- Shows if a user is verified with biomapper, proving they are a unique human via facial recognition.
+
+### Contract Page Widgets
+
+#### Audits
+
+**Source:** Trustblock
+
+Displays verified smart contract audits recorded onchain through Trustblock, a web3 protocol for audit transparency.
+
+**Requirements:**
+
+- Auditors and audit firms must publish contracts on Trustblock for audits to appear
+
+**Additional available details:**
+
+- Audit status
+- Auditor information
+- Audit reports
+- Verification details
+
+#### Complexity Score
+
+**Source:** SmartMuv Explorer
+
+Evaluates the structural complexity of a smart contract's storage layout. Primarily intended for developers and auditors who need to understand, migrate, or upgrade smart contracts safely.
+
+**Additional available details:**
+
+- Layout summary
+- Deep analysis
+- Complexity score
+- Storage structure breakdown
+
+**Use Cases:**
+
+- Contract migration planning
+- Upgrade safety assessment
+- Security auditing
+- Development review

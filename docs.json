@@ -94,6 +94,7 @@
                                     "using-blockscout/blockscout-apps/dapp-integration"
                                 ]
                             },
+                          "using-blockscout/merits",
                             {
                                 "group": "Essential Dapps",
                                 "icon": "star",
