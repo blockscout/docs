@@ -148,6 +148,7 @@
                                             "devs/verification/hardhat-verification-plugin/sourcify-plugin-for-hardhat"
                                         ]
                                     },
+                                  "devs/pro-api",
                                     "devs/verification/foundry-verification",
                                     "devs/verification/contracts-verification-via-sourcify",
                                     "devs/verification/remix-verification",
