@@ -134,7 +134,8 @@
                         "pages": [
                             "devs/for-web3-developers",
                             "devs/replace-links",
-                            "devs/apis-redirect",
+                            "devs/apis-redirect", 
+                            "devs/pro-api",
                             {
                                 "group": "Smart Contract Verification",
                                 "icon": "shield-halved",
@@ -148,7 +149,6 @@
                                             "devs/verification/hardhat-verification-plugin/sourcify-plugin-for-hardhat"
                                         ]
                                     },
-                                  "devs/pro-api",
                                     "devs/verification/foundry-verification",
                                     "devs/verification/contracts-verification-via-sourcify",
                                     "devs/verification/remix-verification",
