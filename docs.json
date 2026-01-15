@@ -380,6 +380,7 @@
                         "icon": "cloud",
                         "pages": [
                             "devs/apis",
+                            "devs/pro-api",
                             "devs/apis/requests-and-limits",
                             {
                                 "group": "REST API Endpoints",
