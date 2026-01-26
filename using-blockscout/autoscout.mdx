@@ -62,9 +62,9 @@ The following parameters are in the Info section. \* parameters are required.
 - **Gas token symbol**: Will show in the interface, for example ETH if your chain uses Ether for gas.
 - **Mainnet or Testnet**: Select the type of chain, if Testnet a label will be added to the instance.
 - **This chain is a Rollup**: If selected, another field will appear to select **Arbitrum, Optimism, Polygon zkEVM or zkSync**. You will then fill out additional information in the Rollup Config tab.
-- **HTTP RPC URL\***: The **archive node** url (https://your-rpc-url) [**_Note: archive node is required for internal transactions and token/coin historical balances. Tracing should be enabled for internal transactions._**](/setup/requirements/node-tracing-json-rpc-requirements)**\_ \_**
+- **HTTP RPC URL\***: The **archive node** url (https://your-rpc-url) [**_Note: archive node is required for internal transactions and token/coin historical balances. Tracing should be enabled for internal transactions._**](/setup/requirements/node-tracing-json-rpc-requirements)
 - **WS URL**: The websocket url (wss://ws.your-websocket-url)
-- **Chain spec URL**: URL to chain specification path json (Sepolia example: [chainspec.json](https://github.com/ethpandaops/ethereum-genesis-generator/blob/master/apps/el-gen/sepolia/chainspec.json) or [genesis.json](https://github.com/ethpandaops/ethereum-genesis-generator/blob/master/apps/el-gen/sepolia/genesis.json)). You will use the raw JSON file; in the Sepolia example this url is https://raw.githubusercontent.com/ethpandaops/ethereum-genesis-generator/master/apps/el-gen/sepolia/chainspec.json
+- **Chain spec URL**: URL to chain specification path json (Sepolia example: [chainspec.json](https://github.com/ethpandaops/ethereum-genesis-generator/blob/v4.1.8/apps/el-gen/sepolia/chainspec.json) or [genesis.json](https://github.com/ethpandaops/ethereum-genesis-generator/blob/v4.1.8/apps/el-gen/sepolia/genesis.json)). You will use the raw JSON file; in the Sepolia example this url is https://raw.githubusercontent.com/ethpandaops/ethereum-genesis-generator/v4.1.8/apps/el-gen/sepolia/chainspec.json
 - **Custom Domain**: You can use a custom domain for your instance but must configure your DNS and add a DNS `CNAME` record pointing to `autoscout.cname.blockscout.com`
 - **Domain redirect(s):** Any additional domain names to redirect to the instance, comma separated.
 - **Public RPC URL**: Enables 'add to MetaMask button'. Can be the same as the RPC URL if this is a public node.
@@ -115,7 +115,7 @@ Indexer information uses the following variables under the hood. If no informati
 Leave this setting alone if your RPC supports pending transactions. However, **If your RPC node does not support pending transactions, please toggle this switch to disable.**
 
 <Info>
-  **Check pending TX support **by sending a request for one of the common methods (`eth_getBlockByNumber` with `"pending"` or `txpool_content`) and observe the response. A successful, valid response confirms support. 
+  \*\*Check pending TX support \*\*by sending a request for one of the common methods (`eth_getBlockByNumber` with `"pending"` or `txpool_content`) and observe the response. A successful, valid response confirms support. 
 </Info>
 
 **Block transformer:** Leave as base unless you are using clique.
@@ -154,7 +154,7 @@ If your chain is a rollup you will select this in the info screen and then fillo
     - **Name:** your-explorer-name (instance name)
     - **Content:** autoscout.cname.blockscout.com
     - **Proxy status:** DNS only
-    - \*\*TTL: \*\*Auto
+    - **TTL:** Auto
 
     ![Cloudflare Jp](/images/cloudflare.jpg)
 
@@ -172,6 +172,6 @@ If your chain is a rollup you will select this in the info screen and then fillo
     | 1 day                                | Final reminder      |
   </Accordion>
   <Accordion title="How do I upgrade to the latest version of Blockscout with Autoscout?">
-    Updating is easy! Simply **stop** and then **restart** your instance and it is automatically updated to the latest version.
+    Updating is easy! Simply  **restart** your instance and it is automatically updated to the latest version.
   </Accordion>
 </AccordionGroup>

@@ -24,10 +24,10 @@ title: "Node Tracing / JSON RPC Requirements"
 
 _Note pending transactions must be supported by the RPC node to enable this functionality with Blockscout_
 
-| Client                         | Method           |
-| ------------------------------ | ---------------- |
-| Erigon Nethermind OpenEthereum | `txpool_content` |
-| Geth                           | `txpool_content` |
+| Client                  | Method                       |
+| ----------------------- | ---------------------------- |
+| Nethermind OpenEthereum | `parity_pendingTransactions` |
+| Geth Erigon             | `txpool_content`             |
 
 ### Enable Tracing to Fetch Internal Transactions
 
@@ -50,7 +50,7 @@ The desired rate limit for RPC endpoint is 200 req/sec for the indexing phase an
 
 ### EVM Requirements & Clients
 
-- All EVM chains must [define these variables](/setup/env-variables#all-chains-must-define-the-following-minimum-set-of-env-variables) during configuration.
+- All EVM chains must [define these variables](/setup/env-variables#required-env-variables) during configuration.
 - BlockScout currently supports Erigon, Geth, Nethermind, Hyperledger Besu, and Anvil clients. Define the node variant using the `ETHEREUM_JSONRPC_VARIANT` environment variable. [More information](/setup/requirements/client-settings)
 
 ### L2 -\> L1 JSON RPC Methods

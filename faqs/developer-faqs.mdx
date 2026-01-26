@@ -7,21 +7,21 @@ icon: "circle-question"
 ## Developer FAQs
 
 <AccordionGroup>
-    <Accordion title="How do I run my own Blockscout explorer?">
+  <Accordion title="How do I run my own Blockscout explorer?">
     The easiest way is by using [<u>Autoscout</u>](https://deploy.blockscout.com/). Other methods are listed in [<u>https://docs.blockscout.com/setup/deployment</u>](https://docs.blockscout.com/setup/deployment)
   </Accordion>
   <Accordion title="How do I speed up my self-hosted instance?">
     BlockScout can be resource intensive. If your instance is running slowly:
 
     - clear the cache - the application cache is cleared on restart by running: `sudo systemctl restart explorer.service`
-    - increase the memory limit for indexers https://github.com/poanetwork/blockscout/blob/b48305ece284e00084e2bb47ff1ad501bf24f115/apps/indexer/config/config.exs#L36 if indexing is slow.
+    - increase the memory limit for indexers using the [INDEXER_MEMORY_LIMIT](https://docs.blockscout.com/setup/env-variables/backend-env-variables#indexer-management:~:text=INDEXER%5FMEMORY%5FLIMIT) ENV if indexing is slow.
     - increase the number of CPUs if CPU is running at 100% on the web app server
     - increase the memory if memory consumption is high on the web app server
     - increase the number of CPUs or/and increase the memory on the database server if consumption is high.
 
     Instructions for accessing and upgrading CPUs/memory will differ based on your setup. If you are running BlockScout on AWS, these settings can be accessed through your AWS services portal.
   </Accordion>
-    <Accordion title="I want to use the latest version, how do I download it?">
+  <Accordion title="I want to use the latest version, how do I download it?">
     Use  `git clone https://github.com/blockscout/blockscout.git -b <version>`
   </Accordion>
   <Accordion title="How do I customize the coin symbol / name?">
@@ -163,7 +163,6 @@ icon: "circle-question"
     - Check that you set the correct `CHAIN_ID` env variable
     - Check correct variable for `NETWORK_ID`
   </Accordion>
-
   <Accordion title=" Is there an env variable for the favicon?">
     Yes, the [<u>FAVICON_MASTER_URL</u>](https://docs.blockscout.com/setup/env-variables/frontend-common-envs/envs#favicon:~:text=Version-,FAVICON_MASTER_URL,-string) ENV accepts a URL to a jpg/png/svg image.
   </Accordion>
@@ -196,6 +195,4 @@ icon: "circle-question"
   <Accordion title="How can I customize footer links?">
     The footer can be customized with the [NEXT_PUBLIC_FOOTER_LINKS](https://docs.blockscout.com/setup/env-variables/frontend-common-envs/envs#footer) ENV.
   </Accordion>
-
 </AccordionGroup>
-
