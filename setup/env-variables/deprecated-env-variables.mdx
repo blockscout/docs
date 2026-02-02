@@ -175,3 +175,4 @@ sidebarTitle: "Overview"
 | `NFT_MEDIA_HANDLER_NODES_MAP` | String in json map format, where key is erlang node and value is folder in R2/S3 bucket, example: `"{\"producer@172.18.0.4\": \"/folder_1\"}"`. If nft_media_handler runs in one pod with indexer, map should contain `self` key |  | v6.10.0+ |  | v9.2.0 |
 | `API_RATE_LIMIT`  | A global API rate limit: number or requests per second for all users. Implemented in [#5030](https://github.com/blockscout/blockscout/pull/5030)   |  | v4.1.1+ |  | v9.0.0 |
 | `CACHE_PBO_COUNT_PERIOD`  | Time interval to restart the task which calculates the total pending_block_operations count.  | `20m` | v5.2.0+ |  | v10.0.0 |
+| `MIGRATION_DELETE_ZERO_VALUE_INTERNAL_TRANSACTIONS_STORAGE_PERIOD_DAYS`  | Specifies the period for which recent zero-value calls won't be deleted in delete zero-value calls migration.  | 30 | v9.3.0+ |  | v9.3.3 |
