@@ -5,86 +5,65 @@ title: "Blockscout UI"
 Verification is available for both Solidity and Vyper contracts. **Currently, there are 7 different type of inputs you can use for verification using the Blockscout UI.**
 
 <Info>
-👷🏻♂️ If preferred you can verify directly from your Hardhat or Foundry dev environment.
+  👷🏻‍♂️ If preferred you can verify directly from your Hardhat or Foundry dev environment.
 
-* [Hardhat Verification Plugin](/devs/verification/hardhat-verification-plugin)
-
-* [Foundry Verification](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify)
-
+  - [Hardhat Verification Plugin](/devs/verification/hardhat-verification-plugin)
+  - [Foundry Verification](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify)
 </Info>
 
 <Check>
-To learn more about the smart contract verification Rust microservice and verification algorithm [see this page for developers](/setup/microservices/smart-contract-verification).
-
+  To learn more about the smart contract verification Rust microservice and verification algorithm [see this page for developers](/setup/microservices/smart-contract-verification).
 </Check>
 
 ## Smart Contract Verification with Blockscout
 
-1\) Go to the Verify contract page *(Other -> Verify contract)*
+1) Go to the Verify contract page _(Other -\> Verify contract)_
 
 <Frame caption="">
-  <img src="/images/70438577-image.jpeg" />
+  ![](/images/70438577-image.jpeg)
 </Frame>
 
-2\) Enter in the contract address you received during deployment. The dropdown will show you several available verification options. Select the one you would like to use and continue.
+2) Enter in the contract address you received during deployment. The dropdown will show you several available verification options. Select the one you would like to use and continue.
 
 <Frame caption="">
-  <img src="/images/5bbc44e8-image.jpeg" />
+  ![](/images/5bbc44e8-image.jpeg)
 </Frame>
 
-* Solidity ([Flattened source code)](/devs/verification#via-flattened-source-code)
-
-* Solidity ([Standard JSON input](/devs/verification/blockscout-ui#via-standard-json-input))
-
-* Solidity ([Sourcify](/devs/verification/contracts-verification-via-sourcify))
-
-* Solidity ([Multi-part files](/devs/verification/blockscout-ui#solidity-multi-part-files))
-
-* [Vyper (Contract](/devs/verification#vyper-contract))
-
-* Vyper ([Multi-part files](/devs/verification/blockscout-ui#vyper-multi-part-files-and-standard-json-input))
-
-* Vyper ([Standard JSON input](/devs/verification/blockscout-ui#vyper-multi-part-files-and-standard-json-input))
+- [Solidity (Flattened source code)](/devs/verification#via-flattened-source-code)
+- [Solidity (Standard JSON input)](/devs/verification/blockscout-ui#via-standard-json-input)
+- [Solidity (Sourcify)](/devs/verification/contracts-verification-via-sourcify)
+- [Solidity (Multi-part files)](/devs/verification/blockscout-ui#solidity-multi-part-files)
+- [Vyper (Contract)](/devs/verification#vyper-contract)
+- [Vyper (Multi-part files)](/devs/verification/blockscout-ui#vyper-multi-part-files-and-standard-json-input)
+- [Vyper (Standard JSON input)](/devs/verification/blockscout-ui#vyper-multi-part-files-and-standard-json-input)
 
 ### Solidity (Flattened source code)
 
 This verification method is recommended only for a single-file smart contract without any imports. For verification of contracts containing more that 1 file, a different verification method is recommended.
 
 <Frame caption="">
-  <img src="/images/e5a4004d-image.jpeg" />
+  ![](/images/e5a4004d-image.jpeg)
 </Frame>
 
-1. **Contract Address:** The `0x` address supplied on contract creation (added above)
-
-2. **Is Yul contract:** Select if the contract is coded in Yul for efficiency.
-
-3. **Include Nightly Builds**: Select if you want to show nightly builds.
-
-4. **Compiler:** derived from the first line in the contract `pragma solidity X.X.X`. Use the corresponding compiler version rather than the nightly build.
-
-5. **EVM Version:** Select the correct[EVM version](/setup/information-and-settings/evm-version-information)if known, otherwise use default.
-
-6. **Optimization Enabled:** If you enabled optimization during compilation, select and enter the run value. 200 is the Solidity Compiler default value. Only change if you changed this value while compiling.
-
-7. **Enter the Solidity Contract Code:** Copy-paste the source code of your smart contract as is.
-
-8. **Add Contract Libraries:** Enter the name and 0x address for any required libraries called in the .sol file. You can add multiple contracts with the "+" button.
-
-9. Click the `Verify and Publish` button.
-
+ 1. **Contract Address:** The `0x` address supplied on contract creation (added above)
+ 2. **Is Yul contract:** Select if the contract is coded in Yul for efficiency.
+ 3. **Include Nightly Builds**: Select if you want to show nightly builds.
+ 4. **Compiler:** derived from the first line in the contract `pragma solidity X.X.X`. Use the corresponding compiler version rather than the nightly build.
+ 5. **EVM Version:** Select the correct[EVM version](/setup/information-and-settings/evm-version-information)if known, otherwise use default.
+ 6. **Optimization Enabled:** If you enabled optimization during compilation, select and enter the run value. 200 is the Solidity Compiler default value. Only change if you changed this value while compiling.
+ 7. **Enter the Solidity Contract Code:** Copy-paste the source code of your smart contract as is.
+ 8. **Add Contract Libraries:** Enter the name and 0x address for any required libraries called in the .sol file. You can add multiple contracts with the "+" button.
+ 9. Click the `Verify and Publish` button.
 10. If all goes well, you will see a checkmark ✅ next to Code in the code tab, and an additional tab called `Read Contract`. The contract name will now appear in BlockScout with any transactions related to your contract.
 
 ### Solidity (Standard JSON input)
 
 <Info>
-[More information on JSON input is available here](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description).
-
+  [More information on JSON input is available here](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description).
 </Info>
 
 1. **Include nightly builds**. You can choose **Yes** or **No** depending on your compiler.
-
 2. **Compiler.** Choose the compiler version used to compile your smart contract. If you selected yes for nightly builds, use the compiler version rather than the build.
-
 3. **Standard Input JSON.** Upload your Standard Input JSON file. File should follows solidity [format](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description) and all the sources must be in Literal Content format, not a URL.
 
 Click the **Verify & publish** button and wait for the response.
@@ -100,13 +79,9 @@ See the above settings. You will upload all of the .sol or .yul files you used f
 ### Vyper Contract
 
 1. **Contract Name:** Name assigned to the contract.
-
 2. **Compiler**: Select the compiler version used in the source code.
-
 3. **EVM Version:** Select the correct [EVM version](/setup/information-and-settings/evm-version-information) if known, otherwise use default.
-
 4. **Contract Code:** Copy and paste the contract code
-
 5. Click the `Verify and Publish` button.
 
 If all goes well, you will see a checkmark ✅ next to Code in the code tab, and an additional tab called `Read Contract`. The contract name will now appear in BlockScout with any transactions related to your contract.
@@ -119,19 +94,16 @@ See the information above.
 
 If you receive the dreaded `There was an error compiling your contract` message this means the bytecode doesn't match the supplied sourcecode. Unfortunately, there are many reasons this may be the case. Here are a few things to try:
 
-1\) Double check the compiler version is correct.
+1) Double check the compiler version is correct.
 
 <Info>
-Check all version digits - for example 0.5.1 is different from 0.5.10
-
+  Check all version digits - for example 0.5.1 is different from 0.5.10
 </Info>
 
-2\) Check that an extra space has not been added to the end of the contract. When pasting in, an extra space may be added. Delete this and attempt to recompile.
+2) Check that an extra space has not been added to the end of the contract. When pasting in, an extra space may be added. Delete this and attempt to recompile.
 
-3\) Copy, paste, and verify your source code in Remix. You may find some exceptions here.
+3) Copy, paste, and verify your source code in Remix. You may find some exceptions here.
 
 ### Verification in a dev environment
 
 The [Hardhat verification plugin](/devs/verification/hardhat-verification-plugin) supports BlockScout. You can also choose to use the [Sourcify plugin](/devs/verification/hardhat-verification-plugin/sourcify-plugin-for-hardhat) to verify with Sourcify from your hardhat environment. [Foundry supports blockscout verification with Forge](https://book.getfoundry.sh/reference/forge/forge-verify-contract).
-
-

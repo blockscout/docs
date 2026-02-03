@@ -3,7 +3,7 @@ title: "Hardhat Verification Plugin"
 sidebarTitle: "Overview"
 ---
 
-[Hardhat](https://hardhat.org/)is a full-featured development environment for contract compilation, deployment and verification. The [hardhat-verify plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) supports contract verification on BlockScout.
+[Hardhat](https://hardhat.org/) is a full-featured development environment for contract compilation, deployment and verification. The [hardhat-verify plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) supports contract verification on Blockscout.
 
 ## Get Started
 
@@ -69,15 +69,12 @@ If you prefer, you can migrate to [hardhat-toolbox](https://hardhat.org/hardhat-
 
 In order to use Blockscout explorer for the verification, you have to specify the explorer details under a `customChains` object. It includes:
 
-* `chainID` - Network chain ID
-
-* `apiURL` - Block explorer API URL
-
-* `browserURL` - Block explorer URL
+- `chainID` - Network chain ID
+- `apiURL` - Block explorer API URL
+- `browserURL` - Block explorer URL
 
 <Info>
-Find an extensive list of ChainIDs at [https://chainlist.org/](https://chainlist.org/).
-
+  Find an extensive list of ChainIDs at https://chainlist.org/.
 </Info>
 
 For example, here we added Blockscout api endpoints for the Optimism Sepolia network to the config file. Note the network name in `customChains` must match the network name in the `apiKey` object.
@@ -176,38 +173,38 @@ https://optimism-sepolia.blockscout.com/address/0xFE826b33e425f99ce962ACB91752DB
 
 In that case, you may try to enforce using `--force` flag\*.
 
-It prevents Hardhat to check if the contract is already verified, and force it to send verification request anyway. Notice, that it is helpful only if the contract was automatically verified **partially**. That way, a new verification sources would be saved. If the contract was **fully** verified already, that just returns an error.
+It prevents Hardhat from checking if the contract is already verified, and force it to send verification request anyway. Notice, that it is helpful only if the contract was automatically verified **partially**. That way, a new verification sources would be saved. If the contract was **fully** verified already, that just returns an error.
 
 ```sh
 npx hardhat verify --network <network> DEPLOYED_CONTRACT_ADDRESS "Constructor argument 1" --force
 ```
 
-* The flag is available starting from `@nomicfoundation/hardhat-verify@2.0.7`
+- The flag is available starting from `@nomicfoundation/hardhat-verify@2.0.7`
 
 ## Confirm Verification on BlockScout
 
 Go to your BlockScout instance and paste the contract address into the search bar.
 
 <Frame caption="">
-  <img src="/images/fc3fb8d9-image.jpeg" />
+  ![](/images/fc3fb8d9-image.jpeg)
 </Frame>
 
 Scroll down to see verified status. A green checkmark ✅ means the contract is verified.
 
 <Frame caption="">
-  <img src="/images/d9dab800-image.jpeg" />
+  ![](/images/d9dab800-image.jpeg)
 </Frame>
 
 If your screen size is limited, you may need to click the 3 dots to view and click through to the contract.
 
 <Frame caption="">
-  <img src="/images/47a3a81c-image.jpeg" />
+  ![](/images/47a3a81c-image.jpeg)
 </Frame>
 
 Scroll down to see and interact with the contract code.
 
 <Frame caption="">
-  <img src="/images/9ae7288e-image.jpeg" />
+  ![](/images/9ae7288e-image.jpeg)
 </Frame>
 
 ## Video example
@@ -215,21 +212,17 @@ Scroll down to see and interact with the contract code.
 Community video created by Carlos Rodriguez for the Soneium Minato testnet, but can be applicable to any chain.
 
 <Frame>
-<iframe width="744" height="419" src="https://www.youtube.com/embed/eNzGoPkNAkU" title="VERIFY a SMART CONTRACT on SONEIUM&#39;s TESTNET: MINATO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <iframe width="744" height="419" src="https://www.youtube.com/embed/eNzGoPkNAkU" title="VERIFY a SMART CONTRACT on SONEIUM's TESTNET: MINATO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
 </Frame>
 
 ## FAQ
 
 <Accordion title="I am using an OpenZeppelin upgrades plugin implementation and receive an error on proxy contract verification. What should I do?">
-Although you receive an error, the contracts should be verified during the previous steps and you can ignore. Check in the explorer to make sure the contracts have been verified.
-
+  Although you receive an error, the contracts should be verified during the previous steps and you can ignore. Check in the explorer to make sure the contracts have been verified.
 </Accordion>
 
 ## Resources
 
 <Info>
-Learn more about plugin configs, troubleshooting etc. at [https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify)
-
+  Learn more about plugin configs, troubleshooting etc. at https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify
 </Info>
-
-
