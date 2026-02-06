@@ -8,7 +8,7 @@ description: "Blockscout's PRO API provides higher call limits and custom endpoi
   Blockscout PRO API is currently in development. If you are interested in beta testing our API, [reach out in Discord](https://discord.gg/blockscout).
 </Tip>
 
-## General Info 
+## General Info
 
 The PRO API  expands on Blockscout's free tier API (5 requests per second) to provide expanded rate limits for high-usage projects on Blockscout hosted networks. Pricing and details are coming soon.
 
@@ -21,18 +21,22 @@ You can pass api key using either:
 
 ## PRO API routes (in progress)
 
-1. **API v1**
+1. **JSON RPC API **
    1. base_url/v2/api?chain_id=:chain_id
 
-      `https://api.k8s-dev.blockscout.com/v2/api?chain_id=17000&module=block&action=eth_block_number&apikey=proapi_xxxxxxxx`
+      `https://api.blockscout.com/v2/api?chain_id=17000&module=block&action=eth_block_number&apikey=proapi_xxxxxxxx`
    2. base_url/:chain_id/api
 
-      `https://api.k8s-dev.blockscout.com/17000/api?module=block&action=eth_block_number&apikey=proapi_xxxxxxxx`
-1. **API v2**
+      `https://api.blockscout.com/17000/api?module=block&action=eth_block_number&apikey=proapi_xxxxxxxx`
+1. **REST API **
 
    base_url/:chain_id/api/v2
 
-   `https://api.k8s-dev.blockscout.com/17000/api/v2/blocks?apikey=proapi_xxxxxxxx`
+   `https://api.blockscout.com/17000/api/v2/blocks?apikey=proapi_xxxxxxxx`
 2. **ETH RPC API**
 
-   base_url/:chain_id/json-rpc `https://api.k8s-dev.blockscout.com/17000/json-rpc?apikey=proapi_xxxxxxxx`
+   base_url/:chain_id/json-rpc `https://api.blockscout.com/17000/json-rpc?apikey=proapi_xxxxxxxx`
+
+<Note>
+  Please see the [API reference section](/devs/apis) for specific endpoint info related to the various APIs.
+</Note>
