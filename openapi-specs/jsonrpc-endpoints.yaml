@@ -1,0 +1,4101 @@
+openapi: 3.1.0
+info:
+  title: Blockscout RPC API
+  version: 1.0.0
+  description: |
+    Blockscout is an open-source blockchain explorer for Ethereum-based networks.
+    
+    This API is provided for developers transitioning applications from Etherscan to Blockscout 
+    and applications requiring general API and data support. It supports GET and POST requests.
+    
+    ## Authentication
+    
+    **API keys are OPTIONAL** for all RPC endpoints. The API works without authentication but has different rate limits:
+    
+    - **Without API key:** 5 requests per second (shared pool across all users)
+    - **With API key:** 10 requests per second per key (dedicated limit)
+    - **Free tier:** Up to 3 API keys per account at no cost
+    
+    To use an API key, add `apikey=YOUR_API_KEY` to the query string:
+    ```
+    https://eth.blockscout.com/api?module=account&action=balance&address=0x123...&apikey=YOUR_API_KEY
+    ```
+    
+    ## Base URL Format
+    URLs vary by instance. With typical installations, access the API by adding `/api` to the end 
+    of the instance URL.
+    
+    **Example:** `https://eth-sepolia.blockscout.com/api`
+    
+    ## Query Format
+    
+    ### RPC API (Module/Action format)
+    An example query includes a module and action(s)/parameters:
+    ```
+    https://eth-sepolia.blockscout.com/api?module=account&action=balance&address=0x123...
+    ```
+    
+    ### ETH RPC API (JSON-RPC format)
+    Standard Ethereum JSON-RPC methods use POST requests to `/api/eth-rpc`:
+    ```
+    POST https://eth.blockscout.com/api/eth-rpc
+    Content-Type: application/json
+    
+    {"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}
+    ```
+    
+    Note: API keys can also be used with ETH RPC endpoints by adding `?apikey=YOUR_API_KEY` to the URL.
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  contact:
+    name: Blockscout Community
+    url: https://discord.gg/blockscout
+
+servers:
+  - url: https://eth.blockscout.com/api
+    description: Ethereum Mainnet Explorer (RPC API)
+  - url: https://eth-sepolia.blockscout.com/api
+    description: Ethereum Sepolia Testnet Explorer (RPC API)
+  - url: https://base.blockscout.com/api
+    description: Base Mainnet Explorer (RPC API)
+  - url: https://optimism.blockscout.com/api
+    description: Optimism Mainnet Explorer (RPC API)
+  - url: https://gnosis.blockscout.com/api
+    description: Gnosis Chain Explorer (RPC API)
+  - url: https://eth.blockscout.com/api/eth-rpc
+    description: Ethereum Mainnet Explorer (ETH RPC API)
+  - url: https://eth-sepolia.blockscout.com/api/eth-rpc
+    description: Ethereum Sepolia Testnet Explorer (ETH RPC API)
+  - url: https://base.blockscout.com/api/eth-rpc
+    description: Base Mainnet Explorer (ETH RPC API)
+  - url: https://optimism.blockscout.com/api/eth-rpc
+    description: Optimism Mainnet Explorer (ETH RPC API)
+  - url: https://gnosis.blockscout.com/api/eth-rpc
+    description: Gnosis Chain Explorer (ETH RPC API)
+
+security:
+  - apiKeyAuth: []
+  - {}  # Empty option indicates no authentication is also valid
+
+tags:
+  - name: Account
+    description: Account-related endpoints
+  - name: Block
+    description: Block-related endpoints  
+  - name: Contract
+    description: Smart contract-related endpoints
+  - name: Logs
+    description: Event logs endpoints
+  - name: Stats
+    description: Network statistics endpoints
+  - name: Token
+    description: Token-related endpoints
+  - name: Transaction
+    description: Transaction-related endpoints
+  - name: ETH RPC
+    description: Ethereum JSON-RPC compatible endpoints
+
+externalDocs:
+  url: https://docs.blockscout.com/devs/apis/rpc
+
+paths:
+  /?module=account&action=eth_get_balance:
+    get:
+      operationId: eth-get-balance
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/account
+      summary: Get ETH Balance (JSON-RPC Format)
+      description: Mimics Ethereum JSON RPC's eth_getBalance
+      tags:
+        - Account
+      parameters:
+        - $ref: '#/components/parameters/module_account'
+        - $ref: '#/components/parameters/action_eth_get_balance'
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: The address of the account
+        - in: query
+          name: block
+          schema:
+            type: string
+            enum: [latest, earliest, pending]
+          required: false
+          description: |
+            Either the block number as a string, or one of latest, earliest or pending.
+            - latest: latest balance in a consensus block
+            - earliest: first recorded balance for the address
+            - pending: latest balance in consensus or nonconsensus blocks
+      responses:
+        '200':
+          description: Balance retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: string
+                    description: Balance in hex format (wei)
+                    example: "0x0234c8a3397aab58"
+
+  /?module=account&action=balance:
+    get:
+      operationId: get-ether-balance-for-single-address
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/account
+      summary: Get Native Token Balance for a Single Address
+      description: |
+        Returns the native token balance of a given address. Results are returned in wei.
+        Many chains use their own native tokens (e.g., ETH on Ethereum, xDai on Gnosis).
+      tags:
+        - Account
+      parameters:
+        - $ref: '#/components/parameters/module_account'
+        - $ref: '#/components/parameters/action_balance'
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Address hash
+          example: '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae'
+      responses:
+        '200':
+          description: Balance retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: string
+                            description: Balance in wei
+                            example: '40891626854930000000000'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=account&action=balancemulti:
+    get:
+      operationId: get-ether-balance-for-multiple-addresses
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/account
+      summary: Get Balance for Multiple Addresses in a Single Call
+      description: Returns the balance of multiple accounts from a list of addresses (max 20 addresses)
+      tags:
+        - Account
+      parameters:
+        - $ref: '#/components/parameters/module_account'
+        - $ref: '#/components/parameters/action_balancemulti'
+        - in: query
+          name: address
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/AddressHash'
+            maxItems: 20
+          style: form
+          explode: false
+          required: true
+          description: Comma-separated list of addresses (max 20)
+          example: '0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a,0x63a9975ba31b0b9626b34300f7f627147df1f526'
+      responses:
+        '200':
+          description: Balances retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                account:
+                                  $ref: '#/components/schemas/AddressHash'
+                                balance:
+                                  type: string
+                                  description: Balance in wei
+                                stale:
+                                  type: boolean
+                                  description: True if balance is being refetched
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=account&action=txlist:
+    get:
+      operationId: get-transactions-by-address
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/account
+      summary: Get a List of Transactions by Address
+      description: |
+        Returns up to a maximum of 10,000 transactions for a given address.
+        Also available through a GraphQL 'address' query.
+      tags:
+        - Account
+      parameters:
+        - $ref: '#/components/parameters/module_account'
+        - $ref: '#/components/parameters/action_txlist'
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Address hash
+        - $ref: '#/components/parameters/startblock'
+        - $ref: '#/components/parameters/endblock'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/sort'
+        - in: query
+          name: filterby
+          schema:
+            type: string
+            enum: [to, from]
+          required: false
+          description: Filter transactions by direction
+      responses:
+        '200':
+          description: Transaction list retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/Transaction'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=account&action=txlistinternal:
+    get:
+      operationId: get-internal-transactions
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/account
+      summary: Get a List of Internal Transactions
+      description: |
+        Returns up to a maximum of 10,000 internal transactions.
+        Also available through a GraphQL 'transaction' query.
+      tags:
+        - Account
+      parameters:
+        - $ref: '#/components/parameters/module_account'
+        - $ref: '#/components/parameters/action_txlistinternal'
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: false
+          description: Address hash (optional, can use txhash instead)
+        - in: query
+          name: txhash
+          schema:
+            $ref: '#/components/schemas/TransactionHash'
+          required: false
+          description: Transaction hash (optional, can use address instead)
+        - $ref: '#/components/parameters/startblock'
+        - $ref: '#/components/parameters/endblock'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/sort'
+        - in: query
+          name: include_zero_value
+          schema:
+            type: boolean
+          required: false
+          description: Include zero value transfers
+      responses:
+        '200':
+          description: Internal transactions retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/InternalTransaction'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=account&action=tokentx:
+    get:
+      operationId: get-erc20-token-transfer-events
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/account
+      summary: Get ERC-20 Token Transfer Events by Address
+      description: |
+        Returns up to a maximum of 10,000 ERC-20 token transfer events.
+        Also available through the GraphQL token_transfers query.
+      tags:
+        - Account
+      parameters:
+        - $ref: '#/components/parameters/module_account'
+        - $ref: '#/components/parameters/action_tokentx'
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Address hash
+        - in: query
+          name: contractaddress
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: false
+          description: Token contract address (to filter by specific token)
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/sort'
+        - $ref: '#/components/parameters/startblock'
+        - $ref: '#/components/parameters/endblock'
+      responses:
+        '200':
+          description: Token transfers retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/TokenTransfer'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=account&action=tokennfttx:
+    get:
+      operationId: get-erc721-token-transfer-events
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/account
+      summary: Get ERC-721 Token Transfer Events by Address
+      description: Returns ERC-721 (NFT) token transfer events
+      tags:
+        - Account
+      parameters:
+        - $ref: '#/components/parameters/module_account'
+        - $ref: '#/components/parameters/action_tokennfttx'
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+        - in: query
+          name: contractaddress
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: false
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/sort'
+        - $ref: '#/components/parameters/startblock'
+        - $ref: '#/components/parameters/endblock'
+      responses:
+        '200':
+          description: ERC-721 transfers retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/TokenTransfer'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=account&action=token1155tx:
+    get:
+      operationId: get-erc1155-token-transfer-events
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/account
+      summary: Get ERC-1155 Token Transfer Events by Address
+      description: Returns ERC-1155 (multi-token) transfer events
+      tags:
+        - Account
+      parameters:
+        - $ref: '#/components/parameters/module_account'
+        - $ref: '#/components/parameters/action_token1155tx'
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+        - in: query
+          name: contractaddress
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: false
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/sort'
+        - $ref: '#/components/parameters/startblock'
+        - $ref: '#/components/parameters/endblock'
+      responses:
+        '200':
+          description: ERC-1155 transfers retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/TokenTransfer'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=account&action=token404tx:
+    get:
+      operationId: get-erc404-token-transfer-events
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/account
+      summary: Get ERC-404 Token Transfer Events by Address
+      description: Returns ERC-404 (hybrid fungible/non-fungible) transfer events
+      tags:
+        - Account
+      parameters:
+        - $ref: '#/components/parameters/module_account'
+        - $ref: '#/components/parameters/action_token404tx'
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+        - in: query
+          name: contractaddress
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: false
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/sort'
+        - $ref: '#/components/parameters/startblock'
+        - $ref: '#/components/parameters/endblock'
+      responses:
+        '200':
+          description: ERC-404 transfers retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/TokenTransfer'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=account&action=tokenbalance:
+    get:
+      operationId: get-erc20-token-account-balance
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/account
+      summary: Get ERC-20 Token Balance for a Single Address
+      description: Returns the token balance for a specific token contract and address
+      tags:
+        - Account
+      parameters:
+        - $ref: '#/components/parameters/module_account'
+        - $ref: '#/components/parameters/action_tokenbalance'
+        - in: query
+          name: contractaddress
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Token contract address
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Account address
+      responses:
+        '200':
+          description: Token balance retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: string
+                            description: Token balance
+                            example: '135499'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=account&action=listaccounts:
+    get:
+      operationId: list-accounts
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/account
+      summary: List Accounts and Native Balances
+      description: Lists accounts and native balances, sorted ascending by the time they were first seen
+      tags:
+        - Account
+      parameters:
+        - $ref: '#/components/parameters/module_account'
+        - $ref: '#/components/parameters/action_listaccounts'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Accounts list retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                address:
+                                  $ref: '#/components/schemas/AddressHash'
+                                balance:
+                                  type: string
+                                  description: Balance in wei
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=account&action=pendingtxlist:
+    get:
+      operationId: get-pending-transactions
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/account
+      summary: Get Pending Transactions for an Address
+      description: Returns pending transactions for a given address
+      tags:
+        - Account
+      parameters:
+        - $ref: '#/components/parameters/module_account'
+        - $ref: '#/components/parameters/action_pendingtxlist'
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Pending transactions retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/Transaction'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+
+  /?module=account&action=getminedblocks:
+    get:
+      operationId: account-getminedblocks
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/account
+      summary: Get List of Blocks Mined by Address
+      description: Returns list of blocks mined by a given address.
+      tags:
+        - Account
+      parameters:
+        - $ref: '#/components/parameters/module_account'
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [getminedblocks]
+          description: Action name (must be 'getminedblocks')
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Miner address hash
+        - in: query
+          name: page
+          schema:
+            type: integer
+          required: false
+          description: Page number for pagination
+        - in: query
+          name: offset
+          schema:
+            type: integer
+          required: false
+          description: Number of records per page
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ResponseOK'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+              example:
+                {
+                                    "message": "OK",
+                                    "result": [
+                                                        {
+                                                                            "blockNumber": "3462296",
+                                                                            "blockReward": "5194770940000000000",
+                                                                            "timeStamp": "1491118514"
+                                                        }
+                                    ],
+                                    "status": "1"
+                }
+  /?module=block&action=getblockreward:
+    get:
+      operationId: get-block-reward
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/block
+      summary: Get Block Reward by Block Number
+      description: Returns the block reward and uncle block rewards when applicable
+      tags:
+        - Block
+      parameters:
+        - $ref: '#/components/parameters/module_block'
+        - $ref: '#/components/parameters/action_getblockreward'
+        - in: query
+          name: blockno
+          schema:
+            type: integer
+          required: true
+          description: Block number
+          example: 2165403
+      responses:
+        '200':
+          description: Block reward retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: object
+                            properties:
+                              blockNumber:
+                                type: string
+                              timeStamp:
+                                type: string
+                              blockMiner:
+                                $ref: '#/components/schemas/AddressHash'
+                              blockReward:
+                                type: string
+                                description: Block reward in wei
+                              uncles:
+                                type: array
+                                nullable: true
+                                items:
+                                  type: object
+                              uncleInclusionReward:
+                                type: string
+                                nullable: true
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=block&action=getblockcountdown:
+    get:
+      operationId: get-estimated-block-countdown
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/block
+      summary: Get Estimated Block Countdown Time by Block Number
+      description: Returns the estimated time remaining, in seconds, until a certain block is mined
+      tags:
+        - Block
+      parameters:
+        - $ref: '#/components/parameters/module_block'
+        - $ref: '#/components/parameters/action_getblockcountdown'
+        - in: query
+          name: blockno
+          schema:
+            type: integer
+          required: true
+          description: Target block number
+      responses:
+        '200':
+          description: Block countdown retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: object
+                            properties:
+                              currentBlock:
+                                type: string
+                              countdownBlock:
+                                type: string
+                              remainingBlock:
+                                type: string
+                              estimateTimeInSec:
+                                type: string
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=block&action=getblocknobytime:
+    get:
+      operationId: get-block-number-by-timestamp
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/block
+      summary: Get Block Number by Timestamp
+      description: Returns the block number that was mined at a certain timestamp
+      tags:
+        - Block
+      parameters:
+        - $ref: '#/components/parameters/module_block'
+        - $ref: '#/components/parameters/action_getblocknobytime'
+        - in: query
+          name: timestamp
+          schema:
+            type: integer
+          required: true
+          description: Unix timestamp
+        - in: query
+          name: closest
+          schema:
+            type: string
+            enum: [before, after]
+          required: true
+          description: Direction to search (before or after timestamp)
+      responses:
+        '200':
+          description: Block number retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: object
+                            properties:
+                              blockNumber:
+                                type: string
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=block&action=eth_block_number:
+    get:
+      operationId: eth-block-number
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/block
+      summary: Get Latest Block Number (JSON-RPC Format)
+      description: Mimics Ethereum JSON RPC's eth_blockNumber
+      tags:
+        - Block
+      parameters:
+        - $ref: '#/components/parameters/module_block'
+        - $ref: '#/components/parameters/action_eth_block_number'
+      responses:
+        '200':
+          description: Latest block number retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    type: string
+                    description: Block number in hex format
+                    example: "0x103538a"
+                  id:
+                    type: integer
+                    example: 1
+
+  /?module=contract&action=getabi:
+    get:
+      operationId: get-contract-abi
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/contract
+      summary: Get Contract ABI for Verified Contract
+      description: |
+        Returns the Contract Application Binary Interface (ABI) of a verified smart contract.
+        Also available through a GraphQL 'addresses' query.
+      tags:
+        - Contract
+      parameters:
+        - $ref: '#/components/parameters/module_contract'
+        - $ref: '#/components/parameters/action_getabi'
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Contract address
+      responses:
+        '200':
+          description: Contract ABI retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: string
+                            description: JSON-encoded ABI
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=contract&action=getsourcecode:
+    get:
+      operationId: get-contract-source-code
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/contract
+      summary: Get Contract Source Code for Verified Contract
+      description: |
+        Returns the Solidity source code of a verified smart contract.
+        Also available through a GraphQL 'addresses' query.
+      tags:
+        - Contract
+      parameters:
+        - $ref: '#/components/parameters/module_contract'
+        - $ref: '#/components/parameters/action_getsourcecode'
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Contract address
+      responses:
+        '200':
+          description: Contract source code retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                SourceCode:
+                                  type: string
+                                ABI:
+                                  type: string
+                                ContractName:
+                                  type: string
+                                CompilerVersion:
+                                  type: string
+                                OptimizationUsed:
+                                  type: string
+                                Runs:
+                                  type: string
+                                ConstructorArguments:
+                                  type: string
+                                EVMVersion:
+                                  type: string
+                                Library:
+                                  type: string
+                                LicenseType:
+                                  type: string
+                                Proxy:
+                                  type: string
+                                Implementation:
+                                  type: string
+                                SwarmSource:
+                                  type: string
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=contract&action=getcontractcreation:
+    get:
+      operationId: get-contract-creator-and-creation-tx
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/contract
+      summary: Get Contract Creator and Creation Transaction Hash
+      description: Returns contract creator address and transaction hash (up to 10 contracts per request)
+      tags:
+        - Contract
+      parameters:
+        - $ref: '#/components/parameters/module_contract'
+        - $ref: '#/components/parameters/action_getcontractcreation'
+        - in: query
+          name: contractaddresses
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/AddressHash'
+            maxItems: 10
+          style: form
+          explode: false
+          required: true
+          description: Comma-separated list of contract addresses (max 10)
+      responses:
+        '200':
+          description: Contract creation info retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                contractAddress:
+                                  $ref: '#/components/schemas/AddressHash'
+                                contractCreator:
+                                  $ref: '#/components/schemas/AddressHash'
+                                txHash:
+                                  $ref: '#/components/schemas/TransactionHash'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+
+  /?module=contract&action=listcontracts:
+    get:
+      operationId: contract-listcontracts
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/contract
+      summary: Get List of Contracts
+      description: Returns list of contracts sorted by creation time. Can filter by verification status.
+      tags:
+        - Contract
+      parameters:
+        - $ref: '#/components/parameters/module_contract'
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [listcontracts]
+          description: Action name (must be 'listcontracts')
+        - in: query
+          name: page
+          schema:
+            type: integer
+          required: false
+          description: Page number for pagination
+        - in: query
+          name: offset
+          schema:
+            type: integer
+          required: false
+          description: Max number of records per page
+        - in: query
+          name: filter
+          schema:
+            type: string
+          required: false
+          description: Filter verified unverified empty or 1 2 3
+        - in: query
+          name: verified_at_start_timestamp
+          schema:
+            type: string
+          required: false
+          description: Unix timestamp for start (verified filter only)
+        - in: query
+          name: verified_at_end_timestamp
+          schema:
+            type: string
+          required: false
+          description: Unix timestamp for end (verified filter only)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ResponseOK'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+              example:
+                {
+                                    "message": "OK",
+                                    "result": [
+                                                        {
+                                                                            "address": "0x1234",
+                                                                            "contractName": "Example",
+                                                                            "verified": "true"
+                                                        }
+                                    ],
+                                    "status": "1"
+                }
+
+  /?module=contract&action=verify:
+    get:
+      operationId: contract-verify
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/contract
+      summary: Verify Contract with Source Code
+      description: Verify a contract with its source code and compilation information. Returns a guid for checking verification status.
+      tags:
+        - Contract
+      parameters:
+        - $ref: '#/components/parameters/module_contract'
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [verify]
+          description: Action name (must be 'verify')
+        - in: query
+          name: addressHash
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Contract address hash
+        - in: query
+          name: name
+          schema:
+            type: string
+          required: true
+          description: Contract name
+        - in: query
+          name: compilerVersion
+          schema:
+            type: string
+          required: true
+          description: Compiler version
+        - in: query
+          name: optimization
+          schema:
+            type: string
+          required: true
+          description: Whether optimizations enabled (0 is false 1 is true)
+        - in: query
+          name: contractSourceCode
+          schema:
+            type: string
+          required: true
+          description: Contract source code
+        - in: query
+          name: constructorArguments
+          schema:
+            type: string
+          required: false
+          description: Constructor arguments
+        - in: query
+          name: autodetectConstructorArguments
+          schema:
+            type: boolean
+          required: false
+          description: Auto-detect constructor arguments
+        - in: query
+          name: evmVersion
+          schema:
+            type: string
+          required: false
+          description: EVM version
+        - in: query
+          name: optimizationRuns
+          schema:
+            type: integer
+          required: false
+          description: Number of optimization runs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ResponseOK'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+              example:
+                {
+                                    "message": "OK",
+                                    "result": "guid-string-here",
+                                    "status": "1"
+                }
+
+  /?module=contract&action=verify_via_sourcify:
+    get:
+      operationId: contract-verify-via-sourcify
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/contract
+      summary: Verify Contract via Sourcify
+      description: Verify a contract through Sourcify. If already verified on Sourcify fetches from repo.
+      tags:
+        - Contract
+      parameters:
+        - $ref: '#/components/parameters/module_contract'
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [verify_via_sourcify]
+          description: Action name (must be 'verify_via_sourcify')
+        - in: query
+          name: addressHash
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Contract address hash
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ResponseOK'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+              example:
+                {
+                                    "message": "OK",
+                                    "result": "verified",
+                                    "status": "1"
+                }
+
+  /?module=contract&action=verify_vyper_contract:
+    get:
+      operationId: contract-verify-vyper-contract
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/contract
+      summary: Verify Vyper Contract
+      description: Verify a Vyper contract with its source code and compilation information.
+      tags:
+        - Contract
+      parameters:
+        - $ref: '#/components/parameters/module_contract'
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [verify_vyper_contract]
+          description: Action name (must be 'verify_vyper_contract')
+        - in: query
+          name: addressHash
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Contract address hash
+        - in: query
+          name: name
+          schema:
+            type: string
+          required: true
+          description: Contract name
+        - in: query
+          name: compilerVersion
+          schema:
+            type: string
+          required: true
+          description: Vyper compiler version
+        - in: query
+          name: contractSourceCode
+          schema:
+            type: string
+          required: true
+          description: Contract source code
+        - in: query
+          name: constructorArguments
+          schema:
+            type: string
+          required: false
+          description: Constructor arguments
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ResponseOK'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+              example:
+                {
+                                    "message": "OK",
+                                    "result": "guid-string-here",
+                                    "status": "1"
+                }
+
+  /?module=contract&action=verifysourcecode:
+    get:
+      operationId: contract-verifysourcecode
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/contract
+      summary: Verify Contract with Standard JSON Input
+      description: Verify a contract using Standard JSON Input or flattened source code.
+      tags:
+        - Contract
+      parameters:
+        - $ref: '#/components/parameters/module_contract'
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [verifysourcecode]
+          description: Action name (must be 'verifysourcecode')
+        - in: query
+          name: codeformat
+          schema:
+            type: string
+          required: true
+          description: Format solidity-standard-json-input or solidity-single-file
+        - in: query
+          name: contractaddress
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Contract address hash
+        - in: query
+          name: contractname
+          schema:
+            type: string
+          required: true
+          description: Contract name
+        - in: query
+          name: compilerversion
+          schema:
+            type: string
+          required: true
+          description: Compiler version
+        - in: query
+          name: sourceCode
+          schema:
+            type: string
+          required: true
+          description: Standard JSON input or flattened source
+        - in: query
+          name: optimizationUsed
+          schema:
+            type: string
+          required: false
+          description: Optimization (0 false 1 true) for single-file
+        - in: query
+          name: runs
+          schema:
+            type: integer
+          required: false
+          description: Optimization runs
+        - in: query
+          name: evmversion
+          schema:
+            type: string
+          required: false
+          description: EVM version for single-file
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ResponseOK'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+              example:
+                {
+                                    "message": "OK",
+                                    "result": "guid-string-here",
+                                    "status": "1"
+                }
+
+  /?module=contract&action=checkverifystatus:
+    get:
+      operationId: contract-checkverifystatus
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/contract
+      summary: Check Verification Status
+      description: Returns status of a verification attempt. guid is received from verify or verifysourcecode methods.
+      tags:
+        - Contract
+      parameters:
+        - $ref: '#/components/parameters/module_contract'
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [checkverifystatus]
+          description: Action name (must be 'checkverifystatus')
+        - in: query
+          name: guid
+          schema:
+            type: string
+          required: true
+          description: Verification attempt identifier
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ResponseOK'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+              example:
+                {
+                                    "message": "OK",
+                                    "result": "Pass - Verified",
+                                    "status": "1"
+                }
+
+  /?module=contract&action=verifyproxycontract:
+    get:
+      operationId: contract-verifyproxycontract
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/contract
+      summary: Verify Proxy Contract
+      description: Verify that a contract is a proxy contract pointing to an implementation.
+      tags:
+        - Contract
+      parameters:
+        - $ref: '#/components/parameters/module_contract'
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [verifyproxycontract]
+          description: Action name (must be 'verifyproxycontract')
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Proxy contract address hash
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ResponseOK'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+              example:
+                {
+                                    "message": "OK",
+                                    "result": "guid-string-here",
+                                    "status": "1"
+                }
+
+  /?module=contract&action=checkproxyverification:
+    get:
+      operationId: contract-checkproxyverification
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/contract
+      summary: Check Proxy Verification Status
+      description: Returns status of a proxy contract verification attempt.
+      tags:
+        - Contract
+      parameters:
+        - $ref: '#/components/parameters/module_contract'
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [checkproxyverification]
+          description: Action name (must be 'checkproxyverification')
+        - in: query
+          name: guid
+          schema:
+            type: string
+          required: true
+          description: Verification attempt identifier
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ResponseOK'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+              example:
+                {
+                                    "message": "OK",
+                                    "result": "Pass - Verified",
+                                    "status": "1"
+                }
+  /?module=logs&action=getLogs:
+    get:
+      operationId: get-event-logs
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/logs
+      summary: Get Event Logs by Address/Topics/Block Range
+      description: |
+        Returns event logs for an address and topic combination.
+        Up to a maximum of 1,000 event logs.
+        Use topic operators (and/or) to specify topic retrieval options.
+      tags:
+        - Logs
+      parameters:
+        - $ref: '#/components/parameters/module_logs'
+        - $ref: '#/components/parameters/action_getLogs'
+        - in: query
+          name: fromBlock
+          schema:
+            type: string
+          required: true
+          description: Starting block number or 'latest'
+          example: '1379224'
+        - in: query
+          name: toBlock
+          schema:
+            type: string
+          required: true
+          description: Ending block number or 'latest'
+          example: '13792288'
+        - in: query
+          name: address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: false
+          description: Contract address (address and/or topic is required)
+        - in: query
+          name: topic0
+          schema:
+            type: string
+          required: false
+          description: First topic (topic and/or address is required)
+        - in: query
+          name: topic1
+          schema:
+            type: string
+          required: false
+          description: Second topic
+        - in: query
+          name: topic2
+          schema:
+            type: string
+          required: false
+          description: Third topic
+        - in: query
+          name: topic3
+          schema:
+            type: string
+          required: false
+          description: Fourth topic
+        - in: query
+          name: topic0_1_opr
+          schema:
+            type: string
+            enum: [and, or]
+          required: false
+          description: Operator for topic0 and topic1
+        - in: query
+          name: topic0_2_opr
+          schema:
+            type: string
+            enum: [and, or]
+          required: false
+          description: Operator for topic0 and topic2
+        - in: query
+          name: topic0_3_opr
+          schema:
+            type: string
+            enum: [and, or]
+          required: false
+          description: Operator for topic0 and topic3
+        - in: query
+          name: topic1_2_opr
+          schema:
+            type: string
+            enum: [and, or]
+          required: false
+          description: Operator for topic1 and topic2
+        - in: query
+          name: topic1_3_opr
+          schema:
+            type: string
+            enum: [and, or]
+          required: false
+          description: Operator for topic1 and topic3
+        - in: query
+          name: topic2_3_opr
+          schema:
+            type: string
+            enum: [and, or]
+          required: false
+          description: Operator for topic2 and topic3
+      responses:
+        '200':
+          description: Event logs retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/Log'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=stats&action=tokensupply:
+    get:
+      operationId: get-token-total-supply
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/stats
+      summary: Get ERC-20 or ERC-721 Token Total Supply
+      description: Returns the total supply of an ERC-20 or ERC-721 token by contract address
+      tags:
+        - Stats
+      parameters:
+        - $ref: '#/components/parameters/module_stats'
+        - $ref: '#/components/parameters/action_tokensupply'
+        - in: query
+          name: contractaddress
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Token contract address
+      responses:
+        '200':
+          description: Token supply retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: string
+                            description: Total supply
+                            example: "21265524714464"
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=stats&action=ethsupply:
+    get:
+      operationId: get-total-supply
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/stats
+      summary: Get Total Supply of Native Token
+      description: Returns the total supply of the native token (e.g., ETH, xDai)
+      tags:
+        - Stats
+      parameters:
+        - $ref: '#/components/parameters/module_stats'
+        - $ref: '#/components/parameters/action_ethsupply'
+      responses:
+        '200':
+          description: Total supply retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: string
+                            description: Total supply in wei
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=stats&action=ethprice:
+    get:
+      operationId: get-native-token-price
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/stats
+      summary: Get Native Token Price
+      description: Returns the price of the native token in USD and BTC
+      tags:
+        - Stats
+      parameters:
+        - $ref: '#/components/parameters/module_stats'
+        - $ref: '#/components/parameters/action_ethprice'
+      responses:
+        '200':
+          description: Token price retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: object
+                            properties:
+                              ethbtc:
+                                type: string
+                                description: Price in BTC
+                              ethbtc_timestamp:
+                                type: string
+                              ethusd:
+                                type: string
+                                description: Price in USD
+                              ethusd_timestamp:
+                                type: string
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+
+  /?module=stats&action=ethsupplyexchange:
+    get:
+      operationId: stats-ethsupplyexchange
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/stats
+      summary: Get Total Supply from Exchange
+      description: Returns total supply in Wei from exchange data.
+      tags:
+        - Stats
+      parameters:
+        - $ref: '#/components/parameters/module_stats'
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [ethsupplyexchange]
+          description: Action name (must be 'ethsupplyexchange')
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ResponseOK'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+              example:
+                {
+                                    "message": "OK",
+                                    "result": "1000000000000000000000000",
+                                    "status": "1"
+                }
+
+  /?module=stats&action=coinsupply:
+    get:
+      operationId: stats-coinsupply
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/stats
+      summary: Get Total Coin Supply from DB
+      description: Returns total coin supply from database minus burnt tokens.
+      tags:
+        - Stats
+      parameters:
+        - $ref: '#/components/parameters/module_stats'
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [coinsupply]
+          description: Action name (must be 'coinsupply')
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ResponseOK'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+              example:
+                {
+                                    "message": "OK",
+                                    "result": "1000000000000000000000000",
+                                    "status": "1"
+                }
+
+  /?module=stats&action=coinprice:
+    get:
+      operationId: stats-coinprice
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/stats
+      summary: Get Native Coin Price
+      description: Returns latest price of native coin in USD and BTC.
+      tags:
+        - Stats
+      parameters:
+        - $ref: '#/components/parameters/module_stats'
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [coinprice]
+          description: Action name (must be 'coinprice')
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ResponseOK'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+              example:
+                {
+                                    "message": "OK",
+                                    "result": {
+                                                        "coin_btc": "0.05",
+                                                        "coin_btc_timestamp": "1234567890",
+                                                        "coin_usd": "1500.00",
+                                                        "coin_usd_timestamp": "1234567890"
+                                    },
+                                    "status": "1"
+                }
+
+  /?module=stats&action=totalfees:
+    get:
+      operationId: stats-totalfees
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/stats
+      summary: Get Total Transaction Fees
+      description: Returns total transaction fees in Wei paid by users to validators per day.
+      tags:
+        - Stats
+      parameters:
+        - $ref: '#/components/parameters/module_stats'
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [totalfees]
+          description: Action name (must be 'totalfees')
+        - in: query
+          name: date
+          schema:
+            type: string
+          required: false
+          description: Date in format YYYY-MM-DD
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ResponseOK'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+              example:
+                {
+                                    "message": "OK",
+                                    "result": {
+                                                        "total_fees": "1000000000000000000"
+                                    },
+                                    "status": "1"
+                }
+  /?module=token&action=getToken:
+    get:
+      operationId: get-token-info
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/token
+      summary: Get Token Info
+      description: Returns info on name, symbol, supply and type for a token contract address
+      tags:
+        - Token
+      parameters:
+        - $ref: '#/components/parameters/module_token'
+        - $ref: '#/components/parameters/action_getToken'
+        - in: query
+          name: contractaddress
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Token contract address
+      responses:
+        '200':
+          description: Token info retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: object
+                            properties:
+                              cataloged:
+                                type: boolean
+                              contractAddress:
+                                $ref: '#/components/schemas/AddressHash'
+                              decimals:
+                                type: string
+                              name:
+                                type: string
+                              symbol:
+                                type: string
+                              totalSupply:
+                                type: string
+                              type:
+                                type: string
+                                enum: [ERC-20, ERC-721, ERC-1155, ERC-404]
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=token&action=getTokenHolders:
+    get:
+      operationId: get-token-holders
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/token
+      summary: Get Token Holders
+      description: Returns an array of token holder accounts and amounts held for a specified token
+      tags:
+        - Token
+      parameters:
+        - $ref: '#/components/parameters/module_token'
+        - $ref: '#/components/parameters/action_getTokenHolders'
+        - in: query
+          name: contractaddress
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+          required: true
+          description: Token contract address
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: Token holders retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                address:
+                                  $ref: '#/components/schemas/AddressHash'
+                                value:
+                                  type: string
+                                  description: Token balance
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+
+  /?module=token&action=bridgedTokenList:
+    get:
+      operationId: token-bridgedTokenList
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/token
+      summary: Get Bridged Tokens List
+      description: Returns array of bridged token information from native bridge application.
+      tags:
+        - Token
+      parameters:
+        - $ref: '#/components/parameters/module_token'
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum: [bridgedTokenList]
+          description: Action name (must be 'bridgedTokenList')
+        - in: query
+          name: chainid
+          schema:
+            type: integer
+          required: true
+          description: Chain ID where original token exists
+        - in: query
+          name: page
+          schema:
+            type: integer
+          required: false
+          description: Page number for pagination
+        - in: query
+          name: offset
+          schema:
+            type: integer
+          required: false
+          description: Max number of records per page
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/ResponseOK'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+              example:
+                {
+                                    "message": "OK",
+                                    "result": [
+                                                        {
+                                                                            "foreignChainId": "1",
+                                                                            "foreignTokenContractAddressHash": "0x0ae055097c6d159879521c384f1d2123d1f195e6",
+                                                                            "homeContractAddressHash": "0xb7d311e2eb55f2f68a9440da38e7989210b9a05e",
+                                                                            "homeDecimals": "18",
+                                                                            "homeHolderCount": 393,
+                                                                            "homeName": "STAKE on xDai",
+                                                                            "homeSymbol": "STAKE"
+                                                        }
+                                    ],
+                                    "status": "1"
+                }
+  /?module=transaction&action=gettxinfo:
+    get:
+      operationId: get-transaction-info
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/transaction
+      summary: Get Transaction Info by Transaction Hash
+      description: Returns transaction information including revert reason if available
+      tags:
+        - Transaction
+      parameters:
+        - $ref: '#/components/parameters/module_transaction'
+        - $ref: '#/components/parameters/action_gettxinfo'
+        - in: query
+          name: txhash
+          schema:
+            $ref: '#/components/schemas/TransactionHash'
+          required: true
+          description: Transaction hash
+      responses:
+        '200':
+          description: Transaction info retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            $ref: '#/components/schemas/Transaction'
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=transaction&action=gettxreceiptstatus:
+    get:
+      operationId: get-transaction-receipt-status
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/transaction
+      summary: Get Transaction Receipt Status
+      description: |
+        Returns the status of a transaction receipt.
+        Also available through a GraphQL 'transaction' query.
+        Status: 0 = failed, 1 = successful
+      tags:
+        - Transaction
+      parameters:
+        - $ref: '#/components/parameters/module_transaction'
+        - $ref: '#/components/parameters/action_gettxreceiptstatus'
+        - in: query
+          name: txhash
+          schema:
+            $ref: '#/components/schemas/TransactionHash'
+          required: true
+          description: Transaction hash
+      responses:
+        '200':
+          description: Receipt status retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: object
+                            properties:
+                              status:
+                                type: string
+                                description: "0 = failed, 1 = successful"
+                                enum: ["0", "1"]
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  /?module=transaction&action=getstatus:
+    get:
+      operationId: get-transaction-status
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/transaction
+      summary: Get Transaction Execution Status
+      description: |
+        Returns transaction execution status with error description if applicable.
+        Also available through a GraphQL 'transaction' query.
+        isError: 0 = pass (no error), 1 = error
+      tags:
+        - Transaction
+      parameters:
+        - $ref: '#/components/parameters/module_transaction'
+        - $ref: '#/components/parameters/action_getstatus'
+        - in: query
+          name: txhash
+          schema:
+            $ref: '#/components/schemas/TransactionHash'
+          required: true
+          description: Transaction hash
+      responses:
+        '200':
+          description: Transaction status retrieved successfully
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - allOf:
+                      - $ref: '#/components/schemas/ResponseOK'
+                      - type: object
+                        properties:
+                          result:
+                            type: object
+                            properties:
+                              isError:
+                                type: string
+                                description: "0 = no error, 1 = error"
+                                enum: ["0", "1"]
+                              errDescription:
+                                type: string
+                                description: Error message if isError = 1
+                  - $ref: '#/components/schemas/ResponseNOTOK'
+
+  # ETH RPC API Endpoints (JSON-RPC Format)
+  # These endpoints use POST requests to /api/eth-rpc
+  
+# Individual ETH RPC Method Endpoints
+# These replace the single generic /eth-rpc endpoint
+
+
+  /eth-rpc#eth_blockNumber:
+    post:
+      operationId: eth-blockNumber
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Get Latest Block Number
+      description: |
+        Returns the latest block number in the chain in hexadecimal format.
+        
+        **JSON-RPC Method:** `eth_blockNumber`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_blockNumber"]
+                  example: "eth_blockNumber"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: []
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_blockNumber"
+              params: []
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: "0x1234567"
+                id: 1
+
+  /eth-rpc#eth_getBalance:
+    post:
+      operationId: eth-getBalance
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Get Account Balance
+      description: |
+        Returns the balance of an account at a given address in wei (hexadecimal).
+        
+        **JSON-RPC Method:** `eth_getBalance`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_getBalance"]
+                  example: "eth_getBalance"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "latest"]
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_getBalance"
+              params: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "latest"]
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: "0x1d863bf76508104fb"
+                id: 1
+
+  /eth-rpc#eth_getLogs:
+    post:
+      operationId: eth-getLogs
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Get Event Logs
+      description: |
+        Returns an array of logs matching a specified filter object. Maximum 1000 logs per request. Use pagination for more results.
+        
+        **JSON-RPC Method:** `eth_getLogs`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_getLogs"]
+                  example: "eth_getLogs"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: [{"address": "0x6B175474E89094C44Da98b954EedeAC495271d0F", "fromBlock": "0x1234567", "toBlock": "latest", "topics": ["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"]}]
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_getLogs"
+              params: [{"address": "0x6B175474E89094C44Da98b954EedeAC495271d0F", "fromBlock": "0x1234567", "toBlock": "latest", "topics": ["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"]}]
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: []
+                id: 1
+
+  /eth-rpc#eth_gasPrice:
+    post:
+      operationId: eth-gasPrice
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Get Current Gas Price
+      description: |
+        Returns the current gas price in wei (hexadecimal).
+        
+        **JSON-RPC Method:** `eth_gasPrice`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_gasPrice"]
+                  example: "eth_gasPrice"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: []
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_gasPrice"
+              params: []
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: "0x4a817c800"
+                id: 1
+
+  /eth-rpc#eth_getTransactionByHash:
+    post:
+      operationId: eth-getTransactionByHash
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Get Transaction by Hash
+      description: |
+        Returns information about a transaction requested by transaction hash.
+        
+        **JSON-RPC Method:** `eth_getTransactionByHash`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_getTransactionByHash"]
+                  example: "eth_getTransactionByHash"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: ["0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"]
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_getTransactionByHash"
+              params: ["0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"]
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: {
+                    "hash": "0x88df...",
+                    "from": "0x1234...",
+                    "to": "0x5678..."
+}
+                id: 1
+
+  /eth-rpc#eth_getTransactionReceipt:
+    post:
+      operationId: eth-getTransactionReceipt
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Get Transaction Receipt
+      description: |
+        Returns the receipt of a transaction by transaction hash, including logs and status.
+        
+        **JSON-RPC Method:** `eth_getTransactionReceipt`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_getTransactionReceipt"]
+                  example: "eth_getTransactionReceipt"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: ["0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"]
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_getTransactionReceipt"
+              params: ["0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"]
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: {
+                    "transactionHash": "0x88df...",
+                    "status": "0x1",
+                    "gasUsed": "0x5208"
+}
+                id: 1
+
+  /eth-rpc#eth_chainId:
+    post:
+      operationId: eth-chainId
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Get Chain ID
+      description: |
+        Returns the current chain ID used for signing replay-protected transactions.
+        
+        **JSON-RPC Method:** `eth_chainId`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_chainId"]
+                  example: "eth_chainId"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: []
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_chainId"
+              params: []
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: "0x1"
+                id: 1
+
+  /eth-rpc#eth_maxPriorityFeePerGas:
+    post:
+      operationId: eth-maxPriorityFeePerGas
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Get Max Priority Fee Per Gas
+      description: |
+        Returns the current max priority fee per gas in wei (hexadecimal) for EIP-1559 transactions.
+        
+        **JSON-RPC Method:** `eth_maxPriorityFeePerGas`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_maxPriorityFeePerGas"]
+                  example: "eth_maxPriorityFeePerGas"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: []
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_maxPriorityFeePerGas"
+              params: []
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: "0x59682f00"
+                id: 1
+
+  /eth-rpc#eth_getTransactionCount:
+    post:
+      operationId: eth-getTransactionCount
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Get Transaction Count (Nonce)
+      description: |
+        Returns the number of transactions sent from an address (nonce).
+        
+        **JSON-RPC Method:** `eth_getTransactionCount`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_getTransactionCount"]
+                  example: "eth_getTransactionCount"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "latest"]
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_getTransactionCount"
+              params: ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "latest"]
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: "0x5"
+                id: 1
+
+  /eth-rpc#eth_getCode:
+    post:
+      operationId: eth-getCode
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Get Contract Code
+      description: |
+        Returns the bytecode at a given address (smart contract code).
+        
+        **JSON-RPC Method:** `eth_getCode`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_getCode"]
+                  example: "eth_getCode"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "latest"]
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_getCode"
+              params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "latest"]
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: "0x600160008035811a818181146012578301005b601b6001356025565b8060005260206000f25b600060078202905091905056"
+                id: 1
+
+  /eth-rpc#eth_getStorageAt:
+    post:
+      operationId: eth-getStorageAt
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Get Storage At Position
+      description: |
+        Returns the value from a storage position at a given address.
+        
+        **JSON-RPC Method:** `eth_getStorageAt`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_getStorageAt"]
+                  example: "eth_getStorageAt"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"]
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_getStorageAt"
+              params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"]
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: "0x0000000000000000000000000000000000000000000000000000000000000000"
+                id: 1
+
+  /eth-rpc#eth_estimateGas:
+    post:
+      operationId: eth-estimateGas
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Estimate Gas
+      description: |
+        Generates and returns an estimate of how much gas is necessary to allow the transaction to complete.
+        
+        **JSON-RPC Method:** `eth_estimateGas`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_estimateGas"]
+                  example: "eth_estimateGas"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: [{"from": "0x8D97689C9818892B700e27F316cc3E41e17fBeb9", "to": "0xd3CdA913deB6f67967B99D67aCDFa1712C293601", "value": "0x186a0"}, "latest"]
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_estimateGas"
+              params: [{"from": "0x8D97689C9818892B700e27F316cc3E41e17fBeb9", "to": "0xd3CdA913deB6f67967B99D67aCDFa1712C293601", "value": "0x186a0"}, "latest"]
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: "0x5208"
+                id: 1
+
+  /eth-rpc#eth_getBlockByNumber:
+    post:
+      operationId: eth-getBlockByNumber
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Get Block by Number
+      description: |
+        Returns information about a block by block number.
+        
+        **JSON-RPC Method:** `eth_getBlockByNumber`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_getBlockByNumber"]
+                  example: "eth_getBlockByNumber"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: ["0x1234567", false]
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_getBlockByNumber"
+              params: ["0x1234567", false]
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: {
+                    "number": "0x1234567",
+                    "hash": "0xabc...",
+                    "transactions": []
+}
+                id: 1
+
+  /eth-rpc#eth_getBlockByHash:
+    post:
+      operationId: eth-getBlockByHash
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Get Block by Hash
+      description: |
+        Returns information about a block by block hash.
+        
+        **JSON-RPC Method:** `eth_getBlockByHash`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_getBlockByHash"]
+                  example: "eth_getBlockByHash"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: ["0x9b83c12c69edb74f6c8dd5d052765c1adf940e320bd1291696e6fa07829eee71", false]
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_getBlockByHash"
+              params: ["0x9b83c12c69edb74f6c8dd5d052765c1adf940e320bd1291696e6fa07829eee71", false]
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: {
+                    "number": "0x1234567",
+                    "hash": "0x9b83...",
+                    "transactions": []
+}
+                id: 1
+
+  /eth-rpc#eth_sendRawTransaction:
+    post:
+      operationId: eth-sendRawTransaction
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Send Raw Transaction
+      description: |
+        Submits a pre-signed transaction for broadcast to the Ethereum network.
+        
+        **JSON-RPC Method:** `eth_sendRawTransaction`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_sendRawTransaction"]
+                  example: "eth_sendRawTransaction"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: ["0xf86c098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a76400008025a028ef61340bd939bc2195fe537567866003e1a15d3c71ff63e1590620aa636276a067cbe9d8997f761aecb703304b3800ccf555c9f3dc64214b297fb1966a3b6d83"]
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_sendRawTransaction"
+              params: ["0xf86c098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a76400008025a028ef61340bd939bc2195fe537567866003e1a15d3c71ff63e1590620aa636276a067cbe9d8997f761aecb703304b3800ccf555c9f3dc64214b297fb1966a3b6d83"]
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: "0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"
+                id: 1
+
+  /eth-rpc#eth_call:
+    post:
+      operationId: eth-call
+      externalDocs:
+        url: https://docs.blockscout.com/devs/apis/rpc/eth-rpc
+      summary: Execute Contract Call
+      description: |
+        Executes a new message call immediately without creating a transaction on the blockchain. Used for reading contract state.
+        
+        **JSON-RPC Method:** `eth_call`
+        
+        This endpoint uses the standard Ethereum JSON-RPC 2.0 format.
+      tags:
+        - ETH RPC
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+                - params
+                - id
+              properties:
+                jsonrpc:
+                  type: string
+                  enum: ["2.0"]
+                  example: "2.0"
+                method:
+                  type: string
+                  enum: ["eth_call"]
+                  example: "eth_call"
+                params:
+                  type: array
+                  items:
+                    oneOf:
+                      - type: string
+                      - type: boolean
+                      - type: object
+                      - type: integer
+                  example: [{"to": "0x6B175474E89094C44Da98b954EedeAC495271d0F", "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"}, "latest"]
+                id:
+                  oneOf:
+                    - type: integer
+                    - type: string
+                  example: 1
+            example:
+              jsonrpc: "2.0"
+              method: "eth_call"
+              params: [{"to": "0x6B175474E89094C44Da98b954EedeAC495271d0F", "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"}, "latest"]
+              id: 1
+      responses:
+        '200':
+          description: Successful JSON-RPC response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jsonrpc:
+                    type: string
+                    example: "2.0"
+                  result:
+                    description: Method result (varies by method)
+                  id:
+                    oneOf:
+                      - type: integer
+                      - type: string
+                    example: 1
+              example:
+                jsonrpc: "2.0"
+                result: "0x0000000000000000000000000000000000000000000000000000000000000000"
+                id: 1
+
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: query
+      name: apikey
+      description: |
+        Optional API key for increased rate limits.
+        
+        **Without API key:**
+        - 5 requests per second (shared pool)
+        - No registration required
+        
+        **With API key:**
+        - 10 requests per second per key
+        - Up to 3 free keys per account
+        - Get your API key at https://blockscout.com (login required)
+        
+        Usage: Add `apikey=YOUR_KEY` to any request query string.
+
+  parameters:
+    # Module parameters
+    module_account:
+      name: module
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [account]
+      description: Module name (must be 'account')
+
+    module_block:
+      name: module
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [block]
+      description: Module name (must be 'block')
+
+    module_contract:
+      name: module
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [contract]
+      description: Module name (must be 'contract')
+
+    module_logs:
+      name: module
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [logs]
+      description: Module name (must be 'logs')
+
+    module_stats:
+      name: module
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [stats]
+      description: Module name (must be 'stats')
+
+    module_token:
+      name: module
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [token]
+      description: Module name (must be 'token')
+
+    module_transaction:
+      name: module
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [transaction]
+      description: Module name (must be 'transaction')
+
+    # Action parameters
+    action_eth_get_balance:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [eth_get_balance]
+
+    action_balance:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [balance]
+
+    action_balancemulti:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [balancemulti]
+
+    action_txlist:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [txlist]
+
+    action_txlistinternal:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [txlistinternal]
+
+    action_tokentx:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [tokentx]
+
+    action_tokennfttx:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [tokennfttx]
+
+    action_token1155tx:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [token1155tx]
+
+    action_token404tx:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [token404tx]
+
+    action_tokenbalance:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [tokenbalance]
+
+    action_listaccounts:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [listaccounts]
+
+    action_pendingtxlist:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [pendingtxlist]
+
+    action_getblockreward:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [getblockreward]
+
+    action_getblockcountdown:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [getblockcountdown]
+
+    action_getblocknobytime:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [getblocknobytime]
+
+    action_eth_block_number:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [eth_block_number]
+
+    action_getabi:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [getabi]
+
+    action_getsourcecode:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [getsourcecode]
+
+    action_getcontractcreation:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [getcontractcreation]
+
+    action_getLogs:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [getLogs]
+
+    action_tokensupply:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [tokensupply]
+
+    action_ethsupply:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [ethsupply]
+
+    action_ethprice:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [ethprice]
+
+    action_getToken:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [getToken]
+
+    action_getTokenHolders:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [getTokenHolders]
+
+    action_gettxinfo:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [gettxinfo]
+
+    action_gettxreceiptstatus:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [gettxreceiptstatus]
+
+    action_getstatus:
+      name: action
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [getstatus]
+
+    # Common parameters
+    startblock:
+      name: startblock
+      in: query
+      required: false
+      schema:
+        type: integer
+      description: Starting block number
+
+    endblock:
+      name: endblock
+      in: query
+      required: false
+      schema:
+        type: integer
+      description: Ending block number
+
+    page:
+      name: page
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+      description: Page number for pagination
+
+    offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 10000
+        default: 10
+      description: Number of records to return per page (max 10000)
+
+    sort:
+      name: sort
+      in: query
+      required: false
+      schema:
+        type: string
+        enum: [asc, desc]
+        default: desc
+      description: Sort order (asc or desc)
+
+  schemas:
+    AddressHash:
+      type: string
+      pattern: '^0x[a-fA-F0-9]{40}$'
+      example: '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae'
+      description: 40-character hexadecimal address hash with 0x prefix
+
+    TransactionHash:
+      type: string
+      pattern: '^0x[a-fA-F0-9]{64}$'
+      example: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef'
+      description: 64-character hexadecimal transaction hash with 0x prefix
+
+    ResponseOK:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: ['1']
+          description: Status code (1 = OK)
+        message:
+          type: string
+          example: 'OK'
+          description: Response message
+
+    ResponseNOTOK:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: ['0']
+          description: Status code (0 = Error)
+        message:
+          type: string
+          example: 'NOTOK'
+          description: Error message
+        result:
+          type: string
+          nullable: true
+          description: Error details
+
+    Transaction:
+      type: object
+      properties:
+        blockNumber:
+          type: string
+        timeStamp:
+          type: string
+        hash:
+          $ref: '#/components/schemas/TransactionHash'
+        nonce:
+          type: string
+        blockHash:
+          type: string
+        transactionIndex:
+          type: string
+        from:
+          $ref: '#/components/schemas/AddressHash'
+        to:
+          $ref: '#/components/schemas/AddressHash'
+        value:
+          type: string
+          description: Value in wei
+        gas:
+          type: string
+        gasPrice:
+          type: string
+        isError:
+          type: string
+          enum: ['0', '1']
+        txreceipt_status:
+          type: string
+          enum: ['0', '1']
+        input:
+          type: string
+        contractAddress:
+          $ref: '#/components/schemas/AddressHash'
+        cumulativeGasUsed:
+          type: string
+        gasUsed:
+          type: string
+        confirmations:
+          type: string
+
+    InternalTransaction:
+      type: object
+      properties:
+        blockNumber:
+          type: string
+        timeStamp:
+          type: string
+        hash:
+          $ref: '#/components/schemas/TransactionHash'
+        from:
+          $ref: '#/components/schemas/AddressHash'
+        to:
+          $ref: '#/components/schemas/AddressHash'
+        value:
+          type: string
+          description: Value in wei
+        contractAddress:
+          $ref: '#/components/schemas/AddressHash'
+        input:
+          type: string
+        type:
+          type: string
+          enum: [call, create, suicide, reward]
+        gas:
+          type: string
+        gasUsed:
+          type: string
+        traceId:
+          type: string
+        isError:
+          type: string
+          enum: ['0', '1']
+        errCode:
+          type: string
+          nullable: true
+
+    TokenTransfer:
+      type: object
+      properties:
+        blockNumber:
+          type: string
+        timeStamp:
+          type: string
+        hash:
+          $ref: '#/components/schemas/TransactionHash'
+        nonce:
+          type: string
+        blockHash:
+          type: string
+        from:
+          $ref: '#/components/schemas/AddressHash'
+        contractAddress:
+          $ref: '#/components/schemas/AddressHash'
+        to:
+          $ref: '#/components/schemas/AddressHash'
+        value:
+          type: string
+        tokenName:
+          type: string
+        tokenSymbol:
+          type: string
+        tokenDecimal:
+          type: string
+        transactionIndex:
+          type: string
+        gas:
+          type: string
+        gasPrice:
+          type: string
+        gasUsed:
+          type: string
+        cumulativeGasUsed:
+          type: string
+        input:
+          type: string
+        confirmations:
+          type: string
+
+    Log:
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressHash'
+        topics:
+          type: array
+          items:
+            type: string
+        data:
+          type: string
+        blockNumber:
+          type: string
+        timeStamp:
+          type: string
+        gasPrice:
+          type: string
+        gasUsed:
+          type: string
+        logIndex:
+          type: string
+        transactionHash:
+          $ref: '#/components/schemas/TransactionHash'
+        transactionIndex:
+          type: string
+
+    # JSON-RPC Schemas for ETH RPC API
+    JsonRpcRequest:
+      type: object
+      required:
+        - jsonrpc
+        - method
+        - params
+        - id
+      properties:
+        jsonrpc:
+          type: string
+          enum: ["2.0"]
+          description: JSON-RPC protocol version
+          example: "2.0"
+        method:
+          type: string
+          description: The method to be invoked
+          enum:
+            - eth_blockNumber
+            - eth_getBalance
+            - eth_getLogs
+            - eth_gasPrice
+            - eth_getTransactionByHash
+            - eth_getTransactionReceipt
+            - eth_chainId
+            - eth_maxPriorityFeePerGas
+            - eth_getTransactionCount
+            - eth_getCode
+            - eth_getStorageAt
+            - eth_estimateGas
+            - eth_getBlockByNumber
+            - eth_getBlockByHash
+            - eth_sendRawTransaction
+            - eth_call
+          example: "eth_blockNumber"
+        params:
+          type: array
+          description: Array of parameters for the method
+          items:
+            oneOf:
+              - type: string
+              - type: integer
+              - type: boolean
+              - type: object
+          example: []
+        id:
+          oneOf:
+            - type: integer
+            - type: string
+          description: Request identifier
+          example: 1
+
+    JsonRpcResponse:
+      type: object
+      required:
+        - jsonrpc
+        - id
+      properties:
+        jsonrpc:
+          type: string
+          enum: ["2.0"]
+          description: JSON-RPC protocol version
+          example: "2.0"
+        result:
+          description: Result of the method invocation (present on success)
+          oneOf:
+            - type: string
+            - type: integer
+            - type: boolean
+            - type: object
+            - type: array
+        error:
+          description: Error object (present on failure)
+          type: object
+          properties:
+            code:
+              type: integer
+              description: Error code
+              example: -32602
+            message:
+              type: string
+              description: Error message
+              example: "Invalid params"
+            data:
+              description: Additional error data
+        id:
+          oneOf:
+            - type: integer
+            - type: string
+            - type: 'null'
+          description: Request identifier (matches request id)
+          example: 1
+
+    # ETH RPC Method-Specific Schemas
+    EthBlockNumberResponse:
+      type: object
+      properties:
+        jsonrpc:
+          type: string
+          example: "2.0"
+        result:
+          type: string
+          description: Block number in hexadecimal
+          example: "0xfa0b0e"
+        id:
+          type: integer
+          example: 1
+
+    EthGetBalanceResponse:
+      type: object
+      properties:
+        jsonrpc:
+          type: string
+          example: "2.0"
+        result:
+          type: string
+          description: Balance in wei (hexadecimal)
+          example: "0x1d863bf76508104fb"
+        id:
+          type: integer
+          example: 1
+
+    EthGetTransactionReceiptResponse:
+      type: object
+      properties:
+        jsonrpc:
+          type: string
+          example: "2.0"
+        result:
+          type: object
+          nullable: true
+          properties:
+            transactionHash:
+              type: string
+              description: Transaction hash
+            transactionIndex:
+              type: string
+              description: Transaction index in hex
+            blockHash:
+              type: string
+              description: Block hash
+            blockNumber:
+              type: string
+              description: Block number in hex
+            from:
+              type: string
+              description: Sender address
+            to:
+              type: string
+              nullable: true
+              description: Recipient address
+            cumulativeGasUsed:
+              type: string
+              description: Cumulative gas used in hex
+            gasUsed:
+              type: string
+              description: Gas used in hex
+            contractAddress:
+              type: string
+              nullable: true
+              description: Contract address if created
+            logs:
+              type: array
+              description: Array of log objects
+              items:
+                type: object
+            logsBloom:
+              type: string
+              description: Logs bloom filter
+            status:
+              type: string
+              description: "0x1 = success, 0x0 = failure"
+            effectiveGasPrice:
+              type: string
+              description: Effective gas price in hex
+        id:
+          type: integer
+          example: 1
+
+    EthCallRequest:
+      type: object
+      properties:
+        to:
+          type: string
+          description: Contract address to call
+        from:
+          type: string
+          description: Sender address (optional)
+        gas:
+          type: string
+          description: Gas limit in hex (optional)
+        gasPrice:
+          type: string
+          description: Gas price in hex (optional)
+        value:
+          type: string
+          description: Value in hex (optional)
+        data:
+          type: string
+          description: Encoded function call data
+      required:
+        - to
+        - data
+

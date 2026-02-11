@@ -403,15 +403,26 @@
               "icon": "cloud",
               "pages": [
                 "devs/apis",
-                "devs/pro-api",
                 "devs/apis/requests-and-limits",
+                {
+                  "group": "PRO API",
+                  "icon": "rectangle-pro",
+                  "pages": [
+                    "devs/pro-api",
+                    {
+                      "group": "PRO API Testing",
+                      "icon": "rectangle-pro",
+                      "openapi": "openapi-specs/blockscout-pro-api.yaml"
+                    }
+                  ]
+                },
                 {
                   "group": "REST API Endpoints",
                   "pages": [
                     "devs/apis/rest",
                     {
                       "group": "Endpoints",
-                      "openapi": "openapi.yaml"
+                      "openapi": "openapi-specs/openapi.yaml"
                     },
                     "devs/apis/rest/stats-api",
                     "devs/apis/rest/interpreter-api"
@@ -430,8 +441,8 @@
                     "devs/apis/rpc/transaction",
                     "devs/apis/rpc/eth-rpc",
                     {
-                      "group": "Endpoint Testing",
-                      "openapi": "blockscout-rpc-api_1.yaml"
+                      "group": "ETH RPC Endpoint Testing",
+                      "openapi": "openapi-specs/jsonrpc-endpoints.yaml"
                     }
                   ]
                 },
@@ -452,14 +463,9 @@
                 "devs/integrate-merits",
                 {
                   "group": "Endpoints",
-                  "openapi": "merits-admin-service.yaml"
+                  "openapi": "openapi-specs/merits-admin-service.yaml"
                 }
               ]
-            },
-            {
-              "group": "PRO API Testing",
-              "icon": "rectangle-pro",
-              "openapi": "blockscout-pro-api.yaml"
             }
           ]
         },
