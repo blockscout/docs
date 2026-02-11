@@ -428,7 +428,11 @@
                     "devs/apis/rpc/stats",
                     "devs/apis/rpc/token",
                     "devs/apis/rpc/transaction",
-                    "devs/apis/rpc/eth-rpc"
+                    "devs/apis/rpc/eth-rpc",
+                    {
+                      "group": "Endpoint Testing",
+                      "openapi": "blockscout-rpc-api_1.yaml"
+                    }
                   ]
                 },
                 "devs/apis/graphql"
