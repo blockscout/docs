@@ -451,6 +451,11 @@
                   "openapi": "merits-admin-service.yaml"
                 }
               ]
+            },
+            {
+              "group": "PRO API Testing",
+              "icon": "rectangle-pro",
+              "openapi": "blockscout-pro-api.yaml"
             }
           ]
         },

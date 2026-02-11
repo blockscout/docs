@@ -1,0 +1,950 @@
+openapi: 3.0.0
+info:
+  title: Blockscout PRO API
+  description: |
+    Blockscout's PRO API provides higher call limits and custom endpoints.
+    
+    The PRO API expands on Blockscout's free tier API (5 requests per second) to provide 
+    expanded rate limits for high-usage projects on Blockscout hosted networks. 
+
+    Currently in Testing Beta, see API reference pages for complete set of endpoints
+    
+    ## Authorization
+    You can pass API key using either:
+    * `apikey` query parameter
+    * `Authorization` header (format: `Bearer proapi_xxxxxxxx`)
+    
+    ## API Routes
+    The PRO API supports three main routing patterns:
+    
+    1. **JSON RPC API** - Two URL formats:
+       - `base_url/v2/api?chain_id=:chain_id`
+       - `base_url/:chain_id/api`
+    
+    2. **REST API**
+       - `base_url/:chain_id/api/v2`
+    
+    3. **ETH RPC API**
+       - `base_url/:chain_id/json-rpc`
+    
+    ## Rate Limits
+    PRO API provides expanded rate limits for authenticated requests. Free tier is limited to 5 requests per second.
+    
+  version: 2.0.0
+  contact:
+    name: Blockscout Support
+    url: https://discord.gg/blockscout
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  # REST API Server (primary)
+  - url: https://api.blockscout.com/{chain_id}/api/v2
+    description: REST API (with chain ID in path)
+    variables:
+      chain_id:
+        default: '1'
+        description: |
+          Chain ID for the blockchain network. Common values:
+          * 1 - Ethereum Mainnet
+          * 17000 - Holesky Testnet
+          * 137 - Polygon
+          * 10 - Optimism
+          * 42161 - Arbitrum One
+  
+  # JSON RPC API Servers
+  - url: https://api.blockscout.com/{chain_id}/api
+    description: JSON RPC API (with chain ID in path)
+    variables:
+      chain_id:
+        default: '1'
+        description: Chain ID for the blockchain network
+  
+  - url: https://api.blockscout.com/v2/api
+    description: JSON RPC API (with chain ID in query parameter)
+  
+  # ETH RPC API Server
+  - url: https://api.blockscout.com/{chain_id}/json-rpc
+    description: ETH RPC API (Ethereum JSON-RPC compatible)
+    variables:
+      chain_id:
+        default: '1'
+        description: Chain ID for the blockchain network
+
+security:
+  - ApiKeyQueryAuth: []
+  - ApiKeyHeaderAuth: []
+
+tags:
+  - name: addresses
+    description: Address-related endpoints
+  - name: transactions
+    description: Transaction-related endpoints
+  - name: blocks
+    description: Block-related endpoints
+  - name: tokens
+    description: Token-related endpoints
+  - name: stats
+    description: Statistics endpoints
+  - name: json-rpc
+    description: JSON RPC compatible endpoints
+  - name: eth-rpc
+    description: Ethereum JSON-RPC compatible endpoints
+
+components:
+  securitySchemes:
+    ApiKeyQueryAuth:
+      type: apiKey
+      in: query
+      name: apikey
+      description: API key passed as query parameter (format `proapi_xxxxxxxx`)
+    
+    ApiKeyHeaderAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: API key passed in Authorization header (format `Bearer proapi_xxxxxxxx`)
+
+  parameters:
+    ChainIdQuery:
+      name: chain_id
+      in: query
+      description: Chain ID for the blockchain network (used in JSON RPC API v2 format)
+      required: false
+      schema:
+        type: string
+        example: '17000'
+    
+    ChainIdPath:
+      name: chain_id
+      in: path
+      description: Chain ID for the blockchain network
+      required: true
+      schema:
+        type: string
+        example: '17000'
+    
+    ApiKeyQuery:
+      name: apikey
+      in: query
+      description: API key for rate limiting or for sensitive endpoints
+      required: false
+      schema:
+        type: string
+        example: proapi_xxxxxxxx
+    
+    SecretKey:
+      name: key
+      in: query
+      description: Secret key for getting access to restricted resources
+      required: false
+      schema:
+        type: string
+    
+    ItemsCount:
+      name: items_count
+      in: query
+      description: Number of items returned per page
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50
+        default: 50
+
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFoundResponse'
+    
+    Forbidden:
+      description: Access forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ForbiddenResponse'
+    
+    UnprocessableEntity:
+      description: Unprocessable entity - invalid parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonErrorResponse'
+    
+    NotImplemented:
+      description: Feature not implemented
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotImplementedResponse'
+    
+    Unauthorized:
+      description: Unauthorized - invalid or missing API key
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Invalid or missing API key
+
+  schemas:
+    # Error Response Schemas
+    NotFoundResponse:
+      type: object
+      description: Response returned when the resource is not found
+      properties:
+        message:
+          type: string
+          description: Error message indicating the resource was not found
+          example: Not found
+    
+    ForbiddenResponse:
+      type: object
+      description: Response returned when the user is forbidden to access the resource
+      properties:
+        message:
+          type: string
+          description: Error message indicating the user is forbidden to access the resource
+          example: Unverified email
+    
+    JsonErrorResponse:
+      type: object
+      description: General JSON error response
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Invalid parameters
+    
+    NotImplementedResponse:
+      type: object
+      description: Response returned when the feature is not implemented
+      properties:
+        message:
+          type: string
+          description: Error message indicating the feature is not implemented
+          example: Feature not implemented
+
+    # Core Type Schemas
+    AddressHash:
+      type: string
+      description: Address hash with 0x prefix
+      pattern: '^0x[a-fA-F0-9]{40}$'
+      example: '0x1234567890123456789012345678901234567890'
+    
+    FullHash:
+      type: string
+      description: Full hash with 0x prefix (64 hex characters)
+      pattern: '^0x[a-fA-F0-9]{64}$'
+      example: '0x1234567890123456789012345678901234567890123456789012345678901234'
+    
+    HexString:
+      type: string
+      description: Hexadecimal string with 0x prefix
+      pattern: '^0x[a-fA-F0-9]*$'
+      example: '0xabcdef'
+    
+    HexStringNullable:
+      type: string
+      nullable: true
+      description: Nullable hexadecimal string with 0x prefix
+      pattern: '^0x[a-fA-F0-9]*$'
+      example: '0xabcdef'
+    
+    IntegerString:
+      type: string
+      description: Integer value as string
+      pattern: '^\d+$'
+      example: '1000000000000000000'
+    
+    IntegerStringNullable:
+      type: string
+      nullable: true
+      description: Nullable integer value as string
+      pattern: '^\d+$'
+      example: '1000000000000000000'
+    
+    Timestamp:
+      type: string
+      format: date-time
+      description: ISO 8601 timestamp
+      example: '2024-01-15T10:30:00.000000Z'
+    
+    TimestampNullable:
+      type: string
+      format: date-time
+      nullable: true
+      description: Nullable ISO 8601 timestamp
+      example: '2024-01-15T10:30:00.000000Z'
+    
+    NullString:
+      type: string
+      nullable: true
+      description: Nullable string
+    
+    EmptyString:
+      type: string
+      minLength: 0
+      maxLength: 0
+      description: Empty string
+
+    # Token Types
+    TokenType:
+      type: string
+      enum:
+        - ERC-20
+        - ERC-721
+        - ERC-1155
+        - ERC-404
+      description: |
+        Token standard type:
+        * ERC-20 - Fungible tokens
+        * ERC-721 - Non-fungible tokens (NFTs)
+        * ERC-1155 - Multi-token standard
+        * ERC-404 - Hybrid fungible/non-fungible tokens
+
+    # Proxy Types
+    ProxyType:
+      type: string
+      nullable: true
+      enum:
+        - eip1167
+        - eip1967
+        - eip1822
+        - eip2535
+        - eip3448
+        - basic_implementation
+        - basic_get_implementation
+        - comptroller
+        - clone_with_immutable_arguments
+        - master_copy
+        - null
+      description: Smart contract proxy implementation type
+
+    # Complex Object Schemas
+    Metadata:
+      type: object
+      nullable: true
+      description: Metadata object containing additional information
+      properties:
+        reputation:
+          type: string
+          nullable: true
+    
+    Tag:
+      type: object
+      description: Tag associated with an address
+      properties:
+        address_hash:
+          $ref: '#/components/schemas/AddressHash'
+        display_name:
+          type: string
+          description: Display name of the tag
+        label:
+          type: string
+          description: Label/identifier of the tag
+      required:
+        - label
+        - display_name
+    
+    WatchlistName:
+      type: object
+      description: Watchlist name struct
+      properties:
+        display_name:
+          type: string
+          description: Display name of the watchlist
+        label:
+          type: string
+          description: Label/identifier of the watchlist
+      required:
+        - display_name
+        - label
+    
+    Implementation:
+      type: object
+      description: Contract implementation details
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressHash'
+        name:
+          type: string
+          nullable: true
+          description: Name of the implementation contract
+      required:
+        - address
+        - name
+
+    Address:
+      type: object
+      description: Blockchain address details
+      properties:
+        hash:
+          $ref: '#/components/schemas/AddressHash'
+        name:
+          type: string
+          nullable: true
+          description: Name associated with the address
+        is_contract:
+          type: boolean
+          nullable: true
+          description: Whether the address is a smart contract
+        is_verified:
+          type: boolean
+          nullable: true
+          description: Whether the contract source code is verified
+        is_scam:
+          type: boolean
+          description: Whether the address has a scam badge
+        reputation:
+          type: string
+          enum: [ok, scam]
+          description: Reputation status of the address
+        ens_domain_name:
+          type: string
+          nullable: true
+          description: ENS domain name associated with the address
+        proxy_type:
+          $ref: '#/components/schemas/ProxyType'
+        implementations:
+          type: array
+          description: Implementation contracts (for proxy contracts)
+          items:
+            $ref: '#/components/schemas/Implementation'
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        public_tags:
+          type: array
+          description: Public tags associated with the address
+          items:
+            $ref: '#/components/schemas/Tag'
+        private_tags:
+          type: array
+          description: Private tags associated with the address
+          items:
+            $ref: '#/components/schemas/Tag'
+        watchlist_names:
+          type: array
+          description: Watchlist names associated with the address
+          items:
+            $ref: '#/components/schemas/WatchlistName'
+      required:
+        - hash
+        - is_contract
+        - name
+        - is_scam
+        - reputation
+        - proxy_type
+        - implementations
+        - is_verified
+        - ens_domain_name
+        - metadata
+    
+    AddressNullable:
+      allOf:
+        - $ref: '#/components/schemas/Address'
+      nullable: true
+      description: Nullable address object
+
+    Token:
+      type: object
+      description: Token details
+      properties:
+        address:
+          $ref: '#/components/schemas/AddressHash'
+        name:
+          type: string
+          nullable: true
+          description: Token name
+        symbol:
+          type: string
+          nullable: true
+          description: Token symbol
+        decimals:
+          type: string
+          nullable: true
+          description: Number of decimal places
+        type:
+          $ref: '#/components/schemas/TokenType'
+        total_supply:
+          $ref: '#/components/schemas/IntegerStringNullable'
+        exchange_rate:
+          type: string
+          nullable: true
+          description: Exchange rate to USD
+        holders:
+          type: string
+          nullable: true
+          description: Number of token holders
+        icon_url:
+          type: string
+          nullable: true
+          description: URL to token icon
+      required:
+        - address
+        - type
+
+    TokenInstanceInList:
+      type: object
+      description: Token instance (NFT) in a list
+      properties:
+        id:
+          $ref: '#/components/schemas/IntegerString'
+        metadata:
+          type: object
+          nullable: true
+          description: Token instance metadata
+        image_url:
+          type: string
+          nullable: true
+          description: URL to token image
+        animation_url:
+          type: string
+          nullable: true
+          description: URL to token animation
+        external_app_url:
+          type: string
+          nullable: true
+          description: External app URL for the token
+      required:
+        - id
+
+    NFTCollection:
+      type: object
+      description: NFT collection with token instances
+      properties:
+        token:
+          $ref: '#/components/schemas/Token'
+        amount:
+          $ref: '#/components/schemas/IntegerStringNullable'
+        token_instances:
+          type: array
+          description: List of token instances in the collection
+          items:
+            $ref: '#/components/schemas/TokenInstanceInList'
+      required:
+        - token
+        - amount
+        - token_instances
+
+    DecodedLogInput:
+      type: object
+      description: Decoded log input data
+      properties:
+        method_call:
+          type: string
+          description: Method call signature
+        method_id:
+          $ref: '#/components/schemas/HexString'
+        parameters:
+          type: array
+          description: Decoded parameters
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                type: string
+              value:
+                oneOf:
+                  - type: string
+                  - type: number
+                  - type: boolean
+                  - type: object
+
+    Log:
+      type: object
+      description: Event log from a transaction
+      properties:
+        transaction_hash:
+          $ref: '#/components/schemas/FullHash'
+        address:
+          $ref: '#/components/schemas/Address'
+        topics:
+          type: array
+          description: Log topics (indexed parameters)
+          items:
+            $ref: '#/components/schemas/HexStringNullable'
+        data:
+          $ref: '#/components/schemas/HexString'
+        index:
+          type: integer
+          description: Log index within the transaction
+        decoded:
+          allOf:
+            - $ref: '#/components/schemas/DecodedLogInput'
+          nullable: true
+        smart_contract:
+          allOf:
+            - $ref: '#/components/schemas/Address'
+          nullable: true
+        block_hash:
+          $ref: '#/components/schemas/FullHash'
+        block_number:
+          type: integer
+          description: Block number containing this log
+        block_timestamp:
+          $ref: '#/components/schemas/TimestampNullable'
+      required:
+        - transaction_hash
+        - address
+        - topics
+        - data
+        - index
+        - decoded
+        - smart_contract
+        - block_hash
+        - block_number
+        - block_timestamp
+
+    PaginationResponse:
+      type: object
+      description: Pagination metadata
+      properties:
+        next_page_params:
+          type: object
+          nullable: true
+          description: Parameters for fetching the next page
+
+paths:
+  # REST API Endpoints (base_url/{chain_id}/api/v2/...)
+  
+  /addresses/{address_hash}:
+    get:
+      tags:
+        - addresses
+      summary: Get address details
+      description: Retrieves comprehensive information about a blockchain address
+      operationId: getAddress
+      parameters:
+        - name: address_hash
+          in: path
+          required: true
+          description: Address hash to query
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+        - $ref: '#/components/parameters/ApiKeyQuery'
+        - $ref: '#/components/parameters/SecretKey'
+      responses:
+        '200':
+          description: Address details retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+      security:
+        - ApiKeyQueryAuth: []
+        - ApiKeyHeaderAuth: []
+
+  /addresses/{address_hash}/nft/collections:
+    get:
+      tags:
+        - addresses
+        - tokens
+      summary: List NFTs owned by an address grouped by collection/project
+      description: |
+        Retrieves NFTs owned by a specific address, organized by collection. 
+        Useful for displaying an address's NFT portfolio grouped by project.
+      operationId: getNFTCollections
+      parameters:
+        - name: address_hash
+          in: path
+          required: true
+          description: Address hash to query
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+        - $ref: '#/components/parameters/ApiKeyQuery'
+        - $ref: '#/components/parameters/SecretKey'
+        - name: type
+          in: query
+          required: false
+          description: |
+            Filter by token type. Comma-separated list of:
+            * ERC-721 - Non-fungible tokens
+            * ERC-1155 - Multi-token standard
+            * ERC-404 - Hybrid fungible/non-fungible tokens
+            
+            Example: `ERC-721,ERC-1155` to show both NFT and multi-token transfers
+          schema:
+            type: string
+            pattern: '^\[?(ERC-20|ERC-721|ERC-1155|ERC-404)(,(ERC-20|ERC-721|ERC-1155|ERC-404))*\]?$'
+            example: 'ERC-721,ERC-1155'
+        - $ref: '#/components/parameters/ItemsCount'
+        - name: token_contract_address_hash
+          in: query
+          required: false
+          description: Token contract address hash for pagination cursor
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+        - name: token_type
+          in: query
+          required: false
+          description: Token type for pagination cursor
+          schema:
+            $ref: '#/components/schemas/TokenType'
+      responses:
+        '200':
+          description: NFTs owned by the specified address, grouped by collection
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/PaginationResponse'
+                  - type: object
+                    properties:
+                      items:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/NFTCollection'
+                    required:
+                      - items
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+      security:
+        - ApiKeyQueryAuth: []
+        - ApiKeyHeaderAuth: []
+
+  /addresses/{address_hash}/transactions:
+    get:
+      tags:
+        - addresses
+        - transactions
+      summary: Get transactions for an address
+      description: Retrieves paginated list of transactions involving the specified address
+      operationId: getAddressTransactions
+      parameters:
+        - name: address_hash
+          in: path
+          required: true
+          description: Address hash to query
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+        - $ref: '#/components/parameters/ApiKeyQuery'
+        - $ref: '#/components/parameters/SecretKey'
+        - $ref: '#/components/parameters/ItemsCount'
+        - name: filter
+          in: query
+          required: false
+          description: |
+            Filter transactions by direction:
+            * `to` - Only transactions sent to this address
+            * `from` - Only transactions sent from this address
+          schema:
+            type: string
+            enum: [to, from]
+        - name: block_number
+          in: query
+          required: false
+          description: Block number for pagination cursor
+          schema:
+            type: integer
+        - name: index
+          in: query
+          required: false
+          description: Transaction index for pagination cursor
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Transactions retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    description: List of transactions
+                    items:
+                      type: object
+                  next_page_params:
+                    type: object
+                    nullable: true
+                    description: Parameters for next page
+                required:
+                  - items
+                  - next_page_params
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+      security:
+        - ApiKeyQueryAuth: []
+        - ApiKeyHeaderAuth: []
+
+  /transactions/{transaction_hash}:
+    get:
+      tags:
+        - transactions
+      summary: Get transaction details
+      description: Retrieves comprehensive information about a specific transaction
+      operationId: getTransaction
+      parameters:
+        - name: transaction_hash
+          in: path
+          required: true
+          description: Transaction hash to query
+          schema:
+            $ref: '#/components/schemas/FullHash'
+        - $ref: '#/components/parameters/ApiKeyQuery'
+        - $ref: '#/components/parameters/SecretKey'
+      responses:
+        '200':
+          description: Transaction details retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Transaction details
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+      security:
+        - ApiKeyQueryAuth: []
+        - ApiKeyHeaderAuth: []
+
+  /transactions/{transaction_hash}/logs:
+    get:
+      tags:
+        - transactions
+      summary: Get transaction logs
+      description: Retrieves event logs emitted by a specific transaction
+      operationId: getTransactionLogs
+      parameters:
+        - name: transaction_hash
+          in: path
+          required: true
+          description: Transaction hash to query
+          schema:
+            $ref: '#/components/schemas/FullHash'
+        - $ref: '#/components/parameters/ApiKeyQuery'
+        - $ref: '#/components/parameters/SecretKey'
+      responses:
+        '200':
+          description: Transaction logs retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Log'
+                required:
+                  - items
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+      security:
+        - ApiKeyQueryAuth: []
+        - ApiKeyHeaderAuth: []
+
+  /blocks/{block_number_or_hash}:
+    get:
+      tags:
+        - blocks
+      summary: Get block details
+      description: Retrieves information about a specific block by number or hash
+      operationId: getBlock
+      parameters:
+        - name: block_number_or_hash
+          in: path
+          required: true
+          description: Block number or hash
+          schema:
+            oneOf:
+              - type: integer
+                description: Block number
+              - $ref: '#/components/schemas/FullHash'
+        - $ref: '#/components/parameters/ApiKeyQuery'
+        - $ref: '#/components/parameters/SecretKey'
+      responses:
+        '200':
+          description: Block details retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Block details
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+      security:
+        - ApiKeyQueryAuth: []
+        - ApiKeyHeaderAuth: []
+
+  /tokens/{address_hash}:
+    get:
+      tags:
+        - tokens
+      summary: Get token details
+      description: Retrieves information about a specific token contract
+      operationId: getToken
+      parameters:
+        - name: address_hash
+          in: path
+          required: true
+          description: Token contract address
+          schema:
+            $ref: '#/components/schemas/AddressHash'
+        - $ref: '#/components/parameters/ApiKeyQuery'
+        - $ref: '#/components/parameters/SecretKey'
+      responses:
+        '200':
+          description: Token details retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+      security:
+        - ApiKeyQueryAuth: []
+        - ApiKeyHeaderAuth: []
+
+  /stats:
+    get:
+      tags:
+        - stats
+      summary: Get network statistics
+      description: Retrieves current statistics for the blockchain network
+      operationId: getStats
+      parameters:
+        - $ref: '#/components/parameters/ApiKeyQuery'
+        - $ref: '#/components/parameters/SecretKey'
+      responses:
+        '200':
+          description: Network statistics retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Network statistics
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+      security:
+        - ApiKeyQueryAuth: []
+        - ApiKeyHeaderAuth: []
+
+# Note: This is a framework version of the revamped spec.
+# The full spec should include all endpoints from the original swagger file,
+# reorganized according to this structure.
