@@ -4,20 +4,23 @@ description: "Deploy a production-ready instance on the cloud in 5 minutes"
 icon: "rocket"
 ---
 
+<Check>
+Want to try Autoscout for Free? Request test credits in the [Blockscout Discord](https://discord.gg/blockscout) `#autoscout` channel or email us at community@blockscout.com and we'll top up your account.
+</Check>
+
 Autoscout is a self-service launchpad for chains and rollups looking to deploy an explorer quickly on hosted infrastructure. It is optimized for many chain types including Optimistic and Arbitrum Orbit rollups and zk rollups including Polygon zkEVM and zkSync.
 
-<Check>
-  Autoscout is now available at https://deploy.blockscout.com/
-</Check>
+<Info>
+Get Started at https://deploy.blockscout.com
+</Info>
 
 ### Get Started with Autoscout
 
 1. **Create an account:** To get started, go to https://deploy.blockscout.com/, create an account, and login to get started.
 2. **Purchase credits:** You will need credits to launch your explorer. Each credit costs \$1.00. Purchase via Stripe with a credit card or via crypto. Credits are deducted in real time, see the pricing table below for costs.
 
-   **You can start with any amount of credits to test your instance. Instances cost between 0.35 - 1.35 credits per hour, depending on the size.**
+   **You can start with any amount of credits to test your instance. Instances cost between 0.49 - 1.35 credits per hour, depending on the size.**
 
-   a. If you are testing the service, request test credits in the [Blockscout Discord](https://discord.gg/blockscout) `#autoscout` channel. Share your email and request and we will top off your account for testing.
 3. **Add a new instance:** Click the Add instance button to get started.
 4. **Add your network info**: See below for info on configuration and parameters.
 5. **Deploy your explorer:** Click save and deploy to start the deployment process. In 5-10 minutes your explorer will be live and indexing your chain. Once deployed you can access your explorer link.
@@ -34,10 +37,22 @@ If your account runs out of credits your instance will be stopped until you top 
 
 | Size                     | Hourly | Daily | Weekly | Monthly |
 | ------------------------ | ------ | ----- | ------ | ------- |
-| xSmall brand new chain   | .35    | 8.50  | 60     | 252     |
 | Small \<50K tx per day   | .485   | 12    | 84     | 349     |
 | Medium \<150K tx per day | .972   | 24    | 168    | 700     |
 | Large \<1M tx per day    | 1.32   | 32    | 224    | 950     |
+
+## HDD Billing
+In addition to billing based on tx/day, instances are allotted an amount of free disc space as follows:
+
+Instance Size Free Disk Quotas
+* Small - 512 GB
+* Medium - 1024 GB
+* Large - 2048 GB
+
+The status tab shows current HD consumption.
+
+Once an instance exceeds the Free GN amount, additional credits are required to cover overages for additional usage. Typically it makes sense for an instance to upgrade to a higher tier once these limits are reached. Overage costs are billed at $0.00015 per GB hour. 
+
 
 ## Create Instance
 
@@ -46,10 +61,6 @@ There are several tabs to fill out to launch your instance; Info, Branding, and 
 You can edit parameters at any time, but this typically requires relaunching and reindexing the instance.
 
 ### Info
-
-<Frame caption>
-  ![](/images/21c50404-image.jpeg)
-</Frame>
 
 The following parameters are in the Info section. \* parameters are required.
 
@@ -173,5 +184,8 @@ If your chain is a rollup you will select this in the info screen and then fillo
   </Accordion>
   <Accordion title="How do I upgrade to the latest version of Blockscout with Autoscout?">
     Updating is easy! Simply  **restart** your instance and it is automatically updated to the latest version.
+  </Accordion>
+  <Accordion title="Are there additional resources for Autoscout information?">
+    Check out our [Autoscout blog post](https://www.blog.blockscout.com/ship-faster-with-autoscout-deploy-a-block-explorer-with-status-logs-and-advanced-features/) for more info on reading logs and viewing status updates.
   </Accordion>
 </AccordionGroup>
