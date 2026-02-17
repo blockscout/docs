@@ -19,13 +19,13 @@ The service validates the repository, clones the repo the user provided, and che
 
 Stylus requires the Rust toolchain version to be specified in a `rust-toolchain.toml` file. The file has to be located inside the working directory.
 
-For verification, Blockscout uses the command `cargo stylus verify` `--no-verify --endpoint {rpc_endpoint} --deployment-tx {deployment_transaction}`\`.
+For verification, Blockscout uses the command `cargo stylus verify --no-verify --endpoint {rpc_endpoint} --deployment-tx {deployment_transaction}`.
 
 We opt out of running verification inside in-stylus docker container by adding the `--no-verify` flag. We opt out because `cargo-stylus` requires the docker daemon to be run locally, but we would like to run the service and docker daemon on different machines. We implemented our own docker container startup process which allows us to run containers on the remote docker daemon.
 
 `cargo stylus verify` prints the result into console. We parse the `stdout` and look for the line: "`Verified - contract matches local project's file hashes`". If found, the verification is considered successful, otherwise the verification fails.
 
-If successful, we also attempt to retrieve the contract ABI as it is not returned by the verify command. To get the abi, we run the `cargo stylus export-abi` command, and parse its result. It prints the ABIs of all included contracts, and the verified contract ABI is printed as the last one. The name of this ABI is also used as a contract name inside a response.
+If successful, we also attempt to retrieve the contract ABI as it is not returned by the verify command. To get the ABI, we run the `cargo stylus export-abi` command, and parse its result. It prints the ABIs of all included contracts, and the verified contract ABI is printed as the last one. The name of this ABI is also used as a contract name inside a response.
 
 If you need the code, the main function is implemented here: [<u>https://github.com/blockscout/blockscout-rs/blob/main/stylus-verifier/stylus-verifier-logic/src/stylus_sdk_rs.rs#L76</u>](https://github.com/blockscout/blockscout-rs/blob/main/stylus-verifier/stylus-verifier-logic/src/stylus_sdk_rs.rs#L76)
 

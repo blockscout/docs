@@ -47,7 +47,7 @@ query {
    }
 ```
 
-1. **Subscription:** subscribe to real-time data.
+3\) **Subscription:** subscribe to real-time data.
 
 ```javascript
 subscription {
@@ -60,7 +60,7 @@ subscription {
 
 ## **Access GraphQL API**
 
-To access Blockscout GraphQL interface you can use GraphiQL - in-browser IDE for exploring GraphQL. It's built in to Blockscout. From the `APIs` dropdown menu choose `GraphQL.`
+To access Blockscout GraphQL interface you can use [GraphiQL](https://eth.blockscout.com/api-docs?tab=graphql_api) - in-browser IDE for exploring GraphQL. It's built in to Blockscout. From the `APIs` dropdown menu choose `GraphQL.`
 
 <Frame caption="">
   <img src="/images/e05b6ff7-image.jpeg" />
@@ -69,7 +69,7 @@ To access Blockscout GraphQL interface you can use GraphiQL - in-browser IDE for
 You can also use your favorite http client:
 
 ```sh
-curl 'https://eth-sepolia.blockscout.com/graphiql'
+curl 'https://eth-sepolia.blockscout.com/api/v2/graphql'
   -H 'Authorization: Bearer YOUR_AUTH_TOKEN'
   -d '{"query":""{transaction(hash:\"0x4f3a80620613d18a5073108f56558c7cbf0020c8ccb1acbad2c1f1fe3714e5ce\"){blockNumbertoAddressHashfromAddressHashcreatedContractAddressHashvaluestatusnoncehasherrorgasgasPricegasUsedcumulativeGasUsedidindexinputrsv}}""}'
 ```

@@ -289,7 +289,7 @@ For more information on parameters to pass, see the [flattened source code infor
 
 **Body**
 
-<ParamField body="compiler_version" type="number">
+<ParamField body="compiler_version" type="string">
   Example: `v0.8.17+commit.8df45f5f`
 </ParamField>
 <ParamField body="contract_name" type="string">
@@ -529,10 +529,10 @@ Content-Length: 271
 {
   "compiler_version": "v0.8.17+commit.8df45f5f",
   "license_type": "gnu_gpl_v3",
-  "is_optimization_enabled": "true",
+  "is_optimization_enabled": true,
   "libraries": "{\"Libcheck\": \"0x030f7c7dbd472864220bcf9e37ede1b8a3125970\"}",
   "evm_version": "london",
-  "optimization_runs": "199",
+  "optimization_runs": 199,
   "files[0]": "text",
   "files[1]": "binary"
 }
@@ -559,7 +559,7 @@ const formData = new FormData();
 formData.append("compiler_version", "v0.8.17+commit.8df45f5f");
 formData.append("license_type", "gnu_gpl_v3");
 formData.append("is_optimization_enabled", "true");
-formData.append("libraries", "{"Libcheck": "0x030f7c7dbd472864220bcf9e37ede1b8a3125970"}");
+formData.append("libraries", "{\"Libcheck\": \"0x030f7c7dbd472864220bcf9e37ede1b8a3125970\"}");
 formData.append("evm_version", "london");
 formData.append("optimization_runs", "199");
 formData.append("files[0]", "text");
