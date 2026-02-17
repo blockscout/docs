@@ -9,7 +9,7 @@ description: ?module=contract
 
 `listcontracts`
 
-List sorted in ascending order based on the time a contact was first indexed by the explorer. With filters \`unverified(2)\` the results will not be sorted for performance reasons.
+List sorted in ascending order based on the time a contract was first indexed by the explorer. With filters \`unverified(2)\` the results will not be sorted for performance reasons.
 
 **Example:**
 
@@ -415,7 +415,7 @@ contract Storage {
 --form 'compilerversion="v0.8.17+commit.8df45f5f"' \
 --form 'optimizationUsed="1"' \
 --form 'runs="199"' \
---form 'constructorArguements=""' \
+--form 'constructorArguments=""' \
 --form 'evmversion="london"' \
 --form 'libraryname1="qwe"' \
 --form 'libraryaddress1="0xDc2082945d55596bf39F362d9EC0F7F65eDBB9DD"'
@@ -429,7 +429,7 @@ contract Storage {
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **codeformat**                 | Format of sourceCode (`solidity-standard-json-input` or `solidity-single-file`)                                                                                                |
 | **contractaddress**            | `string` containing the address hash of the contract.                                                                                                                          |
-| **contractname**               | `string` name of the contract. It an be an empty string(""), just the contract name("ContractName"), or a filename and contract name("contracts/contract\_1.sol:ContractName") |
+| **contractname**               | `string` name of the contract. It can be an empty string(""), just the contract name("ContractName"), or a filename and contract name("contracts/contract\_1.sol:ContractName") |
 | **compilerversion**            | `string` containing the compiler version for the contract.                                                                                                                     |
 | **sourceCode**                 | `string` standard input json or flattened solidity code                                                                                                                        |
 | optimizationUsed               | could be `0`, `false`, `1`, `true`. Should be set when `codeformat=solidity-single-file`                                                                                       |
@@ -477,9 +477,9 @@ https://instance_base_url/api
 <Tabs>
 <Tab title="Params">
 
-| Parameter | Description                                       |
-| --------- | ------------------------------------------------- |
-| **guid**  | `string`used for identifying verification attempt |
+| Parameter | Description                                        |
+| --------- | -------------------------------------------------- |
+| **guid**  | `string` used for identifying verification attempt |
 
 </Tab>
 <Tab title="Example Result">
@@ -553,9 +553,9 @@ https://instance_base_url/api
 <Tabs>
 <Tab title="Params">
 
-| Parameter | Description                                       |
-| --------- | ------------------------------------------------- |
-| **guid**  | `string`used for identifying verification attempt |
+| Parameter | Description                                        |
+| --------- | -------------------------------------------------- |
+| **guid**  | `string` used for identifying verification attempt |
 
 </Tab>
 <Tab title="Example Result">
