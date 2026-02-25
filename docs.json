@@ -45,6 +45,11 @@
             "anchor": "Blog",
             "icon": "newspaper",
             "href": "https://www.blog.blockscout.com/"
+          },
+           {
+            "anchor": "API Docs",
+            "icon": "cloud",
+            "href": "https://docs.blockscout.com/devs/apis"
           }
         ]
       },
@@ -149,7 +154,6 @@
                 "devs/for-web3-developers",
                 "devs/replace-links",
                 "devs/apis-redirect",
-                "devs/pro-api",
                 {
                   "group": "Wallet as a Service (WaaS)",
                   "icon": "wallet",
