@@ -1,0 +1,241 @@
+---
+title: "Plans and Credits"
+---
+
+The PRO API plan offers multichain access and tiered pricing to access additional call volume and speed.  Compared to Etherscan, Blockscout covers **more than 2X the number of chains** while providing **faster default RPS** and **lower price points** for all tiers:
+
+# API Pricing Comparison: Blockscout vs Etherscan
+
+|                          | **Blockscout**                           | **Etherscan**                                                      |
+| ------------------------ | ---------------------------------------- | ------------------------------------------------------------------ |
+| **Tiers**                | Free, Builder, Pro, Business             | Free, Lite, Standard, Advanced, Professional, Pro Plus, Enterprise |
+| **Price Range**          | $0 to $999/mo (+ Enterprise custom)      | $0 to $899/mo (+ Enterprise custom)                                |
+| **Free Rate Limit**      | **5 req/sec**                            | 3 req/sec                                                          |
+| **Free Calls**           | 100K credits /day                        | Up to 100K/day _(90% chain coverage only)_                         |
+| **Entry Paid (\$49/mo)** | **15 req/sec, 100M credits/mo**          | 5 req/sec, Up to 100K calls/day                                    |
+| **Mid Tier (\$199/mo)**  | **30 req/sec, 500M credits/mo**          | 10 req/sec, Up to 200K calls/day                                   |
+| **Top Paid Tier**        | \$999/mo — **50 req/sec, 3B credits/mo** | \$899/mo — 30 req/sec, Up to 1.5M calls/day                        |
+| **Overage Pricing**      | **Yes (0.50/1M extra)**                  | No hard cap overages                                               |
+| **Pro Endpoints**        | **All paid tiers**                       | Standard (\$199/mo) and above only                                 |
+| **Chain Coverage**       | **100+ EVM chains**                      | 50+ chains                                                         |
+| **Open Source**          | **Yes**                                  | No                                                                 |
+| **Support (top tier)**   | Dedicated                                | Dedicated                                                          |
+
+> **Bold** = better value. Blockscout credits are monthly; Etherscan calls are daily — at \$49/mo, Blockscout's 100M credits/mo ≈ **3×+ more throughput** than Etherscan Lite's 100K/day.
+
+# Supported Chains Comparison: Blockscout vs Etherscan
+
+**Legend:** ✅ Supported · ❌ Not supported · ⚠️ Paid tier only (Etherscan)
+
+**Bold** rows = exclusive to one explorer. Blockscout: 117 chains · Etherscan: 68 chains · Shared: 20 chains. Chains are listed by Chain ID.
+
+| Chain Name                        | Chain ID    | Blockscout Pro API | Etherscan API    |
+| --------------------------------- | ----------- | :----------------: | :--------------: |
+| Ethereum Mainnet                  | 1           | ✅                  | ✅                |
+| **Goerli Testnet**                | 5           | **✅**              | ❌                |
+| OP Mainnet                        | 10          | ✅                  | ⚠️ Paid only     |
+| **Rootstock Mainnet**             | 30          | **✅**              | ❌                |
+| **Rootstock Testnet**             | 31          | **✅**              | ❌                |
+| **XDC Mainnet**                   | 50          | ❌                  | **✅**            |
+| **XDC Apothem Testnet**           | 51          | ❌                  | **✅**            |
+| **BNB Smart Chain Mainnet**       | 56          | ❌                  | **⚠️ Paid only** |
+| **Ethereum Classic**              | 61          | **✅**              | ❌                |
+| **ETC Mordor Testnet**            | 63          | **✅**              | ❌                |
+| **Shibuya Testnet**               | 81          | **✅**              | ❌                |
+| **Viction Mainnet**               | 88          | **✅**              | ❌                |
+| **Viction Testnet**               | 89          | **✅**              | ❌                |
+| **BNB Smart Chain Testnet**       | 97          | ❌                  | **⚠️ Paid only** |
+| Gnosis                            | 100         | ✅                  | ✅                |
+| **Fuse Mainnet**                  | 122         | **✅**              | ❌                |
+| **Fuse Spark Testnet**            | 123         | **✅**              | ❌                |
+| Unichain Mainnet                  | 130         | ✅                  | ✅                |
+| Polygon Mainnet                   | 137         | ✅                  | ✅                |
+| **Monad Mainnet**                 | 143         | ❌                  | **✅**            |
+| **Sonic Mainnet**                 | 146         | ❌                  | **✅**            |
+| **ShimmerEVM Mainnet**            | 148         | **✅**              | ❌                |
+| **HashKey Chain Mainnet**         | 177         | **✅**              | ❌                |
+| **BitTorrent Chain Mainnet**      | 199         | ❌                  | **✅**            |
+| **opBNB Mainnet**                 | 204         | ❌                  | **✅**            |
+| **TAC Mainnet**                   | 239         | **✅**              | ❌                |
+| **Fraxtal Mainnet**               | 252         | ❌                  | **✅**            |
+| **zkSync Sepolia Testnet**        | 300         | **✅**              | ❌                |
+| **Filecoin Mainnet**              | 314         | **✅**              | ❌                |
+| **zkSync Era Mainnet**            | 324         | **✅**              | ❌                |
+| **Shape Mainnet**                 | 360         | **✅**              | ❌                |
+| **OP Goerli Testnet**             | 420         | **✅**              | ❌                |
+| World Chain Mainnet               | 480         | ✅                  | ✅                |
+| **Blackfort Mainnet**             | 488         | **✅**              | ❌                |
+| **Astar Mainnet**                 | 592         | **✅**              | ❌                |
+| **Redstone Mainnet**              | 690         | **✅**              | ❌                |
+| **Matchain Mainnet**              | 698         | **✅**              | ❌                |
+| **Social Network Testnet**        | 749         | **✅**              | ❌                |
+| **Stable Mainnet**                | 988         | ❌                  | **✅**            |
+| **HyperEVM Mainnet**              | 999         | ❌                  | **✅**            |
+| **BitTorrent Chain Testnet**      | 1029        | ❌                  | **✅**            |
+| **ShimmerEVM Testnet**            | 1073        | **✅**              | ❌                |
+| **IOTA EVM Testnet**              | 1076        | **✅**              | ❌                |
+| **Lisk Mainnet**                  | 1135        | **✅**              | ❌                |
+| **Moonbeam Mainnet**              | 1284        | ❌                  | **✅**            |
+| **Moonriver Mainnet**             | 1285        | ❌                  | **✅**            |
+| **Moonbase Alpha Testnet**        | 1287        | ❌                  | **✅**            |
+| Unichain Sepolia Testnet          | 1301        | ✅                  | ✅                |
+| **Story Aeneid Testnet**          | 1315        | **✅**              | ❌                |
+| **Sei Testnet**                   | 1328        | ❌                  | **✅**            |
+| **Sei Mainnet**                   | 1329        | ❌                  | **✅**            |
+| **Story Mainnet**                 | 1514        | **✅**              | ❌                |
+| **Reya Network Mainnet**          | 1729        | **✅**              | ❌                |
+| **PlayBlock Mainnet**             | 1829        | **✅**              | ❌                |
+| **Soneium Mainnet**               | 1868        | **✅**              | ❌                |
+| **LightLink Phoenix Mainnet**     | 1890        | **✅**              | ❌                |
+| **LightLink Pegasus Testnet**     | 1891        | **✅**              | ❌                |
+| **Swellchain Mainnet**            | 1923        | ❌                  | **✅**            |
+| **Swellchain Testnet**            | 1924        | ❌                  | **✅**            |
+| **Soneium Minato Testnet**        | 1946        | **✅**              | ❌                |
+| **Stable Testnet**                | 2201        | ❌                  | **✅**            |
+| **KiteAI Mainnet**                | 2365        | **✅**              | ❌                |
+| **KiteAI Mainnet (alt)**          | 2366        | **✅**              | ❌                |
+| **KiteAI Testnet**                | 2368        | **✅**              | ❌                |
+| **TAC St. Petersburg Testnet**    | 2391        | **✅**              | ❌                |
+| **Fraxtal Hoodi Testnet**         | 2523        | ❌                  | **✅**            |
+| **Abstract Mainnet**              | 2741        | ❌                  | **✅**            |
+| **Nexus Staging Testnet**         | 3941        | **✅**              | ❌                |
+| **Nexus Testnet**                 | 3945        | **✅**              | ❌                |
+| **Lisk Sepolia Testnet**          | 4202        | **✅**              | ❌                |
+| MegaETH Mainnet                   | 4326        | ✅                  | ✅                |
+| **Memecore Mainnet**              | 4352        | ❌                  | **✅**            |
+| World Chain Sepolia Testnet       | 4801        | ✅                  | ✅                |
+| **Blackfort Testnet**             | 4888        | **✅**              | ❌                |
+| **Blackfort Mainnet (legacy)**    | 4999        | **✅**              | ❌                |
+| **Mantle Mainnet**                | 5000        | ❌                  | **✅**            |
+| **Mantle Sepolia Testnet**        | 5003        | ❌                  | **✅**            |
+| **opBNB Testnet**                 | 5611        | ❌                  | **✅**            |
+| MegaETH Testnet                   | 6342        | ✅                  | ✅                |
+| **MegaETH Testnet v2**            | 6343        | **✅**              | ❌                |
+| **Everclear Testnet**             | 6398        | **✅**              | ❌                |
+| **ZetaChain Mainnet**             | 7000        | **✅**              | ❌                |
+| **ZetaChain Testnet**             | 7001        | **✅**              | ❌                |
+| **Numine Mainnet**                | 8021        | **✅**              | ❌                |
+| **Zenchain Mainnet**              | 8408        | **✅**              | ❌                |
+| **Base Mainnet**                  | 8453        | ❌                  | **⚠️ Paid only** |
+| **IOTA EVM Mainnet**              | 8822        | **✅**              | ❌                |
+| **Plasma Mainnet**                | 9745        | ❌                  | **✅**            |
+| **Plasma Testnet**                | 9746        | ❌                  | **✅**            |
+| **Monad Testnet**                 | 10143       | ❌                  | **✅**            |
+| **Gnosis Chiado Testnet**         | 10200       | **✅**              | ❌                |
+| **Tea Sepolia Testnet**           | 10218       | **✅**              | ❌                |
+| **Shape Sepolia Testnet**         | 11011       | **✅**              | ❌                |
+| **Abstract Sepolia Testnet**      | 11124       | ❌                  | **✅**            |
+| **Immutable zkEVM Mainnet**       | 13371       | **✅**              | ❌                |
+| **Immutable zkEVM Testnet**       | 13473       | **✅**              | ❌                |
+| **Sonic Testnet**                 | 14601       | ❌                  | **✅**            |
+| **Ethereum Holesky Testnet**      | 17000       | **✅**              | ❌                |
+| **Zilliqa EVM Mainnet**           | 32769       | **✅**              | ❌                |
+| **Zilliqa EVM Testnet**           | 33101       | **✅**              | ❌                |
+| **ApeChain Curtis Testnet**       | 33111       | ❌                  | **✅**            |
+| **ApeChain Mainnet**              | 33139       | ❌                  | **✅**            |
+| **Mode Mainnet**                  | 34443       | **✅**              | ❌                |
+| **EDU Chain Mainnet**             | 41923       | **✅**              | ❌                |
+| Arbitrum One Mainnet              | 42161       | ✅                  | ✅                |
+| **Arbitrum Nova Mainnet**         | 42170       | **✅**              | ❌                |
+| Celo Mainnet                      | 42220       | ✅                  | ✅                |
+| **Etherlink Mainnet**             | 42793       | **✅**              | ❌                |
+| **Avalanche Fuji Testnet**        | 43113       | ❌                  | **⚠️ Paid only** |
+| **Avalanche C-Chain**             | 43114       | ❌                  | **⚠️ Paid only** |
+| **Memecore Testnet**              | 43521       | ❌                  | **✅**            |
+| **Metabased Stratos Testnet**     | 51010       | **✅**              | ❌                |
+| **Ink Mainnet**                   | 57073       | **✅**              | ❌                |
+| **Linea Sepolia Testnet**         | 59141       | ❌                  | **✅**            |
+| **Linea Mainnet**                 | 59144       | ❌                  | **✅**            |
+| **Alchemy Sepolia Testnet**       | 69420       | **✅**              | ❌                |
+| **ICB Testnet**                   | 73114       | **✅**              | ❌                |
+| **ICB Mainnet**                   | 73115       | **✅**              | ❌                |
+| **Polygon Amoy Testnet**          | 80002       | ❌                  | **✅**            |
+| **Berachain Bepolia Testnet**     | 80069       | ❌                  | **✅**            |
+| **Berachain Mainnet**             | 80094       | ❌                  | **✅**            |
+| **Blast Mainnet**                 | 81457       | ❌                  | **✅**            |
+| **Base Goerli Testnet**           | 84531       | **✅**              | ❌                |
+| Base Sepolia Testnet              | 84532       | ✅                  | ⚠️ Paid only     |
+| **Creditcoin Mainnet**            | 102030      | **✅**              | ❌                |
+| **Creditcoin Testnet**            | 102031      | **✅**              | ❌                |
+| **Creditcoin Devnet**             | 102032      | **✅**              | ❌                |
+| **Etherlink Shadownet**           | 127823      | **✅**              | ❌                |
+| **Etherlink Testnet**             | 128123      | **✅**              | ❌                |
+| **Taiko Mainnet**                 | 167000      | ❌                  | **✅**            |
+| **Taiko Hoodi**                   | 167013      | ❌                  | **✅**            |
+| **Filecoin Calibration Testnet**  | 314159      | **✅**              | ❌                |
+| **World Mobile Testnet**          | 323432      | **✅**              | ❌                |
+| Arbitrum Sepolia Testnet          | 421614      | ✅                  | ✅                |
+| Scroll Sepolia Testnet            | 534351      | ✅                  | ✅                |
+| Scroll Mainnet                    | 534352      | ✅                  | ✅                |
+| Hoodi Testnet                     | 560048      | ✅                  | ✅                |
+| **Crosschain Testnet**            | 612044      | **✅**              | ❌                |
+| **Crosschain Mainnet**            | 612055      | **✅**              | ❌                |
+| **EDU Chain Testnet**             | 656476      | **✅**              | ❌                |
+| **Gensyn Testnet**                | 685685      | **✅**              | ❌                |
+| **Pyrope Chain Mainnet**          | 695569      | **✅**              | ❌                |
+| **Katana Bokuto**                 | 737373      | ❌                  | **✅**            |
+| **Katana Mainnet**                | 747474      | ❌                  | **✅**            |
+| **Ink Sepolia Testnet**           | 763373      | **✅**              | ❌                |
+| **Arc Testnet**                   | 5042002     | **✅**              | ❌                |
+| **Kaigan Mainnet**                | 5278000     | **✅**              | ❌                |
+| **Zora Mainnet**                  | 7777777     | **✅**              | ❌                |
+| **Fluence Mainnet**               | 9999999     | **✅**              | ❌                |
+| **Spotlight Mainnet**             | 10058111    | **✅**              | ❌                |
+| **Spotlight Sepolia Testnet**     | 10058112    | **✅**              | ❌                |
+| Celo Sepolia Testnet              | 11142220    | ✅                  | ✅                |
+| Ethereum Sepolia Testnet          | 11155111    | ✅                  | ✅                |
+| OP Sepolia Testnet                | 11155420    | ✅                  | ⚠️ Paid only     |
+| **Citronus Testnet**              | 34949059    | **✅**              | ❌                |
+| **Fluence Testnet**               | 52164803    | **✅**              | ❌                |
+| **Reya Cronos Testnet**           | 89346162    | **✅**              | ❌                |
+| **Blast Sepolia Testnet**         | 168587773   | ❌                  | **✅**            |
+| **Neon EVM Devnet**               | 245022926   | **✅**              | ❌                |
+| **Neon EVM Mainnet**              | 245022934   | **✅**              | ❌                |
+| **OP Interop Alpha 0 Testnet**    | 420120000   | **✅**              | ❌                |
+| **OP Interop Alpha 1 Testnet**    | 420120001   | **✅**              | ❌                |
+| **Polygon CDK Stavanger Testnet** | 686669576   | **✅**              | ❌                |
+| **Eden Testnet**                  | 3735928814  | **✅**              | ❌                |
+| **Arbitrum Blueberry Testnet**    | 88153591557 | **✅**              | ❌                |
+
+---
+Sources (February 2026): [Blockscout Pro API chains](https://github.com/blockscout/backend-configs/blob/23ce1258a499a76bd18ce649ff1a07c6ae800042/pro-api/prod/chains-config.json) · [Etherscan supported chains](https://docs.etherscan.io/supported-chains)
+
+# Blockscout Credit Costs
+
+Credit amounts vary based on resource usage for different calls. The number of credits required for different calls is subject to change based on current analytics and resource usage.
+
+You can check your credits, top calls and overall usage in the dev portal dashboard at https://dev.blockscout.com/
+
+## Blockscout Pro API — Credit Costs per Endpoint
+
+Credits are consumed per API call. The **default cost is 20 credits** for any endpoint not listed below. Updated February, 2026
+
+| Endpoint                                               | Credits |
+| ------------------------------------------------------ | :-----: |
+| `default` (all unlisted endpoints)                     | 20      |
+| `api/v2/search/quick`                                  | 25      |
+| `api/v2/transactions/:hash/logs`                       | 30      |
+| `api/v2/transactions/:hash/token-transfers`            | 30      |
+| `api/v2/transactions/:hash/state-changes`              | 30      |
+| `api/v2/tokens`                                        | 30      |
+| `api/v2/tokens/:address_hash/transfers`                | 30      |
+| `api/v2/addresses/:address_hash/token-transfers`       | 30      |
+| `api/v2/addresses/:address_hash/logs`                  | 30      |
+| `api/v2/transactions/:hash/internal-transactions`      | 40      |
+| `api/v2/addresses/:address_hash/internal-transactions` | 40      |
+| `api/v2/smart-contracts/verification/config`           | 40      |
+| `api/v2/transactions/:hash/summary`                    | 50      |
+| `api/v2/transactions/:hash/raw-trace`                  | 50      |
+| `api/v2/addresses/:address_hash/coin-balance-history`  | 50      |
+
+---
+**Plan credit allowances for reference:**
+
+| Plan                | Monthly Credits | Overage Rate |
+| ------------------- | :-------------: | :----------: |
+| Free                | 100,000/day     | —            |
+| Builder (\$49/mo)   | 100M            | \$0.50/1M    |
+| Pro (\$199/mo)      | 500M            | \$0.40/1M    |
+| Business (\$999/mo) | 3,000M          | \$0.32/1M    |
+
+[_Source: endpoint-pricing-config.json · February 2026_](https://github.com/blockscout/backend-configs/blob/23ce1258a499a76bd18ce649ff1a07c6ae800042/pro-api/prod/endpoint-pricing-config.json)

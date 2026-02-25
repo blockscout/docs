@@ -46,7 +46,7 @@
             "icon": "newspaper",
             "href": "https://www.blog.blockscout.com/"
           },
-           {
+          {
             "anchor": "API Docs",
             "icon": "cloud",
             "href": "https://docs.blockscout.com/devs/apis"
@@ -412,6 +412,7 @@
                   "icon": "rectangle-pro",
                   "pages": [
                     "devs/pro-api",
+                    "devs/plans-and-credits",
                     {
                       "group": "PRO API Testing",
                       "icon": "rectangle-pro",
