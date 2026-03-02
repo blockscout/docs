@@ -10,7 +10,7 @@ description: "Blockscout's PRO API provides higher call limits and custom endpoi
 
 ## General Info
 
-The PRO API  expands on Blockscout's free tier API (5 requests per second) to provide expanded rate limits for high-usage projects on Blockscout hosted networks. 
+The PRO API  expands on Blockscout's free tier API (5 requests per second) to provide expanded rate limits for high-usage projects on Blockscout hosted networks.
 
 The free plan includes 100K API credits per day with a rate limit of 5 requests per second. View additional [Plan and Credit information](/devs/plans-and-credits).
 
@@ -44,3 +44,27 @@ All current API routes can be used with the PRO Plan. See the [PRO API Testing ]
 <Note>
   Please see the [API reference section](/devs/apis) for specific endpoint info related to the various APIs.
 </Note>
+
+## Pagination
+
+Blockscout uses the keyset pagination method to quickly return results. By default an API response returns the first 50 results. To access additional results (in groups of 50), add the `next_page_params` to your query.
+
+For example, open **https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx** and scroll to the bottom of the response.
+
+<Frame caption="Example response from transactions query">
+  ![Tx Pagination 1](/images/tx-pagination-1.jpg)
+</Frame>
+
+You will see the `next_page_params` object. Add the parameters from this object to your next query to receive the next 50 results.
+
+**https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445196&index=59&items_count=50**
+
+Repeat this process to continue receiving results in groups of 50 (remove params and substitute the new `next_page_params` found in the body of the query).
+
+<Frame>
+  ![Tx Pagination 2](/images/tx-pagination-2.jpg)
+</Frame>
+
+In this example, the query to receive the next 50 results would be:
+
+**https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445366&index=24&items_count=50**

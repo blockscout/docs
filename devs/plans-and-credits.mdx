@@ -2,14 +2,30 @@
 title: "PRO Plans and Credits"
 ---
 
-The PRO API plan offers multichain access and tiered pricing to access additional call volume and speed.  Compared to Etherscan, Blockscout covers **more than 2X the number of chains** while providing **faster default RPS** and **lower price points** for all tiers:
+The PRO API plan offers multichain access and tiered pricing to access additional call volume and speed.  Compared to Etherscan, Blockscout covers **more than 2X the number of chains** while providing **faster default RPS** and **lower price points** for all tiers.
+
+Blockscout uses a credit system to weight different calls based on size and usage. This creates additional efficiency and saves resources depending on the types of call you need to make. See the [blockscout credit costs table](#blockscout-credit-costs) for more info on individual calls.
+
+<Check>
+  Get started with the PRO API at https://dev.blockscout.com/
+</Check>
+
+# PRO API Pricing Tiers
+
+| Plan       | Cost/Mo    | API Credits | Rate Limit | Overage <br />Rate |
+| ---------- | ---------- | ----------- | ---------- | ------------------ |
+| Free       | \$0        | 100K/day    | 5 RPS      | -                  |
+| Builder    | \$49       | 100M/mo     | 15 RPS     | \$0.5/M            |
+| Pro        | \$199      | 500M/mo     | 30 RPS     | \$0.4/M            |
+| Business   | \$999      | 3B/mo       | 50 RPS     | \$0.32/M           |
+| Enterprise | Custom SLA | unlimited   | TBD        | N/A                |
 
 # API Pricing Comparison: Blockscout vs Etherscan
 
 |                          | **Blockscout**                           | **Etherscan**                                                      |
 | ------------------------ | ---------------------------------------- | ------------------------------------------------------------------ |
 | **Tiers**                | Free, Builder, Pro, Business             | Free, Lite, Standard, Advanced, Professional, Pro Plus, Enterprise |
-| **Price Range**          | \$0 to \$999/mo (+ Enterprise custom)      | \$0 to \$899/mo (+ Enterprise custom)                                |
+| **Price Range**          | \$0 to \$999/mo (+ Enterprise custom)    | \$0 to \$899/mo (+ Enterprise custom)                              |
 | **Free Rate Limit**      | **5 req/sec**                            | 3 req/sec                                                          |
 | **Free Calls**           | 100K credits /day                        | Up to 100K/day _(90% chain coverage only)_                         |
 | **Entry Paid (\$49/mo)** | **15 req/sec, 100M credits/mo**          | 5 req/sec, Up to 100K calls/day                                    |
@@ -230,14 +246,3 @@ Credits are consumed per API call. The **default cost is 20 credits** for any en
 | `api/v2/addresses/:address_hash/coin-balance-history`  | 50      |
 
 ---
-
-**Plan credit allowances for reference:**
-
-| Plan                | Monthly Credits | Overage Rate |
-| ------------------- | :-------------: | :----------: |
-| Free                | 100,000/day     | —            |
-| Builder (\$49/mo)   | 100M            | \$0.50/1M    |
-| Pro (\$199/mo)      | 500M            | \$0.40/1M    |
-| Business (\$999/mo) | 3,000M          | \$0.32/1M    |
-
-[_Source: endpoint-pricing-config.json · February 2026_](https://github.com/blockscout/backend-configs/blob/23ce1258a499a76bd18ce649ff1a07c6ae800042/pro-api/prod/endpoint-pricing-config.json)
