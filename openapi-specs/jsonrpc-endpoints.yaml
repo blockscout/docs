@@ -76,6 +76,7 @@ servers:
 
 security:
   - apiKeyAuth: []
+  - {}
   - {}  # Empty option indicates no authentication is also valid
 
 tags:
@@ -4098,4 +4099,3 @@ components:
       required:
         - to
         - data
-
