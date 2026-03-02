@@ -2031,10 +2031,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2043,23 +2043,24 @@ paths:
                     description: Must be "eth_blockNumber"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id001 []
+                    description: No parameters required
+                    maxItems: 0
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_blockNumber"
-                  params: *id001
+                  params: []
                   id: 1
               - title: eth_getBalance
                 description: "Returns the balance of an account at a given address in wei (hexadecimal).\n\n**JSON-RPC Method:** `eth_getBalance`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2071,10 +2072,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2083,23 +2084,48 @@ paths:
                     description: Must be "eth_getBalance"
                   params:
                     type: array
-                    items:
+                    description: 'Parameters: [address, blockTag]'
+                    minItems: 2
+                    maxItems: 2
+                    prefixItems:
+                    - &id002
+                      type: string
+                      pattern: ^0x[a-fA-F0-9]{40}$
+                      description: Ethereum address (20 bytes, hex-encoded with 0x prefix)
+                      example: '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'
+                    - &id003
                       oneOf:
                       - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id002 ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "latest"]
+                        enum:
+                        - latest
+                        - earliest
+                        - pending
+                        - safe
+                        - finalized
+                        description: Named block tag
+                      - type: string
+                        pattern: ^0x[a-fA-F0-9]+$
+                        description: Block number as hex string
+                      description: 'Block parameter: tag name or hex block number'
+                      example: latest
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_getBalance"
-                  params: *id002
+                  params:
+                  - '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'
+                  - latest
                   id: 1
               - title: eth_getLogs
                 description: "Returns an array of logs matching a specified filter object. Maximum 1000 logs per request. Use pagination for more results.\n\n**JSON-RPC Method:** `eth_getLogs`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2111,10 +2137,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2123,23 +2149,67 @@ paths:
                     description: Must be "eth_getLogs"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id003 [{"address": "0x6B175474E89094C44Da98b954EedeAC495271d0F", "fromBlock": "0x1234567", "toBlock": "latest", "topics": ["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"]}]
+                    description: 'Parameters: [filterObject]'
+                    minItems: 1
+                    maxItems: 1
+                    prefixItems:
+                    - type: object
+                      description: Filter object for log queries
+                      properties:
+                        address:
+                          oneOf:
+                          - type: string
+                            pattern: ^0x[a-fA-F0-9]{40}$
+                          - type: array
+                            items:
+                              type: string
+                              pattern: ^0x[a-fA-F0-9]{40}$
+                          description: Contract address or list of addresses to filter logs from
+                        fromBlock:
+                          type: string
+                          description: Start block (hex number or tag)
+                          example: '0x1234567'
+                        toBlock:
+                          type: string
+                          description: End block (hex number or tag)
+                          example: latest
+                        topics:
+                          type: array
+                          description: Array of 32-byte topics for filtering. Use null for wildcard positions.
+                          items:
+                            oneOf:
+                            - type: string
+                              pattern: ^0x[a-fA-F0-9]{64}$
+                            - type: array
+                              items:
+                                type: string
+                                pattern: ^0x[a-fA-F0-9]{64}$
+                            - type: 'null'
+                        blockHash:
+                          type: string
+                          pattern: ^0x[a-fA-F0-9]{64}$
+                          description: Filter logs from a specific block hash (mutually exclusive with fromBlock/toBlock)
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_getLogs"
-                  params: *id003
+                  params:
+                  - address: '0x6B175474E89094C44Da98b954EedeAC495271d0F'
+                    fromBlock: '0x1234567'
+                    toBlock: latest
+                    topics:
+                    - '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'
                   id: 1
               - title: eth_gasPrice
                 description: "Returns the current gas price in wei (hexadecimal).\n\n**JSON-RPC Method:** `eth_gasPrice`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2151,10 +2221,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2163,23 +2233,24 @@ paths:
                     description: Must be "eth_gasPrice"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id004 []
+                    description: No parameters required
+                    maxItems: 0
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_gasPrice"
-                  params: *id004
+                  params: []
                   id: 1
               - title: eth_getTransactionByHash
                 description: "Returns information about a transaction requested by transaction hash.\n\n**JSON-RPC Method:** `eth_getTransactionByHash`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2191,10 +2262,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2203,23 +2274,32 @@ paths:
                     description: Must be "eth_getTransactionByHash"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id005 ["0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"]
+                    description: 'Parameters: [transactionHash]'
+                    minItems: 1
+                    maxItems: 1
+                    prefixItems:
+                    - &id001
+                      type: string
+                      pattern: ^0x[a-fA-F0-9]{64}$
+                      description: Transaction hash (32 bytes, hex-encoded with 0x prefix)
+                      example: '0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b'
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_getTransactionByHash"
-                  params: *id005
+                  params:
+                  - '0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b'
                   id: 1
               - title: eth_getTransactionReceipt
                 description: "Returns the receipt of a transaction by transaction hash, including logs and status.\n\n**JSON-RPC Method:** `eth_getTransactionReceipt`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2231,10 +2311,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2243,23 +2323,28 @@ paths:
                     description: Must be "eth_getTransactionReceipt"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id006 ["0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"]
+                    description: 'Parameters: [transactionHash]'
+                    minItems: 1
+                    maxItems: 1
+                    prefixItems:
+                    - *id001
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_getTransactionReceipt"
-                  params: *id006
+                  params:
+                  - '0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b'
                   id: 1
               - title: eth_chainId
                 description: "Returns the current chain ID used for signing replay-protected transactions.\n\n**JSON-RPC Method:** `eth_chainId`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2271,10 +2356,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2283,23 +2368,24 @@ paths:
                     description: Must be "eth_chainId"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id007 []
+                    description: No parameters required
+                    maxItems: 0
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_chainId"
-                  params: *id007
+                  params: []
                   id: 1
               - title: eth_maxPriorityFeePerGas
                 description: "Returns the current max priority fee per gas in wei (hexadecimal) for EIP-1559 transactions.\n\n**JSON-RPC Method:** `eth_maxPriorityFeePerGas`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2311,10 +2397,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2323,23 +2409,24 @@ paths:
                     description: Must be "eth_maxPriorityFeePerGas"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id008 []
+                    description: No parameters required
+                    maxItems: 0
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_maxPriorityFeePerGas"
-                  params: *id008
+                  params: []
                   id: 1
               - title: eth_getTransactionCount
                 description: "Returns the number of transactions sent from an address (nonce).\n\n**JSON-RPC Method:** `eth_getTransactionCount`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2351,10 +2438,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2363,23 +2450,30 @@ paths:
                     description: Must be "eth_getTransactionCount"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id009 ["0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045", "latest"]
+                    description: 'Parameters: [address, blockTag]'
+                    minItems: 2
+                    maxItems: 2
+                    prefixItems:
+                    - *id002
+                    - *id003
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_getTransactionCount"
-                  params: *id009
+                  params:
+                  - '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'
+                  - latest
                   id: 1
               - title: eth_getCode
                 description: "Returns the bytecode at a given address (smart contract code).\n\n**JSON-RPC Method:** `eth_getCode`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2391,10 +2485,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2403,23 +2497,30 @@ paths:
                     description: Must be "eth_getCode"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id010 ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "latest"]
+                    description: 'Parameters: [address, blockTag]'
+                    minItems: 2
+                    maxItems: 2
+                    prefixItems:
+                    - *id002
+                    - *id003
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_getCode"
-                  params: *id010
+                  params:
+                  - '0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b'
+                  - latest
                   id: 1
               - title: eth_getStorageAt
                 description: "Returns the value from a storage position at a given address.\n\n**JSON-RPC Method:** `eth_getStorageAt`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2431,10 +2532,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2443,23 +2544,35 @@ paths:
                     description: Must be "eth_getStorageAt"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id011 ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"]
+                    description: 'Parameters: [address, storagePosition, blockTag]'
+                    minItems: 3
+                    maxItems: 3
+                    prefixItems:
+                    - *id002
+                    - type: string
+                      pattern: ^0x[a-fA-F0-9]*$
+                      description: Storage position as hex string
+                      example: '0x0'
+                    - *id003
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_getStorageAt"
-                  params: *id011
+                  params:
+                  - '0x295a70b2de5e3953354a6a8344e616ed314d7251'
+                  - '0x0'
+                  - latest
                   id: 1
               - title: eth_estimateGas
                 description: "Generates and returns an estimate of how much gas is necessary to allow the transaction to complete.\n\n**JSON-RPC Method:** `eth_estimateGas`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2471,10 +2584,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2483,23 +2596,60 @@ paths:
                     description: Must be "eth_estimateGas"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id012 [{"from": "0x8D97689C9818892B700e27F316cc3E41e17fBeb9", "to": "0xd3CdA913deB6f67967B99D67aCDFa1712C293601", "value": "0x186a0"}, "latest"]
+                    description: 'Parameters: [transactionObject, blockTag (optional)]'
+                    minItems: 1
+                    maxItems: 2
+                    prefixItems:
+                    - type: object
+                      description: Transaction object for gas estimation
+                      required:
+                      - to
+                      properties:
+                        from:
+                          type: string
+                          pattern: ^0x[a-fA-F0-9]{40}$
+                          description: Sender address
+                        to:
+                          type: string
+                          pattern: ^0x[a-fA-F0-9]{40}$
+                          description: Recipient or contract address
+                        gas:
+                          type: string
+                          pattern: ^0x[a-fA-F0-9]+$
+                          description: Gas limit as hex
+                        gasPrice:
+                          type: string
+                          pattern: ^0x[a-fA-F0-9]+$
+                          description: Gas price in wei as hex
+                        value:
+                          type: string
+                          pattern: ^0x[a-fA-F0-9]+$
+                          description: Value in wei as hex
+                        data:
+                          type: string
+                          pattern: ^0x[a-fA-F0-9]*$
+                          description: Contract call data as hex
+                    - *id003
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_estimateGas"
-                  params: *id012
+                  params:
+                  - from: '0x8D97689C9818892B700e27F316cc3E41e17fBeb9'
+                    to: '0xd3CdA913deB6f67967B99D67aCDFa1712C293601'
+                    value: '0x186a0'
+                  - latest
                   id: 1
               - title: eth_getBlockByNumber
                 description: "Returns information about a block by block number.\n\n**JSON-RPC Method:** `eth_getBlockByNumber`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2511,10 +2661,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2523,23 +2673,36 @@ paths:
                     description: Must be "eth_getBlockByNumber"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id013 ["0x1234567", false]
+                    description: 'Parameters: [blockNumber, fullTransactions]'
+                    minItems: 2
+                    maxItems: 2
+                    prefixItems:
+                    - type: string
+                      pattern: ^0x[a-fA-F0-9]+$
+                      description: Block number as hex string
+                      example: '0x1234567'
+                    - &id004
+                      type: boolean
+                      description: If true, returns full transaction objects; if false, returns only transaction hashes
+                      example: false
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_getBlockByNumber"
-                  params: *id013
+                  params:
+                  - '0x1234567'
+                  - false
                   id: 1
               - title: eth_getBlockByHash
                 description: "Returns information about a block by block hash.\n\n**JSON-RPC Method:** `eth_getBlockByHash`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2551,10 +2714,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2563,23 +2726,33 @@ paths:
                     description: Must be "eth_getBlockByHash"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id014 ["0x9b83c12c69edb74f6c8dd5d052765c1adf940e320bd1291696e6fa07829eee71", false]
+                    description: 'Parameters: [blockHash, fullTransactions]'
+                    minItems: 2
+                    maxItems: 2
+                    prefixItems:
+                    - type: string
+                      pattern: ^0x[a-fA-F0-9]{64}$
+                      description: Block hash (32 bytes, hex-encoded with 0x prefix)
+                      example: '0x9b83c12c69edb74f6c8dd5d052765c1adf940e320bd1291696e6fa07829eee71'
+                    - *id004
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_getBlockByHash"
-                  params: *id014
+                  params:
+                  - '0x9b83c12c69edb74f6c8dd5d052765c1adf940e320bd1291696e6fa07829eee71'
+                  - false
                   id: 1
               - title: eth_sendRawTransaction
                 description: "Submits a pre-signed transaction for broadcast to the Ethereum network.\n\n**JSON-RPC Method:** `eth_sendRawTransaction`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2591,10 +2764,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2603,23 +2776,31 @@ paths:
                     description: Must be "eth_sendRawTransaction"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id015 ["0xf86c098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a76400008025a028ef61340bd939bc2195fe537567866003e1a15d3c71ff63e1590620aa636276a067cbe9d8997f761aecb703304b3800ccf555c9f3dc64214b297fb1966a3b6d83"]
+                    description: 'Parameters: [signedTransactionData]'
+                    minItems: 1
+                    maxItems: 1
+                    prefixItems:
+                    - type: string
+                      pattern: ^0x[a-fA-F0-9]+$
+                      description: Signed transaction data as RLP-encoded hex string
+                      example: '0xf86c098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a76400008025a028ef61340bd939bc2195fe537567866003e1a15d3c71ff63e1590620aa636276a067cbe9d8997f761aecb703304b3800ccf555c9f3dc64214b297fb1966a3b6d83'
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_sendRawTransaction"
-                  params: *id015
+                  params:
+                  - '0xf86c098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a76400008025a028ef61340bd939bc2195fe537567866003e1a15d3c71ff63e1590620aa636276a067cbe9d8997f761aecb703304b3800ccf555c9f3dc64214b297fb1966a3b6d83'
                   id: 1
               - title: eth_call
                 description: "Executes a new message call immediately without creating a transaction on the blockchain. Used for reading contract state.\n\n**JSON-RPC Method:** `eth_call`\n\nThis endpoint uses the standard Ethereum JSON-RPC 2.0 format."
@@ -2631,10 +2812,10 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    enum:
-                    - '2.0'
                     example: '2.0'
                     description: JSON-RPC version
+                    default: '2.0'
+                    readOnly: true
                   method:
                     type: string
                     enum:
@@ -2643,23 +2824,57 @@ paths:
                     description: Must be "eth_call"
                   params:
                     type: array
-                    items:
-                      oneOf:
-                      - type: string
-                      - type: boolean
-                      - type: object
-                      - type: integer
-                    example: &id016 [{"to": "0x6B175474E89094C44Da98b954EedeAC495271d0F", "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"}, "latest"]
+                    description: 'Parameters: [callObject, blockTag]'
+                    minItems: 2
+                    maxItems: 2
+                    prefixItems:
+                    - type: object
+                      description: Transaction call object
+                      properties:
+                        from:
+                          type: string
+                          pattern: ^0x[a-fA-F0-9]{40}$
+                          description: Sender address (optional)
+                        to:
+                          type: string
+                          pattern: ^0x[a-fA-F0-9]{40}$
+                          description: Target contract address
+                        gas:
+                          type: string
+                          pattern: ^0x[a-fA-F0-9]+$
+                          description: Gas limit as hex (optional)
+                        gasPrice:
+                          type: string
+                          pattern: ^0x[a-fA-F0-9]+$
+                          description: Gas price in wei as hex (optional)
+                        value:
+                          type: string
+                          pattern: ^0x[a-fA-F0-9]+$
+                          description: Value to send in wei as hex (optional)
+                        data:
+                          type: string
+                          pattern: ^0x[a-fA-F0-9]*$
+                          description: Encoded contract method call data
+                    - *id003
+                    items: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
                     example: 1
-                    description: Request identifier, echoed in the response
+                    description: |-
+                    A client-defined identifier for this request. The server echoes it back unchanged
+                    in the response, so you can match responses to requests. This is especially useful
+                    when sending multiple calls in a batch. For single requests any value works — use
+                    any integer (e.g. 1) or string (e.g. "my-request"). Set to null if you do not need
+                    to correlate the response.
                 example:
                   jsonrpc: "2.0"
                   method: "eth_call"
-                  params: *id016
+                  params:
+                  - to: '0x6B175474E89094C44Da98b954EedeAC495271d0F'
+                    data: '0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE'
+                  - latest
                   id: 1
               discriminator:
                 propertyName: method
@@ -3294,9 +3509,10 @@ components:
       properties:
         jsonrpc:
           type: string
-          enum: ["2.0"]
           description: JSON-RPC protocol version
           example: "2.0"
+          default: '2.0'
+          readOnly: true
         method:
           type: string
           description: The method to be invoked
@@ -3343,9 +3559,10 @@ components:
       properties:
         jsonrpc:
           type: string
-          enum: ["2.0"]
           description: JSON-RPC protocol version
           example: "2.0"
+          default: '2.0'
+          readOnly: true
         result:
           description: Result of the method invocation (present on success)
           oneOf:
