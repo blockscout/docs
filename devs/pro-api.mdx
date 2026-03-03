@@ -14,6 +14,10 @@ The free plan includes 100K API credits per day with a rate limit of 5 requests 
   Blockscout PRO API is currently in beta testing. Access the dev portal and get a free API key at https://dev.blockscout.com/
 </Check>
 
+<Note>
+  If you are using accessing the PRO API via AI or an AI agent, direct the AI to this file to get started. https://dev.blockscout.com/llms.txt
+</Note>
+
 ## PRO API Authorization
 
 Pass an API key using either:
@@ -23,14 +27,14 @@ Pass an API key using either:
 
 ## PRO API Response Headers
 
-The following information related to the PRO API plan are included in the response headers 
+The following information related to the PRO API plan are included in the response headers
 
 - **x-credits-remaining:** Number of credits remaining in your plan. If on the free plan, this will resent daily, othewise it is monthly. You can check additional details in the [PRO API UI](https://dev.blockscout.com/).
 - **x-ratelimit-limit:** Available RPS with your plan (can be -1 if there is an internal error)
 - **x-ratelimit-remaining:** Remaining rate limit based on your queries  (can be -1 if there is an internal error)
 - **x-ratelimit-reset:** time in milliseconds until the rate limit resets (can be -1 if there is an internal error)
 
-## PRO API Routes 
+## PRO API Routes
 
 All current API routes can be used with the PRO Plan. See the [PRO API Testing ](https://docs.blockscout.com/api-reference/)section for examples you can try with your API key.
 
