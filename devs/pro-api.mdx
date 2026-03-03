@@ -4,24 +4,33 @@ icon: "circle-nodes"
 description: "Blockscout's PRO API provides higher call limits and custom endpoints"
 ---
 
-<Tip>
-  Blockscout PRO API is currently in beta testing. Access the dev portal and get a free API key at https://dev.blockscout.com/
-</Tip>
-
 ## General Info
 
 The PRO API  expands on Blockscout's free tier API (5 requests per second) to provide expanded rate limits for high-usage projects on Blockscout hosted networks.
 
 The free plan includes 100K API credits per day with a rate limit of 5 requests per second. View additional [Plan and Credit information](/devs/plans-and-credits).
 
-## Authorization
+<Check>
+  Blockscout PRO API is currently in beta testing. Access the dev portal and get a free API key at https://dev.blockscout.com/
+</Check>
+
+## PRO API Authorization
 
 Pass an API key using either:
 
 - `apikey` query parameter
 - `authorization` header
 
-## PRO API routes (in progress)
+## PRO API Response Headers
+
+The following information related to the PRO API plan are included in the response headers 
+
+- **x-credits-remaining:** Number of credits remaining in your plan. If on the free plan, this will resent daily, othewise it is monthly. You can check additional details in the [PRO API UI](https://dev.blockscout.com/).
+- **x-ratelimit-limit:** Available RPS with your plan (can be -1 if there is an internal error)
+- **x-ratelimit-remaining:** Remaining rate limit based on your queries  (can be -1 if there is an internal error)
+- **x-ratelimit-reset:** time in milliseconds until the rate limit resets (can be -1 if there is an internal error)
+
+## PRO API Routes 
 
 All current API routes can be used with the PRO Plan. See the [PRO API Testing ](https://docs.blockscout.com/api-reference/)section for examples you can try with your API key.
 
@@ -42,14 +51,14 @@ All current API routes can be used with the PRO Plan. See the [PRO API Testing ]
    base_url/:chain_id/json-rpc `https://api.blockscout.com/17000/json-rpc?apikey=proapi_xxxxxxxx`
 
 <Note>
-  Please see the [API reference section](/devs/apis) for specific endpoint info related to the various APIs.
+  Please see the [API reference section](/devs/apis) for specific endpoint info related to the various API routes.
 </Note>
 
 ## Pagination
 
 Blockscout uses the keyset pagination method to quickly return results. By default an API response returns the first 50 results. To access additional results (in groups of 50), add the `next_page_params` to your query.
 
-For example, open **https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx** and scroll to the bottom of the response.
+For example, open [**https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx**](https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx) and scroll to the bottom of the response.
 
 <Frame caption="Example response from transactions query">
   ![Tx Pagination 1](/images/tx-pagination-1.jpg)
@@ -57,7 +66,7 @@ For example, open **https://api.blockscout.com/10/api/v2/transactions?apikey=pro
 
 You will see the `next_page_params` object. Add the parameters from this object to your next query to receive the next 50 results.
 
-**https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445196&index=59&items_count=50**
+[**https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445196&index=59&items_count=50**](https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445196&index=59&items_count=50)
 
 Repeat this process to continue receiving results in groups of 50 (remove params and substitute the new `next_page_params` found in the body of the query).
 
@@ -67,4 +76,4 @@ Repeat this process to continue receiving results in groups of 50 (remove params
 
 In this example, the query to receive the next 50 results would be:
 
-**https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445366&index=24&items_count=50**
+[**https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445366&index=24&items_count=50**](https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445366&index=24&items_count=50)
