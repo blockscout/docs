@@ -185,7 +185,6 @@
                   ]
                 },
                 "devs/mcp-server",
-                "devs/mcp-open-ai",
                 "devs/blockscout-sdk",
                 "devs/chainscout-chains-list"
               ]
