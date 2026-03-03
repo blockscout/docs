@@ -64,9 +64,7 @@ servers:
 - url: https://gnosis.blockscout.com/api
   description: Gnosis Chain Explorer (RPC API)
 security:
-- apiKeyAuth: []
-- {}    # Empty option indicates no authentication is also valid
-
+- {}
 tags:
 - name: Account
   description: Account-related endpoints
@@ -128,17 +126,14 @@ paths:
                 properties:
                   id:
                     type: integer
-                    examples:
-                      - 1
+                    example: 1
                   jsonrpc:
                     type: string
-                    examples:
-                      - "2.0"
+                    example: "2.0"
                   result:
                     type: string
                     description: Balance in hex format (wei)
-                    examples:
-                      - "0x0234c8a3397aab58"
+                    example: "0x0234c8a3397aab58"
 
   /?module=account&action=balance:
     get:
@@ -160,9 +155,7 @@ paths:
           $ref: '#/components/schemas/AddressHash'
         required: true
         description: Address hash
-        examples:
-          default:
-            value: '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae'
+        example: '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae'
       responses:
         '200':
           description: Balance retrieved successfully
@@ -177,8 +170,7 @@ paths:
                       result:
                         type: string
                         description: Balance in wei
-                        examples:
-                          - '40891626854930000000000'
+                        example: '40891626854930000000000'
                 - $ref: '#/components/schemas/ResponseNOTOK'
 
   /?module=account&action=balancemulti:
@@ -204,9 +196,7 @@ paths:
         explode: false
         required: true
         description: Comma-separated list of addresses (max 20)
-        examples:
-          default:
-            value: '0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a,0x63a9975ba31b0b9626b34300f7f627147df1f526'
+        example: '0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a,0x63a9975ba31b0b9626b34300f7f627147df1f526'
       responses:
         '200':
           description: Balances retrieved successfully
@@ -554,8 +544,7 @@ paths:
                       result:
                         type: string
                         description: Token balance
-                        examples:
-                          - '135499'
+                        example: '135499'
                 - $ref: '#/components/schemas/ResponseNOTOK'
 
   /?module=account&action=listaccounts:
@@ -696,9 +685,7 @@ paths:
           type: integer
         required: true
         description: Block number
-        examples:
-          default:
-            value: 2165403
+        example: 2165403
       responses:
         '200':
           description: Block reward retrieved successfully
@@ -723,11 +710,13 @@ paths:
                             type: string
                             description: Block reward in wei
                           uncles:
-                            type: [array, 'null']
+                            type: array
+                            nullable: true
                             items:
                               type: object
                           uncleInclusionReward:
-                            type: [string, 'null']
+                            type: string
+                            nullable: true
                 - $ref: '#/components/schemas/ResponseNOTOK'
 
   /?module=block&action=getblockcountdown:
@@ -837,17 +826,14 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - "2.0"
+                    example: "2.0"
                   result:
                     type: string
                     description: Block number in hex format
-                    examples:
-                      - "0x103538a"
+                    example: "0x103538a"
                   id:
                     type: integer
-                    examples:
-                      - 1
+                    example: 1
 
   /?module=contract&action=getabi:
     get:
@@ -1435,18 +1421,14 @@ paths:
           type: string
         required: true
         description: Starting block number or 'latest'
-        examples:
-          default:
-            value: '1379224'
+        example: '1379224'
       - in: query
         name: toBlock
         schema:
           type: string
         required: true
         description: Ending block number or 'latest'
-        examples:
-          default:
-            value: '13792288'
+        example: '13792288'
       - in: query
         name: address
         schema:
@@ -1568,8 +1550,7 @@ paths:
                       result:
                         type: string
                         description: Total supply
-                        examples:
-                          - "21265524714464"
+                        example: "21265524714464"
                 - $ref: '#/components/schemas/ResponseNOTOK'
 
   /?module=stats&action=ethsupply:
@@ -2045,20 +2026,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_blockNumber
-                    examples:
-                      - eth_blockNumber
+                    example: eth_blockNumber
                     description: Must be "eth_blockNumber"
                   params:
                     type: array
@@ -2068,8 +2047,7 @@ paths:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2088,20 +2066,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_getBalance
-                    examples:
-                      - eth_getBalance
+                    example: eth_getBalance
                     description: Must be "eth_getBalance"
                   params:
                     type: array
@@ -2113,8 +2089,7 @@ paths:
                       type: string
                       pattern: ^0x[a-fA-F0-9]{40}$
                       description: Ethereum address (20 bytes, hex-encoded with 0x prefix)
-                      examples:
-                        - '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'
+                      example: '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045'
                     - &id003
                       oneOf:
                       - type: string
@@ -2129,14 +2104,12 @@ paths:
                         pattern: ^0x[a-fA-F0-9]+$
                         description: Block number as hex string
                       description: 'Block parameter: tag name or hex block number'
-                      examples:
-                        - latest
+                      example: latest
                   id:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2157,20 +2130,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_getLogs
-                    examples:
-                      - eth_getLogs
+                    example: eth_getLogs
                     description: Must be "eth_getLogs"
                   params:
                     type: array
@@ -2193,13 +2164,11 @@ paths:
                         fromBlock:
                           type: string
                           description: Start block (hex number or tag)
-                          examples:
-                            - '0x1234567'
+                          example: '0x1234567'
                         toBlock:
                           type: string
                           description: End block (hex number or tag)
-                          examples:
-                            - latest
+                          example: latest
                         topics:
                           type: array
                           description: Array of 32-byte topics for filtering. Use null for wildcard positions.
@@ -2220,8 +2189,7 @@ paths:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2245,20 +2213,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_gasPrice
-                    examples:
-                      - eth_gasPrice
+                    example: eth_gasPrice
                     description: Must be "eth_gasPrice"
                   params:
                     type: array
@@ -2268,8 +2234,7 @@ paths:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2288,20 +2253,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_getTransactionByHash
-                    examples:
-                      - eth_getTransactionByHash
+                    example: eth_getTransactionByHash
                     description: Must be "eth_getTransactionByHash"
                   params:
                     type: array
@@ -2313,14 +2276,12 @@ paths:
                       type: string
                       pattern: ^0x[a-fA-F0-9]{64}$
                       description: Transaction hash (32 bytes, hex-encoded with 0x prefix)
-                      examples:
-                        - '0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b'
+                      example: '0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b'
                   id:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2340,20 +2301,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_getTransactionReceipt
-                    examples:
-                      - eth_getTransactionReceipt
+                    example: eth_getTransactionReceipt
                     description: Must be "eth_getTransactionReceipt"
                   params:
                     type: array
@@ -2366,8 +2325,7 @@ paths:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2387,20 +2345,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_chainId
-                    examples:
-                      - eth_chainId
+                    example: eth_chainId
                     description: Must be "eth_chainId"
                   params:
                     type: array
@@ -2410,8 +2366,7 @@ paths:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2430,20 +2385,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_maxPriorityFeePerGas
-                    examples:
-                      - eth_maxPriorityFeePerGas
+                    example: eth_maxPriorityFeePerGas
                     description: Must be "eth_maxPriorityFeePerGas"
                   params:
                     type: array
@@ -2453,8 +2406,7 @@ paths:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2473,20 +2425,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_getTransactionCount
-                    examples:
-                      - eth_getTransactionCount
+                    example: eth_getTransactionCount
                     description: Must be "eth_getTransactionCount"
                   params:
                     type: array
@@ -2500,8 +2450,7 @@ paths:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2522,20 +2471,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_getCode
-                    examples:
-                      - eth_getCode
+                    example: eth_getCode
                     description: Must be "eth_getCode"
                   params:
                     type: array
@@ -2549,8 +2496,7 @@ paths:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2571,20 +2517,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_getStorageAt
-                    examples:
-                      - eth_getStorageAt
+                    example: eth_getStorageAt
                     description: Must be "eth_getStorageAt"
                   params:
                     type: array
@@ -2596,15 +2540,13 @@ paths:
                     - type: string
                       pattern: ^0x[a-fA-F0-9]*$
                       description: Storage position as hex string
-                      examples:
-                        - '0x0'
+                      example: '0x0'
                     - *id003
                   id:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2626,20 +2568,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_estimateGas
-                    examples:
-                      - eth_estimateGas
+                    example: eth_estimateGas
                     description: Must be "eth_estimateGas"
                   params:
                     type: array
@@ -2681,8 +2621,7 @@ paths:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2705,20 +2644,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_getBlockByNumber
-                    examples:
-                      - eth_getBlockByNumber
+                    example: eth_getBlockByNumber
                     description: Must be "eth_getBlockByNumber"
                   params:
                     type: array
@@ -2729,19 +2666,16 @@ paths:
                     - type: string
                       pattern: ^0x[a-fA-F0-9]+$
                       description: Block number as hex string
-                      examples:
-                        - '0x1234567'
+                      example: '0x1234567'
                     - &id004
                       type: boolean
                       description: If true, returns full transaction objects; if false, returns only transaction hashes
-                      examples:
-                        - false
+                      example: false
                   id:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2762,20 +2696,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_getBlockByHash
-                    examples:
-                      - eth_getBlockByHash
+                    example: eth_getBlockByHash
                     description: Must be "eth_getBlockByHash"
                   params:
                     type: array
@@ -2786,15 +2718,13 @@ paths:
                     - type: string
                       pattern: ^0x[a-fA-F0-9]{64}$
                       description: Block hash (32 bytes, hex-encoded with 0x prefix)
-                      examples:
-                        - '0x9b83c12c69edb74f6c8dd5d052765c1adf940e320bd1291696e6fa07829eee71'
+                      example: '0x9b83c12c69edb74f6c8dd5d052765c1adf940e320bd1291696e6fa07829eee71'
                     - *id004
                   id:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2815,20 +2745,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_sendRawTransaction
-                    examples:
-                      - eth_sendRawTransaction
+                    example: eth_sendRawTransaction
                     description: Must be "eth_sendRawTransaction"
                   params:
                     type: array
@@ -2839,14 +2767,12 @@ paths:
                     - type: string
                       pattern: ^0x[a-fA-F0-9]+$
                       description: Signed transaction data as RLP-encoded hex string
-                      examples:
-                        - '0xf86c098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a76400008025a028ef61340bd939bc2195fe537567866003e1a15d3c71ff63e1590620aa636276a067cbe9d8997f761aecb703304b3800ccf555c9f3dc64214b297fb1966a3b6d83'
+                      example: '0xf86c098504a817c800825208943535353535353535353535353535353535353535880de0b6b3a76400008025a028ef61340bd939bc2195fe537567866003e1a15d3c71ff63e1590620aa636276a067cbe9d8997f761aecb703304b3800ccf555c9f3dc64214b297fb1966a3b6d83'
                   id:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2866,20 +2792,18 @@ paths:
                 - jsonrpc
                 - method
                 - id
+                - params
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                     description: JSON-RPC version
                     default: '2.0'
-                    readOnly: true
                   method:
                     type: string
                     enum:
                     - eth_call
-                    examples:
-                      - eth_call
+                    example: eth_call
                     description: Must be "eth_call"
                   params:
                     type: array
@@ -2919,8 +2843,7 @@ paths:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
                     description: |-
                       A client-defined identifier for this request. The server echoes it back unchanged
                       in the response, so you can match responses to requests. This is especially useful
@@ -2969,8 +2892,7 @@ paths:
                 properties:
                   jsonrpc:
                     type: string
-                    examples:
-                      - '2.0'
+                    example: '2.0'
                   result:
                     description: Method result (type varies by method)
                   error:
@@ -2979,18 +2901,15 @@ paths:
                     properties:
                       code:
                         type: integer
-                        examples:
-                          - -32602
+                        example: -32602
                       message:
                         type: string
-                        examples:
-                          - Invalid params
+                        example: Invalid params
                   id:
                     oneOf:
                     - type: integer
                     - type: string
-                    examples:
-                      - 1
+                    example: 1
               examples:
                 eth_blockNumber:
                   summary: eth_blockNumber response
@@ -3013,8 +2932,9 @@ paths:
                       message: Invalid params
                     id: 1
       security:
-      - apiKeyAuth: []
       - {}
+      parameters:
+      - $ref: '#/components/parameters/ApiKeyQuery'
 components:
   securitySchemes:
     apiKeyAuth:
@@ -3373,19 +3293,25 @@ components:
         default: desc
       description: Sort order (asc or desc)
 
+    ApiKeyQuery:
+      name: apikey
+      in: query
+      required: false
+      description: 'Optional API key for increased rate limits. Without a key: 5 req/s shared. With a key: 10 req/s dedicated.'
+      schema:
+        type: string
+        example: your_api_key_here
   schemas:
     AddressHash:
       type: string
       pattern: '^0x[a-fA-F0-9]{40}$'
-      examples:
-        - '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae'
+      example: '0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae'
       description: 40-character hexadecimal address hash with 0x prefix
 
     TransactionHash:
       type: string
       pattern: '^0x[a-fA-F0-9]{64}$'
-      examples:
-        - '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef'
+      example: '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef'
       description: 64-character hexadecimal transaction hash with 0x prefix
 
     ResponseOK:
@@ -3397,8 +3323,7 @@ components:
           description: Status code (1 = OK)
         message:
           type: string
-          examples:
-            - 'OK'
+          example: 'OK'
           description: Response message
 
     ResponseNOTOK:
@@ -3410,11 +3335,11 @@ components:
           description: Status code (0 = Error)
         message:
           type: string
-          examples:
-            - 'NOTOK'
+          example: 'NOTOK'
           description: Error message
         result:
-          type: [string, 'null']
+          type: string
+          nullable: true
           description: Error details
 
     Transaction:
@@ -3493,7 +3418,8 @@ components:
           type: string
           enum: ['0', '1']
         errCode:
-          type: [string, 'null']
+          type: string
+          nullable: true
 
     TokenTransfer:
       type: object
@@ -3575,10 +3501,8 @@ components:
         jsonrpc:
           type: string
           description: JSON-RPC protocol version
-          examples:
-            - "2.0"
+          example: "2.0"
           default: '2.0'
-          readOnly: true
         method:
           type: string
           description: The method to be invoked
@@ -3599,8 +3523,7 @@ components:
           - eth_getBlockByHash
           - eth_sendRawTransaction
           - eth_call
-          examples:
-            - "eth_blockNumber"
+          example: "eth_blockNumber"
         params:
           type: array
           description: Array of parameters for the method
@@ -3616,8 +3539,7 @@ components:
           - type: integer
           - type: string
           description: Request identifier
-          examples:
-            - 1
+          example: 1
 
     JsonRpcResponse:
       type: object
@@ -3628,10 +3550,8 @@ components:
         jsonrpc:
           type: string
           description: JSON-RPC protocol version
-          examples:
-            - "2.0"
+          example: "2.0"
           default: '2.0'
-          readOnly: true
         result:
           description: Result of the method invocation (present on success)
           oneOf:
@@ -3647,13 +3567,11 @@ components:
             code:
               type: integer
               description: Error code
-              examples:
-                - -32602
+              example: -32602
             message:
               type: string
               description: Error message
-              examples:
-                - "Invalid params"
+              example: "Invalid params"
             data:
               description: Additional error data
         id:
@@ -3662,8 +3580,7 @@ components:
           - type: string
           - type: 'null'
           description: Request identifier (matches request id)
-          examples:
-            - 1
+          example: 1
 
     # ETH RPC Method-Specific Schemas
     EthBlockNumberResponse:
@@ -3671,44 +3588,38 @@ components:
       properties:
         jsonrpc:
           type: string
-          examples:
-            - "2.0"
+          example: "2.0"
         result:
           type: string
           description: Block number in hexadecimal
-          examples:
-            - "0xfa0b0e"
+          example: "0xfa0b0e"
         id:
           type: integer
-          examples:
-            - 1
+          example: 1
 
     EthGetBalanceResponse:
       type: object
       properties:
         jsonrpc:
           type: string
-          examples:
-            - "2.0"
+          example: "2.0"
         result:
           type: string
           description: Balance in wei (hexadecimal)
-          examples:
-            - "0x1d863bf76508104fb"
+          example: "0x1d863bf76508104fb"
         id:
           type: integer
-          examples:
-            - 1
+          example: 1
 
     EthGetTransactionReceiptResponse:
       type: object
       properties:
         jsonrpc:
           type: string
-          examples:
-            - "2.0"
+          example: "2.0"
         result:
-          type: [object, 'null']
+          type: object
+          nullable: true
           properties:
             transactionHash:
               type: string
@@ -3726,7 +3637,8 @@ components:
               type: string
               description: Sender address
             to:
-              type: [string, 'null']
+              type: string
+              nullable: true
               description: Recipient address
             cumulativeGasUsed:
               type: string
@@ -3735,7 +3647,8 @@ components:
               type: string
               description: Gas used in hex
             contractAddress:
-              type: [string, 'null']
+              type: string
+              nullable: true
               description: Contract address if created
             logs:
               type: array
@@ -3753,8 +3666,7 @@ components:
               description: Effective gas price in hex
         id:
           type: integer
-          examples:
-            - 1
+          example: 1
 
     EthCallRequest:
       type: object
