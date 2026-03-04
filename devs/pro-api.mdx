@@ -34,25 +34,51 @@ The following information related to the PRO API plan are included in the respon
 - **x-ratelimit-remaining:** Remaining rate limit based on your queries  (can be -1 if there is an internal error)
 - **x-ratelimit-reset:** time in milliseconds until the rate limit resets (can be -1 if there is an internal error)
 
+<Frame>
+  ![Screenshot2026 03 04at1 29 00PM](/images/Screenshot2026-03-04at1.29.00PM.png)
+</Frame>
+
 ## PRO API Routes
 
 All current API routes can be used with the PRO Plan. See the [PRO API Testing ](https://docs.blockscout.com/api-reference/)section for examples you can try with your API key.
 
+Examples below use the Optimism chain (chain_id=10). In Previous per-instance routes API keys are optional for the free tier, they are required for all tiers (including the free tier) of the PRO API.
+
 1. **JSON RPC API**
-   1. base_url/v2/api?chain_id=:chain_id
 
-      `https://api.blockscout.com/v2/api?chain_id=17000&module=block&action=eth_block_number&apikey=proapi_xxxxxxxx`
-   2. base_url/:chain_id/api
+   PRO API Route: `https://api.blockscout.com/10/api?module=account&action=eth_get_balance&address={addressHash}&apikey=proapi_xxxxxxx`\
+   \
+   Previous per-instance route: `https://optimism.blockscout.com/api?module=account&action=eth_get_balance&address={addressHash}`
+1. **JSON PRC API v2**
 
-      `https://api.blockscout.com/17000/api?module=block&action=eth_block_number&apikey=proapi_xxxxxxxx`
+   PRO API Route:`https://api.blockscout.com/v2/api?chain_id=10&module=block&action=eth_block_number&apikey=proapi_xxxxxxxx`
+
+   Previous per-instance route: `https://optimism.blockscout.com/api?module=block&action=eth_block_number`
 1. **REST API**
 
-   base_url/:chain_id/api/v2
+   PRO API Route:`https://api.blockscout.com/10/api/v2/blocks/{block_number_or_hash}?apikey=proapi_xxxxxxxx`\
+   \
+   Previous per-instance route: `https://optimism.blockscout.com/api/v2/blocks/{block_number_or_hash}`
+2. **ETH RPC API**\
+   see [ETH RPC docs](/devs/apis/rpc/eth-rpc) for more info on post requests.
 
-   `https://api.blockscout.com/17000/api/v2/blocks?apikey=proapi_xxxxxxxx`
-2. **ETH RPC API**
+   PRO API Route 
 
-   base_url/:chain_id/json-rpc `https://api.blockscout.com/17000/json-rpc?apikey=proapi_xxxxxxxx`
+   ```
+   curl -H "content-type: application/json" \
+     -H "authorization: Bearer proapi_xxxxxx" \
+     -X POST \
+     --data '{"id":0,"jsonrpc":"2.0","method":"eth_blockNumber","params":[]}' \
+     https://api.blockscout.com/10/json-rpc
+   ```
+
+   Previous per-instance route
+
+   ```
+   curl -H "content-type: application/json" -X POST \
+     --data '{"id":0,"jsonrpc":"2.0","method":"eth_blockNumber","params":[]}' \
+     https://optimism.blockscout.com/api/eth-rpc
+   ```
 
 <Note>
   Please see the [API reference section](/devs/apis) for specific endpoint info related to the various API routes.
