@@ -8,23 +8,35 @@ Complete reference for all 16 Ethereum JSON-RPC methods supported by Blockscout.
 
 ## 📋 Quick Reference
 
-Methods use POST requests to `/api/eth-rpc` with JSON-RPC 2.0 format. API keys are not required but will increase RPS for your calls. 
+PRO API Methods use POST request to `api.blockscout.com/{chain_id}/json-rpc `with JSON-RPC 2.0 format. An API keys is required including the free tier.\
+\
+Per instance methods use POST requests to `{instance_url}/api/eth-rpc` with JSON-RPC 2.0 format. An API key is not required but will increase RPS for your calls.
 
 <Tip>
   Try these methods in the ETH RPC Endpoint Testing section
 </Tip>
 
-### Base URL Pattern
+## PRO API usage
 
+```text
+https://api.blockscout.com/{instance}/json-rpc
 ```
+
+Examples:
+
+- `Ethereum: https://api.blockscout.com/1/json-rpc`
+- `Optimism: https://api.blockscout.com/10/json-rpc`
+
+## **Base URL Pattern (per instance)**
+
+```text
 https://{instance}.blockscout.com/api/eth-rpc
 ```
 
 Examples:
 
-- `https://eth.blockscout.com/api/eth-rpc`
-- `https://base.blockscout.com/api/eth-rpc`
-- `https://optimism.blockscout.com/api/eth-rpc`
+- `Ethereum: https://eth.blockscout.com/api/eth-rpc`
+- `Optimism: https://optimism.blockscout.com/api/eth-rpc`
 
 ## 🔢 Methods Overview
 

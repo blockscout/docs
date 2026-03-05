@@ -44,16 +44,16 @@ All current API routes can be used with the PRO Plan. See the [PRO API Testing ]
 
 Examples below use the Optimism chain (chain_id=10). In Previous per-instance routes API keys are optional for the free tier, they are required for all tiers (including the free tier) of the PRO API.
 
+1. **JSON PRC API v2 (compare to Etherscan PRO API)**
+
+   PRO API Route:`https://api.blockscout.com/v2/api?chain_id=10&module=block&action=eth_block_number&apikey=proapi_xxxxxxxx`
+
+   Previous per-instance route:    https://eth.blockscout.com/api/v2/transactions`https://optimism.blockscout.com/api?module=block&action=eth_block_number`
 1. **JSON RPC API**
 
    PRO API Route: `https://api.blockscout.com/10/api?module=account&action=eth_get_balance&address={addressHash}&apikey=proapi_xxxxxxx`\
    \
    Previous per-instance route: `https://optimism.blockscout.com/api?module=account&action=eth_get_balance&address={addressHash}`
-1. **JSON PRC API v2**
-
-   PRO API Route:`https://api.blockscout.com/v2/api?chain_id=10&module=block&action=eth_block_number&apikey=proapi_xxxxxxxx`
-
-   Previous per-instance route: `https://optimism.blockscout.com/api?module=block&action=eth_block_number`
 1. **REST API**
 
    PRO API Route:`https://api.blockscout.com/10/api/v2/blocks/{block_number_or_hash}?apikey=proapi_xxxxxxxx`\
@@ -62,9 +62,9 @@ Examples below use the Optimism chain (chain_id=10). In Previous per-instance ro
 2. **ETH RPC API**\
    see [ETH RPC docs](/devs/apis/rpc/eth-rpc) for more info on post requests.
 
-   PRO API Route 
+   PRO API Route
 
-   ```
+   ```text
    curl -H "content-type: application/json" \
      -H "authorization: Bearer proapi_xxxxxx" \
      -X POST \
@@ -74,7 +74,7 @@ Examples below use the Optimism chain (chain_id=10). In Previous per-instance ro
 
    Previous per-instance route
 
-   ```
+   ```text
    curl -H "content-type: application/json" -X POST \
      --data '{"id":0,"jsonrpc":"2.0","method":"eth_blockNumber","params":[]}' \
      https://optimism.blockscout.com/api/eth-rpc
