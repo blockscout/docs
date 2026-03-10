@@ -1,30 +1,13 @@
 ---
-title: "PRO Plans and Credits"
-icon: "credit-card"
+title: "Migrate from Etherscan"
 ---
 
-The PRO API plan offers multichain access and tiered pricing to access additional call volume and speed.  Compared to Etherscan, Blockscout covers **more than 2X the number of chains** while providing **faster default RPS** and **lower price points** for all tiers.
-
-Blockscout uses a credit system to weight different calls based on size and usage. This creates additional efficiency and saves resources depending on the types of call you need to make. See the [blockscout credit costs table](#blockscout-credit-costs) for more info on credit allotments for individual calls.
-
-<Check>
-  Get started with the PRO API at https://dev.blockscout.com/
-</Check>
-
-# PRO API Pricing Tiers
-
-| Plan       | Cost/Mo    | API Credits | Rate Limit | Overage <br />Rate |
-| ---------- | ---------- | ----------- | ---------- | ------------------ |
-| Free       | \$0        | 100K/day    | 5 RPS      | -                  |
-| Builder    | \$49       | 100M/mo     | 15 RPS     | \$0.5/M            |
-| Pro        | \$199      | 500M/mo     | 30 RPS     | \$0.4/M            |
-| Business   | \$999      | 3B/mo       | 50 RPS     | \$0.32/M           |
-| Enterprise | Custom SLA | unlimited   | TBD        | N/A                |
+Migration guide coming soon. To get started immediately, see our[ blog post with simple migration instructions](https://www.blog.blockscout.com/how-to-migrate-your-etherscan-api-calls-to-blockscout/).
 
 # API Pricing Comparison: Blockscout vs Etherscan
 
 |                          | **Blockscout**                           | **Etherscan**                                                      |
-| ------------------------ | ---------------------------------------- | ------------------------------------------------------------------ |
+| :----------------------- | :--------------------------------------- | :----------------------------------------------------------------- |
 | **Tiers**                | Free, Builder, Pro, Business             | Free, Lite, Standard, Advanced, Professional, Pro Plus, Enterprise |
 | **Price Range**          | \$0 to \$999/mo (+ Enterprise custom)    | \$0 to \$899/mo (+ Enterprise custom)                              |
 | **Free Rate Limit**      | **5 req/sec**                            | 3 req/sec                                                          |
@@ -47,7 +30,7 @@ Blockscout uses a credit system to weight different calls based on size and usag
 **Bold** rows = exclusive to one explorer. Blockscout: 117 chains · Etherscan: 68 chains · Shared: 20 chains. Chains are listed by Chain ID.
 
 | Chain Name                        | Chain ID    | Blockscout Pro API | Etherscan API    |
-| --------------------------------- | ----------- | :----------------: | :--------------: |
+| :-------------------------------- | :---------- | :----------------: | :--------------: |
 | Ethereum Mainnet                  | 1           | ✅                  | ✅                |
 | **Goerli Testnet**                | 5           | **✅**              | ❌                |
 | OP Mainnet                        | 10          | ✅                  | ⚠️ Paid only     |
@@ -213,37 +196,5 @@ Blockscout uses a credit system to weight different calls based on size and usag
 | **Polygon CDK Stavanger Testnet** | 686669576   | **✅**              | ❌                |
 | **Eden Testnet**                  | 3735928814  | **✅**              | ❌                |
 | **Arbitrum Blueberry Testnet**    | 88153591557 | **✅**              | ❌                |
-
----
-
-Sources (February 2026): [Blockscout Pro API chains](https://github.com/blockscout/backend-configs/blob/23ce1258a499a76bd18ce649ff1a07c6ae800042/pro-api/prod/chains-config.json) · [Etherscan supported chains](https://docs.etherscan.io/supported-chains)
-
-# Blockscout Credit Costs
-
-Credit amounts vary based on resource usage for different calls. The number of credits required for different calls is subject to change based on current analytics and resource usage.
-
-You can check your credits, top calls and overall usage in the dev portal dashboard at https://dev.blockscout.com/
-
-## Blockscout Pro API — Credit Costs per Endpoint
-
-Credits are consumed per API call. The **default cost is 20 credits** for any endpoint not listed below. Updated February, 2026
-
-| Endpoint                                               | Credits |
-| ------------------------------------------------------ | :-----: |
-| `default` (all unlisted endpoints)                     | 20      |
-| `api/v2/search/quick`                                  | 25      |
-| `api/v2/transactions/:hash/logs`                       | 30      |
-| `api/v2/transactions/:hash/token-transfers`            | 30      |
-| `api/v2/transactions/:hash/state-changes`              | 30      |
-| `api/v2/tokens`                                        | 30      |
-| `api/v2/tokens/:address_hash/transfers`                | 30      |
-| `api/v2/addresses/:address_hash/token-transfers`       | 30      |
-| `api/v2/addresses/:address_hash/logs`                  | 30      |
-| `api/v2/transactions/:hash/internal-transactions`      | 40      |
-| `api/v2/addresses/:address_hash/internal-transactions` | 40      |
-| `api/v2/smart-contracts/verification/config`           | 40      |
-| `api/v2/transactions/:hash/summary`                    | 50      |
-| `api/v2/transactions/:hash/raw-trace`                  | 50      |
-| `api/v2/addresses/:address_hash/coin-balance-history`  | 50      |
 
 ---

@@ -4,21 +4,40 @@ icon: "circle-nodes"
 description: "Blockscout's PRO API provides higher call limits and custom endpoints"
 ---
 
-## General Info
-
-The PRO API  expands on Blockscout's free tier API (5 requests per second) providing expanded rate limits for high-usage projects on Blockscout hosted networks.
-
-The free plan includes 100K API credits per day with a rate limit of 5 requests per second. View additional [Plan and Credit information](/devs/plans-and-credits).
-
 <Check>
-  Blockscout PRO API is currently in beta testing. Access the dev portal and get a free API key at https://dev.blockscout.com/
+  Access the dev portal and get a free API key at https://dev.blockscout.com/
 </Check>
+
+- (General Info)[#general-info]
+- (Pricing)[#pro-api-pricing-tiers]
+- (Authorization)[#pro-api-authorization]
+- (Routes)[#pro-api-routes]
+- (Pagination)[#pagination]
+- (Credits)[#blockscout-credit-costs]
+
+# General Info
+
+The PRO API provides expanded rate limits for high-usage projects on Blockscout hosted networks.
+
+The free plan includes 100K API credits per day with a rate limit of 5 requests per second. View additional pricing tiers below.
 
 <Note>
   If you are using accessing the PRO API via AI or an AI agent, direct the AI to this file to get started. https://dev.blockscout.com/llms.txt
 </Note>
 
-## PRO API Authorization
+Blockscout uses a credit system to weight different calls based on size and usage. This creates additional efficiency and saves resources depending on the types of call you need to make. See the [blockscout credit costs table](#blockscout-credit-costs) for more info on credit allotments for individual calls.
+
+# PRO API Pricing Tiers
+
+| Plan       | Cost/Mo    | API Credits | Rate Limit | Overage <br />Rate |
+| ---------- | ---------- | ----------- | ---------- | ------------------ |
+| Free       | \$0        | 100K/day    | 5 RPS      | -                  |
+| Builder    | \$49       | 100M/mo     | 15 RPS     | \$0.5/M            |
+| Pro        | \$199      | 500M/mo     | 30 RPS     | \$0.4/M            |
+| Business   | \$999      | 3B/mo       | 50 RPS     | \$0.32/M           |
+| Enterprise | Custom SLA | unlimited   | TBD        | N/A                |
+
+# PRO API Authorization
 
 Pass an API key using either:
 
@@ -38,53 +57,73 @@ The following information related to the PRO API plan are included in the respon
   ![Screenshot2026 03 04at1 29 00PM](/images/Screenshot2026-03-04at1.29.00PM.png)
 </Frame>
 
-## PRO API Routes
+# PRO API Routes
 
-All current API routes can be used with the PRO Plan. See the [PRO API Testing ](https://docs.blockscout.com/api-reference/)section for examples you can try with your API key.
+All current API routes can be used with the PRO Plan. See the PRO API Endpoints section to try example calls with your API key.
 
-Examples below use the Optimism chain (chain_id=10). In Previous per-instance routes API keys are optional for the free tier, they are required for all tiers (including the free tier) of the PRO API.
+The Route examples below use the Optimism chain (chain_id=10). In Previous per-instance routes API keys are optional for the free tier, they are required for all tiers (including the free tier) of the PRO API.
 
-1. **JSON PRC API v2 (compare to Etherscan PRO API)**
+## **JSON PRC API v2 (compare to Etherscan PRO API)**
 
-   PRO API Route:`https://api.blockscout.com/v2/api?chain_id=10&module=block&action=eth_block_number&apikey=proapi_xxxxxxxx`
+PRO API Route:
 
-   Previous per-instance route:    https://eth.blockscout.com/api/v2/transactions`https://optimism.blockscout.com/api?module=block&action=eth_block_number`
-1. **JSON RPC API**
+```text wrap
+https://api.blockscout.com/v2/api?chain_id=10&module=block&action=eth_block_number&apikey=proapi_xxxxxxxx
+```
 
-   PRO API Route: `https://api.blockscout.com/10/api?module=account&action=eth_get_balance&address={addressHash}&apikey=proapi_xxxxxxx`\
-   \
-   Previous per-instance route: `https://optimism.blockscout.com/api?module=account&action=eth_get_balance&address={addressHash}`
-1. **REST API**
+Previous per-instance route:
 
-   PRO API Route:`https://api.blockscout.com/10/api/v2/blocks/{block_number_or_hash}?apikey=proapi_xxxxxxxx`\
-   \
-   Previous per-instance route: `https://optimism.blockscout.com/api/v2/blocks/{block_number_or_hash}`
-2. **ETH RPC API**\
-   see [ETH RPC docs](/devs/apis/rpc/eth-rpc) for more info on post requests.
+<Warning>
+  `https://optimism.blockscout.com/api?module=block&action=eth_block_number`
+</Warning>
 
-   PRO API Route
+## **JSON RPC API**
 
-   ```text
-   curl -H "content-type: application/json" \
-     -H "authorization: Bearer proapi_xxxxxx" \
-     -X POST \
-     --data '{"id":0,"jsonrpc":"2.0","method":"eth_blockNumber","params":[]}' \
-     https://api.blockscout.com/10/json-rpc
-   ```
+PRO API Route:
 
-   Previous per-instance route
+```text wrap
+https://api.blockscout.com/10/api?module=account&action=eth_get_balance&address={addressHash}&apikey=proapi_xxxxxxx
+```
 
-   ```text
-   curl -H "content-type: application/json" -X POST \
-     --data '{"id":0,"jsonrpc":"2.0","method":"eth_blockNumber","params":[]}' \
-     https://optimism.blockscout.com/api/eth-rpc
-   ```
+Previous per-instance route:
+
+<Warning>
+  `https://optimism.blockscout.com/api?module=account&action=eth_get_balance&address={addressHash}`
+</Warning>
+
+## **REST API**
+
+PRO API Route:
+
+```text wrap
+https://api.blockscout.com/10/api/v2/blocks/{block_number_or_hash}?apikey=proapi_xxxxxxxx
+```
+
+Previous per-instance route:
+
+<Warning>
+  `https://optimism.blockscout.com/api/v2/blocks/{block_number_or_hash}`
+</Warning>
+
+## **ETH RPC API**
+
+see [ETH RPC docs](/devs/apis/rpc/eth-rpc) for more info on post requests.
+
+PRO API Route
+
+```text
+curl -H "content-type: application/json" \
+  -H "authorization: Bearer proapi_xxxxxx" \
+  -X POST \
+  --data '{"id":0,"jsonrpc":"2.0","method":"eth_blockNumber","params":[]}' \
+  https://api.blockscout.com/10/json-rpc
+```
 
 <Note>
   Please see the [API reference section](/devs/apis) for specific endpoint info related to the various API routes.
 </Note>
 
-## Pagination
+# Pagination
 
 Blockscout uses the keyset pagination method to quickly return results. By default an API response returns the first 50 results. To access additional results (in groups of 50), add the `next_page_params` to your query.
 
@@ -107,3 +146,32 @@ Repeat this process to continue receiving results in groups of 50 (remove params
 In this example, the query to receive the next 50 results would be:
 
 [**https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445366&index=24&items_count=50**](https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445366&index=24&items_count=50)
+
+# Blockscout Credit Costs
+
+Credit amounts vary based on resource usage for different calls. The number of credits required for different calls is subject to change based on current analytics and resource usage.
+
+You can check your credits, top calls and overall usage in the dev portal dashboard at https://dev.blockscout.com/
+
+Credits are consumed per API call. The **default cost is 20 credits** for any endpoint not listed below. 
+
+| Endpoint                                               | Credits |
+| :----------------------------------------------------- | :-----: |
+| `default` (all unlisted endpoints)                     | 20      |
+| `api/v2/search/quick`                                  | 25      |
+| `api/v2/transactions/:hash/logs`                       | 30      |
+| `api/v2/transactions/:hash/token-transfers`            | 30      |
+| `api/v2/transactions/:hash/state-changes`              | 30      |
+| `api/v2/tokens`                                        | 30      |
+| `api/v2/tokens/:address_hash/transfers`                | 30      |
+| `api/v2/addresses/:address_hash/token-transfers`       | 30      |
+| `api/v2/addresses/:address_hash/logs`                  | 30      |
+| `api/v2/transactions/:hash/internal-transactions`      | 40      |
+| `api/v2/addresses/:address_hash/internal-transactions` | 40      |
+| `api/v2/smart-contracts/verification/config`           | 40      |
+| `api/v2/transactions/:hash/summary`                    | 50      |
+| `api/v2/transactions/:hash/raw-trace`                  | 50      |
+| `api/v2/addresses/:address_hash/coin-balance-history`  | 50      |
+|                                                        |         |
+
+_Last Updated February, 2026_
