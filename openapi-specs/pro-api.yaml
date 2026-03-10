@@ -5448,7 +5448,7 @@ info:
     A **free tier** is available that includes up to **100,000 credits per day** at no cost.
 openapi: 3.0.0
 paths:
-  /v2/blocks/{block_hash_or_number_param}/internal-transactions:
+  /blocks/{block_hash_or_number_param}/internal-transactions:
     get:
       callbacks: {}
       description: Retrieves internal transactions included in a specific block with optional filtering by type and call type.
@@ -5601,7 +5601,7 @@ paths:
       summary: List internal transactions in a specific block
       tags:
       - blocks
-  /v2/tokens/{address_hash_param}:
+  /tokens/{address_hash_param}:
     get:
       callbacks: {}
       description: Retrieves detailed information for a specific token identified by its contract address.
@@ -5651,7 +5651,7 @@ paths:
       summary: Retrieve detailed information about a specific token
       tags:
       - tokens
-  /v2/config/csv-export:
+  /config/csv-export:
     get:
       callbacks: {}
       description: Returns configured limits for CSV export endpoints.
@@ -5696,7 +5696,7 @@ paths:
       summary: CSV export limits
       tags:
       - config
-  /v2/transactions/{transaction_hash_param}:
+  /transactions/{transaction_hash_param}:
     get:
       callbacks: {}
       description: Retrieves detailed information for a specific transaction identified by its hash.
@@ -5746,7 +5746,7 @@ paths:
       summary: Retrieve detailed information about a specific transaction
       tags:
       - transactions
-  /v2/main-page/transactions/watchlist:
+  /main-page/transactions/watchlist:
     get:
       callbacks: {}
       description: Retrieves a list of last 6 transactions from the current user's watchlist.
@@ -5789,7 +5789,7 @@ paths:
       summary: Last 6 transactions from the current user's watchlist
       tags:
       - main_page
-  /v2/tokens/{address_hash_param}/holders/csv:
+  /tokens/{address_hash_param}/holders/csv:
     get:
       callbacks: {}
       description: Exports the holders of a specific token as a CSV file.
@@ -5896,7 +5896,7 @@ paths:
       summary: Export token holders as CSV
       tags:
       - tokens
-  /v2/tokens/:
+  /tokens/:
     get:
       callbacks: {}
       description: Retrieves a paginated list of tokens with optional filtering by name, symbol, or type.
@@ -6103,7 +6103,7 @@ paths:
       summary: List tokens with optional filtering by name, symbol, or type
       tags:
       - tokens
-  /v2/addresses/{address_hash_param}/token-transfers/csv:
+  /addresses/{address_hash_param}/token-transfers/csv:
     get:
       callbacks: {}
       description: Exports token transfers for a specific address as a CSV file.
@@ -6210,7 +6210,7 @@ paths:
       summary: Export token transfers as CSV
       tags:
       - addresses
-  /v2/addresses/{address_hash_param}/token-balances:
+  /addresses/{address_hash_param}/token-balances:
     get:
       callbacks: {}
       description: Retrieves all token balances held by a specific address, including ERC-20, ERC-721, ERC-1155, and ERC-404
@@ -6265,7 +6265,7 @@ paths:
       summary: List all token balances held by a specific address
       tags:
       - addresses
-  /v2/blocks/{block_hash_or_number_param}/withdrawals:
+  /blocks/{block_hash_or_number_param}/withdrawals:
     get:
       callbacks: {}
       description: Retrieves withdrawals processed in a specific block (typically for proof-of-stake networks).
@@ -6364,7 +6364,7 @@ paths:
       summary: List validator withdrawals including amounts, index and receiver details processed in a specific block
       tags:
       - blocks
-  /v2/tokens/{address_hash_param}/holders:
+  /tokens/{address_hash_param}/holders:
     get:
       callbacks: {}
       description: Retrieves addresses holding a specific token, sorted by balance. Useful for analyzing token distribution.
@@ -6465,7 +6465,7 @@ paths:
       summary: List addresses holding a specific token sorted by balance
       tags:
       - tokens
-  /v2/blocks/{block_hash_or_number_param}:
+  /blocks/{block_hash_or_number_param}:
     get:
       callbacks: {}
       description: Retrieves detailed information for a specific block, including transactions, internal transactions, and
@@ -6523,7 +6523,7 @@ paths:
       summary: Retrieves detailed information for a specific block identified by its number or hash.
       tags:
       - blocks
-  /v2/addresses/{address_hash_param}/tokens:
+  /addresses/{address_hash_param}/tokens:
     get:
       callbacks: {}
       description: Retrieves token balances for a specific address with pagination and filtering by token type. Useful for
@@ -6660,7 +6660,7 @@ paths:
       summary: List token balances for an address with pagination and type filtering
       tags:
       - addresses
-  /v2/smart-contracts/{address_hash_param}/audit-reports:
+  /smart-contracts/{address_hash_param}/audit-reports:
     get:
       callbacks: {}
       description: Returns audit reports for a given smart contract address.
@@ -6830,7 +6830,7 @@ paths:
       summary: Submit audit report
       tags:
       - smart_contracts
-  /v2/addresses/{address_hash_param}/token-transfers:
+  /addresses/{address_hash_param}/token-transfers:
     get:
       callbacks: {}
       description: Retrieves token transfers involving a specific address, with optional filtering by token type, direction,
@@ -7002,7 +7002,7 @@ paths:
       summary: List token transfers involving a specific address with filtering options
       tags:
       - addresses
-  /v2/addresses/{address_hash_param}/nft:
+  /addresses/{address_hash_param}/nft:
     get:
       callbacks: {}
       description: Retrieves a list of NFTs (non-fungible tokens) owned by a specific address, with optional filtering by
@@ -7125,7 +7125,7 @@ paths:
       summary: List NFTs owned by a specific address with optional type filtering
       tags:
       - addresses
-  /v2/stats:
+  /stats:
     get:
       callbacks: {}
       description: Retrieves blockchain network statistics including total blocks, transactions, addresses, average block
@@ -7164,7 +7164,7 @@ paths:
       summary: Retrieve blockchain network statistics and metrics
       tags:
       - stats
-  /v2/tokens/{address_hash_param}/instances:
+  /tokens/{address_hash_param}/instances:
     get:
       callbacks: {}
       description: Retrieves instances of NFTs for a specific token contract. This endpoint is primarily for ERC-721 and ERC-1155
@@ -7249,7 +7249,7 @@ paths:
       summary: List individual NFT instances for a token contract
       tags:
       - tokens
-  /v2/proxy/account-abstraction/operations/{operation_hash_param}/summary:
+  /proxy/account-abstraction/operations/{operation_hash_param}/summary:
     get:
       callbacks: {}
       description: Retrieves a human-readable summary of what a user operation did, presented in natural language.
@@ -7317,7 +7317,7 @@ paths:
       summary: Get a human-readable, LLM-based user operation summary
       tags:
       - account_abstraction
-  /v2/main-page/blocks:
+  /main-page/blocks:
     get:
       callbacks: {}
       description: Retrieves a limited set of recent blocks for display on the main page or dashboard.
@@ -7354,7 +7354,7 @@ paths:
       summary: Retrieve recent blocks as displayed on Blockscout homepage
       tags:
       - main_page
-  /v2/stats/charts/secondary-coin-market:
+  /stats/charts/secondary-coin-market:
     get:
       callbacks: {}
       description: Returns market history for the secondary coin used for charting.
@@ -7403,7 +7403,7 @@ paths:
       summary: Secondary coin market history chart data
       tags:
       - stats
-  /v2/addresses/{address_hash_param}/blocks-validated:
+  /addresses/{address_hash_param}/blocks-validated:
     get:
       callbacks: {}
       description: Retrieves blocks that were validated (mined) by a specific address. Useful for tracking validator/miner
@@ -7496,7 +7496,7 @@ paths:
       summary: List blocks validated (mined) by a specific validator/miner address
       tags:
       - addresses
-  /v2/addresses/{address_hash_param}/internal-transactions:
+  /addresses/{address_hash_param}/internal-transactions:
     get:
       callbacks: {}
       description: Retrieves all internal transactions involving a specific address, with optional filtering for internal
@@ -7622,7 +7622,7 @@ paths:
       summary: List all internal transactions involving a specific address
       tags:
       - addresses
-  /v2/transactions/{transaction_hash_param}/external-transactions:
+  /transactions/{transaction_hash_param}/external-transactions:
     get:
       callbacks: {}
       description: Retrieves external transactions that are linked to the specified transaction (e.g., Solana transactions
@@ -7680,7 +7680,7 @@ paths:
       summary: List external transactions linked to a transaction
       tags:
       - transactions
-  /v2/tokens/{address_hash_param}/transfers:
+  /tokens/{address_hash_param}/transfers:
     get:
       callbacks: {}
       description: Retrieves transfer history for a specific NFT instance, showing ownership changes over time.
@@ -7802,7 +7802,7 @@ paths:
       summary: List ownership transfer history for a specific NFT
       tags:
       - tokens
-  /v2/transactions:
+  /transactions:
     get:
       callbacks: {}
       description: Retrieves a paginated list of transactions with optional filtering by status, type, and method.
@@ -7933,7 +7933,7 @@ paths:
       summary: List blockchain transactions with filtering options for status, type, and method
       tags:
       - transactions
-  /v2/tokens/{address_hash_param}/instances/{token_id_param}/holders:
+  /tokens/{address_hash_param}/instances/{token_id_param}/holders:
     get:
       callbacks: {}
       description: Retrieves current holders of a specific NFT instance. For ERC-721, this will typically be a single address.
@@ -8048,7 +8048,7 @@ paths:
       summary: List current holders of a specific NFT
       tags:
       - tokens
-  /v2/stats/hot-smart-contracts:
+  /stats/hot-smart-contracts:
     get:
       callbacks: {}
       description: Retrieves paginated list of hot smart-contracts
@@ -8204,7 +8204,7 @@ paths:
       summary: Retrieve hot smart-contracts
       tags:
       - stats
-  /v2/proxy/account-abstraction/status:
+  /proxy/account-abstraction/status:
     get:
       callbacks: {}
       description: Retrieves the status of the account abstraction microservice.
@@ -8242,7 +8242,7 @@ paths:
       summary: Get the status of the account abstraction microservice
       tags:
       - account_abstraction
-  /v2/smart-contracts/{address_hash_param}:
+  /smart-contracts/{address_hash_param}:
     get:
       callbacks: {}
       description: Retrieves detailed information about a specific verified smart contract, including source code, ABI, and
@@ -8281,7 +8281,7 @@ paths:
       summary: Retrieve detailed information about a verified smart contract
       tags:
       - smart_contracts
-  /v2/tokens/{address_hash_param}/instances/{token_id_param}/transfers:
+  /tokens/{address_hash_param}/instances/{token_id_param}/transfers:
     get:
       callbacks: {}
       description: Retrieves token transfers for a specific token instance (by token address and token ID).
@@ -8384,7 +8384,7 @@ paths:
       summary: List token transfers for a specific token instance
       tags:
       - tokens
-  /v2/config/backend-version:
+  /config/backend-version:
     get:
       callbacks: {}
       description: Returns application backend version string.
@@ -8430,7 +8430,7 @@ paths:
       summary: Get backend version
       tags:
       - config
-  /v2/token-transfers:
+  /token-transfers:
     get:
       callbacks: {}
       description: Retrieves a paginated list of token transfers across all token types (ERC-20, ERC-721, ERC-1155).
@@ -8566,7 +8566,7 @@ paths:
       summary: List token transfers across all token types (ERC-20, ERC-721, ERC-1155)
       tags:
       - token_transfers
-  /v2/transactions/arbitrum-batch/{batch_number_param}:
+  /transactions/arbitrum-batch/{batch_number_param}:
     get:
       callbacks: {}
       description: Retrieves L2 transactions bound to a specific Arbitrum batch number.
@@ -8664,7 +8664,7 @@ paths:
       summary: List L2 transactions in an Arbitrum batch
       tags:
       - transactions
-  /v2/transactions/{transaction_hash_param}/token-transfers:
+  /transactions/{transaction_hash_param}/token-transfers:
     get:
       callbacks: {}
       description: Retrieves token transfers that occurred within a specific transaction, with optional filtering by token
@@ -8804,7 +8804,7 @@ paths:
       summary: List token transfers within a specific transaction
       tags:
       - transactions
-  /v2/stats/charts/market:
+  /stats/charts/market:
     get:
       callbacks: {}
       description: Retrieves time series data of market information (daily closing price, market cap) for rendering charts.
@@ -8861,7 +8861,7 @@ paths:
       summary: Get daily closing price and market cap for native coin
       tags:
       - stats
-  /v2/search/quick:
+  /search/quick:
     get:
       callbacks: {}
       description: Performs a quick, unpaginated search for short queries.
@@ -8915,7 +8915,7 @@ paths:
       summary: Quick (unpaginated) search
       tags:
       - search
-  /v2/proxy/account-abstraction/bundlers/{address_hash_param}:
+  /proxy/account-abstraction/bundlers/{address_hash_param}:
     get:
       callbacks: {}
       description: Retrieves a bundler by its address hash.
@@ -8971,7 +8971,7 @@ paths:
       summary: Get a bundler by address hash
       tags:
       - account_abstraction
-  /v2/main-page/transactions:
+  /main-page/transactions:
     get:
       callbacks: {}
       description: Retrieves a limited set of recent transactions displayed on the home page.
@@ -9014,7 +9014,7 @@ paths:
       summary: Retrieve recent transactions as displayed on Blockscout homepage
       tags:
       - main_page
-  /v2/addresses/{address_hash_param}/counters:
+  /addresses/{address_hash_param}/counters:
     get:
       callbacks: {}
       description: Retrieves count statistics for an address, including transactions, token transfers, gas usage, and validations.
@@ -9064,7 +9064,7 @@ paths:
       summary: Get activity count stats for a specific address
       tags:
       - addresses
-  /v2/tokens/{address_hash_param}/counters:
+  /tokens/{address_hash_param}/counters:
     get:
       callbacks: {}
       description: Retrieves count statistics for a specific token, including holders count and transfers count.
@@ -9114,7 +9114,7 @@ paths:
       summary: Get holder and transfer count statistics for a specific token
       tags:
       - tokens
-  /v2/config/indexer:
+  /config/indexer:
     get:
       callbacks: {}
       description: Returns config of indexer.
@@ -9179,7 +9179,7 @@ paths:
       summary: Indexer configuration
       tags:
       - config
-  /v2/config/smart-contracts/languages:
+  /config/smart-contracts/languages:
     get:
       callbacks: {}
       description: Returns list of smart contract languages supported by the database schema.
@@ -9226,7 +9226,7 @@ paths:
       summary: Smart contract languages list
       tags:
       - config
-  /v2/tokens/{address_hash_param}/instances/{token_id_param}:
+  /tokens/{address_hash_param}/instances/{token_id_param}:
     get:
       callbacks: {}
       description: Retrieves detailed information about a specific NFT instance, identified by its token contract address
@@ -9283,7 +9283,7 @@ paths:
       summary: Retrieve detailed information about a specific NFT
       tags:
       - tokens
-  /v2/stats/charts/transactions:
+  /stats/charts/transactions:
     get:
       callbacks: {}
       description: Retrieves time series data of daily transaction counts for rendering charts.
@@ -9332,7 +9332,7 @@ paths:
       summary: Get daily transaction counts
       tags:
       - stats
-  /v2/addresses/{address_hash_param}/tabs-counters:
+  /addresses/{address_hash_param}/tabs-counters:
     get:
       callbacks: {}
       description: Retrieves counters for various address-related entities (max counter value is 51).
@@ -9382,7 +9382,7 @@ paths:
       summary: Get counters for address tabs
       tags:
       - addresses
-  /v2/smart-contracts/:
+  /smart-contracts/:
     get:
       callbacks: {}
       description: Retrieves a paginated list of verified smart contracts with optional filtering by proxy status or programming
@@ -9545,7 +9545,7 @@ paths:
       summary: List verified smart contracts with optional filtering options
       tags:
       - smart_contracts
-  /v2/addresses/{address_hash_param}/coin-balance-history:
+  /addresses/{address_hash_param}/coin-balance-history:
     get:
       callbacks: {}
       description: Retrieves historical native coin balance changes for a specific address, tracking how an address's balance
@@ -9638,7 +9638,7 @@ paths:
       summary: Get native coin balance history for an address showing all balance changes
       tags:
       - addresses
-  /v2/tokens/{address_hash_param}/instances/refetch-metadata:
+  /tokens/{address_hash_param}/instances/refetch-metadata:
     patch:
       callbacks: {}
       description: Triggers a metadata refetch for a token's NFT collection (by token address). Requires API key.
@@ -9711,7 +9711,7 @@ paths:
       summary: Trigger metadata refetch for a token's NFT collection
       tags:
       - tokens
-  /v2/proxy/account-abstraction/bundlers:
+  /proxy/account-abstraction/bundlers:
     get:
       callbacks: {}
       description: Retrieves a list of top bundlers.
@@ -9796,7 +9796,7 @@ paths:
       summary: List of top bundlers
       tags:
       - account_abstraction
-  /v2/transactions/{transaction_hash_param}/state-changes:
+  /transactions/{transaction_hash_param}/state-changes:
     get:
       callbacks: {}
       description: Retrieves state changes (balance changes, token transfers) caused by a specific transaction.
@@ -9887,7 +9887,7 @@ paths:
       summary: Get on-chain state changes caused by a specific transaction
       tags:
       - transactions
-  /v2/addresses/{address_hash_param}:
+  /addresses/{address_hash_param}:
     get:
       callbacks: {}
       description: Retrieves detailed information for a specific address, including balance, transaction count, and metadata.
@@ -9937,7 +9937,7 @@ paths:
       summary: Retrieve detailed information about a specific address or contract
       tags:
       - addresses
-  /v2/blocks/{block_number_param}/countdown:
+  /blocks/{block_number_param}/countdown:
     get:
       callbacks: {}
       description: Calculates the estimated time remaining until a specified block number is reached based on current block
@@ -9991,7 +9991,7 @@ paths:
       summary: Get countdown information for a target block number
       tags:
       - blocks
-  /v2/addresses:
+  /addresses:
     get:
       callbacks: {}
       description: Retrieves a paginated list of addresses holding the native coin, sorted by balance.
@@ -10236,7 +10236,7 @@ paths:
       summary: List addresses holding native coins sorted by balance - top accounts
       tags:
       - addresses
-  /v2/addresses/{address_hash_param}/withdrawals:
+  /addresses/{address_hash_param}/withdrawals:
     get:
       callbacks: {}
       description: Retrieves withdrawals involving a specific address, typically for proof-of-stake networks supporting validator
@@ -10329,7 +10329,7 @@ paths:
       summary: List validator withdrawals involving a specific address
       tags:
       - addresses
-  /v2/proxy/account-abstraction/operations/{operation_hash_param}:
+  /proxy/account-abstraction/operations/{operation_hash_param}:
     get:
       callbacks: {}
       description: Retrieves a user operation by its hash.
@@ -10385,7 +10385,7 @@ paths:
       summary: Get a user operation by hash
       tags:
       - account_abstraction
-  /v2/proxy/account-abstraction/paymasters/{address_hash_param}:
+  /proxy/account-abstraction/paymasters/{address_hash_param}:
     get:
       callbacks: {}
       description: Retrieves a paymaster by its address hash.
@@ -10441,7 +10441,7 @@ paths:
       summary: Get a paymaster by address hash
       tags:
       - account_abstraction
-  /v2/internal-transactions:
+  /internal-transactions:
     get:
       callbacks: {}
       description: Retrieves a paginated list of internal transactions. Internal transactions are generated during contract
@@ -10555,7 +10555,7 @@ paths:
       summary: List internal transactions generated during smart contract execution
       tags:
       - internal_transactions
-  /v2/proxy/account-abstraction/operations:
+  /proxy/account-abstraction/operations:
     get:
       callbacks: {}
       description: Retrieves a list of recent user operations.
@@ -10640,7 +10640,7 @@ paths:
       summary: List of recent user operations
       tags:
       - account_abstraction
-  /v2/addresses/{address_hash_param}/coin-balance-history-by-day:
+  /addresses/{address_hash_param}/coin-balance-history-by-day:
     get:
       callbacks: {}
       description: Retrieves daily snapshots of native coin balance for a specific address. Useful for generating balance-over-time
@@ -10707,7 +10707,7 @@ paths:
       summary: Get daily native coin balance snapshots for an address from previous 10 days
       tags:
       - addresses
-  /v2/smart-contracts/counters:
+  /smart-contracts/counters:
     get:
       callbacks: {}
       description: Retrieves count statistics for smart contracts, including total contracts, verified contracts, and new
@@ -10746,7 +10746,7 @@ paths:
       summary: Get count statistics (new & newly verified) for deployed smart contracts
       tags:
       - smart_contracts
-  /v2/tokens/{address_hash_param}/instances/{token_id_param}/transfers-count:
+  /tokens/{address_hash_param}/instances/{token_id_param}/transfers-count:
     get:
       callbacks: {}
       description: Retrieves the total number of transfers for a specific NFT instance. Useful for determining how frequently
@@ -10810,7 +10810,7 @@ paths:
       summary: Get total number of ownership transfers for a specific NFT
       tags:
       - tokens
-  /v2/main-page/indexing-status:
+  /main-page/indexing-status:
     get:
       callbacks: {}
       description: Retrieves the current status of blockchain data indexing by the BlockScout instance.
@@ -10864,7 +10864,7 @@ paths:
       summary: Check if indexing is finished with indexing ratio
       tags:
       - main_page
-  /v2/blocks/{block_hash_or_number_param}/transactions:
+  /blocks/{block_hash_or_number_param}/transactions:
     get:
       callbacks: {}
       description: Retrieves transactions included in a specific block, ordered by transaction index.
@@ -10993,7 +10993,7 @@ paths:
       summary: List transactions and tx details included in a specific block
       tags:
       - blocks
-  /v2/proxy/account-abstraction/accounts/{address_hash_param}:
+  /proxy/account-abstraction/accounts/{address_hash_param}:
     get:
       callbacks: {}
       description: Retrieves an account abstraction wallet by its address hash.
@@ -11049,7 +11049,7 @@ paths:
       summary: Get an account abstraction wallet by address hash
       tags:
       - account_abstraction
-  /v2/transactions/{transaction_hash_param}/summary:
+  /transactions/{transaction_hash_param}/summary:
     get:
       callbacks: {}
       description: Retrieves a human-readable summary of what a transaction did, presented in natural language.
@@ -11111,7 +11111,7 @@ paths:
       summary: Get a human-readable, LLM-based transaction summary
       tags:
       - transactions
-  /v2/proxy/account-abstraction/factories:
+  /proxy/account-abstraction/factories:
     get:
       callbacks: {}
       description: Retrieves a list of top wallet factories.
@@ -11196,7 +11196,7 @@ paths:
       summary: List of top wallet factories
       tags:
       - account_abstraction
-  /v2/withdrawals/counters:
+  /withdrawals/counters:
     get:
       callbacks: {}
       description: Returns total withdrawals count and sum from cache.
@@ -11234,7 +11234,7 @@ paths:
       summary: Withdrawals counters
       tags:
       - withdrawals
-  /v2/blocks:
+  /blocks:
     get:
       callbacks: {}
       description: Retrieves a paginated list of blocks with optional filtering by block type.
@@ -11325,7 +11325,7 @@ paths:
       summary: List blocks with optional filtering by block type
       tags:
       - blocks
-  /v2/tokens/{address_hash_param}/instances/{token_id_param}/refetch-metadata:
+  /tokens/{address_hash_param}/instances/{token_id_param}/refetch-metadata:
     patch:
       callbacks: {}
       description: Triggers a refresh of metadata for a specific NFT instance. Useful when the NFT's metadata has been updated
@@ -11397,7 +11397,7 @@ paths:
       summary: Trigger a refresh of metadata for a specific NFT
       tags:
       - tokens
-  /v2/addresses/{address_hash_param}/logs:
+  /addresses/{address_hash_param}/logs:
     get:
       callbacks: {}
       description: Retrieves event logs emitted by or involving a specific address.
@@ -11504,7 +11504,7 @@ paths:
       summary: List event logs emitted by or involving a specific address
       tags:
       - addresses
-  /v2/proxy/account-abstraction/accounts:
+  /proxy/account-abstraction/accounts:
     get:
       callbacks: {}
       description: Retrieves a list of account abstraction wallets.
@@ -11589,7 +11589,7 @@ paths:
       summary: List of account abstraction wallets
       tags:
       - account_abstraction
-  /v2/addresses/{address_hash_param}/internal-transactions/csv:
+  /addresses/{address_hash_param}/internal-transactions/csv:
     get:
       callbacks: {}
       description: Exports internal transactions for a specific address as a CSV file.
@@ -11696,7 +11696,7 @@ paths:
       summary: Export internal transactions as CSV
       tags:
       - addresses
-  /v2/search/check-redirect:
+  /search/check-redirect:
     get:
       callbacks: {}
       description: Checks if a search query redirects to a specific entity page rather than showing search results.
@@ -11767,7 +11767,7 @@ paths:
       summary: Check if search query should redirect to a specific entity page
       tags:
       - search
-  /v2/transactions/stats:
+  /transactions/stats:
     get:
       callbacks: {}
       description: Retrieves statistics for transactions, including counts and fee summaries for the last 24 hours.
@@ -11806,7 +11806,7 @@ paths:
       summary: Get transaction statistics
       tags:
       - transactions
-  /v2/config/public-metrics:
+  /config/public-metrics:
     get:
       callbacks: {}
       description: Returns update period / configuration for public metrics.
@@ -11989,7 +11989,7 @@ paths:
       summary: Search for tokens, addresses, contracts, blocks, or transactions by identifier
       tags:
       - search
-  /v2/proxy/account-abstraction/factories/{address_hash_param}:
+  /proxy/account-abstraction/factories/{address_hash_param}:
     get:
       callbacks: {}
       description: Retrieves a factory by its address hash.
@@ -12045,7 +12045,7 @@ paths:
       summary: Get a factory by address hash
       tags:
       - account_abstraction
-  /v2/blocks/arbitrum-batch/{batch_number_param}:
+  /blocks/arbitrum-batch/{batch_number_param}:
     get:
       callbacks: {}
       description: Retrieves L2 blocks that are bound to a specific Arbitrum batch number.
@@ -12134,7 +12134,7 @@ paths:
       summary: List L2 blocks in an Arbitrum batch
       tags:
       - blocks
-  /v2/transactions/{transaction_hash_param}/logs:
+  /transactions/{transaction_hash_param}/logs:
     get:
       callbacks: {}
       description: Retrieves event logs emitted during the execution of a specific transaction. Logs contain information about
@@ -12236,7 +12236,7 @@ paths:
       summary: List event logs emitted during a specific transaction
       tags:
       - transactions
-  /v2/config/db-background-migrations:
+  /config/db-background-migrations:
     get:
       callbacks: {}
       description: Returns list of background migrations that are not yet completed.
@@ -12309,7 +12309,7 @@ paths:
       summary: Uncompleted background migrations
       tags:
       - config
-  /v2/proxy/account-abstraction/paymasters:
+  /proxy/account-abstraction/paymasters:
     get:
       callbacks: {}
       description: Retrieves a list of top paymasters.
@@ -12394,7 +12394,7 @@ paths:
       summary: List of top paymasters
       tags:
       - account_abstraction
-  /v2/transactions/watchlist:
+  /transactions/watchlist:
     get:
       callbacks: {}
       description: Retrieves transactions in the authenticated user's watchlist.
@@ -12489,7 +12489,7 @@ paths:
       summary: List transactions in a user's watchlist
       tags:
       - transactions
-  /v2/transactions/{transaction_hash_param}/internal-transactions:
+  /transactions/{transaction_hash_param}/internal-transactions:
     get:
       callbacks: {}
       description: Retrieves internal transactions generated during the execution of a specific transaction. Useful for analyzing
@@ -12600,7 +12600,7 @@ paths:
       summary: List internal transactions triggered during a specific transaction
       tags:
       - transactions
-  /v2/proxy/account-abstraction/bundles:
+  /proxy/account-abstraction/bundles:
     get:
       callbacks: {}
       description: Retrieves a list of recent bundles.
@@ -12685,7 +12685,7 @@ paths:
       summary: List of recent bundles
       tags:
       - account_abstraction
-  /v2/config/backend:
+  /config/backend:
     get:
       callbacks: {}
       description: Returns non-secret backend environment variables in the snake case (e.g., chain_type).
@@ -12736,7 +12736,7 @@ paths:
       summary: Get backend environment configuration
       tags:
       - config
-  /v2/addresses/{address_hash_param}/logs/csv:
+  /addresses/{address_hash_param}/logs/csv:
     get:
       callbacks: {}
       description: Exports logs for a specific address as a CSV file.
@@ -12843,7 +12843,7 @@ paths:
       summary: Export logs as CSV
       tags:
       - addresses
-  /v2/withdrawals:
+  /withdrawals:
     get:
       callbacks: {}
       description: Retrieves a paginated list of withdrawals, typically for proof-of-stake networks supporting validator withdrawals.
@@ -12922,7 +12922,7 @@ paths:
       summary: List validator withdrawal details on proof-of-stake networks
       tags:
       - withdrawals
-  /v2/search:
+  /search:
     get:
       callbacks: {}
       description: Performs a unified search across multiple blockchain entity types including tokens, addresses, contracts,
@@ -13060,7 +13060,7 @@ paths:
       summary: Search for tokens, addresses, contracts, blocks, or transactions by identifier
       tags:
       - search
-  /v2/addresses/{address_hash_param}/transactions:
+  /addresses/{address_hash_param}/transactions:
     get:
       callbacks: {}
       description: Retrieves transactions involving a specific address, with optional filtering for transactions sent from
@@ -13259,7 +13259,7 @@ paths:
       summary: List transactions involving a specific address with to-from filtering
       tags:
       - addresses
-  /v2/transactions/{transaction_hash_param}/raw-trace:
+  /transactions/{transaction_hash_param}/raw-trace:
     get:
       callbacks: {}
       description: Retrieves the raw execution trace for a transaction, showing the step-by-step execution path and all contract
@@ -13310,7 +13310,7 @@ paths:
       summary: Get step-by-step execution trace for a specific transaction
       tags:
       - transactions
-  /v2/addresses/{address_hash_param}/transactions/csv:
+  /addresses/{address_hash_param}/transactions/csv:
     get:
       callbacks: {}
       description: Exports transactions for a specific address as a CSV file.
@@ -13417,7 +13417,7 @@ paths:
       summary: Export transactions as CSV
       tags:
       - addresses
-  /v2/addresses/{address_hash_param}/nft/collections:
+  /addresses/{address_hash_param}/nft/collections:
     get:
       callbacks: {}
       description: Retrieves NFTs owned by a specific address, organized by collection. Useful for displaying an address's
@@ -13533,7 +13533,7 @@ paths:
       summary: List NFTs owned by an address grouped by collection/project
       tags:
       - addresses
-  /v2/beacon/deposits:
+  /beacon/deposits:
     get:
       callbacks: {}
       description: Retrieves a paginated list of all beacon deposits.
@@ -13614,7 +13614,7 @@ paths:
       summary: Lists all beacon deposits
       tags:
       - beacon_deposits
-  /v2/transactions/{transaction_hash_param}/blobs:
+  /transactions/{transaction_hash_param}/blobs:
     get:
       callbacks: {}
       description: Retrieves blobs for a specific transaction (Ethereum only).
@@ -13675,7 +13675,7 @@ paths:
       summary: List blobs for a transaction
       tags:
       - transactions
-  /v2/addresses/{address_hash_param}/beacon/deposits:
+  /addresses/{address_hash_param}/beacon/deposits:
     get:
       callbacks: {}
       description: Retrieves Beacon deposits for a specific address.
@@ -13768,7 +13768,7 @@ paths:
       summary: List Beacon Deposits for a specific address
       tags:
       - addresses
-  /v2/beacon/deposits/count:
+  /beacon/deposits/count:
     get:
       callbacks: {}
       description: Retrieves the total count of beacon deposits.
@@ -13801,7 +13801,7 @@ paths:
       summary: Gets total count of beacon deposits
       tags:
       - beacon_deposits
-  /v2/blocks/{block_hash_or_number_param}/beacon/deposits:
+  /blocks/{block_hash_or_number_param}/beacon/deposits:
     get:
       callbacks: {}
       description: Retrieves beacon deposits included in a specific block with pagination support.
@@ -13899,7 +13899,7 @@ paths:
       summary: List beacon deposits in a specific block
       tags:
       - blocks
-  /v2/transactions/{transaction_hash_param}/beacon/deposits:
+  /transactions/{transaction_hash_param}/beacon/deposits:
     get:
       callbacks: {}
       description: Retrieves beacon deposits included in a specific transaction with pagination support.
@@ -13990,7 +13990,7 @@ paths:
       summary: List beacon deposits in a transaction
       tags:
       - transactions
-  /v2/mud/worlds/{world}/systems:
+  /mud/worlds/{world}/systems:
     get:
       callbacks: {}
       description: Retrieves a list of MUD systems registered in the specific MUD world.
@@ -14038,7 +14038,7 @@ paths:
       summary: List of MUD world systems.
       tags:
       - mud
-  /v2/optimism/games/count:
+  /optimism/games/count:
     get:
       callbacks: {}
       description: Retrieves a size of the games list.
@@ -14079,7 +14079,7 @@ paths:
       summary: Number of games in the list.
       tags:
       - optimism
-  /v2/mud/worlds/{world}/tables/count:
+  /mud/worlds/{world}/tables/count:
     get:
       callbacks: {}
       description: Retrieves the total number of known MUD tables in the specific MUD world.
@@ -14142,7 +14142,7 @@ paths:
       summary: Number of known MUD world tables.
       tags:
       - mud
-  /v2/optimism/batches/da/celestia/{height}/{commitment}:
+  /optimism/batches/da/celestia/{height}/{commitment}:
     get:
       callbacks: {}
       description: Retrieves batch detailed info by the given celestia blob metadata (height and commitment).
@@ -14198,7 +14198,7 @@ paths:
       summary: Batch by celestia blob.
       tags:
       - optimism
-  /v2/mud/worlds/{world}/tables/{table_id}/records/{record_id}:
+  /mud/worlds/{world}/tables/{table_id}/records/{record_id}:
     get:
       callbacks: {}
       description: Retrieves a single record in the specific MUD world table.
@@ -14271,7 +14271,7 @@ paths:
       summary: Single MUD world table record.
       tags:
       - mud
-  /v2/optimism/batches/{number}:
+  /optimism/batches/{number}:
     get:
       callbacks: {}
       description: Retrieves batch detailed info by the given number.
@@ -14321,7 +14321,7 @@ paths:
       summary: Batch by its number.
       tags:
       - optimism
-  /v2/mud/worlds/{world}/systems/{system}:
+  /mud/worlds/{world}/systems/{system}:
     get:
       callbacks: {}
       description: Retrieves a list of MUD system ABI methods registered in the specific MUD world.
@@ -14371,7 +14371,7 @@ paths:
       summary: List of MUD world system ABI methods.
       tags:
       - mud
-  /v2/transactions/optimism-batch/{batch_number_param}:
+  /transactions/optimism-batch/{batch_number_param}:
     get:
       callbacks: {}
       description: Retrieves L2 transactions bound to a specific Optimism batch number.
@@ -14469,7 +14469,7 @@ paths:
       summary: List L2 transactions in an Optimism batch
       tags:
       - transactions
-  /v2/mud/worlds/{world}/tables:
+  /mud/worlds/{world}/tables:
     get:
       callbacks: {}
       description: Retrieves a paginated list of MUD tables in the specific MUD world.
@@ -14569,7 +14569,7 @@ paths:
       summary: List of MUD world tables.
       tags:
       - mud
-  /v2/mud/worlds/count:
+  /mud/worlds/count:
     get:
       callbacks: {}
       description: Retrieves the total number of known MUD worlds.
@@ -14603,7 +14603,7 @@ paths:
       summary: Number of known MUD worlds.
       tags:
       - mud
-  /v2/optimism/output-roots:
+  /optimism/output-roots:
     get:
       callbacks: {}
       description: Retrieves a paginated list of output roots.
@@ -14682,7 +14682,7 @@ paths:
       summary: List output roots.
       tags:
       - optimism
-  /v2/optimism/withdrawals/count:
+  /optimism/withdrawals/count:
     get:
       callbacks: {}
       description: Retrieves a size of the withdrawals list.
@@ -14723,7 +14723,7 @@ paths:
       summary: Number of withdrawals in the list.
       tags:
       - optimism
-  /v2/mud/worlds/{world}/tables/{table_id}/records:
+  /mud/worlds/{world}/tables/{table_id}/records:
     get:
       callbacks: {}
       description: Retrieves a paginated list of records in the specific MUD world table.
@@ -14884,7 +14884,7 @@ paths:
       summary: List of MUD world table records.
       tags:
       - mud
-  /v2/optimism/games:
+  /optimism/games:
     get:
       callbacks: {}
       description: Retrieves a paginated list of games.
@@ -14963,7 +14963,7 @@ paths:
       summary: List games.
       tags:
       - optimism
-  /v2/optimism/deposits/count:
+  /optimism/deposits/count:
     get:
       callbacks: {}
       description: Retrieves a size of the deposits list.
@@ -15004,7 +15004,7 @@ paths:
       summary: Number of deposits in the list.
       tags:
       - optimism
-  /v2/optimism/batches:
+  /optimism/batches:
     get:
       callbacks: {}
       description: Retrieves a paginated list of batches.
@@ -15083,7 +15083,7 @@ paths:
       summary: List batches.
       tags:
       - optimism
-  /v2/optimism/withdrawals:
+  /optimism/withdrawals:
     get:
       callbacks: {}
       description: Retrieves a paginated list of withdrawals.
@@ -15160,7 +15160,7 @@ paths:
       summary: List withdrawals.
       tags:
       - optimism
-  /v2/optimism/batches/count:
+  /optimism/batches/count:
     get:
       callbacks: {}
       description: Retrieves a size of the batch list.
@@ -15201,7 +15201,7 @@ paths:
       summary: Number of batches in the list.
       tags:
       - optimism
-  /v2/blocks/optimism-batch/{batch_number_param}:
+  /blocks/optimism-batch/{batch_number_param}:
     get:
       callbacks: {}
       description: Retrieves L2 blocks that are bound to a specific Optimism batch number.
@@ -15290,7 +15290,7 @@ paths:
       summary: List L2 blocks in an Optimism batch
       tags:
       - blocks
-  /v2/mud/worlds/{world}/tables/{table_id}/records/count:
+  /mud/worlds/{world}/tables/{table_id}/records/count:
     get:
       callbacks: {}
       description: Retrieves the total number of records in the specific MUD world table.
@@ -15358,7 +15358,7 @@ paths:
       summary: Number of known MUD world table records.
       tags:
       - mud
-  /v2/main-page/optimism-deposits:
+  /main-page/optimism-deposits:
     get:
       callbacks: {}
       description: Retrieves a list of deposits for the main page.
@@ -15401,7 +15401,7 @@ paths:
       summary: List deposits on the main page.
       tags:
       - optimism
-  /v2/mud/worlds:
+  /mud/worlds:
     get:
       callbacks: {}
       description: Retrieves a paginated list of MUD worlds with basic stats.
@@ -15472,7 +15472,7 @@ paths:
       summary: List of MUD worlds.
       tags:
       - mud
-  /v2/optimism/deposits:
+  /optimism/deposits:
     get:
       callbacks: {}
       description: Retrieves a paginated list of deposits.
@@ -15559,7 +15559,7 @@ paths:
       summary: List deposits.
       tags:
       - optimism
-  /v2/optimism/output-roots/count:
+  /optimism/output-roots/count:
     get:
       callbacks: {}
       description: Retrieves a size of the output roots list.
@@ -15600,7 +15600,7 @@ paths:
       summary: Number of output roots in the list.
       tags:
       - optimism
-  /v2/config/celo:
+  /config/celo:
     get:
       callbacks: {}
       description: Returns Celo-specific configuration (l2 migration block).
@@ -15646,7 +15646,7 @@ paths:
       summary: Celo chain configuration
       tags:
       - config
-  /v2/addresses/{address_hash_param}/celo/election-rewards:
+  /addresses/{address_hash_param}/celo/election-rewards:
     get:
       callbacks: {}
       description: Retrieves Celo election rewards for a specific address.
@@ -15765,7 +15765,7 @@ paths:
       summary: List Celo election rewards for a specific address
       tags:
       - addresses
-  /v2/addresses/{address_hash_param}/celo/election-rewards/csv:
+  /addresses/{address_hash_param}/celo/election-rewards/csv:
     get:
       callbacks: {}
       description: Exports Celo election rewards for a specific address as a CSV file.
@@ -15872,7 +15872,7 @@ paths:
       summary: Export Celo election rewards as CSV
       tags:
       - addresses
-  /v2/transactions/zkevm-batch/{batch_number_param}:
+  /transactions/zkevm-batch/{batch_number_param}:
     get:
       callbacks: {}
       description: Retrieves L2 transactions bound to a specific Polygon ZkEVM batch number.
@@ -15930,7 +15930,7 @@ paths:
       summary: List L2 transactions in a Polygon ZkEVM batch
       tags:
       - transactions
-  /v2/scroll/batches:
+  /scroll/batches:
     get:
       callbacks: {}
       description: Retrieves a paginated list of batches.
@@ -16009,7 +16009,7 @@ paths:
       summary: List batches.
       tags:
       - scroll
-  /v2/scroll/batches/count:
+  /scroll/batches/count:
     get:
       callbacks: {}
       description: Retrieves a size of the batch list.
@@ -16050,7 +16050,7 @@ paths:
       summary: Number of batches in the list.
       tags:
       - scroll
-  /v2/transactions/scroll-batch/{batch_number_param}:
+  /transactions/scroll-batch/{batch_number_param}:
     get:
       callbacks: {}
       description: Retrieves L2 transactions bound to a specific Scroll batch number.
@@ -16148,7 +16148,7 @@ paths:
       summary: List L2 transactions in a Scroll batch
       tags:
       - transactions
-  /v2/scroll/withdrawals:
+  /scroll/withdrawals:
     get:
       callbacks: {}
       description: Retrieves a paginated list of withdrawals.
@@ -16227,7 +16227,7 @@ paths:
       summary: List withdrawals.
       tags:
       - scroll
-  /v2/scroll/batches/{number}:
+  /scroll/batches/{number}:
     get:
       callbacks: {}
       description: Retrieves batch info by the given number.
@@ -16277,7 +16277,7 @@ paths:
       summary: Batch by its number.
       tags:
       - scroll
-  /v2/scroll/deposits/count:
+  /scroll/deposits/count:
     get:
       callbacks: {}
       description: Retrieves a size of the deposits list.
@@ -16318,7 +16318,7 @@ paths:
       summary: Number of deposits in the list.
       tags:
       - scroll
-  /v2/scroll/deposits:
+  /scroll/deposits:
     get:
       callbacks: {}
       description: Retrieves a paginated list of deposits.
@@ -16397,7 +16397,7 @@ paths:
       summary: List deposits.
       tags:
       - scroll
-  /v2/scroll/withdrawals/count:
+  /scroll/withdrawals/count:
     get:
       callbacks: {}
       description: Retrieves a size of the withdrawals list.
@@ -16438,7 +16438,7 @@ paths:
       summary: Number of withdrawals in the list.
       tags:
       - scroll
-  /v2/blocks/scroll-batch/{batch_number_param}:
+  /blocks/scroll-batch/{batch_number_param}:
     get:
       callbacks: {}
       description: Retrieves L2 blocks that are bound to a specific Scroll batch number.
@@ -16527,7 +16527,7 @@ paths:
       summary: List L2 blocks in a Scroll batch
       tags:
       - blocks
-  /v2/validators/zilliqa:
+  /validators/zilliqa:
     get:
       callbacks: {}
       description: Retrieves the list of Zilliqa validators.
@@ -16627,7 +16627,7 @@ paths:
       summary: Zilliqa validators list.
       tags:
       - zilliqa
-  /v2/validators/zilliqa/{bls_public_key}:
+  /validators/zilliqa/{bls_public_key}:
     get:
       callbacks: {}
       description: Retrieves Zilliqa validator detailed info by the given BLS public key.
@@ -16682,7 +16682,7 @@ paths:
       summary: Zilliqa validator by its BLS public key.
       tags:
       - zilliqa
-  /v2/transactions/zksync-batch/{batch_number_param}:
+  /transactions/zksync-batch/{batch_number_param}:
     get:
       callbacks: {}
       description: Retrieves L2 transactions bound to a specific ZkSync batch number.
