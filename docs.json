@@ -406,68 +406,67 @@
               "icon": "cloud",
               "pages": [
                 "devs/apis",
-                "devs/apis/requests-and-limits",
+                "devs/pro-api",
+                "devs/plans-and-credits",
                 {
-                  "group": "PRO API",
+                  "group": "PRO API Endpoints",
                   "icon": "rectangle-pro",
-                  "pages": [
-                    "devs/pro-api",
-                    "devs/plans-and-credits",
-                    {
-                      "group": "PRO API Testing",
-                      "icon": "rectangle-pro",
-                      "openapi": "openapi-specs/blockscout-pro-api.yaml"
-                    }
-                  ]
+                  "openapi": "openapi-specs/pro-api.yaml"
                 },
                 {
-                  "group": "REST API Endpoints",
+                  "group": "API Archive",
                   "pages": [
-                    "devs/apis/rest",
+                    "devs/apis/requests-and-limits",
                     {
-                      "group": "Endpoints",
-                      "openapi": "openapi-specs/openapi.yaml"
+                      "group": "REST API Endpoints",
+                      "pages": [
+                        "devs/apis/rest",
+                        {
+                          "group": "Endpoints",
+                          "openapi": "openapi-specs/openapi.yaml"
+                        },
+                        "devs/apis/rest/stats-api",
+                        "devs/apis/rest/interpreter-api"
+                      ]
                     },
-                    "devs/apis/rest/stats-api",
-                    "devs/apis/rest/interpreter-api"
-                  ]
-                },
-                {
-                  "group": "JSON RPC & ETH Compatible RPC Endpoints",
-                  "pages": [
-                    "devs/apis/rpc",
-                    "devs/apis/rpc/account",
-                    "devs/apis/rpc/block",
-                    "devs/apis/rpc/contract",
-                    "devs/apis/rpc/logs",
-                    "devs/apis/rpc/stats",
-                    "devs/apis/rpc/token",
-                    "devs/apis/rpc/transaction",
-                    "devs/apis/rpc/eth-rpc",
                     {
-                      "group": "ETH RPC Endpoint Testing",
-                      "openapi": "openapi-specs/jsonrpc-endpoints.yaml"
+                      "group": "JSON RPC & ETH Compatible RPC Endpoints",
+                      "pages": [
+                        "devs/apis/rpc",
+                        "devs/apis/rpc/account",
+                        "devs/apis/rpc/block",
+                        "devs/apis/rpc/contract",
+                        "devs/apis/rpc/logs",
+                        "devs/apis/rpc/stats",
+                        "devs/apis/rpc/token",
+                        "devs/apis/rpc/transaction",
+                        "devs/apis/rpc/eth-rpc",
+                        {
+                          "group": "ETH RPC Endpoint Testing",
+                          "openapi": "openapi-specs/jsonrpc-endpoints.yaml"
+                        }
+                      ]
+                    },
+                    "devs/apis/graphql",
+                    {
+                      "group": "Test Merits APIs",
+                      "icon": "award",
+                      "pages": [
+                        "devs/integrate-merits",
+                        {
+                          "group": "Endpoints",
+                          "openapi": "openapi-specs/merits-admin-service.yaml"
+                        }
+                      ]
+                    },
+                    {
+                      "group": "Verification APIs",
+                      "icon": "shapes",
+                      "pages": [
+                        "devs/verification/blockscout-smart-contract-verification-api"
+                      ]
                     }
                   ]
-                },
-                "devs/apis/graphql"
-              ]
-            },
-            {
-              "group": "Verification APIs",
-              "icon": "shapes",
-              "pages": [
-                "devs/verification/blockscout-smart-contract-verification-api"
-              ]
-            },
-            {
-              "group": "Test Merits APIs",
-              "icon": "award",
-              "pages": [
-                "devs/integrate-merits",
-                {
-                  "group": "Endpoints",
-                  "openapi": "openapi-specs/merits-admin-service.yaml"
                 }
               ]
             }
