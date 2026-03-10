@@ -2,6 +2,7 @@
 title: "Blockscout APIs"
 sidebarTitle: "Overview"
 description: "How to use Blockscout APIs"
+icon: "alien-8bit"
 ---
 
 ## Blockscout API Usage
@@ -13,50 +14,19 @@ description: "How to use Blockscout APIs"
 </Check>
 
 <CardGroup cols={3}>
-  <Card icon="rectangle-pro" href="get-started/new-to-blockscout" title="PRO API">
+  <Card icon="rectangle-pro" href="devs/pro-api" title="PRO API">
     API Overview, Routes, Plans and Credits
   </Card>
-  <Card icon="person-running-fast" href="get-started/using-an-explorer" title="ETHERSCAN MIGRATION">
+  <Card icon="person-running-fast" href="devs/migrate-from-etherscan" title="ETHERSCAN MIGRATION">
     Port over seamlessly and get more calls for less \$\$
   </Card>
-  <Card icon="torii-gate" href="get-started/integrating-data" title="DEV PORTAL">
+  <Card icon="torii-gate" href="devs/dev-portal" title="DEV PORTAL">
     Use the Dev Portal to enhance your API experience.
   </Card>
-  <Card icon="user-chef" href="get-started/running-blockscout" title="USE CASES">
+  <Card icon="user-chef" href="devs/use-cases" title="USE CASES">
     Example apps and agent flows
   </Card>
-  <Card icon="book-open-cover" href="get-started/migration-guide" title="ARCHIVE">
+  <Card icon="book-open-cover" href="devs/apis/api-archive" title="ARCHIVE">
     Prior info on our  REST and RPC 
   </Card>
 </CardGroup>
-
-1. [**PRO API**](/devs/pro-api): Universal multichain API for access to all endpoints.
-1. [**REST API**](/devs/apis/rest): API that serves the UI for Blockscout.
-2. [**RPC API**](/devs/apis/rpc): provided for developers transitioning applications from Etherscan to Blockscout. Supports GET and POST requests, simply replace Etherscan url with Blockscout url to use the RPC.
-3. [**Eth RPC API**](/devs/apis/rpc/eth-rpc): Supports the most popular [JSON RPC methods](https://ethereum.github.io/execution-apis/api-documentation/).
-4. [**GraphiQL**](https://github.com/graphql/graphiql): An IDE for exploring GraphQL.
-
-## API Keys
-
-- You can add the PRO API key at https://dev.blockscout.com/).
-- Note: My Account API keys will be deprecated shortly. For now, check [My Account and adding API Keys](/using-blockscout/my-account/api-keys) for individual instance keys.
-- More info on [API Requests and Limits](/devs/apis/requests-and-limits)
-
-<Info>
-  Blockscout provides swagger documentation for various API services here: https://blockscout.github.io/swaggers/
-</Info>
-
-<Frame caption="API access in new instance">
-  ![](/images/f076d763-image.jpeg)
-</Frame>
-
-## Blockscout Internal Documentation
-
-To view Modules and API Reference documentation:
-
-1. Generate documentation.
-
-   `mix docs`
-2. View the generated docs.
-
-   `open doc/index.html`
