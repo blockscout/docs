@@ -426,6 +426,7 @@
             },
             {
               "group": "Additional Service APIs",
+              "icon": "light-switch",
               "pages": [
                 "devs/apis/swagger-hub",
                 "devs/apis/autoscout-api",
