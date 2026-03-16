@@ -1,0 +1,144 @@
+---
+title: "Creating an Instance"
+icon: "wand-magic-sparkles"
+---
+
+## Create Instance
+
+<Tip>
+  Get started at https://deploy.blockscout.com/
+</Tip>
+
+There are several tabs to fill out to launch your instance; Info, Branding, and Rollup config (if needed). Plugins (currently the only live plugin is stats) can be added once your instance is fully indexed.
+
+You can edit parameters at any time, but this typically requires relaunching and reindexing the instance.
+
+<Note>
+  Power users can use the Autoscout API to deploy and manage instances.
+</Note>
+
+### Info
+
+The following parameters are in the Info section. \* parameters are required.
+
+- **Instance size\***: Select based on the number of transactions anticipated for the instance. The costs are currently placeholders, but your credits will be impacted according to chain usage.
+- **Chain name**: The chain name will be shown in the top explorer banner.
+- **Instance name\***: A label for your instance, it is reflected in the url of the instance ie https://instance-name.cloud.blockscout.com/
+- **Chain ID**: If you don't know the chain ID you can get with the `eth_chainId` JSON-RPC method.
+- **Node type:** Choose from the list of clients for the archive node:
+  - Besu, Erigon, Anvil, Geth, Parity
+- **Gas token symbol**: Will show in the interface, for example ETH if your chain uses Ether for gas.
+- **Mainnet or Testnet**: Select the type of chain, if Testnet a label will be added to the instance.
+- **This chain is a Rollup**: If selected, another field will appear to select **Arbitrum, Optimism, Polygon zkEVM or zkSync**. You will then fill out additional information in the Rollup Config tab.
+- **HTTP RPC URL\***: The **archive node** url (https://your-rpc-url) [**_Note: archive node is required for internal transactions and token/coin historical balances. Tracing should be enabled for internal transactions._**](/setup/requirements/node-tracing-json-rpc-requirements)
+- **WS URL**: The websocket url (wss://ws.your-websocket-url)
+- **Chain spec URL**: URL to chain specification path json (Sepolia example: [chainspec.json](https://github.com/ethpandaops/ethereum-genesis-generator/blob/v4.1.8/apps/el-gen/sepolia/chainspec.json) or [genesis.json](https://github.com/ethpandaops/ethereum-genesis-generator/blob/v4.1.8/apps/el-gen/sepolia/genesis.json)). You will use the raw JSON file; in the Sepolia example this url is https://raw.githubusercontent.com/ethpandaops/ethereum-genesis-generator/v4.1.8/apps/el-gen/sepolia/chainspec.json
+- **Custom Domain**: You can use a custom domain for your instance but must configure your DNS and add a DNS `CNAME` record pointing to `autoscout.cname.blockscout.com`
+- **Domain redirect(s):** Any additional domain names to redirect to the instance, comma separated.
+- **Public RPC URL**: Enables 'add to MetaMask button'. Can be the same as the RPC URL if this is a public node.
+- **WalletConnect project ID:** Enables the ability for Read and Write functionality with smart contracts. [Learn more about setting one up here](/setup/configuration-options/walletconnect-project-id-for-contract-read-write).
+- **Google Analytics property ID**: Add the ID for your GA account if desired.
+
+### Branding
+
+<Frame caption>
+  
+</Frame>
+
+- **Announcement banner:** Add an optional banner to the top of your instance, can include HTML code.
+- **Default color theme**: Choose between a light theme and 3 variations of a darker theme.
+- **Default address identicon:** Select from 4 different options for default identicons in your instance.
+- **Vertical or Horizontal menu**: Select vertical for a side menu or horizontal for a top menu.
+- **Full logo URL**: Add a url link to your full logo image in horizontal format. Supported formats: image/jpeg, image/gif, image/png. Add one for light mode and one for dark mode if desired (users can switch modes manually).
+- **Logo sign (square) URL**: Add a url link to your square logo image in horizontal format. Supported formats: image/jpeg, image/gif, image/png. Add one for light mode and one for dark mode if desired (users can switch modes manually).
+- **Header background gradient and text color**: Choose your desired background color gradients with the selector and choose your preferred text color. You will see a preview in the interface.
+- **Favicon and OG image URL**: Add your favicon and [OG image](https://ogp.me/). OG image specs: Minimum image size is 200×20pixels (recommended: 1200×600); maximum supported file size is 8 MB; 2:1 aspect ratio; supported formats: image/jpeg, image/gif, image/png
+- **OG description**: Add a description for Open Graph Previews
+- **Enable enhanced OG tags**: Toggle if you want to render OG tags for API data pages
+- **Enable enhanced SEO**: Toggle if you want to rerender page titles for Stats and Tokens pages to enhance SEO
+- **API documentation links**: Toggle to show/hide different API links in the navigation menu
+- **Other Navigation links**: Add custom navigation links to the other section of the primary navigation menu
+- **Footer links**: Add up to 3 columns along with titles and urls for the links you want added to each column.
+- **Ads**: Select providers for Ads on your instance
+
+### Indexer
+
+Indexer information uses the following variables under the hood. If no information is fiileed in , default variables are used.
+
+| Variable                                    | Default |
+| :------------------------------------------ | :------ |
+| `INDEXER_RECEIPTS_BATCH_SIZE`               | 250     |
+| `INDEXER_RECEIPTS_CONCURRENCY`              | 10      |
+| `INDEXER_INTERNAL_TRANSACTIONS_BATCH_SIZE`  | 10      |
+| `INDEXER_INTERNAL_TRANSACTIONS_CONCURRENCY` | 4       |
+| `INDEXER_CATCHUP_BLOCKS_BATCH_SIZE`         | 10      |
+| `INDEXER_CATCHUP_BLOCKS_CONCURRENCY`        | 10      |
+| `INDEXER_COIN_BALANCES_BATCH_SIZE`          | 100     |
+| `INDEXER_COIN_BALANCES_CONCURRENCY`         | 4       |
+| `INDEXER_TOKEN_BALANCES_BATCH_SIZE`         | 100     |
+| `INDEXER_TOKEN_BALANCES_CONCURRENCY`        | 10      |
+
+### Disable pending transactions fetcher
+
+Leave this setting alone if your RPC supports pending transactions. However, **If your RPC node does not support pending transactions, please toggle this switch to disable.**
+
+<Info>
+  \*\*Check pending TX support \*\*by sending a request for one of the common methods (`eth_getBlockByNumber` with `"pending"` or `txpool_content`) and observe the response. A successful, valid response confirms support. 
+</Info>
+
+**Block transformer:** Leave as base unless you are using clique.
+
+[Find additional info variables relevant to indexer setup here](https://docs.blockscout.com/setup/env-variables/backend-env-variables#indexer-management)
+
+### Rollup Config
+
+If your chain is a rollup you will select this in the info screen and then fillout the associated Rollup config info.
+
+<Info>
+  - Read the [Rollup deployment and config details](https://docs.blockscout.com/setup/deployment/rollup-deployment#arbitrum)
+    - [Arbitrum](/setup/env-variables/backend-envs-chain-specific#arbitrum-management) ENV variables
+    - [Optimism](/setup/env-variables/backend-envs-chain-specific#optimism-rollup-management) ENV variables
+    - [Polygon zkEVM](https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#polygon-zkevm-rollup-management) ENV variables
+    - [zkSync](https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#zksync-rollup-management) ENV variables
+</Info>
+
+<Frame caption>
+  
+</Frame>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Why can't I see internal transactions?">
+    There could be several reasons for this. Your RPC may not be an archive node and [tracing](/setup/requirements/node-tracing-json-rpc-requirements) may not be turned on for that node. Once you switch to an RPC with tracing enabled internal transactions will still not be indexed until you spin up a new instance. In this case you will need to shut down your instance and create a new one.
+  </Accordion>
+  <Accordion title="Is there an Autoscout API?">
+    Yes, there is but it requires an API key to use. It can be useful if you are spinning up many instances or need to check on many instances at the same time. Contact us in Discord #autoscout channel to request an API key. See the API Swagger Docs for more info: https://blockscout.github.io/swaggers/services/autoscout/main/index.html
+  </Accordion>
+  <Accordion title="How do I add a domain / subdomain on Cloudflare using CNAME?">
+    These are the fields you need to fill out in Cloudflare:
+
+    - **Type:** CNAME
+    - **Name:** your-explorer-name (instance name)
+    - **Content:** autoscout.cname.blockscout.com
+    - **Proxy status:** DNS only
+    - **TTL:** Auto
+
+    Make sure to set your Custom domain in the Autoscout interface.
+  </Accordion>
+  <Accordion title="When do I receive automated emails informing me my credits are running out?">
+    You will receive several automated emails when your Autoscout credits/funds are running out. They are sent according to the following schedule:
+
+    | **Days before running out of funds** | **Automated email** |
+    | :----------------------------------- | :------------------ |
+    | 5 days                               | Initial email       |
+    | 3 days                               | Reminder email      |
+    | 1 day                                | Final reminder      |
+  </Accordion>
+  <Accordion title="How do I upgrade to the latest version of Blockscout with Autoscout?">
+    Updating is easy! Simply  **restart** your instance and it is automatically updated to the latest version.
+  </Accordion>
+  <Accordion title="Are there additional resources for Autoscout information?">
+    Check out our [Autoscout blog post](https://www.blog.blockscout.com/ship-faster-with-autoscout-deploy-a-block-explorer-with-status-logs-and-advanced-features/) for more info on reading logs and viewing status updates.
+  </Accordion>
+</AccordionGroup>

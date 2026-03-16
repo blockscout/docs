@@ -4,16 +4,15 @@ description: "Whether you are a developer, project, or blockchain user, learn ho
 icon: "bird"
 ---
 
-<Accordion title="Why Switch to Blockscout?" icon="sparkles">
+<Accordion icon="sparkles" title="Why Switch to Blockscout?">
   - Blockscout is transparent, open-source software. Supported by the community for the community good.
   - Blockscout  adds new features regularly and offers support quickly.
   - Blockscout provides fast and reliable chain information, and robust APIs for developers.
   - Blockscout is a proven explorer with a long track record, ecosystem-wide support, high data availability, and a rich feature set
-  - 
   - other explorer do not offer.
 </Accordion>
 
-<Accordion title="Blockscout Features" icon="sparkles">
+<Accordion icon="sparkles" title="Blockscout Features">
   - Deep Search
   - Advanced Contract Interaction
   - JSON RPC & REST APIs
@@ -30,20 +29,20 @@ Change links in your application to point to Blockscout
 
 - **Update primary links**. Update all code within an application by replacing the front part of the url. <Icon icon="flag" /> [Link Switch Guide](/devs/replace-links)
 - **Update wallet links**: Many wallets can be updated manually to switch the primary explorer link to Blockscout. <Icon icon="wallet" /> [Wallet Update Guide](https://www.blog.blockscout.com/changing-wallet-block-explorer-urls-to-blockscout/)
-- **Link conversions**: Some Blockscout links are not 1-to-1 with Etherscan, mostly for newer features such as blobs and user ops. Expand to see the full link conversion table, and scroll horizontally to view all link information. <Icon icon="link" /> [URL Comparison Guide](https://blockscout.notion.site/2173d73641f8808db0a2c184ff2a6194?v=2173d73641f8801085d4000c046abd78&pvs=143)
 
 ## API updates
 
-No API key is required for Blockscout, but you can use our [free API key](/using-blockscout/my-account/api-keys) to access higher limits if needed. If you have higher or custom needs, [contact us to discuss individual situations.](https://discord.gg/blockscout)
+Sign up for an API key at https://dev.blockscout.com/
 
-- **JSON RPC**
+- API calls follow the same query structure as Etherscan. Blockscout supports most of the same calls. Replace the front part of the url from [**https://api.etherscan.io/v2/api?chainid=X**](https://api.etherscan.io/v2/api?chainid=X)** **\
+  to \
+  **https://api.blockscout.com/v2/api?chain_id=X**
+  - [API Docs](/devs/apis)
+  - [Microservice and related swagger definitions](https://blockscout.github.io/swaggers/)
+  - A **GraphQL** playground is built into the explorer. Explore queries and schemas from the interface by visiting [**https://your-instance-here/graphiql**](https://your-instance-here/graphiql)
 
-  JSON RPC calls follow the same query structure as Etherscan. Blockscout supports most of the same calls. Replace the front part of the url from [https://api.etherscan.io/v2/api?chainid=](https://api.etherscan.io/v2/api?chainid=10)X to [**https://your-explorer-instance/api**](https://your-explorer-instance/api)
-  - [Docs](/devs/apis/rpc)
-  - [JSON RPC Postman collection example ](https://www.postman.com/blockscout/optimistic-etherscan-api)
-
-<Accordion title="API Differences" icon="computer">
-  ### **1. Account/Address Endpoints**\\
+<Accordion icon="computer" title="API Differences">
+  ### **1. Account/Address Endpoints**
 
   `module=account`
 
@@ -89,11 +88,11 @@ No API key is required for Blockscout, but you can use our [free API key](/using
 
   ### `module=transaction`
 
-  |                             | Blockscout | Etherscan | Purpose                                                          |
-  | :-------------------------- | :--------- | :-------- | :--------------------------------------------------------------- |
-  | `action=gettxinfo`          | ✅          | ❌         | Get Transaction info including block number, sender, gas, \+\+\+ |
-  | `action=gettxreceiptstatus` | ✅          | ✅         | Get Transaction Receipt Status                                   |
-  | `action=getstatus`          | ✅          | ✅         | Get Transaction Execution Status                                 |
+  |                             | Blockscout | Etherscan | Purpose                                                       |
+  | :-------------------------- | :--------- | :-------- | :------------------------------------------------------------ |
+  | `action=gettxinfo`          | ✅          | ❌         | Get Transaction info including block number, sender, gas, +++ |
+  | `action=gettxreceiptstatus` | ✅          | ✅         | Get Transaction Receipt Status                                |
+  | `action=getstatus`          | ✅          | ✅         | Get Transaction Execution Status                              |
 
   ### **4. Block Endpoints**
 
@@ -138,7 +137,8 @@ No API key is required for Blockscout, but you can use our [free API key](/using
 
   Etherscan uses the Proxy module `module=proxy` to retrieve standard Ethereum JSON-RPC methods.
 
-  For Blockscout, send requests to `https://explorer.optimism.io/api/eth-rpc`
+  For Blockscout, send post requests to\
+  **api.blockscout.com/{chain_id}/json-rpc**
 
   The following methods are supported:
 
@@ -197,16 +197,9 @@ No API key is required for Blockscout, but you can use our [free API key](/using
   - ✅ Gas information integrated into transaction and block data
 </Accordion>
 
-- **REST API** availability/swagger
-
-  Blockscout also provides a RESTful API which serves it’s frontend and is available for developers to use.
-  - [Documentation and playground](/devs/apis/rest)
-  - [Microservice and related swagger definitions](https://blockscout.github.io/swaggers/)
-- A **GraphQL** playground is built into the explorer. Explore queries and schemas from the interface by visiting [**https://your-instance-here/graphiql**](https://your-instance-here/graphiql)
-
 ## Contract verification process
 
-Blockscout offers advanced contract verification and interaction possibilities. Pre-existing contracts in various contexts are verified automatically (partial verification - which exposes the contract and methods) via the [Ethereum bytecode DB.](/about/features/ethereum-bytecode-database-microservice) 
+Blockscout offers advanced contract verification and interaction possibilities. Pre-existing contracts in various contexts are verified automatically (partial verification - which exposes the contract and methods) via the [Ethereum bytecode DB.](/about/features/ethereum-bytecode-database-microservice)
 
 New contracts (Solidity, Vyper, Yul) can be verified via dev tools or directly in the Blockscout UI. \
 <Icon icon="paper-plane-top" /> [Contract verification guide](/devs/verification/blockscout-smart-contract-verification-api)
@@ -230,7 +223,9 @@ Blockscout My Account lets you create watchlists, customize your explorer with p
 
 If you are used to using Etherscan, it is easy to switch to Blockscout. Most information is presented in a similar manner and in similar places in the UI with parity in data presentation.
 
-<Accordion title="Blockscout / Etherscan Feature Differences" icon="magnifying-glass-arrows-rotate">
+[Full migration info here](/devs/migrate-from-etherscan)
+
+<Accordion icon="magnifying-glass-arrows-rotate" title="Blockscout / Etherscan Feature Differences">
   ## **Additional Blockscout feature set**
 
   [******An itemized list of over 60 features and views available on Blockscout that are not available on Optimistic Etherscan is available here.******](https://docs.google.com/spreadsheets/d/1HGw9bh5Iq3xBZlrnrwVOzD_0844zt7PPakkuxVsiS1g/edit?usp=sharing)

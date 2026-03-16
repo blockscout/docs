@@ -123,7 +123,6 @@
                     "using-blockscout/essential-dapps/multisend"
                   ]
                 },
-                "using-blockscout/autoscout",
                 {
                   "group": "Merits",
                   "icon": "award",
@@ -192,6 +191,14 @@
             {
               "group": "Setup and Run Blockscout",
               "pages": [
+                {
+                  "group": "Autoscout 1-click Launchpad",
+                  "icon": "rocket-launch",
+                  "pages": [
+                    "using-blockscout/autoscout",
+                    "using-blockscout/creating-an-instance"
+                  ]
+                },
                 {
                   "group": "General Overview",
                   "icon": "gears",
@@ -418,6 +425,31 @@
               "openapi": "openapi-specs/pro-api.yaml"
             },
             {
+              "group": "Additional Service APIs",
+              "pages": [
+                "devs/apis/swagger-hub",
+                "devs/apis/autoscout-api",
+                {
+                  "group": "Test Merits APIs",
+                  "icon": "award",
+                  "pages": [
+                    "devs/integrate-merits",
+                    {
+                      "group": "Endpoints",
+                      "openapi": "openapi-specs/merits-admin-service.yaml"
+                    }
+                  ]
+                },
+                {
+                  "group": "Verification APIs",
+                  "icon": "shapes",
+                  "pages": [
+                    "devs/verification/blockscout-smart-contract-verification-api"
+                  ]
+                }
+              ]
+            },
+            {
               "group": "API Archive",
               "icon": "book-open-cover",
               "pages": [
@@ -453,25 +485,7 @@
                     }
                   ]
                 },
-                "devs/apis/graphql",
-                {
-                  "group": "Test Merits APIs",
-                  "icon": "award",
-                  "pages": [
-                    "devs/integrate-merits",
-                    {
-                      "group": "Endpoints",
-                      "openapi": "openapi-specs/merits-admin-service.yaml"
-                    }
-                  ]
-                },
-                {
-                  "group": "Verification APIs",
-                  "icon": "shapes",
-                  "pages": [
-                    "devs/verification/blockscout-smart-contract-verification-api"
-                  ]
-                }
+                "devs/apis/graphql"
               ]
             }
           ]

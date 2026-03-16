@@ -2,12 +2,6 @@
 title: "Integrate Merits"
 ---
 
-<Info>
-  Attention ETHGlobal Hackathon Participants. We have a \$1000 Bounty available for best integration of Merits. The basic requirement is to incorporate Merits (Blockscout Points) into your application in some way. Users can earn Merits through different activities in your app and you can distribute them via the API. Below you will find more info on the program and the API for checking user Merits, distribution, and login processes.
-</Info>
-
----
-
 ### What are Blockscout Merits?
 
 Merits are digital rewards collected by interacting with Blockscout and Blockscout-related apps and by participating in various activities (like contests, X participation, telegram participation, app participation and more). Merits are chain agnostic and can be incorporated into any application. For more details see the [Merits section of the docs](/using-blockscout/merits).
@@ -38,7 +32,7 @@ To qualify for the bounty, you simply need to provide Merit incentives for certa
 ### Getting started
 
 1. Request your API key at: https://ethglobal.com/discord in the #partner-blockscout channel
-2. API hostname (and test merits dashboard): [https://merits-staging.blockscout.com](https://merits-staging.blockscout.com )
+2. API hostname (and test merits dashboard): https://merits-staging.blockscout.com
 
 <Info>
   A full list of endpoints is available on our swagger page here: https://blockscout.github.io/swaggers/services/merits/main/index.html
@@ -46,7 +40,7 @@ To qualify for the bounty, you simply need to provide Merit incentives for certa
 
 ### Get basic Merit info for a user
 
-`GET` `https://merits-staging.blockscout.com/api/v1/auth/user/\{address}`
+`GET` `https://merits-staging.blockscout.com/api/v1/auth/user/{address}`
 
 Returns user information by address
 
@@ -149,7 +143,7 @@ data = response.json()
 
 ### Get leaderboard ranking for a user
 
-`GET` `https://merits-staging.blockscout.com/api/v1/leaderboard/users/\{address}`
+`GET` `https://merits-staging.blockscout.com/api/v1/leaderboard/users/{address}`
 
 Returns the leaderboard information for a specific user
 
@@ -258,7 +252,7 @@ data = response.json()
 
 ### Partner balance and distribution information
 
-When you request an API key you become a partner\! You will receive a balance of test Merits which can then be distributed to your users.
+When you request an API key you become a partner! You will receive a balance of test Merits which can then be distributed to your users.
 
 _\* Requires API Key - Add the assigned API KEY in the Authorization header to see your information._
 
@@ -719,17 +713,7 @@ curl -L \
   --header 'Content-Type: application/json' \
   --data '{
     "nonce": "4MCWIDlddqsmJAAAZ",
-    "message": "merits.blockscout.com wants you to sign in with your Ethereum account:
-  0x813399e5b08Bb50b038AA7dF6347b6AF2D161338
-
-  Sign-In for the Blockscout Merits program.
-
-  URI: https://merits.blockscout.com
-  Version: 1
-  Chain ID: 1
-  Nonce: 4MCWIDlddqsmJAAAZ
-  Issued At: 2025-03-18T12:23:51.549Z
-  Expiration Time: 2026-03-18T12:23:51.549Z",
+    "message": "merits.blockscout.com wants you to sign in with your Ethereum account:\n  0x813399e5b08Bb50b038AA7dF6347b6AF2D161338\n\n  Sign-In for the Blockscout Merits program.\n\n  URI: https://merits.blockscout.com\n  Version: 1\n  Chain ID: 1\n  Nonce: 4MCWIDlddqsmJAAAZ\n  Issued At: 2025-03-18T12:23:51.549Z\n  Expiration Time: 2026-03-18T12:23:51.549Z",
     "signature": "0xb11b582a6ef196a3f20fa9c84443a92c9f456c9da2ce8ceea2bcf4ce2b936e35767ac2ff56a1de635b7a5f4bcb5da89c4297efb2b4ce559123891202731752661c"
   }'
 ```
@@ -925,12 +909,12 @@ Returns activity logs for the authenticated user
       </ResponseField>
       <ResponseField name="next_page_params" type="object">
         <Expandable title="properties">
-          <ResponseField type="string" required>
+          <ResponseField name="page_token" type="string" required>
             Token for the next page
 
             Example: `1732067538792818,984727`
           </ResponseField>
-          <ResponseField type="integer . int32" required>
+          <ResponseField name="page_size" type="integer . int32" required>
             Size of the page
 
             Example: `50`

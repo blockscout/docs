@@ -1,0 +1,301 @@
+---
+title: "Autoscout API"
+icon: "rocket"
+---
+
+An API is available for those running multiple explorers or users who prefer a programatic approach to Autoscout management. 
+
+- You will need a valid API key to use the API → `https://deploy.blockscout.com/api-keys`
+
+
+- **API Base URL**: The base URL for the Autoscout API is `https://autoscout.services.blockscout.com`
+
+<Tip>
+  The Autoscout API swagger file with all endpoints and usage notes is available at [<u>https://blockscout.github.io/swaggers/services/autoscout/main/index.html</u>](https://blockscout.github.io/swaggers/services/autoscout/main/index.html)
+</Tip>
+
+# Create an Instance
+
+Send a POST request to the `/api/v1/instances` endpoint with the required configuration.
+
+<CodeGroup>
+
+```text Request Headers
+x-api-key: YOUR_API_KEY
+Content-Type: application/json
+```
+
+
+```json Request Body
+{
+  "name": "MyInstance",
+  "config": {
+    "rpc_url": "https://your-rpc-url",
+    "server_size": "small",
+    "chain_type": "arbitrum",
+    "node_type": null,
+    "chain_id": "1111",
+    "token_symbol": "ETH",
+    "instance_url": null,
+    "logo_url": "https://eth-sepolia.blockscout.com/assets/network_logo.png",
+    "chain_name": "Ethereum mainnet",
+    "icon_url": "https://eth-sepolia.blockscout.com/assets/network_icon.png",
+    "homeplate_background": null,
+    "homeplate_text_color": null}
+}
+```
+
+
+```shellscript curl example
+curl -X POST https://autoscout.services.blockscout.com/api/v1/instances \
+-H "x-api-key: YOUR_API_KEY" \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "MyInstance",
+  "config": {
+    "rpc_url": "https://your-rpc-url",
+    "server_size": "small",
+    "chain_type": "arbitrum",
+    "node_type": null,
+    "chain_id": "2039",
+    "token_symbol": "ETH",
+    "instance_url": null,
+    "logo_url": "https://assets.alephzero.org/branding/logo/digital/A0-horizontal-black.svg",
+    "chain_name": "Aleph Zero",
+    "icon_url": "https://assets.alephzero.org/branding/logo/digital/A0-mark-black.svg",
+    "homeplate_background": null,
+    "homeplate_text_color": null
+  }
+```
+
+
+```json Response
+{
+  "instance_id": "your-instance-id"
+}
+```
+
+</CodeGroup>
+
+## Start Instance
+
+Send a POST request to`/api/v1/instances/{instance_id}/status:update`
+
+Use the instance id returned in the previous step.
+
+<CodeGroup>
+
+```text Request Headers
+x-api-key: YOUR_API_KEY
+Content-Type: application/json
+```
+
+
+```json Request Body
+{
+  "action": "START"
+}
+```
+
+
+```shellscript curl Example
+curl -X POST https://autoscout.services.blockscout.com/api/v1/instances/your-instance-id/status:update \
+-H "x-api-key: YOUR_API_KEY" \
+-H "Content-Type: application/json" \
+-d '{
+  "action": "START"
+}'
+```
+
+
+```json Response
+{
+  "status": "QUEUED",
+  "deployment_id": "your-deployment-id"
+}
+```
+
+</CodeGroup>
+
+## Check Deployment Status
+
+Send a GET request to the `/api/v1/instances/{instance_id}/deployments/current`endpoint.
+
+<CodeGroup>
+
+```text Header
+x-api-key: YOUR_API_KEY
+```
+
+
+```shellscript curl Example
+curl -X GET https://autoscout.services.blockscout.com/api/v1/instances/your-instance-id/deployments/current \
+-H "x-api-key: YOUR_API_KEY"
+```
+
+
+```json Response Example
+{
+  "deployment_id": "your-deployment-id",
+  "instance_id": "your-instance-id",
+  "status": "RUNNING",
+  "error": null,
+  "created_at": "2023-05-15T10:00:00Z",
+  "started_at": "2023-05-15T10:05:00Z",
+  "finished_at": "2023-05-15T10:10:00Z",
+  "config": {
+    "rpc_url": "https://your-rpc-url",
+    "server_size": "small",
+    "chain_type": "arbitrum",
+    "node_type": null,
+    "chain_id": "1",
+    "token_symbol": "ETH",
+    "instance_url": null,
+    "logo_url": null,
+    "chain_name": "Ethereum Mainnet",
+    "icon_url": null,
+    "homeplate_background": null,
+    "homeplate_text_color": null
+  },
+  "blockscout_url": "https://ethereum.k8s-dev.blockscout.com",
+  "config_state_hash": "3b074908112184441603753a593d011f484e2651338ccab845623566e247fc73",
+  "total_cost": "0",
+  "health_status": {
+      "ok": true,
+      "last_check": "2024-08-28 13:47:30.059786256 +00:00",
+      "http_code": 200,
+      "error_description": null,
+      "response": {
+          "healthy": true,
+          "data": {
+              "cache_latest_block_inserted_at": "2024-08-28 13:47:28.000000Z",
+              "latest_block_inserted_at": "2024-08-28 13:47:28.000000Z",
+              "cache_latest_block_number": "4308104",
+              "latest_block_number": "4308104"
+          }
+      }
+  },
+  "indexing_status": {
+      "finished_indexing": false,
+      "finished_indexing_blocks": false,
+      "indexed_blocks_ratio": "0.09",
+      "indexed_internal_transactions_ratio": null
+  }
+}
+```
+
+</CodeGroup>
+
+# Update an Instance
+
+1. Send a PATCH request to the `/api/v1/instances/{instance_id}/config `endpoint with the config changes.
+
+<CodeGroup>
+
+```text Headers
+x-api-key: YOUR_API_KEY
+Content-Type: application/json
+```
+
+
+```json Body Example
+{
+  "config": {
+    "rpc_url": "https://new-rpc-url",
+    "server_size": "medium"
+  }
+}
+```
+
+
+```json curl Example
+curl -X PATCH https://autoscout.services.blockscout.com/api/v1/instances/your-instance-id/config \
+-H "x-api-key: YOUR_API_KEY" \
+-H "Content-Type: application/json" \
+-d '{
+  "config": {
+    "rpc_url": "https://new-rpc-url",
+    "server_size": "medium"
+  }
+}'
+```
+
+</CodeGroup>
+
+2. Restart the instance by sending a POST request to the `/api/v1/instances/{instance_id}/status:update `endpoint with the action "RESTART".
+
+<CodeGroup>
+
+```text Headers
+x-api-key: YOUR_API_KEY
+Content-Type: application/json
+```
+
+
+```json Body
+{
+  "action": "RESTART"
+}
+```
+
+
+```json curl Example
+curl -X POST https://autoscout.services.blockscout.com/api/v1/instances/your-instance-id/status:update \
+-H "x-api-key: YOUR_API_KEY" \
+-H "Content-Type: application/json" \
+-d '{
+  "action": "RESTART"
+}'
+```
+
+
+```json Response
+{
+  "status": "QUEUED",
+  "deployment_id": "your-deployment-id"
+}
+```
+
+</CodeGroup>
+
+# Stop an Instance
+
+Send a POST request to the **/api/v1/instances/{instance_id}/status:update** endpoint with the action "STOP".
+
+<Warning>
+  **Important Note**: Stopping an instance will result in all data being deleted. Ensure that you have backed up any necessary data before stopping the instance.
+</Warning>
+
+<CodeGroup>
+
+```text Header
+x-api-key: YOUR_API_KEY
+Content-Type: application/json
+```
+
+
+```json Body
+{
+  "action": "STOP"
+}
+```
+
+
+```json curl Example
+curl -X POST https://autoscout.services.blockscout.com/api/v1/instances/your-instance-id/status:update \
+-H "x-api-key: YOUR_API_KEY" \
+-H "Content-Type: application/json" \
+-d '{
+  "action": "STOP"
+}'
+```
+
+
+```json Response
+{
+  "status": "QUEUED",
+  "deployment_id": "your-deployment-id"
+}
+```
+
+</CodeGroup>
