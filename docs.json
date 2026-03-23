@@ -416,7 +416,14 @@
                 "devs/pro-api",
                 "devs/dev-portal",
                 "devs/migrate-from-etherscan",
-                "devs/use-cases"
+                {
+                  "group": "Use Cases",
+                  "icon": "user-chef",
+                  "pages": [
+                    "devs/use-cases-overview",
+                    "devs/wallet-history"
+                  ]
+                }
               ]
             },
             {
@@ -456,6 +463,7 @@
               "pages": [
                 "devs/apis/api-archive",
                 "devs/apis/requests-and-limits",
+                "devs/apis/api-keys-for-self-hosted-chains",
                 {
                   "group": "REST API Endpoints",
                   "pages": [

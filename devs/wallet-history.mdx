@@ -1,0 +1,232 @@
+---
+title: "Wallet History"
+icon: "wallet"
+---
+
+## Showing wallet history with Blockscout REST API
+
+<Note>
+  This example uses REST methods with the PRO API. See the [PRO API overview](/devs/pro-api) for information on creating and using an API key.
+</Note>
+
+Creating a simple portfolio tracker or wallet UI requires fetching and displaying address, account, and transaction information. At a minimum you may want to display:
+
+- Native token and ERC20/NFT balances
+- All Transaction activity and status
+- Human-readable method summaries
+
+In this brief guide we show the methods you would prioritize for display, pagination formatting, and a Typescript example that fetches wallet transactions and a summary of each transaction, then prints a human-readable activity list.
+
+## Method Summary
+
+The following REST methods can be used to spin up a wallet-like app:
+
+| Load data | Method | Purpose |
+| --- | --- | --- |
+| 1. Wallet overview | `GET /{chainid}/api/v2/addresses/{address}` | Get wallet metadata and native balance for the header or overview |
+| 2. Wallet transactions | `GET /{chainid}/api/v2/addresses/{address}/transactions` | Get the main wallet activity feed |
+| 3. Token transfers | `GET /{chainid}/api/v2/addresses/{address}/token-transfers` | Show ERC-20 / NFT movement alongside native transfers |
+| 4. Human-readable summaries | `GET /{chainid}/api/v2/transactions/{hash}/summary` | Display raw transactions in human-readable format |
+
+### 1. Load wallet overview
+
+```bash
+curl "https://api.blockscout.com/1/api/v2/addresses/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045?apikey=YOUR_KEY"
+```
+
+Use this for:
+
+- native balance
+- ENS / tags / address metadata
+- wallet header
+
+### 2. Load wallet transactions
+
+```bash
+curl "https://api.blockscout.com/1/api/v2/addresses/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/transactions?apikey=YOUR_KEY"
+```
+
+Use this for:
+
+- wallet activity list
+- transaction status
+- value, timestamp, method, counterparty
+
+### 3. Load token transfers
+
+```bash
+curl "https://api.blockscout.com/1/api/v2/addresses/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/token-transfers?apikey=YOUR_KEY"
+```
+
+Use this for:
+
+- ERC-20 transfers
+- NFT transfers
+- token activity tabs or merged activity feeds
+
+### 4. Load human-readable summaries
+
+```bash
+curl "https://api.blockscout.com/1/api/v2/transactions/0x4b03d69654a965de6a2fe907856a0e39a51a8ae25d9ddb8d97aa16ba5c1835e1/summary?apikey=YOUR_KEY"
+```
+
+Use this when you want to show something better than raw method names.
+
+Instead of displaying:
+
+- `transfer`
+- `multicall`
+- `execute`
+
+you can display:
+
+- “Sent 12.5 USDC”
+- “Swapped ETH for USDT”
+- “Approved USDC spending”
+
+That is the fastest way to make wallet history human-readable.
+
+---
+
+## Pagination
+
+REST responses use keyset pagination.
+
+When a response includes `next_page_params`, copy that object and append its fields to the next request.
+
+Example:
+
+```json
+{
+  "items": [ ... ],
+  "next_page_params": {
+    "block_number": 18678766,
+    "index": 119,
+    "items_count": 50
+  }
+}
+```
+
+Next request:
+
+```bash
+curl "https://api.blockscout.com/1/api/v2/addresses/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/transactions?block_number=18678766&index=119&items_count=50&apikey=YOUR_KEY"
+```
+
+Then repeat the same pattern with the new `next_page_params` from that response.
+
+---
+
+## TypeScript example
+
+This example:
+
+- fetches wallet transactions
+- fetches a summary for each transaction
+- prints a human-readable activity list
+
+```ts
+const API_KEY = process.env.BLOCKSCOUT_API_KEY ?? "YOUR_KEY";
+const CHAIN_ID = "1";
+const ADDRESS = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
+
+const baseUrl = `https://api.blockscout.com/${CHAIN_ID}/api/v2`;
+
+type AddressTx = {
+  hash: string;
+  timestamp?: string;
+  method?: string;
+  status?: string;
+};
+
+type TransactionsResponse = {
+  items: AddressTx[];
+  next_page_params?: Record<string, string | number>;
+};
+
+type SummaryVariable =
+  | { type: "string"; value: string }
+  | { type: "currency"; value: string }
+  | { type: "token"; value: { symbol?: string; name?: string } };
+
+type SummaryItem = {
+  summary_template: string;
+  summary_template_variables: Record<string, SummaryVariable>;
+};
+
+type SummaryResponse = {
+  success: boolean;
+  data?: {
+    summaries?: SummaryItem[];
+  };
+};
+
+async function getJson<T>(url: string): Promise<T> {
+  const res = await fetch(url, {
+    headers: {
+      Authorization: API_KEY,
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Request failed: ${res.status} ${res.statusText} for ${url}`);
+  }
+
+  return res.json() as Promise<T>;
+}
+
+function renderSummary(item: SummaryItem): string {
+  return item.summary_template.replace(/\{(.*?)\}/g, (_, key: string) => {
+    const variable = item.summary_template_variables[key];
+    if (!variable) return `{${key}}`;
+
+    if (variable.type === "token") {
+      return variable.value.symbol || variable.value.name || "token";
+    }
+
+    return String(variable.value);
+  });
+}
+
+async function main() {
+  const txsUrl = `${baseUrl}/addresses/${ADDRESS}/transactions`;
+  const txs = await getJson<TransactionsResponse>(txsUrl);
+
+  const actions = await Promise.all(
+    txs.items.slice(0, 10).map(async (tx) => {
+      const summaryUrl = `${baseUrl}/transactions/${tx.hash}/summary`;
+      try {
+        const summary = await getJson<SummaryResponse>(summaryUrl);
+        const first = summary.data?.summaries?.[0];
+        const text = first ? renderSummary(first) : tx.method || "Transaction";
+        return {
+          hash: tx.hash,
+          timestamp: tx.timestamp || "",
+          text,
+          status: tx.status || "unknown",
+        };
+      } catch {
+        return {
+          hash: tx.hash,
+          timestamp: tx.timestamp || "",
+          text: tx.method || "Transaction",
+          status: tx.status || "unknown",
+        };
+      }
+    })
+  );
+
+  for (const action of actions) {
+    console.log(
+      `${action.timestamp} | ${action.status} | ${action.text} | ${action.hash}`
+    );
+  }
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+```
+
+---
