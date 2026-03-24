@@ -1,0 +1,279 @@
+---
+title: "Stats Dashboard"
+icon: "chart-line"
+---
+
+## Build a simple multi-chain stats dashboard with Blockscout PRO API
+
+<Note>
+  This example uses REST methods with the PRO API. See the [PRO API overview](/devs/pro-api) for information on creating and using an API key.
+</Note>
+
+Blockscout's extended chain coverage and curated stats endpoints allow you to create data dashboards covering multiple chains. In this brief example, we show the calls to get supported chain ids, select the chains you want to cover, and the stats to print.
+
+The flow is simple on purpose:
+
+- `config` gives you the supported chain IDs
+- `chainscout` makes them human-readable and lets you exclude testnets
+- `stats-service /lines` tells you which chart names are valid
+- `stats-service /lines/newTxns` gives you the daily tx data
+
+Here we show the basic calls needed to retrieve stats info along with a typescript example at the end.
+
+<Info>
+  Additional Blockscout stats enpdoints and documentation are available at [https://blockscout.github.io/swaggers/services/stats/index.html](https://blockscout.github.io/swaggers/services/stats/index.html)
+</Info>
+
+## Endpoint Summary
+
+The following REST calls can be used to get data for a stats app:
+
+| Load Data | API CALL | Purpose |
+| --- | --- | --- |
+| 1. Get supported chains | `GET https://api.blockscout.com/api/json/config` | Get the list of chain IDs supported by PRO API (`result.chains`) |
+| 2. Resolve chain metadata | `GET https://chains.blockscout.com/api/chains?chain_ids=...` | Resolve chain IDs into names, slugs, and mainnet/testnet metadata |
+| 3. Discover available chart series | `GET https://api.blockscout.com/{chainid}/stats-service/api/v1/lines` | Discover which chart series are available for a given chain |
+| 4. Fetch daily transactions | `GET https://api.blockscout.com/{chainid}/stats-service/api/v1/lines/newTxns?from=YYYY-MM-DD&to=YYYY-MM-DD&resolution=DAY` | Get daily transaction counts on one chain |
+
+---
+
+## Flow
+
+### 1. Get supported chains
+
+```bash
+curl "https://api.blockscout.com/api/json/config"
+```
+
+Use `result.chains` as the source of supported PRO chain IDs.
+
+---
+
+### 2. Resolve chain metadata
+
+```bash
+curl "https://chains.blockscout.com/api/chains?chain_ids=1,10,100"
+```
+
+Use the response to turn raw chain IDs into something usable in a dashboard:
+
+- chain name
+- short name / slug
+- mainnet vs testnet
+
+### Example Result
+
+```json wrap
+{
+   "1":{
+      "name":"Ethereum",
+      "description":"Decentralized global computing platform supporting smart contracts & P2P apps.",
+      "logo":"https://blockscout-icons.s3.us-east-1.amazonaws.com/ethereum.svg",
+      "ecosystem":"Ethereum",
+      "isTestnet":false,
+      "layer":1,
+      "rollupType":null,
+      "native_currency":"ETH",
+      "website":"https://ethereum.org/",
+      "explorers":[
+         {
+            "url":"https://eth.blockscout.com/",
+            "hostedBy":"blockscout"
+         }
+      ]
+   },
+   "10":{
+      "name":"OP Mainnet",
+      "description":"Optimism is building an equitable Internet with their Superchain infra - this is the flagship Optimism Mainnet instance.",
+      "logo":"https://blockscout-icons.s3.us-east-1.amazonaws.com/op-mainnet.svg",
+      "ecosystem":[
+         "Optimism",
+         "Superchain"
+      ],
+      "isTestnet":false,
+      "layer":2,
+      "settlementLayerChainId":"1",
+      "rollupType":"optimistic",
+      "native_currency":"ETH",
+      "website":"https://www.optimism.io/",
+      "explorers":[
+         {
+            "url":"https://explorer.optimism.io/",
+            "hostedBy":"blockscout"
+         }
+      ]
+   },
+   "100":{
+      "name":"Gnosis",
+      "description":"Gnosis Chain is a feature-rich, user-centered blockchain ecosystem.",
+      "logo":"https://blockscout-icons.s3.us-east-1.amazonaws.com/gnosis.svg",
+      "ecosystem":"Gnosis",
+      "isTestnet":false,
+      "layer":1,
+      "rollupType":null,
+      "native_currency":"XDAI",
+      "website":"https://docs.gnosischain.com/",
+      "explorers":[
+         {
+            "url":"https://gnosis.blockscout.com/",
+            "hostedBy":"blockscout"
+         }
+      ]
+   }
+}
+```
+
+---
+
+### 3. Discover available charts
+
+```bash
+curl "https://api.blockscout.com/1/stats-service/api/v1/lines?apikey=YOUR_KEY"
+```
+
+This tells you which stats charts exist for that chain (in this case chainid = 1, which is Ethereum mainnet)
+
+For a simple dashboard, you only need `newTxns`, but this endpoint is useful because it also shows what else you can chart later without guessing.
+
+Typical follow-up uses:
+
+- daily users
+- gas usage
+- blocks
+- fees
+- other precomputed time-series exposed by the stats service
+
+---
+
+### 4. Fetch daily transactions
+
+```bash
+curl "https://api.blockscout.com/1/stats-service/api/v1/lines/newTxns?from=2026-02-19&to=2026-03-19&resolution=DAY&apikey=YOUR_KEY"
+```
+
+This returns the daily tx time series for that chain.
+
+Run the same request for every mainnet chain you want to include.
+
+---
+
+## TypeScript example
+
+This script:
+
+- fetches supported chain IDs
+- resolves chain metadata
+- keeps mainnets only
+- fetches `newTxns` for the last 30 days
+- prints a daily tx table for each chain
+
+```ts
+type ConfigResponse = {
+  result?: {
+    chains?: Array<number | string>;
+  };
+};
+
+type ChainInfo = {
+  id?: string | number;
+  name?: string;
+  shortname?: string;
+  isTestnet?: boolean;
+};
+
+type ChainsResponse = {
+  items?: ChainInfo[];
+};
+
+type LinePoint = {
+  date?: string;
+  value?: string | number;
+};
+
+type LineResponse = {
+  chart_data?: LinePoint[];
+};
+
+const FROM = "2026-02-19";
+const TO = "2026-03-19";
+
+async function getJson<T>(url: string): Promise<T> {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Request failed: ${res.status} ${res.statusText} for ${url}`);
+  }
+  return res.json() as Promise<T>;
+}
+
+async function main() {
+  const config = await getJson<ConfigResponse>(
+    "https://api.blockscout.com/api/json/config"
+  );
+
+  const chainIds = (config.result?.chains ?? []).map(String);
+  if (!chainIds.length) {
+    throw new Error("No chain IDs returned from config");
+  }
+
+  const chains = await getJson<ChainsResponse>(
+    `https://chains.blockscout.com/api/chains?chain_ids=${chainIds.join(",")}`
+  );
+
+  const mainnets = (chains.items ?? []).filter((chain) => !chain.isTestnet);
+
+  for (const chain of mainnets) {
+    const chainId = String(chain.id);
+    const chainName = chain.name ?? chain.shortname ?? chainId;
+
+    const url =
+      `https://api.blockscout.com/${chainId}/stats-service/api/v1/lines/newTxns` +
+      `?from=${FROM}&to=${TO}&resolution=DAY`;
+
+    try {
+      const data = await getJson<LineResponse>(url);
+      const rows = data.chart_data ?? [];
+
+      if (!rows.length) continue;
+
+      console.log(`\n=== ${chainName} (${chainId}) ===`);
+      console.log("date       | daily_txs");
+      console.log("-----------|----------");
+
+      for (const row of rows) {
+        const date = row.date ?? "";
+        const value = row.value ?? "";
+        console.log(`${date} | ${value}`);
+      }
+    } catch (err) {
+      console.error(`Failed for ${chainName} (${chainId})`, err);
+    }
+  }
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+```
+
+---
+
+## Result
+
+```text
+=== Ethereum (1) ===
+date       | daily_txs
+-----------|----------
+2026-02-19 | 1234567
+2026-02-20 | 1200456
+...
+```
+
+This can be used to:
+
+- compare activity across mainnets
+- dump results into CSV later
+- feed a BI tool
+- build a lightweight internal dashboard
+
+---

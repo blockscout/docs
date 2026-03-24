@@ -421,7 +421,9 @@
                   "icon": "user-chef",
                   "pages": [
                     "devs/use-cases-overview",
-                    "devs/wallet-history"
+                    "devs/wallet-history",
+                    "devs/stats-dashboard",
+                    "devs/tax-calculator"
                   ]
                 }
               ]

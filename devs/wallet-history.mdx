@@ -17,11 +17,11 @@ Creating a simple portfolio tracker or wallet UI requires fetching and displayin
 
 In this brief guide we show the methods you would prioritize for display, pagination formatting, and a Typescript example that fetches wallet transactions and a summary of each transaction, then prints a human-readable activity list.
 
-## Method Summary
+## Endpoint Summary
 
-The following REST methods can be used to spin up a wallet-like app:
+The following REST calls can be used to get data for a wallet app:
 
-| Load data | Method | Purpose |
+| Load data | API Call | Purpose |
 | --- | --- | --- |
 | 1. Wallet overview | `GET /{chainid}/api/v2/addresses/{address}` | Get wallet metadata and native balance for the header or overview |
 | 2. Wallet transactions | `GET /{chainid}/api/v2/addresses/{address}/transactions` | Get the main wallet activity feed |
