@@ -244,8 +244,7 @@
                     {
                       "group": "Deprecated Backend ENVs",
                       "pages": [
-                        "setup/env-variables/deprecated-env-variables",
-                        "setup/env-variables/deprecated-env-variables/env-variables"
+                        "setup/env-variables/deprecated-env-variables"
                       ]
                     }
                   ]
