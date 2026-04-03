@@ -3,7 +3,7 @@ title: "Error Handling"
 icon: "blueberries"
 ---
 
-# Proxy API responses 
+# Proxy API responses
 
 For endpoints proxied to a Blockscout instance, responses fall into two categories:
 
@@ -13,7 +13,7 @@ For endpoints proxied to a Blockscout instance, responses fall into two categori
 #### The `source` field:
 
 - **internal:** Something went wrong inside Pro API: routing, chain configuration, or an internal failure. Check your chain identifier, URL shape, and supported networks.
-- **upstream: **The request reached (or should have reached) Blockscout, but the connection or upstream response failed (timeout, unavailable server, Blockscout 5xx). Retrying later or checking the chain instance status is usually appropriate. 
+- **upstream:** The request reached (or should have reached) Blockscout, but the connection or upstream response failed (timeout, unavailable server, Blockscout 5xx). Retrying later or checking the chain instance status is usually appropriate.
 
 ## Common errors (JSON)
 
