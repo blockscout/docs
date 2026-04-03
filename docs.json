@@ -413,6 +413,7 @@
               "pages": [
                 "devs/apis",
                 "devs/pro-api",
+                "devs/error-responses",
                 "devs/dev-portal",
                 "devs/migrate-from-etherscan",
                 {

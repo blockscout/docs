@@ -1,0 +1,36 @@
+---
+title: "Error Handling"
+icon: "blueberries"
+---
+
+# Proxy API responses 
+
+For endpoints proxied to a Blockscout instance, responses fall into two categories:
+
+1. **Success** — The HTTP status and body come **from Blockscout** (as if you called it directly). The body format depends on the path (JSON, plain text, etc.).
+2. **Pro API error** — JSON with **`error`** (short message) and **`source`** (`internal` or `upstream`). Pro API returns this when the request did not complete normally through the proxy or the response is normalized for clients.
+
+#### The `source` field:
+
+- **internal:** Something went wrong inside Pro API: routing, chain configuration, or an internal failure. Check your chain identifier, URL shape, and supported networks.
+- **upstream: **The request reached (or should have reached) Blockscout, but the connection or upstream response failed (timeout, unavailable server, Blockscout 5xx). Retrying later or checking the chain instance status is usually appropriate. 
+
+## Common errors (JSON)
+
+| HTTP | Example `error` | What it means |
+| --- | --- | --- |
+| **404** | `Network not supported` | This chain / route is **not configured** on this Pro API deployment. Verify the chain id and the list of supported networks. |
+| **404** | `Not found` | The path does **not match** any known proxy pattern for that chain. Check path prefixes (e.g. `api`, `v2`, `json-rpc`) and the full URL. |
+| **500** | `Internal server error` | An **unexpected error** in Pro API while handling or forwarding. Retry in case it was transient; if it persists, contact support with the request time. |
+| **502** | `Bad gateway` | Blockscout returned a response Pro API treats as a **bad gateway** — upstream misbehaved or returned something invalid. Often a temporary issue on the instance. |
+| **503** | `Service unavailable` | Blockscout returned **503** — overload, maintenance, or service unavailable. Wait and retry. |
+| **503** | `Upstream service temporarily unavailable` | Pro API **could not connect** to Blockscout (network, TLS, host down, etc.—other than a read timeout). Usually temporary infrastructure or instance issues. |
+| **504** | `Gateway timeout` | **Timeout** waiting for Blockscout, or an upstream "gateway timeout" style response (some cases are normalized to 504). Retry with backoff; heavy queries may need to be simplified. |
+| **501** | `Not implemented` | Blockscout returned **501** — that capability is not implemented on this instance. Not a Pro API bug; use another endpoint or instance/chain if needed. |
+| **Other 5xx** | `Unknown error` | Upstream returned a **less common 5xx**; the `error` string is generic. Use the HTTP status and instance health/logs for details. |
+
+## Quick actions
+
+- **`source: internal` \+ 404** — Fix **chain and URL** (supported network, correct path).
+- **`source: upstream` \+ 5xx / 504** — Usually **temporary Blockscout or network issues**; retry later; if constant, check the instance status.
+- **Successful responses without this JSON envelope** — **Direct Blockscout responses**; 4xx in that case come from upstream (e.g. "not found" for a specific API method), not necessarily the table above.
