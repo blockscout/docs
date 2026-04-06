@@ -266,6 +266,7 @@
                     "setup/deployment/kubernetes-deployment",
                     "setup/deployment/rollup-deployment",
                     "setup/deployment/cosmos-based-chains",
+                    "setup/deployment/avalanche-chains",
                     "setup/deployment/upgrade-guide-v7-0",
                     {
                       "group": "Frontend Migration",

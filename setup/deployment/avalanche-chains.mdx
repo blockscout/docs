@@ -1,0 +1,61 @@
+---
+title: "Avalanche Chains"
+icon: "mountain"
+---
+
+# Avalanche Deploy Integration
+
+Blockscout is available as a built-in add-on in [avalanche-deploy](https://github.com/ava-labs/avalanche-deploy), Ava Labs' open-source Infrastructure as Code toolkit for deploying production Avalanche L1 blockchains and Primary Network validators.
+
+This means any team launching an Avalanche L1 can deploy a full Blockscout explorer as part of their infrastructure pipeline — no separate setup required.
+
+## What's included
+
+The Blockscout add-on deploys the complete stack as a Docker Compose service on your RPC node:
+
+- Backend indexer
+- Frontend UI
+- Stats service
+- Nginx reverse proxy
+
+Once deployed, the explorer is accessible at `http://<archive-rpc-ip>:4001`.
+
+## Deployment paths
+
+avalanche-deploy supports two infrastructure paths. Blockscout works with both:
+
+| Path | Cloud support | Best for |
+|---|---|---|
+| Terraform + Ansible | AWS, GCP, Azure | Production environments with full operational tooling |
+| Kubernetes (Helm) | Any cluster | Existing clusters or local development with kind |
+
+## Deploy Blockscout
+
+After deploying your L1, run:
+
+```bash
+source l1.env
+make deploy-blockscout CHAIN_ID=$CHAIN_ID EVM_CHAIN_ID=99999 CHAIN_NAME="My L1"
+```
+
+Initial indexing can take time for chains with existing history. Monitor progress with:
+
+```bash
+docker logs -f blockscout-backend
+```
+
+## Other add-ons
+
+Blockscout is one of several add-ons bundled in avalanche-deploy:
+
+- **eRPC** — RPC load balancer with intelligent routing (deployed automatically)
+- **Faucet** — Token faucet for developer testing
+- **The Graph** — Subgraph indexing via GraphQL
+- **ICM Relayer** — Cross-chain messaging between your L1 and C-Chain
+- **Safe** — Multisig wallet interface
+
+## Resources
+
+- [avalanche-deploy documentation](https://build.avax.network/docs/tooling/avalanche-deploy)
+- [avalanche-deploy GitHub repo](https://github.com/ava-labs/avalanche-deploy)
+- [Add-ons reference](https://build.avax.network/docs/tooling/avalanche-deploy/add-ons)
