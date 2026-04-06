@@ -413,8 +413,16 @@
               "icon": "cloud",
               "pages": [
                 "devs/apis",
-                "devs/pro-api",
-                "devs/error-responses",
+                {
+                  "group": "PRO API",
+                  "icon": "rectangle-pro",
+                  "pages": [
+                    "devs/pro-api",
+                    "devs/error-responses",
+                    "devs/pro-api-routes",
+                    "devs/metadata-service"
+                  ]
+                },
                 "devs/dev-portal",
                 "devs/migrate-from-etherscan",
                 {

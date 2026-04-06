@@ -1,0 +1,108 @@
+---
+title: "Multichain Service"
+icon: "route"
+---
+
+The Multichain service aggregates hashes and entities from multiple chains behind one endpoint.
+
+- single search across chains
+- token discovery without chain selection
+- unified UX for hashes
+
+| Handle | What it gives you | Why it is useful |
+| --- | --- | --- |
+| `GET https://api.blockscout.com/multichain/api/v1/clusters/multichain/chains` | List of chains supported by Multichain service | Required to know which chains are indexed in multichain |
+| `GET https://api.blockscout.com/multichain/api/v1/clusters/multichain/search:quick?q={query}&apikey=YOUR_KEY` | Multichain search results for addresses, blocks, transactions, tokens, NFTs, domains, and dapps | One search box across all supported chains |
+
+## Examples 
+
+### Multichain token search
+
+Use for:
+
+- token discovery across all supported chains
+- resolving multiple deployments (e.g. USDC on Ethereum, Arbitrum, Base)
+- showing correct contract per chain
+
+```bash
+curl "https://api.blockscout.com/multichain/api/v1/clusters/multichain/search:quick?q=usdc&apikey=YOUR_KEY"
+```
+
+### Multichain address / tx lookup
+
+Use for:
+
+- detecting which chain an address or transaction belongs to
+- building a universal search bar
+- avoiding chain selection UX
+
+**Example (address):**
+
+```bash
+curl "https://api.blockscout.com/multichain/api/v1/clusters/multichain/search:quick?q=0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045&apikey=YOUR_KEY"
+```
+
+**Example (transaction):**
+
+```bash
+curl "https://api.blockscout.com/multichain/api/v1/clusters/multichain/search:quick?q=0x4b03d69654a965de6a2fe907856a0e39a51a8ae25d9ddb8d97aa16ba5c1835e1&apikey=YOUR_KEY"
+```
+
+## Minimal flow
+
+1. fetch supported chains
+
+```bash
+curl "https://api.blockscout.com/multichain/api/v1/clusters/multichain/chains?apikey=YOUR_KEY"
+```
+
+2. user inputs query
+3. call `search:quick`
+4. render results grouped by type \+ chain
+
+## TypeScript example
+
+```ts
+const API_KEY = process.env.BLOCKSCOUT_API_KEY ?? "YOUR_KEY";
+const QUERY = process.argv[2] ?? "usdc";
+
+const base = "https://api.blockscout.com/multichain/api/v1/clusters/multichain";
+
+async function getJson(url: string) {
+  const res = await fetch(url);
+  return res.json();
+}
+
+async function main() {
+  const chains = await getJson(`${base}/chains?apikey=${API_KEY}`);
+  console.log("Supported chains:", Object.keys(chains).length);
+
+  const searchUrl =
+    `${base}/search:quick?q=${encodeURIComponent(QUERY)}&apikey=${API_KEY}`;
+
+  const data = await getJson(searchUrl);
+
+  console.log(`\nQuery: ${QUERY}\n`);
+
+  for (const token of data.tokens ?? []) {
+    const chains = Object.keys(token.chain_infos ?? {});
+    console.log(`${token.symbol} | ${token.address_hash}`);
+    console.log(`chains: ${chains.join(", ")}`);
+  }
+
+  console.log("\nAddresses:", (data.addresses ?? []).length);
+  console.log("Transactions:", (data.transactions ?? []).length);
+}
+
+main();
+```
+
+## Supported chains
+
+Fetch dynamically:
+
+```bash
+GET https://api.blockscout.com/multichain/api/v1/clusters/multichain/chains
+```
+
+---
