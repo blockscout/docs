@@ -419,7 +419,7 @@
                   "pages": [
                     "devs/pro-api",
                     "devs/error-responses",
-                    "devs/pro-api-routes",
+                    "devs/multichain-service",
                     "devs/metadata-service"
                   ]
                 },
