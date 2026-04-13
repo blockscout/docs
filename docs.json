@@ -417,7 +417,8 @@
                   "group": "PRO API",
                   "icon": "rectangle-pro",
                   "pages": [
-                    "devs/pro-api",
+                    "devs/pro-api-info",
+                    "devs/pro-api-responses-and-routes",
                     "devs/error-responses",
                     "devs/multichain-service",
                     "devs/metadata-service"
