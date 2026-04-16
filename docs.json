@@ -638,6 +638,10 @@
             "destination": "/setup/deployment/manual-deployment-guide"
         },
         {
+            "source": "/devs/apis/pro-api",
+            "destination": "/devs/pro-api"
+        },
+        {
             "source": "/for-users/verifying-a-smart-contract",
             "destination": "/devs/verification"
         },
