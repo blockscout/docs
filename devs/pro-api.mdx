@@ -19,7 +19,7 @@ Blockscout PRO API eliminates that fragmentation. One account, one API key, doze
 
 Access onchain data across all Blockscout-supported chains through a single API key. Add a new chain by changing a `chain_id` parameter — no new vendor setup, no duplicated integration work.
 
-```
+```text
 https://api.blockscout.com/v2/api?chain_id=1&module=account&action=balance&address=0x...&apikey=proapi_xxx
 ```
 
@@ -29,7 +29,11 @@ Swap `chain_id=1` for `chain_id=8453` (Base), `chain_id=10` (Optimism), `chain_i
 
 Already using Etherscan V2's unified API? Migration is trivial — the structure is nearly identical. Etherscan uses `api.etherscan.io/v2/api?chainid=`, Blockscout uses `api.blockscout.com/v2/api?chain_id=`. Same modules, same parameters — swap the base URL and key.
 
-**→ [Migration Guide: Etherscan to Blockscout](/docs/migration-guide-etherscan)**
+**→ [Migration Guide: Etherscan to Blockscout](/devs/migrate-from-etherscan)**
+
+<Info>
+  All PRO API endpoints are documented individually in the API Reference menu
+</Info>
 
 ### More Capacity at Every Tier
 
