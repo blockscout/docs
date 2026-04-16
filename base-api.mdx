@@ -1,0 +1,136 @@
+---
+title: "Base API"
+---
+
+# Base Blockchain API  with Free Access and No Cutoffs 
+
+> Full block explorer API for Base developers. Free tier on all endpoints. No surprise restrictions.
+
+## Base API Access with Blockscout
+
+Base is Coinbase's Ethereum L2 and one of the fastest-growing chains in the ecosystem. With its 2026 strategy focused on tokenized markets, stablecoin payments, and developer tooling, Base has become a magnet for consumer dapps, DeFi, SocialFi, and AI agent applications. Its TVL has grown into the multi-billion dollar range, and hundreds of teams are building across the stack.
+
+When other API providers removed free-tier access for Base, many developers were left scrambling. Blockscout PRO API provides full API access for Base — with a free tier that isn't going anywhere.
+
+**Base Chain ID:** `8453` \
+**Explorer:** [base.blockscout.com](https://base.blockscout.com) \
+**PRO API Base:** `https://api.blockscout.com` (use `chain_id=8453`) \
+**API Docs:** [base.blockscout.com/api-docs](https://base.blockscout.com/api-docs)
+
+## Quick Start
+
+Get your first API response in under 60 seconds:
+
+```bash
+# Get ETH balance for an address on Base via PRO API
+curl "https://api.blockscout.com/v2/api?chain_id=8453&module=account&action=balance&address=0xYOUR_ADDRESS&apikey=proapi_YOUR_KEY"
+```
+
+Get a free API key at [dev.blockscout.com](https://dev.blockscout.com) — required for all PRO API tiers, including free.
+
+## PRO API Routes for Base
+
+All routes use Base's chain ID (`8453`):
+
+**JSON RPC v2 (Etherscan-compatible):**
+
+```text
+https://api.blockscout.com/v2/api?chain_id=8453&module=account&action=txlist&address=0x...&apikey=proapi_xxx
+```
+
+**JSON RPC:**
+
+```text
+https://api.blockscout.com/8453/api?module=account&action=txlist&address=0x...&apikey=proapi_xxx
+```
+
+**REST API:**
+
+```text
+https://api.blockscout.com/8453/api/v2/addresses/0x.../transactions?apikey=proapi_xxx
+```
+
+**ETH RPC (POST):**
+
+```bash
+curl -H "content-type: application/json" \
+  -H "authorization: Bearer proapi_xxx" \
+  -X POST \
+  --data '{"id":0,"jsonrpc":"2.0","method":"eth_blockNumber","params":[]}' \
+  https://api.blockscout.com/8453/json-rpc
+```
+
+## Available Endpoints
+
+### Etherscan-Compatible Modules
+
+All standard modules work — if you've used Etherscan's Base API before, the same parameters apply:
+
+- **Account** — Balances, transaction lists, token transfers, internal transactions, ERC-20/721/1155 activity (plus Blockscout extras: `eth_get_balance`, `pendingtxlist`, `tokenbalance`, `tokenlist`)
+- **Contract** — ABI, source code, verification (plus: `listcontracts`, `getcontractcreation`, Vyper & Sourcify verification)
+- **Transaction** — Status checks (plus: `gettxinfo`)
+- **Logs** — Event logs with filtering by address, topics, block range
+- **Token** — Token metadata, holders
+- **Stats** — Supply, chain statistics, coin price
+- **Block** — Block rewards, countdown, block number by time
+- **Gas Tracker** — Gas oracle, gas estimates
+
+### REST API
+
+Blockscout's native REST API provides enriched metadata, decoded input data, NFT media and attributes, smart contract read/write interaction, and chain health monitoring — all accessible through the PRO API.
+
+**→ [Full REST API Reference](https://base.blockscout.com/api-docs)**
+
+## Base API Pricing
+
+| Tier | Rate Limit | Credits | Price |
+| --- | --- | --- | --- |
+| Free | 5 RPS | 100K/day | \$0 |
+| Builder | 15 RPS | 100M/mo | \$49/mo |
+| Pro | 30 RPS | 500M/mo | \$199/mo |
+| Business | 50 RPS | 3B/mo | \$999/mo |
+| Enterprise | Custom | Custom | Contact us |
+
+Every tier includes access to all 117 Blockscout-supported chains — not just Base. One API key, one account, one `chain_id` parameter swap to query any network.
+
+## Switching from Etherscan's Base API?
+
+Etherscan lists Base as paid-only (`⚠️`). Blockscout provides free access on all tiers. Since both APIs now use a unified multichain format, the migration is a base URL and key swap:
+
+```javascript
+// Before (Etherscan V2 — Base requires paid tier)
+const resp = await fetch(
+  `https://api.etherscan.io/v2/api?chainid=8453&module=account&action=balance&address=${addr}&apikey=${ETHERSCAN_KEY}`
+);
+
+// After (Blockscout PRO API — free tier available)
+const resp = await fetch(
+  `https://api.blockscout.com/v2/api?chain_id=8453&module=account&action=balance&address=${addr}&apikey=${BLOCKSCOUT_KEY}`
+);
+```
+
+Same structure: `chainid` → `chain_id`, swap the base URL and key.
+
+**→ [Full Migration Guide](https://docs.blockscout.com/devs/migrate-from-etherscan)**
+
+## What Developers Build on Base with Blockscout's API
+
+**Consumer Dapps & SocialFi** — Base is home to Farcaster, Zora, and a growing SocialFi ecosystem. Blockscout's API powers transaction history, token balances, and NFT data for these applications.
+
+**DeFi Backends** — With billions in TVL across DEXs, lending markets, and yield platforms, Base DeFi apps rely on explorer APIs for contract data, event monitoring, and position tracking.
+
+**AI Agents & Automation** — Base's 2026 roadmap includes native support for AI agent smart accounts. Blockscout's PRO API and MCP server provide the structured onchain data these agents need.
+
+**Wallets & Portfolio Trackers** — Pull complete transaction histories, multi-token balances, and NFT holdings for Base addresses through a single API key that also covers every other chain.
+
+## Base on Blockscout
+
+As part of the OP Superchain, Base benefits from Blockscout's native support for L1↔L2 transaction tracking, including deposit and withdrawal views and cross-chain message debugging. Blockscout provides free API access for Base where Etherscan requires a paid plan — and over 84 chains run Blockscout as their exclusive explorer. With the PRO API's multichain architecture, querying Base is just one `chain_id` parameter away from querying Ethereum, Optimism, Arbitrum, or any other supported network.
+
+## Get Started
+
+1. Get a free API key at [**dev.blockscout.com**](https://dev.blockscout.com)
+2. Use `chain_id=8453` in your PRO API requests
+3. Explore endpoints at [**base.blockscout.com/api-docs**](https://base.blockscout.com/api-docs)
+
+**→ [Start Building on Base](https://dev.blockscout.com)** · **→ [PRO API Routes Reference](https://docs.blockscout.com/devs/pro-api-responses-and-routes)**

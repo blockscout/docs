@@ -31,33 +31,49 @@ Blockscout PRO API provides Etherscan-compatible endpoints across 100\+ EVM chai
 | API keys per account | Up to 50 | Limited |
 | Usage dashboard | Real-time | Basic |
 
-## Migration Is a One-Line Change
+At the \$49/mo tier, Blockscout's 100M monthly credits provide roughly 3× more throughput than Etherscan Lite's 100K daily calls.
 
-Blockscout follows the same API structure and request format. In most cases, migrating means simply updating the base URL.
+## Migration Is a Base URL Swap
 
-### Before (Etherscan)
+Both Etherscan V2 and Blockscout PRO API now use a unified multichain endpoint with a chain ID parameter. The APIs are structurally almost identical — migration is a base URL and key swap.
 
-```text
-https://api.etherscan.io/api?module=account&action=balance&address=0x...&apikey=YOUR_KEY
-```
-
-### After (Blockscout PRO API)
+### Etherscan Route
 
 ```text
-https://eth.blockscout.com/api?module=account&action=balance&address=0x...&apikey=YOUR_KEY
+https://api.etherscan.io/v2/api?chainid=1&module=account&action=balance&address=0x...&apikey=YOUR_ETHERSCAN_KEY
 ```
 
-## Migration Checklist
+### Blockscout PRO API
 
-- Create a free account at [dev.blockscout.com](https://dev.blockscout.com)
-- Generate your API key
-- Find your chain's base URL at [chains.blockscout.com](https://chains.blockscout.com)
-- Update `baseURL` in your API client configuration
-- Update `apikey` parameter with your Blockscout PRO API key
-- Test core endpoints (account balance, transaction list, contract ABI)
-- Monitor usage in the developer portal dashboard
+```text
+https://api.blockscout.com/v2/api?chain_id=1&module=account&action=balance&address=0x...&apikey=proapi_YOUR_KEY
+```
 
-## Supported Chains Comparison: Blockscout vs Etherscan
+The only differences: `api.etherscan.io` → `api.blockscout.com`, `chainid` → `chain_id`, and your API key. Same modules, same actions, same parameters.
+
+Blockscout also supports path-based routing as an alternative:
+
+```text
+https://api.blockscout.com/1/api?module=account&action=balance&address=0x...&apikey=proapi_YOUR_KEY
+```
+
+### Chain IDs for Common Networks
+
+| Chain | Chain ID | Etherscan Status |
+| --- | --- | --- |
+| Ethereum Mainnet | `1` | Available |
+| OP Mainnet | `10` | Paid only |
+| Base Mainnet | `8453` | Paid only |
+| Arbitrum One | `42161` | Available |
+| Scroll Mainnet | `534352` | Available |
+| Soneium Mainnet | `1868` | Not available (Blockscout exclusive) |
+| Ink Mainnet | `57073` | Not available (Blockscout exclusive) |
+| MegaETH Mainnet | `4326` | Available |
+| Immutable zkEVM | `13371` | Not available (Blockscout exclusive) |
+| World Chain | `480` | Available |
+| Celo Mainnet | `42220` | Available |
+
+### Complete Supported Chains Comparison: Blockscout vs Etherscan
 
 <Accordion title="Chains listed by Chain ID">
   **Legend:** ✅ Supported · ❌ Not supported · ⚠️ Paid tier only (Etherscan)
@@ -235,6 +251,16 @@ https://eth.blockscout.com/api?module=account&action=balance&address=0x...&apike
   | **Eden Testnet** | 3735928814 | **✅** | ❌ |
   | **Arbitrum Blueberry Testnet** | 88153591557 | **✅** | ❌ |
 </Accordion>
+
+## Migration Checklist
+
+- Create a free account at [dev.blockscout.com](https://dev.blockscout.com)
+- Generate your API key (format: `proapi_xxxxxxxx`)
+- Look up chain IDs for your target networks
+- Update your API client to use `https://api.blockscout.com/v2/api` with `chain_id` parameter
+- Replace your Etherscan API key with your Blockscout PRO API key
+- Test core endpoints (account balance, transaction list, contract ABI)
+- Monitor usage and credits in the [developer portal dashboard](https://dev.blockscout.com)
 
 ## Additional Blockscout feature set
 
@@ -415,63 +441,150 @@ https://eth.blockscout.com/api?module=account&action=balance&address=0x...&apike
   - ✅ Gas information integrated into transaction and block data
 </Accordion>
 
-## Framework Compatibility
-
-Blockscout works with the tools you already use:
-
-- **Ethers.js** — [ethers.org provider docs](https://docs.ethers.org/v6/api/providers/thirdparty/#providers-blockscout)
-- **Hardhat** — [@ericxstone/hardhat-blockscout-verify](https://www.npmjs.com/package/@ericxstone/hardhat-blockscout-verify)
-- **Foundry** — [Foundry verification guide](https://docs.blockscout.com/devs/verification/foundry-verification)
-- **Remix** — Direct deployment and verification support
-
+## Supported Modules
+ 
+Blockscout supports the core Etherscan-compatible modules:
+ 
+- **`module=account`** — Balances, transaction lists, token transfers, internal transactions (plus Blockscout extras: `eth_get_balance`, `pendingtxlist`, `tokenbalance`, `tokenlist`, `listaccounts`)
+- **`module=contract`** — ABI retrieval, source code, contract verification (plus: `listcontracts`, `getcontractcreation`, Vyper & Sourcify verification)
+- **`module=transaction`** — Transaction status, receipt status (plus: `gettxinfo`)
+- **`module=logs`** — Event logs by address, topics, and block range
+- **`module=token`** — Token info, holder lists
+- **`module=stats`** — Chain statistics, token supply, coin price
+- **`module=block`** — Block rewards, countdown, block number by time
+- **`module=gastracker`** — Gas oracle, gas estimates
+ 
+## REST API (Beyond Etherscan Compatibility)
+ 
+The PRO API also exposes Blockscout's modern REST API at:
+ 
+```
+https://api.blockscout.com/{chain_id}/api/v2/{endpoint}?apikey=proapi_YOUR_KEY
+```
+ 
+This provides capabilities not available through the Etherscan-compatible interface, including enriched address metadata, decoded transaction data, NFT details, smart contract read/write, and chain health monitoring.
+ 
+## ETH RPC API
+ 
+For standard Ethereum JSON-RPC methods, send POST requests to:
+ 
+```
+https://api.blockscout.com/{chain_id}/json-rpc
+```
+ 
+With your API key in the `authorization` header:
+ 
+```bash
+curl -H "content-type: application/json" \
+  -H "authorization: Bearer proapi_YOUR_KEY" \
+  -X POST \
+  --data '{"id":0,"jsonrpc":"2.0","method":"eth_blockNumber","params":[]}' \
+  https://api.blockscout.com/10/json-rpc
+```
+ 
+Supported methods include `eth_blockNumber`, `eth_getBalance`, `eth_getLogs`, `eth_gasPrice`, `eth_getTransactionByHash`, `eth_getTransactionReceipt`, `eth_call`, `eth_estimateGas`, `eth_getBlockByNumber`, `eth_getBlockByHash`, `eth_sendRawTransaction`, and more.
+ 
 ## Common Migration Patterns
-
+ 
 ### JavaScript / Node.js
-
+ 
 ```javascript
-// Before
+// Before (Etherscan V2)
 const api = axios.create({
-  baseURL: "https://api.etherscan.io/api",
-  params: { apikey: process.env.ETHERSCAN_KEY }
+  baseURL: "https://api.etherscan.io/v2/api",
+  params: { chainid: 1, apikey: process.env.ETHERSCAN_KEY }
 });
-
-// After
-const api = axios.create({
-  baseURL: "https://eth.blockscout.com/api",
-  params: { apikey: process.env.BLOCKSCOUT_KEY }
-});
+ 
+// After (Blockscout PRO API — same structure, more chains, higher limits)
+const BLOCKSCOUT_KEY = process.env.BLOCKSCOUT_KEY;
+ 
+async function query(chainId, module, action, params = {}) {
+  const resp = await axios.get("https://api.blockscout.com/v2/api", {
+    params: {
+      chain_id: chainId,
+      module,
+      action,
+      apikey: BLOCKSCOUT_KEY,
+      ...params
+    }
+  });
+  return resp.data;
+}
+ 
+// Query Ethereum (chain_id=1)
+const ethBalance = await query(1, "account", "balance", { address: "0x..." });
+ 
+// Query Base (chain_id=8453) — same function, different chain_id
+const baseBalance = await query(8453, "account", "balance", { address: "0x..." });
 ```
-
+ 
 ### Python
-
+ 
 ```python
-# Before
-BASE_URL = "https://api.etherscan.io/api"
+import requests
+ 
+# Before (Etherscan V2)
+BASE_URL = "https://api.etherscan.io/v2/api"
 API_KEY = os.environ["ETHERSCAN_KEY"]
-
-# After
-BASE_URL = "https://eth.blockscout.com/api"
-API_KEY = os.environ["BLOCKSCOUT_KEY"]
+ 
+resp = requests.get(BASE_URL, params={
+    "chainid": 1, "module": "account", "action": "balance",
+    "address": addr, "apikey": API_KEY
+})
+ 
+# After (Blockscout PRO API)
+BLOCKSCOUT_KEY = os.environ["BLOCKSCOUT_KEY"]
+ 
+def query(chain_id, module, action, **params):
+    resp = requests.get("https://api.blockscout.com/v2/api", params={
+        "chain_id": chain_id,
+        "module": module,
+        "action": action,
+        "apikey": BLOCKSCOUT_KEY,
+        **params
+    })
+    return resp.json()
+ 
+# Ethereum
+eth_balance = query(1, "account", "balance", address="0x...")
+ 
+# Optimism (chain_id=10)
+op_txns = query(10, "account", "txlist", address="0x...", sort="desc")
 ```
-
+ 
 ### Multichain Setup
-
+ 
 ```javascript
-// One API key, multiple chains
-const chains = {
-  ethereum: "https://eth.blockscout.com/api",
-  base: "https://base.blockscout.com/api",
-  optimism: "https://optimism.blockscout.com/api",
+// Both Etherscan V2 and Blockscout PRO API use the same pattern:
+// unified base URL + chain ID. The switch is trivial.
+ 
+const CHAINS = {
+  ethereum: 1,
+  optimism: 10,
+  base: 8453,
+  arbitrum: 42161,
+  scroll: 534352,
+  soneium: 1868,    // Blockscout exclusive
+  ink: 57073,        // Blockscout exclusive
 };
-
-async function getBalance(chain, address) {
+ 
+async function getBalance(chainName, address) {
+  const chainId = CHAINS[chainName];
   const res = await fetch(
-    `${chains[chain]}?module=account&action=balance&address=${address}&apikey=${API_KEY}`
+    `https://api.blockscout.com/v2/api?chain_id=${chainId}&module=account&action=balance&address=${address}&apikey=${API_KEY}`
   );
   return res.json();
 }
 ```
-
+ 
+## Framework Compatibility
+ 
+Blockscout works with the tools you already use:
+ 
+- **Ethers.js** — [ethers.org provider docs](https://docs.ethers.org/v6/api/providers/thirdparty/#providers-blockscout)
+- **Hardhat** — [@ericxstone/hardhat-blockscout-verify](https://www.npmjs.com/package/@ericxstone/hardhat-blockscout-verify)
+- **Foundry** — [Foundry verification guide](https://docs.blockscout.com/devs/verification/foundry-verification)
+- **Remix** — Direct deployment and verification support
 ## Beyond Etherscan Compatibility
 
 Blockscout also provides a modern REST API with capabilities not available through Etherscan-compatible endpoints, including smart contract read/write interactions, advanced token metadata, NFT details, and chain health monitoring.
@@ -482,4 +595,4 @@ Blockscout also provides a modern REST API with capabilities not available throu
 
 No credit card. No chain restrictions. No surprise cutoffs.
 
-**→ [Get Your API Key](https://dev.blockscout.com)** 
+**→ [Get Your API Key](https://dev.blockscout.com)**

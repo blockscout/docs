@@ -1,0 +1,138 @@
+---
+title: "Optimism API"
+---
+
+# Free API for OP Mainnet
+
+> Explorer-grade API access for Optimism developers. Free tier included. Multichain-ready.
+
+## Optimism API Access with Blockscout
+
+Optimism is one of Ethereum's flagship L2s and the foundation of the OP Superchain — a growing network of interoperable chains built on the OP Stack. With the Ethereum Economic Zone framework announced at EthCC and L2Beat tracking 149 scaling projects, Optimism sits at the center of Ethereum's scaling architecture. Its governance model, RetroPGF funding rounds, and deep developer community make it one of the most active ecosystems in crypto.
+
+Etherscan lists OP Mainnet as paid-only for API access. Blockscout provides full API access on all tiers, including a generous free plan.
+
+**OP Mainnet Chain ID:** `10` \
+**Explorer:** [optimism.blockscout.com](https://optimism.blockscout.com) \
+**PRO API Base:** `https://api.blockscout.com` (use `chain_id=10`) \
+**API Docs:** [optimism.blockscout.com/api-docs](https://optimism.blockscout.com/api-docs)
+
+## Quick Start
+
+```bash
+# Get ETH balance for an address on Optimism via PRO API
+curl "https://api.blockscout.com/v2/api?chain_id=10&module=account&action=balance&address=0xYOUR_ADDRESS&apikey=proapi_YOUR_KEY"
+```
+
+Get a free API key at [dev.blockscout.com](https://dev.blockscout.com) — required for all PRO API tiers, including free.
+
+## PRO API Routes for Optimism
+
+All routes use OP Mainnet's chain ID (`10`):
+
+**JSON RPC v2 (Etherscan-compatible):**
+
+```text
+https://api.blockscout.com/v2/api?chain_id=10&module=account&action=txlist&address=0x...&apikey=proapi_xxx
+```
+
+**JSON RPC:**
+
+```text
+https://api.blockscout.com/10/api?module=account&action=txlist&address=0x...&apikey=proapi_xxx
+```
+
+**REST API:**
+
+```text
+https://api.blockscout.com/10/api/v2/addresses/0x.../transactions?apikey=proapi_xxx
+```
+
+**ETH RPC (POST):**
+
+```bash
+curl -H "content-type: application/json" \
+  -H "authorization: Bearer proapi_xxx" \
+  -X POST \
+  --data '{"id":0,"jsonrpc":"2.0","method":"eth_blockNumber","params":[]}' \
+  https://api.blockscout.com/10/json-rpc
+```
+
+## Available Endpoints
+
+### Etherscan-Compatible Modules
+
+All standard modules work identically to Etherscan's interface:
+
+- **Account** — Balances, transaction lists, token transfers, internal transactions, ERC-20/721/1155 activity (plus Blockscout extras: `eth_get_balance`, `pendingtxlist`, `tokenbalance`, `tokenlist`)
+- **Contract** — ABI, source code, verification (plus: `listcontracts`, `getcontractcreation`, Vyper & Sourcify verification)
+- **Transaction** — Status checks (plus: `gettxinfo`)
+- **Logs** — Event logs with filtering by address, topics, block range
+- **Token** — Token metadata, holders
+- **Stats** — Supply, chain statistics, coin price
+- **Block** — Block rewards, countdown, block number by time
+- **Gas Tracker** — Gas oracle, gas estimates
+
+### REST API
+
+Blockscout's native REST API provides enriched metadata, decoded transaction data, NFT details, smart contract read/write, and chain health monitoring.
+
+**→ [Full REST API Reference](https://optimism.blockscout.com/api-docs)**
+
+## Optimism API Pricing
+
+| Tier | Rate Limit | Credits | Price |
+| --- | --- | --- | --- |
+| Free | 5 RPS | 100K/day | \$0 |
+| Builder | 15 RPS | 100M/mo | \$49/mo |
+| Pro | 30 RPS | 500M/mo | \$199/mo |
+| Business | 50 RPS | 3B/mo | \$999/mo |
+| Enterprise | Custom | Custom | Contact us |
+
+One API key covers every Blockscout-supported chain. Build on Optimism today, expand to Base, Arbitrum, Scroll, and 100\+ more networks by changing a `chain_id` parameter — no additional setup.
+
+## Migrating from Etherscan's Optimism API?
+
+Etherscan requires a paid plan for OP Mainnet API access. Blockscout offers it free. Since both APIs now use a unified multichain format, switching is a base URL and key swap:
+
+```python
+# Before (Etherscan V2 — OP Mainnet requires paid tier)
+resp = requests.get("https://api.etherscan.io/v2/api", params={
+    "chainid": 10,
+    "module": "account", "action": "txlist",
+    "address": addr, "apikey": os.environ["ETHERSCAN_KEY"]
+})
+
+# After (Blockscout PRO API — free tier available)
+resp = requests.get("https://api.blockscout.com/v2/api", params={
+    "chain_id": 10,
+    "module": "account", "action": "txlist",
+    "address": addr, "apikey": os.environ["BLOCKSCOUT_KEY"]
+})
+```
+
+Same structure: `chainid` → `chain_id`, swap the base URL and key.
+
+**→ [Full Migration Guide](https://docs.blockscout.com/devs/migrate-from-etherscan)**
+
+## What Developers Build on Optimism with Blockscout's API
+
+**Superchain Applications** — Optimism's interoperability vision means apps increasingly span multiple OP Stack chains. Blockscout's multichain PRO API is purpose-built for this — one key and a `chain_id` swap queries OP Mainnet, Base, Zora, Ink, Soneium, and every other Superchain network.
+
+**Governance & Public Goods Tools** — Optimism's RetroPGF and governance ecosystem generates significant onchain activity. Developers build dashboards, voting tools, and funding trackers that rely on transaction and contract data from the explorer API.
+
+**DeFi & Yield Infrastructure** — OP Mainnet hosts major DeFi protocols. API access to contract state, event logs, and token transfers powers analytics dashboards, position monitoring, and automated strategies.
+
+**Cross-Chain Debugging** — Blockscout surfaces L1↔L2 deposits, withdrawals, and message passing natively, and the PRO API includes OP-specific endpoints (`optimism` module) for rollup-specific data.
+
+## Optimism on Blockscout
+
+Blockscout runs alongside Etherscan on OP Mainnet, but with key advantages: free API access on all tiers, plus unique features like Blockscout's DAppscout marketplace, public tagging across chains, and Vera bytecode verification. As the Superchain grows, Blockscout's unified multichain API gives developers a consistent interface across every OP Stack chain. Blockscout also supports native Interop features for the OP Stack, including cross-chain message tracking, relay status, and interop contract data.
+
+## Get Started
+
+1. Get a free API key at [**dev.blockscout.com**](https://dev.blockscout.com)
+2. Use `chain_id=10` in your PRO API requests
+3. Explore endpoints at [**optimism.blockscout.com/api-docs**](https://optimism.blockscout.com/api-docs)
+
+**→ [Start Building on Optimism](https://dev.blockscout.com)** · **→ [PRO API Routes Reference](https://docs.blockscout.com/devs/pro-api-responses-and-routes)**

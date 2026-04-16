@@ -421,7 +421,16 @@
                     "devs/pro-api-responses-and-routes",
                     "devs/error-responses",
                     "devs/multichain-service",
-                    "devs/metadata-service"
+                    "devs/metadata-service",
+                    "devs/untitled-page",
+                    {
+                      "group": "Chain Specific API info",
+                      "icon": "link-horizontal",
+                      "pages": [
+                        "untitled-page",
+                        "base-api"
+                      ]
+                    }
                   ]
                 },
                 "devs/dev-portal",
@@ -482,7 +491,7 @@
                     "devs/apis/rest",
                     {
                       "group": "Endpoints",
-                      "openapi": "openapi-specs/openapi.yaml"
+                      "openapi": "openapi-specs/openapi-deprecation.yaml"
                     },
                     "devs/apis/rest/stats-api",
                     "devs/apis/rest/interpreter-api"
