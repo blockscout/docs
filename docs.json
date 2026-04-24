@@ -185,7 +185,8 @@
                 },
                 "devs/mcp-server",
                 "devs/blockscout-sdk",
-                "devs/chainscout-chains-list"
+                "devs/chainscout-chains-list",
+                "devs/blockscout-license"
               ]
             },
             {
