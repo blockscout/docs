@@ -429,7 +429,8 @@
                       "icon": "link-horizontal",
                       "pages": [
                         "untitled-page",
-                        "base-api"
+                        "base-api",
+                        "soneium-api"
                       ]
                     }
                   ]
