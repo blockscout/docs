@@ -428,7 +428,7 @@
                       "group": "Chain Specific API info",
                       "icon": "link-horizontal",
                       "pages": [
-                        "untitled-page",
+                        "optimism-api",
                         "base-api",
                         "soneium-api"
                       ]
