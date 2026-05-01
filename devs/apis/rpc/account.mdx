@@ -742,7 +742,6 @@ Lists accounts and native balances, sorted ascending by the time they were first
 https://instance_base_url/api
    ?module=account
    &action=listaccounts
-   &address={addressHash}
    &page=1
    &offset=3
 ```
@@ -751,7 +750,6 @@ https://instance_base_url/api
   <Tab title="Request Params">
     | Parameter | Description                                                                                             |
     | --------- | ------------------------------------------------------------------------------------------------------- |
-    | address   | optional `string` containing the account address hash.    |
     | page      | optional `integer` representing the page number used for pagination. 'offset' must also be provided.    |
     | offset    | optional `integer` representing number of transactions returned per page. `page` must also be provided. |
 
