@@ -45,7 +45,9 @@ https://instance_base_url/api
 **Example:**
 
 ```javascript
-// Some code
+https://instance_base_url/api
+   ?module=stats
+   &action=ethsupplyexchange
 ```
 
 <Tabs>
@@ -53,13 +55,16 @@ https://instance_base_url/api
 
 | Parameter | Description |
 | --------- | ----------- |
-| param     | description |
 
 </Tab>
 <Tab title="Example Result">
 
-```javascript
-// Some code
+```json
+{
+    "message": "OK",
+    "result": "120687572663070000000000000.0",
+    "status": "1"
+}
 ```
 </Tab>
 </Tabs>
@@ -71,7 +76,9 @@ https://instance_base_url/api
 **Example:**
 
 ```javascript
-// Some code
+https://instance_base_url/api
+   ?module=stats
+   &action=ethsupply
 ```
 
 <Tabs>
@@ -79,13 +86,16 @@ https://instance_base_url/api
 
 | Parameter | Description |
 | --------- | ----------- |
-| param     | description |
 
 </Tab>
 <Tab title="Example Result">
 
-```javascript
-// Some code
+```json
+{
+    "message": "OK",
+    "result": "641142123374738216902696563",
+    "status": "1"
+}
 ```
 </Tab>
 </Tabs>
@@ -97,7 +107,9 @@ https://instance_base_url/api
 **Example:**
 
 ```javascript
-// Some code
+https://instance_base_url/api
+   ?module=stats
+   &action=coinsupply
 ```
 
 <Tabs>
@@ -105,13 +117,16 @@ https://instance_base_url/api
 
 | Parameter | Description |
 | --------- | ----------- |
-| param     | description |
 
 </Tab>
 <Tab title="Example Result">
 
-```javascript
-// Some code
+```json
+{
+    "message": "OK",
+    "result": "641142123374738216902696563",
+    "status": "1"
+}
 ```
 </Tab>
 </Tabs>
@@ -123,7 +138,9 @@ https://instance_base_url/api
 **Example:**
 
 ```javascript
-// Some code
+https://instance_base_url/api
+   ?module=stats
+   &action=ethprice
 ```
 
 <Tabs>
@@ -131,13 +148,21 @@ https://instance_base_url/api
 
 | Parameter | Description |
 | --------- | ----------- |
-| param     | description |
 
 </Tab>
 <Tab title="Example Result">
 
-```javascript
-// Some code
+```json
+{
+    "message": "OK",
+    "result": {
+        "ethbtc": "0.02954612",
+        "ethbtc_timestamp": "1777625996",
+        "ethusd": "2285.39",
+        "ethusd_timestamp": "1777625996"
+    },
+    "status": "1"
+}
 ```
 
 </Tab>
@@ -150,7 +175,9 @@ https://instance_base_url/api
 **Example:**
 
 ```javascript
-// Some code
+https://instance_base_url/api
+   ?module=stats
+   &action=coinprice
 ```
 
 <Tabs>
@@ -158,13 +185,21 @@ https://instance_base_url/api
 
 | Parameter | Description |
 | --------- | ----------- |
-| param     | description |
 
 </Tab>
 <Tab title="Example Result">
 
-```javascript
-// Some code
+```json
+{
+    "message": "OK",
+    "result": {
+        "coin_btc": "0.02954612",
+        "coin_btc_timestamp": "1777625996",
+        "coin_usd": "2285.39",
+        "coin_usd_timestamp": "1777625996"
+    },
+    "status": "1"
+}
 ```
 </Tab>
 </Tabs>
@@ -176,7 +211,9 @@ https://instance_base_url/api
 **Example:**
 
 ```javascript
-// Some code
+https://instance_base_url/api
+   ?module=stats
+   &action=totalfees
 ```
 
 <Tabs>
@@ -184,13 +221,17 @@ https://instance_base_url/api
 
 | Parameter | Description |
 | --------- | ----------- |
-| param     | description |
+| date      | `string` containing the contract address hash - a 160-bit code used for identifying contracts. |
 
 </Tab>
 <Tab title="Example Result">
 
-```javascript
-// Some code
+```json
+{
+    "message": "OK",
+    "result": "67872425678410713267",
+    "status": "1"
+}
 ```
 </Tab>
 </Tabs>
