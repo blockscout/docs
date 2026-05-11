@@ -452,7 +452,7 @@
             {
               "group": "PRO API Endpoints",
               "icon": "rectangle-pro",
-              "openapi": "openapi-specs/pro-api.yaml"
+              "openapi": "openapi-specs/pro-api-v11.yaml"
             },
             {
               "group": "Additional Service APIs",
