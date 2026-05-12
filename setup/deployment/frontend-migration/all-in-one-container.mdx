@@ -50,7 +50,7 @@ environment:
         INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER: 'true'
         INDEXER_DISABLE_PENDING_TRANSACTIONS_FETCHER: 'true'
         DATABASE_URL: postgresql://postgres:@host.docker.internal:7432/blockscout?ssl=false
-        ECTO_USE_SSL: 'false'
+        ECTO_SSL_MODE: 'disable'
         SECRET_KEY_BASE: '56NtB48ear7+wMSf0IQuWDAAazhpb31qyc7GiyspBP2vh7t5zlCsF5QDv76chXeN'
         CHAIN_ID: '1337'
         API_V2_ENABLED: 'true'
