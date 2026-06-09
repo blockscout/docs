@@ -180,7 +180,8 @@
                     "devs/verification/remix-verification",
                     "devs/verification/verification-via-thirdweb",
                     "devs/verification/stylus-verification",
-                    "devs/verification/interacting-with-smart-contracts"
+                    "devs/verification/interacting-with-smart-contracts",
+                    "devs/verification/websocket-notifications"
                   ]
                 },
                 "devs/mcp-server",
