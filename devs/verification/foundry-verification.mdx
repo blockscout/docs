@@ -4,7 +4,7 @@ title: "Foundry Verification"
 
 [Foundry](https://github.com/foundry-rs/foundry/) is a smart contract development toolchain. Foundry manages your dependencies, compiles your project, runs tests, deploys, and lets you interact with the chain from the command line and via Solidity scripts.
 
-Forge is a command-line tool that ships with Foundry. Forge tests, builds, and deploys your smart contracts. Forge supports contract verification out of the box ([https://book.getfoundry.sh/reference/forge/forge-verify-contract](https://book.getfoundry.sh/reference/forge/forge-verify-contract))
+Forge is a command-line tool that ships with Foundry. Forge tests, builds, and deploys your smart contracts. Forge supports contract verification out of the box ([https://www.getfoundry.sh/reference/forge/verify-contract](https://www.getfoundry.sh/reference/forge/verify-contract))
 
 ## Verify contract
 
@@ -13,10 +13,8 @@ In forge, contracts can be verified at the time of the deployment (e.g. using `f
 #### Tips:
 
 1. Specify the `--verifier=blockscout` flag to use the Blockscout verification provider. API key for Blockscout verification is optional.
-
 2. Specify the `--verifier-url=<blockscout_homepage_explorer_url>/api/` flag for connecting to a specific Blockscout instance (e.g., `--verifier-url=https://eth-sepolia.blockscout.com/api/`).
-
-3. You can specify most configuration options (e.g., evm version, disabling optimizations) via the usual Forge configuration (see [https://github.com/foundry-rs/foundry/blob/master/config/README.md](https://github.com/foundry-rs/foundry/blob/master/config/README.md)).
+3. You can specify most configuration options (e.g., evm version, disabling optimizations) via the usual [Forge configuration](https://www.getfoundry.sh/config/compiler).
 
 ### Example (Deploy and verify)
 
@@ -66,5 +64,3 @@ forge script <script_file> \
   --verifier blockscout \
   --verifier-url <blockscout_homepage_explorer_url>/api/
 ```
-
-
