@@ -21,48 +21,48 @@ Turn raw addresses into meaningful. human-readable information
   - **protocol:** Circle
   - **category:** stablecoin
   - **risk flags** (if any)
-  - **ecosystem tags **(CEX, DeFi, grants, etc.)
+  - \*\*ecosystem tags \*\*(CEX, DeFi, grants, etc.)
 </Check>
 
 ## Handles
 
 | Handle | Why |
 | --- | --- |
-| `GET https://api.blockscout.com/api/v1/metadata/tags` | Get all available tag types (OFAC, CEX, protocol, hacks, etc.) |
-| `GET https://api.blockscout.com/api/v1/metadata/addresses/{address}` | Get all metadata for a specific address |
-| `GET https://api.blockscout.com/api/v1/metadata/addresses?addresses=...` | Batch enrich multiple addresses |
-| `GET https://api.blockscout.com/api/v1/metadata/search?q=...` | Search metadata (protocols, entities, labels) |
+| `GET https://api.blockscout.com/metadata/api/v1/tags` | Get all available tag types (OFAC, CEX, protocol, hacks, etc.) |
+| `GET https://api.blockscout.com/metadata/api/v1/addresses/{address}` | Get all metadata for a specific address |
+| `GET https://api.blockscout.com/metadata/api/v1/addresses?addresses=...` | Batch enrich multiple addresses |
+| `GET https://api.blockscout.com/metadata/api/v1/search?q=...` | Search metadata (protocols, entities, labels) |
 
 ## Examples
 
 ### Wallet / explorer UX (name tags)
 
 ```shellscript
-curl "https://api.blockscout.com/api/v1/metadata/addresses/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48?apikey=YOUR_KEY"
+curl "https://api.blockscout.com/metadata/api/v1/addresses/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48?apikey=YOUR_KEY"
 ```
 
 ### Compliance (OFAC / sanctions)
 
 ```shellscript
-curl "https://api.blockscout.com/api/v1/metadata/search?q=ofac&apikey=YOUR_KEY"
+curl "https://api.blockscout.com/metadata/api/v1/search?q=ofac&apikey=YOUR_KEY"
 ```
 
 ### Exchange detection (CEX)
 
 ```shellscript
-curl "https://api.blockscout.com/api/v1/metadata/search?q=binance&apikey=YOUR_KEY"
+curl "https://api.blockscout.com/metadata/api/v1/search?q=binance&apikey=YOUR_KEY"
 ```
 
 ### Hack / exploit detection
 
 ```shellscript
-curl "https://api.blockscout.com/api/v1/metadata/addresses/0x...&apikey=YOUR_KEY"
+curl "https://api.blockscout.com/metadata/api/v1/addresses/0x...&apikey=YOUR_KEY"
 ```
 
 ### Protocol discovery
 
 ```shellscript
-curl "https://api.blockscout.com/api/v1/metadata/search?q=uniswap&apikey=YOUR_KEY"
+curl "https://api.blockscout.com/metadata/api/v1/search?q=uniswap&apikey=YOUR_KEY"
 ```
 
 ## TypeScript example
@@ -81,7 +81,7 @@ async function getJson(url: string) {
 
 async function main() {
   const url =
-    `https://api.blockscout.com/api/v1/metadata/addresses?` +
+    `https://api.blockscout.com/metadata/api/v1/addresses?` +
     `addresses=${ADDRESSES.join(",")}&apikey=${API_KEY}`;
 
   const data = await getJson(url);
