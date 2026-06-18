@@ -229,18 +229,7 @@ If no unit is provided, the value will be interpreted as seconds.
 | `NOVES_FI_BASE_API_URL` | [Noves.fi API](https://blockscout.noves.fi/swagger/index.html) base URL. Implemented in [#9056](https://github.com/blockscout/blockscout/pull/9056).   | Version: v6.1.0+ <br />Default: `https://blockscout.noves.fi` <br />Applications: API |
 | `NOVES_FI_CHAIN_NAME`   | [Noves.fi API](https://blockscout.noves.fi/swagger/index.html) chain name. Implemented in [#9056](https://github.com/blockscout/blockscout/pull/9056). | Version: v6.1.0+ <br />Default: (empty) <br />Applications: API                       |
 | `NOVES_FI_API_TOKEN`    | [Noves.fi API](https://blockscout.noves.fi/swagger/index.html) token. Implemented in [#9056](https://github.com/blockscout/blockscout/pull/9056).      | Version: v6.1.0+ <br />Default: (empty) <br />Applications: API                       |
-
-## MUD framework
-
-<Info>
-  [The MUD framework](https://mud.dev/introduction) provides standardized tools for data retrieval, libraries and more.
-</Info>
-
-| Variable              | Description                                                                                                                                                                                               | Parameters                                                                                |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `MUD_INDEXER_ENABLED` | If `true`, integration with [MUD](https://mud.dev/services/indexer#schemaless-indexing-with-postgresql-via-docker) is enabled. Implemented in [#9869](https://github.com/blockscout/blockscout/pull/9869) | Needs Recompile: ☑️ <br />Version: v6.6.0+ <br />Default: (empty) <br />Applications: API |
-| `MUD_DATABASE_URL`    | MUD indexer DB connection URL.                                                                                                                                                                            | Version: v6.6.0+ <br />Default: value from `DATABASE_URL` <br />Applications: API         |
-| `MUD_POOL_SIZE`       | MUD indexer DB `pool_size`                                                                                                                                                                                | Version: v6.6.0+ <br />Default: `50` <br />Applications: API                              |
+                                                                                                                                                                         | Version: v6.6.0+ <br />Default: `50` <br />Applications: API                              |
 
 ## Xname app
 
