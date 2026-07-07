@@ -443,7 +443,7 @@
             {
               "group": "PRO API Endpoints",
               "icon": "rectangle-pro",
-              "openapi": "openapi-specs/pro-api-v12.json"
+              "openapi": "openapi-specs/Master-pro-api.json"
             },
             {
               "group": "Additional Service APIs",
