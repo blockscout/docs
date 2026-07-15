@@ -477,7 +477,6 @@
               "pages": [
                 "devs/apis/api-archive",
                 "devs/apis/requests-and-limits",
-                "devs/apis/api-keys-for-self-hosted-chains",
                 {
                   "group": "REST API Endpoints",
                   "pages": [
