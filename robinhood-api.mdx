@@ -1,0 +1,152 @@
+---
+title: "Robinhood API"
+---
+
+## Robinhood Chain API Access with Blockscout
+
+Robinhood Chain is live, and Blockscout is its official block explorer, powering the chain from block one. Robinhood, one of the world's largest fintech companies, is bringing tokenized stocks, ETPs, and RWAs onchain, and Blockscout provides the transparency layer to track all of it — transactions, batches, addresses, and gas, in real time.
+
+The chain is an Ethereum Layer 2 built on Arbitrum Orbit, settling to Ethereum with blob data availability. It runs ~0.1 second block times with sub-cent gas paid in ETH, and trading actions on the chain are gas-free for users for the first 90 days (deploying contracts and other developer transactions still cost gas).
+
+Etherscan does not currently support Robinhood Chain. Blockscout provides full API access on all tiers, including a generous free plan.
+
+**Robinhood Chain Chain ID:** `4663` <br />**Explorer:** [robinhoodchain.blockscout.com](https://robinhoodchain.blockscout.com) <br />**PRO API Base:** `https://api.blockscout.com` (use `chain_id=4663`) <br />**API Docs:** [robinhoodchain.blockscout.com/api-docs](https://robinhoodchain.blockscout.com/api-docs)
+
+## Quick Start
+
+```bash
+# Get ETH balance for an address on Robinhood Chain via PRO API
+curl "https://api.blockscout.com/v2/api?chain_id=4663&module=account&action=balance&address=0xYOUR_ADDRESS&apikey=proapi_YOUR_KEY"
+```
+
+Get a free API key at [dev.blockscout.com](https://dev.blockscout.com) — required for all PRO API tiers, including free.
+
+## PRO API Routes for Robinhood Chain
+
+All routes use Robinhood Chain's chain ID (`4663`):
+
+**JSON RPC v2 (Etherscan-compatible):**
+
+```text
+https://api.blockscout.com/v2/api?chain_id=4663&module=account&action=txlist&address=0x...&apikey=proapi_xxx
+```
+
+**JSON RPC:**
+
+```text
+https://api.blockscout.com/4663/api?module=account&action=txlist&address=0x...&apikey=proapi_xxx
+```
+
+**REST API:**
+
+```text
+https://api.blockscout.com/4663/api/v2/addresses/0x.../transactions?apikey=proapi_xxx
+```
+
+**ETH RPC (POST):**
+
+```bash
+curl -H "content-type: application/json" \
+  -H "authorization: Bearer proapi_xxx" \
+  -X POST \
+  --data '{"id":0,"jsonrpc":"2.0","method":"eth_blockNumber","params":[]}' \
+  https://api.blockscout.com/4663/json-rpc
+```
+
+## Available Endpoints
+
+### Etherscan-Compatible Modules
+
+All standard modules work identically to Etherscan's interface:
+
+- **Account** — Balances, transaction lists, token transfers, internal transactions, ERC-20/721/1155 activity (plus Blockscout extras: `eth_get_balance`, `pendingtxlist`, `tokenbalance`, `tokenlist`)
+- **Contract** — ABI, source code, verification (plus: `listcontracts`, `getcontractcreation`, Vyper & Sourcify verification)
+- **Transaction** — Status checks (plus: `gettxinfo`)
+- **Logs** — Event logs with filtering by address, topics, block range
+- **Token** — Token metadata, holders
+- **Stats** — Supply, chain statistics, coin price
+- **Block** — Block rewards, countdown, block number by time
+- **Gas Tracker** — Gas oracle, gas estimates
+
+### REST API
+
+Blockscout's native REST API provides enriched metadata, decoded transaction data, NFT details, smart contract read/write, and chain health monitoring. This is explorer-enriched data, not raw RPC — token metadata, internal transactions, and decoded logs come out of the same endpoints with no extra indexing work on your side.
+
+**→ [Full REST API Reference](https://robinhoodchain.blockscout.com/api-docs)**
+
+<Warning>
+  **Rate limit update:** `txlistinternal `**and** `eth_getLogs`
+
+  Limited to 1,000 records on Robinhood Chain to improve overall responsiveness for all users.
+
+  This change impacts:
+
+  - **RPC API** — `api?action=txlistinternal&module=account`
+  - **ETH RPC API** — `/json-rpc`, `eth_getLogs` method
+
+  If you rely on paginated pulls of internal transactions or logs at the old limit, update your pagination logic to request in batches of 1,000 (or smaller) going forward.
+</Warning>
+
+## Robinhood Chain API Pricing
+
+| Tier | Rate Limit | Credits | Price |
+| --- | --- | --- | --- |
+| Free | 5 RPS | 100K/day | \$0 |
+| Builder | 15 RPS | 100M/mo | \$49/mo |
+| Pro | 30 RPS | 500M/mo | \$199/mo |
+| Business | 50 RPS | 3B/mo | \$999/mo |
+| Enterprise | Custom | Custom | Contact us |
+
+One API key covers every Blockscout-supported chain. Build on Robinhood Chain today, expand to Ethereum, Base, Arbitrum, and 100\+ more networks by changing a `chain_id` parameter — no additional setup.
+
+## Migrating from Etherscan-style APIs?
+
+Use the same call structure with Blockscout if you're already familiar with the Etherscan API shape. Since both APIs now use a unified multichain format, switching is a base URL and key swap:
+
+```python
+# Before (Etherscan V2 style — unsupported on Robinhood Chain)
+resp = requests.get("https://api.etherscan.io/v2/api", params={
+    "chainid": 4663,
+    "module": "account", "action": "txlist",
+    "address": addr, "apikey": os.environ["ETHERSCAN_KEY"]
+})
+
+# After (Blockscout PRO API — free tier available)
+resp = requests.get("https://api.blockscout.com/v2/api", params={
+    "chain_id": 4663,
+    "module": "account", "action": "txlist",
+    "address": addr, "apikey": os.environ["BLOCKSCOUT_KEY"]
+})
+```
+
+Same structure: `chainid` → `chain_id`, swap the base URL and key.
+
+**→ [Full Migration Guide](https://docs.blockscout.com/devs/migrate-from-etherscan)**
+
+## What Developers Build on Robinhood Chain with Blockscout's API
+
+**Tokenized Stocks & RWAs**: Robinhood Chain's core use case is bringing tokenized equities, ETPs, and real-world assets onchain. Blockscout's API exposes decoded token transfers, holder data, and transaction history that power portfolio and settlement tooling built on top of these assets.
+
+**Wallets & Portfolio Trackers**: Pull complete transaction histories, multi-token balances, and NFT holdings for Robinhood Chain addresses through a single API key that also covers every other supported chain.
+
+**DeFi & Yield Infrastructure**: Yield protocols such as Morpho and Midas run on Robinhood Chain. API access to contract state, event logs, and token transfers powers analytics dashboards, position monitoring, and automated strategies.
+
+**High-Frequency Applications**: With ~0.1 second block times, Robinhood Chain suits applications that need near-real-time confirmation. The REST API's decoded transaction, logs, and internal-transaction endpoints let builders track activity without running their own indexing infrastructure.
+
+## Robinhood Chain on Blockscout
+
+Blockscout is Robinhood Chain's official block explorer, running the chain from block one. The complete decoded transaction object lives at the base endpoint — status, from/to, value, gas used, fee, method, and decoded input when the contract is verified:
+
+```bash
+curl "https://api.blockscout.com/4663/api/v2/transactions/<tx_hash>?apikey=$BLOCKSCOUT_API_KEY"
+```
+
+Sub-endpoints follow the same pattern for the rest of the data: `/logs` for decoded event logs, `/token-transfers`, `/internal-transactions` for contract-to-contract calls, `/state-changes` for balance diffs, and `/raw-trace` for the full execution trace.
+
+## Get Started
+
+1. Get a free API key at [**dev.blockscout.com**](https://dev.blockscout.com)
+2. Use `chain_id=4663` in your PRO API requests
+3. Explore endpoints at [**robinhoodchain.blockscout.com/api-docs**](https://robinhoodchain.blockscout.com/api-docs)
+
+**→ [Start Building on Robinhood Chain](https://dev.blockscout.com)** · **→ [PRO API Routes Reference](https://docs.blockscout.com/devs/pro-api-responses-and-routes)**
