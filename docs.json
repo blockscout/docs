@@ -143,7 +143,8 @@
                   "icon": "coins",
                   "pages": [
                     "using-blockscout/token-support",
-                    "using-blockscout/token-support/erc-1155-support"
+                    "using-blockscout/token-support/erc-1155-support",
+                    "using-blockscout/untitled-page"
                   ]
                 }
               ]
