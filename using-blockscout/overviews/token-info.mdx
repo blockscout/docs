@@ -13,6 +13,10 @@ Blockscout pulls token metadata from two sources:
 1. **Automated aggregators:** Blockscout queries CoinGecko and CoinMarketCap for exchange rate and market data. Projects submit token info directly to CoinGecko, which requires a Public Verification Post from an account tied to the project's official channels before reviewing listing or update requests. Blockscout displays what CoinGecko returns.
 2. **Manual Submission:** A Blockscout account is required to verify contract ownership. An account holder signs a message and can then submit information for a verified token contract (message must be signed by the same wallet that deployed the contract on chain). Token information is reviewed by Blockscout admins before it is added to the explorer page. Once verified, a user can submit additional information or update details. This means information can change later, so it is important to verify project information independently whenever interacting with a token contract.
 
+<Info>
+  Additional info on [adding token details and processing is available here.](/using-blockscout/token-info)
+</Info>
+
 ### Does Blockscout require contract verification before updating token info?
 
 Yes, Blockscout requires the token's contract source code to be verified before it will accept owner-submitted updates to name, logo, website, or socials. This ensures the code shown publicly matches what's actually deployed, and that only the real contract owner can update the listing.
