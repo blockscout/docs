@@ -17,6 +17,12 @@ If no unit is provided, the value will be interpreted as seconds.
   **_Note_** **: Before release 5.1.2, all environment variables of time format supported only integers in seconds (without dimensions) as values.**
 </Warning>
 
+## General
+
+| Variable | Description | Parameters |
+| -------- | ----------- | ---------- |
+| `MICROSERVICE_HTTP_POOL_SIZE` | Size of the keep-alive connection pools used by `Explorer.MicroserviceInterfaces.HttpClient` for BENS and Metadata requests. Two pools are used: `:microservices` for short requests on the critical path and `:microservices_proxy` for requests proxied to a microservice on behalf of an API caller, so a handful of long-running proxied requests can no longer starve the preloads. Both pools are supervised from `Explorer.Application` and sized by this variable. Implemented in [#14689](https://github.com/blockscout/blockscout/pull/14689) | Version: master <br />Default: `1000` <br />Applications: API |
+
 ## Smart-contract verifier / Eth Bytecode DB
 
 <Info>
@@ -72,6 +78,7 @@ If no unit is provided, the value will be interpreted as seconds.
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
 | `MICROSERVICE_BENS_ENABLED`               | If `true`, integration with [Blockscout ENS service](https://github.com/blockscout/blockscout-rs/tree/main/blockscout-ens) is enabled. Implemented in [#8972](https://github.com/blockscout/blockscout/pull/8972) | Version: v5.4.0+ <br />Default: (empty) <br />Applications: API |
 | `MICROSERVICE_BENS_URL`                   | URL of Blockscout ENS service. Implemented in [#8972](https://github.com/blockscout/blockscout/pull/8972)                                                                                                         | Version: v5.4.0+ <br />Default: (empty) <br />Applications: API |
+| `MICROSERVICE_BENS_PROTOCOLS`             | Comma-separated list of ENS protocols. Implemented in [#13992](https://github.com/blockscout/blockscout/pull/13992)                                                                                                      | Version: v10.0.0+ <br />Default: (empty) <br />Applications: API |
 | `DISABLE_BLOCKS_BENS_PRELOAD`             | If `true`, skips ENS name preloading in responses for block list endpoints: `/api/v2/blocks`, `/api/v2/main-page/blocks`, `/api/v2/blocks/optimism-batch/:batch_number`, `/api/v2/blocks/scroll-batch/:batch_number`.           | Version: v11.0.0+ <br />Default: `false` <br />Applications: API |
 | `DISABLE_TRANSACTIONS_BENS_PRELOAD`       | If `true`, skips ENS name preloading in responses for transaction list endpoints: `/api/v2/transactions`, `/api/v2/transactions/watchlist`, `/api/v2/main-page/transactions`, `/api/v2/main-page/transactions/watchlist`, `/api/v2/addresses/:hash/transactions`, `/api/v2/blocks/:hash/transactions`.                            | Version: v11.0.0+ <br />Default: `false` <br />Applications: API |
 | `DISABLE_TOKEN_TRANSFERS_BENS_PRELOAD`    | If `true`, skips ENS name preloading in responses for token transfer list endpoints: `/api/v2/token-transfers`, `/api/v2/addresses/:hash/token-transfers`, `/api/v2/tokens/:address_hash_param/transfers`.        | Version: v11.0.0+ <br />Default: `false` <br />Applications: API |
