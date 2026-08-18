@@ -417,6 +417,7 @@
                     "devs/multichain-service",
                     "devs/metadata-service",
                     "devs/api-for-ai-agents",
+                    "devs/x402-payments",
                     {
                       "group": "Chain Specific API info",
                       "icon": "link-horizontal",

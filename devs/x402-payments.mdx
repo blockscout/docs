@@ -1,0 +1,159 @@
+---
+title: "x402 Payments"
+description: "Pay-per-call access to the Pro API for autonomous agents, no API key required"
+icon: "money-bill-transfer"
+---
+
+x402 turns the HTTP 402 status code into a stablecoin payment rail. An agent requests a resource, receives payment terms, signs a transfer, and retries with proof of payment attached. This does not require an account or API key for usage.
+
+Blockscout's Pro API supports x402 as an alternative to key-based billing. Both options read from the same underlying data, so you can choose whichever fits your agent's setup.
+
+<Info>
+  Governance of the x402 protocol moved to the Linux Foundation in April 2026, with 22 launch members including Google, Visa, Mastercard, Stripe, AWS, and Circle. The reference implementation is Apache 2.0 licensed with SDKs for TypeScript, Python, and Go.
+</Info>
+
+## How x402 works
+
+x402 is a four-step loop layered on top of a standard HTTP request:
+
+1. **Request.** A client (human or agent) sends a standard HTTP request to a protected endpoint.
+2. **402 response.** If payment is required, the server replies with a `402` status and a payment-terms object: accepted token (usually USDC), network, recipient address, amount, and expiry.
+3. **Signature.** The client signs a token-transfer authorization with its wallet using the EIP-3009 `transferWithAuthorization` standard, then resends the original request with the signed payload attached in a header.
+4. **Verify and settle.** A facilitator (a service that handles onchain verification and settlement) checks the signature and confirms payment. The server returns a `200` with the requested data.
+
+The current spec (v2) organizes payment terms around CAIP-2 network identifiers, so the same payment envelope can work across chains. Blockscout's x402 implementation currently supports the **Base network**.
+
+<Note>
+  x402 is trust-minimizing. A payment payload is signed by the buyer, and any facilitator that tampers with a transaction will fail signature verification, so it can't redirect funds. Anyone can run a facilitator; Coinbase currently runs the first production one.
+</Note>
+
+## Key-based vs. x402 requests
+
+A standard Pro API request includes a key in the query string and is billed against your account. This is the most cost-effective way to use the Pro API and includes a free tier.
+
+```http
+GET https://api.blockscout.com/8453/api/v2/addresses/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045?apikey=proapi_xxx
+```
+
+The same endpoint also accepts a request with no key, charged per call via x402:
+
+```http
+GET https://api.blockscout.com/8453/api/v2/addresses/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
+HTTP/1.1 402 Payment Required
+PAYMENT-REQUIRED: <base64-encoded payment terms: network eip155:8453, asset USDC, payTo Blockscout's address, amount, facilitator URL>
+```
+
+An x402-aware client library catches the `402`, signs an EIP-3009 transfer authorized by the agent's wallet, and resends the request automatically, similarly to how a browser follows a redirect:
+
+```python
+from x402.clients import x402_requests
+import requests
+
+session = x402_requests(requests.Session(), account=agent_wallet)
+resp = session.get(
+    "https://api.blockscout.com/8453/api/v2/addresses/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+)
+```
+
+<Tip>
+  Use a funded key for centralized billing and predictable costs. Use x402 when the agent holds its own wallet and you want per-call billing with no account setup, useful for agent marketplaces, autonomous workflows, or one-off integrations.
+</Tip>
+
+## Requirements
+
+- A wallet funded with a small amount of **ETH** (for gas) and **USDC** (for API calls). The current example uses the base network.
+- An x402-aware HTTP client. The [reference implementation](https://github.com/coinbase/x402) provides SDKs for TypeScript, Python, and Go, plus adapters for Express, Fastify, Next.js, and Axios.
+- An agent runtime capable of storing a private key and signing transactions (see the walkthrough below for a Hermes-based example).
+
+## Walkthrough: pay-per-call with a Hermes agent
+
+This walkthrough sets up a burner wallet, funds it, and configures a [Hermes agent](https://github.com/NousResearch/hermes-agent) to sign x402 payments automatically when calling the Pro API on Base.
+
+<Steps>
+  <Step title="Set up your agent">
+    Follow the setup steps in the [Hermes agent repo](https://github.com/NousResearch/hermes-agent). Any x402-aware agent runtime works; this walkthrough uses Hermes with an OpenAI key and Telegram as the interface, but any agent interface or LLM provider is compatible.
+  </Step>
+  <Step title="Create a burner wallet">
+    Generate a new wallet for testing. Using [Foundry](https://www.getfoundry.sh/):
+
+    ```bash
+    cast wallet new
+    ```
+
+    Use a burner wallet for testing, not a wallet holding significant funds. x402 payments sign automatically once configured.
+  </Step>
+  <Step title="Fund the wallet on Base">
+    Send a small amount of **ETH** (for gas) and **USDC** (for API calls) to the burner wallet address on Base. You can send these from any wallet, such as MetaMask.
+  </Step>
+  <Step title="Store the private key">
+    Add the private key to your agent's local environment. Never share this key or commit it to version control.
+
+    ```bash
+    echo 'X402_PRIVATE_KEY=0xYOUR_PRIVATE_KEY_HERE' >> ~/.hermes/.env
+    ```
+  </Step>
+  <Step title="Configure the agent's payment behavior">
+    Tell the agent how to respond to a `402`:
+
+    ```bash
+    cat >> ~/.hermes/AGENTS.md << 'EOF'
+    
+    ## x402 Payments
+    When calling Blockscout Pro API endpoints and receiving a 402 response with a
+    PAYMENT-REQUIRED header, use the wallet key in $X402_PRIVATE_KEY to sign an
+    EIP-3009 transferWithAuthorization for the quoted USDC amount on Base, then
+    retry the request with the PAYMENT-SIGNATURE header.
+    EOF
+    ```
+  </Step>
+  <Step title="Call the Pro API without a key">
+    Send the agent a request that targets the multichain Pro API endpoint directly, not a per-instance endpoint, so the call routes through x402:
+
+    > "Call the Blockscout Pro API endpoint `https://api.blockscout.com/8453/api/v2/addresses/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045` directly. If it returns a 402, sign the payment with the wallet in `$X402_PRIVATE_KEY` and retry."
+
+    <Warning>
+      Some agent configurations may resolve a query like "get the balance for an address on Base" to a free, per-instance endpoint instead of the Pro API's multichain endpoint, which won't trigger a 402. Reference the full Pro API URL directly, as shown above, to confirm you're testing the x402 path.
+    </Warning>
+  </Step>
+  <Step title="Confirm the payment">
+    A successful payment returns a confirmation with the transaction hash:
+
+    ```json
+    {
+      "success": true,
+      "transaction": "0x339bccd1664bd7398add3df2450c9ca0acab9abf748f86dbbd6de1b78b9bbe04",
+      "network": "eip155:8453",
+      "payer": "0xe7878baE142Ef38B557540Ae62E5118A0da4a13D"
+    }
+    ```
+  </Step>
+  <Step title="Verify on Blockscout">
+    Look up the transaction hash on the [Base explorer](https://base.blockscout.com) to confirm the USDC transfer settled onchain.
+  </Step>
+</Steps>
+
+## Limitations
+
+- Agents need a funded wallet before they can make their first call; there's no prepaid or trial mode for x402 specifically (use the free key-based tier for testing without a funded wallet).
+- Most production traffic currently routes through a single facilitator (Coinbase's), though the protocol is permissionless and additional facilitators are expected.
+- Per-call billing means a stream of micro-settlements rather than a single invoice. Factor this into cost tracking if you're running high call volumes.
+
+## Additional Reference Info
+
+<CardGroup cols={2}>
+  <Card title="Get a Pro API Key (not required for x402)" icon="key" href="https://blockscout.com/pro-api">
+    For key-based billing and access to the free tier
+  </Card>
+
+  <Card title="Agent Skills Repo" icon="robot" href="https://github.com/blockscout/agent-skills">
+    Install web3-dev or blockscout-analysis
+  </Card>
+
+  <Card title="MCP Server" icon="plug" href="/devs/mcp-server">
+    Query Blockscout data through MCP-aware agents
+  </Card>
+
+  <Card title="x402 Reference Implementation" icon="github" href="https://github.com/coinbase/x402">
+    SDKs for TypeScript, Python, and Go
+  </Card>
+</CardGroup>
