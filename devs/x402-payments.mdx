@@ -54,7 +54,7 @@ This walkthrough sets up a burner wallet, funds it, and configures a [Hermes age
 ## Requirements
 
 - A wallet funded with **USDC** on Base. No ETH is required — the client only signs an off-chain EIP-3009 authorization, and the facilitator pays gas to settle it onchain.
-- The x402 Python SDK (`pip install "x402[requests]" eth_account`), or one of the [reference SDKs](https://github.com/coinbase/x402) for TypeScript or Go. See below for [additional Python reference info](#additional_python_reference_info).
+- The x402 Python SDK (`pip install "x402[requests]" eth_account`), or one of the [reference SDKs](https://github.com/coinbase/x402) for TypeScript or Go. See below for [additional Python reference info](#additional-python-reference-info).
 - An agent runtime capable of storing a private key and signing messages (see the walkthrough below for a Hermes-based example).
 
 ## Steps
@@ -281,7 +281,7 @@ This walkthrough sets up a burner wallet, funds it, and configures a [Hermes age
         return response
     ```
 
-    The facilitator treats a replayed authorization idempotently: if it was already settled, it won't double-charge; if it wasn't, this retry is what finally gets it processed. Once a response comes back with a `PAYMENT-RESPONSE` header, stop retrying — payment succeeded or definitively failed, and either way a new attempt would need a fresh signature.Make a paid request
+    The facilitator treats a replayed authorization idempotently: if it was already settled, it won't double-charge; if it wasn't, this retry is what finally gets it processed. Once a response comes back with a `PAYMENT-RESPONSE` header, stop retrying — payment succeeded or definitively failed, and either way a new attempt would need a fresh signature.
   </Accordion>
 </AccordionGroup>
 
