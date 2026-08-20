@@ -1,0 +1,430 @@
+---
+title: "WebSocket API"
+description: "Subscribe to real-time blockchain events across multiple chains over a single multiplexed WebSocket connection."
+icon: "wrench"
+---
+
+## Connection
+
+Connect to the Pro API WebSocket endpoint and pass your API key in the query string:
+
+```text
+wss://api.blockscout.com/ws/1?apikey=<YOUR_API_KEY>
+```
+
+Keep API keys in environment variables or a secret manager. Do not hard-code or log them.
+
+The connection uses plain JSON over WebSocket text frames. Max frame size is 16 KB.
+
+### Quickstart
+
+This example connects, subscribes to new Ethereum Mainnet blocks, and handles both the subscription response and incoming events.
+
+```js
+const apiKey = process.env.BLOCKSCOUT_API_KEY;
+const chainId = "1";
+const endpoint = "wss://api.blockscout.com/ws/1";
+const socket = new WebSocket(endpoint + "?" + new URLSearchParams({ apikey: apiKey }));
+
+socket.addEventListener("open", () => {
+  socket.send(JSON.stringify({
+    id: 1,
+    method: "subscribe",
+    params: {
+      topic: "blocks:new_block",
+      chain_id: chainId
+    }
+  }));
+});
+
+socket.addEventListener("message", ({ data }) => {
+  const message = JSON.parse(data);
+
+  // Response to a subscribe/unsubscribe/get_subscriptions call
+  if (message.id === 1) {
+    if (message.result === "ok") {
+      console.log("Subscribed");
+    } else if (message.error) {
+      console.error("Subscribe failed:", message.error);
+    }
+    return;
+  }
+
+  // A topic event
+  if (message.type === "event") {
+    console.log(message.topic, message.data.event, message.data.payload);
+    return;
+  }
+
+  // Server-pushed messages (see Server messages and Errors below)
+  if (message.type === "topic_closed" || message.type === "error") {
+    console.warn(message);
+  }
+});
+```
+
+Use a separate request `id` for each subscription. Reconnect with exponential backoff on close, and resend every `subscribe` request after reconnecting. The server does not persist subscriptions across connections. See [Production guidance](#production-guidance) below for the full reconnect and delivery model.
+
+## Message protocol
+
+### Client → server
+
+```json
+{
+  "id": 1,
+  "method": "subscribe",
+  "params": {
+    "topic": "blocks:new_block",
+    "chain_id": "1"
+  }
+}
+```
+
+| Field | Notes |
+| --- | --- |
+| `id` | Integer chosen by the client. Echoed back in the server's response. |
+| `params.topic` | Case-insensitive (lowercased on receipt). Max 256 bytes. |
+| `params.chain_id` | String identifier mapping to a configured Blockscout instance. Max 32 bytes. |
+
+### Server → client (response)
+
+```json
+{"id": 1, "result": "ok"}
+{"id": 1, "error": "unknown_chain"}
+```
+
+### Server → client (event)
+
+```json
+{
+  "type": "event",
+  "topic": "blocks:new_block",
+  "chain_id": "1",
+  "data": {
+    "event": "new_block",
+    "payload": { }
+  }
+}
+```
+
+The outer envelope (`type`, `topic`, `chain_id`) is added by Pro API. `data.event` and `data.payload` come directly from the upstream Blockscout instance.
+
+## Methods
+
+### `subscribe`
+
+Join a topic on a chain and start receiving events.
+
+**Params:** `topic`, `chain_id`
+
+### `unsubscribe`
+
+Leave a previously subscribed topic.
+
+**Params:** `topic`, `chain_id`
+
+### `get_subscriptions`
+
+List all active subscriptions on this connection. No params required.
+
+**Response:**
+
+```json
+{
+  "id": 3,
+  "result": [
+    { "chain_id": "1", "topic": "blocks:new_block" },
+    { "chain_id": "137", "topic": "addresses:0xabc..." }
+  ]
+}
+```
+
+## Topics reference
+
+Topics follow Blockscout's V2 Phoenix Channel naming.
+
+### `blocks:*`
+
+#### `blocks:new_block`
+
+All new blocks on the chain as they are indexed.
+
+| Event | Payload |
+| --- | --- |
+| `new_block` | `{ average_block_time: string (ms), block: Block }` |
+
+The `block` object matches the [Blockscout V2 API block response](https://github.com/blockscout/blockscout/blob/master/apps/block_scout_web/lib/block_scout_web/views/api/v2/block_view.ex).
+
+#### `blocks:{miner_address}`
+
+Blocks produced by a specific miner or validator address.
+
+| Event | Payload |
+| --- | --- |
+| `new_block` | Same as `blocks:new_block` |
+
+#### `blocks:indexing`
+
+Block indexing progress. Broadcasts periodically until the chain is fully indexed.
+
+| Event | Payload |
+| --- | --- |
+| `index_status` | `{ ratio: string, finished: boolean }` |
+
+#### `blocks:indexing_internal_transactions`
+
+Internal transaction indexing progress.
+
+| Event | Payload |
+| --- | --- |
+| `index_status` | `{ ratio: string, finished: boolean }` |
+
+---
+
+### `transactions:*`
+
+<Note>
+  The global topics (`new_transaction`, `new_pending_transaction`) broadcast only a count of new transactions per batch, not full transaction data. For full transaction payloads, subscribe to `addresses:{hash}` instead.
+</Note>
+
+#### `transactions:new_transaction`
+
+Fires when new confirmed transactions are indexed.
+
+| Event | Payload |
+| --- | --- |
+| `transaction` | `{ transaction: number }` |
+
+#### `transactions:new_pending_transaction`
+
+Fires when new pending transactions appear in the mempool.
+
+| Event | Payload |
+| --- | --- |
+| `pending_transaction` | `{ pending_transaction: number }` |
+
+#### `transactions:{tx_hash}`
+
+Updates for a specific transaction. Currently fires when the raw internal transaction trace becomes available.
+
+| Event | Payload |
+| --- | --- |
+| `raw_trace` | `{ raw_trace: RawTrace }` |
+
+#### `transactions:stats`
+
+Transaction-statistics updates.
+
+---
+
+### `addresses:*`
+
+The richest channel. Receives balance updates, transactions, token transfers, and smart contract verification events for a specific address.
+
+#### `addresses:{address_hash}`
+
+| Event | Payload | Description |
+| --- | --- | --- |
+| `balance` | `{ balance: string (wei), block_number: number, exchange_rate: string }` | Native coin balance changed |
+| `coin_balance` | `{ coin_balance: CoinBalance }` | Detailed coin balance with delta |
+| `current_coin_balance` | `{ coin_balance: string (wei), exchange_rate: string, block_number: number }` |  |
+| `token_balance` | `{ block_number: number }` | Any token balance changed |
+| `updated_token_balances_erc_20` | `{ token_balances: [TokenBalance], overflow: boolean }` |  |
+| `updated_token_balances_erc_721` | `{ token_balances: [TokenBalance], overflow: boolean }` |  |
+| `updated_token_balances_erc_1155` | `{ token_balances: [TokenBalance], overflow: boolean }` |  |
+| `updated_token_balances_erc_404` | `{ token_balances: [TokenBalance], overflow: boolean }` |  |
+| `transaction` | `{ transactions: [Transaction] }` | Confirmed transaction involving this address |
+| `pending_transaction` | `{ transactions: [Transaction] }` |  |
+| `token_transfer` | `{ token_transfers: [TokenTransfer] }` | Token transfer from/to this address |
+| `verification_result` | `{ status: "success" }` or `{ status: "error", errors: object }` |  |
+| `fetched_bytecode` | `{ fetched_bytecode: string }` |  |
+| `changed_bytecode` | `{}` | Notification only |
+| `smart_contract_was_verified` | `{}` | Notification only |
+| `smart_contract_was_not_verified` | `{}` | Notification only |
+| `eth_bytecode_db_lookup_started` | `{}` | Notification only |
+
+---
+
+### `tokens:*`
+
+#### `tokens:{token_contract_address}`
+
+Transfer activity and supply changes for a specific token contract.
+
+| Event | Payload |
+| --- | --- |
+| `token_transfer` | `{ token_transfer: number }` (count only) |
+| `total_supply` | `{ total_supply: string }` |
+
+---
+
+### `token_instances:*`
+
+#### `token_instances:{token_contract_address}`
+
+NFT metadata fetch results for instances of a token contract.
+
+| Event | Payload |
+| --- | --- |
+| `fetched_token_instance_metadata` | `{ token_id: string, fetched_metadata: object }` |
+| `not_fetched_token_instance_metadata` | `{ token_id: string, reason: string }` |
+
+---
+
+### `exchange_rate:*`
+
+#### `exchange_rate:new_rate`
+
+Native coin fiat exchange rate updates with recent market history.
+
+| Event | Payload |
+| --- | --- |
+| `new_rate` | `{ exchange_rate: string, available_supply: string \| null, chart_data: [{ closing_price: string, date: string }] }` |
+
+---
+
+### `rewards:*`
+
+#### `rewards:{validator_address}`
+
+Block reward notifications for a validator. Only available on chains with emission funds enabled.
+
+| Event | Payload |
+| --- | --- |
+| `new_reward` | `{ reward: 1 }` (notification only) |
+
+---
+
+### L2-specific topics
+
+Only available when the upstream Blockscout instance is configured for the corresponding L2 chain type.
+
+#### `arbitrum:new_batch`
+
+New Arbitrum batches as they are confirmed.
+
+| Event | Payload |
+| --- | --- |
+| `new_arbitrum_batch` | `{ batch: ArbitrumBatch }` |
+
+#### `arbitrum:new_messages_to_rollup_amount`
+
+| Event | Payload |
+| --- | --- |
+| `new_messages_to_rollup_amount` | `{ new_messages_to_rollup_amount: number }` |
+
+#### `optimism:new_batch`
+
+New Optimism batches.
+
+| Event | Payload |
+| --- | --- |
+| `new_optimism_batch` | `{ batch: object }` |
+
+#### `optimism:new_deposits`
+
+| Event | Payload |
+| --- | --- |
+| `new_optimism_deposits` | `{ deposits: number }` |
+
+## Production guidance
+
+### Delivery semantics
+
+Treat delivery as **at least once**, not exactly once. Live validation observed identical block and transaction events delivered more than once from a single subscription.
+
+Recommended deduplication keys:
+
+| Event type | Dedup key |
+| --- | --- |
+| Block | `chain_id + block.hash` |
+| Transaction | `chain_id + transaction.hash` |
+| Token transfer | `chain_id + transaction_hash + log_index` |
+
+### Reconnect and recovery
+
+A production client should:
+
+1. Reconnect with exponential backoff.
+2. Restore every subscription after reconnecting. The server does not persist subscriptions across connections.
+3. Persist the last processed block or timestamp.
+4. Use REST endpoints to recover activity missed during downtime.
+5. Treat WebSocket events as real-time notifications, separate from confirmation and finality.
+
+### Validation checklist
+
+Before acting on an event, validate:
+
+- `type` is `event`.
+- `topic` matches an active subscription.
+- `chain_id` matches the requested chain.
+- `data.event` is expected for that topic.
+- Required identifiers are present.
+- The event has not already been processed (see dedup keys above).
+
+## Limits
+
+| Parameter | Default | Env variable |
+| --- | --- | --- |
+| Connections per user | 5 | `WS_MAX_CONNECTIONS_PER_USER` |
+| Subscriptions per connection | 100 | `WS_MAX_SUBSCRIPTIONS_PER_HANDLER` |
+| Max frame size | 16 KB | — |
+| Max topic length | 256 bytes | — |
+| Max chain\_id length | 32 bytes | — |
+
+### Billing
+
+| Parameter | Default | Env variable |
+| --- | --- | --- |
+| Connection open cost | 10 credits | `WS_CONNECTION_OPEN_COST` |
+| Cost per message | 1 credit | `WS_CREDITS_PER_MESSAGE` |
+| Billing interval | 60s | `WS_BILLING_INTERVAL` |
+| Worker idle timeout | 60s | `WS_IDLE_TIMEOUT` |
+
+Free-tier and admin-managed users are disconnected when credits run out. Paid users may continue into overage.
+
+## Server messages
+
+In addition to events and responses, the server may push these message types.
+
+### Topic closed
+
+```json
+{"type": "topic_closed", "topic": "blocks:new_block", "chain_id": "1"}
+```
+
+Sent when the upstream Blockscout channel closes a topic. The subscription is automatically removed, no need to unsubscribe.
+
+### Error
+
+```json
+{"type": "error", "error": "insufficient_credits"}
+```
+
+A connection-level error. The server closes the WebSocket shortly after sending this.
+
+## Errors
+
+### Connection errors
+
+| Error | Description |
+| --- | --- |
+| `unauthorized` | Invalid or missing API key |
+| `insufficient_credits` | Not enough credits to open a connection |
+| `connection_limit_reached` | Too many concurrent connections for this user |
+| `service_restart` | Server is restarting. Reconnect after a brief delay |
+
+### Subscribe errors
+
+| Error | Description |
+| --- | --- |
+| `unknown_chain` | The `chain_id` is not configured on the server |
+| `subscription_limit_reached` | Connection has too many active subscriptions |
+| `already_subscribed` | Already subscribed to this topic and chain combination |
+| `worker_unavailable` | Upstream connection to this chain is not ready |
+
+### Unsubscribe errors
+
+| Error | Description |
+| --- | --- |
+| `not_subscribed` | Not currently subscribed to this topic and chain combination |
