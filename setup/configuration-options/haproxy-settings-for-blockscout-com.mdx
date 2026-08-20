@@ -15,7 +15,7 @@ Blockscout uses two-part path names for network urls: the first part (`org`) des
 **For example:**
 
 * **Eth mainnet:** `https://blockscout.com/eth/mainnet`<br/>(`org=eth`, `netname=mainnet`)
-* **Ethereum Classic mainnet:**` https://blockscout.com/etc/mainnet`<br/>(`org=etc`, `netname=mainnet`)
+* **Ethereum Classic mainnet:** `https://blockscout.com/etc/mainnet`<br/>(`org=etc`, `netname=mainnet`)
 * **Kovan testnet:** `https://blockscout.com/eth/kovan`<br/>(`org=eth`, `netname=kovan`)
 
 ### 1. Add a new `org` for your blockscout instance's url
@@ -131,7 +131,7 @@ Change the following parameters to match your specific case
   * `server mynet_server...` - **don't forget to specify port 443 here**
 * `backend mynet_ws`:
   * `http-request set-header Host...`
-  * `http-request set-header Origin ...` **don't forget **`https`** here**
+  * `http-request set-header Origin ...` **don't forget** `https` **here**
   * `server mynet_server...` - **don't forget port 443 here**
 
 <Tip>
