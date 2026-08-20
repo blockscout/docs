@@ -1,5 +1,6 @@
 ---
-title: "How Do I Update Memory Consumption To Fix Indexer Memory Errors?"
+title: "Fix indexer memory errors by adjusting memory usage"
+description: "Configure INDEXER_MEMORY_LIMIT and understand how the Blockscout indexer memory monitor shrinks work queues to prevent BEAM memory errors."
 ---
 
 During the indexing phase, many fetching processes are run asynchronously due to the load placed on trying to fetch all of the block content at once. These processes are stored in memory to be fetched at set intervals defined in each asynchronous fetcher.
