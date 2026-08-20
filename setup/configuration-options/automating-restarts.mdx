@@ -1,5 +1,6 @@
 ---
-title: "Automating Restarts"
+title: "Automating Blockscout Restarts with HEART_COMMAND"
+description: "Configure Blockscout to auto-restart on crash using the HEART_COMMAND env variable, heart beat timeouts, and Erlang crash dump settings."
 ---
 
 By default `BlockScout` does not restart if it crashes. To enable automated restarts, set the [environment variable](/setup/env-variables) `HEART_COMMAND` to whatever command you run to start `BlockScout`. Configure the heart beat timeout to change how long it waits before considering the application unresponsive.

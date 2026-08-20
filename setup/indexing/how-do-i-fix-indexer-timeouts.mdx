@@ -1,5 +1,6 @@
 ---
 title: "How Do I Fix Indexer Timeouts?"
+description: "Tune Blockscout indexer fetcher batch size and concurrency to resolve JSON-RPC timeout errors and reduce load on the underlying archive node."
 ---
 
 BlockScout utilizes two separate indexers in order to index the network history as well as keep up with new incoming blocks. Due to this process, a node may become overloaded and not respond to BlockScout's RPC requests within the designated timeout period.

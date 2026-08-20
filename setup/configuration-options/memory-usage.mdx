@@ -1,5 +1,6 @@
 ---
-title: "Memory Usage"
+title: "Blockscout Indexer Memory Usage and Limits"
+description: "Control Blockscout indexer memory with INDEXER_MEMORY_LIMIT, understand soft-limit behavior, queue shedding, and Ethereum mainnet requirements."
 ---
 
 The work queues for building the index of all blocks, balances (coin and token), and internal transactions can grow quite large. By default, the soft-limit is 1 GiB, which can be changed via the `INDEXER_MEMORY_LIMIT` ENV which is used in runtime config:
