@@ -6,7 +6,7 @@ description: "Archive node JSON-RPC methods, tracing endpoints, pending transact
 ### Standard JSON RPC Requirements
 
 - Archive node with JSON RPC interface should strictly follow input/output interface described in https://ethereum.github.io/execution-apis/api-documentation/
-- WebSocket interface (optional/highly recommended to enable) is used to subscribe to new block heads. Otherwise, Blockscout will trigger new blocks fetching by periodical polling the JSON RPC `eth_blockNumber` method.
+- WebSocket interface (optional/highly recommended to enable) is used to subscribe to new block heads. Otherwise, Blockscout will trigger new blocks fetching by periodically polling the JSON RPC `eth_blockNumber` method.
 - Support for the following standard Ethereum JSON RPC methods (documented at https://ethereum.github.io/execution-apis/api-documentation/)
   - `eth_blockNumber`
   - `eth_call`

@@ -32,12 +32,12 @@ cd docker-compose
 
 ### 3) Run docker compose with BACK\_PROXY_PASS variable.
 
-You will pass in the backend proxy url when running docker compose. The standard configuration for the backend is `http//host.docker.internal:4000` but if you've made any changes pass in your url.
+You will pass in the backend proxy url when running docker compose. The standard configuration for the backend is `http://host.docker.internal:4000` but if you've made any changes pass in your url.
 
 Run all containers (up) and run processes in the background (-d).
 
 ```javascript
-BACK_PROXY_PASS=http//host.docker.internal:4000 docker compose -f external-backend.yml up -d
+BACK_PROXY_PASS=http://host.docker.internal:4000 docker compose -f external-backend.yml up -d
 ```
 
 View progress and check containers
@@ -64,7 +64,7 @@ It may take several minutes for the frontend to propagate during this process.
 
 ### 5) Adjust frontend ENVs if needed
 
-There are several required ENVs for the frontend. If required variables are missing or invalid the frontend will show in error message and will not run the app.
+There are several required ENVs for the frontend. If required variables are missing or invalid the frontend will show an error message and will not run the app.
 
 * The common list of [frontend ENVs and descriptions](/setup/env-variables/frontend-common-envs).
 * A detailed list with all available ENVs is in the [frontend repo folder.](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md)

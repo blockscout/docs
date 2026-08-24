@@ -60,7 +60,7 @@ Repo.delete_all(from(e in Entry, join: s in subquery(query), on: e.id == s.id))
 
 ### Imposing the lock acquisition order between tables with Ecto
 
-When using an `Ecto.Multi` to perform `INSERT`, `UPDATE` or `DELETE` on multiple tables the order to keep is between different operation. For example, supposing `EntryA` was established to be modified before `EntryB`, this is not correct:
+When using an `Ecto.Multi` to perform `INSERT`, `UPDATE` or `DELETE` on multiple tables the order to keep is between different operations. For example, supposing `EntryA` was established to be modified before `EntryB`, this is not correct:
 
 ```ruby
 Multi.new()
