@@ -8,13 +8,28 @@ icon: "exchange-alt"
 This API is provided for developers transitioning applications from Etherscan to BlockScout and applications requiring general API and data support. It supports GET and POST requests.
 
 <Info>
-URLs vary by instance. With typical installations, access the API by adding `/api` to the end of the url. For example with the Sepolia instance.
+**What is `instance_base_url`?** The examples on each RPC module page use `https://instance_base_url/api?...` as a placeholder. Replace `instance_base_url` with the hostname of the Blockscout explorer for the chain you want to query. There is no single global host for the per-instance RPC API — each chain has its own instance.
 
-* URL: [https://eth-sepolia.blockscout.com](https://eth-sepolia.blockscout.com/)
+Common examples:
 
-* API URL: [https://eth-sepolia.blockscout.com/api](https://eth-sepolia.blockscout.com/api)
+| Chain | `instance_base_url` |
+| --- | --- |
+| Ethereum Mainnet | `eth.blockscout.com` |
+| Ethereum Sepolia | `eth-sepolia.blockscout.com` |
+| OP Mainnet | `optimism.blockscout.com` |
+| Base Mainnet | `base.blockscout.com` |
+| Arbitrum One | `arbitrum.blockscout.com` |
+| Gnosis Chain | `gnosis.blockscout.com` |
 
-An example query includes a module and action(s)/parameters. For example: [https://eth-sepolia.blockscout.com/api?module=**account**\&action=**listaccounts**\&page=2\&offset=5](https://eth-sepolia.blockscout.com/api?module=account\&action=listaccounts\&page=2\&offset=5)
+For the full list of hosted instances and their URLs, see [chains.blockscout.com](https://chains.blockscout.com). For self-hosted deployments, use your own explorer hostname.
+
+**Example query** — Sepolia, `account.listaccounts`:
+
+[https://eth-sepolia.blockscout.com/api?module=**account**\&action=**listaccounts**\&page=2\&offset=5](https://eth-sepolia.blockscout.com/api?module=account\&action=listaccounts\&page=2\&offset=5)
+
+<Tip>
+  For a single multichain endpoint (one host, `chain_id` parameter), use the [PRO API](/devs/pro-api) instead of per-instance URLs.
+</Tip>
 
 </Info>
 

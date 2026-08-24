@@ -135,6 +135,13 @@ You can check your credits, top calls and overall usage in the dev portal dashbo
 
 Credits are consumed per API call. The **default cost is 20 credits** for any endpoint not listed below.
 
+## When credits run out
+
+- **Free plan:** the 100K credit allowance resets **daily**. Once it is exhausted, further requests are rejected until the daily reset. Requests are not automatically served at a lower rate limit — they fail instead.
+- **Paid plans:** the monthly credit allowance may continue into overage once exhausted, subject to your plan terms.
+
+Track remaining credits with the `x-credits-remaining` response header or the [developer portal dashboard](https://dev.blockscout.com/), and upgrade your plan if you regularly hit the cap.
+
 | Endpoint | Credits |
 | :-- | :-: |
 | `default` (all unlisted endpoints) | 20 |
