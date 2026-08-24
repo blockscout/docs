@@ -238,7 +238,7 @@ https://optimism-sepolia.blockscout.com/address/0xFE826b33e425f99ce962ACB91752DB
 
 In that case, you may try to enforce using `--force` flag\*.
 
-It prevents Hardhat from checking if the contract is already verified, and force it to send verification request anyway. Notice, that it is helpful only if the contract was automatically verified **partially**. That way, a new verification sources would be saved. If the contract was **fully** verified already, that just returns an error.
+It prevents Hardhat from checking if the contract is already verified, and forces it to send a verification request anyway. Notice, that it is helpful only if the contract was automatically verified **partially**. That way, new verification sources would be saved. If the contract was **fully** verified already, that just returns an error.
 
 ```sh
 npx hardhat verify --network <network> DEPLOYED_CONTRACT_ADDRESS "Constructor argument 1" --force

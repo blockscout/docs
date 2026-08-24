@@ -26,10 +26,10 @@ docker compose up --build
 ```
 
 <Warning>
-  **Note**: if you don't need to make backend customizations, you can run `docker compose up` in order to launch from pre-build backend Docker image. This will be much faster.
+  **Note**: if you don't need to make backend customizations, you can run `docker compose up` in order to launch from the pre-built backend Docker image. This will be much faster.
 </Warning>
 
-This command uses `docker-compose.yml` by-default, which builds the backend of the explorer into the Docker image and runs 9 Docker containers:
+This command uses `docker-compose.yml` by default, which builds the backend of the explorer into the Docker image and runs 9 Docker containers:
 
 - Postgres 17.x database, which will be available at port 7432 on the host machine.
 - Redis database of the latest version.
