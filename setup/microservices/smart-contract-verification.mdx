@@ -98,7 +98,7 @@ The request is sent via proxy to the [Sourcify](https://sourcify.dev/) service. 
 1. Address of the contract to be verified.
 2. Chain id where the contract is deployed.
 3. Files required for Sourcify verification.
-4. (optionally)Contract index, if the provided files contain multiple metadata files (i.e. multiple contracts).
+4. (optionally) Contract index, if the provided files contain multiple metadata files (i.e. multiple contracts).
 
 These arguments are sent to the Sourcify Api, which returns the verification status.
 
@@ -119,10 +119,10 @@ If verification fails we return an error with description obtained from Sourcify
 
 Verification is divided into 2 parts to effectively deal with metadata hash differences in contracts. Often, very similar contracts will have very different metadata hashes based on small changes within the contract (ie an extra space in the source code). To address this, the algorithm:
 
-1. Extracts all metadata hash fields from c\_reationTxInput\_.
+1. Extracts all metadata hash fields from *creationTxInput*.
 2. Compares non-metadata sections of the onchain bytecode with the results of local compilation.
 
-Metadata hashes are extracted by compiling the same contract twice (with a slight modification to the 2nd contract that does not change any other aspect of the resultant bytecode). The resulting c\_reationTxInput\_s are compared and metadata hashes extracted by finding which parts of the inputs differ.
+Metadata hashes are extracted by compiling the same contract twice (with a slight modification to the 2nd contract that does not change any other aspect of the resultant bytecode). The resulting *creationTxInputs* are compared and metadata hashes extracted by finding which parts of the inputs differ.
 
 ### Example
 
@@ -159,7 +159,7 @@ An additional space in the source code can be used for the modification process.
 
 1. Compile the original contracts using data provided by the caller then compile those contracts again while passing in the additional library. The result is two slightly different `CreationTxInputs` if there is any encoded metadata.
 2. Separate the `MainPart` and the `MetadataPart`.
-   a. `MainPart` consists of consecutive bytes which are not related to the metadata hash (all bytes are the same for both local c\_reationTxInputs\_). `MetadataPart` consists of consecutive bytes related to metadata hash (some bytes differ between local c\_reationTxInputs\_).
+   a. `MainPart` consists of consecutive bytes which are not related to the metadata hash (all bytes are the same for both local *creationTxInputs*). `MetadataPart` consists of consecutive bytes related to metadata hash (some bytes differ between local *creationTxInputs*).
 3. Iterate through the two local contracts byte by byte to find the first byte that differs.
    a. If there are no such bytes, then there is no metadata hash and the whole *creationTxInput* consists of just one `MainPart`.
    b. If any differences are found, identify it as a hash section of the metadata hash.
