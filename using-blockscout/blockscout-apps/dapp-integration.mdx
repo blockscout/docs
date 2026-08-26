@@ -27,7 +27,7 @@ Our goal is to have as many fully integrated apps as possible!
    * Apps that are not opened in an iFrame on \*.blockscout.com domains and have not integrated the Safe Apps SDK for various reasons
 
 <Info>
-Fully integrated DApps list higher within the default view
+Fully integrated DApps list higher within the default view.
 
 </Info>
 
@@ -72,11 +72,11 @@ To fully integrate your protocol into DAppscout, you will need to do 3 things.
 
 Both fully and partially integrated apps in the marketplace are embedded using iFrames, and it is necessary to enable iFrame support for our domain - \*.blockscout.com. This can typically be done via the `frame-ancestors` directive of the `Content-Security-Policy` header in your application. For additional examples, please see [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors).
 
-Also, check your [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings, these may need to be modified for the \*.blockscout domain
+Also, check your [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings, these may need to be modified for the \*.blockscout domain.
 
 ### 2) Integrate the Safe Apps SDK
 
-DAppscout uses the Safe Apps SDK to automatically connect a wallet linked to Blockscout to any of the apps in our marketplace. This allows a visitor to connect a wallet once and then open any app without needing to connect the wallet again
+DAppscout uses the Safe Apps SDK to automatically connect a wallet linked to Blockscout to any of the apps in our marketplace. This allows a visitor to connect a wallet once and then open any app without needing to connect the wallet again.
 
 To enable this functionality, Safe Apps SDK needs to be integrated for your protocol, and the \*.blockscout.com domain added as an exception.
 
@@ -87,7 +87,7 @@ For additional integration options, check the list of other Safe packages for Sa
 If you integrate any of these packages, DAppscout can use them to automatically connect a wallet to your app.
 
 <Warning>
-After integrating the Safe Apps, make sure you have added the \*.blockscout.com domain as an exception to the SDK. Otherwise, we cannot utilize the Safe Apps SDK on our website
+After integrating the Safe Apps, make sure you have added the \*.blockscout.com domain as an exception to the SDK. Otherwise, we cannot utilize the Safe Apps SDK on our website.
 
 </Warning>
 
