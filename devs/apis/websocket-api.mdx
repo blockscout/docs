@@ -1,6 +1,6 @@
 ---
 title: "WebSocket API"
-description: "Subscribe to real-time blockchain events like new blocks, transactions, and logs across multiple chains over a single multiplexed WebSocket connection."
+description: "Subscribe to real-time blockchain events like new blocks, transactions, and balance changes across multiple chains over a single multiplexed WebSocket connection."
 icon: "wrench"
 ---
 
@@ -211,10 +211,6 @@ Updates for a specific transaction. Currently fires when the raw internal transa
 | --- | --- |
 | `raw_trace` | `{ raw_trace: RawTrace }` |
 
-#### `transactions:stats`
-
-Transaction-statistics updates.
-
 ---
 
 ### `addresses:*`
@@ -420,7 +416,7 @@ A connection-level error. The server closes the WebSocket shortly after sending 
 | --- | --- |
 | `unknown_chain` | The `chain_id` is not configured on the server |
 | `subscription_limit_reached` | Connection has too many active subscriptions |
-| `already_subscribed` | Already subscribed to this topic and chain combination |
+| `already_subscribed` | \*not returned as an error, but as a successful call with no result<br />`{"id": 2, "result": "already_subscribed"}` |
 | `worker_unavailable` | Upstream connection to this chain is not ready |
 
 ### Unsubscribe errors
