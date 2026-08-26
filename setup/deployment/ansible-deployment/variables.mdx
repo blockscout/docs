@@ -7,7 +7,7 @@ description: "Reference for infrastructure, Blockscout, and shared YAML variable
 
 There are three groups of variables required to build BlockScout. The first is required to create infrastructure, the second to build BlockScout instances and the third is required both for infra and BS itself.
 
-For your convenience we have divided variable templates into three files accordingly - `infrastructure.yml.example`, `blockscout.yml.example` and `all.yml.example` . Also we have divided those files to place them in the `group_vars` and in `host_vars` folders, so you will not have to repeat some of the variables for each host/group.
+For your convenience we have divided variable templates into three files accordingly - `infrastructure.yml.example`, `blockscout.yml.example` and `all.yml.example`. Also we have divided those files to place them in the `group_vars` and in `host_vars` folders, so you will not have to repeat some of the variables for each host/group.
 
 To deploy BlockScout, you will setup the following set of files for each instance:
 
@@ -40,7 +40,7 @@ Example: Number of networks: 2 `db_subnet_cidr`: "10.0.1.0/16" Real networks: 10
 
 </Info>
 
-* An internal DNS zone with`dns_zone_name` name will be created to take care of BlockScout internal communications;
+* An internal DNS zone with `dns_zone_name` name will be created to take care of BlockScout internal communications;
 * The `root_block_size` is the amount of storage on your EC2 instance. This value can be adjusted by how frequently logs are rotated. Logs are located in `/opt/app/logs` of your EC2 instance;
 * Each of the `db_*` variables configures the database for each chain. Each chain will have the separate RDS instance;
 * `instance_type` represents the size of the EC2 instance to be deployed in production;
@@ -51,7 +51,7 @@ Example: Number of networks: 2 `db_subnet_cidr`: "10.0.1.0/16" Real networks: 10
 * `blockscout_repo` - a direct link to the BlockScout repo;
 * `branch` - maps branch at `blockscout_repo` to each chain;
 * Specify the `merge_commit` variable if you want to merge any of the specified `chains` with the commit in the other branch. Usually used to update production branches with the releases from master branch;
-* `skip_fetch` - if this variable is set to `true` , BlockScout repo will not be cloned and the process will start from building the dependencies. Use this variable to prevent playbooks from overriding manual changes in cloned repo;
+* `skip_fetch` - if this variable is set to `true`, BlockScout repo will not be cloned and the process will start from building the dependencies. Use this variable to prevent playbooks from overriding manual changes in cloned repo;
 * `ps_*` variables represent connection details to the test Postgres database. This **is not installed automatically**, so make sure `ps_*` credentials are valid before starting the deployment;
 
 ## Common (All) Variables

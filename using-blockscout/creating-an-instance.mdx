@@ -25,7 +25,7 @@ The following parameters are in the Info section. \* parameters are required.
 - **Instance size\***: Select based on the number of transactions anticipated for the instance. The costs are currently placeholders, but your credits will be impacted according to chain usage.
 - **Chain name**: The chain name will be shown in the top explorer banner.
 - **Instance name\***: A label for your instance, it is reflected in the url of the instance ie [https://instance-name.cloud.blockscout.com/](https://instance-name.cloud.blockscout.com/)
-- **Chain ID**: If you don't know the chain ID you can get with the `eth_chainId` JSON-RPC method.
+- **Chain ID**: If you don't know the chain ID you can get it with the `eth_chainId` JSON-RPC method.
 - **Node type:** Choose from the list of clients for the archive node:
   - Besu, Erigon, Anvil, Geth, Parity
 - **Gas token symbol**: Will show in the interface, for example ETH if your chain uses Ether for gas.
@@ -80,7 +80,7 @@ Indexer information uses the following variables under the hood. If no informati
 Leave this setting alone if your RPC supports pending transactions. However, **If your RPC node does not support pending transactions, please toggle this switch to disable.**
 
 <Info>
-  \*\*Check pending TX support \*\*by sending a request for one of the common methods (`eth_getBlockByNumber` with `"pending"` or `txpool_content`) and observe the response. A successful, valid response confirms support. 
+  **Check pending TX support** by sending a request for one of the common methods (`eth_getBlockByNumber` with `"pending"` or `txpool_content`) and observe the response. A successful, valid response confirms support. 
 </Info>
 
 **Block transformer:** Leave as base unless you are using clique.
@@ -89,7 +89,7 @@ Leave this setting alone if your RPC supports pending transactions. However, **I
 
 ### Rollup Config
 
-If your chain is a rollup you will select this in the info screen and then fillout the associated Rollup config info.
+If your chain is a rollup you will select this in the info screen and then fill out the associated Rollup config info.
 
 <Info>
   - Read the [Rollup deployment and config details](https://docs.blockscout.com/setup/deployment/rollup-deployment#arbitrum)
