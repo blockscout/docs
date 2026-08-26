@@ -80,7 +80,7 @@ curl -X POST https://autoscout.services.blockscout.com/api/v1/instances \
 
 ## Start Instance
 
-Send a POST request to`/api/v1/instances/{instance_id}/status:update`
+Send a POST request to `/api/v1/instances/{instance_id}/status:update`
 
 Use the instance id returned in the previous step.
 
@@ -120,7 +120,7 @@ curl -X POST https://autoscout.services.blockscout.com/api/v1/instances/your-ins
 
 ## Check Deployment Status
 
-Send a GET request to the `/api/v1/instances/{instance_id}/deployments/current`endpoint.
+Send a GET request to the `/api/v1/instances/{instance_id}/deployments/current` endpoint.
 
 <CodeGroup>
 
@@ -189,7 +189,7 @@ curl -X GET https://autoscout.services.blockscout.com/api/v1/instances/your-inst
 
 # Update an Instance
 
-1. Send a PATCH request to the `/api/v1/instances/{instance_id}/config `endpoint with the config changes.
+1. Send a PATCH request to the `/api/v1/instances/{instance_id}/config` endpoint with the config changes.
 
 <CodeGroup>
 
@@ -223,7 +223,7 @@ curl -X PATCH https://autoscout.services.blockscout.com/api/v1/instances/your-in
 
 </CodeGroup>
 
-2. Restart the instance by sending a POST request to the `/api/v1/instances/{instance_id}/status:update `endpoint with the action "RESTART".
+2. Restart the instance by sending a POST request to the `/api/v1/instances/{instance_id}/status:update` endpoint with the action "RESTART".
 
 <CodeGroup>
 

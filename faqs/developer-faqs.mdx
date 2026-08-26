@@ -70,7 +70,7 @@ icon: "circle-question"
     1. Find the public ip of corresponding Blockscout instance in the EC2 -\> Instances of AWS Dashboard.
     2. Connect to the host via SSH `ssh -i <host.pem> ec2-user@<public_ip>`, where `<host.pem>` is host's private key file, `<public_ip>` is the public ip of the host, that can be found in the AWS dashboard.
     3. Go to assets folder `cd /opt/app/apps/block_scout_web/priv/static`
-    4. Add missing assets there or to `./images` folder depending on what is missing. Refresh Blockscout instance page. For example, if `favicon.ico` is missing in `./images` folder, just copy it from the root assets folder \`cp favicon.ico ./images/. You should see now the missing assets.
+    4. Add missing assets there or to `./images` folder depending on what is missing. Refresh Blockscout instance page. For example, if `favicon.ico` is missing in `./images` folder, just copy it from the root assets folder `cp favicon.ico ./images/`. You should see now the missing assets.
 
     #### Missing Version in Footer
 
@@ -104,7 +104,7 @@ icon: "circle-question"
     For updates like adding elements/links etc you will need to change .eex templates. When changing .eex templates you don't need to rebuild. Run the application in dev mode (MIX_ENV=dev), and change the template. You'll see changes on-the-fly. When changing js/scss while running the application, you need to run `mix phx.digest` to apply the changes.
   </Accordion>
   <Accordion title="How can I view smart contracts using RPC?">
-    Use the JSON RPC `listcontracts` endpoint. For example, to view verified contracts, use the following query. Pagination is available
+    Use the JSON RPC `listcontracts` endpoint. For example, to view verified contracts, use the following query. Pagination is available.
 
     ```sh
     curl -X GET "

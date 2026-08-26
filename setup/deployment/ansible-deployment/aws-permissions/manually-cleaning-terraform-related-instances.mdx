@@ -4,7 +4,7 @@ description: "Manually remove leftover AWS resources when Terraform destroy fail
 ---
 
 <Warning>
-If the deployment process was previously successful, you can run `bin/infra destroy`. Additionally, `bin/infra destroy_setup`will delete the DynamoDB table. [More information on destroying infrastructure is available here](/setup/deployment/ansible-deployment/destroying-provisioned-infrastructure).
+If the deployment process was previously successful, you can run `bin/infra destroy`. Additionally, `bin/infra destroy_setup` will delete the DynamoDB table. [More information on destroying infrastructure is available here](/setup/deployment/ansible-deployment/destroying-provisioned-infrastructure).
 
 However, in circumstances that rely on insufficient AWS account rights, the deployment process may fail. In this case, `bin/infra destroy_setup` will not work.
 
