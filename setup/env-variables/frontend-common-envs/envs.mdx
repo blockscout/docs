@@ -99,7 +99,7 @@ All json-like values should be single-quoted. If it contains a hash (`#`) or a d
 | NEXT_PUBLIC_APP_PROTOCOL      | `http \| https` | App url schema                                                                                                                                                                                   | -              | `https`       | `http`             | v1.0.x+ |
 | NEXT_PUBLIC_APP_HOST          | `string`       | App host                                                                                                                                                                                         | Required       | -             | `blockscout.com`   | v1.0.x+ |
 | NEXT_PUBLIC_APP_PORT          | `number`       | Port where app is running                                                                                                                                                                        | -              | `3000`        | `3001`             | v1.0.x+ |
-| NEXT_PUBLIC_APP_ENV           | `string`       | App env (e.g development, staging, production, etc.).                                                                                                                                            | -              | `production`  | `staging`          | v1.0.x+ |
+| NEXT_PUBLIC_APP_ENV           | `string`       | App env (e.g. development, staging, production, etc.).                                                                                                                                            | -              | `production`  | `staging`          | v1.0.x+ |
 | NEXT_PUBLIC_APP_INSTANCE      | `string`       | Name of app instance. Used for app monitoring purposes. If not provided, it will be constructed from `NEXT_PUBLIC_APP_HOST`                                                                      | -              | -             | `wonderful_kepler` | v1.0.x+ |
 | NEXT_PUBLIC_USE_NEXT_JS_PROXY | `boolean`      | Tells the app to proxy all APIs request through the NextJS app. **We strongly advise not to use it in the production environment**, since it can lead to performance issues of the NodeJS server | -              | `false`       | `true`             | v1.8.0+ |
 
@@ -110,7 +110,7 @@ _Note!_ The `NEXT_PUBLIC_NETWORK_CURRENCY` variables represent the blockchain's 
 | Variable                                    | Type                     | Description                                                                                                                                                | Compulsoriness | Default value | Example value              | Version   |
 | ------------------------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------- | -------------------------- | --------- |
 | NEXT_PUBLIC_NETWORK_NAME                    | `string`                 | Displayed name of the network                                                                                                                              | Required       | -             | `Gnosis Chain`             | v1.0.x+  |
-| NEXT_PUBLIC_NETWORK_SHORT_NAME              | `string`                 | Used for SEO attributes (e.g, page description)                                                                                                            | -              | -             | `OoG`                      | v1.0.x+  |
+| NEXT_PUBLIC_NETWORK_SHORT_NAME              | `string`                 | Used for SEO attributes (e.g., page description)                                                                                                            | -              | -             | `OoG`                      | v1.0.x+  |
 | NEXT_PUBLIC_NETWORK_ID                      | `number`                 | Chain id, see https://chainlist.org for the reference                                                                                                      | Required       | -             | `99`                       | v1.0.x+  |
 | NEXT_PUBLIC_NETWORK_RPC_URL                 | `string \| Array‹string›` | Chain public RPC server url, see https://chainlist.org for the reference. Can contain a single string value, or an array of urls.                          | -              | -             | `https://core.poa.network` | v1.0.x+  |
 | NEXT_PUBLIC_NETWORK_CURRENCY_NAME           | `string`                 | Network currency name                                                                                                                                      | -              | -             | `Ether`                    | v1.0.x+  |
@@ -198,7 +198,7 @@ The app version shown in the footer is derived from build-time ENV variables `NE
 
 ### Favicon
 
-By default, the app has generic favicon. You can override this behavior by providing the following variable. Hence, the favicon assets bundle will be generated at the container start time and will be used instead of default one.
+By default, the app has a generic favicon. You can override this behavior by providing the following variable. Hence, the favicon assets bundle will be generated at the container start time and will be used instead of the default one.
 
 | Variable           | Type     | Description | Compulsoriness | Default value              | Example value                     | Version   |
 | ------------------ | -------- | ----------- | -------------- | -------------------------- | --------------------------------- | --------- |
@@ -214,7 +214,7 @@ Settings for meta tags, OG tags and SEO
 | NEXT_PUBLIC_OG_DESCRIPTION              | `string`  | Custom OG description                                                                                                                                                                     | -              | -                           | `Open-source block explorer by Blockscout. Search transactions, verify smart contracts, analyze addresses, and track network activity. Complete blockchain data and APIs for the %network_title% network.` | v1.12.0+ |
 | NEXT_PUBLIC_OG_IMAGE_URL                | `string`  | OG image url. Minimum image size is 200 x 20 pixels (recommended: 1200 x 600); maximum supported file size is 8 MB; 2:1 aspect ratio; supported formats: image/jpeg, image/gif, image/png | -              | `static/og_placeholder.png` | `https://placekitten.com/1200/600`                                                                                                                                                                         | v1.12.0+ |
 | NEXT_PUBLIC_OG_ENHANCED_DATA_ENABLED    | `boolean` | Set to `true` to populate OG tags (title, description) with API data for social preview robot requests                                                                                    | -              | `false`                     | `true`                                                                                                                                                                                                     | v1.29.0+ |
-| NEXT_PUBLIC_SEO_ENHANCED_DATA_ENABLED   | `boolean` | Set to `true` to pre-render page titles (e.g Token page) on the server side and inject page h1-tag to the markup before it is sent to the browser.                                        | -              | `false`                     | `true`                                                                                                                                                                                                     | v1.30.0+ |
+| NEXT_PUBLIC_SEO_ENHANCED_DATA_ENABLED   | `boolean` | Set to `true` to pre-render page titles (e.g. Token page) on the server side and inject page h1-tag to the markup before it is sent to the browser.                                        | -              | `false`                     | `true`                                                                                                                                                                                                     | v1.30.0+ |
 
 ### Views
 
@@ -302,7 +302,7 @@ Settings for meta tags, OG tags and SEO
 | instance_url   | `string` | URL template for NFT instance     | Required       | -             | `https://opensea.io/assets/ethereum/{hash}/{id}`          |
 | logo_url       | `string` | URL of marketplace logo           | Required       | -             | `https://opensea.io/static/images/logos/opensea-logo.svg` |
 
-_Note_ URL templates should contain placeholders of NFT hash (`{hash}`) and NFT id (`{id}`). This placeholders will be substituted with particular values for every collection or instance.
+_Note_ URL templates should contain placeholders of NFT hash (`{hash}`) and NFT id (`{id}`). These placeholders will be substituted with particular values for every collection or instance.
 
 ### Misc
 
@@ -611,7 +611,7 @@ This feature enables views related to blob transactions (EIP-4844), such as the 
 
 ### Bridged tokens
 
-This feature allows users to view tokens that have been bridged from other EVM chains. Additional tab "Bridged" will be added to the tokens page and the link to original token will be displayed on the token page.
+This feature allows users to view tokens that have been bridged from other EVM chains. Additional tab "Bridged" will be added to the tokens page and the link to the original token will be displayed on the token page.
 
 | Variable                           | Type                                                                                                                                                                              | Description                                                                                                                                  | Compulsoriness | Default value | Example value                                                                                       | Version   |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------- | --------------------------------------------------------------------------------------------------- | --------- |
@@ -627,7 +627,7 @@ This feature allows users to view tokens that have been bridged from other EVM c
 | short_title | `string` | Used for displaying chain name in the list view as tag     | Required       | -             | `ETH`                              |
 | base_url    | `string` | Base url to original token in base chain explorer          | Required       | -             | `https://eth.blockscout.com/token` |
 
-_Note_ The url to original token will be constructed as `<base_url>/<token_hash>`, e.g `https://eth.blockscout.com/token/<token_hash>`
+_Note_ The url to the original token will be constructed as `<base_url>/<token_hash>`, e.g. `https://eth.blockscout.com/token/<token_hash>`
 
 #### Token bridge configuration properties
 
@@ -639,7 +639,7 @@ _Note_ The url to original token will be constructed as `<base_url>/<token_hash>
 
 ### SafeCore address tags
 
-For the smart contract addresses which are [Safe accounts](https://safe.global/) public tag "Multisig: Safe" will be displayed in the address page header alongside to Safe logo.
+For the smart contract addresses which are [Safe accounts](https://safe.global/) public tag "Multisig: Safe" will be displayed in the address page header alongside the Safe logo.
 
 | Variable                        | Type     | Description                                                                                                                    | Compulsoriness | Default value | Example value | Version   |
 | ------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------- | ------------- | ------------- | --------- |
@@ -789,7 +789,7 @@ The feature enables a "Save with GasHawk" button next to the "Gas used" value on
 
 ### Rewards service API
 
-This feature enables Blockscout Merits program. It requires that the [My account](https://github.com/blockscout/docs/blob/master/setup/env-variables/frontend-common-envs/ENVS.md#my-account) and [Blockchain interaction](https://github.com/blockscout/docs/blob/master/setup/env-variables/frontend-common-envs/ENVS.md#blockchain-interaction-writing-to-contract-etc) features are also enabled.
+This feature enables the Blockscout Merits program. It requires that the [My account](https://github.com/blockscout/docs/blob/master/setup/env-variables/frontend-common-envs/ENVS.md#my-account) and [Blockchain interaction](https://github.com/blockscout/docs/blob/master/setup/env-variables/frontend-common-envs/ENVS.md#blockchain-interaction-writing-to-contract-etc) features are also enabled.
 
 | Variable                             | Type     | Description | Compulsoriness | Default value | Example value         | Version   |
 | ------------------------------------ | -------- | ----------- | -------------- | ------------- | --------------------- | --------- |
