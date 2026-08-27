@@ -26,7 +26,7 @@ A microservice written in Rust provides fast and efficient contract verification
 * Add the following ENV variables:
   * `MICROSERVICE_SC_VERIFIER_ENABLED=true`
   * `MICROSERVICE_SC_VERIFIER_URL=...` (verifier endpoint, see [http configuration](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier/smart-contract-verifier-http) for more details)
-* If running locally, the smart-contract-verifier is integrated with [`docker-compose`](https://github.com/blockscout/blockscout/tree/master/docker-compose)\`\`
+* If running locally, the smart-contract-verifier is integrated with [`docker-compose`](https://github.com/blockscout/blockscout/tree/master/docker-compose)
   * Registry of docker images is available via the docker-compose file. For registry information see: [https://github.com/blockscout/blockscout-rs/pkgs/container/smart-contract-verifier](https://github.com/blockscout/blockscout-rs/pkgs/container/smart-contract-verifier)
 
 ### Architecture
@@ -113,7 +113,7 @@ Either the data provided was valid and the contract was verified by Sourcify, or
 
 ### Failed Verification
 
-If verification fails we return an error with description obtained from Sourcify response
+If verification fails we return an error with description obtained from Sourcify response.
 
 ## Verification Algorithm
 
