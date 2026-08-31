@@ -11,7 +11,7 @@ icon: "code-pull-request-closed"
 
 | **Type of API key** | **Rate limit value, req/sec** | **API key is defined by env variable (if applicable)** | **Rate limit for the API key managed by env variable** | **Description** |
 | --- | --- | --- | --- | --- |
-| No API key (by IP) | 3 (old per-instance value) |  | `API_RATE_LIMIT_BY_IP` & `API_RATE_LIMIT_BY_IP_TIME_INTERVAL` | The default rate limit is 3 requests per minute. This limit applies to all requests that are not from whitelisted addresses and do not use an API key. |
+| No API key (by IP) | 300 req/min (default) |  | `API_RATE_LIMIT_BY_IP` & `API_RATE_LIMIT_BY_IP_TIME_INTERVAL` | The default rate limit is 300 requests per minute per IP (`API_RATE_LIMIT_BY_IP=300`, `API_RATE_LIMIT_BY_IP_TIME_INTERVAL=1m`). Older instances used 3 requests per minute. This limit applies to all requests that are not from whitelisted addresses and do not use an API key. |
 | Temp token | 3 |  | `API_RATE_LIMIT_UI_V2_WITH_TOKEN` & `API_RATE_LIMIT_UI_V2_WITH_TOKEN_TIME_INTERVAL` | When frontend user reaches the default IP limit, they must solve a captcha to obtain a temporary token. This token provides a personal (not per-IP) rate limit of 5 req/sec. Token TTL is configured via `API_RATE_LIMIT_UI_V2_TOKEN_TTL` |
 | Individual API key | 10 |  | `API_RATE_LIMIT_BY_ACCOUNT_API_KEY_TIME_INTERVAL` | An API key can be [created by the user in the My Account section](/using-blockscout/my-account/api-keys) |
 | Rate limit, if IP is whitelisted | 25 | `API_RATE_LIMIT_WHITELISTED_IPS` | `API_RATE_LIMIT_BY_WHITELISTED_IP` & `API_RATE_LIMIT_BY_WHITELISTED_IP_TIME_INTERVAL` | Rate limit for requests from whitelisted IPs |
@@ -41,3 +41,15 @@ Some of the API endpoints have their own rate limit before showing captcha to th
 | `api/v2/addresses/:param/election-rewards/csv` | 50 | 1 hour |
 | `api/v2/smart-contracts/:param/audit-reports` | 50 | 1 hour |
 | `api/health/*` | 5 | 1 second |
+
+## Disable or bypass rate limits on a self-hosted instance
+
+If you run your own instance, you can change how rate limiting is applied:
+
+- Set `API_RATE_LIMIT_DISABLED=true` to ignore all rate limits (available since v5.1.0). This is useful for ruling out rate limiting as the cause of intermittent frontend errors.
+- Set `API_NO_RATE_LIMIT_API_KEY` to define an administrator API key that bypasses rate limits entirely (available since v6.8.0). Requests that pass this key are never throttled.
+- Add trusted IPs to `API_RATE_LIMIT_WHITELISTED_IPS` to give them the higher whitelisted-IP limit.
+
+Rate limits apply per API key type and IP, not per consumer. There is no separate toggle for frontend traffic versus external REST API traffic. To keep public API callers rate limited while exempting your own services, give your services the `API_NO_RATE_LIMIT_API_KEY` key or whitelist their IPs, and leave the default IP-based limits in place for everyone else.
+
+See the [backend ENV variables](/setup/env-variables/backend-env-variables) page for the full list of `API_RATE_LIMIT_*` variables.

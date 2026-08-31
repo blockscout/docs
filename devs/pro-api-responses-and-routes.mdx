@@ -135,6 +135,9 @@ You can check your credits, top calls and overall usage in the dev portal dashbo
 
 Credits are consumed per API call. The **default cost is 20 credits** for any endpoint not listed below.
 
+- A request consumes credits once, no matter how many records the response contains. For example, a `txlist` call that returns 10,000 transactions costs the same as one that returns a single transaction.
+- Etherscan-compatible RPC calls (`?module=...&action=...`, such as `txlist` and `tokentx`) are not listed in the table below, so they use the default cost of 20 credits per call.
+
 ## When credits run out
 
 - **Free plan:** the 100K credit allowance resets **daily**. Once it is exhausted, further requests are rejected until the daily reset. Requests are not automatically served at a lower rate limit. They fail instead.
