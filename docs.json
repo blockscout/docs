@@ -513,7 +513,8 @@
                   ]
                 },
                 "devs/apis/graphql"
-              ]
+              ],
+              "hidden": true
             }
           ]
         },
