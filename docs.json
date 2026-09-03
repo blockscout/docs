@@ -64,7 +64,8 @@
                 "get-started/using-an-explorer",
                 "get-started/integrating-data",
                 "get-started/running-blockscout",
-                "get-started/migration-guide"
+                "get-started/migration-guide",
+                "rate-limits"
               ]
             },
             {
@@ -412,6 +413,8 @@
                   "icon": "rectangle-pro",
                   "pages": [
                     "devs/pro-api",
+                    "make-your-first-call",
+                    "best-practices",
                     "devs/pro-api-responses-and-routes",
                     "devs/error-responses",
                     "devs/multichain-service",
