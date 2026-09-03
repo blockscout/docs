@@ -7,7 +7,7 @@ description: "Swap Etherscan and other block explorer links for Blockscout URLs 
 
 In most cases simply replacing the first part of the url is all that is needed to replace Etherscan with Blockscout.
 
-For example, replace [https://etherscan.io/](https://etherscan.io/) with [https://eth.blockscout.com/](https://eth.blockscout.com/) in your code and the corresponding links to blocks, transactions, etc will be mapped to Blockscout rather than Etherscan.
+For example, replace [https://etherscan.io/](https://etherscan.io/) with [https://eth.blockscout.com/](https://eth.blockscout.com/) in your code and the corresponding links to blocks, transactions, etc. will be mapped to Blockscout rather than Etherscan.
 
 <Check>
   😢 Tx before replacement
@@ -28,7 +28,7 @@ Blockscout linking architecture follows [EIP-3091](https://eips.ethereum.org/EIP
 
 ### UTM tags
 
-We encourage adding UTM tags with your project information to Blockscout links. This helps us track referrals and improve our overall performance via metrics. Simply append `?utm_source=<your_project_name>` to the end of any links pointing to Blockscout. For example [https://eth.blockscout.com/?utm_source=tenderly](https://eth.blockscout.com/?utm_source=Tenderly)
+We encourage adding UTM tags with your project information to Blockscout links. This helps us track referrals and improve our overall performance via metrics. Simply append `?utm_source=<your_project_name>` to the end of any links pointing to Blockscout. For example, [https://eth.blockscout.com/?utm_source=tenderly](https://eth.blockscout.com/?utm_source=tenderly).
 
 ### Common chain replacements
 
@@ -53,8 +53,8 @@ Replace the Etherscan url in your code with the Blockscout url for a seamless tr
 
 Some newer operations without standards are still handled differently by different explorers. For example:
 
-- Blobs on Blockscout are accessed in different ways depending on the route. For example via the `?tab=blob_txs` query string following a block ([https://eth.blockscout.com/block/20822532?tab=blob_txs](https://eth.blockscout.com/block/20822532?tab=blob_txs)) or the `?tab=blobs` query string following a transaction. Blobs on Etherscan are accessed via `#blobinfo` query string following a block (ie [https://etherscan.io/block/20822532#blobinfo](https://etherscan.io/block/20822532#blobinfo)).
-- User Operations (EIP-4337) are displayed on Blockscout via the [https://eth.blockscout.com/ops](https://eth.blockscout.com/ops) url. On Etherscan there is currently no defined route, but User Operations can be viewed with the `Handle Ops` filter applied to the sender's address (ie [https://etherscan.io/advanced-filter?fadd=0x20e9695f25413f14e5807b530D0698bd4F155074&mtd=0x1fad948c~Handle+Ops&ps=10&p=8](https://etherscan.io/advanced-filter?fadd=0x20e9695f25413f14e5807b530D0698bd4F155074&mtd=0x1fad948c~Handle+Ops&ps=10&p=8))
+- Blobs on Blockscout are accessed in different ways depending on the route. For example via the `?tab=blob_txs` query string following a block ([https://eth.blockscout.com/block/20822532?tab=blob_txs](https://eth.blockscout.com/block/20822532?tab=blob_txs)) or the `?tab=blobs` query string following a transaction. Blobs on Etherscan are accessed via `#blobinfo` query string following a block (i.e. [https://etherscan.io/block/20822532#blobinfo](https://etherscan.io/block/20822532#blobinfo)).
+- User Operations (EIP-4337) are displayed on Blockscout via the [https://eth.blockscout.com/ops](https://eth.blockscout.com/ops) url. On Etherscan there is currently no defined route, but User Operations can be viewed with the `Handle Ops` filter applied to the sender's address (i.e. [https://etherscan.io/advanced-filter?fadd=0x20e9695f25413f14e5807b530D0698bd4F155074&mtd=0x1fad948c~Handle+Ops&ps=10&p=8](https://etherscan.io/advanced-filter?fadd=0x20e9695f25413f14e5807b530D0698bd4F155074&mtd=0x1fad948c~Handle+Ops&ps=10&p=8))
 
 ## Replace the API link
 
@@ -103,8 +103,8 @@ Every wallet handles the explorer link differently, but typically wallets ship w
   ![](/images/547b45a9-image.jpeg)
 </Frame>
 
-4. Find the block explorer url (ie [https://optimistic.etherscan.io/](https://optimistic.etherscan.io/)).
-5. Change the url to blockscout (ie [https://optimism.blockscout.com/](https://optimism.blockscout.com/)) and Save.
+4. Find the block explorer url (i.e. [https://optimistic.etherscan.io/](https://optimistic.etherscan.io/)).
+5. Change the url to Blockscout (i.e. [https://optimism.blockscout.com/](https://optimism.blockscout.com/)) and Save.
 
 <Frame caption="">
   ![](/images/b719815c-image.jpeg)
