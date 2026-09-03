@@ -120,7 +120,7 @@ description: "Developer FAQs for Blockscout: running a self-hosted explorer, mem
     To update gettext, run the following command **in the app's folder where the changes were made**.
 
     1. Go to the ./apps/name_of_app folder where the changes were made.
-    2. Run `mix gettext.extract —merge`
+    2. Run `mix gettext.extract --merge`
     3. Repeat for other app folders as required.
 
     More information on Gettext is [available here](https://hexdocs.pm/gettext/Mix.Tasks.Gettext.Extract.html).
@@ -181,7 +181,7 @@ description: "Developer FAQs for Blockscout: running a self-hosted explorer, mem
   </Accordion>
 
   <Accordion title="Can I set RPC variable to a normal http(s) url?">
-    Yes you can. The `ethereum_json_rpc_http` variable can be set to any url, it does not need to be a localhost. Client variant env variable should be specified in either case.
+    Yes you can. The `ethereum_json_rpc_http` variable can be set to any url. It does not need to be a localhost. Client variant env variable should be specified in either case.
   </Accordion>
 
   <Accordion title="Do I need to enable ws?">
@@ -216,11 +216,11 @@ description: "Developer FAQs for Blockscout: running a self-hosted explorer, mem
   </Accordion>
 
   <Accordion title="What Linux distro do you recommend for Blockscout manual deployment?">
-    Ubuntu 24.04 has been configured in Blockscout CI
+    Ubuntu 24.04 has been configured in Blockscout CI.
   </Accordion>
 
   <Accordion title="Is there a way to step through the code (debugging) using vscode?">
-    We recommend using ElixirLS: Elixir support and debugger
+    We recommend using ElixirLS: Elixir support and debugger.
   </Accordion>
 
   <Accordion title="I would like to customize Blockscout. Is there any docs or tutorial on that?">
