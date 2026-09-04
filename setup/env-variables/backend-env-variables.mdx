@@ -44,7 +44,7 @@ description: "Reference for common Blockscout backend environment variables cove
   <Card>
     [API Rate Limits](/setup/env-variables/backend-env-variables#api-rate-limits)
 
-    [General application rate Limits](/setup/env-variables/backend-env-variables#general-application-rate-limits)
+    [General Application Rate Limits](/setup/env-variables/backend-env-variables#general-application-rate-limits)
 
     [GraphQL API](/setup/env-variables/backend-env-variables#graphql-api)
   </Card>
@@ -56,7 +56,7 @@ description: "Reference for common Blockscout backend environment variables cove
     [CDN](/setup/env-variables/backend-env-variables#cdn)
   </Card>
   <Card>
-    [Addresses Blacklist management](/setup/env-variables/backend-env-variables#addresses-blacklist-management)
+    [Addresses Blacklist Management](/setup/env-variables/backend-env-variables#addresses-blacklist-management)
 
     [Prometheus Metrics Management](/setup/env-variables/backend-env-variables#prometheus-metrics-management)
 
@@ -632,7 +632,7 @@ If no unit is provided, the value will be interpreted as seconds.
 | `API_RATE_LIMIT_HAMMER_REDIS_SENTINEL_MASTER_NAME`| Sentinel master name for Hammer rate limit library. Implemented in [#13901](https://github.com/blockscout/blockscout/pull/13901)                                                                                                                      | Version: v12.0.0\+ <br />Default: (empty) <br />Applications: API                       |
 | `API_RATE_LIMIT_RECAPTCHA_DISABLED_LIMIT_MULTIPLIER` | Integer multiplier applied to rate limits on endpoints that use `recaptcha_to_bypass_429` or `temporary_token` when reCAPTCHA is disabled (`RE_CAPTCHA_DISABLED=true`). When reCAPTCHA is disabled, neither bypass mechanism is available, so this multiplier compensates by raising the base limit for all users. Implemented in [#14379](https://github.com/blockscout/blockscout/pull/14379) | Version: v12.0.0\+ <br />Default: `2` <br />Applications: API                           |
 
-## General application rate Limits
+## General Application Rate Limits
 
 | Variable                                           | Description                                                                                                                                               | Parameters                                                       |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
@@ -728,7 +728,7 @@ This feature was implemented in [#10675](https://github.com/blockscout/blockscou
 | `NFT_MEDIA_HANDLER_CACHE_UNIQUENESS_MAX_SIZE`             | Max size of cache, where stored already uploaded token instances media                                                                                                                                                           | Version: v6.10.0\+ <br />Default: `100_000` <br />Applications: Indexer                  |
 | `NFT_MEDIA_HANDLER_BUCKET_FOLDER`                         | Folder in R2/S3 bucket, where media files are stored                                                                                                                                                                             | Version: v9.2.0\+ <br />Default: (empty) <br />Applications: Indexer                     |
 
-## Addresses Blacklist management
+## Addresses Blacklist Management
 
 Section created as a result of [#11417](https://github.com/blockscout/blockscout/pull/11417)
 
@@ -786,7 +786,7 @@ Section created as a result of [#11417](https://github.com/blockscout/blockscout
 | `TESTNET_LABEL_TEXT` | The text inside the test label. Implemented in [#5732](https://github.com/blockscout/blockscout/pull/5732)                                                                                                                                                                                                        | Version: v4.1.6\+ <br />Default: `Testnet` <br />Applications: API                                                                                                                                                                                                                                                                                                                                                               |
 | `SUPPORTED_CHAINS`   | An array of supported chains displayed in the chains dropdown. This var was introduced in this PR [#1900](https://github.com/poanetwork/blockscout/pull/1900) and looks like an array of JSON objects.                                                                                                            | Version: v2.0.0\+ <br />Default: `[ { title: "POA", url: "https://blockscout.com/poa/core" }, { title: "Sokol", url: "https://blockscout.com/poa/sokol", test_net?: true }, { title: "Gnosis Chain", url: "https://gnosis.blockscout.com/" }, { title: "Ethereum Classic", url: "https://etc.blockscout.com", other?: true }, { title: "RSK", url: "https://rootstock.blockscout.com", other?: true } ]` <br />Applications: API |
 | `APPS_MENU`          | true/false. If true, the Apps navigation menu item appears.                                                                                                                                                                                                                                                       | Version: v3.3.1\+ <br />Default: `false` <br />Applications: API                                                                                                                                                                                                                                                                                                                                                                 |
-| `APPS`               | An array of embedded/external apps to display in Apps menu item. This var was introduced in this PR [#3184](https://github.com/poanetwork/blockscout/pull/3184) and looks like an array of JSON objects. An example of an embedded link is described here [#](https://github.com/blockscout/blockscout/pull/6397) | Version: v5.0.0\+ <br />Default: (empty) <br />Applications: API                                                                                                                                                                                                                                                                                                                                                                 |
+| `APPS`               | An array of embedded/external apps to display in Apps menu item. This var was introduced in this PR [#3184](https://github.com/poanetwork/blockscout/pull/3184) and looks like an array of JSON objects. An example of an embedded link is described here [#6397](https://github.com/blockscout/blockscout/pull/6397) | Version: v5.0.0\+ <br />Default: (empty) <br />Applications: API                                                                                                                                                                                                                                                                                                                                                                 |
 
 ### Footer
 
