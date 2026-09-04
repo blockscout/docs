@@ -32,48 +32,87 @@ Swap `chain_id=1` for `chain_id=8453` (Base), `chain_id=10` (Optimism), `chain_i
 
 ### What Chains are Supported?
 
-The up-to-date list is available at [dev.blockscout.com](http://dev.blockscout.com) under supported chains.
+The latest list is also available at [dev.blockscout.com](http://dev.blockscout.com) under supported chains.
 
-<Accordion title="PRO API Supported Chains (last update May 2026)">
-  ## Mainnets
+export const SupportedChains = () => {
+  const [chains, setChains] = useState(null);
+  const [error, setError] = useState(null);
+  const [loaded, setLoaded] = useState(false);
 
-  | Chain | Chain ID |
-  | --- | --- |
-  | Arbitrum Nova | 42170 |
-  | Arbitrum One Nitro | 42161 |
-  | Astar | 592 |
-  | Awaji | 6497 |
-  | Base | 8453 |
-  | BXN | 488 |
-  | Celo | 42220 |
-  | Creditcoin | 102030 |
-  | Cross Mainnet | 612055 |
-  | Eden | 714 |
-  | EDU Chain | 41923 |
-  | Ethereum | 1 |
-  | Ethereum Classic | 61 |
-  | Etherlink | 42793 |
-  | Filecoin Virtual Machine | 314 |
-  | Flow Mainnet | 747 |
-  | Fuse | 122 |
-  | Gensyn | 685689 |
-  | Gnosis | 100 |
-  | HashKey | 177 |
-  | ICB Network | 73115 |
-  | Immutable zkEVM | 13371 |
-  | Ink | 57073 |
-  | IOTA EVM | 8822 |
-  | KiteAI Mainnet | 2366 |
-  | LightLink Phoenix Mainnet | 1890 |
-  | Lisk | 1135 |
-  | Matchain | 698 |
-  | MegaETH | 4326 |
-  | Moca Chain | 2288 |
-  | Mode | 34443 |
-  | Neon | 245022934 |
-  | Numine | 8021 |
-  | OP Mainnet | 10 |
-  | Playnance Playblock | 1829 |
+  const load = async () => {
+    if (loaded) return;
+    setLoaded(true);
+    try {
+      const configRes = await fetch(
+        'https://raw.githubusercontent.com/blockscout/backend-configs/main/pro-api/prod/chains-config.json'
+      );
+      const config = await configRes.json();
+      const chainIds = Object.keys(config);
+
+      const metaRes = await fetch(
+        `https://chains.blockscout.com/api/chains?chain_ids=${chainIds.join(',')}`
+      );
+      const meta = await metaRes.json();
+
+      const rows = chainIds
+        .map((id) => ({
+          id,
+          name: meta[id]?.name || id,
+          isTestnet: meta[id]?.isTestnet ?? false,
+        }))
+        .sort((a, b) => a.name.localeCompare(b.name));
+
+      setChains(rows);
+    } catch (err) {
+      setError(err);
+    }
+  };
+
+  return (
+    <div onClick={load}>
+      {!loaded && <p>Click to load the current list of supported chains…</p>}
+      {loaded && error && (
+        <p>
+          Couldn't load the live chain list — see the{' '}
+          <a href="https://github.com/blockscout/backend-configs/blob/main/pro-api/prod/chains-config.json">
+            current config
+          </a>{' '}
+          instead.
+        </p>
+      )}
+      {loaded && !error && !chains && <p>Loading supported chains…</p>}
+      {chains && (
+        <>
+          <h4>Mainnets</h4>
+          <table>
+            <thead>
+              <tr><th>Chain</th><th>Chain ID</th></tr>
+            </thead>
+            <tbody>
+              {chains.filter((c) => !c.isTestnet).map((c) => (
+                <tr key={c.id}><td>{c.name}</td><td>{c.id}</td></tr>
+              ))}
+            </tbody>
+          </table>
+          <h4>Testnets</h4>
+          <table>
+            <thead>
+              <tr><th>Chain</th><th>Chain ID</th></tr>
+            </thead>
+            <tbody>
+              {chains.filter((c) => c.isTestnet).map((c) => (
+                <tr key={c.id}><td>{c.name}</td><td>{c.id}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </>
+      )}
+    </div>
+  );
+};
+
+<Accordion title="PRO API Supported Chains">
+  <SupportedChains />
 </Accordion>
 
 ### Etherscan-Compatible Endpoints
@@ -118,6 +157,6 @@ No credit card required for the free tier. Upgrade when you're ready.
 
 ## Trusted Infrastructure
 
-Blockscout powers explorers for 100\+ L2s and scaling projects. The PRO API runs on the same infrastructure and data pipeline — formalized for production workloads with higher limits, real-time usage dashboards, and up to 50 API keys per account.
+Blockscout powers explorers for 100+ L2s and scaling projects. The PRO API runs on the same infrastructure and data pipeline — formalized for production workloads with higher limits, real-time usage dashboards, and up to 50 API keys per account.
 
 **→ [View Supported Chains](https://chains.blockscout.com)** **→ [API Documentation](https://docs.blockscout.com/devs/apis)** **→ [Developer Portal](https://dev.blockscout.com)**

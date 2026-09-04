@@ -1,0 +1,57 @@
+---
+title: "Make Your First Call"
+description: "Make your first Blockscout PRO API request with a worked curl example and a parameter breakdown."
+icon: "phone"
+---
+
+## 1. Get a key
+
+Sign up at [dev.blockscout.com](https://dev.blockscout.com/) with email, Google, or GitHub. Open the Keys section and click **Create API Key**. Keys start with `proapi_` and are shown once — copy it somewhere safe, not into a Git repo.
+
+No credit card required for the free tier.
+
+## 2. Make a call
+
+Every PRO API call follows the same shape: one base URL, a `chain_id` to pick the network, and your key.
+
+```sh
+curl "https://api.blockscout.com/v2/api?chain_id=1&module=account&action=balance&address=0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045&apikey=<your_pro_api_key>"
+```
+
+```json
+{
+  "status": "1",
+  "message": "OK",
+  "result": "2464400000000000"
+}
+```
+
+That's the native ETH balance (in wei) for the given address on Ethereum mainnet.
+
+## 3. Understand the parts
+
+| Part | What it does |
+| --- | --- |
+| `https://api.blockscout.com/v2/api` | The single base URL for every chain — no per-chain subdomain |
+| `chain_id=1` | Selects the network. Swap for `8453` (Base), `42161` (Arbitrum One), `10` (Optimism), or any other [supported chain](https://dev.blockscout.com/) |
+| `module` / `action` | Together they pick the call — this example is the Etherscan-compatible `account`/`balance` pair |
+| `apikey` | Your `proapi_...` key. Required on every tier, including free |
+
+The same request works on any chain by changing only `chain_id` — no new key, no new base URL, no separate account.
+
+## 4. Try the REST API
+
+The RPC-style call above mirrors Etherscan's API shape for easy migration. Blockscout also has a REST API with richer, decoded data — human-readable transaction summaries, NFT metadata, contract read/write state, and more:
+
+```sh
+curl "https://api.blockscout.com/1/api/v2/addresses/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045?apikey=<your_pro_api_key>"
+```
+
+See the full [REST API reference](/devs/apis) for what's available.
+
+## Next steps
+
+- [Rate limits and plans](/rate-limits) — know your credits before you build
+- [Best practices](/best-practices) — pagination, chain IDs, and efficient querying
+- [Use cases](/devs/use-cases-overview) — worked examples for wallet trackers, dashboards, and tax tools
+- [Migrating from Etherscan?](/devs/migrate-from-etherscan) — swap your base URL and go

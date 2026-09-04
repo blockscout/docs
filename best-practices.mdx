@@ -1,0 +1,68 @@
+---
+title: "Best Practices"
+description: "Practical tips for faster, more efficient Blockscout PRO API requests, from pagination to credit costs."
+icon: "gear-api"
+---
+
+## Use pagination instead of over-fetching
+
+Blockscout REST endpoints use keyset pagination. By default a response returns the first 50 results. When a response includes `next_page_params`, copy that object and append its fields to your next request rather than paging through with an offset:
+
+```json
+{
+  "items": [ ... ],
+  "next_page_params": {
+    "block_number": 18678766,
+    "index": 119,
+    "items_count": 50
+  }
+}
+```
+
+```sh
+curl "https://api.blockscout.com/1/api/v2/addresses/0xYourAddress/transactions?block_number=18678766&index=119&items_count=50&apikey=<your_pro_api_key>"
+```
+
+Only request more pages than you need if you actually plan to use the data — each page is a separate call against your credit allowance.
+
+## Know your credit costs before you build
+
+Every call consumes credits, and the cost varies by endpoint — the default is 20 credits, but a few heavier endpoints (transaction summaries, raw traces, coin balance history) cost more. See [Rate Limits](/rate-limits) for the full table. If you're building something that polls frequently, budget for the endpoint's actual cost, not the 20-credit default.
+
+## Filter scam tokens by default — know when not to
+
+Token endpoints filter known scam airdrops out of results by default, which is usually what you want for a wallet UI or portfolio tracker. If you need the unfiltered list — for a dispute, an audit, or your own scoring layer — pass the `show-scam-tokens` header on the relevant token-transfer call.
+
+## One key, every chain — don't provision per network
+
+The PRO API scopes every request by `chain_id`, not by base URL or key. The same key that works on Ethereum works on Base, Arbitrum, Optimism, and every other supported chain — there's no need to request separate credentials per network the way some other explorers require.
+
+## Prefer REST over RPC-style calls for richer data
+
+The Etherscan-compatible `module`/`action` route is the easiest migration path if you're already using it, but Blockscout's REST API (`/api/v2/...`) returns more — decoded input data, human-readable transaction summaries, NFT metadata, and contract state — from the same underlying data with no extra indexing work on your side. If you're building new, start with REST.
+
+## Combine feeds for a complete picture
+
+No single endpoint gives you a wallet's full onchain footprint. A typical active address has top-level transactions, internal value movements (from DEX or bridge interactions), and token transfers, all as separate feeds:
+
+| Feed | Endpoint |
+| --- | --- |
+| Top-level transactions | `GET /{chain_id}/api/v2/addresses/{address}/transactions` |
+| Internal transactions | `GET /{chain_id}/api/v2/addresses/{address}/internal-transactions` |
+| Token transfers | `GET /{chain_id}/api/v2/addresses/{address}/token-transfers` |
+
+Join by transaction hash and deduplicate when combining them — see [Wallet History](/devs/wallet-history) and [Tax Calculator](/devs/tax-calculator) for worked examples.
+
+## Watch the response headers, not just the response body
+
+Every PRO API response includes headers that tell you exactly where you stand, so you don't have to guess:
+
+- `x-credits-remaining` — credits left in your current period
+- `x-ratelimit-limit` — your plan's RPS ceiling
+- `x-ratelimit-remaining` — RPS headroom left in the current window
+
+If `x-credits-remaining` isn't decreasing, your key isn't authenticating — check it before assuming the data is wrong.
+
+## Historical pricing needs an external feed
+
+The PRO API returns current exchange rates, but not historical ones. If you need the USD value of an asset at the moment of a past transaction (for tax or accounting workflows), pair the block timestamp on each row with an external pricing feed — CoinGecko, Pyth, or your own oracle.

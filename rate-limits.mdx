@@ -1,0 +1,71 @@
+---
+title: "API Rate Limits"
+description: "Rate limits, credit allowances, and per-endpoint credit costs for each Blockscout PRO API plan tier."
+icon: "traffic-light-go"
+---
+
+<Info>
+  Get your free Pro API key at [dev.blockscout.com](https://dev.blockscout.com/).
+</Info>
+
+## Plan tiers
+
+Every tier includes access to all 100+ Blockscout-supported chains with a single key. Swap `chain_id` to move between chains.
+
+| Tier | Rate limit | Credits | Price |
+| --- | --- | --- | --- |
+| Free | 5 RPS | 100K/day | \$0 |
+| Builder | 15 RPS | 100M/mo | \$49/mo |
+| Pro | 30 RPS | 500M/mo | \$199/mo |
+| Business | 50 RPS | 3B/mo | \$999/mo |
+| Enterprise | Custom | Custom | Contact us |
+
+At the default 20-credit cost per call, the free tier's 100K daily credits is roughly 5,000 standard requests a day before the counter resets at midnight UTC.
+
+## Credit cost per endpoint
+
+Credits are consumed per API call. The default cost is 20 credits for any endpoint not listed below.
+
+| Endpoint | Credits |
+| --- | :-: |
+| `default` (all unlisted endpoints) | 20 |
+| `api/v2/search/quick` | 25 |
+| `api/v2/transactions/:hash/logs` | 30 |
+| `api/v2/transactions/:hash/token-transfers` | 30 |
+| `api/v2/transactions/:hash/state-changes` | 30 |
+| `api/v2/tokens` | 30 |
+| `api/v2/tokens/:address_hash/transfers` | 30 |
+| `api/v2/addresses/:address_hash/token-transfers` | 30 |
+| `api/v2/addresses/:address_hash/logs` | 30 |
+| `api/v2/transactions/:hash/internal-transactions` | 40 |
+| `api/v2/addresses/:address_hash/internal-transactions` | 40 |
+| `api/v2/smart-contracts/verification/config` | 40 |
+| `api/v2/transactions/:hash/summary` | 50 |
+| `api/v2/transactions/:hash/raw-trace` | 50 |
+| `api/v2/addresses/:address_hash/coin-balance-history` | 50 |
+
+## Response headers
+
+Every response carries your current standing, so you can track usage without a separate call:
+
+- **`x-credits-remaining`** — credits left in your current period. Resets daily on the free plan, monthly on paid plans
+- **`x-ratelimit-limit`** — your plan's available RPS
+- **`x-ratelimit-remaining`** — RPS headroom left in the current window
+
+Track usage, top calls by consumption, and manage keys in real time at the [dev portal dashboard](https://dev.blockscout.com/).
+
+## What happens over the limit
+
+A `429 Too Many Requests` means you've exceeded your plan's RPS. You can either add a short delay between requests or move up a tier. A `401 Unauthorized` usually means the key isn't being sent correctly; double-check it against the dashboard.
+
+## Compared to Etherscan
+
+If you're evaluating a move from Etherscan's API, the free and paid tiers both come out ahead on rate limit and allowance at comparable price points:
+
+|  | Blockscout | Etherscan |
+| --- | --- | --- |
+| Free | 5 RPS, 100K credits/day, all chains | 3 RPS, limited chains |
+| \$49/mo tier | 15 RPS, 100M credits/mo | 5 RPS, 100K calls/mo |
+| \$199/mo tier | 30 RPS, 500M credits/mo | 10 RPS, 200K calls/mo |
+
+See the full [migration guide](/devs/migrate-from-etherscan) for endpoint-by-endpoint parameter mapping.

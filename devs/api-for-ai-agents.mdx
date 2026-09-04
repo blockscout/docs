@@ -1,12 +1,11 @@
 ---
 title: "API for AI Agents"
 description: "Give AI agents structured onchain data across 100+ EVM chains with Blockscout PRO API and MCP server for decoded transactions and metadata."
-icon: "user-robot"
 ---
 
 # Onchain Data via Blockscout PRO API & MCP
 
-> Give your AI agents access to structured blockchain data across 100\+ EVM chains. No custom integration required.
+Give your AI agents access to structured blockchain data across 100+ EVM chains. No custom integration required.
 
 ## Why AI Agents Need Blockscout
 
@@ -14,7 +13,7 @@ AI agents operating onchain need reliable, structured data — not raw RPC respo
 
 The Blockscout MCP (Model Context Protocol) server takes this further by providing a standardized interface that LLM-based agents can use natively, with multichain support built in.
 
-## Integration Paths
+## Two Integration Paths
 
 ### Path 1: MCP Server (for LLM agents)
 
@@ -40,21 +39,23 @@ The Blockscout MCP server gives AI assistants and coding agents direct access to
 - Analyze transaction details with decoded input data
 - Retrieve block information and chain statistics
 
-Multichain support is automatic, agents specify a `chain_id` parameter and the MCP server routes to the correct Blockscout instance.
+Multichain support is automatic: agents specify a `chain_id` parameter and the MCP server routes to the correct Blockscout instance.
 
 ### Path 2: REST API (for custom agent backends)
 
-For agents with custom backends or automation pipelines, the PRO API provides direct HTTP access to the same data:
+For agents with custom backends or automation pipelines, the PRO API provides direct HTTP access to the same data. One key, one base URL, and a `chain_id` parameter to move between chains:
 
 ```python
 import requests
 
 API_KEY = "your_blockscout_pro_key"
-BASE = "https://eth.blockscout.com/api"
+BASE = "https://api.blockscout.com/v2/api"
+CHAIN_ID = "1"  # Ethereum mainnet — swap for any supported chain, e.g. "8453" for Base
 
-def get_address_activity(address, chain_base=BASE):
+def get_address_activity(address, chain_id=CHAIN_ID):
     """Get recent transactions for an address — useful for agent monitoring."""
-    resp = requests.get(f"{chain_base}", params={
+    resp = requests.get(BASE, params={
+        "chain_id": chain_id,
         "module": "account",
         "action": "txlist",
         "address": address,
@@ -63,9 +64,10 @@ def get_address_activity(address, chain_base=BASE):
     })
     return resp.json()["result"]
 
-def get_contract_abi(contract_address, chain_base=BASE):
+def get_contract_abi(contract_address, chain_id=CHAIN_ID):
     """Retrieve ABI for a verified contract — lets agents interact with contracts."""
-    resp = requests.get(f"{chain_base}", params={
+    resp = requests.get(BASE, params={
+        "chain_id": chain_id,
         "module": "contract",
         "action": "getabi",
         "address": contract_address,
@@ -73,10 +75,6 @@ def get_contract_abi(contract_address, chain_base=BASE):
     })
     return resp.json()["result"]
 ```
-
-### Path 3: x402 Payments
-
-**x402** provides per-call infrastructure for autonomous agents. Access the same Pro API endpoints as a key-based request, billed per call instead of per account. [More info and example setup](/devs/x402-payments).
 
 ## Agent Use Cases
 
@@ -105,7 +103,6 @@ Agents tend to make high-frequency API calls. Blockscout's credit-based pricing 
 
 1. **For MCP agents:** Visit [blockscout.com/agents](https://www.blockscout.com/agents) and copy the setup instructions for your platform
 2. **For custom agents:** Get a free API key at [dev.blockscout.com](https://dev.blockscout.com)
-3. **For x402**: See the [x402 payments page](/devs/x402-payments)
-4. **Need help?** Join the [Blockscout Discord](https://discord.gg/blockscout) — the dev team is active and responsive
+3. **Need help?** Join the [Blockscout Discord](https://discord.gg/blockscout) — the dev team is active and responsive
 
 **→ [AI Skills Portal](https://www.blockscout.com/agents)** · **→ [PRO API Portal](https://dev.blockscout.com)** · **→ [MCP Documentation](https://docs.blockscout.com/devs/mcp-server)**
