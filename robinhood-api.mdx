@@ -22,6 +22,20 @@ curl "https://api.blockscout.com/v2/api?chain_id=4663&module=account&action=bala
 
 Get a free API key at [dev.blockscout.com](https://dev.blockscout.com) — required for all PRO API tiers, including free.
 
+### Get the current gas price
+
+There is no Robinhood-specific gas endpoint. Use the standard Blockscout gas routes with `chain_id=4663`:
+
+```bash
+# Etherscan-compatible gas oracle (module=gastracker)
+curl "https://api.blockscout.com/v2/api?chain_id=4663&module=gastracker&action=gasoracle&apikey=proapi_YOUR_KEY"
+
+# REST API network stats — the response includes current gas_prices in Gwei
+curl "https://api.blockscout.com/4663/api/v2/stats?apikey=proapi_YOUR_KEY"
+```
+
+For raw node data, call the ETH RPC endpoint with the `eth_gasPrice` method (see the POST example below).
+
 ## PRO API Routes for Robinhood Chain
 
 All routes use Robinhood Chain's chain ID (`4663`):

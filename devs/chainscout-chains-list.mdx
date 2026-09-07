@@ -12,6 +12,26 @@ icon: "list"
 - Visit the repository to learn more: [https://github.com/blockscout/chainscout](https://github.com/blockscout/chainscout)
 - Once all chains have been added, Chainscout will replace the current Blockscout chains and projects page located at [https://www.blockscout.com/chains-and-projects](https://www.blockscout.com/chains-and-projects).
 
+## Find a chain ID
+
+Chain IDs are standard EVM network identifiers. The same value is used in wallet configuration and in the `chain_id` parameter of the [PRO API](/devs/pro-api).
+
+1. Open [chains.blockscout.com](https://chains.blockscout.com/) and search by chain name.
+2. The chain's entry shows its chain ID and the URL of its hosted explorer instance.
+
+Common examples:
+
+| Chain | Chain ID |
+| --- | --- |
+| Ethereum Mainnet | `1` |
+| OP Mainnet | `10` |
+| BNB Smart Chain | `56` |
+| Robinhood Chain | `4663` |
+| Base | `8453` |
+| Scroll | `534352` |
+
+Chainscout lists every chain running Blockscout. To confirm a chain is queryable through the PRO API, check the supported chains list on the [PRO API page](/devs/pro-api) or at [dev.blockscout.com](https://dev.blockscout.com).
+
 <Note>
   Recent Deprecations
 

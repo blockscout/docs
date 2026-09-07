@@ -58,6 +58,12 @@ Track usage, top calls by consumption, and manage keys in real time at the [dev 
 
 A `429 Too Many Requests` means you've exceeded your plan's RPS. You can either add a short delay between requests or move up a tier. A `401 Unauthorized` usually means the key isn't being sent correctly; double-check it against the dashboard.
 
+## 403 responses from public explorer instances
+
+Public per-chain explorer hosts (for example `eth.blockscout.com` or `robinhoodchain.blockscout.com`) sit behind bot protection. Scripted requests to those hosts can receive a `403` response whose body is an HTML "Just a moment..." challenge page instead of JSON. This is the bot-protection challenge blocking the request before it reaches the API, not a Blockscout API error.
+
+For programmatic access, call the PRO API at `https://api.blockscout.com` with your API key instead of the public instance host. The PRO API returns structured JSON errors as described in [Error handling](/devs/error-responses).
+
 ## Compared to Etherscan
 
 If you're evaluating a move from Etherscan's API, the free and paid tiers both come out ahead on rate limit and allowance at comparable price points:
