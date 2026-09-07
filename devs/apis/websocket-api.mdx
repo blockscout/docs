@@ -6,13 +6,26 @@ icon: "wrench"
 
 ## Connection
 
-Connect to the Pro API WebSocket endpoint and pass your API key in the query string:
+Websockets allow you to monitor ongoing events on the blockchain. A single connection can hold up to 100 subscriotions across blocks, addresses, tokens and more.
+
+Connect to the Pro API WebSocket endpoint and authenticate with your API key using either of the following methods:
+
+| Method | How | Works in browsers? |
+| --- | --- | --- |
+| Query string | Append `?apikey=<YOUR_API_KEY>` to the URL | Yes |
+| `Authorization` header | Send `Authorization: Bearer <YOUR_API_KEY>` on the handshake request | No — browsers' native `WebSocket` API cannot set custom headers |
 
 ```text
-wss://api.blockscout.com/ws/1?apikey=<YOUR_API_KEY>
+wss://api.blockscout.com/ws?apikey=<YOUR_API_KEY>
 ```
 
-Keep API keys in environment variables or a secret manager. Do not hard-code or log them.
+```text
+Authorization: Bearer <YOUR_API_KEY>
+```
+
+Use the query string if you're connecting from browser JavaScript. From a server-side or CLI client (Node, Python, etc.), either method works; the header can be preferable since query strings are more likely to end up captured in access logs, proxies, or browser history.
+
+Keep API keys in environment variables or a secret manager either way. Do not hard-code or log them.
 
 The connection uses plain JSON over WebSocket text frames. Max frame size is 16 KB.
 
@@ -23,7 +36,7 @@ This example connects, subscribes to new Ethereum Mainnet blocks, and handles bo
 ```js
 const apiKey = process.env.BLOCKSCOUT_API_KEY;
 const chainId = "1";
-const endpoint = "wss://api.blockscout.com/ws/1";
+const endpoint = "wss://api.blockscout.com/ws";
 const socket = new WebSocket(endpoint + "?" + new URLSearchParams({ apikey: apiKey }));
 
 socket.addEventListener("open", () => {
@@ -63,7 +76,22 @@ socket.addEventListener("message", ({ data }) => {
 });
 ```
 
-Use a separate request `id` for each subscription. Reconnect with exponential backoff on close, and resend every `subscribe` request after reconnecting. The server does not persist subscriptions across connections. See [Production guidance](#production-guidance) below for the full reconnect and delivery model.
+Using the `Authorization` header instead (Node.js, via the `ws` package):
+
+```js
+import WebSocket from "ws";
+
+const apiKey = process.env.BLOCKSCOUT_API_KEY;
+const socket = new WebSocket("wss://api.blockscout.com/ws", {
+  headers: { Authorization: `Bearer ${apiKey}` }
+});
+```
+
+Use a separate request `id` for each subscription. Reconnect with exponential backoff on close, and resend every `subscribe` request after reconnecting. The server does not persist subscriptions across connections.
+
+<Note>
+  Delivery is **at least once** — the same event can arrive more than once on a single subscription. Production clients should deduplicate incoming events; see [Production guidance](#production-guidance) below for recommended dedup keys and the full reconnect and delivery model.
+</Note>
 
 ## Message protocol
 
@@ -360,22 +388,21 @@ Before acting on an event, validate:
 
 ## Limits
 
-| Parameter | Default | Env variable |
-| --- | --- | --- |
-| Connections per user | 5 | `WS_MAX_CONNECTIONS_PER_USER` |
-| Subscriptions per connection | 100 | `WS_MAX_SUBSCRIPTIONS_PER_HANDLER` |
-| Max frame size | 16 KB | — |
-| Max topic length | 256 bytes | — |
-| Max chain\_id length | 32 bytes | — |
+| Parameter | Value |
+| --- | --- |
+| Connections per user | 5 |
+| Subscriptions per connection | 100 |
+| Max frame size | 16 KB |
+| Max topic length | 256 bytes |
+| Max chain_id length | 32 bytes |
 
 ### Billing
 
-| Parameter | Default | Env variable |
-| --- | --- | --- |
-| Connection open cost | 10 credits | `WS_CONNECTION_OPEN_COST` |
-| Cost per message | 1 credit | `WS_CREDITS_PER_MESSAGE` |
-| Billing interval | 60s | `WS_BILLING_INTERVAL` |
-| Worker idle timeout | 60s | `WS_IDLE_TIMEOUT` |
+| Parameter | Value |
+| --- | --- |
+| Connection open cost | 100 credits |
+| Cost per message | 10 credits |
+| Idle timeout | 60s |
 
 Free-tier and admin-managed users are disconnected when credits run out. Paid users may continue into overage.
 
