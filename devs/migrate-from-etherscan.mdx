@@ -285,9 +285,7 @@ https://api.blockscout.com/1/api?module=account&action=balance&address=0x...&api
     The following details endpoint differences between the Optimistic Etherscan and Blockscout Optimism instances. Endpoints vary slightly for different chains.
   </Tip>
 
-  ### \\
-
-  **1. Account/Address Endpoints**
+  ### **1. Account/Address Endpoints**
 
   `module=account`
 
@@ -382,7 +380,7 @@ https://api.blockscout.com/1/api?module=account&action=balance&address=0x...&api
   Etherscan uses the Proxy module `module=proxy` to retrieve standard Ethereum JSON-RPC methods.
 
   For Blockscout, send post requests to\
-  **api.blockscout.com//json-rpc**
+  **api.blockscout.com/\{chain_id\}/json-rpc**
 
   The following methods are supported:
 
