@@ -422,6 +422,7 @@
                     "devs/api-for-ai-agents",
                     "devs/x402-payments",
                     "devs/apis/websocket-api",
+                    "untitled-page",
                     {
                       "group": "Chain Specific API info",
                       "icon": "link-horizontal",

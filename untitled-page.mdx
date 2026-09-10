@@ -1,0 +1,433 @@
+---
+title: "WebSocket Use Case: Build a Whale-Watching Alert Bot"
+icon: "whale"
+---
+
+Whale-watching is one of the oldest habits in crypto: watch large wallets, get notified the moment they move, and use that as a signal. Whale Alert, the best-known example, tracks transfers in the millions of dollars across major chains and flags whether coins are heading onto an exchange, which often signals selling pressure, or off one, which often signals accumulation. Paid alerting services like Cryptocurrency Alerting go further, letting you monitor an entire network with one rule and pushing matches out over webhooks, Slack, Discord, or Telegram.
+
+This post builds a small version of that yourself: a bot that watches an address on Robinhood Chain and pings a Discord channel the instant a transfer crosses a threshold you set. Robinhood Chain is a good chain to demonstrate this on for a specific reason: Robinhood is bringing tokenized stocks, ETPs, and RWAs onchain, so "whale watching" here isn't only about ETH moving between wallets, it can mean watching large transfers of tokenized equities, which is a genuinely new kind of signal.
+
+<Info>
+  Blockscout does have a built-in way to monitor addresses: the [Watchlist feature](https://docs.blockscout.com/using-blockscout/my-account/watchlist) under My Account. Add an address there and Blockscout emails you whenever it sends or receives a transaction, with per-token-type controls over what triggers a notification. If you'd prefer to be notified by email, this is a good way to go. In this post we add spped a flexibility: since it's a script you own, alerts can go to Discord, Slack, a pager, a database, or anywhere else an HTTP endpoint can receive them.
+</Info>
+
+## Why push, not polling
+
+Another option for checking addresses is creating a script that polls an address's transaction list every few seconds and diffs it against what it saw last time. This can work, but is inefficient and costly for 2 main reasons.
+
+1. **Latency.** The poll interval delays alerts. Poll every 10 seconds and your fastest possible alert is 10 seconds late, on a chain where blocks land every ~0.1 seconds. By the time a whale move is visible on Twitter, informed traders have often already acted on it, so shaving that delay is the entire value proposition of an alert bot.
+2. **Wasted requests.** Most polls return nothing new. You're paying for the 99% of checks that find no whale activity, just to catch the 1% that does.
+
+With a push based approach you subscribe once, and the server sends you an event the moment something happens, with no unnecessary request in between. For a fast chain like Robinhood Chain, this difference is amplified, since more can happen inside a single polling window.
+
+## Blockscout's version: the WebSocket API
+
+Blockscout's Pro API doesn't currently have a hosted "webhooks" feature where you paste a URL into a dashboard and configure filters. However, with the WebSocket API you can open a multiplexed connection, subscribe to topics like a specific address, and the server pushes JSON events to you as they happen.
+
+This provides flexibility but relies on you to turn the websocket message into an outbound webhook call.  In this tutorial we'll create a webhook from the Websocket API that posts directly to Discord, driven by Blockscout's real-time feed.
+
+## What you'll build
+
+A ~100-line Node.js script that:
+
+1. Opens a WebSocket connection to the Blockscout Pro API
+2. Subscribes to a Robinhood Chain address
+3. Watches both native ETH transfers and any token transfer (ERC-20, ERC-721, ERC-1155) involving that address
+4. Filters each against a low threshold
+5. POSTs a formatted alert to a Discord webhook when a match hits
+6. Reconnects automatically, with backoff, if the connection drops
+
+You'll test it by sending yourself a real, tiny transfer on Robinhood Chain mainnet, which costs essentially nothing.
+
+## Step 1: Get a Pro API key
+
+1. Go to [dev.blockscout.com](http://dev.blockscout.com) and create an account.
+2. Open the Keys section and click **Create API Key**. Keys start with `proapi_` and are shown once.
+
+```bash
+export BLOCKSCOUT_API_KEY=proapi_your_key_here
+```
+
+💡
+
+Robinhood Chain testnet isn't currently supported by the Pro API, so this tutorial runs on mainnet (chain ID `4663`). That's not a problem here: gas is sub-cent ETH, and trading actions are gas-free for users for Robinhood Chain's first 90 days, so a real test transfer costs you effectively nothing.
+
+## Step 2: Create a Discord webhook to receive alerts
+
+This is the easiest possible receiver to test against, and it takes about a minute:
+
+1. In Discord, go to a server you control (or create one, free, just for this).
+2. Server Settings → Integrations → Webhooks → **New Webhook**.
+3. Name it (e.g. "Whale Watcher"), pick a channel, and click **Copy Webhook URL**.
+
+```bash
+export DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your/webhook/url
+```
+
+That URL accepts a plain POST with a JSON body like `{"content": "your message"}`, which is all this bot needs to send.
+
+## Step 3: Pick an address and thresholds
+
+You need a Robinhood Chain address to watch. For testing, use a wallet you control so you can trigger alerts yourself. For a real deployment, this is where you'd point at a known exchange hot wallet, a bridge contract, or a large holder's address.
+
+```bash
+export WATCH_ADDRESS=0xYourAddressToWatch
+export THRESHOLD_WEI=1000000000000000
+export TOKEN_THRESHOLD=0.001
+```
+
+`1000000000000000` wei is 0.001 ETH, low enough that almost any test transfer trips it. `TOKEN_THRESHOLD` is in human units (e.g. "0.001" tokens), not raw units, since the relay reads each token's decimals off the event itself and does the conversion for you. These are placeholders you will adjust, real whale thresholds on a live deployment will be far higher, tuned to whatever counts as "large" for the wallets and tokens you're tracking.
+
+## Step 4: Write the relay
+
+Create a project and install the WebSocket client:
+
+```bash
+mkdir whale-watcher && cd whale-watcher
+npm init -y
+npm pkg set type=module
+npm install ws
+```
+
+`npm pkg set type=module` tells Node to treat `.js` files in this project as ES modules, which the `import` syntax below needs. Without it, running the script fails with `Cannot use import statement outside a module`.
+
+Create `watch.js` by pasting this whole block into your terminal, it writes the file for you:
+
+```bash
+cat > watch.js << 'EOF'
+import WebSocket from "ws";
+
+const apiKey = process.env.BLOCKSCOUT_API_KEY;
+const watchAddress = process.env.WATCH_ADDRESS.toLowerCase();
+const thresholdWei = BigInt(process.env.THRESHOLD_WEI);
+const tokenThreshold = Number(process.env.TOKEN_THRESHOLD);
+const discordWebhook = process.env.DISCORD_WEBHOOK_URL;
+const chainId = "4663"; // Robinhood Chain mainnet
+
+const seen = new Set(); // dedup keys, since delivery is at-least-once
+let reconnectDelay = 1000; // starts at 1s, doubles on repeated failures, caps at 30s
+
+async function alert(text) {
+  console.log(text);
+  await fetch(discordWebhook, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ content: text }),
+  });
+}
+
+function connect() {
+  const url = `wss://api.blockscout.com/ws?${new URLSearchParams({ apikey: apiKey })}`;
+  const socket = new WebSocket(url);
+
+  socket.on("open", () => {
+    console.log(`Connected. Subscribing to ${watchAddress}...`);
+    reconnectDelay = 1000; // reset backoff on a successful connection
+    socket.send(JSON.stringify({
+      id: 1,
+      method: "subscribe",
+      params: {
+        topic: `addresses:${watchAddress}`,
+        chain_id: chainId,
+      },
+    }));
+  });
+
+  socket.on("message", async (data) => {
+    const message = JSON.parse(data.toString());
+
+    if (message.id === 1) {
+      if (message.result === "ok" || message.result === "already_subscribed") {
+        console.log("Subscribed. Waiting for transfers...");
+      } else {
+        console.error("Subscribe failed:", message.error);
+      }
+      return;
+    }
+
+    if (message.type !== "event") return;
+
+    // Native ETH transfers
+    if (message.data.event === "transaction") {
+      for (const tx of message.data.payload.transactions) {
+        const dedupKey = `tx:${tx.hash}`;
+        if (seen.has(dedupKey)) continue;
+        seen.add(dedupKey);
+
+        const value = BigInt(tx.value);
+        if (value < thresholdWei) continue;
+
+        const eth = Number(value) / 1e18;
+        const direction = tx.to?.hash?.toLowerCase() === watchAddress ? "IN" : "OUT";
+
+        await alert(
+          `🐋 **Whale move detected** (${direction})\n${eth} ETH\nTx: https://robinhoodchain.blockscout.com/tx/${tx.hash}`
+        );
+      }
+    }
+
+    // Any token transfer: ERC-20, ERC-721, ERC-1155
+    if (message.data.event === "token_transfer") {
+      for (const transfer of message.data.payload.token_transfers) {
+        const dedupKey = `token:${transfer.transaction_hash}:${transfer.log_index}`;
+        if (seen.has(dedupKey)) continue;
+        seen.add(dedupKey);
+
+        const token = transfer.token;
+        const rawValue = transfer.total?.value;
+
+        // NFTs (ERC-721/1155) carry a token_id instead of a decimal value; alert on those unconditionally
+        if (rawValue === undefined || token?.decimals == null) {
+          const direction = transfer.to?.hash?.toLowerCase() === watchAddress ? "IN" : "OUT";
+          await alert(
+            `🐋 **NFT transfer detected** (${direction})\n${token?.symbol ?? token?.name ?? "Unknown token"}\nTx: https://robinhoodchain.blockscout.com/tx/${transfer.transaction_hash}`
+          );
+          continue;
+        }
+
+        const amount = Number(rawValue) / 10 ** Number(token.decimals);
+        if (amount < tokenThreshold) continue;
+
+        const direction = transfer.to?.hash?.toLowerCase() === watchAddress ? "IN" : "OUT";
+        const symbol = token.symbol ?? token.name ?? "tokens";
+
+        await alert(
+          `🐋 **Whale move detected** (${direction})\n${amount} ${symbol}\nTx: https://robinhoodchain.blockscout.com/tx/${transfer.transaction_hash}`
+        );
+      }
+    }
+  });
+
+  socket.on("error", (err) => console.error("Socket error:", err.message));
+
+  socket.on("close", (code, reason) => {
+    console.log(`Closed: ${code} ${reason.toString()}. Reconnecting in ${reconnectDelay / 1000}s...`);
+    setTimeout(connect, reconnectDelay);
+    reconnectDelay = Math.min(reconnectDelay * 2, 30000);
+  });
+}
+
+connect();
+EOF
+```
+
+💡
+
+The reconnect logic is added to protect agains random connection drops. If you're testing with multiple scripts open at once, close old ones before starting new ones, since too many open connections at the same time can itself cause drops.
+
+**Run it:**
+
+```bash
+node watch.js
+```
+
+You should see `Connected` and `Subscribed`, then silence until a matching transaction fires.
+
+## Step 5: Trigger a real alert
+
+**Native ETH transfer.** Open your wallet (MetaMask or similar), make sure it's connected to Robinhood Chain mainnet, and send 0.002 ETH to your watched address from any other wallet you control.
+
+Within a second or two of the transaction confirming, your script logs the match and your Discord channel gets a message:
+
+> 🐋 **Whale move detected** (IN) 0.002 ETH Tx: [https://robinhoodchain.blockscout.com/tx/0x](https://robinhoodchain.blockscout.com/tx/0x)...
+
+**Token transfer.** If you hold any ERC-20 token on Robinhood Chain, sending even a fraction of one to your watched address triggers the token path instead. Open the token in your wallet the same way you would for any transfer, enter your watched address as the recipient, and send an amount above your `TOKEN_THRESHOLD`. If your wallet doesn't already show the token, you can add it manually using the token contract's address, findable on [robinhoodchain.blockscout.com](http://robinhoodchain.blockscout.com) under that token's page.
+
+You'll see a matching Discord message naming the token symbol instead of ETH.
+
+Whale watch is triggered by sending or receiving tokens from the identified address.
+
+## Watching 10 wallets on one connection
+
+A single WebSocket connection supports up to 100 subscriptions, so watching a whole list of wallets, say, ten known exchange or bridge addresses, is still only a single connection. Ten `subscribe` calls run on the same socket, and one shared handler that figures out which address each incoming event belongs to.
+
+To adjust from the single-address version, use the `topic` field the server echoes back on every event to know which watched address just moved.
+
+Same as before, this creates a separate file, `watch-multi.js`, so paste the whole block into your terminal to write it:
+
+```bash
+cat > watch-multi.js << 'EOF'
+import WebSocket from "ws";
+
+const apiKey = process.env.BLOCKSCOUT_API_KEY;
+const discordWebhook = process.env.DISCORD_WEBHOOK_URL;
+const chainId = "4663"; // Robinhood Chain mainnet
+const thresholdWei = BigInt(process.env.THRESHOLD_WEI);
+const tokenThreshold = Number(process.env.TOKEN_THRESHOLD);
+
+// Comma-separated list of the 10 addresses to watch
+const watchAddresses = process.env.WATCH_ADDRESSES
+  .split(",")
+  .map((a) => a.trim().toLowerCase());
+
+const seen = new Set();
+let reconnectDelay = 1000;
+
+async function alert(text) {
+  console.log(text);
+  await fetch(discordWebhook, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ content: text }),
+  });
+}
+
+function connect() {
+  const url = `wss://api.blockscout.com/ws?${new URLSearchParams({ apikey: apiKey })}`;
+  const socket = new WebSocket(url);
+
+  socket.on("open", () => {
+    console.log(`Connected. Subscribing to ${watchAddresses.length} addresses...`);
+    reconnectDelay = 1000;
+    watchAddresses.forEach((address, i) => {
+      socket.send(JSON.stringify({
+        id: i + 1, // one id per subscription, so each confirmation maps back to an address
+        method: "subscribe",
+        params: {
+          topic: `addresses:${address}`,
+          chain_id: chainId,
+        },
+      }));
+    });
+  });
+
+  socket.on("message", async (data) => {
+    const message = JSON.parse(data.toString());
+
+    // Subscription confirmations: ids 1..N map back to watchAddresses[id - 1]
+    if (typeof message.id === "number") {
+      const address = watchAddresses[message.id - 1];
+      if (message.result === "ok" || message.result === "already_subscribed") {
+        console.log(`Subscribed: ${address}`);
+      } else {
+        console.error(`Subscribe failed for ${address}:`, message.error);
+      }
+      return;
+    }
+
+    if (message.type !== "event") return;
+
+    // message.topic tells you which of the 10 addresses this event belongs to
+    const watchedAddress = message.topic.replace("addresses:", "");
+
+    if (message.data.event === "transaction") {
+      for (const tx of message.data.payload.transactions) {
+        const dedupKey = `tx:${tx.hash}`;
+        if (seen.has(dedupKey)) continue;
+        seen.add(dedupKey);
+
+        const value = BigInt(tx.value);
+        if (value < thresholdWei) continue;
+
+        const eth = Number(value) / 1e18;
+        const direction = tx.to?.hash?.toLowerCase() === watchedAddress ? "IN" : "OUT";
+
+        await alert(
+          `🐋 **Whale move detected** (${direction})\nWatched: ${watchedAddress}\n${eth} ETH\nTx: https://robinhoodchain.blockscout.com/tx/${tx.hash}`
+        );
+      }
+    }
+
+    if (message.data.event === "token_transfer") {
+      for (const transfer of message.data.payload.token_transfers) {
+        const dedupKey = `token:${transfer.transaction_hash}:${transfer.log_index}`;
+        if (seen.has(dedupKey)) continue;
+        seen.add(dedupKey);
+
+        const token = transfer.token;
+        const rawValue = transfer.total?.value;
+        const direction = transfer.to?.hash?.toLowerCase() === watchedAddress ? "IN" : "OUT";
+
+        if (rawValue === undefined || token?.decimals == null) {
+          await alert(
+            `🐋 **NFT transfer detected** (${direction})\nWatched: ${watchedAddress}\n${token?.symbol ?? token?.name ?? "Unknown token"}\nTx: https://robinhoodchain.blockscout.com/tx/${transfer.transaction_hash}`
+          );
+          continue;
+        }
+
+        const amount = Number(rawValue) / 10 ** Number(token.decimals);
+        if (amount < tokenThreshold) continue;
+
+        const symbol = token.symbol ?? token.name ?? "tokens";
+        await alert(
+          `🐋 **Whale move detected** (${direction})\nWatched: ${watchedAddress}\n${amount} ${symbol}\nTx: https://robinhoodchain.blockscout.com/tx/${transfer.transaction_hash}`
+        );
+      }
+    }
+  });
+
+  socket.on("error", (err) => console.error("Socket error:", err.message));
+
+  socket.on("close", (code, reason) => {
+    console.log(`Closed: ${code} ${reason.toString()}. Reconnecting in ${reconnectDelay / 1000}s...`);
+    setTimeout(connect, reconnectDelay);
+    reconnectDelay = Math.min(reconnectDelay * 2, 30000);
+  });
+}
+
+connect();
+EOF
+```
+
+**Run it with ten addresses:**
+
+```bash
+export WATCH_ADDRESSES="0xAddr1,0xAddr2,0xAddr3,0xAddr4,0xAddr5,0xAddr6,0xAddr7,0xAddr8,0xAddr9,0xAddr10"
+node watch-multi.js
+```
+
+You'll see ten `Subscribed: 0x...` lines on startup, one per address, then a single stream of alerts tagged with whichever address triggered each one. Test it the same way as before, a small ETH or token transfer to any one of the ten addresses shows up in Discord within a second or two, with that address named in the message so you know which wallet moved.
+
+## Taking the script to production
+
+A few more things worth doing before you use this for real trading decisions:
+
+- **Keep the dedup set bounded.** `seen` in this example grows forever; in a long-running process, cap it or expire entries after a few minutes. A `Map` storing when each key was first seen, swept periodically, does this cleanly within the code.
+
+```js
+const seen = new Map(); // dedupKey -> timestamp
+const DEDUP_TTL_MS = 5 * 60 * 1000; // forget entries after 5 minutes
+
+function wasSeen(key) {
+  if (seen.has(key)) return true;
+  seen.set(key, Date.now());
+  return false;
+}
+
+setInterval(() => {
+  const cutoff = Date.now() - DEDUP_TTL_MS;
+  for (const [key, timestamp] of seen) {
+    if (timestamp < cutoff) seen.delete(key);
+  }
+}, 60 * 1000);
+```
+
+Swap `if (seen.has(dedupKey)) continue; seen.add(dedupKey);` for `if (wasSeen(dedupKey)) continue;` wherever it appears above.
+
+- **Add context to the alert**, with more than just the raw number. Whale Alert's alerts are useful because they name the sending and receiving wallets when known (an exchange, a bridge). Pulling `/api/v2/addresses/{hash}` for a name tag before sending the Discord message turns "0.06 ETH moved" into "0.06 ETH moved from Coinbase hot wallet," which is a meaningfully more useful signal. This code snippet can be added to the above code to provide more context.
+
+```js
+async function getLabel(address) {
+  const res = await fetch(
+    `https://api.blockscout.com/4663/api/v2/addresses/${address}?apikey=${apiKey}`
+  );
+  const data = await res.json();
+  return data.metadata?.tags?.[0]?.name ?? data.ens_domain_name ?? null;
+}
+
+// Inside the alert-building code, before sending to Discord:
+const label = await getLabel(tx.from.hash);
+const fromText = label ? `${tx.from.hash} (${label})` : tx.from.hash;
+
+await alert(
+  `🐋 **Whale move detected** (${direction})\n${eth} ETH\nFrom: ${fromText}\nTx: https://robinhoodchain.blockscout.com/tx/${tx.hash}`
+);
+```
+
+Most addresses won't have a known label, in which case `getLabel` just returns `null` and the alert falls back to the plain address, so this only adds detail when there's additional detail to add.
+
+## Start building
+
+- Get a free Pro API key: [dev.blockscout.com](http://dev.blockscout.com)
+- Full WebSocket API reference: [https://docs.blockscout.com/devs/apis/websocket-api](https://docs.blockscout.com/devs/apis/websocket-api)
+- Explore Robinhood Chain: [robinhoodchain.blockscout.com](http://robinhoodchain.blockscout.com)
