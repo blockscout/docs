@@ -7,9 +7,9 @@ Whale-watching is one of the oldest habits in crypto: watch large wallets, get n
 
 This post builds a small version of that yourself: a bot that watches an address on Robinhood Chain and pings a Discord channel the instant a transfer crosses a threshold you set. Robinhood Chain is a good chain to demonstrate this on for a specific reason: Robinhood is bringing tokenized stocks, ETPs, and RWAs onchain, so "whale watching" here isn't only about ETH moving between wallets, it can mean watching large transfers of tokenized equities, which is a genuinely new kind of signal.
 
-<Info>
+<Check>
   Blockscout does have a built-in way to monitor addresses: the [Watchlist feature](https://docs.blockscout.com/using-blockscout/my-account/watchlist) under My Account. Add an address there and Blockscout emails you whenever it sends or receives a transaction, with per-token-type controls over what triggers a notification. If you'd prefer to be notified by email, this is a good way to go. In this post we add spped a flexibility: since it's a script you own, alerts can go to Discord, Slack, a pager, a database, or anywhere else an HTTP endpoint can receive them.
-</Info>
+</Check>
 
 ## Why push, not polling
 
@@ -211,9 +211,9 @@ connect();
 EOF
 ```
 
-💡
-
-The reconnect logic is added to protect agains random connection drops. If you're testing with multiple scripts open at once, close old ones before starting new ones, since too many open connections at the same time can itself cause drops.
+<Note>
+  The reconnect logic is added to protect agains random connection drops. If you're testing with multiple scripts open at once, close old ones before starting new ones, since too many open connections at the same time can itself cause drops.
+</Note>
 
 **Run it:**
 
