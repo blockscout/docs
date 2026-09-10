@@ -8,7 +8,7 @@ Whale-watching is one of the oldest habits in crypto: watch large wallets, get n
 This post builds a small version of that yourself: a bot that watches an address on Robinhood Chain and pings a Discord channel the instant a transfer crosses a threshold you set. Robinhood Chain is a good chain to demonstrate this on for a specific reason: Robinhood is bringing tokenized stocks, ETPs, and RWAs onchain, so "whale watching" here isn't only about ETH moving between wallets, it can mean watching large transfers of tokenized equities, which is a genuinely new kind of signal.
 
 <Check>
-  Blockscout does have a built-in way to monitor addresses: the [Watchlist feature](https://docs.blockscout.com/using-blockscout/my-account/watchlist) under My Account. Add an address there and Blockscout emails you whenever it sends or receives a transaction, with per-token-type controls over what triggers a notification. If you'd prefer to be notified by email, this is a good way to go. In this post we add spped a flexibility: since it's a script you own, alerts can go to Discord, Slack, a pager, a database, or anywhere else an HTTP endpoint can receive them.
+  Blockscout does have a built-in way to monitor addresses: the [Watchlist feature](/using-blockscout/my-account/watchlist) under My Account. Add an address there and Blockscout emails you whenever it sends or receives a transaction, with per-token-type controls over what triggers a notification. If you'd prefer to be notified by email, this is a good way to go. In this post we add speed and flexibility: since it's a script you own, alerts can go to Discord, Slack, a pager, a database, or anywhere else an HTTP endpoint can receive them.
 </Check>
 
 ## Why push, not polling
@@ -24,7 +24,7 @@ With a push based approach you subscribe once, and the server sends you an event
 
 Blockscout's Pro API doesn't currently have a hosted "webhooks" feature where you paste a URL into a dashboard and configure filters. However, with the WebSocket API you can open a multiplexed connection, subscribe to topics like a specific address, and the server pushes JSON events to you as they happen.
 
-This provides flexibility but relies on you to turn the websocket message into an outbound webhook call.  In this tutorial we'll create a webhook from the Websocket API that posts directly to Discord, driven by Blockscout's real-time feed.
+This provides flexibility but relies on you to turn the WebSocket message into an outbound webhook call. In this tutorial we'll create a webhook from the WebSocket API that posts directly to Discord, driven by Blockscout's real-time feed.
 
 ## What you'll build
 
@@ -212,7 +212,7 @@ EOF
 ```
 
 <Note>
-  The reconnect logic is added to protect agains random connection drops. If you're testing with multiple scripts open at once, close old ones before starting new ones, since too many open connections at the same time can itself cause drops.
+  The reconnect logic is added to protect against random connection drops. If you're testing with multiple scripts open at once, close old ones before starting new ones, since too many open connections at the same time can itself cause drops.
 </Note>
 
 **Run it:**
