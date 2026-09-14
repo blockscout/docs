@@ -662,6 +662,57 @@ Examples:
 
 ---
 
+## 🧪 Recipes
+
+### Read a no-argument view function on a verified contract
+
+Use `eth_call` with `data` set to the first 4 bytes of `keccak256("<functionSignature>")`. For a function like `rewardRate()`, the selector is `0x7b0a47ee`.
+
+```bash
+curl -X POST https://eth.blockscout.com/api/eth-rpc \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "eth_call",
+    "params": [
+      { "to": "0xCONTRACT_ADDRESS", "data": "0x7b0a47ee" },
+      "latest"
+    ],
+    "id": 1
+  }'
+```
+
+The `result` is the ABI-encoded return value, right-padded to 32 bytes. For a `uint256` return, parse the full hex string as an integer.
+
+To find the function selector for any signature, hash it with `keccak256` (any Web3 library exposes this, for example `ethers.id("rewardRate()").slice(0, 10)`).
+
+For functions with arguments, ABI-encode the parameters and append them to the selector (`cast calldata "balanceOf(address)" 0x…` from Foundry produces the full `data` payload).
+
+### Read the implementation address of an EIP-1967 proxy
+
+EIP-1967 proxies keep the implementation address at storage slot `0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bb3`. Fetch it with `eth_getStorageAt`:
+
+```bash
+curl -X POST https://eth.blockscout.com/api/eth-rpc \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "eth_getStorageAt",
+    "params": [
+      "0xPROXY_ADDRESS",
+      "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bb3",
+      "latest"
+    ],
+    "id": 1
+  }'
+```
+
+The result is 32 bytes; the implementation address is the last 20 bytes (strip the leading zero padding).
+
+If the proxy is already verified in Blockscout, the [`getsourcecode`](/devs/apis/rpc/contract) contract RPC action returns `ImplementationAddress` and `IsProxy` directly, so you can skip the storage read.
+
+---
+
 ## 🔧 Usage Tips
 
 ### Batch Requests
