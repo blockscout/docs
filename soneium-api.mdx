@@ -17,12 +17,12 @@ Blockscout is Soneium's primary block explorer. Etherscan does not support Sonei
 
 **Soneium Mainnet Chain ID:** `1868` **Soneium Minato Testnet Chain ID:** `1946`
 
-| Network | Explorer | PRO API `chain_id` |
+| Network | Explorer | PRO API `chainid` |
 | --- | --- | --- |
 | Soneium Mainnet | [soneium.blockscout.com](https://soneium.blockscout.com) | `1868` |
 | Soneium Minato Testnet | [soneium-minato.blockscout.com](https://soneium-minato.blockscout.com) | `1946` |
 
-**PRO API Base:** `https://api.blockscout.com` (use `chain_id=1868` or `chain_id=1946`)
+**PRO API Base:** `https://api.blockscout.com` (use `chainid=1868` or `chainid=1946`)
 
 ## Quick Start
 
@@ -30,22 +30,22 @@ Get your first API response in under 60 seconds:
 
 ```bash
 # Mainnet — get ETH balance for an address
-curl "https://api.blockscout.com/v2/api?chain_id=1868&module=account&action=balance&address=0xYOUR_ADDRESS&apikey=proapi_YOUR_KEY"
+curl "https://api.blockscout.com/v2/api?chainid=1868&module=account&action=balance&address=0xYOUR_ADDRESS&apikey=proapi_YOUR_KEY"
 
-# Minato Testnet — same call, different chain_id
-curl "https://api.blockscout.com/v2/api?chain_id=1946&module=account&action=balance&address=0xYOUR_ADDRESS&apikey=proapi_YOUR_KEY"
+# Minato Testnet — same call, different chainid
+curl "https://api.blockscout.com/v2/api?chainid=1946&module=account&action=balance&address=0xYOUR_ADDRESS&apikey=proapi_YOUR_KEY"
 ```
 
 Get a free API key at [dev.blockscout.com](https://dev.blockscout.com). It is required for all PRO API tiers, including the free tier. The same key works for both mainnet and testnet, and any other chains you want to query.
 
 ## PRO API Routes for Soneium
 
-### Mainnet (chain\_id=1868)
+### Mainnet (chainid=1868)
 
 **JSON RPC v2 (Etherscan-compatible):**
 
 ```text
-https://api.blockscout.com/v2/api?chain_id=1868&module=account&action=txlist&address=0x...&apikey=proapi_xxx
+https://api.blockscout.com/v2/api?chainid=1868&module=account&action=txlist&address=0x...&apikey=proapi_xxx
 ```
 
 **JSON RPC:**
@@ -70,12 +70,12 @@ curl -H "content-type: application/json" \
   https://api.blockscout.com/1868/json-rpc
 ```
 
-### Minato Testnet (chain\_id=1946)
+### Minato Testnet (chainid=1946)
 
 Every route works identically — swap `1868` for `1946`:
 
 ```text
-https://api.blockscout.com/v2/api?chain_id=1946&module=account&action=txlist&address=0x...&apikey=proapi_xxx
+https://api.blockscout.com/v2/api?chainid=1946&module=account&action=txlist&address=0x...&apikey=proapi_xxx
 ```
 
 ```text
@@ -119,7 +119,7 @@ One API key covers Soneium mainnet, Minato testnet, and every other Blockscout-s
 
 ## Coming from Other OP Stack Chains?
 
-Soneium uses the same OP Stack infrastructure that powers Base, Optimism, Zora, and Ink. If you've built on any Superchain network with the Blockscout PRO API, querying Soneium is a `chain_id` swap:
+Soneium uses the same OP Stack infrastructure that powers Base, Optimism, Zora, and Ink. If you've built on any Superchain network with the Blockscout PRO API, querying Soneium is a `chainid` swap:
 
 ```javascript
 // Multichain across the Superchain — one function, one API key
@@ -137,7 +137,7 @@ const CHAINS = {
 async function getTokenTransfers(chainName, address) {
   const chainId = CHAINS[chainName];
   const resp = await fetch(
-    `https://api.blockscout.com/v2/api?chain_id=${chainId}&module=account&action=tokentx&address=${address}&apikey=${BLOCKSCOUT_KEY}`
+    `https://api.blockscout.com/v2/api?chainid=${chainId}&module=account&action=tokentx&address=${address}&apikey=${BLOCKSCOUT_KEY}`
   );
   return resp.json();
 }
@@ -149,7 +149,7 @@ const mainnetTxns = await getTokenTransfers("soneium", "0x...");
 const testnetTxns = await getTokenTransfers("soneium_testnet", "0x...");
 ```
 
-If you're migrating from Etherscan V2 on another chain, the structure is nearly identical. Etherscan uses `api.etherscan.io/v2/api?chainid=X`, Blockscout uses `api.blockscout.com/v2/api?chain_id=X`. But Etherscan doesn't support Soneium at all — Blockscout is your only option.
+If you're migrating from Etherscan V2 on another chain, the structure is nearly identical. Etherscan uses `api.etherscan.io/v2/api?chainid=X`, Blockscout uses `api.blockscout.com/v2/api?chainid=X`. But Etherscan doesn't support Soneium at all — Blockscout is your only option.
 
 **→ [Full Migration Guide](https://docs.blockscout.com/devs/migrate-from-etherscan)**
 
@@ -164,10 +164,10 @@ import requests
 
 BLOCKSCOUT_KEY = os.environ["BLOCKSCOUT_KEY"]
 
-def query_soneium(chain_id, module, action, **params):
+def query_soneium(chainid, module, action, **params):
     """Query either Soneium mainnet (1868) or Minato testnet (1946)."""
     resp = requests.get("https://api.blockscout.com/v2/api", params={
-        "chain_id": chain_id,
+        "chainid": chainid,
         "module": module,
         "action": action,
         "apikey": BLOCKSCOUT_KEY,
@@ -178,7 +178,7 @@ def query_soneium(chain_id, module, action, **params):
 # Verify your contract ABI is accessible on testnet before mainnet deploy
 testnet_abi = query_soneium(1946, "contract", "getabi", address="0xYOUR_CONTRACT")
 
-# After mainnet deploy, same call with chain_id=1868
+# After mainnet deploy, same call with chainid=1868
 mainnet_abi = query_soneium(1868, "contract", "getabi", address="0xYOUR_CONTRACT")
 ```
 
@@ -203,8 +203,8 @@ Blockscout is the primary explorer for both Soneium mainnet and Minato testnet. 
 ## Get Started
 
 1. Get a free API key at [**dev.blockscout.com**](https://dev.blockscout.com)
-2. Use `chain_id=1946` (Minato testnet) to develop and test
-3. Switch to `chain_id=1868` (mainnet) when you're ready to deploy
+2. Use `chainid=1946` (Minato testnet) to develop and test
+3. Switch to `chainid=1868` (mainnet) when you're ready to deploy
 4. Explore endpoints at [**soneium.blockscout.com/api-docs**](https://soneium.blockscout.com/api-docs)
 
 **→ [Start Building on Soneium](https://dev.blockscout.com)** · **→ [PRO API Routes Reference](https://docs.blockscout.com/devs/pro-api-responses-and-routes)** · **→ [Soneium Developer Docs](https://docs.soneium.org/docs/builders/overview)**

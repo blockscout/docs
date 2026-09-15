@@ -9,26 +9,26 @@ Robinhood Chain is live, and Blockscout is its official block explorer, powering
 
 The chain is an Ethereum Layer 2 built on Arbitrum Orbit, settling to Ethereum with blob data availability. It runs ~0.1 second block times with sub-cent gas paid in ETH, and trading actions on the chain are gas-free for users for the first 90 days (deploying contracts and other developer transactions still cost gas).
 
-Etherscan does not currently support Robinhood Chain. Blockscout provides full API access on all tiers, including a generous free plan.
+Blockscout provides full API access on all tiers, including a generous free plan.
 
-**Robinhood Chain ID:** `4663` <br />**Explorer:** [robinhoodchain.blockscout.com](https://robinhoodchain.blockscout.com) <br />**PRO API Base:** `https://api.blockscout.com` (use `chain_id=4663`) <br />**API Docs:** [robinhoodchain.blockscout.com/api-docs](https://robinhoodchain.blockscout.com/api-docs)
+**Robinhood Chain ID:** `4663` <br />**Explorer:** [robinhoodchain.blockscout.com](https://robinhoodchain.blockscout.com) <br />**PRO API Base:** `https://api.blockscout.com` (use `chainid=4663`) <br />**API Docs:** [robinhoodchain.blockscout.com/api-docs](https://robinhoodchain.blockscout.com/api-docs)
 
 ## Quick Start
 
 ```bash
 # Get ETH balance for an address on Robinhood Chain via PRO API
-curl "https://api.blockscout.com/v2/api?chain_id=4663&module=account&action=balance&address=0xYOUR_ADDRESS&apikey=proapi_YOUR_KEY"
+curl "https://api.blockscout.com/v2/api?chainid=4663&module=account&action=balance&address=0xYOUR_ADDRESS&apikey=proapi_YOUR_KEY"
 ```
 
 Get a free API key at [dev.blockscout.com](https://dev.blockscout.com) — required for all PRO API tiers, including free.
 
 ### Get the current gas price
 
-There is no Robinhood-specific gas endpoint. Use the standard Blockscout gas routes with `chain_id=4663`:
+There is no Robinhood-specific gas endpoint. Use the standard Blockscout gas routes with `chainid=4663`:
 
 ```bash
 # Etherscan-compatible gas oracle (module=gastracker)
-curl "https://api.blockscout.com/v2/api?chain_id=4663&module=gastracker&action=gasoracle&apikey=proapi_YOUR_KEY"
+curl "https://api.blockscout.com/v2/api?chainid=4663&module=gastracker&action=gasoracle&apikey=proapi_YOUR_KEY"
 
 # REST API network stats — the response includes current gas_prices in Gwei
 curl "https://api.blockscout.com/4663/api/v2/stats?apikey=proapi_YOUR_KEY"
@@ -43,7 +43,7 @@ All routes use Robinhood Chain's chain ID (`4663`):
 **JSON RPC v2 (Etherscan-compatible):**
 
 ```text
-https://api.blockscout.com/v2/api?chain_id=4663&module=account&action=txlist&address=0x...&apikey=proapi_xxx
+https://api.blockscout.com/v2/api?chainid=4663&module=account&action=txlist&address=0x...&apikey=proapi_xxx
 ```
 
 **JSON RPC:**
@@ -112,7 +112,7 @@ Blockscout's native REST API provides enriched metadata, decoded transaction dat
 | Business | 50 RPS | 3B/mo | \$999/mo |
 | Enterprise | Custom | Custom | Contact us |
 
-One API key covers every Blockscout-supported chain. Build on Robinhood Chain today, expand to Ethereum, Base, Arbitrum, and 100\+ more networks by changing a `chain_id` parameter — no additional setup.
+One API key covers every Blockscout-supported chain. Build on Robinhood Chain today, expand to Ethereum, Base, Arbitrum, and 100+ more networks by changing a `chainid` parameter — no additional setup.
 
 ## Migrating from Etherscan-style APIs?
 
@@ -128,13 +128,13 @@ resp = requests.get("https://api.etherscan.io/v2/api", params={
 
 # After (Blockscout PRO API — free tier available)
 resp = requests.get("https://api.blockscout.com/v2/api", params={
-    "chain_id": 4663,
+    "chainid": 4663,
     "module": "account", "action": "txlist",
     "address": addr, "apikey": os.environ["BLOCKSCOUT_KEY"]
 })
 ```
 
-Same structure: `chainid` → `chain_id`, swap the base URL and key.
+Same structure, just swap the base URL and key.
 
 **→ [Full Migration Guide](https://docs.blockscout.com/devs/migrate-from-etherscan)**
 
@@ -161,7 +161,7 @@ Sub-endpoints follow the same pattern for the rest of the data: `/logs` for deco
 ## Get Started
 
 1. Get a free API key at [**dev.blockscout.com**](https://dev.blockscout.com)
-2. Use `chain_id=4663` in your PRO API requests
+2. Use `chainid=4663` in your PRO API requests
 3. Explore endpoints at [**robinhoodchain.blockscout.com/api-docs**](https://robinhoodchain.blockscout.com/api-docs)
 
 **→ [Start Building on Robinhood Chain](https://dev.blockscout.com)** · **→ [PRO API Routes Reference](https://docs.blockscout.com/devs/pro-api-responses-and-routes)**
