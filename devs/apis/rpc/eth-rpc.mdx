@@ -20,8 +20,10 @@ Per instance methods use POST requests to `{instance_url}/api/eth-rpc` with JSON
 ## PRO API usage
 
 ```text
-https://api.blockscout.com/{instance}/json-rpc
+https://api.blockscout.com/{chain_id}/json-rpc
 ```
+
+Replace `{chain_id}` with the numeric chain ID of the network you want to query. To look up a chain ID, see [Chainscout Chains List](/devs/chainscout-chains-list).
 
 Examples:
 
@@ -33,6 +35,8 @@ Examples:
 ```text
 https://{instance}.blockscout.com/api/eth-rpc
 ```
+
+Replace `{instance}` with the subdomain of the chain's hosted Blockscout explorer, such as `eth` or `optimism`. For self-hosted deployments, use your own explorer hostname.
 
 Examples:
 
