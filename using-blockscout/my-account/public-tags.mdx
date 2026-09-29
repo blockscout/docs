@@ -55,3 +55,18 @@ Once submitted, tags are reviewed and accepted/denied manually by the instance a
 <Frame caption="Use the icons to edit or delete your public tag request">
   <img src="/images/6aa6f5cb-image.jpeg" />
 </Frame>
+
+## View public tags on an address
+
+Approved public tags appear on the address page itself, next to the address name or contract name in the header (see [Address Page](/using-blockscout/overviews/address-page)). If the header shows no tag badge, the address does not have an approved public tag on that instance.
+
+Because a public tag is attached to an address (not to the verified contract name), the two can differ. For example, a verified contract named `DexRouter` may render as `OKX Labs: DexRouter` on transaction and address pages when the underlying address carries an `OKX Labs: DexRouter` public tag. The contract name is unchanged; the tag adds project attribution.
+
+## Query public tags via API
+
+Public tags are exposed in several PRO API responses. Two common patterns:
+
+* **On address and contract responses.** The address details endpoint and the verified smart contracts list both include a `public_tags` array on each address object, with `label`, `display_name`, and `address_hash`. Use these to read the tags already attached to a given address without a separate call. Filtering the verified contracts list *by* public tag is not supported; only the `filter` (language, proxy state) and `q` (search) parameters are available on that endpoint.
+* **Via the Metadata service.** `GET /services/metadata/api/v1/public-tag-types` returns the tag types configured on the instance. `GET /services/metadata/api/v1/tags:search` searches tags by `chain_id`, `tag_types` (comma-separated), and `name`, and returns the addresses each tag is attached to. Use the tag-types endpoint first to discover valid `tag_types` values, then search.
+
+See the [PRO API overview](/devs/pro-api) for authentication and base URL details.

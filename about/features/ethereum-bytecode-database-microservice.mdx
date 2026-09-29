@@ -12,7 +12,7 @@ For example, if a contract is verified on Ethereum Mainnet, it cannot be accesse
   <img src="/images/c45f8510-image.jpeg" />
 </Frame>
 
-To address this issue, we have implemented a database for verified contract information which can be shared across all supported chains. This database and its associated functionality has been created as a Blockscout microservice called the **Ethereum Bytecode Database (Blockscout EBD).**
+To address this issue, we have implemented a database for verified contract information which can be shared across all supported chains. This database and its associated functionality have been created as a Blockscout microservice called the **Ethereum Bytecode Database (Blockscout EBD).**
 
 ## Initial Planning
 
@@ -72,7 +72,7 @@ Removing the notion of chains and contract addresses is powerful in and of itsel
 
 Extractors can be implemented as separate extensions which can index different explorers and different chains, then automatically submit newly verified bytecodes into the Ethereum Bytecode Database. It can also import contracts verified long ago.
 
-This has the potential rapidly increase the dataset, **allowing the service to collect sources for almost all bytecodes that have been publicly verified**. Every time a new contract is verified on a monitored explorer, the extractor can upload the source code to the Ethereum Bytecode Database\*. *\*This is in the research phase.*
+This has the potential to rapidly increase the dataset, **allowing the service to collect sources for almost all bytecodes that have been publicly verified**. Every time a new contract is verified on a monitored explorer, the extractor can upload the source code to the Ethereum Bytecode Database\*. *\*This is in the research phase.*
 
 In addition, anyone can start the service from scratch and eventually obtain their own repository of verified contracts by running extractors they are interested in. Those who would like to host their own instance can obtain a populated database which can also be updated from other chains in the ecosystem.
 
@@ -95,7 +95,7 @@ Extractors implemented within a Blockscout private setting also allow for the cr
 ### API Integration
 
 <Info>
-The swagger definition -[https://app.swaggerhub.com/apis/rimrakhimov/EthereumBytecodeDatabase/v2](https://app.swaggerhub.com/apis/rimrakhimov/EthereumBytecodeDatabase/v2)
+The swagger definition - [https://app.swaggerhub.com/apis/rimrakhimov/EthereumBytecodeDatabase/v2](https://app.swaggerhub.com/apis/rimrakhimov/EthereumBytecodeDatabase/v2)
 
 </Info>
 

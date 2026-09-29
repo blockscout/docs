@@ -10,7 +10,7 @@ icon: "calculator"
   This example uses REST methods with the PRO API. See the [PRO API overview](/devs/pro-api) for information on creating and using an API key.
 </Note>
 
-You can use the Blockscout API to collect you activity across multiple chains and feed into an existing tax tool (or vibe code your own!).
+You can use the Blockscout API to collect your activity across multiple chains and feed it into an existing tax tool (or vibe code your own!).
 
 The recommended approach combines pulling transactions from several feeds and combining them into a single data source.
 
@@ -24,7 +24,7 @@ In the typescript example at the end we follow this basic flow:
 
 ## Endpoint Summary
 
-The following REST calls can be used to get tax data. Note that `api/v2 `calls require a working PRO API key.
+The following REST calls can be used to get tax data. Note that `api/v2` calls require a working PRO API key.
 
 | Handle | Why |
 | --- | --- |
@@ -54,7 +54,7 @@ curl "https://api.blockscout.com/1/api/v2/addresses/0xYOURADDRESS/internal-trans
 curl "https://api.blockscout.com/1/api/v2/addresses/0xYOURADDRESS/token-transfers?apikey=YOUR_KEY"
 ```
 
-Complete the following programatically.
+Complete the following programmatically.
 
 - join by tx hash
 - deduplicate
@@ -85,7 +85,7 @@ Next request:
 curl "https://api.blockscout.com/1/api/v2/addresses/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/transactions?block_number=24464759&index=284&items_count=50&apikey=YOUR_KEY"
 ```
 
-Then repeat the same pattern with the new `next_page_params` from that response until empty
+Then repeat the same pattern with the new `next_page_params` from that response until empty.
 
 ---
 

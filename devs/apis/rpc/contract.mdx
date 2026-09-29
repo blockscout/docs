@@ -9,7 +9,7 @@ description: "Reference for the Blockscout contract RPC module with endpoints fo
 
 `listcontracts`
 
-List sorted in ascending order based on the time a contract was first indexed by the explorer. With filters \`unverified(2)\` the results will not be sorted for performance reasons.
+List sorted in ascending order based on the time a contract was first indexed by the explorer. With filters `unverified(2)` the results will not be sorted for performance reasons.
 
 **Example:**
 
@@ -134,7 +134,7 @@ https://instance_base_url/api
 
 `getcontractcreation`
 
-Returns contract creator and transaction hash. Up to 10 contracts at the one request
+Returns contract creator and transaction hash. Up to 10 contracts in one request.
 
 **Example:**
 
@@ -200,7 +200,7 @@ curl -d '{"addressHash":"0xc63BB6555C90846afACaC08A0F0Aa5caFCB382a1","compilerVe
 ```
 
 <Info>
-On successful submission you will receive a guid as a receipt. Use this with [`checkverifystatus`](/devs/apis/rpc/contract#return-status-of-a-verification-attempt)`to view verification status.`
+On successful submission you will receive a guid as a receipt. Use this with [`checkverifystatus`](/devs/apis/rpc/contract#return-status-of-a-verification-attempt) to view verification status.
 
 </Info>
 
@@ -215,7 +215,7 @@ On successful submission you will receive a guid as a receipt. Use this with [`c
 | **optimization**               | `enum` whether or not compiler optimizations were enabled `0`=false, `1`=true |
 | **contractSourceCode**         | `string` containing the source code of the contract.                          |
 | constructorArguments           | optional `string` constructor argument data provided.                         |
-| autodetectConstructorArguments | optional `boolean` whether or not automatically detect constructor argument.  |
+| autodetectConstructorArguments | optional `boolean` whether or not to automatically detect constructor argument.  |
 | evmVersion                     | optional EVM version for the contract.                                        |
 | optimizationRuns               | optional number of optimization runs used during compilation                  |
 | library1Name                   | optional `string` name of the first library used.                             |
@@ -436,7 +436,7 @@ contract Storage {
 | runs                           | `integer` is equal to optimization runs number set on compilation. Should be set when `optimizationUsed` is `1` or `true`                                                      |
 | evmversion                     | `string` EVM version. Should be set when `codeformat=solidity-single-file`                                                                                                     |
 | constructorArguments           | optional `string` constructor argument data provided.                                                                                                                          |
-| autodetectConstructorArguments | optional `boolean` whether or not automatically detect constructor argument.                                                                                                   |
+| autodetectConstructorArguments | optional `boolean` whether or not to automatically detect constructor argument.                                                                                                  |
 | licenseType                    | `string` or `number` representing the license type.                                                                                                                            |
 
 **License type**

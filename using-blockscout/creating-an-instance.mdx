@@ -12,7 +12,7 @@ icon: "wand-magic-sparkles"
 
 - There are several tabs to fill out to launch your instance; Info, Branding, and Rollup config (if needed). Plugins (currently the only live plugin is stats) can be added once your instance is fully indexed.
 - Edit parameters at any time, but this typically requires relaunching and reindexing the instance.
-- Checkout the visual guide on our blog for a basic walkthrough: [https://www.blog.blockscout.com/ship-faster-with-autoscout-deploy-a-block-explorer-with-status-logs-and-advanced-features/](https://www.blog.blockscout.com/ship-faster-with-autoscout-deploy-a-block-explorer-with-status-logs-and-advanced-features/)
+- Check out the visual guide on our blog for a basic walkthrough: [https://www.blog.blockscout.com/ship-faster-with-autoscout-deploy-a-block-explorer-with-status-logs-and-advanced-features/](https://www.blog.blockscout.com/ship-faster-with-autoscout-deploy-a-block-explorer-with-status-logs-and-advanced-features/)
 
 <Note>
   Power users can use the [Autoscout API](/devs/apis/autoscout-api) to deploy and manage instances.
@@ -25,7 +25,7 @@ The following parameters are in the Info section. \* parameters are required.
 - **Instance size\***: Select based on the number of transactions anticipated for the instance. The costs are currently placeholders, but your credits will be impacted according to chain usage.
 - **Chain name**: The chain name will be shown in the top explorer banner.
 - **Instance name\***: A label for your instance, it is reflected in the url of the instance ie [https://instance-name.cloud.blockscout.com/](https://instance-name.cloud.blockscout.com/)
-- **Chain ID**: If you don't know the chain ID you can get with the `eth_chainId` JSON-RPC method.
+- **Chain ID**: If you don't know the chain ID you can get it with the `eth_chainId` JSON-RPC method.
 - **Node type:** Choose from the list of clients for the archive node:
   - Besu, Erigon, Anvil, Geth, Parity
 - **Gas token symbol**: Will show in the interface, for example ETH if your chain uses Ether for gas.
@@ -49,7 +49,7 @@ The following parameters are in the Info section. \* parameters are required.
 - **Full logo URL**: Add a url link to your full logo image in horizontal format. Supported formats: image/jpeg, image/gif, image/png. Add one for light mode and one for dark mode if desired (users can switch modes manually).
 - **Logo sign (square) URL**: Add a url link to your square logo image in horizontal format. Supported formats: image/jpeg, image/gif, image/png. Add one for light mode and one for dark mode if desired (users can switch modes manually).
 - **Header background gradient and text color**: Choose your desired background color gradients with the selector and choose your preferred text color. You will see a preview in the interface.
-- **Favicon and OG image URL**: Add your favicon and [OG image](https://ogp.me/). OG image specs: Minimum image size is 200×20pixels (recommended: 1200×600); maximum supported file size is 8 MB; 2:1 aspect ratio; supported formats: image/jpeg, image/gif, image/png
+- **Favicon and OG image URL**: Add your favicon and [OG image](https://ogp.me/). OG image specs: Minimum image size is 200×20 pixels (recommended: 1200×600); maximum supported file size is 8 MB; 2:1 aspect ratio; supported formats: image/jpeg, image/gif, image/png
 - **OG description**: Add a description for Open Graph Previews
 - **Enable enhanced OG tags**: Toggle if you want to render OG tags for API data pages
 - **Enable enhanced SEO**: Toggle if you want to rerender page titles for Stats and Tokens pages to enhance SEO
@@ -80,7 +80,7 @@ Indexer information uses the following variables under the hood. If no informati
 Leave this setting alone if your RPC supports pending transactions. However, **If your RPC node does not support pending transactions, please toggle this switch to disable.**
 
 <Info>
-  \*\*Check pending TX support \*\*by sending a request for one of the common methods (`eth_getBlockByNumber` with `"pending"` or `txpool_content`) and observe the response. A successful, valid response confirms support. 
+  **Check pending TX support** by sending a request for one of the common methods (`eth_getBlockByNumber` with `"pending"` or `txpool_content`) and observe the response. A successful, valid response confirms support. 
 </Info>
 
 **Block transformer:** Leave as base unless you are using clique.
@@ -89,7 +89,7 @@ Leave this setting alone if your RPC supports pending transactions. However, **I
 
 ### Rollup Config
 
-If your chain is a rollup you will select this in the info screen and then fillout the associated Rollup config info.
+If your chain is a rollup you will select this in the info screen and then fill out the associated Rollup config info.
 
 <Info>
   - Read the [Rollup deployment and config details](https://docs.blockscout.com/setup/deployment/rollup-deployment#arbitrum)

@@ -26,7 +26,7 @@ A microservice written in Rust provides fast and efficient contract verification
 * Add the following ENV variables:
   * `MICROSERVICE_SC_VERIFIER_ENABLED=true`
   * `MICROSERVICE_SC_VERIFIER_URL=...` (verifier endpoint, see [http configuration](https://github.com/blockscout/blockscout-rs/tree/main/smart-contract-verifier/smart-contract-verifier-http) for more details)
-* If running locally, the smart-contract-verifier is integrated with [`docker-compose`](https://github.com/blockscout/blockscout/tree/master/docker-compose)\`\`
+* If running locally, the smart-contract-verifier is integrated with [`docker-compose`](https://github.com/blockscout/blockscout/tree/master/docker-compose)
   * Registry of docker images is available via the docker-compose file. For registry information see: [https://github.com/blockscout/blockscout-rs/pkgs/container/smart-contract-verifier](https://github.com/blockscout/blockscout-rs/pkgs/container/smart-contract-verifier)
 
 ### Architecture
@@ -89,7 +89,7 @@ As a result of successful verification the following struct is returned:
 * **Abi**: application binary interface of the verified contract ([https://docs.soliditylang.org/en/v0.8.13/abi-spec.html?highlight=abi](https://docs.soliditylang.org/en/v0.8.13/abi-spec.html?highlight=abi))
 * **Constructor arguments**: optionally returned constructor arguments used during on chain creation of the contract.
 
-In case of an error, enum is returned with the corresponding error and its description (e.g. if compilation failed, a Compilation error is returned with the error data obtained from the compiler).
+In case of an error, an enum is returned with the corresponding error and its description (e.g. if compilation failed, a Compilation error is returned with the error data obtained from the compiler).
 
 ## Sourcify Verification
 
@@ -98,7 +98,7 @@ The request is sent via proxy to the [Sourcify](https://sourcify.dev/) service. 
 1. Address of the contract to be verified.
 2. Chain id where the contract is deployed.
 3. Files required for Sourcify verification.
-4. (optionally)Contract index, if the provided files contain multiple metadata files (i.e. multiple contracts).
+4. (optionally) Contract index, if the provided files contain multiple metadata files (i.e. multiple contracts).
 
 These arguments are sent to the Sourcify Api, which returns the verification status.
 
@@ -113,23 +113,23 @@ Either the data provided was valid and the contract was verified by Sourcify, or
 
 ### Failed Verification
 
-If verification fails we return an error with description obtained from Sourcify response
+If verification fails we return an error with description obtained from Sourcify response.
 
 ## Verification Algorithm
 
 Verification is divided into 2 parts to effectively deal with metadata hash differences in contracts. Often, very similar contracts will have very different metadata hashes based on small changes within the contract (ie an extra space in the source code). To address this, the algorithm:
 
-1. Extracts all metadata hash fields from c\_reationTxInput\_.
+1. Extracts all metadata hash fields from *creationTxInput*.
 2. Compares non-metadata sections of the onchain bytecode with the results of local compilation.
 
-Metadata hashes are extracted by compiling the same contract twice (with a slight modification to the 2nd contract that does not change any other aspect of the resultant bytecode). The resulting c\_reationTxInput\_s are compared and metadata hashes extracted by finding which parts of the inputs differ.
+Metadata hashes are extracted by compiling the same contract twice (with a slight modification to the 2nd contract that does not change any other aspect of the resultant bytecode). The resulting *creationTxInputs* are compared and metadata hashes extracted by finding which parts of the inputs differ.
 
 ### Example
 
 An additional space in the source code can be used for the modification process. In **Example 1** and **Example 2** the only difference between both contracts is a space in the beginning of **Example 2**. However, this still completely changes the metadata hash (metadata hash differences shown in **bold red**).
 
 <Info>
-**Note**: To update the metadata hash in production we use an additional library passed into the compiler. It does not effect the resultant bytecode, but the compilation input is altered, leading to updated metadata and an updated metadata hash.
+**Note**: To update the metadata hash in production we use an additional library passed into the compiler. It does not affect the resultant bytecode, but the compilation input is altered, leading to updated metadata and an updated metadata hash.
 
 </Info>
 
@@ -159,7 +159,7 @@ An additional space in the source code can be used for the modification process.
 
 1. Compile the original contracts using data provided by the caller then compile those contracts again while passing in the additional library. The result is two slightly different `CreationTxInputs` if there is any encoded metadata.
 2. Separate the `MainPart` and the `MetadataPart`.
-   a. `MainPart` consists of consecutive bytes which are not related to the metadata hash (all bytes are the same for both local c\_reationTxInputs\_). `MetadataPart` consists of consecutive bytes related to metadata hash (some bytes differ between local c\_reationTxInputs\_).
+   a. `MainPart` consists of consecutive bytes which are not related to the metadata hash (all bytes are the same for both local *creationTxInputs*). `MetadataPart` consists of consecutive bytes related to metadata hash (some bytes differ between local *creationTxInputs*).
 3. Iterate through the two local contracts byte by byte to find the first byte that differs.
    a. If there are no such bytes, then there is no metadata hash and the whole *creationTxInput* consists of just one `MainPart`.
    b. If any differences are found, identify it as a hash section of the metadata hash.

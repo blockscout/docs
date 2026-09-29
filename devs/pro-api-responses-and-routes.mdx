@@ -26,11 +26,11 @@ Pass an API key using either:
 
 ## PRO API Response Headers
 
-The following information related to the PRO API plan are included in the response headers
+The following information related to the PRO API plan is included in the response headers
 
 - **x-credits-remaining:** Number of credits remaining in your plan. If on the free plan, this will reset daily, otherwise it is monthly. You can check additional details in the [PRO API UI](https://dev.blockscout.com/).
 - **x-ratelimit-limit:** Available RPS with your plan (can be -1 if there is an internal error)
-- **x-ratelimit-remaining:** Remaining rate limit based on your queries  (can be -1 if there is an internal error)
+- **x-ratelimit-remaining:** Remaining rate limit based on your queries (can be -1 if there is an internal error)
 - **x-ratelimit-reset:** time in milliseconds until the rate limit resets (can be -1 if there is an internal error)
 
 <Frame>
@@ -41,11 +41,11 @@ The following information related to the PRO API plan are included in the respon
 
 All current API routes can be used with the PRO Plan. See the PRO API Endpoints section to try example calls with your API key.
 
-The Route examples below use the Optimism chain (chain\_id=10). In Previous per-instance routes API keys are optional for the free tier, they are required for all tiers (including the free tier) of the PRO API.
+The Route examples below use the Optimism chain (chain\_id=10). In previous per-instance routes API keys are optional for the free tier, they are required for all tiers (including the free tier) of the PRO API.
 
-## **JSON PRC API v2 (compare to Etherscan PRO API)**
+## **JSON RPC API v2 (compare to Etherscan PRO API)**
 
-PRO API Route :
+PRO API Route:
 
 ```text wrap
 https://api.blockscout.com/v2/api?chain_id=10&module=block&action=eth_block_number&apikey=proapi_xxxxxxxx
@@ -134,6 +134,16 @@ Credit amounts vary based on resource usage for different calls. The number of c
 You can check your credits, top calls and overall usage in the dev portal dashboard at [https://dev.blockscout.com/](https://dev.blockscout.com/)
 
 Credits are consumed per API call. The **default cost is 20 credits** for any endpoint not listed below.
+
+- A request consumes credits once, no matter how many records the response contains. For example, a `txlist` call that returns 10,000 transactions costs the same as one that returns a single transaction.
+- Etherscan-compatible RPC calls (`?module=...&action=...`, such as `txlist` and `tokentx`) are not listed in the table below, so they use the default cost of 20 credits per call.
+
+## When credits run out
+
+- **Free plan:** the 100K credit allowance resets **daily**. Once it is exhausted, further requests are rejected until the daily reset. Requests are not automatically served at a lower rate limit. They fail instead.
+- **Paid plans:** the monthly credit allowance may continue into overage once exhausted, subject to your plan terms.
+
+Track remaining credits with the `x-credits-remaining` response header or the [developer portal dashboard](https://dev.blockscout.com/), and upgrade your plan if you regularly hit the cap.
 
 | Endpoint | Credits |
 | :-- | :-: |

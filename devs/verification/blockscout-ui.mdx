@@ -3,7 +3,7 @@ title: "Verify contracts using the Blockscout UI"
 description: "Verify Solidity and Vyper smart contracts directly from the Blockscout UI using seven input methods including flattened source, JSON, and Sourcify."
 ---
 
-Verification is available for both Solidity and Vyper contracts. **Currently, there are 7 different type of inputs you can use for verification using the Blockscout UI.**
+Verification is available for both Solidity and Vyper contracts. **Currently, there are 7 different types of inputs you can use for verification using the Blockscout UI.**
 
 <Info>
   👷🏻‍♂️ If preferred you can verify directly from your Hardhat or Foundry dev environment.
@@ -40,7 +40,7 @@ Verification is available for both Solidity and Vyper contracts. **Currently, th
 
 ### Solidity (Flattened source code)
 
-This verification method is recommended only for a single-file smart contract without any imports. For verification of contracts containing more that 1 file, a different verification method is recommended.
+This verification method is recommended only for a single-file smart contract without any imports. For verification of contracts containing more than 1 file, a different verification method is recommended.
 
 <Frame caption="">
   ![](/images/e5a4004d-image.jpeg)
@@ -65,7 +65,7 @@ This verification method is recommended only for a single-file smart contract wi
 
 1. **Include nightly builds**. You can choose **Yes** or **No** depending on your compiler.
 2. **Compiler.** Choose the compiler version used to compile your smart contract. If you selected yes for nightly builds, use the compiler version rather than the build.
-3. **Standard Input JSON.** Upload your Standard Input JSON file. File should follows solidity [format](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description) and all the sources must be in Literal Content format, not a URL.
+3. **Standard Input JSON.** Upload your Standard Input JSON file. File should follow solidity [format](https://docs.soliditylang.org/en/latest/using-the-compiler.html#input-description) and all the sources must be in Literal Content format, not a URL.
 
 Click the **Verify & publish** button and wait for the response.
 
@@ -93,7 +93,7 @@ See the information above.
 
 ## Troubleshooting
 
-If you receive the dreaded `There was an error compiling your contract` message this means the bytecode doesn't match the supplied sourcecode. Unfortunately, there are many reasons this may be the case. Here are a few things to try:
+If you receive the dreaded `There was an error compiling your contract` message this means the bytecode doesn't match the supplied source code. Unfortunately, there are many reasons this may be the case. Here are a few things to try:
 
 1) Double check the compiler version is correct.
 

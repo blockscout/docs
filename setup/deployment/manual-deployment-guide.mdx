@@ -47,8 +47,8 @@ For Erlang/Elixir, [asdf](https://asdf-vm.com/) is recommended to install and se
 | [Inotify-tools](https://github.com/rvoicilas/inotify-tools/wiki) | Not Required              | Ubuntu - `apt-get install inotify-tools`                                                                                                                        |
 | [GCC Compiler](https://gcc.gnu.org/)                             | `brew install gcc`        | [GCC Compiler Example](https://github.com/poanetwork/blockscout-terraform/blob/33f68e816e36dc2fb055911fa0372531f0e956e7/modules/stack/libexec/init.sh#L70)      |
 | [GMP](https://gmplib.org/)                                       | `brew install gmp`        | [Install GMP Devel](https://github.com/poanetwork/blockscout-terraform/blob/33f68e816e36dc2fb055911fa0372531f0e956e7/modules/stack/libexec/init.sh#L74)         |
-| Make                                                             | -                         | `sudo apt install make`if Debian 9                                                                                                                              |
-| G++ Compiler                                                     | -                         | `sudo apt install g++`if Debian 9                                                                                                                               |
+| Make                                                             | -                         | `sudo apt install make` if Debian 9                                                                                                                              |
+| G++ Compiler                                                     | -                         | `sudo apt install g++` if Debian 9                                                                                                                               |
 
 ## B. Manual Deployment
 
@@ -118,7 +118,7 @@ export DISPLAY_TOKEN_ICONS=true
 **Notes:**
 
 * The `ETHEREUM_JSONRPC_VARIANT` will vary depending on your client (nethermind, geth etc). [More information on client settings](/setup/requirements/client-settings).
-* If you're in production environment, please, set `MIX_ENV=prod`. The current default is `MIX_ENV=dev` which is a slower and less secure setting. However, for development purposes, unsetting or setting is `MIX_ENV=dev` is preferred.
+* If you're in production environment, please, set `MIX_ENV=prod`. The current default is `MIX_ENV=dev` which is a slower and less secure setting. However, for development purposes, unsetting or setting `MIX_ENV=dev` is preferred.
 * To configure "**My Account**" section on the backend, see [https://docs.blockscout.com/for-developers/configuration-options/my-account-settings](https://docs.blockscout.com/for-developers/configuration-options/my-account-settings)
 
 **8)** Compile the application:
@@ -152,7 +152,7 @@ If you are in dev environment and have run the application previously with a dif
 
 `cd apps/explorer && npm install; cd -`
 
-`12)` Build static assets for deployment
+**12)** Build static assets for deployment
 
 `mix phx.digest`
 
@@ -199,12 +199,12 @@ You will use Docker to run 4 Rust microservices: smart-contract verification, sm
 ### Stats
 
 * Stats will be served from [http://localhost:8080/](http://localhost:8080/)
-* You can check, that service works by requesting [http://localhost:8080/health?service=](http://localhost:8080/health?service=). It should return `{"status":"SERVING"}`
+* You can check that service works by requesting [http://localhost:8080/health?service=](http://localhost:8080/health?service=). It should return `{"status":"SERVING"}`
 
 ### sig-provider
 
 * sig-provider will be at [http://localhost:8083/](http://localhost:8083/)
-* You can check, that service works by requesting [http://localhost:8083/health?service=](http://localhost:8083/health?service=). It should return `{"status":"SERVING"}`
+* You can check that service works by requesting [http://localhost:8083/health?service=](http://localhost:8083/health?service=). It should return `{"status":"SERVING"}`
 
 ### Sc-visualizer
 

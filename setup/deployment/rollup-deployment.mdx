@@ -54,7 +54,7 @@ The rollup contract address is output during the contract deployment process (ch
 #### `INDEXER_ARBITRUM_L1_ROLLUP_INIT_BLOCK`
 
 <Tip>
-  You can also use the [Blockscout MCP](/devs/mcp-server) to find values for the `ROLLUP_INIT_BLOCK and RPC_HISTORICAL_BLOCKS_RANGE. `[See this example.](/devs/mcp-examples/rollup-deployment-variables)
+  You can also use the [Blockscout MCP](/devs/mcp-server) to find values for the `ROLLUP_INIT_BLOCK` and `RPC_HISTORICAL_BLOCKS_RANGE`. [See this example.](/devs/mcp-examples/rollup-deployment-variables)
 </Tip>
 
 Get this value using the block explorer for the settlement layer chain. Search the rollup contract address and find the transaction and block where the contract was deployed. Use that block number as the value for this env.
@@ -73,7 +73,7 @@ The RPC historical blocks range depends on the following factors:
 
 1. Block production rate for the settlement layer.
 2. L1 RPC node limits. Specifically, the maximum block range for the `eth_getLogs` operation is needed. This can be identified empirically or by contacting the node admin.
-3. Batch production rate for the rollup. To check this you will look at the `SequencerInbox` contract. To find the contract address, go the `Rollup` contract in the block explorer, go to read methods (or read proxy), and find the `SequencerInbox` method. This will display the address of the contract.
+3. Batch production rate for the rollup. To check this you will look at the `SequencerInbox` contract. To find the contract address, go to the `Rollup` contract in the block explorer, go to read methods (or read proxy), and find the `SequencerInbox` method. This will display the address of the contract.
 
 <Frame caption="Click contract and Read Contract (or read proxy depending on the contract type)">
   ![](/images/777f1bae-image.jpeg)
@@ -100,7 +100,7 @@ Tracking intervals depend on the block production rate on the settlement layer. 
 
 #### `INDEXER_ARBITRUM_ROLLUP_CHUNK_SIZE & INDEXER_ARBITRUM_L1_RPC_CHUNK_SIZE`
 
-Chunk sizes depend on the RPC nodes' rate limits. Larger chunks may cause rate limit errors and smaller chunks introduce additional network-related delays.`INDEXER_ARBITRUM_ROLLUP_CHUNK_SIZE` configures the chunk size for the rollup RPC node and`INDEXER_ARBITRUM_L1_RPC_CHUNK_SIZE` configures the chunk size for the settlement layer (L1) RPC node.
+Chunk sizes depend on the RPC nodes' rate limits. Larger chunks may cause rate limit errors and smaller chunks introduce additional network-related delays. `INDEXER_ARBITRUM_ROLLUP_CHUNK_SIZE` configures the chunk size for the rollup RPC node and `INDEXER_ARBITRUM_L1_RPC_CHUNK_SIZE` configures the chunk size for the settlement layer (L1) RPC node.
 
 #### `INDEXER_ARBITRUM_BATCHES_TRACKING_MESSAGES_TO_BLOCKS_SHIFT`
 
@@ -116,7 +116,7 @@ The default for these variables will not run the corresponding fetchers, so they
 
 ## Optimism
 
-Variables are linked below and supported with `CHAIN_TYPE=optimism.` Default values are set for many variables and typically do not need adjustment for common setups.
+Variables are linked below and supported with `CHAIN_TYPE=optimism`. Default values are set for many variables and typically do not need adjustment for common setups.
 
 <Info>
   Optimism environment variables are located here: https://docs.blockscout.com/setup/env-variables/backend-envs-chain-specific#optimism-rollup-management
@@ -184,4 +184,4 @@ Typically found in the [superchain registry](https://github.com/ethereum-optimis
 
 #### `INDEXER_OPTIMISM_L1_OUTPUT_ORACLE_CONTRACT`
 
-This contract's address can be found in chain's online docs. If there are no docs available, contact the chain for this information. This address is not needed (and can be omitted) for OP chains that started with the [FaultProofs upgrade](https://docs.optimism.io/stack/protocol/fault-proofs/explainer) activated from the genesis block.
+This contract's address can be found in the chain's online docs. If there are no docs available, contact the chain for this information. This address is not needed (and can be omitted) for OP chains that started with the [FaultProofs upgrade](https://docs.optimism.io/stack/protocol/fault-proofs/explainer) activated from the genesis block.

@@ -9,7 +9,7 @@ description: "Details on Blockscout's token metadata pipeline: aggregator data f
 
 ## Token metadata is added from 2 primary sources
 
-1. **Automated aggregators.** Blockscout queries CoinGecko and CoinMarketCap for exchange rate and market data. Projects submit an update request directly to CoinGecko, not to Blockscout. CoinGecko requires a Public Verification Post from an account tied to the project's official channels before reviewing listing or update requests. Turnaround is a few business days, or 24 hours with CoinGecko's paid Fast Pass. Blockscout displays the data that whCoinGecko returns.
+1. **Automated aggregators.** Blockscout queries CoinGecko and CoinMarketCap for exchange rate and market data. Projects submit an update request directly to CoinGecko, not to Blockscout. CoinGecko requires a Public Verification Post from an account tied to the project's official channels before reviewing listing or update requests. Turnaround is a few business days, or 24 hours with CoinGecko's paid Fast Pass. Blockscout displays the data that CoinGecko returns.
 2. **Manual submission**. Requires a Blockscout account and proof of token ownership. To submit, sign into your account and sign a message to prove ownership, then submit token details. Initial metadata is reviewed by Blockscout admins and added once it is checked. This info is not verified on an ongoing basis, however, so a website could change content later or a verified address could update information.
 
 ## Does Blockscout require contract verification before updating token info?
@@ -24,7 +24,7 @@ Blockscout follows the same logic through its **Verified Addresses** feature:
 
 The core difference from Etherscan: Blockscout's process runs per-instance (each Blockscout explorer instance handles its own verified addresses), and public tag requests are reviewed manually by the instance's team rather than through a centralized submissions queue.
 
-## What should a project do if their token info is wrong on Blockscout ?
+## What should a project do if their token info is wrong on Blockscout?
 
 - **If the token is tracked on CoinGecko: submit the correction directly to CoinGecko.** Blockscout will reflect it automatically once CoinGecko's data updates.
 - If the token isn't on CoinGecko, or the fix is logo/description/links: Update through the Blockscout interface.
