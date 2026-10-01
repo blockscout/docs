@@ -32,7 +32,7 @@ With this new service, our main goal was not just to return source codes for ver
 
 ## Solution - Ethereum Bytecode Database (Blockscout EBD)
 
-A solution can be found by mapping source codes directly to bytecodes. In this case, `chainId` and `contractAddress` are not needed, only the `bytecode`*-*`sourceCode` correspondence if required. This is similar to what [4bytes](https://www.4byte.directory/) or [sigEth](https://sig.eth.samczsun.com/) does. However, instead of looking for the function signature based on its identifier, we look for the contracts' source code based on its bytecode.
+A solution can be found by mapping source codes directly to bytecodes. In this case, `chainId` and `contractAddress` are not needed, only the `bytecode`*-*`sourceCode` correspondence is required. This is similar to what [4bytes](https://www.4byte.directory/) or [sigEth](https://sig.eth.samczsun.com/) does. However, instead of looking for the function signature based on its identifier, we look for the contracts' source code based on its bytecode.
 
 * **Current Approaches:** Chain → Contract Address → Sources
 
