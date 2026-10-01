@@ -121,7 +121,7 @@ L1 calls are infrequent and only triggered to confirm L1 state transitions sugge
 
 * L1 interaction is driven by the `BatchesStatusTracker`. This tracker performs periodic checks based on the `INDEXER_ZKSYNC_BATCHES_STATUS_RECHECK_INTERVAL` ENV variable setting.
 * Each check phase (`:check_committed`, `:check_proven`, `:check_executed`) *first* queries the L2 node via RPC (`zks_getL1BatchDetails`).
-* If (*and only if)* the L2 query indicates a new L1 transaction hash associated with a batch's status change (commit, prove, or execute), the corresponding L1 RPC method (`eth_getTransactionReceipt` or `eth_getTransactionByHash`) is called for that *specific* transaction hash.
+* If (*and only if*) the L2 query indicates a new L1 transaction hash associated with a batch's status change (commit, prove, or execute), the corresponding L1 RPC method (`eth_getTransactionReceipt` or `eth_getTransactionByHash`) is called for that *specific* transaction hash.
 
 ### L1 JSON-RPC method details
 
