@@ -12,7 +12,7 @@ An API is available for those running multiple explorers or users who prefer a p
 - **API Base URL**: The base URL for the Autoscout API is `https://autoscout.services.blockscout.com`
 
 <Tip>
-  The Autoscout API swagger file with all endpoints and usage notes is available at [<u>https://blockscout.github.io/swaggers/services/autoscout/main/index.html</u>](https://blockscout.github.io/swaggers/services/autoscout/main/index.html)
+  The Autoscout API swagger file with all endpoints and usage notes is available at [<u>https://blockscout.github.io/swaggers/services/autoscout/main/index.html</u>](https://blockscout.github.io/swaggers/services/autoscout/main/index.html). Here you will find setup options for flashblocks, interop and other available services.
 </Tip>
 
 # Create an Instance
@@ -261,7 +261,7 @@ curl -X POST https://autoscout.services.blockscout.com/api/v1/instances/your-ins
 
 # Stop an Instance
 
-Send a POST request to the **/api/v1/instances/{instance_id}/status:update** endpoint with the action "STOP".
+Send a POST request to the **/api/v1/instances/**{instance_id}**/status:update** endpoint with the action "STOP".
 
 <Warning>
   **Important Note**: Stopping an instance will result in all data being deleted. Ensure that you have backed up any necessary data before stopping the instance.
