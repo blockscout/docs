@@ -1,235 +1,520 @@
 ---
-title: "Endpoint Overview"
-description: "Blockscout RPC API endpoints grouped by module, using Etherscan-compatible module and action calls, plus the base URL and chain parameter to switch."
-icon:
-  name: "mountains"
-  style: "regular"
-  library: "fontawesome"
+title: "API quick reference"
+description: "Every Blockscout REST, RPC, ETH RPC and service endpoint at a glance: method, path or action, and a one-line description."
 ---
 
-Blockscout's RPC API follows the same `module` and `action` format as Etherscan's or Routescan's, meaning most Etherscan calls work after you change the base URL and the chain parameter. This page lists every available endpoint.
-
-<Note>
-  This page is currently under development, check back for more complete details.
-</Note>
-
-## Switch your requests
-
-If you are migrating to Blockscout, change the base URL. Then check specific calls to see about available paths.
-
-|  | Etherscan | Blockscout |
-| --- | --- | --- |
-| Base URL | `https://api.etherscan.io/v2/api` | `https://api.blockscout.com/v2/api` |
-| Chain parameter | `chainid=1` | `chain_id=1` |
-| API key | `apikey=YOUR_KEY` | `apikey=YOUR_KEY` or `Authorization: Bearer YOUR_KEY` |
-
-```text
-
-https://api.blockscout.com/v2/api?chain_id=1&module=account&action=balance&address=0x...&apikey=YOUR_KEY
-```
-
-<Card title="Get your PRO API key" icon="key" horizontal href="https://dev.blockscout.com" arrow="true">
-  Create a free key and make your first call in minutes.
-</Card>
-
-## How to read the tables
-
-| Status related to Etherscan | Meaning |
-| --- | --- |
-| **Supported** | Available with the same module and action, or an equivalent call, and a similar response. |
-| **Different** | Available, but the endpoint name, parameters or response format differ. |
-| **Not available** | No equivalent in the Blockscout APIs today. |
-| **Not applicable** | Specific to Ethereum proof of work or to Etherscan. |
-
-94 Etherscan endpoints: 40 supported, 33 different, 17 not available, 4 not applicable.
-
-Blockscout equivalents are shown as RPC (`module` and `action` on `https://api.blockscout.com/v2/api?chain_id={chain_id}`), REST (paths under `https://api.blockscout.com/{chain_id}/api/v2`), ETH RPC (`POST https://api.blockscout.com/{chain_id}/json-rpc`) and stats service (`https://api.blockscout.com/{chain_id}/stats-service/api/v1`).
-
-## Account
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| Get Native Balance for an Address | RPC: `module=account&action=balance`<br />REST: `/addresses/{address_hash}` | Supported | Balance in wei. |
-| Get Native Balance for Multiple Addresses | RPC: `module=account&action=balancemulti` | Supported | Up to 20 addresses per call. |
-| Get Historical Native Balance for an Address | RPC: `module=account&action=eth_get_balance&block={block_number}`<br />REST: `/addresses/{address_hash}/coin-balance-history` | Different | The RPC action returns a hex balance in JSON-RPC format. The REST endpoint lists balance changes over time. |
-| Get Normal Transactions By Address | RPC: `module=account&action=txlist`<br />REST: `/addresses/{address_hash}/transactions` | Supported | Up to 10,000 transactions per request. |
-| Normal Transactions Advanced Filter | REST: `/advanced-filters` | Different | REST only. Results mix transactions, internal transactions and token transfers; narrow them with `transaction_types`. |
-| Get ERC20 Token Transfers by Address | RPC: `module=account&action=tokentx`<br />REST: `/addresses/{address_hash}/token-transfers` | Supported |  |
-| ERC20 Token Transfers Advanced Filter | REST: `/advanced-filters` | Different | REST only. Results mix transactions, internal transactions and token transfers; narrow them with `transaction_types`. |
-| Get ERC721 Token Transfers by Address | RPC: `module=account&action=tokennfttx`<br />REST: `/addresses/{address_hash}/token-transfers` | Supported |  |
-| ERC721 Token Transfers Advanced Filter | REST: `/advanced-filters` | Different | REST only. Results mix transactions, internal transactions and token transfers; narrow them with `transaction_types`. |
-| Get ERC1155 Token Transfers by Address | RPC: `module=account&action=token1155tx`<br />REST: `/addresses/{address_hash}/token-transfers` | Supported |  |
-| ERC1155 Token Transfers Advanced Filter | REST: `/advanced-filters` | Different | REST only. Results mix transactions, internal transactions and token transfers; narrow them with `transaction_types`. |
-| Get Internal Transactions by Address | RPC: `module=account&action=txlistinternal`<br />REST: `/addresses/{address_hash}/internal-transactions` | Supported |  |
-| Internal Transactions Advanced Filter | REST: `/advanced-filters` | Different | REST only. Results mix transactions, internal transactions and token transfers; narrow them with `transaction_types`. |
-| Get Internal Transactions by Block Range | RPC: `module=account&action=txlistinternal&startblock={start}&endblock={end}`<br />REST: `/blocks/{block_number}/internal-transactions` | Supported | The REST endpoint covers a single block. |
-| Get Internal Transactions by Transaction Hash | RPC: `module=account&action=txlistinternal&txhash={tx_hash}`<br />REST: `/transactions/{transaction_hash}/internal-transactions` | Supported |  |
-| Get Blocks Validated by Address | RPC: `module=account&action=getminedblocks`<br />REST: `/addresses/{address_hash}/blocks-validated` | Supported |  |
-| Get Beacon Chain Withdrawals by Address | REST: `/addresses/{address_hash}/withdrawals` | Different | REST only. Also available per block (`/blocks/{block_number}/withdrawals`) and chain-wide (`/withdrawals`). |
-| Get Address Funded By | - | Not available |  |
-
-## Blocks
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| Get Block and Uncle Rewards by Block Number | RPC: `module=block&action=getblockreward&blockno={block_number}`<br />REST: `/blocks/{block_number}` | Supported |  |
-| Get Block Transaction Counts by Block Number | REST: `/blocks/{block_number}` | Different | REST only. Read `transactions_count` from the block. |
-| Get Estimated Block Countdown by Block Number | RPC: `module=block&action=getblockcountdown&blockno={block_number}`<br />REST: `/blocks/{block_number}/countdown` | Supported |  |
-| Get Block Number by Timestamp | RPC: `module=block&action=getblocknobytime&timestamp={unix_timestamp}&closest=before` | Supported |  |
-| Get Daily Average Block Size | Stats service: `lines/averageBlockSize` | Different | Stats service chart. List the charts available on a chain with `/{chain_id}/stats-service/api/v1/lines`. |
-| Get Daily Block Count and Rewards | Stats service: `lines/newBlocks`, `lines/averageBlockRewards` | Different | Stats service charts. |
-| Get Daily Block Rewards | Stats service: `lines/averageBlockRewards` | Different | The chart shows the average reward per block. |
-| Get Daily Average Block Time | - | Not available | The current average block time is returned by `/{chain_id}/api/v2/stats`. |
-| Get Daily Uncle Block Count and Rewards | - | Not applicable | Uncle blocks existed only under proof of work. |
-
-## Contracts
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| Get Contract ABI | RPC: `module=contract&action=getabi`<br />REST: `/smart-contracts/{address_hash}` | Supported |  |
-| Get Contract Source Code | RPC: `module=contract&action=getsourcecode`<br />REST: `/smart-contracts/{address_hash}` | Supported |  |
-| Get Contract Creator and Creation Tx Hash | RPC: `module=contract&action=getcontractcreation&contractaddresses={addresses}`<br />REST: `/addresses/{address_hash}` | Supported | The RPC action accepts up to 10 contracts per call. The REST response includes `creator_address_hash` and `creation_transaction_hash`. |
-
-## Contract Verification
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| Verify Solidity Source Code | RPC: `module=contract&action=verifysourcecode` | Supported | Accepts `solidity-single-file` or `solidity-standard-json-input` in `codeformat`. |
-| Verify zkSync Source Code | - | Not available | There is no separate action. |
-| Verify Vyper Source Code | RPC: `module=contract&action=verify_vyper_contract` | Different | Different action name. |
-| Verify Stylus Source Code | - | Not available | There is no separate action. |
-| Verify Proxy Contract | RPC: `module=contract&action=verifyproxycontract` | Supported |  |
-| Check Source Code Verification Status | RPC: `module=contract&action=checkverifystatus` | Supported |  |
-| Check Proxy Contract Verification Status | RPC: `module=contract&action=checkproxyverification` | Supported |  |
-
-## Gas Tracker
-
-Blockscout has no `gastracker` module. Gas prices are available through the REST API and the ETH RPC methods.
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| Get Estimation of Confirmation Time | - | Not available |  |
-| Get Gas Oracle | REST: `/stats`<br />ETH RPC: `eth_gasPrice` | Different | REST only: the `gas_prices` field returns slow, average and fast prices. |
-| Get Daily Average Gas Limit | Stats service: `lines/averageGasLimit` | Different | Stats service chart. |
-| Get Daily Total Gas Used | Stats service: `lines/gasUsedGrowth`, `lines/averageGasUsed` | Different | Closest available charts. |
-| Get Daily Average Gas Price | Stats service: `lines/averageGasPrice` | Different | Stats service chart. |
-
-## Geth/Parity Proxy
-
-Etherscan serves these as GET requests with `module=proxy`. Blockscout has no `proxy` module. Send a JSON-RPC 2.0 `POST` to `https://api.blockscout.com/{chain_id}/json-rpc` with the method name in the request body.
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| `eth_blockNumber` | ETH RPC: `eth_blockNumber` | Supported |  |
-| `eth_getBlockByNumber` | ETH RPC: `eth_getBlockByNumber` | Supported |  |
-| `eth_getUncleByBlockNumberAndIndex` | - | Not available |  |
-| `eth_getBlockTransactionCountByNumber` | REST: `/blocks/{block_number}` | Not available | Read `transactions_count` from the REST block endpoint instead. |
-| `eth_getTransactionByHash` | ETH RPC: `eth_getTransactionByHash` | Supported |  |
-| `eth_getTransactionByBlockNumberAndIndex` | - | Not available |  |
-| `eth_getTransactionCount` | ETH RPC: `eth_getTransactionCount` | Supported |  |
-| `eth_sendRawTransaction` | ETH RPC: `eth_sendRawTransaction` | Supported |  |
-| `eth_getTransactionReceipt` | ETH RPC: `eth_getTransactionReceipt` | Supported |  |
-| `eth_call` | ETH RPC: `eth_call` | Supported |  |
-| `eth_getCode` | ETH RPC: `eth_getCode` | Supported |  |
-| `eth_getStorageAt` | ETH RPC: `eth_getStorageAt` | Supported |  |
-| `eth_gasPrice` | ETH RPC: `eth_gasPrice` | Supported |  |
-| `eth_estimateGas` | ETH RPC: `eth_estimateGas` | Supported |  |
-
-## Logs
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| Get Event Logs by Address | RPC: `module=logs&action=getLogs&address={address}`<br />REST: `/addresses/{address_hash}/logs` | Supported | One `getLogs` action covers all three Etherscan log endpoints. |
-| Get Event Logs by Topics | RPC: `module=logs&action=getLogs&topic0={topic}` | Supported |  |
-| Get Event Logs by Address and Topics | RPC: `module=logs&action=getLogs&address={address}&topic0={topic}` | Supported | Combine topics with the `topicN_M_opr` parameters. |
-
-## Stats
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| Get Total Supply of Ether | RPC: `module=stats&action=ethsupply` | Supported | Blockscout calculates this from its own database, so the value can differ from Etherscan's. `ethsupplyexchange` returns a supply figure from market data. |
-| Get Total Supply of Ether 2 | - | Not available |  |
-| Get Ether Last Price | RPC: `module=stats&action=ethprice`<br />REST: `/stats` | Supported | `coinprice` returns the same data with chain-neutral field names. |
-| Get Ethereum Nodes Size | - | Not available | Specific to the Ethereum network. |
-| Get Total Nodes Count | - | Not available | Specific to the Ethereum network. |
-| Get Historical Total Nodes Count | - | Not available | Specific to the Ethereum network. |
-| Get Daily Network Transaction Fee | Stats service: `lines/txnsFee`, `lines/averageTxnFee`<br />RPC: `module=stats&action=totalfees&date={yyyy-mm-dd}` | Different | The RPC action returns one day per call. |
-| Get Daily New Address Count | Stats service: `lines/newAccounts` | Different | Stats service chart. |
-| Get Daily ENS Registration Count | - | Not available |  |
-| Get Daily Network Utilization | Stats service: `lines/networkUtilization` | Different | Stats service chart. |
-| Get Daily Average Network Hash Rate | - | Not applicable | Applies to Ethereum proof of work only. |
-| Get Daily Transaction Count | REST: `/stats/charts/transactions`<br />Stats service: `lines/newTxns` | Different |  |
-| Get Daily Average Network Difficulty | - | Not applicable | Applies to Ethereum proof of work only. |
-| Get Ether Historical Price | REST: `/stats/charts/market` | Different | Daily closing price and market cap. |
-
-## Transactions
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| Check Contract Execution Status | RPC: `module=transaction&action=getstatus&txhash={tx_hash}` | Supported |  |
-| Check Transaction Receipt Status | RPC: `module=transaction&action=gettxreceiptstatus&txhash={tx_hash}` | Supported |  |
-
-## Tokens
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| Get ERC20-Token TotalSupply by ContractAddress | RPC: `module=stats&action=tokensupply&contractaddress={token}`<br />REST: `/tokens/{address_hash}` | Supported |  |
-| Get Historical ERC20-Token TotalSupply by ContractAddress & BlockNo | - | Not available |  |
-| Get ERC20-Token Account Balance for TokenContractAddress | RPC: `module=account&action=tokenbalance&contractaddress={token}&address={address}` | Supported |  |
-| Get Historical ERC20-Token Account Balance by BlockNo | - | Not available |  |
-| Get Top Token Holders | RPC: `module=token&action=getTokenHolders&contractaddress={token}`<br />REST: `/tokens/{address_hash}/holders` | Different | Holders are returned sorted by balance. |
-| Get Token Holder List by Contract Address | RPC: `module=token&action=getTokenHolders&contractaddress={token}`<br />REST: `/tokens/{address_hash}/holders` | Different |  |
-| Get Token Holder Count by Contract Address | REST: `/tokens/{address_hash}/counters` | Different | REST only. Read `token_holders_count`. |
-| Get Token Info by ContractAddress | RPC: `module=token&action=getToken&contractaddress={token}`<br />REST: `/tokens/{address_hash}` | Different | Returns name, symbol, decimals, supply, price and icon. Project and social links are not included. |
-| Get Address ERC20 Token Holding | RPC: `module=account&action=tokenlist&address={address}`<br />REST: `/addresses/{address_hash}/token-balances` | Different |  |
-| Get Address ERC721 Token Holding | REST: `/addresses/{address_hash}/nft/collections` | Different | REST only. Returns NFTs grouped by collection. |
-| Get Address ERC721 Token Inventory by Contract | REST: `/addresses/{address_hash}/nft` | Different | Lists all NFTs the address owns. Filtering to a single contract is not supported. |
-
-## L2 Deposits/Withdrawals
-
-Blockscout exposes bridge activity through rollup-specific REST endpoints, listed under [Chain-Specific Endpoints](/devs/apis/endpoint-overview#chain-specific-endpoints).
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| Get Plasma Deposits by Address | - | Not available |  |
-| Get Deposit Transactions by Address | REST: `/optimism/deposits`, `/scroll/deposits`, `/arbitrum/messages/{direction}`, `/shibarium/deposits` | Different | Available on rollup chains. These endpoints list deposits for the chain and can't be filtered by address. |
-| Get Withdrawal Transactions by Address | REST: `/optimism/withdrawals`, `/scroll/withdrawals`, `/shibarium/withdrawals` | Different | Available on rollup chains. These endpoints list withdrawals for the chain and can't be filtered by address. |
-
-## ENS
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| Resolve an ENS Name to an Address | BENS service: `/services/bens/api/v1/{chain_id}/domains/{name}` | Different | The service also resolves an address to its ENS name. |
-
-## Nametags
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| Get Metadata for an Address | REST: `/addresses/{address_hash}`<br />Metadata service: `/services/metadata/api/v1/metadata` | Different | The address response includes `public_tags` and `metadata`. |
-
-## Usage
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| Get API Usage | - | Different | There is no usage endpoint. Every response includes `x-credits-remaining` and `x-ratelimit-*` headers. |
-| Chainlist | - | Not available | Find chain IDs in the [Chainscout chains list](/devs/chainscout-chains-list). |
-
-## Beta Endpoints
-
-| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
-| --- | --- | --- | --- |
-| Get Prediction Market Trades by Address | - | Not applicable | Specific to Etherscan. |
-
-## Available in Blockscout only
+A compact list of every Blockscout API endpoint. For parameters and example responses, see the API reference.
 
 <Info>
-  More details coming soon.
+  **Base URLs.** Replace `{chain_id}` with the chain's numeric ID (for example `1` for Ethereum).
+
+  - REST API: `https://api.blockscout.com/{chain_id}/api/v2`. REST paths are relative to it. Legacy routes show their full path after `https://api.blockscout.com/{chain_id}`.
+  - RPC API: `https://api.blockscout.com/v2/api?chain_id={chain_id}`. Add the `module` and `action` shown in the tables.
+  - ETH RPC API: `POST https://api.blockscout.com/{chain_id}/json-rpc` with a JSON-RPC 2.0 body. The method name goes in the `method` field.
+  - Services (name service, address metadata, multichain search, stats): `https://api.blockscout.com`. Service paths show their full path after it. Replace `{cluster_id}` with a cluster ID.
 </Info>
 
-Blockscout also provides endpoints with no Etherscan counterpart:
+<Tip>
+  Send your API key as the `apikey` query parameter or as an `Authorization: Bearer YOUR_KEY` header. REST list endpoints return `next_page_params`; pass those values back as query parameters to get the next page.
+</Tip>
 
-- **REST API:** transaction state changes, raw traces and summaries, NFT instance metadata and holders, address and token counters, search, CSV exports and advanced filters.
-- **Account abstraction (ERC-4337):** user operations, bundlers, paymasters and factories.
-- **Rollup data:** batches, deposits, withdrawals and messages for Arbitrum, Optimism, Scroll, zkSync and Shibarium.
-- **RPC extras:** `pendingtxlist`, `listaccounts`, `token404tx`, `listcontracts` and `gettxinfo`.
-- **Multichain search, name service and address metadata services.**
+175 REST endpoints, 43 RPC actions, 16 ETH RPC methods and 38 service endpoints.
+
+Endpoint names link to their API reference page where one exists.
+
+<Note>
+  Endpoints marked **(spec only)** come from the API specifications and have not been verified against a live API. Endpoints marked **(requires a logged-in account)** need an account session as well as an API key.
+</Note>
+
+## REST API
+
+### Blocks
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/blocks`](/api-reference/blocks/list-blocks-with-optional-filtering-by-block-type#list-blocks-with-optional-filtering-by-block-type) | get blocks |
+| **GET** | [`/blocks/{block_hash_or_number}`](/api-reference/blocks/retrieves-detailed-information-for-a-specific-block-identified-by-its-number-or-hash#retrieves-detailed-information-for-a-specific-block-identified-by-its-number-or-hash) | get block |
+| **GET** | [`/blocks/{block_hash_or_number}/internal-transactions`](/api-reference/blocks/list-internal-transactions-in-a-specific-block#list-internal-transactions-in-a-specific-block) | get block internal transactions |
+| **GET** | [`/blocks/{block_hash_or_number}/transactions`](/api-reference/blocks/list-transactions-and-tx-details-included-in-a-specific-block#list-transactions-and-tx-details-included-in-a-specific-block) | get block transactions |
+| **GET** | [`/blocks/{block_hash_or_number}/withdrawals`](/api-reference/blocks/list-validator-withdrawals-including-amounts-index-and-receiver-details-processed-in-a-specific-block#list-validator-withdrawals-including-amounts-index-and-receiver-details-processed-in-a-specific-block) | get block withdrawals |
+| **GET** | [`/blocks/{block_number}/countdown`](/api-reference/blocks/get-countdown-information-for-a-target-block-number#get-countdown-information-for-a-target-block-number) | get block countdown |
+
+### Transactions
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/transactions`](/api-reference/transactions/list-blockchain-transactions-with-filtering-options-for-status-type-and-method#list-blockchain-transactions-with-filtering-options-for-status-type-and-method) | get transactions |
+| **GET** | [`/transactions/stats`](/api-reference/transactions/get-transaction-statistics#get-transaction-statistics) | get transactions stats |
+| **GET** | [`/transactions/watchlist`](/api-reference/transactions/list-transactions-in-a-users-watchlist#list-transactions-in-a-users-watchlist) | get transactions watchlist (requires a logged-in account) |
+| **GET** | [`/transactions/{transaction_hash}`](/api-reference/transactions/retrieve-detailed-information-about-a-specific-transaction#retrieve-detailed-information-about-a-specific-transaction) | get transaction |
+| **GET** | [`/transactions/{transaction_hash}/internal-transactions`](/api-reference/transactions/list-internal-transactions-triggered-during-a-specific-transaction#list-internal-transactions-triggered-during-a-specific-transaction) | get transaction internal transactions |
+| **GET** | [`/transactions/{transaction_hash}/logs`](/api-reference/transactions/list-event-logs-emitted-during-a-specific-transaction#list-event-logs-emitted-during-a-specific-transaction) | get transaction logs |
+| **GET** | `/transactions/{transaction_hash}/preview` | get transaction preview (spec only) (new in v12) |
+| **GET** | [`/transactions/{transaction_hash}/raw-trace`](/api-reference/transactions/get-step-by-step-execution-trace-for-a-specific-transaction#get-step-by-step-execution-trace-for-a-specific-transaction) | get transaction raw trace |
+| **GET** | [`/transactions/{transaction_hash}/state-changes`](/api-reference/transactions/get-on-chain-state-changes-caused-by-a-specific-transaction#get-on-chain-state-changes-caused-by-a-specific-transaction) | get transaction state changes |
+| **GET** | [`/transactions/{transaction_hash}/summary`](/api-reference/transactions/get-a-human-readable-llm-based-transaction-summary#get-a-human-readable-llm-based-transaction-summary) | get transaction summary |
+| **GET** | [`/transactions/{transaction_hash}/token-transfers`](/api-reference/transactions/list-token-transfers-within-a-specific-transaction#list-token-transfers-within-a-specific-transaction) | get transaction token transfers |
+
+### Addresses
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/addresses`](/api-reference/addresses/list-addresses-holding-native-coins-sorted-by-balance--top-accounts#list-addresses-holding-native-coins-sorted-by-balance--top-accounts) | get addresses |
+| **GET** | [`/addresses/{address_hash}`](/api-reference/addresses/retrieve-detailed-information-about-a-specific-address-or-contract#retrieve-detailed-information-about-a-specific-address-or-contract) | get address |
+| **GET** | [`/addresses/{address_hash}/blocks-validated`](/api-reference/addresses/list-blocks-validated-mined-by-a-specific-validatorminer-address#list-blocks-validated-mined-by-a-specific-validatorminer-address) | get address blocks validated |
+| **GET** | [`/addresses/{address_hash}/coin-balance-history`](/api-reference/addresses/get-native-coin-balance-history-for-an-address-showing-all-balance-changes#get-native-coin-balance-history-for-an-address-showing-all-balance-changes) | get address coin balance history |
+| **GET** | [`/addresses/{address_hash}/coin-balance-history-by-day`](/api-reference/addresses/get-daily-native-coin-balance-snapshots-for-an-address-from-previous-10-days#get-daily-native-coin-balance-snapshots-for-an-address-from-previous-10-days) | get address coin balance history by day |
+| **GET** | [`/addresses/{address_hash}/counters`](/api-reference/addresses/get-activity-count-stats-for-a-specific-address#get-activity-count-stats-for-a-specific-address) | get address counters |
+| **GET** | [`/addresses/{address_hash}/internal-transactions`](/api-reference/addresses/list-all-internal-transactions-involving-a-specific-address#list-all-internal-transactions-involving-a-specific-address) | get address internal transactions |
+| **GET** | [`/addresses/{address_hash}/internal-transactions/csv`](/api-reference/addresses/export-internal-transactions-as-csv#export-internal-transactions-as-csv) | export address internal transactions csv |
+| **GET** | [`/addresses/{address_hash}/logs`](/api-reference/addresses/list-event-logs-emitted-by-or-involving-a-specific-address#list-event-logs-emitted-by-or-involving-a-specific-address) | get address logs |
+| **GET** | [`/addresses/{address_hash}/logs/csv`](/api-reference/addresses/export-logs-as-csv#export-logs-as-csv) | export address logs csv |
+| **GET** | [`/addresses/{address_hash}/nft`](/api-reference/addresses/list-nfts-owned-by-a-specific-address-with-optional-type-filtering#list-nfts-owned-by-a-specific-address-with-optional-type-filtering) | get address nft |
+| **GET** | [`/addresses/{address_hash}/nft/collections`](/api-reference/addresses/list-nfts-owned-by-an-address-grouped-by-collectionproject#list-nfts-owned-by-an-address-grouped-by-collectionproject) | get address nft collections |
+| **GET** | [`/addresses/{address_hash}/tabs-counters`](/api-reference/addresses/get-counters-for-address-tabs#get-counters-for-address-tabs) | get address tabs counters |
+| **GET** | [`/addresses/{address_hash}/token-balances`](/api-reference/addresses/list-all-token-balances-held-by-a-specific-address#list-all-token-balances-held-by-a-specific-address) | get address token balances |
+| **GET** | [`/addresses/{address_hash}/token-transfers`](/api-reference/addresses/list-token-transfers-involving-a-specific-address-with-filtering-options#list-token-transfers-involving-a-specific-address-with-filtering-options) | get address token transfers |
+| **GET** | [`/addresses/{address_hash}/token-transfers/csv`](/api-reference/addresses/export-token-transfers-as-csv#export-token-transfers-as-csv) | export address token transfers csv |
+| **GET** | [`/addresses/{address_hash}/tokens`](/api-reference/addresses/list-token-balances-for-an-address-with-pagination-and-type-filtering#list-token-balances-for-an-address-with-pagination-and-type-filtering) | get address tokens |
+| **GET** | [`/addresses/{address_hash}/transactions`](/api-reference/addresses/list-transactions-involving-a-specific-address-with-to-from-filtering#list-transactions-involving-a-specific-address-with-to-from-filtering) | get address transactions |
+| **GET** | [`/addresses/{address_hash}/transactions/csv`](/api-reference/addresses/export-transactions-as-csv#export-transactions-as-csv) | export address transactions csv |
+| **GET** | [`/addresses/{address_hash}/withdrawals`](/api-reference/addresses/list-validator-withdrawals-involving-a-specific-address#list-validator-withdrawals-involving-a-specific-address) | get address withdrawals |
+
+### Internal transactions
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/internal-transactions`](/api-reference/internal-transactions/list-internal-transactions-generated-during-smart-contract-execution#list-internal-transactions-generated-during-smart-contract-execution) | get internal transactions |
+
+### Token transfers
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/token-transfers`](/api-reference/token-transfers/list-token-transfers-across-all-token-types-erc-20-erc-721-erc-1155#list-token-transfers-across-all-token-types-erc-20-erc-721-erc-1155) | get token transfers |
+
+### Tokens
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/tokens`](/api-reference/tokens/list-tokens-with-optional-filtering-by-name-symbol-or-type#list-tokens-with-optional-filtering-by-name-symbol-or-type) | get tokens |
+| **POST** | `/tokens/batch` | get tokens by address (batch) (spec only) (new in v12) |
+| **GET** | [`/tokens/{address_hash}`](/api-reference/tokens/retrieve-detailed-information-about-a-specific-token#retrieve-detailed-information-about-a-specific-token) | get token |
+| **GET** | [`/tokens/{address_hash}/counters`](/api-reference/tokens/get-holder-and-transfer-count-statistics-for-a-specific-token#get-holder-and-transfer-count-statistics-for-a-specific-token) | get token counters |
+| **GET** | [`/tokens/{address_hash}/holders`](/api-reference/tokens/list-addresses-holding-a-specific-token-sorted-by-balance#list-addresses-holding-a-specific-token-sorted-by-balance) | get token holders |
+| **GET** | [`/tokens/{address_hash}/holders/csv`](/api-reference/tokens/export-token-holders-as-csv#export-token-holders-as-csv) | export token holders csv |
+| **GET** | [`/tokens/{address_hash}/instances`](/api-reference/tokens/list-individual-nft-instances-for-a-token-contract#list-individual-nft-instances-for-a-token-contract) | get token instances |
+| **PATCH** | `/tokens/{address_hash}/instances/refetch-metadata` | refetch collection metadata (spec only) (new in v12) |
+| **GET** | [`/tokens/{address_hash}/instances/{token_id}`](/api-reference/tokens/retrieve-detailed-information-about-a-specific-nft#retrieve-detailed-information-about-a-specific-nft) | get token instance |
+| **GET** | [`/tokens/{address_hash}/instances/{token_id}/holders`](/api-reference/tokens/list-current-holders-of-a-specific-nft#list-current-holders-of-a-specific-nft) | get token instance holders |
+| **GET** | [`/tokens/{address_hash}/instances/{token_id}/media-type`](/api-reference/tokens/fetch-media-type-for-a-specific-nft-instance#fetch-media-type-for-a-specific-nft-instance) | get token instance media type (spec only) |
+| **PATCH** | `/tokens/{address_hash}/instances/{token_id}/refetch-metadata` | refetch NFT metadata (spec only) (new in v12) |
+| **GET** | [`/tokens/{address_hash}/instances/{token_id}/transfers`](/api-reference/tokens/list-token-transfers-for-a-specific-token-instance#list-token-transfers-for-a-specific-token-instance) | get token instance transfers |
+| **GET** | [`/tokens/{address_hash}/instances/{token_id}/transfers-count`](/api-reference/tokens/get-total-number-of-ownership-transfers-for-a-specific-nft#get-total-number-of-ownership-transfers-for-a-specific-nft) | get token instance transfers count |
+| **GET** | [`/tokens/{address_hash}/transfers`](/api-reference/tokens/list-ownership-transfer-history-for-a-specific-nft#list-ownership-transfer-history-for-a-specific-nft) | get token transfers |
+| **GET** | [`/tokens/{address_hash}/transfers/csv`](/api-reference/tokens/export-token-transfers-as-csv#export-token-transfers-as-csv) | export token transfers csv (spec only) |
+| **GET** | `/tokens/{address_hash}/ui-multiplier-changes` | get token ui multiplier changes (spec only) (new in v12) |
+
+### Smart contracts
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/smart-contracts`](/api-reference/smart-contracts/list-verified-smart-contracts-with-optional-filtering-options#list-verified-smart-contracts-with-optional-filtering-options) | get smart contracts |
+| **GET** | [`/smart-contracts/counters`](/api-reference/smart-contracts/get-count-statistics-new-&-newly-verified-for-deployed-smart-contracts#get-count-statistics-new-&-newly-verified-for-deployed-smart-contracts) | get smart contracts counters |
+| **GET** | [`/smart-contracts/{address_hash}`](/api-reference/smart-contracts/retrieve-detailed-information-about-a-verified-smart-contract#retrieve-detailed-information-about-a-verified-smart-contract) | get smart contract |
+| **GET** | [`/smart-contracts/{address_hash}/audit-reports`](/api-reference/smart-contracts/audit-reports-list#audit-reports-list) | get smart contract audit reports (spec only) |
+| **POST** | `/smart-contracts/{address_hash}/audit-reports` | submit audit report (spec only) (new in v12) |
+
+### Search
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/search`](/api-reference/search/search-for-tokens-addresses-contracts-blocks-or-transactions-by-identifier-1#search-for-tokens-addresses-contracts-blocks-or-transactions-by-identifier-1) | search |
+| **GET** | [`/search/check-redirect`](/api-reference/search/check-if-search-query-should-redirect-to-a-specific-entity-page#check-if-search-query-should-redirect-to-a-specific-entity-page) | search redirect |
+| **GET** | [`/search/quick`](/api-reference/search/quick-unpaginated-search#quick-unpaginated-search) | quick search |
+
+### Stats
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/stats`](/api-reference/stats/retrieve-blockchain-network-statistics-and-metrics#retrieve-blockchain-network-statistics-and-metrics) | get stats counters |
+| **GET** | [`/stats/charts/market`](/api-reference/stats/get-daily-closing-price-and-market-cap-for-native-coin#get-daily-closing-price-and-market-cap-for-native-coin) | get stats charts market |
+| **GET** | [`/stats/charts/secondary-coin-market`](/api-reference/stats/secondary-coin-market-history-chart-data#secondary-coin-market-history-chart-data) | get stats charts secondary coin market |
+| **GET** | [`/stats/charts/transactions`](/api-reference/stats/get-daily-transaction-counts#get-daily-transaction-counts) | get stats charts transactions |
+| **GET** | [`/stats/hot-smart-contracts`](/api-reference/stats/retrieve-hot-smart-contracts#retrieve-hot-smart-contracts) | get stats hot smart contracts |
+
+### Main page
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/main-page/blocks`](/api-reference/main-page/retrieve-recent-blocks-as-displayed-on-blockscout-homepage#retrieve-recent-blocks-as-displayed-on-blockscout-homepage) | get main page blocks |
+| **GET** | [`/main-page/indexing-status`](/api-reference/main-page/check-if-indexing-is-finished-with-indexing-ratio#check-if-indexing-is-finished-with-indexing-ratio) | get indexing status |
+| **GET** | [`/main-page/transactions`](/api-reference/main-page/retrieve-recent-transactions-as-displayed-on-blockscout-homepage#retrieve-recent-transactions-as-displayed-on-blockscout-homepage) | get main page transactions |
+| **GET** | [`/main-page/transactions/watchlist`](/api-reference/main-page/last-6-transactions-from-the-current-users-watchlist#last-6-transactions-from-the-current-users-watchlist) | get main page transactions watchlist (requires a logged-in account) |
+
+### Advanced filters
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/advanced-filters`](/api-reference/advanced-filters/list-transactions-internal-transactions-and-token-transfers-matching-the-advanced-filter-criteria#list-transactions-internal-transactions-and-token-transfers-matching-the-advanced-filter-criteria) | get advanced filters |
+| **GET** | [`/advanced-filters/csv`](/api-reference/advanced-filters/export-advanced-filter-results-as-csv#export-advanced-filter-results-as-csv) | export advanced filters csv |
+| **GET** | [`/advanced-filters/methods`](/api-reference/advanced-filters/list-known-contract-methods#list-known-contract-methods) | get advanced filters methods |
+
+### CSV exports
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/csv-exports/{uuid}`](/api-reference/csv-export/get-csv-export#get-csv-export) | get csv export (spec only) |
+
+### Withdrawals
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/withdrawals`](/api-reference/withdrawals/list-validator-withdrawal-details-on-proof-of-stake-networks#list-validator-withdrawal-details-on-proof-of-stake-networks) | get withdrawals |
+| **GET** | [`/withdrawals/counters`](/api-reference/withdrawals/withdrawals-counters#withdrawals-counters) | get withdrawals counters |
+
+### Config
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | `/config/backend` | get config backend (spec only) (new in v12) |
+| **GET** | `/config/backend-version` | get config backend version (spec only) (new in v12) |
+| **GET** | `/config/csv-export` | get config csv export (spec only) (new in v12) |
+| **GET** | `/config/db-background-migrations` | get config db background migrations (spec only) (new in v12) |
+| **GET** | `/config/indexer` | get config indexer (spec only) (new in v12) |
+| **GET** | `/config/public-metrics` | get config public metrics (spec only) (new in v12) |
+| **GET** | `/config/smart-contracts/languages` | get config smart contracts languages (spec only) (new in v12) |
+
+### Chain-specific endpoints
+
+These endpoints only exist on chains of the matching type, or where the feature is enabled. On other chains they return a 404 or an empty result.
+
+#### Account Abstraction (ERC-4337)
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/proxy/account-abstraction/accounts`](/api-reference/account-abstraction/list-of-account-abstraction-wallets#list-of-account-abstraction-wallets) | get proxy account abstraction accounts |
+| **GET** | [`/proxy/account-abstraction/accounts/{address_hash}`](/api-reference/account-abstraction/get-an-account-abstraction-wallet-by-address-hash#get-an-account-abstraction-wallet-by-address-hash) | get proxy account abstraction account |
+| **GET** | [`/proxy/account-abstraction/bundlers`](/api-reference/account-abstraction/list-of-top-bundlers#list-of-top-bundlers) | get proxy account abstraction bundlers (spec only) |
+| **GET** | [`/proxy/account-abstraction/bundlers/{address_hash}`](/api-reference/account-abstraction/get-a-bundler-by-address-hash#get-a-bundler-by-address-hash) | get proxy account abstraction bundler (spec only) |
+| **GET** | [`/proxy/account-abstraction/bundles`](/api-reference/account-abstraction/list-of-recent-bundles#list-of-recent-bundles) | get proxy account abstraction bundles |
+| **GET** | [`/proxy/account-abstraction/factories`](/api-reference/account-abstraction/list-of-top-wallet-factories#list-of-top-wallet-factories) | get proxy account abstraction factories (spec only) |
+| **GET** | [`/proxy/account-abstraction/factories/{address_hash}`](/api-reference/account-abstraction/get-a-factory-by-address-hash#get-a-factory-by-address-hash) | get proxy account abstraction factory (spec only) |
+| **GET** | [`/proxy/account-abstraction/operations`](/api-reference/account-abstraction/list-of-recent-user-operations#list-of-recent-user-operations) | get proxy account abstraction operations |
+| **GET** | [`/proxy/account-abstraction/operations/{operation_hash}`](/api-reference/account-abstraction/get-a-user-operation-by-hash#get-a-user-operation-by-hash) | get proxy account abstraction operation |
+| **GET** | [`/proxy/account-abstraction/operations/{operation_hash}/summary`](/api-reference/account-abstraction/get-a-human-readable-llm-based-user-operation-summary#get-a-human-readable-llm-based-user-operation-summary) | get proxy account abstraction operation summary |
+| **GET** | [`/proxy/account-abstraction/paymasters`](/api-reference/account-abstraction/list-of-top-paymasters#list-of-top-paymasters) | get proxy account abstraction paymasters (spec only) |
+| **GET** | [`/proxy/account-abstraction/paymasters/{address_hash}`](/api-reference/account-abstraction/get-a-paymaster-by-address-hash#get-a-paymaster-by-address-hash) | get proxy account abstraction paymaster (spec only) |
+| **GET** | [`/proxy/account-abstraction/status`](/api-reference/account-abstraction/get-the-status-of-the-account-abstraction-microservice#get-the-status-of-the-account-abstraction-microservice) | get proxy account abstraction status |
+
+#### Ethereum (beacon chain and blobs)
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/addresses/{address_hash}/beacon/deposits`](/api-reference/addresses/list-beacon-deposits-for-a-specific-address#list-beacon-deposits-for-a-specific-address) | get address beacon deposits |
+| **GET** | [`/beacon/deposits`](/api-reference/beacon_deposits/lists-all-beacon-deposits#lists-all-beacon-deposits) | get beacon deposits |
+| **GET** | [`/beacon/deposits/count`](/api-reference/beacon_deposits/gets-total-count-of-beacon-deposits#gets-total-count-of-beacon-deposits) | get beacon deposits count |
+| **GET** | [`/blocks/{block_hash_or_number}/beacon/deposits`](/api-reference/blocks/list-beacon-deposits-in-a-specific-block#list-beacon-deposits-in-a-specific-block) | get block beacon deposits |
+| **GET** | [`/transactions/{transaction_hash}/beacon/deposits`](/api-reference/transactions/list-beacon-deposits-in-a-transaction#list-beacon-deposits-in-a-transaction) | get transaction beacon deposits |
+| **GET** | [`/transactions/{transaction_hash}/blobs`](/api-reference/transactions/list-blobs-for-a-transaction#list-blobs-for-a-transaction) | get transaction blobs |
+
+#### Arbitrum
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/arbitrum/batches`](/api-reference/arbitrum/list-batches#list-batches) | get arbitrum batches (spec only) |
+| **GET** | [`/arbitrum/batches/count`](/api-reference/arbitrum/get-batches-count#get-batches-count) | get arbitrum batches count (spec only) |
+| **GET** | [`/arbitrum/batches/da/anytrust/{data_hash}`](/api-reference/arbitrum/get-batch-by-anytrust-data-hash#get-batch-by-anytrust-data-hash) | get arbitrum batches da anytrust (spec only) |
+| **GET** | [`/arbitrum/batches/da/celestia/{height}/{transaction_commitment}`](/api-reference/arbitrum/get-batch-by-celestia-blob-reference#get-batch-by-celestia-blob-reference) | get arbitrum batches da celestia (spec only) |
+| **GET** | [`/arbitrum/batches/da/eigenda/{data_hash}`](/api-reference/arbitrum/get-batch-by-eigenda-data-hash#get-batch-by-eigenda-data-hash) | get arbitrum batches da eigenda (spec only) |
+| **GET** | [`/arbitrum/batches/{batch_number}`](/api-reference/arbitrum/get-batch-by-number#get-batch-by-number) | get arbitrum batch (spec only) |
+| **GET** | [`/arbitrum/messages/claim/{message_id}`](/api-reference/arbitrum/get-claim-data-for-a-withdrawal#get-claim-data-for-a-withdrawal) | get arbitrum messages claim (spec only) |
+| **GET** | [`/arbitrum/messages/withdrawals/{transaction_hash}`](/api-reference/arbitrum/get-withdrawal-messages-for-a-transaction#get-withdrawal-messages-for-a-transaction) | get arbitrum messages withdrawal (spec only) |
+| **GET** | [`/arbitrum/messages/{direction}`](/api-reference/arbitrum/list-cross-chain-messages#list-cross-chain-messages) | get arbitrum message (spec only) |
+| **GET** | [`/arbitrum/messages/{direction}/count`](/api-reference/arbitrum/get-cross-chain-messages-count#get-cross-chain-messages-count) | get arbitrum message count (spec only) |
+| **GET** | [`/blocks/arbitrum-batch/{batch_number}`](/api-reference/blocks/list-l2-blocks-in-an-arbitrum-batch#list-l2-blocks-in-an-arbitrum-batch) | get blocks arbitrum batch (spec only) |
+| **GET** | [`/main-page/arbitrum/batches/committed`](/api-reference/arbitrum/list-committed-batches-on-the-main-page#list-committed-batches-on-the-main-page) | get main page arbitrum batches committed (spec only) |
+| **GET** | [`/main-page/arbitrum/batches/latest-number`](/api-reference/arbitrum/get-the-latest-batch-number#get-the-latest-batch-number) | get main page arbitrum batches latest number (spec only) |
+| **GET** | [`/main-page/arbitrum/messages/to-rollup`](/api-reference/arbitrum/list-recent-parent-chain-to-rollup-messages-on-the-main-page#list-recent-parent-chain-to-rollup-messages-on-the-main-page) | get main page arbitrum messages to rollup (spec only) |
+| **GET** | [`/transactions/arbitrum-batch/{batch_number}`](/api-reference/transactions/list-l2-transactions-in-an-arbitrum-batch#list-l2-transactions-in-an-arbitrum-batch) | get transactions arbitrum batch (spec only) |
+
+#### Optimism
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/blocks/optimism-batch/{batch_number}`](/api-reference/blocks/list-l2-blocks-in-an-optimism-batch#list-l2-blocks-in-an-optimism-batch) | get blocks optimism batch (spec only) |
+| **GET** | [`/main-page/optimism-deposits`](/api-reference/optimism/list-deposits-on-the-main-page#list-deposits-on-the-main-page) | get main page optimism deposits (spec only) |
+| **GET** | [`/optimism/batches`](/api-reference/optimism/list-batches#list-batches) | get optimism batches (spec only) |
+| **GET** | [`/optimism/batches/count`](/api-reference/optimism/number-of-batches-in-the-list#number-of-batches-in-the-list) | get optimism batches count (spec only) |
+| **GET** | [`/optimism/batches/da/celestia/{height}/{commitment}`](/api-reference/optimism/batch-by-celestia-blob#batch-by-celestia-blob) | get optimism batches da celestia (spec only) |
+| **GET** | [`/optimism/batches/{number}`](/api-reference/optimism/batch-by-its-number#batch-by-its-number) | get optimism batch (spec only) |
+| **GET** | [`/optimism/deposits`](/api-reference/optimism/list-deposits#list-deposits) | get optimism deposits (spec only) |
+| **GET** | [`/optimism/deposits/count`](/api-reference/optimism/number-of-deposits-in-the-list#number-of-deposits-in-the-list) | get optimism deposits count (spec only) |
+| **GET** | [`/optimism/games`](/api-reference/optimism/list-games#list-games) | get optimism games (spec only) |
+| **GET** | [`/optimism/games/count`](/api-reference/optimism/number-of-games-in-the-list#number-of-games-in-the-list) | get optimism games count (spec only) |
+| **GET** | [`/optimism/output-roots`](/api-reference/optimism/list-output-roots#list-output-roots) | get optimism output roots (spec only) |
+| **GET** | [`/optimism/output-roots/count`](/api-reference/optimism/number-of-output-roots-in-the-list#number-of-output-roots-in-the-list) | get optimism output roots count (spec only) |
+| **GET** | [`/optimism/withdrawals`](/api-reference/optimism/list-withdrawals#list-withdrawals) | get optimism withdrawals (spec only) |
+| **GET** | [`/optimism/withdrawals/count`](/api-reference/optimism/number-of-withdrawals-in-the-list#number-of-withdrawals-in-the-list) | get optimism withdrawals count (spec only) |
+| **GET** | [`/transactions/optimism-batch/{batch_number}`](/api-reference/transactions/list-l2-transactions-in-an-optimism-batch#list-l2-transactions-in-an-optimism-batch) | get transactions optimism batch (spec only) |
+
+#### Scroll
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/blocks/scroll-batch/{batch_number}`](/api-reference/blocks/list-l2-blocks-in-a-scroll-batch#list-l2-blocks-in-a-scroll-batch) | get blocks scroll batch (spec only) |
+| **GET** | [`/scroll/batches`](/api-reference/scroll/list-batches#list-batches) | get scroll batches (spec only) |
+| **GET** | [`/scroll/batches/count`](/api-reference/scroll/number-of-batches-in-the-list#number-of-batches-in-the-list) | get scroll batches count (spec only) |
+| **GET** | [`/scroll/batches/{number}`](/api-reference/scroll/batch-by-its-number#batch-by-its-number) | get scroll batch (spec only) |
+| **GET** | [`/scroll/deposits`](/api-reference/scroll/list-deposits#list-deposits) | get scroll deposits (spec only) |
+| **GET** | [`/scroll/deposits/count`](/api-reference/scroll/number-of-deposits-in-the-list#number-of-deposits-in-the-list) | get scroll deposits count (spec only) |
+| **GET** | [`/scroll/withdrawals`](/api-reference/scroll/list-withdrawals#list-withdrawals) | get scroll withdrawals (spec only) |
+| **GET** | [`/scroll/withdrawals/count`](/api-reference/scroll/number-of-withdrawals-in-the-list#number-of-withdrawals-in-the-list) | get scroll withdrawals count (spec only) |
+| **GET** | [`/transactions/scroll-batch/{batch_number}`](/api-reference/transactions/list-l2-transactions-in-a-scroll-batch#list-l2-transactions-in-a-scroll-batch) | get transactions scroll batch (spec only) |
+
+#### zkSync
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/main-page/zksync/batches/confirmed`](/api-reference/zksync/list-confirmed-batches-on-the-main-page#list-confirmed-batches-on-the-main-page) | get main page zksync batches confirmed (spec only) |
+| **GET** | [`/main-page/zksync/batches/latest-number`](/api-reference/zksync/get-the-latest-batch-number#get-the-latest-batch-number) | get main page zksync batches latest number (spec only) |
+| **GET** | [`/transactions/zksync-batch/{batch_number}`](/api-reference/transactions/list-l2-transactions-in-a-zksync-batch#list-l2-transactions-in-a-zksync-batch) | get transactions zksync batch (spec only) |
+| **GET** | [`/zksync/batches`](/api-reference/zksync/list-batches#list-batches) | get zksync batches (spec only) |
+| **GET** | [`/zksync/batches/count`](/api-reference/zksync/get-batches-count#get-batches-count) | get zksync batches count (spec only) |
+| **GET** | [`/zksync/batches/{batch_number}`](/api-reference/zksync/get-batch-by-number#get-batch-by-number) | get zksync batch (spec only) |
+
+#### Shibarium
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/shibarium/deposits`](/api-reference/shibarium/list-shibarium-deposits#list-shibarium-deposits) | get shibarium deposits (spec only) |
+| **GET** | [`/shibarium/deposits/count`](/api-reference/shibarium/number-of-shibarium-deposits#number-of-shibarium-deposits) | get shibarium deposits count (spec only) |
+| **GET** | [`/shibarium/withdrawals`](/api-reference/shibarium/list-shibarium-withdrawals#list-shibarium-withdrawals) | get shibarium withdrawals (spec only) |
+| **GET** | [`/shibarium/withdrawals/count`](/api-reference/shibarium/number-of-shibarium-withdrawals#number-of-shibarium-withdrawals) | get shibarium withdrawals count (spec only) |
+
+#### Celo
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/addresses/{address_hash}/celo/election-rewards`](/api-reference/addresses/list-celo-election-rewards-for-a-specific-address#list-celo-election-rewards-for-a-specific-address) | get address celo election rewards (spec only) |
+| **GET** | [`/addresses/{address_hash}/celo/election-rewards/csv`](/api-reference/addresses/export-celo-election-rewards-as-csv#export-celo-election-rewards-as-csv) | export address celo election rewards csv (spec only) |
+| **GET** | [`/celo/epochs`](/api-reference/celo/list-celo-epochs#list-celo-epochs) | get celo epochs (spec only) |
+| **GET** | [`/celo/epochs/{number}`](/api-reference/celo/get-celo-epoch-details#get-celo-epoch-details) | get celo epoch (spec only) |
+| **GET** | [`/celo/epochs/{number}/election-rewards/{type}`](/api-reference/celo/list-celo-epoch-election-rewards#list-celo-epoch-election-rewards) | get celo epoch election reward (spec only) |
+| **GET** | `/config/celo` | get config celo (spec only) (new in v12) |
+
+#### Stability
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/validators/stability`](/api-reference/stability/list-stability-validators#list-stability-validators) | get validators stability (spec only) |
+| **GET** | [`/validators/stability/counters`](/api-reference/stability/get-stability-validators-counters#get-stability-validators-counters) | get validators stability counters (spec only) |
+
+#### Zilliqa
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/validators/zilliqa`](/api-reference/zilliqa/zilliqa-validators-list#zilliqa-validators-list) | get validators zilliqa (spec only) |
+| **GET** | [`/validators/zilliqa/{bls_public_key}`](/api-reference/zilliqa/zilliqa-validator-by-its-bls-public-key#zilliqa-validator-by-its-bls-public-key) | get validators zilliqa (spec only) |
+
+#### Neon
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/transactions/{transaction_hash}/external-transactions`](/api-reference/transactions/list-external-transactions-linked-to-a-transaction#list-external-transactions-linked-to-a-transaction) | get transaction external transactions (spec only) |
+
+#### FHE chains
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/transactions/{transaction_hash}/fhe-operations`](/api-reference/transactions/list-fhe-operations-for-a-specific-transaction#list-fhe-operations-for-a-specific-transaction) | get transaction fhe operations (spec only) |
+
+#### Execution nodes
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/transactions/execution-node/{execution_node_hash}`](/api-reference/transactions/list-transactions-executed-on-a-specific-execution-node#list-transactions-executed-on-a-specific-execution-node) | get transactions execution node (spec only) |
+
+### Legacy and JSON-RPC routes
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/api/legacy/block/get-block-number-by-time`](/api-reference/legacy/get-block-number-by-time-stamp#get-block-number-by-time-stamp) | get block number by time (spec only) |
+| **POST** | `/api/legacy/eth/eth-block-number` | eth_blockNumber (spec only) (new in v12) |
+| **POST** | `/api/legacy/eth/eth-call` | eth_call (spec only) (new in v12) |
+| **POST** | `/api/legacy/eth/eth-get-balance` | eth_getBalance (spec only) (new in v12) |
+| **POST** | `/api/legacy/eth/eth-get-logs` | eth_getLogs (spec only) (new in v12) |
+| **POST** | `/api/legacy/eth/eth-get-storage-at` | eth_getStorageAt (spec only) (new in v12) |
+| **POST** | `/api/legacy/eth/eth-send-raw-transaction` | eth_sendRawTransaction (spec only) (new in v12) |
+| **GET** | [`/api/v1/search`](/api-reference/search/search-for-tokens-addresses-contracts-blocks-or-transactions-by-identifier#search-for-tokens-addresses-contracts-blocks-or-transactions-by-identifier) | search (legacy v1 alias) (spec only) |
+
+## RPC API
+
+Etherscan-compatible `module` and `action` calls. Requests go to `https://api.blockscout.com/v2/api?chain_id={chain_id}`; add the parameters shown, plus your `apikey`.
+
+### Account
+
+| Method | Action | Description |
+| --- | --- | --- |
+| **GET** | [`module=account&action=balance`](/api-reference/account/get-native-token-balance-for-a-single-address#get-native-token-balance-for-a-single-address) | get native balance |
+| **GET** | [`module=account&action=balancemulti`](/api-reference/account/get-balance-for-multiple-addresses-in-a-single-call#get-balance-for-multiple-addresses-in-a-single-call) | get native balances for multiple addresses |
+| **GET** | [`module=account&action=eth_get_balance`](/api-reference/account/get-eth-balance-json-rpc-format#get-eth-balance-json-rpc-format) | get balance at a block (JSON-RPC format) |
+| **GET** | [`module=account&action=txlist`](/api-reference/account/get-a-list-of-transactions-by-address#get-a-list-of-transactions-by-address) | get transactions by address |
+| **GET** | [`module=account&action=pendingtxlist`](/api-reference/account/get-pending-transactions-for-an-address#get-pending-transactions-for-an-address) | get pending transactions by address |
+| **GET** | [`module=account&action=txlistinternal`](/api-reference/account/get-a-list-of-internal-transactions#get-a-list-of-internal-transactions) | get internal transactions |
+| **GET** | [`module=account&action=tokentx`](/api-reference/account/get-erc-20-token-transfer-events-by-address#get-erc-20-token-transfer-events-by-address) | get ERC-20 token transfers by address |
+| **GET** | [`module=account&action=tokennfttx`](/api-reference/account/get-erc-721-token-transfer-events-by-address#get-erc-721-token-transfer-events-by-address) | get ERC-721 token transfers by address |
+| **GET** | [`module=account&action=token1155tx`](/api-reference/account/get-erc-1155-token-transfer-events-by-address#get-erc-1155-token-transfer-events-by-address) | get ERC-1155 token transfers by address |
+| **GET** | [`module=account&action=token404tx`](/api-reference/account/get-erc-404-token-transfer-events-by-address#get-erc-404-token-transfer-events-by-address) | get ERC-404 token transfers by address |
+| **GET** | [`module=account&action=tokenbalance`](/api-reference/account/get-erc-20-token-balance-for-a-single-address#get-erc-20-token-balance-for-a-single-address) | get token balance of an address |
+| **GET** | [`module=account&action=tokenlist`](/devs/apis/rpc/account) | get tokens owned by an address (spec only) |
+| **GET** | [`module=account&action=getminedblocks`](/api-reference/account/get-list-of-blocks-mined-by-address#get-list-of-blocks-mined-by-address) | get blocks validated by an address |
+| **GET** | [`module=account&action=listaccounts`](/api-reference/account/list-accounts-and-native-balances#list-accounts-and-native-balances) | list accounts and balances |
+
+### Block
+
+| Method | Action | Description |
+| --- | --- | --- |
+| **GET** | [`module=block&action=getblockreward`](/api-reference/block/get-block-reward-by-block-number#get-block-reward-by-block-number) | get block reward |
+| **GET** | [`module=block&action=getblockcountdown`](/api-reference/block/get-estimated-block-countdown-time-by-block-number#get-estimated-block-countdown-time-by-block-number) | get block countdown |
+| **GET** | [`module=block&action=getblocknobytime`](/api-reference/block/get-block-number-by-timestamp#get-block-number-by-timestamp) | get block number by timestamp |
+| **GET** | [`module=block&action=eth_block_number`](/api-reference/block/get-latest-block-number-json-rpc-format#get-latest-block-number-json-rpc-format) | get latest block number (JSON-RPC format) |
+
+### Contract
+
+| Method | Action | Description |
+| --- | --- | --- |
+| **GET** | [`module=contract&action=listcontracts`](/api-reference/contract/get-list-of-contracts#get-list-of-contracts) | list contracts |
+| **GET** | [`module=contract&action=getabi`](/api-reference/contract/get-contract-abi-for-verified-contract#get-contract-abi-for-verified-contract) | get contract ABI |
+| **GET** | [`module=contract&action=getsourcecode`](/api-reference/contract/get-contract-source-code-for-verified-contract#get-contract-source-code-for-verified-contract) | get contract source code |
+| **GET** | [`module=contract&action=getcontractcreation`](/api-reference/contract/get-contract-creator-and-creation-transaction-hash#get-contract-creator-and-creation-transaction-hash) | get contract creator and creation transaction |
+| **POST** | [`module=contract&action=verify`](/api-reference/contract/verify-contract-with-source-code#verify-contract-with-source-code) | verify a contract (source code) (spec only) |
+| **POST** | [`module=contract&action=verifysourcecode`](/api-reference/contract/verify-contract-with-standard-json-input#verify-contract-with-standard-json-input) | verify a contract (standard JSON input) (spec only) |
+| **POST** | [`module=contract&action=verify_vyper_contract`](/api-reference/contract/verify-vyper-contract#verify-vyper-contract) | verify a Vyper contract (spec only) |
+| **POST** | [`module=contract&action=verify_via_sourcify`](/api-reference/contract/verify-contract-via-sourcify#verify-contract-via-sourcify) | verify a contract through Sourcify (spec only) |
+| **GET** | [`module=contract&action=verifyproxycontract`](/api-reference/contract/verify-proxy-contract#verify-proxy-contract) | verify a proxy contract (spec only) |
+| **GET** | [`module=contract&action=checkverifystatus`](/api-reference/contract/check-verification-status#check-verification-status) | check verification status |
+| **GET** | [`module=contract&action=checkproxyverification`](/api-reference/contract/check-proxy-verification-status#check-proxy-verification-status) | check proxy verification status |
+
+### Logs
+
+| Method | Action | Description |
+| --- | --- | --- |
+| **GET** | [`module=logs&action=getLogs`](/api-reference/logs/get-event-logs-by-addresstopicsblock-range#get-event-logs-by-addresstopicsblock-range) | get event logs |
+
+### Stats
+
+| Method | Action | Description |
+| --- | --- | --- |
+| **GET** | [`module=stats&action=tokensupply`](/api-reference/stats/get-erc-20-or-erc-721-token-total-supply#get-erc-20-or-erc-721-token-total-supply) | get token total supply |
+| **GET** | [`module=stats&action=ethsupply`](/api-reference/stats/get-total-supply-of-native-token#get-total-supply-of-native-token) | get total supply (database) |
+| **GET** | [`module=stats&action=ethsupplyexchange`](/api-reference/stats/get-total-supply-from-exchange#get-total-supply-from-exchange) | get total supply (exchange data) |
+| **GET** | [`module=stats&action=coinsupply`](/api-reference/stats/get-total-coin-supply-from-db#get-total-coin-supply-from-db) | get coin supply minus burnt |
+| **GET** | [`module=stats&action=ethprice`](/api-reference/stats/get-native-token-price#get-native-token-price) | get native coin price |
+| **GET** | [`module=stats&action=coinprice`](/api-reference/stats/get-native-coin-price#get-native-coin-price) | get native coin price (chain-neutral fields) |
+| **GET** | [`module=stats&action=totalfees`](/api-reference/stats/get-total-transaction-fees#get-total-transaction-fees) | get total transaction fees for a day |
+
+### Token
+
+| Method | Action | Description |
+| --- | --- | --- |
+| **GET** | [`module=token&action=getToken`](/api-reference/token/get-token-info#get-token-info) | get token |
+| **GET** | [`module=token&action=getTokenHolders`](/api-reference/token/get-token-holders#get-token-holders) | get token holders |
+| **GET** | [`module=token&action=bridgedTokenList`](/api-reference/token/get-bridged-tokens-list#get-bridged-tokens-list) | get bridged tokens (where applicable) (spec only) |
+
+### Transaction
+
+| Method | Action | Description |
+| --- | --- | --- |
+| **GET** | [`module=transaction&action=gettxinfo`](/api-reference/transaction/get-transaction-info-by-transaction-hash#get-transaction-info-by-transaction-hash) | get transaction info |
+| **GET** | [`module=transaction&action=gettxreceiptstatus`](/api-reference/transaction/get-transaction-receipt-status#get-transaction-receipt-status) | get receipt status |
+| **GET** | [`module=transaction&action=getstatus`](/api-reference/transaction/get-transaction-execution-status#get-transaction-execution-status) | get execution status and error |
+
+## ETH RPC API
+
+Standard JSON-RPC 2.0 methods. Send each as a `POST` to `https://api.blockscout.com/{chain_id}/json-rpc`.
+
+| Method | JSON-RPC method | Description |
+| --- | --- | --- |
+| **POST** | [`eth_blockNumber`](/devs/apis/rpc/eth-rpc) | get latest block number |
+| **POST** | [`eth_chainId`](/devs/apis/rpc/eth-rpc) | get chain ID |
+| **POST** | [`eth_gasPrice`](/devs/apis/rpc/eth-rpc) | get gas price |
+| **POST** | [`eth_maxPriorityFeePerGas`](/devs/apis/rpc/eth-rpc) | get max priority fee per gas |
+| **POST** | [`eth_getBalance`](/devs/apis/rpc/eth-rpc) | get balance |
+| **POST** | [`eth_getTransactionCount`](/devs/apis/rpc/eth-rpc) | get transaction count (nonce) |
+| **POST** | [`eth_getCode`](/devs/apis/rpc/eth-rpc) | get contract bytecode |
+| **POST** | [`eth_getStorageAt`](/devs/apis/rpc/eth-rpc) | get storage value |
+| **POST** | [`eth_getTransactionByHash`](/devs/apis/rpc/eth-rpc) | get transaction by hash |
+| **POST** | [`eth_getTransactionReceipt`](/devs/apis/rpc/eth-rpc) | get transaction receipt |
+| **POST** | [`eth_sendRawTransaction`](/devs/apis/rpc/eth-rpc) | send signed transaction (spec only) |
+| **POST** | [`eth_getBlockByNumber`](/devs/apis/rpc/eth-rpc) | get block by number |
+| **POST** | [`eth_getBlockByHash`](/devs/apis/rpc/eth-rpc) | get block by hash (spec only) |
+| **POST** | [`eth_call`](/devs/apis/rpc/eth-rpc) | execute a call |
+| **POST** | [`eth_estimateGas`](/devs/apis/rpc/eth-rpc) | estimate gas |
+| **POST** | [`eth_getLogs`](/devs/apis/rpc/eth-rpc) | get event logs |
+
+## Services
+
+Name service, address metadata, multichain search and stats endpoints. Paths are shown in full, after `https://api.blockscout.com`.
+
+### Name service (BENS): single chain
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/services/bens/api/v1/{chain_id}/addresses/{address}`](/api-reference/domainsextractor/get-detailed-information-about-main-domain-of-requested-address#get-detailed-information-about-main-domain-of-requested-address) | get main domain of an address |
+| **POST** | [`/services/bens/api/v1/{chain_id}/addresses:batch-resolve-names`](/api-reference/domainsextractor/perform-batch-resolving-of-list-of-address-for-blockscout-backend-requests#perform-batch-resolving-of-list-of-address-for-blockscout-backend-requests) | resolve names for a batch of addresses (spec only) |
+| **GET** | [`/services/bens/api/v1/{chain_id}/addresses:lookup`](/api-reference/domainsextractor/get-basic-info-about-address-for-ens-lookup-and-blockscout-quick-search-sorted-by-%60registration_date%60#get-basic-info-about-address-for-ens-lookup-and-blockscout-quick-search-sorted-by-%60registration_date%60) | look up domains for an address (spec only) |
+| **GET** | [`/services/bens/api/v1/{chain_id}/domains/{name}`](/api-reference/domainsextractor/get-detailed-information-about-domain-for-detailed-domain-page#get-detailed-information-about-domain-for-detailed-domain-page) | get domain details |
+| **GET** | [`/services/bens/api/v1/{chain_id}/domains/{name}/events`](/api-reference/domainsextractor/get-list-of-events-of-domain-for-detailed-domain-page#get-list-of-events-of-domain-for-detailed-domain-page) | get domain events |
+| **GET** | [`/services/bens/api/v1/{chain_id}/domains:lookup`](/api-reference/domainsextractor/get-basic-info-about-domain-for-ens-lookup-and-blockscout-quick-search-sorted-by-%60registration_date%60#get-basic-info-about-domain-for-ens-lookup-and-blockscout-quick-search-sorted-by-%60registration_date%60) | look up domains by name |
+| **GET** | [`/services/bens/api/v1/{chain_id}/protocols`](/api-reference/domainsextractor/get-list-of-supported-protocols#get-list-of-supported-protocols) | get supported protocols |
+
+### Name service (BENS): multichain
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/services/bens/api/v1/addresses/{address}`](/api-reference/multichaindomains/get-detailed-information-about-main-address-of-requested-name#get-detailed-information-about-main-address-of-requested-name) | get main domain of an address |
+| **POST** | [`/services/bens/api/v1/addresses:batch-resolve`](/api-reference/multichaindomains/perform-batch-resolving-of-list-of-addresses-to-names-for-blockscout-backend-requests#perform-batch-resolving-of-list-of-addresses-to-names-for-blockscout-backend-requests) | resolve names for a batch of addresses (spec only) |
+| **GET** | [`/services/bens/api/v1/addresses:lookup`](/api-reference/multichaindomains/get-basic-info-about-address-for-ens-lookup-and-blockscout-quick-search-sorted-by-%60registration_date%60#get-basic-info-about-address-for-ens-lookup-and-blockscout-quick-search-sorted-by-%60registration_date%60) | look up domains for an address (spec only) |
+| **GET** | [`/services/bens/api/v1/domains/{name}`](/api-reference/multichaindomains/get-detailed-information-about-name-for-detailed-name-page#get-detailed-information-about-name-for-detailed-name-page) | get domain details |
+| **GET** | [`/services/bens/api/v1/domains/{name}/events`](/api-reference/multichaindomains/get-list-of-events-of-domain-for-detailed-domain-page#get-list-of-events-of-domain-for-detailed-domain-page) | get domain events |
+| **GET** | [`/services/bens/api/v1/domains:lookup`](/api-reference/multichaindomains/get-basic-info-about-name-for-ens-lookup-and-blockscout-quick-search-sorted-by-%60registration_date%60#get-basic-info-about-name-for-ens-lookup-and-blockscout-quick-search-sorted-by-%60registration_date%60) | look up domains by name |
+| **GET** | [`/services/bens/api/v1/protocols`](/api-reference/multichaindomains/get-list-of-supported-protocols#get-list-of-supported-protocols) | get supported protocols |
+
+### Address metadata
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/services/metadata/api/v1/addresses`](/api-reference/metadata/get-servicesmetadataapiv1addresses#get-servicesmetadataapiv1addresses) | get addresses by public tag (spec only) |
+| **POST** | [`/services/metadata/api/v1/addresses:submit`](/api-reference/metadata/post-servicesmetadataapiv1addresses:submit#post-servicesmetadataapiv1addresses:submit) | submit addresses for metadata extraction (spec only) |
+| **GET** | [`/services/metadata/api/v1/metadata`](/api-reference/metadata/get-servicesmetadataapiv1metadata#get-servicesmetadataapiv1metadata) | get metadata for addresses |
+| **GET** | [`/services/metadata/api/v1/public-tag-types`](/api-reference/metadata/get-servicesmetadataapiv1public-tag-types#get-servicesmetadataapiv1public-tag-types) | get public tag types |
+| **GET** | [`/services/metadata/api/v1/reputation`](/api-reference/metadata/get-servicesmetadataapiv1reputation#get-servicesmetadataapiv1reputation) | get reputation for addresses |
+| **GET** | [`/services/metadata/api/v1/tags:search`](/api-reference/metadata/get-servicesmetadataapiv1tags:search#get-servicesmetadataapiv1tags:search) | search public tags (spec only) |
+
+### Multichain search
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/services/multichain/api/v1/clusters/{cluster_id}/chains`](/api-reference/clusterexplorerservice/lists-all-chains-in-the-cluster-optionally-sorted-by-a-metric-eg-active_accounts-tps#lists-all-chains-in-the-cluster-optionally-sorted-by-a-metric-eg-active_accounts-tps) | list chains in a cluster (spec only) |
+| **GET** | [`/services/multichain/api/v1/clusters/{cluster_id}/search/addresses`](/api-reference/clusterexplorerservice/full-text-search-for-addresses-by-query-string;-optional-chain-filter-and-pagination#full-text-search-for-addresses-by-query-string;-optional-chain-filter-and-pagination) | search addresses in a cluster (spec only) |
+| **GET** | [`/services/multichain/api/v1/clusters/{cluster_id}/search/block-numbers`](/api-reference/clusterexplorerservice/full-text-search-for-block-numbers-returns-chain-+-block-number;-optional-chain-filter-and-pagination#full-text-search-for-block-numbers-returns-chain-+-block-number;-optional-chain-filter-and-pagination) | search block numbers in a cluster (spec only) |
+| **GET** | [`/services/multichain/api/v1/clusters/{cluster_id}/search/blocks`](/api-reference/clusterexplorerservice/full-text-search-for-blocks-returns-block-hashes;-optional-chain-filter-and-pagination#full-text-search-for-blocks-returns-block-hashes;-optional-chain-filter-and-pagination) | search blocks in a cluster (spec only) |
+| **GET** | [`/services/multichain/api/v1/clusters/{cluster_id}/search/domains`](/api-reference/clusterexplorerservice/full-text-search-for-domains;-optional-chain-filter-and-pagination#full-text-search-for-domains;-optional-chain-filter-and-pagination) | search domains in a cluster (spec only) |
+| **GET** | [`/services/multichain/api/v1/clusters/{cluster_id}/search/nfts`](/api-reference/clusterexplorerservice/full-text-search-for-nfts-by-query-string;-optional-chain-filter-and-pagination#full-text-search-for-nfts-by-query-string;-optional-chain-filter-and-pagination) | search NFTs in a cluster (spec only) |
+| **GET** | [`/services/multichain/api/v1/clusters/{cluster_id}/search/tokens`](/api-reference/clusterexplorerservice/full-text-search-for-tokens;-optional-chain-filter-and-pagination#full-text-search-for-tokens;-optional-chain-filter-and-pagination) | search tokens in a cluster (spec only) |
+| **GET** | [`/services/multichain/api/v1/clusters/{cluster_id}/search/transactions`](/api-reference/clusterexplorerservice/full-text-search-for-transactions-returns-transaction-hashes;-optional-chain-filter-and-pagination#full-text-search-for-transactions-returns-transaction-hashes;-optional-chain-filter-and-pagination) | search transactions in a cluster (spec only) |
+| **GET** | [`/services/multichain/api/v1/clusters/{cluster_id}/search:quick`](/api-reference/clusterexplorerservice/unified-quick-search-across-addresses-blocks-transactions-block-numbers-dapps-tokens-nfts-and-domains;-supports-unlimited-results-per-chain#unified-quick-search-across-addresses-blocks-transactions-block-numbers-dapps-tokens-nfts-and-domains;-supports-unlimited-results-per-chain) | quick search in a cluster (spec only) |
+| **GET** | [`/services/multichain/api/v1/search:quick`](/api-reference/multichainaggregatorservice/unified-quick-search-across-addresses-blocks-transactions-block-numbers-dapps-tokens-nfts-and-domains;-supports-unlimited-results-per-chain#unified-quick-search-across-addresses-blocks-transactions-block-numbers-dapps-tokens-nfts-and-domains;-supports-unlimited-results-per-chain) | quick search across chains |
+
+### Stats service
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| **GET** | [`/{chain_id}/stats-service/api/v1/counters`](/api-reference/statsservice/returns-all-available-counter-stats-for-the-stats-page#returns-all-available-counter-stats-for-the-stats-page) | get all counters |
+| **GET** | [`/{chain_id}/stats-service/api/v1/lines`](/api-reference/statsservice/returns-metadata-title-description-available-resolutions-for-allline-charts-organized-into-sections#returns-metadata-title-description-available-resolutions-for-allline-charts-organized-into-sections) | list line charts |
+| **GET** | [`/{chain_id}/stats-service/api/v1/lines/{name}`](/api-reference/statsservice/returns-data-points-for-a-specific-line-chart-with-optional-date-rangeand-resolution-filtering#returns-data-points-for-a-specific-line-chart-with-optional-date-rangeand-resolution-filtering) | get a line chart |
+| **GET** | [`/{chain_id}/stats-service/api/v1/pages/contracts`](/api-reference/statsservice/returns-stats-to-be-displayed-on-the-contracts-page#returns-stats-to-be-displayed-on-the-contracts-page) | get contracts page stats |
+| **GET** | [`/{chain_id}/stats-service/api/v1/pages/interchain/main`](/api-reference/statsservice/returns-interchain-messaging-stats-to-be-displayed-on-the-main-page-of-interchain-indexer#returns-interchain-messaging-stats-to-be-displayed-on-the-main-page-of-interchain-indexer) | get interchain stats (where enabled) (spec only) |
+| **GET** | [`/{chain_id}/stats-service/api/v1/pages/main`](/api-reference/statsservice/returns-stats-to-be-displayed-on-the-main-page-of-indexer#returns-stats-to-be-displayed-on-the-main-page-of-indexer) | get main page stats |
+| **GET** | [`/{chain_id}/stats-service/api/v1/pages/multichain/main`](/api-reference/statsservice/returns-multichain-aggregated-stats-to-be-displayed-on-the-main-page-of-multichain-indexer#returns-multichain-aggregated-stats-to-be-displayed-on-the-main-page-of-multichain-indexer) | get multichain stats (where enabled) (spec only) |
+| **GET** | [`/{chain_id}/stats-service/api/v1/pages/transactions`](/api-reference/statsservice/returns-stats-to-be-displayed-on-the-transactions-page#returns-stats-to-be-displayed-on-the-transactions-page) | get transactions page stats |
