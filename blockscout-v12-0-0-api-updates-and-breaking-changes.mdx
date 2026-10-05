@@ -112,7 +112,7 @@ For unknown addresses, `celo_election_rewards_count` and `beacon_deposits_count`
 - `ConstructorArguments` is `0x`-prefixed (see item 8).
 - `gettxinfo` `next_page_params` no longer contains `items_count` (see item 1).
 
-### 13. 🔵  Sourcify verification via Sourcify API v2 
+### 13. 🔵 Sourcify verification via Sourcify API v2 
 
 `?module=contract&action=verify_via_sourcify` and `POST /api/v2/smart-contracts/{hash}/verification/via/sourcify`:
 
@@ -166,7 +166,7 @@ With `API_ETH_RPC_DISABLE_CORE_PROXY_METHODS=true`, `eth_call`, `eth_getCode`, `
 
 ## GraphQL API
 
-### 18. 🔵  Scam-token filtering
+### 18. 🔵 Scam-token filtering
 
 `token_transfers` (by token and by address) exclude scam-flagged tokens when the instance runs with `HIDE_SCAM_ADDRESSES=true`. Send the `show-scam-tokens` header or the `show_scam_tokens` cookie to include them. No schema fields were removed or renamed. `constructor_arguments` is `0x`-prefixed (item 8).
 
