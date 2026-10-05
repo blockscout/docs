@@ -30,6 +30,16 @@ Examples:
 - `Ethereum: https://api.blockscout.com/1/json-rpc`
 - `Optimism: https://api.blockscout.com/10/json-rpc`
 
+Send your PRO API key in the `authorization` header. Get a key at [dev.blockscout.com](https://dev.blockscout.com/).
+
+```bash
+curl -H "content-type: application/json" \
+  -H "authorization: Bearer proapi_YOUR_KEY" \
+  -X POST \
+  --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' \
+  https://api.blockscout.com/1/json-rpc
+```
+
 ## **Base URL Pattern (per instance)**
 
 ```text
@@ -42,6 +52,13 @@ Examples:
 
 - `Ethereum: https://eth.blockscout.com/api/eth-rpc`
 - `Optimism: https://optimism.blockscout.com/api/eth-rpc`
+
+```bash
+curl -H "content-type: application/json" \
+  -X POST \
+  --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' \
+  https://eth.blockscout.com/api/eth-rpc
+```
 
 ## 🔢 Methods Overview
 
