@@ -40,7 +40,7 @@ Additional details are included for each item below the table.
 
 ## REST API
 
-### 1. Pagination: `items_count` changed meaning, several params no longer echoed - 🔴 Breaking
+### 1. 🔴 Pagination: `items_count` changed meaning, several params no longer echoed 
 
 - `items_count` was a cursor counter echoed back inside `next_page_params`. It is now a **request parameter that sets the page size** (1 to `MAX_ITEMS_PER_PAGE`, default 100; default page size stays 50). It is **no longer included in `next_page_params`**.
 - A value above `MAX_ITEMS_PER_PAGE` is **silently clamped** to the maximum; it does not return 422. Only values below 1 are rejected.
@@ -52,11 +52,11 @@ Additional details are included for each item below the table.
 - Clients that want a custom page size must add `items_count=N` to **every** request, including follow-up pages.
 - Clients that read `items_count` from `next_page_params` (for progress display, etc.) must stop; use the page length instead.
 
-### 2. State changes cursor - 🔴 Breaking
+### 2. 🔴 State changes cursor 
 
 `GET /api/v2/transactions/{hash}/state-changes` `next_page_params` changed from `{"state_changes": null, "items_count": N}` to `{"state_changes_count": N}`. A stored old cursor containing `state_changes` now returns 422.
 
-### 3. `limit` query parameter removed - 🔴 Breaking
+### 3. 🔴`limit` query parameter removed 
 
 | Endpoint | v11 | v12 |
 | --- | --- | --- |
@@ -66,15 +66,15 @@ Additional details are included for each item below the table.
 
 Use `items_count` instead.
 
-### 4. `token` removed from NFT instance list items - 🔴 Breaking
+### 4. 🔴 `token` removed from NFT instance list items 
 
 Items in `GET /api/v2/tokens/{hash}/instances` (with or without `holder_address_hash`) no longer include the nested `token` object; the token is identified by the URL. The single-instance endpoint `GET /api/v2/tokens/{hash}/instances/{id}` still includes `token`. New fields `image_media_type` and `animation_media_type` were added to instances.
 
-### 5. MUD endpoints removed - 🔴 Breaking
+### 5. 🔴 MUD endpoints removed 
 
 All `/api/v2/mud/worlds…` endpoints and the `mud` OpenAPI spec are gone. `MUD_INDEXER_ENABLED`, `MUD_DATABASE_URL`, `MUD_POOL_SIZE` are deprecated.
 
-### 6. Endpoints newly validated by OpenAPI spec - 🔴 Breaking
+### 6. 🔴 Endpoints newly validated by OpenAPI spec 
 
 These endpoints now reject unknown or malformed query parameters with **422** instead of ignoring them:
 
@@ -83,23 +83,23 @@ These endpoints now reject unknown or malformed query parameters with **422** in
   - `sort` ∈ `state|address_hash|blocks_validated`, `order` ∈ `asc|desc`.
 - `/api/v2/zksync/batches`, `/batches/count`, `/batches/{number}`, `/main-page/zksync/batches/confirmed`, `/latest-number`.
 
-### 7. `recaptcha_response` query parameter removed from NFT metadata refetch - 🔴 Breaking
+### 7. 🔴 `recaptcha_response` query parameter removed from NFT metadata refetch
 
 `PATCH /api/v2/tokens/{hash}/instances/{id}/refetch-metadata` no longer declares `recaptcha_response` as a query parameter, so `?recaptcha_response=…` now returns **422 Unexpected field**. Pass the reCAPTCHA token in the `recaptcha-v2-response` or `recaptcha-v3-response` header instead (both already worked in v11), or use the `recaptcha-bypass-token` header / `scoped_recaptcha_bypass_token` query parameter for trusted clients.
 
-### 8. Constructor arguments are `0x`-prefixed - 🔴 Breaking
+### 8. 🔴 Constructor arguments are `0x`-prefixed 
 
 `constructor_args` in `GET /api/v2/smart-contracts/{hash}` (also `ConstructorArguments` in `?module=contract&action=getsourcecode`, GraphQL `smart_contract.constructor_arguments`, and `/api/v1/verified_smart_contracts`) now returns `0x…` instead of bare hex. Stored values that were not valid hex are cleared to `null` by the migration. On verification input, non-hex constructor arguments are now rejected.
 
-### 9. Search returns ENS results for bare names - 🔵 **Behavior**
+### 9. 🔵 Search returns ENS results for bare names 
 
 BENS lookup used to require a dotted name (`name.eth`). It now runs for any query of 3+ characters, so `/api/v2/search`, `/search/quick` can return `ens_domain` items for `vitalik`, and `/search/check-redirect?q=vitalik` may return `redirect: true` with `type: "ens_domain"` (new enum value). When a query matches both an address and an ENS name, the address still takes priority in `check-redirect`.
 
-### 10. `tabs-counters` - 🔵 **Behavior**
+### 10. 🔵 `tabs-counters`
 
 For unknown addresses, `celo_election_rewards_count` and `beacon_deposits_count` are emitted only on Celo / Ethereum chain types respectively (previously on all chains as `0`). Token-related counters now exclude scam tokens unless the `show-scam-tokens` header or the `show_scam_tokens` cookie is set.
 
-### 11. Transaction summary may return 503 - Behavior
+### 11. 🔵 Transaction summary may return 503 - Behavior
 
 `GET /api/v2/transactions/{hash}/summary` returns `503 {"error": "Transaction data is temporarily unavailable"}` when the logs table lock cannot be acquired within `API_OPTIONAL_QUERIES_LOCK_TIMEOUT` (default 100 ms). Retry with backoff.
 
@@ -107,12 +107,12 @@ For unknown addresses, `celo_election_rewards_count` and `beacon_deposits_count`
 
 ## JSON RPC API (`/api?module=…`)
 
-### 12. `getsourcecode` and `gettxinfo` - 🔴 Breaking
+### 12. 🔴`getsourcecode` and `gettxinfo` 
 
 - `ConstructorArguments` is `0x`-prefixed (see item 8).
 - `gettxinfo` `next_page_params` no longer contains `items_count` (see item 1).
 
-### 13. Sourcify verification via Sourcify API v2 - Behavior
+### 13. 🔵  Sourcify verification via Sourcify API v2 
 
 `?module=contract&action=verify_via_sourcify` and `POST /api/v2/smart-contracts/{hash}/verification/via/sourcify`:
 
@@ -126,7 +126,7 @@ For unknown addresses, `celo_election_rewards_count` and `beacon_deposits_count`
 
 ## ETH RPC API (`/api/eth-rpc`)
 
-### 14. Error responses follow JSON-RPC 2.0 - 🔴 Breaking
+### 14. 🔴 Error responses follow JSON-RPC 2.0 
 
 Before: `{"jsonrpc":"2.0","id":1,"error":"invalid block number"}` After: `{"jsonrpc":"2.0","id":1,"error":{"code":-32602,"message":"Invalid block number"}}`
 
@@ -145,15 +145,15 @@ A request with `params` but without `jsonrpc` now returns -32600 `Method, and js
 
 In batched requests, a JSON-RPC error object returned by the node for an individual proxied request is now passed through as-is (including its optional `data` field) instead of being reported as an internal error.
 
-### 15. `eth_getLogs` block parameters must be hex quantities or tags - 🔴 Breaking
+### 15. 🔴`eth_getLogs` block parameters must be hex quantities or tags 
 
 `"fromBlock": "100"` used to be silently parsed as hex (block 256). It now returns -32602 `Invalid block number`. Use `"0x64"`, `"latest"`, `"earliest"`, `"pending"`.
 
-### 16. Core proxy methods can be disabled by the operator - 🔵 **Behavior**
+### 16. 🔵 Core proxy methods can be disabled by the operator 
 
 With `API_ETH_RPC_DISABLE_CORE_PROXY_METHODS=true`, `eth_call`, `eth_getCode`, `eth_getStorageAt`, `eth_sendRawTransaction`, `eth_getBlockByNumber/Hash`, `eth_estimateGas`, `eth_getTransactionCount` return -32601. Default is `false`. `API_ETH_RPC_EXTENDED_PROXY_METHODS_ENABLED=true` (default `false`) adds `net_*`, `web3_*`, `eth_feeHistory`, `eth_getProof`, `eth_getBlockReceipts` and others.
 
-### 17. `/api/legacy` GET routes removed, dedicated POST routes added - 🔴 Breaking
+### 17. 🔴 `/api/legacy` GET routes removed, dedicated POST routes added 
 
 | Removed | Replacement |
 | --- | --- |
@@ -166,7 +166,7 @@ With `API_ETH_RPC_DISABLE_CORE_PROXY_METHODS=true`, `eth_call`, `eth_getCode`, `
 
 ## GraphQL API
 
-### 18. Scam-token filtering - 🔵 **Behavior**
+### 18. 🔵  Scam-token filtering
 
 `token_transfers` (by token and by address) exclude scam-flagged tokens when the instance runs with `HIDE_SCAM_ADDRESSES=true`. Send the `show-scam-tokens` header or the `show_scam_tokens` cookie to include them. No schema fields were removed or renamed. `constructor_arguments` is `0x`-prefixed (item 8).
 
