@@ -8,13 +8,13 @@ icon: "circle-nodes"
   Dev portal and free API key at [https://dev.blockscout.com/](https://dev.blockscout.com/)<br /><br />Agents visit [https://agents.blockscout.com/](https://agents.blockscout.com/) to access optimized instructions
 </Check>
 
-- [Authorization](https://docs.blockscout.com/#pro-api-authorization)
+- [Authorization](#pro-api-authorization)
 - [Routes](#pro-api-routes)
 - [Pagination](#pagination)
 - [Credits](#blockscout-credit-costs)
 
 <Info>
-  PRO API endpoints are documented individually in the API Reference menu
+  PRO API endpoints are documented individually in the API Reference menu.
 </Info>
 
 <Warning>
@@ -30,7 +30,7 @@ Pass an API key using either:
 
 ## PRO API Response Headers
 
-The following information related to the PRO API plan is included in the response headers
+The following information related to the PRO API plan is included in the response headers:
 
 - **x-credits-remaining:** Number of credits remaining in your plan. If on the free plan, this will reset daily, otherwise it is monthly. You can check additional details in the [PRO API UI](https://dev.blockscout.com/).
 - **x-ratelimit-limit:** Available RPS with your plan (can be -1 if there is an internal error)
@@ -45,7 +45,7 @@ The following information related to the PRO API plan is included in the respons
 
 All current API routes can be used with the PRO Plan. See the PRO API Endpoints section to try example calls with your API key.
 
-The Route examples below use the Optimism chain (chain\_id=10). In previous per-instance routes API keys are optional for the free tier, they are required for all tiers (including the free tier) of the PRO API.
+The Route examples below use the Optimism chain (chain\_id=10). In previous per-instance routes API keys were optional for the free tier, but they are required for all tiers (including the free tier) of the PRO API.
 
 ## **JSON RPC API v2 (compare to Etherscan PRO API)**
 
@@ -91,9 +91,9 @@ Previous per-instance route:
 
 ## **ETH RPC API**
 
-see [ETH RPC docs](/devs/apis/rpc/eth-rpc) for more info on post requests.
+See [ETH RPC docs](/devs/apis/rpc/eth-rpc) for more info on post requests.
 
-PRO API Route
+PRO API Route:
 
 ```text
 curl -H "content-type: application/json" \
@@ -135,7 +135,7 @@ In this example, the query to receive the next 50 results would be:
 
 Credit amounts vary based on resource usage for different calls. The number of credits required for different calls is subject to change based on current analytics and resource usage.
 
-You can check your credits, top calls and overall usage in the dev portal dashboard at [https://dev.blockscout.com/](https://dev.blockscout.com/)
+You can check your credits, top calls and overall usage in the dev portal dashboard at [https://dev.blockscout.com/](https://dev.blockscout.com/).
 
 Credits are consumed per API call. The **default cost is 20 credits** for any endpoint not listed below.
 
@@ -166,6 +166,5 @@ Track remaining credits with the `x-credits-remaining` response header or the [d
 | `api/v2/transactions/:hash/summary` | 50 |
 | `api/v2/transactions/:hash/raw-trace` | 50 |
 | `api/v2/addresses/:address_hash/coin-balance-history` | 50 |
-|  |  |
 
 _Last Updated February, 2026_
