@@ -4,7 +4,7 @@ description: "Blockscout v12.0.0 breaking changes and behavior updates across th
 ---
 
 <Warning>
-  Blockscout v12.0.0 will be published on 7 October, 2026. It includes breaking changes for API integrators, please see the requirements below.
+  Blockscout v12.0.0 will be published on 7 October, 2026. It includes breaking changes for API integrators. Please see the requirements below.
 </Warning>
 
 **Severity legend:** 
@@ -40,7 +40,7 @@ Additional details are included for each item below the table.
 
 ## REST API
 
-### 1. Pagination: `items_count` changed meaning, several params no longer echoed -  🔴 Breaking
+### 1. Pagination: `items_count` changed meaning, several params no longer echoed - 🔴 Breaking
 
 - `items_count` was a cursor counter echoed back inside `next_page_params`. It is now a **request parameter that sets the page size** (1 to `MAX_ITEMS_PER_PAGE`, default 100; default page size stays 50). It is **no longer included in `next_page_params`**.
 - A value above `MAX_ITEMS_PER_PAGE` is **silently clamped** to the maximum; it does not return 422. Only values below 1 are rejected.
