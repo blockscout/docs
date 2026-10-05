@@ -671,6 +671,10 @@
         {
             "source": "/about/funding/l2-funding-proposal/aux-funding-images",
             "destination": "/about/funding"
+        },
+        {
+            "source": "/untitled-page",
+            "destination": "/whale-watch"
         }
     ],
     "footer": {
