@@ -1,0 +1,235 @@
+---
+title: "Endpoint Overview"
+description: "Blockscout endpoints grouped by module."
+icon:
+  name: "mountains"
+  style: "regular"
+  library: "fontawesome"
+---
+
+Blockscout's RPC API follows the same `module` and `action` format as Etherscan's or Routescan's, meaning most Etherscan calls work after you change the base URL and the chain parameter. This page lists every available endpoint.
+
+<Note>
+  This page is currently under development, check back for more complete details.
+</Note>
+
+## Switch your requests
+
+If you are migrating to Blockscout, change the base URL. Then check specific calls to see about available paths.
+
+|  | Etherscan | Blockscout |
+| --- | --- | --- |
+| Base URL | `https://api.etherscan.io/v2/api` | `https://api.blockscout.com/v2/api` |
+| Chain parameter | `chainid=1` | `chain_id=1` |
+| API key | `apikey=YOUR_KEY` | `apikey=YOUR_KEY` or `Authorization: Bearer YOUR_KEY` |
+
+```text
+
+https://api.blockscout.com/v2/api?chain_id=1&module=account&action=balance&address=0x...&apikey=YOUR_KEY
+```
+
+<Card title="Get your PRO API key" icon="key" horizontal href="https://dev.blockscout.com" arrow="true">
+  Create a free key and make your first call in minutes.
+</Card>
+
+## How to read the tables
+
+| Status related to Etherscan | Meaning |
+| --- | --- |
+| **Supported** | Available with the same module and action, or an equivalent call, and a similar response. |
+| **Different** | Available, but the endpoint name, parameters or response format differ. |
+| **Not available** | No equivalent in the Blockscout APIs today. |
+| **Not applicable** | Specific to Ethereum proof of work or to Etherscan. |
+
+94 Etherscan endpoints: 40 supported, 33 different, 17 not available, 4 not applicable.
+
+Blockscout equivalents are shown as RPC (`module` and `action` on `https://api.blockscout.com/v2/api?chain_id={chain_id}`), REST (paths under `https://api.blockscout.com/{chain_id}/api/v2`), ETH RPC (`POST https://api.blockscout.com/{chain_id}/json-rpc`) and stats service (`https://api.blockscout.com/{chain_id}/stats-service/api/v1`).
+
+## Account
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| Get Native Balance for an Address | RPC: `module=account&action=balance`<br />REST: `/addresses/{address_hash}` | Supported | Balance in wei. |
+| Get Native Balance for Multiple Addresses | RPC: `module=account&action=balancemulti` | Supported | Up to 20 addresses per call. |
+| Get Historical Native Balance for an Address | RPC: `module=account&action=eth_get_balance&block={block_number}`<br />REST: `/addresses/{address_hash}/coin-balance-history` | Different | The RPC action returns a hex balance in JSON-RPC format. The REST endpoint lists balance changes over time. |
+| Get Normal Transactions By Address | RPC: `module=account&action=txlist`<br />REST: `/addresses/{address_hash}/transactions` | Supported | Up to 10,000 transactions per request. |
+| Normal Transactions Advanced Filter | REST: `/advanced-filters` | Different | REST only. Results mix transactions, internal transactions and token transfers; narrow them with `transaction_types`. |
+| Get ERC20 Token Transfers by Address | RPC: `module=account&action=tokentx`<br />REST: `/addresses/{address_hash}/token-transfers` | Supported |  |
+| ERC20 Token Transfers Advanced Filter | REST: `/advanced-filters` | Different | REST only. Results mix transactions, internal transactions and token transfers; narrow them with `transaction_types`. |
+| Get ERC721 Token Transfers by Address | RPC: `module=account&action=tokennfttx`<br />REST: `/addresses/{address_hash}/token-transfers` | Supported |  |
+| ERC721 Token Transfers Advanced Filter | REST: `/advanced-filters` | Different | REST only. Results mix transactions, internal transactions and token transfers; narrow them with `transaction_types`. |
+| Get ERC1155 Token Transfers by Address | RPC: `module=account&action=token1155tx`<br />REST: `/addresses/{address_hash}/token-transfers` | Supported |  |
+| ERC1155 Token Transfers Advanced Filter | REST: `/advanced-filters` | Different | REST only. Results mix transactions, internal transactions and token transfers; narrow them with `transaction_types`. |
+| Get Internal Transactions by Address | RPC: `module=account&action=txlistinternal`<br />REST: `/addresses/{address_hash}/internal-transactions` | Supported |  |
+| Internal Transactions Advanced Filter | REST: `/advanced-filters` | Different | REST only. Results mix transactions, internal transactions and token transfers; narrow them with `transaction_types`. |
+| Get Internal Transactions by Block Range | RPC: `module=account&action=txlistinternal&startblock={start}&endblock={end}`<br />REST: `/blocks/{block_number}/internal-transactions` | Supported | The REST endpoint covers a single block. |
+| Get Internal Transactions by Transaction Hash | RPC: `module=account&action=txlistinternal&txhash={tx_hash}`<br />REST: `/transactions/{transaction_hash}/internal-transactions` | Supported |  |
+| Get Blocks Validated by Address | RPC: `module=account&action=getminedblocks`<br />REST: `/addresses/{address_hash}/blocks-validated` | Supported |  |
+| Get Beacon Chain Withdrawals by Address | REST: `/addresses/{address_hash}/withdrawals` | Different | REST only. Also available per block (`/blocks/{block_number}/withdrawals`) and chain-wide (`/withdrawals`). |
+| Get Address Funded By | - | Not available |  |
+
+## Blocks
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| Get Block and Uncle Rewards by Block Number | RPC: `module=block&action=getblockreward&blockno={block_number}`<br />REST: `/blocks/{block_number}` | Supported |  |
+| Get Block Transaction Counts by Block Number | REST: `/blocks/{block_number}` | Different | REST only. Read `transactions_count` from the block. |
+| Get Estimated Block Countdown by Block Number | RPC: `module=block&action=getblockcountdown&blockno={block_number}`<br />REST: `/blocks/{block_number}/countdown` | Supported |  |
+| Get Block Number by Timestamp | RPC: `module=block&action=getblocknobytime&timestamp={unix_timestamp}&closest=before` | Supported |  |
+| Get Daily Average Block Size | Stats service: `lines/averageBlockSize` | Different | Stats service chart. List the charts available on a chain with `/{chain_id}/stats-service/api/v1/lines`. |
+| Get Daily Block Count and Rewards | Stats service: `lines/newBlocks`, `lines/averageBlockRewards` | Different | Stats service charts. |
+| Get Daily Block Rewards | Stats service: `lines/averageBlockRewards` | Different | The chart shows the average reward per block. |
+| Get Daily Average Block Time | - | Not available | The current average block time is returned by `/{chain_id}/api/v2/stats`. |
+| Get Daily Uncle Block Count and Rewards | - | Not applicable | Uncle blocks existed only under proof of work. |
+
+## Contracts
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| Get Contract ABI | RPC: `module=contract&action=getabi`<br />REST: `/smart-contracts/{address_hash}` | Supported |  |
+| Get Contract Source Code | RPC: `module=contract&action=getsourcecode`<br />REST: `/smart-contracts/{address_hash}` | Supported |  |
+| Get Contract Creator and Creation Tx Hash | RPC: `module=contract&action=getcontractcreation&contractaddresses={addresses}`<br />REST: `/addresses/{address_hash}` | Supported | The RPC action accepts up to 10 contracts per call. The REST response includes `creator_address_hash` and `creation_transaction_hash`. |
+
+## Contract Verification
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| Verify Solidity Source Code | RPC: `module=contract&action=verifysourcecode` | Supported | Accepts `solidity-single-file` or `solidity-standard-json-input` in `codeformat`. |
+| Verify zkSync Source Code | - | Not available | There is no separate action. |
+| Verify Vyper Source Code | RPC: `module=contract&action=verify_vyper_contract` | Different | Different action name. |
+| Verify Stylus Source Code | - | Not available | There is no separate action. |
+| Verify Proxy Contract | RPC: `module=contract&action=verifyproxycontract` | Supported |  |
+| Check Source Code Verification Status | RPC: `module=contract&action=checkverifystatus` | Supported |  |
+| Check Proxy Contract Verification Status | RPC: `module=contract&action=checkproxyverification` | Supported |  |
+
+## Gas Tracker
+
+Blockscout has no `gastracker` module. Gas prices are available through the REST API and the ETH RPC methods.
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| Get Estimation of Confirmation Time | - | Not available |  |
+| Get Gas Oracle | REST: `/stats`<br />ETH RPC: `eth_gasPrice` | Different | REST only: the `gas_prices` field returns slow, average and fast prices. |
+| Get Daily Average Gas Limit | Stats service: `lines/averageGasLimit` | Different | Stats service chart. |
+| Get Daily Total Gas Used | Stats service: `lines/gasUsedGrowth`, `lines/averageGasUsed` | Different | Closest available charts. |
+| Get Daily Average Gas Price | Stats service: `lines/averageGasPrice` | Different | Stats service chart. |
+
+## Geth/Parity Proxy
+
+Etherscan serves these as GET requests with `module=proxy`. Blockscout has no `proxy` module. Send a JSON-RPC 2.0 `POST` to `https://api.blockscout.com/{chain_id}/json-rpc` with the method name in the request body.
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| `eth_blockNumber` | ETH RPC: `eth_blockNumber` | Supported |  |
+| `eth_getBlockByNumber` | ETH RPC: `eth_getBlockByNumber` | Supported |  |
+| `eth_getUncleByBlockNumberAndIndex` | - | Not available |  |
+| `eth_getBlockTransactionCountByNumber` | REST: `/blocks/{block_number}` | Not available | Read `transactions_count` from the REST block endpoint instead. |
+| `eth_getTransactionByHash` | ETH RPC: `eth_getTransactionByHash` | Supported |  |
+| `eth_getTransactionByBlockNumberAndIndex` | - | Not available |  |
+| `eth_getTransactionCount` | ETH RPC: `eth_getTransactionCount` | Supported |  |
+| `eth_sendRawTransaction` | ETH RPC: `eth_sendRawTransaction` | Supported |  |
+| `eth_getTransactionReceipt` | ETH RPC: `eth_getTransactionReceipt` | Supported |  |
+| `eth_call` | ETH RPC: `eth_call` | Supported |  |
+| `eth_getCode` | ETH RPC: `eth_getCode` | Supported |  |
+| `eth_getStorageAt` | ETH RPC: `eth_getStorageAt` | Supported |  |
+| `eth_gasPrice` | ETH RPC: `eth_gasPrice` | Supported |  |
+| `eth_estimateGas` | ETH RPC: `eth_estimateGas` | Supported |  |
+
+## Logs
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| Get Event Logs by Address | RPC: `module=logs&action=getLogs&address={address}`<br />REST: `/addresses/{address_hash}/logs` | Supported | One `getLogs` action covers all three Etherscan log endpoints. |
+| Get Event Logs by Topics | RPC: `module=logs&action=getLogs&topic0={topic}` | Supported |  |
+| Get Event Logs by Address and Topics | RPC: `module=logs&action=getLogs&address={address}&topic0={topic}` | Supported | Combine topics with the `topicN_M_opr` parameters. |
+
+## Stats
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| Get Total Supply of Ether | RPC: `module=stats&action=ethsupply` | Supported | Blockscout calculates this from its own database, so the value can differ from Etherscan's. `ethsupplyexchange` returns a supply figure from market data. |
+| Get Total Supply of Ether 2 | - | Not available |  |
+| Get Ether Last Price | RPC: `module=stats&action=ethprice`<br />REST: `/stats` | Supported | `coinprice` returns the same data with chain-neutral field names. |
+| Get Ethereum Nodes Size | - | Not available | Specific to the Ethereum network. |
+| Get Total Nodes Count | - | Not available | Specific to the Ethereum network. |
+| Get Historical Total Nodes Count | - | Not available | Specific to the Ethereum network. |
+| Get Daily Network Transaction Fee | Stats service: `lines/txnsFee`, `lines/averageTxnFee`<br />RPC: `module=stats&action=totalfees&date={yyyy-mm-dd}` | Different | The RPC action returns one day per call. |
+| Get Daily New Address Count | Stats service: `lines/newAccounts` | Different | Stats service chart. |
+| Get Daily ENS Registration Count | - | Not available |  |
+| Get Daily Network Utilization | Stats service: `lines/networkUtilization` | Different | Stats service chart. |
+| Get Daily Average Network Hash Rate | - | Not applicable | Applies to Ethereum proof of work only. |
+| Get Daily Transaction Count | REST: `/stats/charts/transactions`<br />Stats service: `lines/newTxns` | Different |  |
+| Get Daily Average Network Difficulty | - | Not applicable | Applies to Ethereum proof of work only. |
+| Get Ether Historical Price | REST: `/stats/charts/market` | Different | Daily closing price and market cap. |
+
+## Transactions
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| Check Contract Execution Status | RPC: `module=transaction&action=getstatus&txhash={tx_hash}` | Supported |  |
+| Check Transaction Receipt Status | RPC: `module=transaction&action=gettxreceiptstatus&txhash={tx_hash}` | Supported |  |
+
+## Tokens
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| Get ERC20-Token TotalSupply by ContractAddress | RPC: `module=stats&action=tokensupply&contractaddress={token}`<br />REST: `/tokens/{address_hash}` | Supported |  |
+| Get Historical ERC20-Token TotalSupply by ContractAddress & BlockNo | - | Not available |  |
+| Get ERC20-Token Account Balance for TokenContractAddress | RPC: `module=account&action=tokenbalance&contractaddress={token}&address={address}` | Supported |  |
+| Get Historical ERC20-Token Account Balance by BlockNo | - | Not available |  |
+| Get Top Token Holders | RPC: `module=token&action=getTokenHolders&contractaddress={token}`<br />REST: `/tokens/{address_hash}/holders` | Different | Holders are returned sorted by balance. |
+| Get Token Holder List by Contract Address | RPC: `module=token&action=getTokenHolders&contractaddress={token}`<br />REST: `/tokens/{address_hash}/holders` | Different |  |
+| Get Token Holder Count by Contract Address | REST: `/tokens/{address_hash}/counters` | Different | REST only. Read `token_holders_count`. |
+| Get Token Info by ContractAddress | RPC: `module=token&action=getToken&contractaddress={token}`<br />REST: `/tokens/{address_hash}` | Different | Returns name, symbol, decimals, supply, price and icon. Project and social links are not included. |
+| Get Address ERC20 Token Holding | RPC: `module=account&action=tokenlist&address={address}`<br />REST: `/addresses/{address_hash}/token-balances` | Different |  |
+| Get Address ERC721 Token Holding | REST: `/addresses/{address_hash}/nft/collections` | Different | REST only. Returns NFTs grouped by collection. |
+| Get Address ERC721 Token Inventory by Contract | REST: `/addresses/{address_hash}/nft` | Different | Lists all NFTs the address owns. Filtering to a single contract is not supported. |
+
+## L2 Deposits/Withdrawals
+
+Blockscout exposes bridge activity through rollup-specific REST endpoints, listed under [Chain-Specific Endpoints](/devs/apis/endpoint-overview#chain-specific-endpoints).
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| Get Plasma Deposits by Address | - | Not available |  |
+| Get Deposit Transactions by Address | REST: `/optimism/deposits`, `/scroll/deposits`, `/arbitrum/messages/{direction}`, `/shibarium/deposits` | Different | Available on rollup chains. These endpoints list deposits for the chain and can't be filtered by address. |
+| Get Withdrawal Transactions by Address | REST: `/optimism/withdrawals`, `/scroll/withdrawals`, `/shibarium/withdrawals` | Different | Available on rollup chains. These endpoints list withdrawals for the chain and can't be filtered by address. |
+
+## ENS
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| Resolve an ENS Name to an Address | BENS service: `/services/bens/api/v1/{chain_id}/domains/{name}` | Different | The service also resolves an address to its ENS name. |
+
+## Nametags
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| Get Metadata for an Address | REST: `/addresses/{address_hash}`<br />Metadata service: `/services/metadata/api/v1/metadata` | Different | The address response includes `public_tags` and `metadata`. |
+
+## Usage
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| Get API Usage | - | Different | There is no usage endpoint. Every response includes `x-credits-remaining` and `x-ratelimit-*` headers. |
+| Chainlist | - | Not available | Find chain IDs in the [Chainscout chains list](/devs/chainscout-chains-list). |
+
+## Beta Endpoints
+
+| Endpoint | Blockscout paths | Status relative to Etherscan | Notes |
+| --- | --- | --- | --- |
+| Get Prediction Market Trades by Address | - | Not applicable | Specific to Etherscan. |
+
+## Available in Blockscout only
+
+<Info>
+  More details coming soon
+</Info>
+
+Blockscout also provides endpoints with no Etherscan counterpart:
+
+- **REST API:** transaction state changes, raw traces and summaries, NFT instance metadata and holders, address and token counters, search, CSV exports and advanced filters.
+- **Account abstraction (ERC-4337):** user operations, bundlers, paymasters and factories.
+- **Rollup data:** batches, deposits, withdrawals and messages for Arbitrum, Optimism, Scroll, zkSync and Shibarium.
+- **RPC extras:** `pendingtxlist`, `listaccounts`, `token404tx`, `listcontracts` and `gettxinfo`.
+- **Multichain search, name service and address metadata services.**

@@ -33,9 +33,7 @@ Change links in your application to point to Blockscout
 
 Sign up for an API key at https://dev.blockscout.com/
 
-- API calls follow the same query structure as Etherscan. Blockscout supports most of the same calls. Replace the front part of the url from [**https://api.etherscan.io/v2/api?chainid=X**](https://api.etherscan.io/v2/api?chainid=X)\
-  to \
-  **https://api.blockscout.com/v2/api?chain_id=X**
+- API calls follow the same query structure as Etherscan. Blockscout supports most of the same calls. Replace the front part of the url from [**https://api.etherscan.io/v2/api?chainid=X**](https://api.etherscan.io/v2/api?chainid=X)<br />to <br />[**https://api.blockscout.com/v2/api?chainid=X**](https://api.blockscout.com/v2/api?chain_id=X)
   - [API Docs](/devs/apis)
   - [Microservice and related swagger definitions](https://blockscout.github.io/swaggers/)
   - A **GraphQL** playground is built into the explorer. Explore queries and schemas from the interface by visiting [**https://your-instance-here/graphiql**](https://your-instance-here/graphiql)
@@ -135,8 +133,7 @@ Sign up for an API key at https://dev.blockscout.com/
 
   Etherscan uses the Proxy module `module=proxy` to retrieve standard Ethereum JSON-RPC methods.
 
-  For Blockscout, send post requests to\
-  **api.blockscout.com/{chain_id}/json-rpc**
+  For Blockscout, send post requests to<br />**api.blockscout.com/**{chain_id}**/json-rpc**
 
   The following methods are supported:
 
@@ -226,7 +223,7 @@ If you are used to using Etherscan, it is easy to switch to Blockscout. Most inf
 <Accordion icon="magnifying-glass-arrows-rotate" title="Blockscout / Etherscan Feature Differences">
   ## **Additional Blockscout feature set**
 
-  [******An itemized list of over 60 features and views available on Blockscout that are not available on Optimistic Etherscan is available here.******](https://docs.google.com/spreadsheets/d/1HGw9bh5Iq3xBZlrnrwVOzD_0844zt7PPakkuxVsiS1g/edit?usp=sharing)
+  [**An itemized list of over 60 features and views available on Blockscout that are not available on Optimistic Etherscan is available here.**](https://docs.google.com/spreadsheets/d/1HGw9bh5Iq3xBZlrnrwVOzD_0844zt7PPakkuxVsiS1g/edit?usp=sharing)
 
   - **DAppscout** DApp marketplace providing dapp discovery and interaction features.
   - **BENS in addition to ENS support, protocols can submit their subgraphs to be supported. Blockscout allows multiple protocols to co-exist within a single network.**

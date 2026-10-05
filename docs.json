@@ -392,7 +392,13 @@
                 "resources/contributing-to-blockscout",
                 "resources/security-program",
                 "resources/media-kit",
-                "resources/release-notes",
+                {
+                  "group": "Release Info",
+                  "pages": [
+                    "resources/release-notes",
+                    "blockscout-v12-0-0-api-updates-and-breaking-changes"
+                  ]
+                },
                 "discord-channel",
                 "discussion",
                 "github-repo"
@@ -452,7 +458,10 @@
             {
               "group": "PRO API Endpoints",
               "icon": "rectangle-pro",
-              "openapi": "openapi-specs/Master-pro-api.json"
+              "openapi": "openapi-specs/Master-pro-api.json",
+              "pages": [
+                "endpoint-overview"
+              ]
             },
             {
               "group": "Additional Service APIs",
