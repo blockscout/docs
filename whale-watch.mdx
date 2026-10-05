@@ -19,7 +19,7 @@ Another option for checking addresses is creating a script that polls an address
 1. **Latency.** The poll interval delays alerts. Poll every 10 seconds and your fastest possible alert is 10 seconds late, on a chain where blocks land every ~0.1 seconds. By the time a whale move is visible on Twitter, informed traders have often already acted on it, so shaving that delay is the entire value proposition of an alert bot.
 2. **Wasted requests.** Most polls return nothing new. You're paying for the 99% of checks that find no whale activity, just to catch the 1% that does.
 
-With a push based approach you subscribe once, and the server sends you an event the moment something happens, with no unnecessary request in between. For a fast chain like Robinhood Chain, this difference is amplified, since more can happen inside a single polling window.
+With a push-based approach you subscribe once, and the server sends you an event the moment something happens, with no unnecessary request in between. For a fast chain like Robinhood Chain, this difference is amplified, since more can happen inside a single polling window.
 
 ## Blockscout's version: the WebSocket API
 
@@ -49,9 +49,9 @@ You'll test it by sending yourself a real, tiny transfer on Robinhood Chain main
 export BLOCKSCOUT_API_KEY=proapi_your_key_here
 ```
 
-💡
-
-Robinhood Chain testnet isn't currently supported by the Pro API, so this tutorial runs on mainnet (chain ID `4663`). That's not a problem here: gas is sub-cent ETH, and trading actions are gas-free for users for Robinhood Chain's first 90 days, so a real test transfer costs you effectively nothing.
+<Tip>
+  Robinhood Chain testnet isn't currently supported by the Pro API, so this tutorial runs on mainnet (chain ID `4663`). That's not a problem here: gas is sub-cent ETH, and trading actions are gas-free for users for Robinhood Chain's first 90 days, so a real test transfer costs you effectively nothing.
+</Tip>
 
 ## Step 2: Create a Discord webhook to receive alerts
 
