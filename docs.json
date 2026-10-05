@@ -464,6 +464,11 @@
               ]
             },
             {
+              "group": "PRO RPC & ETH RPC",
+              "icon": "code",
+              "openapi": "openapi-specs/pro-rpc-api-universal.json"
+            },
+            {
               "group": "Additional Service APIs",
               "icon": "light-switch",
               "pages": [
