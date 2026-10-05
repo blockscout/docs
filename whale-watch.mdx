@@ -240,7 +240,7 @@ Whale watch is triggered by sending or receiving tokens from the identified addr
 
 ## Watching 10 wallets on one connection
 
-A single WebSocket connection supports up to 100 subscriptions, so watching a whole list of wallets, say, ten known exchange or bridge addresses, is still only a single connection. Ten `subscribe` calls run on the same socket, and one shared handler that figures out which address each incoming event belongs to.
+A single WebSocket connection supports up to 100 subscriptions, so watching a whole list of wallets, say, ten known exchange or bridge addresses, is still only a single connection. Ten `subscribe` calls run on the same socket, and one shared handler figures out which address each incoming event belongs to.
 
 To adjust from the single-address version, use the `topic` field the server echoes back on every event to know which watched address just moved.
 
