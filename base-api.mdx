@@ -93,12 +93,12 @@ Every tier includes access to all 117 Blockscout-supported chains — not just B
 Since both APIs now use a unified multichain format, the migration is a base URL and key swap:
 
 ```javascript
-// Before (Etherscan V2 — Base requires paid tier)
+// Before (Etherscan V2)
 const resp = await fetch(
   `https://api.etherscan.io/v2/api?chainid=8453&module=account&action=balance&address=${addr}&apikey=${ETHERSCAN_KEY}`
 );
 
-// After (Blockscout PRO API — free tier available)
+// After (Blockscout PRO API)
 const resp = await fetch(
   `https://api.blockscout.com/v2/api?chain_id=8453&module=account&action=balance&address=${addr}&apikey=${BLOCKSCOUT_KEY}`
 );
