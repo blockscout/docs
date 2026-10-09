@@ -434,6 +434,7 @@ backfills
 backfillin
 Homomorphic
 trace_
+debug_
 pooler
 Postgrex
 clusterization
