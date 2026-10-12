@@ -129,7 +129,7 @@ https://instance_base_url/api
 </Info>
 
 <Info>
-  If the balance hasn't been updated in a long time, the node is double checked to fetch the absolute latest balance. This is not reflected in the current request, but once it is updated, subsequent requests will show the updated balance. The `stale` attribute will be set to `true` if a new balance is being fetched.
+  If the balance hasn't been updated in a long time, the node is double-checked to fetch the absolute latest balance. This is not reflected in the current request, but once it is updated, subsequent requests will show the updated balance. The `stale` attribute will be set to `true` if a new balance is being fetched.
 </Info>
 
 ## Get pending transactions by address
@@ -184,7 +184,7 @@ https://instance_base_url/api
 
 `txlist`
 
-Maximum of 10,000 transactions. Also available through a GraphQL `address` query (see the [GraphQL example for address transactions](/devs/apis/graphql#example-query-to-retrieve-transactions-for-a-specific-address)). For faster results, specify a smaller block range to search using the `startblock` and `endblock` parameters
+Maximum of 10,000 transactions. Also available through a GraphQL `address` query (see the [GraphQL example for address transactions](/devs/apis/graphql#example-query-to-retrieve-transactions-for-a-specific-address)). For faster results, specify a smaller block range to search using the `startblock` and `endblock` parameters.
 
 **Example:**
 
@@ -206,7 +206,7 @@ https://instance_base_url/api
     | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
     | **address**     | `string` containing the address hash.                                                                                                                                |
     | sort            | optional sorting preference, `asc` for ascending and `desc` for descending. Descending is default.                                                                   |
-    | startblock      | optional `integer` block number to start transaction search                                                                                                          |
+    | startblock      | optional `integer` block number to start transaction search.                                                                                                         |
     | endblock        | optional `integer` block number to stop transaction search.                                                                                                          |
     | page            | optional `integer` representing the page number used for pagination. `offset` must also be provided.                                                                 |
     | offset          | optional `integer` representing number of transactions returned per page. `page` must also be provided.                                                              |
@@ -271,7 +271,7 @@ https://instance_base_url/api
   <Tab title="Request Params">
     | Parameter          | Description                                                                                                                                          |
     | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | **txhash**         | optional `string` representing the transaction hash to check for internal transactions                                                               |
+    | **txhash**         | optional `string` representing the transaction hash to check for internal transactions.                                                              |
     | address            | optional `string` containing the address hash.                                                                                                       |
     | sort               | optional sorting preference, `asc` for ascending and `desc` for descending. Descending is default. **Only available if 'address' is provided.**      |
     | startblock         | optional `integer` block number to start transaction search. **Only available if 'address' is provided.**                                            |
@@ -334,7 +334,7 @@ https://instance_base_url/api
     | **address**      | required if no `contractaddress` parameter is provided, `string` containing the address hash.                    |
     | contractaddress | required if no `address` parameter is provided, `string` with the token contract address to identify a contract. |
     | sort             | optional sorting preference, `asc` for ascending and `desc` for descending. Descending is default.               |
-    | startblock       | optional `integer` block number to start transaction search                                                      |
+    | startblock       | optional `integer` block number to start transaction search.                                                     |
     | endblock         | optional `integer` block number to stop transaction search.                                                      |
     | page             | optional `integer` representing the page number used for pagination. `offset` must also be provided.             |
     | offset           | optional `integer` representing number of transactions returned per page. `page` must also be provided.          |
@@ -402,7 +402,7 @@ https://instance_base_url/api
     | **address**     | required if no `contractaddress` parameter is provided, `string` containing the address hash.                    |
     | contractaddress | required if no `address` parameter is provided, `string` with the token contract address to identify a contract. |
     | sort            | optional sorting preference, `asc` for ascending and `desc` for descending. Descending is default.               |
-    | startblock      | optional `integer` block number to start transaction search                                                      |
+    | startblock      | optional `integer` block number to start transaction search.                                                     |
     | endblock        | optional `integer` block number to stop transaction search.                                                      |
     | page            | optional `integer` representing the page number used for pagination. `offset` must also be provided.             |
     | offset          | optional `integer` representing number of transactions returned per page. `page` must also be provided.          |
@@ -471,7 +471,7 @@ https://instance_base_url/api
     | address         | required if no `contractaddress` parameter is provided, `string` containing the address hash.                    |
     | contractaddress | required if no `address` parameter is provided, `string` with the token contract address to identify a contract. |
     | sort            | optional sorting preference, `asc` for ascending and `desc` for descending. Descending is default.               |
-    | startblock      | optional `integer` block number to start transaction search                                                      |
+    | startblock      | optional `integer` block number to start transaction search.                                                     |
     | endblock        | optional `integer` block number to stop transaction search.                                                      |
     | page            | optional `integer` representing the page number used for pagination. `offset` must also be provided.             |
     | offset          | optional `integer` representing number of transactions returned per page. `page` must also be provided.          |
@@ -540,7 +540,7 @@ https://instance_base_url/api
     | address         | required if no `contractaddress` parameter is provided, `string` containing the address hash.                    |
     | contractaddress | required if no `address` parameter is provided, `string` with the token contract address to identify a contract. |
     | sort            | optional sorting preference, `asc` for ascending and `desc` for descending. Descending is default.               |
-    | startblock      | optional `integer` block number to start transaction search                                                      |
+    | startblock      | optional `integer` block number to start transaction search.                                                     |
     | endblock        | optional `integer` block number to stop transaction search.                                                      |
     | page            | optional `integer` representing the page number used for pagination. `offset` must also be provided.             |
     | offset          | optional `integer` representing number of transactions returned per page. `page` must also be provided.          |
@@ -754,7 +754,7 @@ https://instance_base_url/api
     | offset    | optional `integer` representing number of transactions returned per page. `page` must also be provided. |
 
     <Info>
-      If the balance hasn't been updated in a long time, the node is double checked to fetch the absolute latest balance. This is not reflected in the current request, but once it is updated, subsequent requests will show the updated balance. The `stale` attribute will be set to `true` if a new balance is being fetched.
+      If the balance hasn't been updated in a long time, the node is double-checked to fetch the absolute latest balance. This is not reflected in the current request, but once it is updated, subsequent requests will show the updated balance. The `stale` attribute will be set to `true` if a new balance is being fetched.
     </Info>
   </Tab>
   <Tab title="Example Result">
