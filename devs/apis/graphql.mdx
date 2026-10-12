@@ -70,10 +70,11 @@ To access Blockscout GraphQL interface you can use [GraphiQL](https://eth.blocks
 
 You can also use your favorite http client:
 
-```sh
-curl 'https://eth-sepolia.blockscout.com/api/v2/graphql'
-  -H 'Authorization: Bearer YOUR_AUTH_TOKEN'
-  -d '{"query":""{transaction(hash:\"0x4f3a80620613d18a5073108f56558c7cbf0020c8ccb1acbad2c1f1fe3714e5ce\"){blockNumbertoAddressHashfromAddressHashcreatedContractAddressHashvaluestatusnoncehasherrorgasgasPricegasUsedcumulativeGasUsedidindexinputrsv}}""}'
+```bash
+curl 'https://eth-sepolia.blockscout.com/api/v2/graphql' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer YOUR_AUTH_TOKEN' \
+  -d '{"query":"{ transaction(hash: \"0x4f3a80620613d18a5073108f56558c7cbf0020c8ccb1acbad2c1f1fe3714e5ce\") { blockNumber toAddressHash fromAddressHash createdContractAddressHash value status nonce hash error gas gasPrice gasUsed cumulativeGasUsed id index input r s v } }"}'
 ```
 
 ## **Queries**
@@ -97,7 +98,9 @@ Blockscout's GraphQL API provides queries and a subscription. You can view them 
 
 ### Example Query to retrieve transactions for a specific address
 
-```javascript
+This query is the GraphQL equivalent of the `module=account&action=txlist` RPC endpoint.
+
+```graphql
 {
   address(hash: "0x...") {
     transactions(first:5) {
