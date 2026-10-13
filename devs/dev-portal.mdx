@@ -1,13 +1,262 @@
 ---
 title: "Dev Portal"
-description: "Blockscout developer portal at dev.blockscout.com where developers sign up, manage PRO API keys, and monitor usage across supported chains."
-icon: "torii-gate"
+description: "Create and manage PRO API keys, track credit usage across chains, invite your team, and upgrade your plan at dev.blockscout.com."
 ---
 
-<Info>
-  More info coming soon. Check out the dev portal now at https://dev.blockscout.com/
-</Info>
+The Blockscout Dev Portal at [dev.blockscout.com](https://dev.blockscout.com/) is where you manage your PRO API access. Sign in to create API keys, see exactly where your credits go, invite teammates, and move to a higher plan when you need more capacity.
 
-<Frame>
-  ![Dashboard](/images/dashboard.jpg)
+The dashboard has four main areas:
+
+<CardGroup cols={2}>
+  <Card title="Usage reporting" icon="chart-line" href="#credits-spent-reporting">
+    Daily credits, top endpoints, and chain distribution.
+  </Card>
+
+  <Card title="API keys" icon="key" href="#api-keys">
+    Create, regenerate, and delete keys.
+  </Card>
+
+  <Card title="Team" icon="users" href="#team-and-permissions">
+    Invite members and assign roles.
+  </Card>
+
+  <Card title="Plans" icon="arrow-up-right" href="#plan-upgrades">
+    Check your plan and upgrade.
+  </Card>
+</CardGroup>
+
+<Frame caption="The Dev Portal dashboard">
+  <img
+    src="/images/dashboard-overview-1.png"
+    alt="Dashboard Overview"
+    title="Dashboard Overview"
+  />
 </Frame>
+
+## Credits spent reporting
+
+Every PRO API request uses credits. The dashboard shows your consumption at three levels so you can see what you are spending and why.
+
+### Plan usage
+
+The plan card at the top of the dashboard shows your current plan, the credits you have used against your allowance, and a countdown to the next renewal. On the Free plan the allowance is 100,000 credits per day, so the meter resets daily.
+
+### Daily API credits spent
+
+The **Daily API credits spent** chart plots credit consumption per day. By default it covers the last 30 days. Use the date range picker to look at any other period. Below the chart, **Total credits spent** gives the sum for the selected range.
+
+The current day is marked as incomplete until it ends, so the last data point can still grow.
+
+<Frame caption="Daily API credits spent">
+  <img
+    src="/images/credits-chart.png"
+    alt="Credits Chart"
+    title="Credits Chart"
+  />
+</Frame>
+
+<Tip>
+  A sudden spike on the chart usually points to a script or integration making more calls than expected. Check **Top API endpoints** for the same date range to find the cause.
+</Tip>
+
+### Top API endpoints
+
+The **Top API endpoints** tab ranks endpoints by how often you call them. Each row shows the endpoint path, the number of calls, and the credits those calls cost. For example, `api/eth-rpc` with 61 calls at 20 credits each shows as 1,220 credits.
+
+Use it to find the endpoints that account for most of your spend.
+
+### Chain distribution
+
+The **Chain distribution** tab breaks your calls down by blockchain network, with the chain name, logo, and call count. Use it to confirm traffic is going to the chains you expect.
+
+Both tabs share a date range picker, so you can compare the same period across endpoints and chains.
+
+<Frame caption="Top API endpoints and Chain distribution">
+  <img
+    src="/images/chain-distribution.png"
+    alt="Chain Distribution"
+    title="Chain Distribution"
+  />
+</Frame>
+
+## API call costs
+
+Not every endpoint costs the same. Select **API call costs** on the dashboard to open the full price table. Each row lists an endpoint and its cost in credits per call.
+
+- Most endpoints use the default cost of 20 credits.
+- Heavier queries cost more. For example, `api/v2/search/quick` costs 25 credits, and `api/v2/advanced-filters` and `api/v2/addresses/:address_hash/coin-balance-history` cost 50 credits each.
+- Some services have their own pricing. Name resolution calls under `bens/` cost between 150 and 1,000 credits depending on the endpoint.
+
+Check this table before building features that call expensive endpoints in a loop.
+
+<Frame caption="API call costs">
+  <img
+    src="/images/api-call-costs.png"
+    alt="Api Call Costs"
+    title="Api Call Costs"
+  />
+</Frame>
+
+## API keys
+
+The **API keys** section lists every key on your account, up to 50. A URL template above the list shows how a key is used in a request:
+
+```text
+https://api.blockscout.com/{{chain ID}}/api/v2/addresses/{{address}}/transactions?apikey={{api-key}}
+```
+
+Each row shows the key name, the masked key (all PRO keys start with `proapi_`), its status, the creation date, and the expiration date. Keys without an expiration show **Valid until ∞**.
+
+<Frame caption="API keys list">
+  <img
+    src="/images/api-keys.png"
+    alt="Api Keys"
+    title="Api Keys"
+  />
+</Frame>
+
+### Create a key
+
+<Steps>
+  <Step title="Open the form">
+    Select **Add new key** in the API keys section.
+  </Step>
+  <Step title="Name the key">
+    Enter an application name, for example `Web3 project`. The name is required and helps you tell keys apart later, but is for your reference only.
+  </Step>
+  <Step title="Set an expiration date (optional)">
+    Pick a date if you want the key to stop working automatically. Leave it empty for a key that does not expire.
+  </Step>
+  <Step title="Generate the key">
+    Select **Generate API key**. The key is created automatically.
+  </Step>
+  <Step title="Copy the key">
+    Use the copy button next to the key, then select **Got it!**. The dialog also gives you a ready-made test link that calls the API with your new key, so you can confirm it works right away.
+  </Step>
+</Steps>
+
+<Warning>
+  The full key is shown only once. If you close the dialog without copying it, you lose it. The keys list shows masked values only. To get a new value, [regenerate the key](#regenerate-a-key).
+</Warning>
+
+<Frame caption="New API key dialog">
+  <img
+    src="/images/new-key-created-1.png"
+    alt="New Key Created"
+    title="New Key Created"
+  />
+</Frame>
+
+<Tip>
+  Create one key per application or environment. If one leaks or needs to rotate, you only touch that integration.
+</Tip>
+
+### Regenerate a key
+
+Regenerate a key when it has leaked, when someone leaves the team, or as part of a regular rotation. The key keeps its name and settings and gets a new value.
+
+<Steps>
+  <Step title="Open the key menu">
+    Select the **...** menu on the key's row, then **Regenerate**.
+  </Step>
+  <Step title="Confirm">
+    The dialog warns that a new key will be created and the old one will be invalidated. Select **Generate API key** to continue.
+  </Step>
+  <Step title="Copy the new key">
+    A confirmation message appears and the new key is shown once. Copy it before you close the dialog.
+  </Step>
+</Steps>
+
+<Warning>
+  The old value is invalidated. Update every application that uses it, or its requests will fail.
+</Warning>
+
+### Delete a key
+
+Delete keys you no longer use. Select the **...** menu on the key's row, then **Delete**. A confirmation dialog asks whether you are sure and notes that the action cannot be undone. Select **Delete** to remove the key permanently.
+
+<Warning>
+  Deleted keys cannot be restored. Requests that use the key stop working.
+</Warning>
+
+<Frame caption="Key actions menu">
+  <img
+    src="/images/key-actions.png"
+    alt="Key Actions"
+    title="Key Actions"
+  />
+</Frame>
+
+## Team and permissions
+
+You can share access to a Dev Portal account with your team and control what each person can do.
+
+Open the account menu in the top right corner. It shows the teams you belong to with your role in each, a link to the billing page, and the **Team** entry with an **Invite** button.
+
+<Frame caption="Account menu with team and invite">
+  <img
+    src="/images/account-menu.png"
+    alt="Account Menu"
+    title="Account Menu"
+  />
+</Frame>
+
+### Invite a team member
+
+<Steps>
+  <Step title="Open the invite form">
+    Select **Invite** next to **Team** in the account menu.
+  </Step>
+  <Step title="Enter an email address">
+    Add the email of the person you want to invite.
+  </Step>
+  <Step title="Choose a role">
+    Pick the role that matches what the person needs to do (see below).
+  </Step>
+  <Step title="Send the invitation">
+    Select **Send invitation**.
+  </Step>
+</Steps>
+
+### Roles
+
+| Role | What it can do |
+| --- | --- |
+| Developer | Create and manage API keys. Cannot manage the team or billing. |
+| Billing | Manage billing and plans. Cannot manage the team or API keys. |
+| Admin | Full access. Manage team members, billing, and API keys. |
+
+The account creator is the **Owner** of the team.
+
+{/* VERIFY: how to change a member's role or remove a member after inviting. The invite dialog is the only team screen found so far. */}
+
+## Plan upgrades
+
+Your current plan and usage are always visible in the plan card at the top of the dashboard. When you need higher limits, upgrade from either of two places:
+
+- **Billing & plans** link on the plan card.
+- **Billing page** in the account menu.
+
+The **Billing & plans** page compares every plan side by side: included API credits, rate limit, and the price of extra credits. Switch between monthly, quarterly, and yearly billing. Quarterly billing saves 15% and yearly billing saves 20%.
+
+To upgrade, select **Upgrade** on the plan you want. For custom limits, an improved SLA, or personal support, select **Contact Us** on the Enterprise plan.
+
+The page also shows your current plan, the date of your next billing period, and your billing history.
+
+<Note>
+  See the Dev Portal for current prices and limits. They are shown on the **Billing & plans** page.
+</Note>
+
+<Frame caption="Billing & plans">
+  <img
+    src="/images/billing-plans.png"
+    alt="Billing Plans"
+    title="Billing Plans"
+  />
+</Frame>
+
+## More from the dashboard
+
+- **Supported chains** opens a searchable list of every chain the PRO API supports, with chain IDs. Filter by mainnet or testnet, or use **Request chain support** to ask for a new network.
+- **AI agents** opens a page with copy-paste commands to install the Blockscout `web3-dev` skill in Claude, Codex, OpenClaw, and other agents.
+- **Support** links to the PRO API docs, Discord, the Telegram community, and the chain request form.
