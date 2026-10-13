@@ -56,7 +56,7 @@ Additional details are included for each item below the table.
 
 `GET /api/v2/transactions/{hash}/state-changes` `next_page_params` changed from `{"state_changes": null, "items_count": N}` to `{"state_changes_count": N}`. A stored old cursor containing `state_changes` now returns 422.
 
-### 3. 🔴`limit` query parameter removed 
+### 3. 🔴 `limit` query parameter removed 
 
 | Endpoint | v11 | v12 |
 | --- | --- | --- |
@@ -107,7 +107,7 @@ For unknown addresses, `celo_election_rewards_count` and `beacon_deposits_count`
 
 ## JSON RPC API (`/api?module=…`)
 
-### 12. 🔴`getsourcecode` and `gettxinfo` 
+### 12. 🔴 `getsourcecode` and `gettxinfo` 
 
 - `ConstructorArguments` is `0x`-prefixed (see item 8).
 - `gettxinfo` `next_page_params` no longer contains `items_count` (see item 1).
@@ -145,7 +145,7 @@ A request with `params` but without `jsonrpc` now returns -32600 `Method, and js
 
 In batched requests, a JSON-RPC error object returned by the node for an individual proxied request is now passed through as-is (including its optional `data` field) instead of being reported as an internal error.
 
-### 15. 🔴`eth_getLogs` block parameters must be hex quantities or tags 
+### 15. 🔴 `eth_getLogs` block parameters must be hex quantities or tags 
 
 `"fromBlock": "100"` used to be silently parsed as hex (block 256). It now returns -32602 `Invalid block number`. Use `"0x64"`, `"latest"`, `"earliest"`, `"pending"`.
 
