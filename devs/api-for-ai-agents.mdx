@@ -107,3 +107,16 @@ Agents tend to make high-frequency API calls. Blockscout's credit-based pricing 
 3. **Need help?** Join the [Blockscout Discord](https://discord.gg/blockscout) — the dev team is active and responsive
 
 **→ [AI Skills Portal](https://www.blockscout.com/agents)** · **→ [PRO API Portal](https://dev.blockscout.com)** · **→ [MCP Documentation](/devs/mcp-server)**
+
+## Point Your Agent at These Docs
+
+Agents that need to read the Blockscout documentation itself (to answer questions, generate code, or look up endpoints) can access these auto-generated, agent-friendly URLs:
+
+| Resource | URL | Purpose |
+| --- | --- | --- |
+| Page index | [docs.blockscout.com/llms.txt](https://docs.blockscout.com/llms.txt) | Lightweight index of every page, optimized for LLMs |
+| Full content | [docs.blockscout.com/llms-full.txt](https://docs.blockscout.com/llms-full.txt) | Entire site content concatenated into one file |
+| Markdown page | Append `.md` to any docs URL | Clean markdown version of any page (e.g. `/devs/pro-api.md`) |
+| Docs MCP server | `https://docs.blockscout.com/mcp` | Model Context Protocol endpoint for live docs search |
+
+Point your agent, RAG pipeline, or coding assistant at these URLs to give it accurate, up-to-date knowledge of the Blockscout API and docs.
