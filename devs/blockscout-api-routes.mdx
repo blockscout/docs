@@ -11,11 +11,11 @@ icon: "circle-nodes"
 <Columns cols={2}>
   <Column>
     - [General Info](#general-info)
-    - [Pricing](#pro-api-pricing-tiers)
-    - [Authorization](#pro-api-authorization)
+    - [Pricing](#blockscout-api-pricing-tiers)
+    - [Authorization](#blockscout-api-authorization)
   </Column>
   <Column>
-    - [Routes](#pro-api-routes)
+    - [Routes](#blockscout-api-routes)
     - [Pagination](#pagination)
     - [Credits](#blockscout-credit-costs)
   </Column>
@@ -52,7 +52,7 @@ Pass an API key using either:
 
 ## API Response Headers
 
-The following information related to the API plan is included in the response headers
+The following information related to the API plan is included in the response headers:
 
 - **x-credits-remaining:** Number of credits remaining in your plan. If on the free plan, this will reset daily, otherwise it is monthly. You can check additional details in the [Blockscout API landing page](https://dev.blockscout.com/).
 - **x-ratelimit-limit:** Available RPS with your plan (can be -1 if there is an internal error)
@@ -115,7 +115,7 @@ Previous per-instance route:
 
 See [ETH RPC docs](/devs/apis/rpc/eth-rpc) for more info on post requests.
 
-Blockscout API Route
+Blockscout API Route:
 
 ```text
 curl -H "content-type: application/json" \
@@ -157,7 +157,7 @@ In this example, the query to receive the next 50 results would be:
 
 Credit amounts vary based on resource usage for different calls. The number of credits required for different calls is subject to change based on current analytics and resource usage.
 
-You can check your credits, top calls and overall usage in the dev portal dashboard at [https://dev.blockscout.com/](https://dev.blockscout.com/)
+You can check your credits, top calls and overall usage in the dev portal dashboard at [https://dev.blockscout.com/](https://dev.blockscout.com/).
 
 Credits are consumed per API call. The **default cost is 20 credits** for any endpoint not listed below.
 
@@ -178,6 +178,5 @@ Credits are consumed per API call. The **default cost is 20 credits** for any en
 | `api/v2/transactions/:hash/summary` | 50 |
 | `api/v2/transactions/:hash/raw-trace` | 50 |
 | `api/v2/addresses/:address_hash/coin-balance-history` | 50 |
-|  |  |
 
 _Last Updated February, 2026_
