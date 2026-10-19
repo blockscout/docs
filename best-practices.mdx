@@ -63,6 +63,10 @@ Every PRO API response includes headers that tell you exactly where you stand, s
 
 If `x-credits-remaining` isn't decreasing, your key isn't authenticating — check it before assuming the data is wrong.
 
+## Scale raw token amounts with `decimals`
+
+Token amounts in API responses, such as `value` in [token balances](/api-reference/addresses/list-all-token-balances-held-by-a-specific-address), are integer strings in the token's smallest unit. They are not USD values. To get a human-readable amount, divide `value` by 10^`token.decimals`. To estimate the current USD value, multiply that amount by `token.exchange_rate`. Native coin amounts work the same way and are returned in wei.
+
 ## Historical pricing needs an external feed
 
 The PRO API returns current exchange rates, but not historical ones. If you need the USD value of an asset at the moment of a past transaction (for tax or accounting workflows), pair the block timestamp on each row with an external pricing feed — CoinGecko, Pyth, or your own oracle.

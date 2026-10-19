@@ -5120,7 +5120,12 @@
             "nullable": true
           },
           "value": {
-            "$ref": "#/components/schemas/IntegerString"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/IntegerString"
+              }
+            ],
+            "description": "Token balance in the token's smallest unit, not in USD. For fungible tokens, divide by 10^`token.decimals` to get the human-readable amount. Multiply that amount by `token.exchange_rate` to estimate the USD value."
           }
         },
         "required": [
