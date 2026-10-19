@@ -25,7 +25,7 @@ info:
 paths:
   /search:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       parameters:
       - in: query
         name: q
@@ -61,7 +61,7 @@ paths:
 
   /search/check-redirect:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       parameters:
       - in: query
         name: q
@@ -82,7 +82,7 @@ paths:
 
   /transactions:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       parameters:
       - in: query
         name: filter
@@ -124,7 +124,7 @@ paths:
 
   /blocks:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       parameters:
       - in: query
         name: type
@@ -156,7 +156,7 @@ paths:
 
   /token-transfers:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get token transfers
       operationId: get_token_transfers
       responses:
@@ -182,7 +182,7 @@ paths:
 
   /internal-transactions:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get internal transactions
       operationId: get_internal_transactions
       responses:
@@ -206,7 +206,7 @@ paths:
 
   /main-page/transactions:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get main page transactions
       operationId: get_main_page_txs
       responses:
@@ -221,7 +221,7 @@ paths:
 
   /main-page/blocks:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get main page blocks
       operationId: get_main_page_tokens
       responses:
@@ -236,7 +236,7 @@ paths:
 
   /main-page/indexing-status:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get indexing status
       operationId: get_indexing_status
       responses:
@@ -249,7 +249,7 @@ paths:
 
   /stats:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get stats counters
       operationId: get_stats
       responses:
@@ -262,7 +262,7 @@ paths:
 
   /stats/charts/transactions:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get transactions chart
       operationId: get_txs_chart
       responses:
@@ -282,7 +282,7 @@ paths:
 
   /stats/charts/market:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get market chart
       operationId: get_market_chart
       responses:
@@ -306,7 +306,7 @@ paths:
 
   /transactions/{transaction_hash}:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get transaction info
       operationId: get_tx
       parameters:
@@ -323,7 +323,7 @@ paths:
 
   /transactions/{transaction_hash}/token-transfers:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get transaction token transfers
       operationId: get_transaction_token_transfers
       parameters:
@@ -363,7 +363,7 @@ paths:
           description: bad input parameter
   /transactions/{transaction_hash}/internal-transactions:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get transaction internal transactions
       operationId: get_transaction_internal_txs
       parameters:
@@ -391,7 +391,7 @@ paths:
           description: bad input parameter
   /transactions/{transaction_hash}/logs:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get transaction logs
       operationId: get_transaction_logs
       parameters:
@@ -418,7 +418,7 @@ paths:
           description: bad input parameter
   /transactions/{transaction_hash}/raw-trace:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get transaction raw trace
       operationId: get_transaction_raw_trace
       parameters:
@@ -436,7 +436,7 @@ paths:
           description: bad input parameter
   /transactions/{transaction_hash}/state-changes:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get transaction state changes
       operationId: get_transaction_state_changes
       parameters:
@@ -464,7 +464,7 @@ paths:
 
   /transactions/{transaction_hash}/summary:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get human-readable transaction summary
       operationId: get_transaction_summary
       parameters:
@@ -481,7 +481,7 @@ paths:
 
   /blocks/{block_number_or_hash}:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get block info
       operationId: get_block
       parameters:
@@ -498,7 +498,7 @@ paths:
 
   /blocks/{block_number_or_hash}/transactions:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get block transactions
       operationId: get_block_txs
       parameters:
@@ -526,7 +526,7 @@ paths:
 
   /blocks/{block_number_or_hash}/withdrawals:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get block withdrawals
       operationId: get_block_withdrawals
       parameters:
@@ -554,7 +554,7 @@ paths:
 
   /addresses:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get native coin holders list
       operationId: get_addresses
       responses:
@@ -588,7 +588,7 @@ paths:
 
   /addresses/{address_hash}:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get address info
       operationId: get_address
       parameters:
@@ -604,7 +604,7 @@ paths:
           description: bad input parameter
   /addresses/{address_hash}/counters:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get address counters
       operationId: get_address_counters
       parameters:
@@ -621,7 +621,7 @@ paths:
 
   /addresses/{address_hash}/transactions:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get address transactions
       operationId: get_address_txs
       parameters:
@@ -655,7 +655,7 @@ paths:
 
   /addresses/{address_hash}/token-transfers:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get address token transfers
       operationId: get_address_token_transfers
       parameters:
@@ -698,7 +698,7 @@ paths:
 
   /addresses/{address_hash}/internal-transactions:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get address internal transactions
       operationId: get_address_internal_txs
       parameters:
@@ -731,7 +731,7 @@ paths:
 
   /addresses/{address_hash}/logs:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get address logs
       operationId: get_address_logs
       parameters:
@@ -759,7 +759,7 @@ paths:
 
   /addresses/{address_hash}/blocks-validated:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get blocks validated by address
       operationId: get_address_blocks_validated
       parameters:
@@ -787,7 +787,7 @@ paths:
 
   /addresses/{address_hash}/token-balances:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get all tokens balances for the address
       operationId: get_address_token_balances
       parameters:
@@ -806,7 +806,7 @@ paths:
 
   /addresses/{address_hash}/tokens:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: token balances with filtering and pagination
       operationId: get_address_tokens
       parameters:
@@ -838,7 +838,7 @@ paths:
           description: bad input parameter
   /addresses/{address_hash}/coin-balance-history:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get address coin balance history
       operationId: get_address_coin_balance_history
       parameters:
@@ -866,7 +866,7 @@ paths:
 
   /addresses/{address_hash}/coin-balance-history-by-day:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get address coin balance history by day
       operationId: get_address_coin_balance_history_by_day
       parameters:
@@ -885,7 +885,7 @@ paths:
 
   /addresses/{address_hash}/withdrawals:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get address withdrawals
       operationId: get_address_withdrawals
       parameters:
@@ -913,7 +913,7 @@ paths:
 
   /addresses/{address_hash}/nft:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get list of NFT owned by address
       operationId: get_address_nft
       parameters:
@@ -946,7 +946,7 @@ paths:
 
   /addresses/{address_hash}/nft/collections:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get list of NFT owned by address, grouped by collection
       operationId: get_address_nft_collections
       parameters:
@@ -979,7 +979,7 @@ paths:
 
   /tokens:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get tokens list
       operationId: get_tokens_list
       parameters:
@@ -1016,7 +1016,7 @@ paths:
 
   /tokens/{address_hash}:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get token info
       operationId: get_token
       parameters:
@@ -1033,7 +1033,7 @@ paths:
 
   /tokens/{address_hash}/transfers:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get token token transfers
       operationId: get_token_token_transfers
       parameters:
@@ -1061,7 +1061,7 @@ paths:
 
   /tokens/{address_hash}/holders:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get token holders
       operationId: get_token_holders
       parameters:
@@ -1089,7 +1089,7 @@ paths:
 
   /tokens/{address_hash}/counters:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get token holders
       operationId: get_token_counters
       parameters:
@@ -1106,7 +1106,7 @@ paths:
 
   /tokens/{address_hash}/instances:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get NFT instances
       operationId: get_nft_instances
       parameters:
@@ -1134,7 +1134,7 @@ paths:
 
   /tokens/{address_hash}/instances/{id}:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get NFT instance by id
       operationId: get_nft_instance
       parameters:
@@ -1152,7 +1152,7 @@ paths:
 
   /tokens/{address_hash}/instances/{id}/transfers:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get transfers of NFT instance
       operationId: get_nft_instance_transfers
       parameters:
@@ -1181,7 +1181,7 @@ paths:
 
   /tokens/{address_hash}/instances/{id}/holders:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get token instance holders
       operationId: get_token_instance_holders
       parameters:
@@ -1210,7 +1210,7 @@ paths:
 
   /tokens/{address_hash}/instances/{id}/transfers-count:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get transfers count of NFT instance
       operationId: get_nft_instance_transfers_count
       parameters:
@@ -1234,7 +1234,7 @@ paths:
 
   /tokens/{address_hash}/instances/{id}/refetch-metadata:
     patch:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: re-fetch token instance metadata
       operationId: refetch_token_instance_metadata
       parameters:
@@ -1277,7 +1277,7 @@ paths:
 
   /smart-contracts:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get verified smart contracts
       operationId: get_smart_contracts
       parameters:
@@ -1314,7 +1314,7 @@ paths:
 
   /smart-contracts/counters:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get verified smart contracts counters
       operationId: get_smart_contracts_counters
       responses:
@@ -1347,7 +1347,7 @@ paths:
 
   /smart-contracts/{address_hash}:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get smart contract
       operationId: get_smart_contract
       parameters:
@@ -1364,7 +1364,7 @@ paths:
 
   /config/json-rpc-url:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get json rpc url
       operationId: get_json_rpc_url
       responses:
@@ -1383,7 +1383,7 @@ paths:
 
   /withdrawals:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get withdrawals
       operationId: get_withdrawals
       responses:
@@ -1406,7 +1406,7 @@ paths:
                     example: {"index": 1, "items_count": 50}
   /proxy/account-abstraction/status:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: get account abstraction indexing status
       operationId: get_account_abstraction_status
       responses:
@@ -1420,7 +1420,7 @@ paths:
           description: unexpected error
   /api/v1/celestia/blob:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       operationId: CelestiaService_GetBlob
       responses:
         "200":
@@ -1456,7 +1456,7 @@ paths:
       - CelestiaService
   /api/v1/celestia/l2BatchMetadata:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       operationId: CelestiaService_GetL2BatchMetadata
       responses:
         "200":
@@ -1492,7 +1492,7 @@ paths:
       - CelestiaService
   /health:
     get:
-      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of PRO API endpoints. Please see the [PRO API reference page](https://docs.blockscout.com/devs/pro-api-responses-and-routes) for information.'
+      description: '**Deprecation Notice:** Per instance endpoints will be deprecated soon in favor of Blockscout API endpoints. Please see the [Blockscout API reference page](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes) for information.'
       summary: |-
         If the requested service is unknown, the call will fail with status
         NOT_FOUND.

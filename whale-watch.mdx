@@ -23,7 +23,7 @@ With a push-based approach you subscribe once, and the server sends you an event
 
 ## Blockscout's version: the WebSocket API
 
-Blockscout's Pro API doesn't currently have a hosted "webhooks" feature where you paste a URL into a dashboard and configure filters. However, with the WebSocket API you can open a multiplexed connection, subscribe to topics like a specific address, and the server pushes JSON events to you as they happen.
+The Blockscout API doesn't currently have a hosted "webhooks" feature where you paste a URL into a dashboard and configure filters. However, with the WebSocket API you can open a multiplexed connection, subscribe to topics like a specific address, and the server pushes JSON events to you as they happen.
 
 This provides flexibility but relies on you to turn the WebSocket message into an outbound webhook call. In this tutorial we'll create a webhook from the WebSocket API that posts directly to Discord, driven by Blockscout's real-time feed.
 
@@ -31,7 +31,7 @@ This provides flexibility but relies on you to turn the WebSocket message into a
 
 A ~100-line Node.js script that:
 
-1. Opens a WebSocket connection to the Blockscout Pro API
+1. Opens a WebSocket connection to the Blockscout API
 2. Subscribes to a Robinhood Chain address
 3. Watches both native ETH transfers and any token transfer (ERC-20, ERC-721, ERC-1155) involving that address
 4. Filters each against a low threshold
@@ -40,7 +40,7 @@ A ~100-line Node.js script that:
 
 You'll test it by sending yourself a real, tiny transfer on Robinhood Chain mainnet, which costs essentially nothing.
 
-## Step 1: Get a Pro API key
+## Step 1: Get a Blockscout API key
 
 1. Go to [dev.blockscout.com](http://dev.blockscout.com) and create an account.
 2. Open the Keys section and click **Create API Key**. Keys start with `proapi_` and are shown once.
@@ -50,7 +50,7 @@ export BLOCKSCOUT_API_KEY=proapi_your_key_here
 ```
 
 <Tip>
-  Robinhood Chain testnet isn't currently supported by the Pro API, so this tutorial runs on mainnet (chain ID `4663`). That's not a problem here: gas is sub-cent ETH, and trading actions are gas-free for users for Robinhood Chain's first 90 days, so a real test transfer costs you effectively nothing.
+  Robinhood Chain testnet isn't currently supported by the Blockscout API, so this tutorial runs on mainnet (chain ID `4663`). That's not a problem here: gas is sub-cent ETH, and trading actions are gas-free for users for Robinhood Chain's first 90 days, so a real test transfer costs you effectively nothing.
 </Tip>
 
 ## Step 2: Create a Discord webhook to receive alerts
@@ -429,6 +429,6 @@ Most addresses won't have a known label, in which case `getLabel` just returns `
 
 ## Start building
 
-- Get a free Pro API key: [dev.blockscout.com](http://dev.blockscout.com)
+- Get a free Blockscout API key: [dev.blockscout.com](http://dev.blockscout.com)
 - Full WebSocket API reference: [https://docs.blockscout.com/devs/apis/websocket-api](https://docs.blockscout.com/devs/apis/websocket-api)
 - Explore Robinhood Chain: [robinhoodchain.blockscout.com](http://robinhoodchain.blockscout.com)

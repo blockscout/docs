@@ -8,7 +8,7 @@ icon: "wrench"
 
 WebSockets allow you to monitor ongoing events on the blockchain. A single connection can hold up to 100 subscriptions across blocks, addresses, tokens, and more.
 
-Connect to the Pro API WebSocket endpoint and authenticate with your API key using either of the following methods:
+Connect to the Blockscout API WebSocket endpoint and authenticate with your API key using either of the following methods:
 
 | Method | How | Works in browsers? |
 | --- | --- | --- |
@@ -135,7 +135,7 @@ Use a separate request `id` for each subscription. Reconnect with exponential ba
 }
 ```
 
-The outer envelope (`type`, `topic`, `chain_id`) is added by Pro API. `data.event` and `data.payload` come directly from the upstream Blockscout instance.
+The outer envelope (`type`, `topic`, `chain_id`) is added by the Blockscout API. `data.event` and `data.payload` come directly from the upstream Blockscout instance.
 
 ## Methods
 

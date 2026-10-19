@@ -59,28 +59,28 @@ Some newer operations without standards are still handled differently by differe
 ## Replace the API link
 
 <Info>
-  Per-instance API endpoints (e.g. `eth.blockscout.com/api`) are deprecated. Use the Blockscout PRO API instead: one key covers every Blockscout-supported chain. Get a free key at [dev.blockscout.com](https://dev.blockscout.com/).
+  Per-instance API endpoints (e.g. `eth.blockscout.com/api`) are deprecated. Use the Blockscout API instead: one key covers every Blockscout-supported chain. Get a free key at [dev.blockscout.com](https://dev.blockscout.com/).
 </Info>
 
 Etherscan uses a subdomain link for api access. For example, for the Ethereum explorer the api link is [https://api.etherscan.io/](https://api.etherscan.io/) followed by your query, or for Optimism it is [https://api-optimistic.etherscan.io/](https://api-optimistic.etherscan.io/) followed by your query.
 
-**To replace, use the PRO API base URL with the target chain's `chain_id`**, swapping Etherscan's `chainid` parameter for Blockscout's `chain_id`:
+**To replace, use the Blockscout API base URL with the target chain's `chain_id`**, swapping Etherscan's `chainid` parameter for Blockscout's `chain_id`:
 
 <Check>
   😢 Etherscan call
 
   [https://api.etherscan.io/v2/api?chainid=1&module=account&action=balance&address=0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae&tag=latest&apikey=YourApiKeyToken](https://api.etherscan.io/v2/api?chainid=1&module=account&action=balance&address=0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae&tag=latest&apikey=YourApiKeyToken)
 
-  😁 Blockscout PRO API call
+  😁 Blockscout API call
 
   [https://api.blockscout.com/v2/api?chain_id=1&module=account&action=balance&address=0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae&tag=latest&apikey=YOUR_PRO_API_KEY](https://api.blockscout.com/v2/api?chain_id=1&module=account&action=balance&address=0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae&tag=latest&apikey=YOUR_PRO_API_KEY)
 </Check>
 
 <Warning>
-  Unlike the old per-instance route, the PRO API requires a real key on every tier, including the free tier. Get one at [dev.blockscout.com](https://dev.blockscout.com/) before making requests.
+  Unlike the old per-instance route, the Blockscout API requires a real key on every tier, including the free tier. Get one at [dev.blockscout.com](https://dev.blockscout.com/) before making requests.
 </Warning>
 
-Standard API routes on Etherscan work for your queries on Blockscout. We've structured our data calls to be consistent with Etherscan whenever possible. Swap `chain_id` to move between chains, for example `chain_id=8453` for Base or `chain_id=10` for Optimism. You can see supported calls in the [PRO API reference](/devs/pro-api-responses-and-routes).
+Standard API routes on Etherscan work for your queries on Blockscout. We've structured our data calls to be consistent with Etherscan whenever possible. Swap `chain_id` to move between chains, for example `chain_id=8453` for Base or `chain_id=10` for Optimism. You can see supported calls in the [Blockscout API reference](/devs/pro-api-responses-and-routes).
 
 <Check>
   If you require more varied or richer datasets consider replacing your JSON RPC calls with the [REST API from Blockscout](/devs/apis/rest). This free API features additional metadata, stats data, human readable transactions and more.
@@ -89,7 +89,7 @@ Standard API routes on Etherscan work for your queries on Blockscout. We've stru
 ### API Exceptions
 
 - Blockscout does not currently support most [Etherscan API PRO](https://docs.etherscan.io/api-pro/etherscan-api-pro) queries.
-- Rate limits scale with your PRO API plan. See the [PRO API overview](/devs/pro-api) for plan details and credit costs.
+- Rate limits scale with your Blockscout API plan. See the [Blockscout API overview](/devs/pro-api) for plan details and credit costs.
 
 ## Replace your wallet block explorer link
 

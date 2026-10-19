@@ -1,13 +1,13 @@
 ---
 title: "Build a multichain stats dashboard"
-description: "Build a multichain daily transaction dashboard using the Blockscout PRO API and REST stats endpoints across supported networks with one API key."
+description: "Build a multichain daily transaction dashboard using the Blockscout API and REST stats endpoints across supported networks with one API key."
 icon: "chart-line"
 ---
 
-## Build a simple multi-chain stats dashboard with Blockscout PRO API
+## Build a simple multi-chain stats dashboard with the Blockscout API
 
 <Note>
-  This example uses REST methods with the PRO API. See the [PRO API overview](/devs/pro-api) for information on creating and using an API key.
+  This example uses REST methods with the Blockscout API. See the [Blockscout API overview](/devs/pro-api) for information on creating and using an API key.
 </Note>
 
 <Check>
@@ -35,7 +35,7 @@ The following REST calls can be used to get data for a stats app:
 
 | Load Data | API CALL | Purpose |
 | --- | --- | --- |
-| 1. Get supported chains | `GET https://api.blockscout.com/api/json/config` | Get the list of chain IDs supported by PRO API (`result.chains`) |
+| 1. Get supported chains | `GET https://api.blockscout.com/api/json/config` | Get the list of chain IDs supported by the Blockscout API (`result.chains`) |
 | 2. Resolve chain metadata | `GET https://chains.blockscout.com/api/chains?chain_ids=...` | Resolve chain IDs into names, slugs, and mainnet/testnet metadata |
 | 3. Discover available chart series | `GET https://api.blockscout.com/{chainid}/stats-service/api/v1/lines` | Discover which chart series are available for a given chain |
 | 4. Fetch daily transactions | `GET https://api.blockscout.com/{chainid}/stats-service/api/v1/lines/newTxns?from=YYYY-MM-DD&to=YYYY-MM-DD&resolution=DAY` | Get daily transaction counts on one chain |

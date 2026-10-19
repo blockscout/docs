@@ -17,12 +17,12 @@ Blockscout is Soneium's primary block explorer. Etherscan does not support Sonei
 
 **Soneium Mainnet Chain ID:** `1868` **Soneium Minato Testnet Chain ID:** `1946`
 
-| Network | Explorer | PRO API `chainid` |
+| Network | Explorer | Blockscout API `chainid` |
 | --- | --- | --- |
 | Soneium Mainnet | [soneium.blockscout.com](https://soneium.blockscout.com) | `1868` |
 | Soneium Minato Testnet | [soneium-minato.blockscout.com](https://soneium-minato.blockscout.com) | `1946` |
 
-**PRO API Base:** `https://api.blockscout.com` (use `chainid=1868` or `chainid=1946`)
+**Blockscout API Base:** `https://api.blockscout.com` (use `chainid=1868` or `chainid=1946`)
 
 ## Quick Start
 
@@ -36,9 +36,9 @@ curl "https://api.blockscout.com/v2/api?chainid=1868&module=account&action=balan
 curl "https://api.blockscout.com/v2/api?chainid=1946&module=account&action=balance&address=0xYOUR_ADDRESS&apikey=proapi_YOUR_KEY"
 ```
 
-Get a free API key at [dev.blockscout.com](https://dev.blockscout.com). It is required for all PRO API tiers, including the free tier. The same key works for both mainnet and testnet, and any other chains you want to query.
+Get a free API key at [dev.blockscout.com](https://dev.blockscout.com). It is required for all Blockscout API tiers, including the free tier. The same key works for both mainnet and testnet, and any other chains you want to query.
 
-## PRO API Routes for Soneium
+## Blockscout API Routes for Soneium
 
 ### Mainnet (chainid=1868)
 
@@ -82,7 +82,7 @@ https://api.blockscout.com/v2/api?chainid=1946&module=account&action=txlist&addr
 https://api.blockscout.com/1946/api/v2/addresses/0x.../transactions?apikey=proapi_xxx
 ```
 
-As an OP Stack chain, the PRO API also includes OP-specific endpoints under the `optimism` module for rollup data like deposits, withdrawals, and batch submissions.
+As an OP Stack chain, the Blockscout API also includes OP-specific endpoints under the `optimism` module for rollup data like deposits, withdrawals, and batch submissions.
 
 ## Available Endpoints
 
@@ -119,7 +119,7 @@ One API key covers Soneium mainnet, Minato testnet, and every other Blockscout-s
 
 ## Coming from Other OP Stack Chains?
 
-Soneium uses the same OP Stack infrastructure that powers Base, Optimism, Zora, and Ink. If you've built on any Superchain network with the Blockscout PRO API, querying Soneium is a `chainid` swap:
+Soneium uses the same OP Stack infrastructure that powers Base, Optimism, Zora, and Ink. If you've built on any Superchain network with the Blockscout API, querying Soneium is a `chainid` swap:
 
 ```javascript
 // Multichain across the Superchain — one function, one API key
@@ -157,7 +157,7 @@ If you're migrating from Etherscan V2 on another chain, the structure is nearly 
 
 Minato provides a full sandbox environment that mirrors mainnet conditions. Developers use it to validate contracts, test bridge flows, and iterate on dApps before deploying to production. Blockscout covers the testnet with the same explorer and API infrastructure as mainnet.
 
-**Testnet workflow with the PRO API:**
+**Testnet workflow with the Blockscout API:**
 
 ```python
 import requests
@@ -192,7 +192,7 @@ mainnet_abi = query_soneium(1868, "contract", "getabi", address="0xYOUR_CONTRACT
 
 **Mini Apps & the Startale Super-App** — The Startale App integrates wallet management, dApp access, and asset management in a single interface, with Mini Apps built by third-party developers. These Mini Apps use explorer APIs for wallet data, transaction confirmation, and contract interaction.
 
-**AI & Creator Tools** — Soneium's focus on entertainment IP attracts AI-driven creative applications. Blockscout's PRO API and MCP server provide structured onchain data for agents operating in the creator economy — from automated royalty tracking to AI-generated NFT minting flows.
+**AI & Creator Tools** — Soneium's focus on entertainment IP attracts AI-driven creative applications. The Blockscout API and MCP server provide structured onchain data for agents operating in the creator economy — from automated royalty tracking to AI-generated NFT minting flows.
 
 **Gaming & Digital Twins** — Sony and Startale are testing high-fidelity digital twins and NFT-based ticketing systems natively integrated into Soneium, bridging physical events with digital ownership. Game studios building on Soneium use the API for in-game economy tracking, item transfers, and player wallet queries.
 
@@ -207,4 +207,4 @@ Blockscout is the primary explorer for both Soneium mainnet and Minato testnet. 
 3. Switch to `chainid=1868` (mainnet) when you're ready to deploy
 4. Explore endpoints at [**soneium.blockscout.com/api-docs**](https://soneium.blockscout.com/api-docs)
 
-**→ [Start Building on Soneium](https://dev.blockscout.com)** · **→ [PRO API Routes Reference](https://docs.blockscout.com/devs/pro-api-responses-and-routes)** · **→ [Soneium Developer Docs](https://docs.soneium.org/docs/builders/overview)**
+**→ [Start Building on Soneium](https://dev.blockscout.com)** · **→ [Blockscout API Routes Reference](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes)** · **→ [Soneium Developer Docs](https://docs.soneium.org/docs/builders/overview)**

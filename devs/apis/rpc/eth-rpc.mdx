@@ -1,6 +1,6 @@
 ---
 title: "ETH RPC API"
-description: "Reference for the 16 Ethereum JSON-RPC 2.0 methods supported by Blockscout, available via the PRO API and per-instance eth-rpc endpoints."
+description: "Reference for the 16 Ethereum JSON-RPC 2.0 methods supported by Blockscout, available via the Blockscout API and per-instance eth-rpc endpoints."
 ---
 
 # Blockscout ETH RPC Methods Reference
@@ -9,7 +9,7 @@ Complete reference for all 16 Ethereum JSON-RPC methods supported by Blockscout.
 
 ## 📋 Quick Reference
 
-PRO API Methods use POST requests to `api.blockscout.com/{chain_id}/json-rpc` with JSON-RPC 2.0 format. An API key is required, including on the free tier.\
+Blockscout API Methods use POST requests to `api.blockscout.com/{chain_id}/json-rpc` with JSON-RPC 2.0 format. An API key is required, including on the free tier.\
 \
 Per-instance methods use POST requests to `{instance_url}/api/eth-rpc` with JSON-RPC 2.0 format. An API key is not required but will increase RPS for your calls.
 
@@ -17,7 +17,7 @@ Per-instance methods use POST requests to `{instance_url}/api/eth-rpc` with JSON
   Try these methods in the ETH RPC Endpoint Testing section.
 </Tip>
 
-## PRO API usage
+## Blockscout API usage
 
 ```text
 https://api.blockscout.com/{chain_id}/json-rpc
@@ -30,7 +30,7 @@ Examples:
 - `Ethereum: https://api.blockscout.com/1/json-rpc`
 - `Optimism: https://api.blockscout.com/10/json-rpc`
 
-Send your PRO API key in the `authorization` header. Get a key at [dev.blockscout.com](https://dev.blockscout.com/).
+Send your Blockscout API key in the `authorization` header. Get a key at [dev.blockscout.com](https://dev.blockscout.com/).
 
 ```bash
 curl -H "content-type: application/json" \

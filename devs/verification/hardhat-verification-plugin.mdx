@@ -10,7 +10,7 @@ sidebarTitle: "Overview"
 
 # Verify contracts with the Hardhat plugin
 
-> Verify smart contracts on Blockscout from your Hardhat project using the hardhat-verify plugin, on either Hardhat 3 (native Blockscout support, Pro API key optional) or Hardhat 2 (per-instance API).
+> Verify smart contracts on Blockscout from your Hardhat project using the hardhat-verify plugin, on either Hardhat 3 (native Blockscout support, Blockscout API key optional) or Hardhat 2 (per-instance API).
 
 [Hardhat](https://hardhat.org/) is a full-featured development environment for contract compilation, deployment and verification. The [hardhat-verify plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) supports contract verification on Blockscout. The setup differs depending on which major version of Hardhat your project uses, since the plugin's config format changed between Hardhat 2 and Hardhat 3.
 
@@ -20,7 +20,7 @@ sidebarTitle: "Overview"
 
 ## Hardhat 3
 
-Hardhat 3's hardhat-verify plugin (v3.1.0\+) has built-in Blockscout support. As of v3.1.0, it also supports an `apiKey` to use the Blockscout [Pro API](https://docs.blockscout.com/devs/pro-api). 
+Hardhat 3's hardhat-verify plugin (v3.1.0+) has built-in Blockscout support. As of v3.1.0, it also supports an `apiKey` to use the [Blockscout API](https://docs.blockscout.com/devs/blockscout-api).
 
 ### 1) Install Hardhat and the plugin
 
@@ -42,7 +42,7 @@ export default defineConfig({
 
 ### 3) Configure Blockscout (if your instance needs an API key)
 
-A key is required for any publicly hosted Blockscout chain. A private, self-hosted instance or Autoscout instance is a separate case and may not require one. Add your Pro API key under `verify.blockscout`:
+A key is required for any publicly hosted Blockscout chain. A private, self-hosted instance or Autoscout instance is a separate case and may not require one. Add your Blockscout API key under `verify.blockscout`:
 
 ```ts
 import { configVariable, defineConfig } from "hardhat/config";
@@ -52,7 +52,7 @@ export default defineConfig({
   plugins: [hardhatVerify],
   verify: {
     blockscout: {
-      // For Pro API interface.
+      // For Blockscout API interface.
       // Obtain at https://dev.blockscout.com/
       apiKey: configVariable("BLOCKSCOUT_API_KEY"),
     },
@@ -98,7 +98,7 @@ await verifyContract(
 ## Hardhat 2
 
 <Warning>
-  This is Hardhat 2 syntax — install with `@nomicfoundation/hardhat-verify@hh2`. There's no native Blockscout shortcut on this path, you configure `customChains` manually, as shown below. A Pro API key is now required for any publicly hosted Blockscout chain.
+  This is Hardhat 2 syntax — install with `@nomicfoundation/hardhat-verify@hh2`. There's no native Blockscout shortcut on this path, you configure `customChains` manually, as shown below. A Blockscout API key is now required for any publicly hosted Blockscout chain.
 </Warning>
 
 ### **1) Install Hardhat**
@@ -398,16 +398,16 @@ Community video created by Carlos Rodriguez for the Soneium Minato testnet, but 
   Although you receive an error, the contracts should be verified during the previous steps and you can ignore. Check in the explorer to make sure the contracts have been verified.
 </Accordion>
 
-<Accordion title="Do I need a Pro API key for each chain?">
-  Yes, but one Pro API key covers every hosted chain. On Hardhat 2, each network still needs its own entry in the `apiKey` object (the network name in `customChains` must match a key in `apiKey`), but the value should be the same real key repeated for every network.
+<Accordion title="Do I need a Blockscout API key for each chain?">
+  Yes, but one Blockscout API key covers every hosted chain. On Hardhat 2, each network still needs its own entry in the `apiKey` object (the network name in `customChains` must match a key in `apiKey`), but the value should be the same real key repeated for every network.
 </Accordion>
 
-<Accordion title="Can I use the Pro API with hardhat-verify?">
-  Yes, on both. Hardhat 3's `hardhat-verify@3.1.0+` has a native shortcut — pass your key via `verify.blockscout.apiKey` and the plugin handles routing for you. Hardhat 2 (`@hh2`) has no such shortcut, but reaches the same Pro API by configuring `customChains` manually. Point `apiURL` at `https://api.blockscout.com/CHAIN_ID/api` (replacing `CHAIN_ID` with the target chain's numeric ID) and set a real key under `etherscan.apiKey`, as shown above.
+<Accordion title="Can I use the Blockscout API with hardhat-verify?">
+  Yes, on both. Hardhat 3's `hardhat-verify@3.1.0+` has a native shortcut — pass your key via `verify.blockscout.apiKey` and the plugin handles routing for you. Hardhat 2 (`@hh2`) has no such shortcut, but reaches the same Blockscout API by configuring `customChains` manually. Point `apiURL` at `https://api.blockscout.com/CHAIN_ID/api` (replacing `CHAIN_ID` with the target chain's numeric ID) and set a real key under `etherscan.apiKey`, as shown above.
 </Accordion>
 
-<Accordion title="Do self-hosted or Autoscout instances need a Pro API key?">
-  No. A self-hosted Blockscout instance, or one you've spun up with Autoscout, runs its own singular API and isn't part of the Pro API network — no key required. Point `apiURL` at that instance's own address (e.g. `https://your-instance.example/api`) instead of `api.blockscout.com`.
+<Accordion title="Do self-hosted or Autoscout instances need a Blockscout API key?">
+  No. A self-hosted Blockscout instance, or one you've spun up with Autoscout, runs its own singular API and isn't part of the Blockscout API network — no key required. Point `apiURL` at that instance's own address (e.g. `https://your-instance.example/api`) instead of `api.blockscout.com`.
 </Accordion>
 
 ## Resources

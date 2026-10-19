@@ -5430,14 +5430,14 @@ components:
       type: apiKey
       in: query
       name: apikey
-      description: API key for authentication. Required for all Pro API endpoints. Obtain your API key at https://dev.blockscout.com/
+      description: API key for authentication. Required for all Blockscout API endpoints. Obtain your API key at https://dev.blockscout.com/
 info:
   contact:
     email: info@blockscout.com
   title: Blockscout
   version: 10.0.1
   description: |
-    Blockscout Pro API provides programmatic access to blockchain data across multiple networks.
+    The Blockscout API provides programmatic access to blockchain data across multiple networks.
 
     ## Authentication
 

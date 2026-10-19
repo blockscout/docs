@@ -1,10 +1,10 @@
 ---
 title: "Blockscout Smart Contract Verification API"
-description: "Verify Solidity and Vyper smart contracts on Blockscout programmatically, across any supported chain, using the PRO API's contract verification route."
+description: "Verify Solidity and Vyper smart contracts on Blockscout programmatically, across any supported chain, using the Blockscout API's contract verification route."
 ---
 
 <Info>
-  Contract verification is available through the PRO API's Etherscan-compatible RPC route — `module=contract`. One key works across every Blockscout-supported chain: swap `chain_id` to move between them. Get a free key at [dev.blockscout.com](https://dev.blockscout.com/).
+  Contract verification is available through the Blockscout API's Etherscan-compatible RPC route — `module=contract`. One key works across every Blockscout-supported chain: swap `chain_id` to move between them. Get a free key at [dev.blockscout.com](https://dev.blockscout.com/).
 </Info>
 
 All calls in this guide share the same base pattern:
@@ -20,7 +20,7 @@ Swap `<chain_id>` for the target chain (`1` for Ethereum, `8453` for Base, `1115
 </Warning>
 
 <Note>
-  If you're running a self-hosted Blockscout instance, or verifying on a chain the PRO API doesn't cover yet, the same actions work against that instance's own API directly — see the [Contract module RPC reference](/devs/apis/rpc/contract) for the per-instance version of these calls.
+  If you're running a self-hosted Blockscout instance, or verifying on a chain the Blockscout API doesn't cover yet, the same actions work against that instance's own API directly — see the [Contract module RPC reference](/devs/apis/rpc/contract) for the per-instance version of these calls.
 </Note>
 
 ### License type
@@ -325,12 +325,12 @@ data = response.json()
 </CodeGroup>
 
 <Note>
-  Only single-file Vyper verification is confirmed on this route. If you need Vyper multi-part or Vyper standard-JSON-input verification specifically, those aren't confirmed to have a PRO API equivalent yet — use the [per-instance route](/devs/apis/rpc/contract) for those cases in the meantime.
+  Only single-file Vyper verification is confirmed on this route. If you need Vyper multi-part or Vyper standard-JSON-input verification specifically, those aren't confirmed to have a Blockscout API equivalent yet — use the [per-instance route](/devs/apis/rpc/contract) for those cases in the meantime.
 </Note>
 
 ## Multiple raw source files
 
-Blockscout's REST API has a dedicated "multi-part" mode for submitting several unflattened `.sol` files at once. The PRO API's `verifysourcecode` action doesn't have a direct equivalent for that — instead, build a standard JSON input file (most toolchains generate one automatically, e.g. under `artifacts/build-info/` in Hardhat) and submit it with `codeformat=solidity-standard-json-input` in the [flattened / standard JSON section above](#via-flattened-source-code-or-standard-json-input). That covers the same multi-file case.
+Blockscout's REST API has a dedicated "multi-part" mode for submitting several unflattened `.sol` files at once. The Blockscout API's `verifysourcecode` action doesn't have a direct equivalent for that — instead, build a standard JSON input file (most toolchains generate one automatically, e.g. under `artifacts/build-info/` in Hardhat) and submit it with `codeformat=solidity-standard-json-input` in the [flattened / standard JSON section above](#via-flattened-source-code-or-standard-json-input). That covers the same multi-file case.
 
 ## Check verification status
 

@@ -8684,7 +8684,7 @@
       "url": "https://dev.blockscout.com/"
     },
     "description": "Blockscout's universal multichain API for accessing explorer-indexed blockchain data - such as addresses, transactions, blocks, tokens, NFTs, contracts, and related search/results endpoints - across supported networks through a single standardized interface.",
-    "title": "Blockscout Pro API",
+    "title": "Blockscout API",
     "version": "0.5.0"
   },
   "openapi": "3.0.0",

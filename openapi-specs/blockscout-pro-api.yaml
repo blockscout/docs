@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
-  title: Blockscout PRO API
+  title: Blockscout API
   description: |
-    Blockscout's PRO API provides higher call limits and custom endpoints.
+    The Blockscout API provides higher call limits and custom endpoints.
     
-    The PRO API expands on Blockscout's free tier API (5 requests per second) to provide 
+    The Blockscout API expands on the free tier (5 requests per second) to provide 
     expanded rate limits for high-usage projects on Blockscout hosted networks. 
 
     Currently in Testing Beta, see API reference pages for complete set of endpoints
@@ -15,7 +15,7 @@ info:
     * `Authorization` header (format: `Bearer proapi_xxxxxxxx`)
     
     ## API Routes
-    The PRO API supports three main routing patterns:
+    The Blockscout API supports three main routing patterns:
     
     1. **JSON RPC API** - Two URL formats:
        - `base_url/v2/api?chain_id=:chain_id`
@@ -28,7 +28,7 @@ info:
        - `base_url/:chain_id/json-rpc`
     
     ## Rate Limits
-    PRO API provides expanded rate limits for authenticated requests. Free tier is limited to 5 requests per second.
+    The Blockscout API provides expanded rate limits for authenticated requests. Free tier is limited to 5 requests per second.
     
   version: 2.0.0
   contact:

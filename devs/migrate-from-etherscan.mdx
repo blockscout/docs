@@ -1,6 +1,6 @@
 ---
-title: "Migrate from Etherscan to Blockscout PRO API"
-description: "Move Etherscan API calls to the Blockscout PRO API with matching endpoints, more chains, higher rate limits, and lower pricing in minutes."
+title: "Migrate from Etherscan to Blockscout API"
+description: "Move Etherscan API calls to the Blockscout API with matching endpoints, more chains, higher rate limits, and lower pricing in minutes."
 icon: "person-running-fast"
 ---
 
@@ -8,7 +8,7 @@ icon: "person-running-fast"
   To get started immediately, see our [blog post with simple migration instructions](https://www.blog.blockscout.com/how-to-migrate-your-etherscan-api-calls-to-blockscout/).
 </Tip>
 
-# Etherscan API Alternative — Migrate to Blockscout PRO API
+# Etherscan API Alternative — Migrate to Blockscout API
 
 > Same endpoint structure. More chains. Higher limits. Lower price. Migrate in minutes.
 
@@ -16,11 +16,11 @@ icon: "person-running-fast"
 
 Etherscan has reduced free-tier API access for major chains including Base and Optimism. Developers building production applications need reliable, predictable API access.
 
-Blockscout PRO API provides Etherscan-compatible endpoints across 100\+ EVM chains with higher rate limits and more generous usage allowances at every pricing tier. Free-tier access is available on all supported chains.
+Blockscout API provides Etherscan-compatible endpoints across 100\+ EVM chains with higher rate limits and more generous usage allowances at every pricing tier. Free-tier access is available on all supported chains.
 
 ## Side-by-Side Comparison
 
-| Feature | Blockscout PRO API | Etherscan API |
+| Feature | Blockscout API | Etherscan API |
 | --- | --- | --- |
 | Free tier RPS | 5 | 3 |
 | Free tier chains | All supported | Limited |
@@ -36,7 +36,7 @@ At the \$49/mo tier, Blockscout's 100M monthly credits provide roughly 3× more 
 
 ## Migration Is a Base URL Swap
 
-Both Etherscan V2 and Blockscout PRO API now use a unified multichain endpoint with a chain ID parameter. The APIs are structurally almost identical — migration is a base URL and key swap.
+Both Etherscan V2 and Blockscout API now use a unified multichain endpoint with a chain ID parameter. The APIs are structurally almost identical — migration is a base URL and key swap.
 
 ### Etherscan Route
 
@@ -44,7 +44,7 @@ Both Etherscan V2 and Blockscout PRO API now use a unified multichain endpoint w
 https://api.etherscan.io/v2/api?chainid=1&module=account&action=balance&address=0x...&apikey=YOUR_ETHERSCAN_KEY
 ```
 
-### Blockscout PRO API
+### Blockscout API
 
 ```text
 https://api.blockscout.com/v2/api?chainid=1&module=account&action=balance&address=0x...&apikey=proapi_YOUR_KEY
@@ -85,7 +85,7 @@ https://api.blockscout.com/1/api?module=account&action=balance&address=0x...&api
     -  Etherscan: 68 chains \\
   - Shared: 20 chains. 
 
-  | Chain Name | Chain ID | Blockscout Pro API | Etherscan API |
+  | Chain Name | Chain ID | Blockscout API | Etherscan API |
   | :-- | :-- | :-: | :-: |
   | Ethereum Mainnet | 1 | ✅ | ✅ |
   | **Goerli Testnet** | 5 | **✅** | ❌ |
@@ -259,7 +259,7 @@ https://api.blockscout.com/1/api?module=account&action=balance&address=0x...&api
 - Generate your API key (format: `proapi_xxxxxxxx`)
 - Look up chain IDs for your target networks
 - Update your API client to use `https://api.blockscout.com/v2/api`
-- Replace your Etherscan API key with your Blockscout PRO API key
+- Replace your Etherscan API key with your Blockscout API key
 - Test core endpoints (account balance, transaction list, contract ABI)
 - Monitor usage and credits in the [developer portal dashboard](https://dev.blockscout.com)
 
@@ -454,7 +454,7 @@ Blockscout supports the core Etherscan-compatible modules:
 
 ## REST API (Beyond Etherscan Compatibility)
 
-The PRO API also exposes Blockscout's modern REST API at:
+The Blockscout API also exposes Blockscout's modern REST API at:
 
 ```text
 https://api.blockscout.com/{chain_id}/api/v2/{endpoint}?apikey=proapi_YOUR_KEY
@@ -493,7 +493,7 @@ const api = axios.create({
   params: { chainid: 1, apikey: process.env.ETHERSCAN_KEY }
 });
  
-// After (Blockscout PRO API — same structure, more chains, higher limits)
+// After (Blockscout API — same structure, more chains, higher limits)
 const BLOCKSCOUT_KEY = process.env.BLOCKSCOUT_KEY;
  
 async function query(chainId, module, action, params = {}) {
@@ -530,7 +530,7 @@ resp = requests.get(BASE_URL, params={
     "address": addr, "apikey": API_KEY
 })
  
-# After (Blockscout PRO API)
+# After (Blockscout API)
 BLOCKSCOUT_KEY = os.environ["BLOCKSCOUT_KEY"]
  
 def query(chainid, module, action, **params):
@@ -553,7 +553,7 @@ op_txns = query(10, "account", "txlist", address="0x...", sort="desc")
 ### Multichain Setup
 
 ```javascript
-// Both Etherscan V2 and Blockscout PRO API use the same pattern:
+// Both Etherscan V2 and Blockscout API use the same pattern:
 // unified base URL + chain ID. The switch is trivial.
  
 const CHAINS = {

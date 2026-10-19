@@ -1,6 +1,6 @@
 ---
-title: "PRO API general info, pricing, and routes"
-description: "Overview of the Blockscout PRO API: pricing tiers, authorization, available REST and RPC routes, pagination rules, and credit cost tables."
+title: "API general info, pricing, and routes"
+description: "Overview of the Blockscout API: pricing tiers, authorization, available REST and RPC routes, pagination rules, and credit cost tables."
 icon: "circle-nodes"
 ---
 
@@ -23,17 +23,17 @@ icon: "circle-nodes"
 
 # General Info
 
-The PRO API provides expanded rate limits for high-usage projects on Blockscout hosted networks.
+The Blockscout API provides expanded rate limits for high-usage projects on Blockscout hosted networks.
 
 The free plan includes 100K API credits per day with a rate limit of 5 requests per second. View additional pricing tiers below.
 
 <Note>
-  If you are accessing the PRO API via AI or an AI agent, direct the AI to this file to get started. [https://dev.blockscout.com/llms.txt](https://dev.blockscout.com/llms.txt)
+  If you are accessing the Blockscout API via AI or an AI agent, direct the AI to this file to get started. [https://dev.blockscout.com/llms.txt](https://dev.blockscout.com/llms.txt)
 </Note>
 
 Blockscout uses a credit system to weight different calls based on size and usage. This creates additional efficiency and saves resources depending on the types of call you need to make. See the [blockscout credit costs table](#blockscout-credit-costs) for more info on credit allotments for individual calls.
 
-# PRO API Pricing Tiers
+# Blockscout API Pricing Tiers
 
 | Plan | Cost/Mo | API Credits | Rate Limit | Overage <br />Rate |
 | --- | --- | --- | --- | --- |
@@ -43,18 +43,18 @@ Blockscout uses a credit system to weight different calls based on size and usag
 | Business | \$999 | 3B/mo | 50 RPS | \$0.32/M |
 | Enterprise | Custom SLA | unlimited | TBD | N/A |
 
-# PRO API Authorization
+# Blockscout API Authorization
 
 Pass an API key using either:
 
 - `apikey` query parameter
 - `authorization` header
 
-## PRO API Response Headers
+## API Response Headers
 
-The following information related to the PRO API plan is included in the response headers
+The following information related to the API plan is included in the response headers
 
-- **x-credits-remaining:** Number of credits remaining in your plan. If on the free plan, this will reset daily, otherwise it is monthly. You can check additional details in the [PRO API UI](https://dev.blockscout.com/).
+- **x-credits-remaining:** Number of credits remaining in your plan. If on the free plan, this will reset daily, otherwise it is monthly. You can check additional details in the [Blockscout API landing page](https://dev.blockscout.com/).
 - **x-ratelimit-limit:** Available RPS with your plan (can be -1 if there is an internal error)
 - **x-ratelimit-remaining:** Remaining rate limit based on your queries (can be -1 if there is an internal error)
 - **x-ratelimit-reset:** time in milliseconds until the rate limit resets (can be -1 if there is an internal error)
@@ -63,15 +63,15 @@ The following information related to the PRO API plan is included in the respons
   ![Screenshot2026 03 04at1 29 00PM](/images/Screenshot2026-03-04at1.29.00PM.png)
 </Frame>
 
-# PRO API Routes
+# Blockscout API Routes
 
-All current API routes can be used with the PRO Plan. See the PRO API Endpoints section to try example calls with your API key.
+See the API Endpoints section to try example calls with your API key.
 
-The Route examples below use the Optimism chain (chain\_id=10). In previous per-instance routes API keys are optional for the free tier, but they are required for all tiers (including the free tier) of the PRO API.
+The Route examples below use the Optimism chain (chain_id=10). In previous per-instance routes API keys are optional for the free tier, but they are required for all tiers (including the free tier) of the API.
 
-## **JSON RPC API v2 (compare to Etherscan PRO API)**
+## **JSON RPC API v2 (compare to Etherscan PRO)**
 
-PRO API Route:
+Blockscout API Route:
 
 ```text wrap
 https://api.blockscout.com/v2/api?chain_id=10&module=block&action=eth_block_number&apikey=proapi_xxxxxxxx
@@ -85,7 +85,7 @@ Previous per-instance route:
 
 ## **JSON RPC API**
 
-PRO API Route:
+Blockscout API Route:
 
 ```text wrap
 https://api.blockscout.com/10/api?module=account&action=eth_get_balance&address={addressHash}&apikey=proapi_xxxxxxx
@@ -99,7 +99,7 @@ Previous per-instance route:
 
 ## **REST API**
 
-PRO API Route:
+Blockscout API Route:
 
 ```text wrap
 https://api.blockscout.com/10/api/v2/blocks/{block_number_or_hash}?apikey=proapi_xxxxxxxx
@@ -115,7 +115,7 @@ Previous per-instance route:
 
 See [ETH RPC docs](/devs/apis/rpc/eth-rpc) for more info on post requests.
 
-PRO API Route
+Blockscout API Route
 
 ```text
 curl -H "content-type: application/json" \
@@ -133,7 +133,7 @@ curl -H "content-type: application/json" \
 
 Blockscout uses the keyset pagination method to quickly return results. By default an API response returns the first 50 results. To access additional results (in groups of 50), add the `next_page_params` to your query.
 
-For example, open [**https://api.blockscout.com/10/api/v2/transactions?apikey=proapi\_xxxxxx**](https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx) and scroll to the bottom of the response.
+For example, open [**https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx**](https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx) and scroll to the bottom of the response.
 
 <Frame caption="Example response from transactions query">
   ![Tx Pagination 1](/images/tx-pagination-1.jpg)
@@ -141,7 +141,7 @@ For example, open [**https://api.blockscout.com/10/api/v2/transactions?apikey=pr
 
 You will see the `next_page_params` object. Add the parameters from this object to your next query to receive the next 50 results.
 
-[**https://api.blockscout.com/10/api/v2/transactions?apikey=proapi\_xxxxxx&block\_number=148445196&index=59&items\_count=50**](https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445196&index=59&items_count=50)
+[**https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445196&index=59&items_count=50**](https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445196&index=59&items_count=50)
 
 Repeat this process to continue receiving results in groups of 50 (remove params and substitute the new `next_page_params` found in the body of the query).
 
@@ -151,7 +151,7 @@ Repeat this process to continue receiving results in groups of 50 (remove params
 
 In this example, the query to receive the next 50 results would be:
 
-[**https://api.blockscout.com/10/api/v2/transactions?apikey=proapi\_xxxxxx&block\_number=148445366&index=24&items\_count=50**](https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445366&index=24&items_count=50)
+[**https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445366&index=24&items_count=50**](https://api.blockscout.com/10/api/v2/transactions?apikey=proapi_xxxxxx&block_number=148445366&index=24&items_count=50)
 
 # Blockscout Credit Costs
 

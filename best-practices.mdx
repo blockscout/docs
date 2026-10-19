@@ -1,6 +1,6 @@
 ---
 title: "Best Practices"
-description: "Practical tips for faster, more efficient Blockscout PRO API requests, from pagination to credit costs."
+description: "Practical tips for faster, more efficient Blockscout API requests, from pagination to credit costs."
 icon: "gear-api"
 ---
 
@@ -35,7 +35,7 @@ Token endpoints filter known scam airdrops out of results by default, which is u
 
 ## One key, every chain — don't provision per network
 
-The PRO API scopes every request by `chain_id`, not by base URL or key. The same key that works on Ethereum works on Base, Arbitrum, Optimism, and every other supported chain — there's no need to request separate credentials per network the way some other explorers require.
+The Blockscout API scopes every request by `chain_id`, not by base URL or key. The same key that works on Ethereum works on Base, Arbitrum, Optimism, and every other supported chain — there's no need to request separate credentials per network the way some other explorers require.
 
 ## Prefer REST over RPC-style calls for richer data
 
@@ -55,7 +55,7 @@ Join by transaction hash and deduplicate when combining them — see [Wallet His
 
 ## Watch the response headers, not just the response body
 
-Every PRO API response includes headers that tell you exactly where you stand, so you don't have to guess:
+Every Blockscout API response includes headers that tell you exactly where you stand, so you don't have to guess:
 
 - `x-credits-remaining` — credits left in your current period
 - `x-ratelimit-limit` — your plan's RPS ceiling
@@ -69,4 +69,4 @@ Token amounts in API responses, such as `value` in [token balances](/api-referen
 
 ## Historical pricing needs an external feed
 
-The PRO API returns current exchange rates, but not historical ones. If you need the USD value of an asset at the moment of a past transaction (for tax or accounting workflows), pair the block timestamp on each row with an external pricing feed — CoinGecko, Pyth, or your own oracle.
+The Blockscout API returns current exchange rates, but not historical ones. If you need the USD value of an asset at the moment of a past transaction (for tax or accounting workflows), pair the block timestamp on each row with an external pricing feed — CoinGecko, Pyth, or your own oracle.

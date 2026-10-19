@@ -407,7 +407,7 @@
           ]
         },
         {
-          "tab": "API Reference",
+          "tab": "Blockscout API",
           "groups": [
             {
               "group": "Blockscout APIs",
@@ -415,13 +415,13 @@
               "pages": [
                 "devs/apis",
                 {
-                  "group": "PRO API",
+                  "group": "API Reference",
                   "icon": "rectangle-pro",
                   "pages": [
-                    "devs/pro-api",
+                    "devs/blockscout-api",
                     "make-your-first-call",
                     "best-practices",
-                    "devs/pro-api-responses-and-routes",
+                    "devs/blockscout-api-responses-and-routes",
                     "devs/error-responses",
                     "devs/multichain-service",
                     "devs/metadata-service",
@@ -456,7 +456,7 @@
               ]
             },
             {
-              "group": "PRO API Endpoints",
+              "group": "Blockscout API Endpoints",
               "icon": "rectangle-pro",
               "openapi": "openapi-specs/Master-pro-api.json",
               "pages": [
@@ -464,7 +464,7 @@
               ]
             },
             {
-              "group": "PRO RPC & ETH RPC",
+              "group": "RPC & ETH RPC Endpoints",
               "icon": "code",
               "openapi": "openapi-specs/pro-rpc-api-universal.json"
             },
@@ -651,7 +651,19 @@
         },
         {
             "source": "/devs/apis/pro-api",
-            "destination": "/devs/pro-api"
+            "destination": "/devs/blockscout-api"
+        },
+        {
+          "source": "/devs/pro-api",
+          "destination": "/devs/blockscout-api"
+        },
+        {
+          "source": "/devs/pro-api-responses-and-routes",
+          "destination": "/devs/blockscout-api-responses-and-routes"
+        },
+        {
+          "source": "/devs/pro-api-routes",
+          "destination": "/devs/blockscout-api-routes"
         },
         {
             "source": "/for-users/verifying-a-smart-contract",

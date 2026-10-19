@@ -137,7 +137,7 @@ icon:
   </Accordion>
 
   <Accordion title="How can I view smart contracts using RPC?">
-    Use the `listcontracts` action of the `contract` module. For example, to view verified contracts on Gnosis via the PRO API, use the following query. Pagination is available.
+    Use the `listcontracts` action of the `contract` module. For example, to view verified contracts on Gnosis via the Blockscout API, use the following query. Pagination is available.
 
     ```sh
     curl "https://api.blockscout.com/v2/api?chain_id=100&module=contract&action=listcontracts&page=1&offset=50&filter=verified&apikey=<your_pro_api_key>"
@@ -165,7 +165,7 @@ icon:
   <Accordion title="How do I verify contracts via an API?">
     There are several ways:
 
-    - Use the multichain [PRO API's contract verification actions](/devs/verification/blockscout-smart-contract-verification-api)
+    - Use the multichain [Blockscout API's contract verification actions](/devs/verification/blockscout-smart-contract-verification-api)
     - Use the [Contract module RPC reference](/devs/apis/rpc/contract) for the per-instance version of the same calls
   </Accordion>
 

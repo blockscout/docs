@@ -1,6 +1,6 @@
 ---
 title: "Base API"
-description: "Blockscout PRO API access for Base (chain ID 8453): REST, JSON RPC, and ETH RPC endpoints, paid tiers from Builder, and migrating from Etherscan."
+description: "Blockscout API access for Base (chain ID 8453): REST, JSON RPC, and ETH RPC endpoints, paid tiers from Builder, and migrating from Etherscan."
 ---
 
 ## Base API Access with Blockscout
@@ -11,20 +11,20 @@ Base is Coinbase's Ethereum L2 and one of the fastest-growing chains in the ecos
   Base API access requires a paid plan. 
 </Note>
 
-**Base Chain ID:** `8453` <br />**Explorer:** [base.blockscout.com](https://base.blockscout.com) <br />**PRO API Base:** `https://api.blockscout.com` (use `chain_id=8453`) 
+**Base Chain ID:** `8453` <br />**Explorer:** [base.blockscout.com](https://base.blockscout.com) <br />**Blockscout API Base:** `https://api.blockscout.com` (use `chain_id=8453`) 
 
 ## Quick Start
 
 Get your first API response in under 60 seconds:
 
 ```bash
-# Get ETH balance for an address on Base via PRO API
+# Get ETH balance for an address on Base via Blockscout API
 curl "https://api.blockscout.com/v2/api?chain_id=8453&module=account&action=balance&address=0xYOUR_ADDRESS&apikey=proapi_YOUR_KEY"
 ```
 
-Get your API key at [dev.blockscout.com](https://dev.blockscout.com) — required for all PRO API tiers.
+Get your API key at [dev.blockscout.com](https://dev.blockscout.com) — required for all Blockscout API tiers.
 
-## PRO API Routes for Base
+## Blockscout API Routes for Base
 
 All routes use Base's chain ID (`8453`):
 
@@ -73,7 +73,7 @@ All standard modules work — if you've used Etherscan's Base API before, the sa
 
 ### REST API
 
-Blockscout's native REST API provides enriched metadata, decoded input data, NFT media and attributes, smart contract read/write interaction, and chain health monitoring — all accessible through the PRO API.
+Blockscout's native REST API provides enriched metadata, decoded input data, NFT media and attributes, smart contract read/write interaction, and chain health monitoring — all accessible through the Blockscout API.
 
 **→ [Full REST API Reference](https://base.blockscout.com/api-docs)**
 
@@ -98,7 +98,7 @@ const resp = await fetch(
   `https://api.etherscan.io/v2/api?chainid=8453&module=account&action=balance&address=${addr}&apikey=${ETHERSCAN_KEY}`
 );
 
-// After (Blockscout PRO API)
+// After (Blockscout API)
 const resp = await fetch(
   `https://api.blockscout.com/v2/api?chain_id=8453&module=account&action=balance&address=${addr}&apikey=${BLOCKSCOUT_KEY}`
 );
@@ -114,19 +114,19 @@ Same structure: `chainid` → `chain_id`, swap the base URL and key.
 
 **DeFi Backends** — With billions in TVL across DEXs, lending markets, and yield platforms, Base DeFi apps rely on explorer APIs for contract data, event monitoring, and position tracking.
 
-**AI Agents & Automation** — Base's 2026 roadmap includes native support for AI agent smart accounts. Blockscout's PRO API and MCP server provide the structured onchain data these agents need.
+**AI Agents & Automation** — Base's 2026 roadmap includes native support for AI agent smart accounts. The Blockscout API and MCP server provide the structured onchain data these agents need.
 
 **Wallets & Portfolio Trackers** — Pull complete transaction histories, multi-token balances, and NFT holdings for Base addresses through a single API key that also covers every other chain.
 
 ## Base on Blockscout
 
-As part of the OP Superchain, Base benefits from Blockscout's native support for L1↔L2 transaction tracking, including deposit and withdrawal views and cross-chain message debugging. With the PRO API's multichain architecture, querying Base is just one `chain_id` parameter away from querying Ethereum, Optimism, Arbitrum, or any other supported network.
+As part of the OP Superchain, Base benefits from Blockscout's native support for L1↔L2 transaction tracking, including deposit and withdrawal views and cross-chain message debugging. With the Blockscout API's multichain architecture, querying Base is just one `chain_id` parameter away from querying Ethereum, Optimism, Arbitrum, or any other supported network.
 
 ## Get Started
 
 1. Get an API key at [**dev.blockscout.com**](https://dev.blockscout.com)
 2. Purchase an access tier starting at \$49/mo
-3. Use `chain_id=8453` in your PRO API requests
-4. Explore [available endpoints](/devs/pro-api)
+3. Use `chain_id=8453` in your Blockscout API requests
+4. Explore [available endpoints](/devs/blockscout-api)
 
-**→ [Start Building on Base](https://dev.blockscout.com)** · **→ [PRO API Routes Reference](https://docs.blockscout.com/devs/pro-api-responses-and-routes)**
+**→ [Start Building on Base](https://dev.blockscout.com)** · **→ [Blockscout API Routes Reference](https://docs.blockscout.com/devs/blockscout-api-responses-and-routes)**

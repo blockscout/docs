@@ -1,12 +1,12 @@
 ---
-title: "x402 payments for the Blockscout Pro API"
-description: "Use the x402 HTTP payment protocol to pay per call for the Blockscout Pro API with stablecoins, letting autonomous agents access data without an API key."
+title: "x402 payments for the Blockscout API"
+description: "Use the x402 HTTP payment protocol to pay per call for the Blockscout API with stablecoins, letting autonomous agents access data without an API key."
 icon: "money-bill-transfer"
 ---
 
 x402 turns the HTTP 402 status code into a stablecoin payment rail. An agent requests a resource, receives payment terms, signs an authorization, and retries with proof of payment attached. This does not require an account or API key for usage.
 
-Blockscout's Pro API supports x402 as an alternative to key-based billing. Both options read from the same underlying data, so you can choose whichever fits your agent's setup.
+The Blockscout API supports x402 as an alternative to key-based billing. Both options read from the same underlying data, so you can choose whichever fits your agent's setup.
 
 <Info>
   Governance of the x402 protocol moved to the Linux Foundation in April 2026, with 22 launch members including Google, Visa, Mastercard, Stripe, AWS, and Circle. The reference implementation is Apache 2.0 licensed with SDKs for TypeScript, Python, and Go.
@@ -33,7 +33,7 @@ The current spec (v2) organizes payment terms around CAIP-2 network identifiers,
 
 ## Key-based vs. x402 requests
 
-A standard Pro API request includes a key in the query string and is billed against your account. This is the most cost-effective way to use the Pro API and includes a free tier.
+A standard Blockscout API request includes a key in the query string and is billed against your account. This is the most cost-effective way to use the Blockscout API and includes a free tier.
 
 ```http
 GET https://api.blockscout.com/8453/api/v2/tokens/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913?apikey=proapi_xxx
@@ -49,7 +49,7 @@ PAYMENT-REQUIRED: <base64-encoded payment terms: network eip155:8453, asset USDC
 
 ## Walkthrough: pay-per-call with a Hermes agent
 
-This walkthrough sets up a burner wallet, funds it, and configures a [Hermes agent](https://github.com/NousResearch/hermes-agent) to sign x402 payments automatically when calling the Pro API on Base.
+This walkthrough sets up a burner wallet, funds it, and configures a [Hermes agent](https://github.com/NousResearch/hermes-agent) to sign x402 payments automatically when calling the Blockscout API on Base.
 
 ## Requirements
 
@@ -95,7 +95,7 @@ This walkthrough sets up a burner wallet, funds it, and configures a [Hermes age
     """
     Usage: x402_pay.py <url>
     
-    Calls a Blockscout Pro API URL, paying via x402 with the wallet in
+    Calls a Blockscout API URL, paying via x402 with the wallet in
     $X402_PRIVATE_KEY if the endpoint returns a 402. Prints a single JSON
     object to stdout with the response body and payment settlement info.
     """
@@ -173,7 +173,7 @@ This walkthrough sets up a burner wallet, funds it, and configures a [Hermes age
     cat >> ~/.hermes/AGENTS.md << 'EOF'
     
     ## x402 Payments
-    To call a Blockscout Pro API endpoint that may require payment, run:
+    To call a Blockscout API endpoint that may require payment, run:
     
         python3 ~/.hermes/skills/x402_pay.py "<url>"
     
@@ -183,13 +183,13 @@ This walkthrough sets up a burner wallet, funds it, and configures a [Hermes age
     EOF
     ```
   </Step>
-  <Step title="Call the Pro API without a key">
-    Send the agent a request that targets the multichain Pro API endpoint directly, not a per-instance endpoint, so the call routes through x402:
+  <Step title="Call the Blockscout API without a key">
+    Send the agent a request that targets the multichain Blockscout API endpoint directly, not a per-instance endpoint, so the call routes through x402:
 
     > "Run the x402 payment script against `https://api.blockscout.com/8453/api/v2/tokens/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913` and tell me if it settled."
 
     <Warning>
-      Some agent configurations may resolve a query like "get token info on Base" to a free, per-instance endpoint instead of the Pro API's multichain endpoint, which won't trigger a 402. Reference the full Pro API URL directly, as shown above, to confirm you're testing the x402 path.
+      Some agent configurations may resolve a query like "get token info on Base" to a free, per-instance endpoint instead of the Blockscout API's multichain endpoint, which won't trigger a 402. Reference the full Blockscout API URL directly, as shown above, to confirm you're testing the x402 path.
     </Warning>
   </Step>
   <Step title="Confirm the payment">
@@ -309,7 +309,7 @@ This walkthrough sets up a burner wallet, funds it, and configures a [Hermes age
 ## Additional Reference Info
 
 <CardGroup cols={2}>
-  <Card title="Get a Pro API Key (not required for x402)" icon="key" href="https://blockscout.com/pro-api">
+  <Card title="Get a Blockscout API Key (not required for x402)" icon="key" href="https://blockscout.com/pro-api">
     For key-based billing and access to the free tier
   </Card>
 
