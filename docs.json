@@ -503,7 +503,6 @@
                 {
                   "group": "REST API Endpoints",
                   "pages": [
-                    "devs/apis/rest",
                     {
                       "group": "Endpoints",
                       "openapi": "openapi-specs/openapi-deprecation.yaml"
@@ -688,6 +687,11 @@
         {
             "source": "/untitled-page",
             "destination": "/whale-watch"
+        },
+        {
+          "source": "/devs/apis/rest",
+          "destination": "/devs/blockscout-api",
+          "permanent": true
         }
     ],
     "footer": {
