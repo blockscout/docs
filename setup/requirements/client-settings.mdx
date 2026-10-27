@@ -60,6 +60,10 @@ BlockScout currently requires a full archive node in order to import every state
 | **Fallback Eth\_call Requests Endpoint** | `ETHEREUM_JSONRPC_FALLBACK_ETH_CALL_URL` | (empty)                | Fallback JSON RPC `eth_call` url.                                                                                                                |
 | **WebSockets Endpoint**                  | `ETHEREUM_JSONRPC_WS_URL`                | ws\://localhost:8546   | The WebSockets endpoint subscribes to `newHeads` which alerts the indexer to fetch the new block from the subscription.                          |
 
+<Info>
+These variables take one URL per role. To spread load over several providers with retries, hedging and caching, point them at a self-hosted RPC proxy such as [eRPC](https://github.com/erpc/erpc), e.g. `ETHEREUM_JSONRPC_HTTP_URL=http://erpc:4000/main/evm/1`. Tracing calls need upstreams that serve `debug_*` or `trace_*` methods.
+</Info>
+
 ## Geth
 
 More information on Geth JSON-RPC [is available here](https://geth.ethereum.org/docs/interacting-with-geth/rpc).
