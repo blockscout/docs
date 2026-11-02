@@ -438,3 +438,6 @@ debug_
 pooler
 Postgrex
 clusterization
+Holesky
+block_consensus
+Superchain
