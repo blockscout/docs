@@ -47,12 +47,12 @@ https://api.etherscan.io/v2/api?chainid=1&module=account&action=balance&address=
 ### Blockscout API
 
 ```text
-https://api.blockscout.com/v2/api?chainid=1&module=account&action=balance&address=0x...&apikey=proapi_YOUR_KEY
+https://api.blockscout.com/v2/api?chain_id=1&module=account&action=balance&address=0x...&apikey=proapi_YOUR_KEY
 ```
 
-The only differences: `api.etherscan.io` → `api.blockscout.com` and your API key. Same modules, same actions, same parameters.
+The only differences: `api.etherscan.io` → `api.blockscout.com`, `chainid` → `chain_id`, and your API key. Same modules and actions.
 
-Blockscout also supports path-based routing as an alternative (chainid is 1 in the path):
+Blockscout also supports path-based routing as an alternative (the chain ID `1` goes in the path):
 
 ```text
 https://api.blockscout.com/1/api?module=account&action=balance&address=0x...&apikey=proapi_YOUR_KEY
@@ -499,7 +499,7 @@ const BLOCKSCOUT_KEY = process.env.BLOCKSCOUT_KEY;
 async function query(chainId, module, action, params = {}) {
   const resp = await axios.get("https://api.blockscout.com/v2/api", {
     params: {
-      chainid: chainId,
+      chain_id: chainId,
       module,
       action,
       apikey: BLOCKSCOUT_KEY,
@@ -509,10 +509,10 @@ async function query(chainId, module, action, params = {}) {
   return resp.data;
 }
  
-// Query Ethereum (chainid=1)
+// Query Ethereum (chain_id=1)
 const ethBalance = await query(1, "account", "balance", { address: "0x..." });
  
-// Query Base (chainid=8453) — same function, different chainid
+// Query Base (chain_id=8453). Same function, different chain_id
 const baseBalance = await query(8453, "account", "balance", { address: "0x..." });
 ```
 
@@ -535,7 +535,7 @@ BLOCKSCOUT_KEY = os.environ["BLOCKSCOUT_KEY"]
  
 def query(chainid, module, action, **params):
     resp = requests.get("https://api.blockscout.com/v2/api", params={
-        "chainid": chainid,
+        "chain_id": chainid,
         "module": module,
         "action": action,
         "apikey": BLOCKSCOUT_KEY,
@@ -546,7 +546,7 @@ def query(chainid, module, action, **params):
 # Ethereum
 eth_balance = query(1, "account", "balance", address="0x...")
  
-# Optimism (chainid=10)
+# Optimism (chain_id=10)
 op_txns = query(10, "account", "txlist", address="0x...", sort="desc")
 ```
 
@@ -569,7 +569,7 @@ const CHAINS = {
 async function getBalance(chainName, address) {
   const chainId = CHAINS[chainName];
   const res = await fetch(
-    `https://api.blockscout.com/v2/api?chainid=${chainId}&module=account&action=balance&address=${address}&apikey=${API_KEY}`
+    `https://api.blockscout.com/v2/api?chain_id=${chainId}&module=account&action=balance&address=${address}&apikey=${API_KEY}`
   );
   return res.json();
 }
