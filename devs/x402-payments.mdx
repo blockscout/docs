@@ -17,7 +17,7 @@ The Blockscout API supports x402 as an alternative to key-based billing. Both op
 x402 is a four-step loop layered on top of a standard HTTP request:
 
 1. **Request.** A client (human or agent) sends a standard HTTP request to a protected endpoint.
-2. **402 response.** If payment is required, the server replies with a `402` status and a payment-terms object: accepted token (usually USDC), network, recipient address, amount, and expiry.
+2. **402 response.** If payment is required, the server replies with a `402` status and a payment-terms object: accepted token (usually USDC), network, recipient address, amount, and expiry. **Note: For the Blockscout API, costs are \$0.002 USDC per call for any endpoint call or RPS setup.**
 3. **Signature.** The client signs an **EIP-3009 `transferWithAuthorization`** message with its wallet, then resends the original request with the signed payload attached in a `PAYMENT-SIGNATURE` header.
 4. **Verify and settle.** A facilitator (a service that handles onchain verification and settlement) checks the signature and submits the transfer onchain. The server returns a `200` with the requested data and a `PAYMENT-RESPONSE` header confirming settlement.
 
