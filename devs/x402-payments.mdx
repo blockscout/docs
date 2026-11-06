@@ -261,7 +261,7 @@ This walkthrough sets up a burner wallet, funds it, and configures a [Hermes age
 
 <AccordionGroup>
   <Accordion title="Safe retries on 5xx">
-    The SDK's automatic wrapper signs a fresh authorization every time it sees a `402`. That's the wrong behavior for a `5xx` on retry: if the facilitator already settled the payment and the origin server then failed before responding, resigning would attempt to charge the wallet again. If a `5xx` comes back **without** a `PAYMENT-RESPONSE` header, replay the request with the _same_ `PAYMENT-SIGNATURE` you already sent, instead of letting the client sign a new one:
+    The SDK's automatic wrapper signs a fresh authorization every time it sees a `402`. That's the wrong behavior for a `5xx` on retry: if the facilitator already settled the payment and the origin server then failed before responding, re-signing would attempt to charge the wallet again. If a `5xx` comes back **without** a `PAYMENT-RESPONSE` header, replay the request with the _same_ `PAYMENT-SIGNATURE` you already sent, instead of letting the client sign a new one:
 
     ```python
     def call_with_safe_retry(session, url, max_retries=2):
