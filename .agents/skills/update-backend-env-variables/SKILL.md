@@ -32,4 +32,11 @@ If the PR number is missing or invalid, ask the user for it before proceeding. I
 4. For added variables, include the PR link, version (`master` or the supplied release with the existing `+` convention), default, and applications. Follow the destination table's existing grouping and formatting. Update a documented row if the PR changes its default or behavior; avoid duplicates.
 5. For removed or replaced variables, remove them from their active list and add their existing description, default, introduced version, and supplied deprecated-in version to the deprecated list. Do not deprecate variables that were only moved or reformatted.
 6. Do not guess missing metadata or category. If the PR does not provide enough evidence to determine a value or destination, ask the user one focused clarification before editing.
-7. Preserve unrelated work. Inspect the final diff to confirm only relevant environment-variable rows changed, then report the files updated.
+7. Preserve unrelated work. Inspect the final diff to confirm only relevant environment-variable rows changed.
+8. Create a pull request in `blockscout/docs` for the documentation changes:
+   - Check the repository, branch, and worktree state before committing. Do not include unrelated or pre-existing changes; if the relevant changes cannot be isolated safely, stop and ask the user.
+   - Use a task-specific branch based on the repository's default branch. Commit only the relevant environment-variable documentation files and push the branch.
+   - Create the PR with `gh pr create --repo blockscout/docs`. Do not ask for confirmation to create it.
+   - Build the title from the variable names (comma-separated): `Add new backend env variable(s) "NAME"` for additions, `Remove new backend env variable(s) "NAME"` for removals, or `Add/remove new backend env variable(s) "NAME1, NAME2"` when both apply. For changes to existing variable documentation only, use `Update backend env variable(s) "NAME"`.
+   - In the PR description, list each added, removed, or updated variable with its name and a concise description, and link to the corresponding `blockscout/blockscout` PR. Include the documentation changes made and their release/version where applicable.
+9. Report the documentation files updated and the created docs PR URL.
