@@ -39,7 +39,7 @@
           {
             "anchor": "Community",
             "icon": "discord",
-            "href": "https://discord.gg/blockscout"
+            "href": "https://discord.gg/3yAWj8TXV2"
           },
           {
             "anchor": "Blog",
@@ -575,7 +575,7 @@
         "links": [
             {
                 "label": "Support",
-                "href": "https://discord.gg/blockscout"
+                "href": "https://discord.gg/3yAWj8TXV2"
             }
         ],
         "primary": {
@@ -698,7 +698,7 @@
         "socials": {
             "github": "https://github.com/blockscout/blockscout",
             "telegram": "https://t.me/blockscoutcommunity",
-            "discord": "https://discord.gg/blockscout",
+            "discord": "https://discord.gg/3yAWj8TXV2",
             "x": "https://x.com/blockscout"
         }
     }
