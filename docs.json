@@ -692,6 +692,102 @@
           "source": "/devs/apis/rest",
           "destination": "/devs/blockscout-api",
           "permanent": true
+        },
+        {
+            "source": "/for-developers/information-and-settings/smart-contract-verification",
+            "destination": "/setup/microservices/smart-contract-verification"
+        },
+        {
+            "source": "/for-developers/deployment/frontend-migration",
+            "destination": "/setup/deployment/frontend-migration"
+        },
+        {
+            "source": "/for-developers/information-and-settings/env-variables",
+            "destination": "/setup/env-variables"
+        },
+        {
+            "source": "/for-developers/information-and-settings/client-settings-parity-geth-ganache",
+            "destination": "/setup/requirements/client-settings"
+        },
+        {
+            "source": "/for-developers/information-and-settings/env-variables/frontend-common-envs",
+            "destination": "/setup/env-variables/frontend-common-envs"
+        },
+        {
+            "source": "/for-developers/ansible-deployment",
+            "destination": "/setup/deployment/ansible-deployment/overview"
+        },
+        {
+            "source": "/for-developers/information-and-settings/database-storage-requirements",
+            "destination": "/setup/requirements/database-storage-requirements"
+        },
+        {
+            "source": "/for-users/api",
+            "destination": "/devs/apis"
+        },
+        {
+            "source": "/for-developers/evm-version-information",
+            "destination": "/setup/information-and-settings/evm-version-information"
+        },
+        {
+            "source": "/for-developers/configuration-options",
+            "destination": "/setup/configuration-options"
+        },
+        {
+            "source": "/for-developers/deployment/manual-old-ui",
+            "destination": "/setup/deployment/manual-old-ui"
+        },
+        {
+            "source": "/for-developers/deployment/docker-compose-deployment",
+            "destination": "/setup/deployment/docker-compose-deployment"
+        },
+        {
+            "source": "/for-users/verifying-a-smart-contract/sourcify-plugin-for-hardhat",
+            "destination": "/devs/verification/hardhat-verification-plugin/sourcify-plugin-for-hardhat"
+        },
+        {
+            "source": "/for-developers/deployment",
+            "destination": "/setup/deployment"
+        },
+        {
+            "source": "/for-users/verifying-a-smart-contract/contracts-verification-via-sourcify",
+            "destination": "/devs/verification/contracts-verification-via-sourcify"
+        },
+        {
+            "source": "/for-users/api/rpc-endpoints/contract",
+            "destination": "/devs/apis/rpc/contract"
+        },
+        {
+            "source": "/for-developers/configuration-options/my-account-settings",
+            "destination": "/setup/configuration-options/my-account-settings"
+        },
+        {
+            "source": "/for-developers/deployment/kubernetes-deployment",
+            "destination": "/setup/deployment/kubernetes-deployment"
+        },
+        {
+            "source": "/developer-support/verifying-a-smart-contract/hardhat-verification-plugin",
+            "destination": "/devs/verification/hardhat-verification-plugin"
+        },
+        {
+            "source": "/for-users/my-account",
+            "destination": "/using-blockscout/my-account"
+        },
+        {
+            "source": "/for-users/verifying-a-smart-contract/blockscout-smart-contract-verification-api",
+            "destination": "/devs/verification/blockscout-smart-contract-verification-api"
+        },
+        {
+            "source": "/for-developers/information-and-settings",
+            "destination": "/setup/information-and-settings"
+        },
+        {
+            "source": "/for-users/smart-contract-interaction/verifying-a-smart-contract",
+            "destination": "/devs/verification"
+        },
+        {
+            "source": "/developer-support/api/rpc-endpoints/contract",
+            "destination": "/devs/apis/rpc/contract"
         }
     ],
     "footer": {
