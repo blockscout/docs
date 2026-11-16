@@ -618,6 +618,7 @@ If no unit is provided, the value will be interpreted as seconds.
 | `HIDE_SCAM_ADDRESSES`               | Hides address of EOA/smart-contract/token from search results if the value is `true` and "scam" badge is assigned to that address. Implemented in [#10763](https://github.com/blockscout/blockscout/pull/10763) | Version: v6.9.0\+ <br />Default: (empty) <br />Applications: API                     |
 | `UNCLES_IN_AVERAGE_BLOCK_TIME`      | Include or exclude non-consensus blocks in avg block time calculation. Exclude if `false`.                                                                                                                      | Version: v2.0.1\+ <br />Default: `false` <br />Applications: API                     |
 | `COIN_BALANCE_HISTORY_DAYS`         | Number of days to consider for coin balance history chart.                                                                                                                                                      | Version: v3.1.3\+ <br />Default: `10` <br />Applications: API                        |
+| `COIN_BALANCE_HISTORY_SCAN_LIMIT`   | Maximum number of address coin-balance rows to scan per request when searching for balance changes. When the limit is reached, the endpoint can return a short page with a next-page cursor. Implemented in [#15063](https://github.com/blockscout/blockscout/pull/15063). | Version: master <br />Default: `10000` <br />Applications: API                     |
 
 ## CSV Export
 
