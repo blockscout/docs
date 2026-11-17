@@ -50,6 +50,16 @@ Time measures for response time of crucial JSON RPC methods for indexing in Bloc
 
 The desired rate limit for RPC endpoint is 200 req/sec for the indexing phase and 100 req/sec for the indexed chain.
 
+### Selecting a Hosted RPC Plan
+
+For an Ethereum mainnet deployment that uses a hosted endpoint, [Chain.Love](https://chain.love) can help you shortlist infrastructure providers and plans. Compare the shortlist against this page's requirements before configuring the explorer:
+
+- Confirm archive-state access at the oldest block you need to index, including historical balance and contract-state reads.
+- Confirm that the selected plan exposes the tracing methods for your client, as well as the standard JSON RPC methods listed above.
+- Check that rate limits and billing quotas cover the 200 req/sec indexing target, batch receipt requests, and any WebSocket subscriptions you enable.
+
+Verify current method availability and limits directly with each provider.
+
 ### EVM Requirements & Clients
 
 - All EVM chains must [define these variables](/setup/env-variables#required-env-variables) during configuration.
