@@ -52,13 +52,15 @@ The desired rate limit for RPC endpoint is 200 req/sec for the indexing phase an
 
 ### Selecting a Hosted RPC Plan
 
-For an Ethereum mainnet deployment that uses a hosted endpoint, [Chain.Love](https://chain.love) can help you shortlist infrastructure providers and plans. Compare the shortlist against this page's requirements before configuring the explorer:
+For an Ethereum mainnet deployment, or another supported EVM network, a hosted endpoint may be a suitable option. [Chain.Love](https://chain.love) can help you shortlist infrastructure providers and plans. Compare the shortlist against this page's requirements before configuring the explorer:
 
-- Confirm archive-state access at the oldest block you need to index, including historical balance and contract-state reads.
+- Confirm that the plan provides the archive-state access required for the full indexing range, including historical state queries at the oldest blocks to be indexed.
 - Confirm that the selected plan exposes the tracing methods for your client, as well as the standard JSON RPC methods listed above.
-- Check that rate limits and billing quotas cover the 200 req/sec indexing target, batch receipt requests, and any WebSocket subscriptions you enable.
+- Check that rate limits and billing quotas can support the documented 200 req/sec indexing target and 100 req/sec indexed-chain target.
+- Check that batches of 15 `eth_getTransactionReceipt` requests can complete in less than one second, while accounting for provider rate limits and billing quotas.
+- Check support for any WebSocket subscriptions you enable; WebSockets are optional but highly recommended.
 
-Verify current method availability and limits directly with each provider.
+Use the directory as a starting point for provider discovery; independently verify that the selected plan meets your deployment's requirements.
 
 ### EVM Requirements & Clients
 
