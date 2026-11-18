@@ -6,12 +6,12 @@ icon: "code-fork"
 
 <Tip>
   - MCP Landing page: [https://mcp.blockscout.com](https://mcp.blockscout.com) - For setup instructions and additional details.
-  - Github with technical specs and run information located at https://github.com/blockscout/mcp-server
+  - GitHub with technical specs and run information located at https://github.com/blockscout/mcp-server.
 </Tip>
 
 The Model Context Protocol (MCP) is an open protocol designed to allow AI agents, IDEs, and automation tools to consume, query, and analyze structured data through context-aware APIs.
 
-This server wraps Blockscout APIs and exposes blockchain data like balances, tokens, NFTs, contract metadata via MCP so that AI agents and tools (like Claude, Cursor, or IDEs) can access and analyze it contextually. Connect it to Claude, Claude Code, Codex, or Cursor and query chains in plain English, with answers that come straight from live Blockscout data.
+This server wraps Blockscout APIs and exposes blockchain data like balances, tokens, NFTs, and contract metadata via MCP so that AI agents and tools (like Claude, Cursor, or IDEs) can access and analyze it contextually. Connect it to Claude, Claude Code, Codex, or Cursor and query chains in plain English, with answers that come straight from live Blockscout data.
 
 <Tip>
   A single connection reaches every supported chain. Name the network in your prompt and the agent resolves its chain ID, or call `get_chains_list` to browse them all.
