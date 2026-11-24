@@ -46,6 +46,27 @@ Requests that return a `4xx` or `5xx` status cost no credits, with one exception
 | `api/v2/transactions/:hash/raw-trace` | 50 |
 | `api/v2/addresses/:address_hash/coin-balance-history` | 50 |
 
+### Chain credit multipliers
+
+Some chains have a credit multiplier. On those chains, a call costs the endpoint's credits from the table above multiplied by the chain's multiplier. Most chains have a multiplier of 1, so the table applies as is.
+
+For example, on a chain with a multiplier of 2, a call to an unlisted endpoint costs 40 credits instead of 20, and `api/v2/transactions/:hash/summary` costs 100 credits instead of 50.
+
+The multiplier applies to both key-based requests and [x402 payments](/devs/x402-payments). It does not apply to [WebSocket API](/devs/apis/websocket-api#billing) connections and messages, which have fixed credit costs.
+
+To check the multipliers, call `GET https://api.blockscout.com/api/json/featured-chains`. No API key is needed. Each chain in the response has a `credits_multiplier` field. Chains that are not in the response have a multiplier of 1.
+
+Example response (values are illustrative):
+
+```json
+{
+  "8453": {
+    "plans_allowed": ["Builder", "Business", "Pro"],
+    "credits_multiplier": 2
+  }
+}
+```
+
 ## Response headers
 
 Every response carries your current standing, so you can track usage without a separate call:

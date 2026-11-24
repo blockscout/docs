@@ -141,6 +141,7 @@ Credits are consumed per API call. The **default cost is 20 credits** for any en
 
 - A request consumes credits once, no matter how many records the response contains. For example, a `txlist` call that returns 10,000 transactions costs the same as one that returns a single transaction.
 - Etherscan-compatible RPC calls (`?module=...&action=...`, such as `txlist` and `tokentx`) are not listed in the table below, so they use the default cost of 20 credits per call.
+- Some chains have a credit multiplier. On those chains, the endpoint's cost is multiplied by the chain's multiplier. See [Chain credit multipliers](/rate-limits#chain-credit-multipliers).
 - Requests that return a `4xx` or `5xx` status cost no credits, with one exception: a `404` returned by the chain's Blockscout instance or service (for example, for a transaction that doesn't exist) is charged at the endpoint's normal cost. A `404` returned by the Blockscout API itself (`"source": "internal"`, such as an unsupported network or unknown path) is free. For x402 requests, every `4xx` and `5xx` is free, including `404`. See [x402 payments](/devs/x402-payments#no-charge-for-error-responses).
 
 ## When credits run out
