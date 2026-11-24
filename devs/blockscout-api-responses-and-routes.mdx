@@ -4,6 +4,8 @@ description: "Reference for Blockscout API authorization, response headers, rout
 icon: "circle-nodes"
 ---
 
+import CreditCosts from "/snippets/credit-costs.mdx";
+
 <Check>
   Dev portal and free API key at [https://dev.blockscout.com/](https://dev.blockscout.com/)<br /><br />Agents visit [https://agents.blockscout.com/](https://agents.blockscout.com/) to access optimized instructions
 </Check>
@@ -151,22 +153,4 @@ Credits are consumed per API call. The **default cost is 20 credits** for any en
 
 Track remaining credits with the `x-credits-remaining` response header or the [developer portal dashboard](https://dev.blockscout.com/), and upgrade your plan if you regularly hit the cap.
 
-| Endpoint | Credits |
-| :-- | :-: |
-| `default` (all unlisted endpoints) | 20 |
-| `api/v2/search/quick` | 25 |
-| `api/v2/transactions/:hash/logs` | 30 |
-| `api/v2/transactions/:hash/token-transfers` | 30 |
-| `api/v2/transactions/:hash/state-changes` | 30 |
-| `api/v2/tokens` | 30 |
-| `api/v2/tokens/:address_hash/transfers` | 30 |
-| `api/v2/addresses/:address_hash/token-transfers` | 30 |
-| `api/v2/addresses/:address_hash/logs` | 30 |
-| `api/v2/transactions/:hash/internal-transactions` | 40 |
-| `api/v2/addresses/:address_hash/internal-transactions` | 40 |
-| `api/v2/smart-contracts/verification/config` | 40 |
-| `api/v2/transactions/:hash/summary` | 50 |
-| `api/v2/transactions/:hash/raw-trace` | 50 |
-| `api/v2/addresses/:address_hash/coin-balance-history` | 50 |
-
-_Last Updated February, 2026_
+<CreditCosts />

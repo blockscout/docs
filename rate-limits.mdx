@@ -4,13 +4,15 @@ description: "Rate limits, credit allowances, and per-endpoint credit costs for 
 icon: "traffic-light-go"
 ---
 
+import CreditCosts from "/snippets/credit-costs.mdx";
+
 <Info>
   Get your free Blockscout API key at [dev.blockscout.com](https://dev.blockscout.com/).
 </Info>
 
 ## Plan tiers
 
-Every tier includes access to all 100+ Blockscout-supported chains with a single key. Swap `chain_id` to move between chains.
+Every tier includes access to all 100+ Blockscout-supported chains with a single key, except [plan-restricted chains](#plan-restricted-chains-and-endpoints). Swap `chain_id` to move between chains.
 
 | Tier | Rate limit | Credits | Price |
 | --- | --- | --- | --- |
@@ -28,23 +30,7 @@ Credits are consumed per API call. The default cost is 20 credits for any endpoi
 
 Requests that return a `4xx` or `5xx` status cost no credits, with one exception: a `404` returned by the chain's Blockscout instance or service (for example, for a transaction that doesn't exist) is charged at the endpoint's normal cost. A `404` returned by the Blockscout API itself (`"source": "internal"`, such as an unsupported network or unknown path) is free. For x402 requests, every `4xx` and `5xx` is free, including `404`. See [x402 payments](/devs/x402-payments#no-charge-for-error-responses).
 
-| Endpoint | Credits |
-| --- | :-: |
-| `default` (all unlisted endpoints) | 20 |
-| `api/v2/search/quick` | 25 |
-| `api/v2/transactions/:hash/logs` | 30 |
-| `api/v2/transactions/:hash/token-transfers` | 30 |
-| `api/v2/transactions/:hash/state-changes` | 30 |
-| `api/v2/tokens` | 30 |
-| `api/v2/tokens/:address_hash/transfers` | 30 |
-| `api/v2/addresses/:address_hash/token-transfers` | 30 |
-| `api/v2/addresses/:address_hash/logs` | 30 |
-| `api/v2/transactions/:hash/internal-transactions` | 40 |
-| `api/v2/addresses/:address_hash/internal-transactions` | 40 |
-| `api/v2/smart-contracts/verification/config` | 40 |
-| `api/v2/transactions/:hash/summary` | 50 |
-| `api/v2/transactions/:hash/raw-trace` | 50 |
-| `api/v2/addresses/:address_hash/coin-balance-history` | 50 |
+<CreditCosts />
 
 ### Chain credit multipliers
 
@@ -66,6 +52,29 @@ Example response (values are illustrative):
   }
 }
 ```
+
+## Plan-restricted chains and endpoints
+
+Some chains and endpoints are available only on certain plans. A key on another plan gets a `402` with an error such as:
+
+- `Featured chain <chain_id> requires one of the following plans: ...`
+- `Endpoint <path> requires one of the following plans: ...`
+
+To check which chains are restricted, call `GET https://api.blockscout.com/api/json/featured-chains`. Each chain in the response lists the plans that can use it in `plans_allowed`. Chains that are not in the response are available on every plan.
+
+To check which endpoints are restricted, call `GET https://api.blockscout.com/api/json/endpoints`. Each endpoint has a `featured_plans` field with the plans that can call it. `null` means the endpoint is available on every plan.
+
+Example endpoint entry (values are illustrative):
+
+```json
+{
+  "method": "GET",
+  "paths": ["/:chain_id/api/v2/stats"],
+  "featured_plans": ["Builder", "Pro", "Business"]
+}
+```
+
+Neither call needs an API key. Plan restrictions don't apply to [x402 requests](/devs/x402-payments#plan-restricted-chains-and-endpoints).
 
 ## Response headers
 
