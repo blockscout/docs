@@ -47,6 +47,21 @@ HTTP/1.1 402 Payment Required
 PAYMENT-REQUIRED: <base64-encoded payment terms: network eip155:8453, asset USDC, payTo Blockscout's address, amount, facilitator URL>
 ```
 
+## No charge for error responses
+
+The payment is settled only when the request succeeds. If the response has a `4xx` or `5xx` status, including `404`, the signed authorization is not settled and your wallet is not charged.
+
+Key-based requests work differently: a `404` from the chain's Blockscout instance or service is charged in credits. See [Rate Limits](/rate-limits#credit-cost-per-endpoint).
+
+## Plan-restricted chains and endpoints
+
+With an API key, some chains (for example, [Base](/base-api)) and some endpoints are available only on certain paid plans. A key on another plan gets a `402` with an error such as:
+
+- `Featured chain <chain_id> requires one of the following plans: ...`
+- `Endpoint <path> requires one of the following plans: ...`
+
+These plan restrictions don't apply to x402 requests. Send the request without a key and pay per call via x402 to reach these chains and endpoints without a plan.
+
 ## Walkthrough: pay-per-call with a Hermes agent
 
 This walkthrough sets up a burner wallet, funds it, and configures a [Hermes agent](https://github.com/NousResearch/hermes-agent) to sign x402 payments automatically when calling the Blockscout API on Base.

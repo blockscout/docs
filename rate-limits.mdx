@@ -26,6 +26,8 @@ At the default 20-credit cost per call, the free tier's 100K daily credits is ro
 
 Credits are consumed per API call. The default cost is 20 credits for any endpoint not listed below.
 
+Requests that return a `4xx` or `5xx` status cost no credits, with one exception: a `404` returned by the chain's Blockscout instance or service (for example, for a transaction that doesn't exist) is charged at the endpoint's normal cost. A `404` returned by the Blockscout API itself (`"source": "internal"`, such as an unsupported network or unknown path) is free. For x402 requests, every `4xx` and `5xx` is free, including `404`. See [x402 payments](/devs/x402-payments#no-charge-for-error-responses).
+
 | Endpoint | Credits |
 | --- | :-: |
 | `default` (all unlisted endpoints) | 20 |
