@@ -4,6 +4,8 @@ description: "Reference for Blockscout API authorization, response headers, rout
 icon: "circle-nodes"
 ---
 
+import CreditCosts from "/snippets/credit-costs.mdx";
+
 <Check>
   Dev portal and free API key at [https://dev.blockscout.com/](https://dev.blockscout.com/)<br /><br />Agents visit [https://agents.blockscout.com/](https://agents.blockscout.com/) to access optimized instructions
 </Check>
@@ -137,12 +139,10 @@ Credit amounts vary based on resource usage for different calls. The number of c
 
 You can check your credits, top calls and overall usage in the dev portal dashboard at [https://dev.blockscout.com/](https://dev.blockscout.com/).
 
-Credits are consumed per API call. The **default cost is 20 credits** for any endpoint without its own price.
-
-For per-endpoint prices, see [Credit cost per endpoint](/rate-limits#credit-cost-per-endpoint). The current price list is also returned by `GET https://api.blockscout.com/api/json/config` in the `endpoint_pricing` field.
+Credits are consumed per API call. The **default cost is 20 credits** for any endpoint not listed below.
 
 - A request consumes credits once, no matter how many records the response contains. For example, a `txlist` call that returns 10,000 transactions costs the same as one that returns a single transaction.
-- Etherscan-compatible RPC calls (`?module=...&action=...`, such as `txlist` and `tokentx`) have no price of their own, so they use the default cost of 20 credits per call.
+- Etherscan-compatible RPC calls (`?module=...&action=...`, such as `txlist` and `tokentx`) are not listed in the table below, so they use the default cost of 20 credits per call.
 - Some chains have a credit multiplier. On those chains, the endpoint's cost is multiplied by the chain's multiplier. See [Chain credit multipliers](/rate-limits#chain-credit-multipliers).
 - Requests that return a `4xx` or `5xx` status cost no credits, with one exception: a `404` returned by the chain's Blockscout instance or service (for example, for a transaction that doesn't exist) is charged at the endpoint's normal cost. A `404` returned by the Blockscout API itself (`"source": "internal"`, such as an unsupported network or unknown path) is free. For x402 requests, every `4xx` and `5xx` is free, including `404`. See [x402 payments](/devs/x402-payments#no-charge-for-error-responses).
 
@@ -152,3 +152,5 @@ For per-endpoint prices, see [Credit cost per endpoint](/rate-limits#credit-cost
 - **Paid plans:** the monthly credit allowance may continue into overage once exhausted, subject to your plan terms.
 
 Track remaining credits with the `x-credits-remaining` response header or the [developer portal dashboard](https://dev.blockscout.com/), and upgrade your plan if you regularly hit the cap.
+
+<CreditCosts />

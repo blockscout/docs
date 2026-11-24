@@ -4,6 +4,8 @@ description: "Rate limits, credit allowances, and per-endpoint credit costs for 
 icon: "traffic-light-go"
 ---
 
+import CreditCosts from "/snippets/credit-costs.mdx";
+
 <Info>
   Get your free Blockscout API key at [dev.blockscout.com](https://dev.blockscout.com/).
 </Info>
@@ -26,30 +28,9 @@ At the default 20-credit cost per call, the free tier's 100K daily credits is ro
 
 Credits are consumed per API call. The default cost is 20 credits for any endpoint not listed below.
 
-The current price list is returned by `GET https://api.blockscout.com/api/json/config` in the `endpoint_pricing` field. No API key is needed.
-
 Requests that return a `4xx` or `5xx` status cost no credits, with one exception: a `404` returned by the chain's Blockscout instance or service (for example, for a transaction that doesn't exist) is charged at the endpoint's normal cost. A `404` returned by the Blockscout API itself (`"source": "internal"`, such as an unsupported network or unknown path) is free. For x402 requests, every `4xx` and `5xx` is free, including `404`. See [x402 payments](/devs/x402-payments#no-charge-for-error-responses).
 
-| Endpoint | Credits |
-| --- | :-: |
-| `default` (all unlisted endpoints) | 20 |
-| `api/v2/search/quick` | 25 |
-| `api/v2/transactions/:hash/logs` | 30 |
-| `api/v2/transactions/:hash/token-transfers` | 30 |
-| `api/v2/transactions/:hash/state-changes` | 30 |
-| `api/v2/tokens` | 30 |
-| `api/v2/tokens/:address_hash/transfers` | 30 |
-| `api/v2/addresses/:address_hash/token-transfers` | 30 |
-| `api/v2/addresses/:address_hash/logs` | 30 |
-| `api/v2/transactions/:hash/internal-transactions` | 40 |
-| `api/v2/addresses/:address_hash/internal-transactions` | 40 |
-| `api/v2/smart-contracts/verification/config` | 40 |
-| `api/v2/transactions/:hash/summary` | 50 |
-| `api/v2/transactions/:hash/raw-trace` | 50 |
-| `api/v2/addresses/:address_hash/coin-balance-history` | 50 |
-| `api/v2/advanced-filters` | 50 |
-
-Other services have their own prices. Most `bens/` (name service) calls cost 150 credits, and batch resolves cost 1,000. `metadata/` calls cost 120 credits. Most `multichain/` calls cost 120 credits. See `endpoint_pricing` for exact values.
+<CreditCosts />
 
 ### Chain credit multipliers
 

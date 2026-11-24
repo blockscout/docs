@@ -4,6 +4,8 @@ description: "Overview of the Blockscout API: pricing tiers, authorization, avai
 icon: "circle-nodes"
 ---
 
+import CreditCosts from "/snippets/credit-costs.mdx";
+
 <Check>
   Access the dev portal and get a free API key at [https://dev.blockscout.com/](https://dev.blockscout.com/)
 </Check>
@@ -159,6 +161,6 @@ Credit amounts vary based on resource usage for different calls. The number of c
 
 You can check your credits, top calls and overall usage in the dev portal dashboard at [https://dev.blockscout.com/](https://dev.blockscout.com/).
 
-Credits are consumed per API call. The **default cost is 20 credits** for any endpoint without its own price.
+Credits are consumed per API call. The **default cost is 20 credits** for any endpoint not listed below.
 
-For per-endpoint prices, see [Credit cost per endpoint](/rate-limits#credit-cost-per-endpoint). The current price list is also returned by `GET https://api.blockscout.com/api/json/config` in the `endpoint_pricing` field.
+<CreditCosts />
