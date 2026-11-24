@@ -93,6 +93,8 @@ Not every endpoint costs the same. Select **API call costs** on the dashboard to
 
 Check this table before building features that call expensive endpoints in a loop.
 
+The table shows the base cost per call. On chains with a [credit multiplier](/rate-limits#chain-credit-multipliers), a call costs the base cost multiplied by the chain's multiplier. The same price list is returned by `GET https://api.blockscout.com/api/json/config` in the `endpoint_pricing` field.
+
 <Frame caption="API call costs">
   <img
     src="/images/api-call-costs.png"
@@ -232,7 +234,23 @@ Open the account menu in the top right corner. It shows the teams you belong to 
 
 The account creator is the **Owner** of the team.
 
-{/* VERIFY: how to change a member's role or remove a member after inviting. The invite dialog is the only team screen found so far. */}
+### Accept an invitation
+
+The invitation is sent by email and is valid for 7 days. To accept it, open the link in the email and sign in to the Dev Portal with the email address the invitation was sent to. The email address must be verified.
+
+### Manage members
+
+Select **Team** in the account menu to open the team page. It lists the team members and pending invitations with their roles.
+
+Owners and Admins can:
+
+- Change a member's role with the role selector on the member's row.
+- Remove a member from the team.
+- Remove a pending invitation.
+
+The Owner's role can't be changed, and the Owner can't be removed from the team.
+
+Any member except the Owner can leave the team. Select the **...** menu on your own row, then **Leave team**. You lose access to the team's resources.
 
 ## Plan upgrades
 

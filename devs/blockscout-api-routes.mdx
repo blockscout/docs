@@ -159,24 +159,6 @@ Credit amounts vary based on resource usage for different calls. The number of c
 
 You can check your credits, top calls and overall usage in the dev portal dashboard at [https://dev.blockscout.com/](https://dev.blockscout.com/).
 
-Credits are consumed per API call. The **default cost is 20 credits** for any endpoint not listed below.
+Credits are consumed per API call. The **default cost is 20 credits** for any endpoint without its own price.
 
-| Endpoint | Credits |
-| :-- | :-: |
-| `default` (all unlisted endpoints) | 20 |
-| `api/v2/search/quick` | 25 |
-| `api/v2/transactions/:hash/logs` | 30 |
-| `api/v2/transactions/:hash/token-transfers` | 30 |
-| `api/v2/transactions/:hash/state-changes` | 30 |
-| `api/v2/tokens` | 30 |
-| `api/v2/tokens/:address_hash/transfers` | 30 |
-| `api/v2/addresses/:address_hash/token-transfers` | 30 |
-| `api/v2/addresses/:address_hash/logs` | 30 |
-| `api/v2/transactions/:hash/internal-transactions` | 40 |
-| `api/v2/addresses/:address_hash/internal-transactions` | 40 |
-| `api/v2/smart-contracts/verification/config` | 40 |
-| `api/v2/transactions/:hash/summary` | 50 |
-| `api/v2/transactions/:hash/raw-trace` | 50 |
-| `api/v2/addresses/:address_hash/coin-balance-history` | 50 |
-
-_Last Updated February, 2026_
+For per-endpoint prices, see [Credit cost per endpoint](/rate-limits#credit-cost-per-endpoint). The current price list is also returned by `GET https://api.blockscout.com/api/json/config` in the `endpoint_pricing` field.

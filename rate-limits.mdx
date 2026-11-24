@@ -10,7 +10,7 @@ icon: "traffic-light-go"
 
 ## Plan tiers
 
-Every tier includes access to all 100+ Blockscout-supported chains with a single key. Swap `chain_id` to move between chains.
+Every tier includes access to all 100+ Blockscout-supported chains with a single key, except [plan-restricted chains](#plan-restricted-chains-and-endpoints). Swap `chain_id` to move between chains.
 
 | Tier | Rate limit | Credits | Price |
 | --- | --- | --- | --- |
@@ -25,6 +25,8 @@ At the default 20-credit cost per call, the free tier's 100K daily credits is ro
 ## Credit cost per endpoint
 
 Credits are consumed per API call. The default cost is 20 credits for any endpoint not listed below.
+
+The current price list is returned by `GET https://api.blockscout.com/api/json/config` in the `endpoint_pricing` field. No API key is needed.
 
 Requests that return a `4xx` or `5xx` status cost no credits, with one exception: a `404` returned by the chain's Blockscout instance or service (for example, for a transaction that doesn't exist) is charged at the endpoint's normal cost. A `404` returned by the Blockscout API itself (`"source": "internal"`, such as an unsupported network or unknown path) is free. For x402 requests, every `4xx` and `5xx` is free, including `404`. See [x402 payments](/devs/x402-payments#no-charge-for-error-responses).
 
@@ -45,6 +47,9 @@ Requests that return a `4xx` or `5xx` status cost no credits, with one exception
 | `api/v2/transactions/:hash/summary` | 50 |
 | `api/v2/transactions/:hash/raw-trace` | 50 |
 | `api/v2/addresses/:address_hash/coin-balance-history` | 50 |
+| `api/v2/advanced-filters` | 50 |
+
+Other services have their own prices. Most `bens/` (name service) calls cost 150 credits, and batch resolves cost 1,000. `metadata/` calls cost 120 credits. Most `multichain/` calls cost 120 credits. See `endpoint_pricing` for exact values.
 
 ### Chain credit multipliers
 
@@ -66,6 +71,29 @@ Example response (values are illustrative):
   }
 }
 ```
+
+## Plan-restricted chains and endpoints
+
+Some chains and endpoints are available only on certain plans. A key on another plan gets a `402` with an error such as:
+
+- `Featured chain <chain_id> requires one of the following plans: ...`
+- `Endpoint <path> requires one of the following plans: ...`
+
+To check which chains are restricted, call `GET https://api.blockscout.com/api/json/featured-chains`. Each chain in the response lists the plans that can use it in `plans_allowed`. Chains that are not in the response are available on every plan.
+
+To check which endpoints are restricted, call `GET https://api.blockscout.com/api/json/endpoints`. Each endpoint has a `featured_plans` field with the plans that can call it. `null` means the endpoint is available on every plan.
+
+Example endpoint entry (values are illustrative):
+
+```json
+{
+  "method": "GET",
+  "paths": ["/:chain_id/api/v2/stats"],
+  "featured_plans": ["Builder", "Pro", "Business"]
+}
+```
+
+Neither call needs an API key. Plan restrictions don't apply to [x402 requests](/devs/x402-payments#plan-restricted-chains-and-endpoints).
 
 ## Response headers
 
